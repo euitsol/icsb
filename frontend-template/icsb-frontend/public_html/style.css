@@ -1,0 +1,414 @@
+*{
+	margin: 0;
+	padding: 0;
+	outline: 0;
+}
+img{
+	width: 100%;
+}
+a{
+	display: inline-block;
+	text-decoration: none;
+	font-family: 'Poppins', sans-serif;
+}
+p{
+	margin: 0;
+	font-family: 'Poppins', sans-serif;
+}
+li{
+	list-style: none;
+}
+h1,h2,h3,h4,h5,h6{
+	font-family: roboto;
+}
+.global-lg-button{
+	color: #fff;
+	font-size: 24px;
+	max-width: 236px;
+	width: 100%;
+	height: 65px;
+	border-radius: 13px;
+	line-height: 65px;
+	background: #152360;
+	transition: 0.4s;
+	text-transform: uppercase;
+}
+.global-lg-button:hover{
+	background: #122F98;
+}
+.text-align{
+	text-align: center;
+}
+.d-flex{
+	display: flex;
+}
+
+
+.container{
+	max-width: 1460px;
+	padding: 0 30px;
+	margin: 0 auto;
+}
+
+
+
+.bredcum-section{
+	padding: 100px 0;
+	background: url(img/contact-bred-image.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+
+.header-top-section{
+	padding: 14px 0;
+	background: #F5F5F6;
+}
+.header-top-section .header-top-content{
+	display: flex;
+	justify-content: space-between;
+}
+.header-top-section .header-top-content ul{
+	display: flex;
+	margin: 0;
+	padding: 0;
+	column-gap: 20px;
+}
+.header-top-section .header-top-content ul li a{
+	color: #111;
+	font-size: 14px;
+	line-height: 21px;
+	font-weight: 400;
+}
+
+
+
+.header-logo-section .header-logo-content{
+	column-gap: 48px;	
+}
+.header-logo-section .logo-column {
+	width: 15%;
+}
+.header-logo-section .detailes-column{
+	width: 70%;
+	column-gap: 40px;
+	align-items: center;
+}
+.header-logo-section .deatiles-items{
+	column-gap: 12px;
+	align-items: center;
+}
+.header-logo-section .deatiles-items a{
+	color: #111;
+	display: block;
+	font-size: 14px;
+	line-height: 20px;
+}
+.header-logo-section .social-column{
+	width: 15%;
+	align-items: center;
+	justify-content: end;
+}
+.header-logo-section .social-column ul{
+	margin: 0;
+	column-gap: 8px;
+}
+.header-logo-section .social-column i{
+	font-size: 14px;
+	color: #111111;
+	width: 25px;
+	height: 25px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	background: #DCDCDC;
+}
+
+
+.header-menu-section{
+	background: #122F98;
+}
+.header-menu-section .navbar{
+	padding: 10px 0;
+}
+.header-menu-section .navbar-brand{
+	display: none;
+}
+.header-menu-section ul li a{
+	color: #fff;
+	font-size: 14px;
+	line-height: 20px;
+	font-weight: 400;
+	text-transform: uppercase;
+}
+.header-menu-section ul li a:hover{
+	color: #ddd;
+}
+.header-menu-section ul li a:focus{
+	color: #ddd;
+}
+.header-menu-section .navbar-nav .nav-link.active{
+	color: #fff;
+}
+.header-menu-section .dropdown-menu{
+	top: 43px;
+	padding: 0;
+    border-radius: 0;
+}
+.header-menu-section .dropdown-menu a{
+    color: #101010;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 400;
+}
+.header-menu-section .dropdown-menu a{
+	padding: 8px;
+    border-bottom: 0.5px solid #111;
+    padding-left: 17px;
+    padding-right: 17px;
+}
+.header-menu-section .dropdown-menu a:hover{
+	color: #fff;
+	background: #152360;
+}
+.header-menu-section form{
+	align-items: center;
+}
+.header-menu-section input{
+	height: 26px;
+	border-radius: 0;
+	border: 0;
+}
+.header-menu-section input:hover{
+	border: 0;
+	outline: 0;
+}
+.header-menu-section input:focus{
+	border: 0;
+	outline: 0;
+}
+.header-menu-section button{
+	height: 26px;
+	border-radius: 0;
+	border: 0;
+	background: #152360;
+	display: flex;
+    justify-content: center;
+}
+.header-menu-section button i{
+	color: #fff;
+}
+
+
+
+
+.banner-section .carousel:after{
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: #000;
+	opacity: 0.52;
+}
+.banner-section .carousel .carousel-caption{
+	z-index: 999;
+	position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 50%;
+    color: #fff;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.banner-section .carousel h1{
+	color: #fff;
+    /* font-size: 90px;
+    line-height: 96px; */
+	font-size: 4.7vw;
+	line-height: 4.7vw;
+    font-weight: 500;
+    max-width: 775px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    font-family: 'Teko', sans-serif;
+}
+.banner-section .carousel .member-button{
+	background: #122F98;
+}
+/* ============ new =============== */
+.banner-section .carousel .global-lg-button {
+	font-size: 1.25vw;
+}
+.banner-section .carousel .carousel-item {
+	height: 700px;
+}
+.banner-section .carousel .carousel-item img {
+	height: 100%;
+	object-fit: cover;
+}
+
+
+
+
+.banner-section .carousel .member-button:hover{
+	background: #152360;
+}
+.banner-section .carousel .button-group{
+    display: flex;
+	justify-content: center;
+	column-gap: 27px;
+}
+.banner-section .carousel .carousel-indicators [data-bs-target]{
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	opacity: 1;
+}
+.banner-section .carousel .carousel-indicators button{
+    background: transparent;
+    border: 2px solid #fff;
+}
+.banner-section .carousel .carousel-indicators .active {
+    opacity: 1;
+    background: #fff !important;
+}
+
+
+/* ============================ Start Who Are Section Style ================================ */
+
+  
+  /* body {
+	margin: 0;
+	min-height: 100vh;
+	display: grid;
+	grid-auto-flow: column;
+	gap: 20px;
+	place-content: center;
+	place-items: center;
+	background: #99B2B7;
+  } */
+  
+/* ============================ Start Who Are Section Style ================================ */
+  
+
+
+/* =============== Start Breadcrums Style =================== */
+.bredcum-section{
+	padding: 103px 0;
+	background: url(img/contact-bred-image.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+.bredcum-section:after{
+	content: '';
+	position: absolute;
+	background: #111;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	opacity: 0.52;
+}
+.bredcum-content{
+	z-index: 999;
+	position: relative;
+}
+.bredcum-content p{
+	color: #fff;
+	font-size: 20px;
+	line-height: 26px;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+.bredcum-content p a{
+	color: #fff;
+	font-weight: 300;
+}
+
+
+/* =============== End Breadcrums Style =================== */
+  
+
+/* .president-content{
+	display: flex;
+}
+.image-column{
+	width: 40%;
+}
+.content-column{
+	width: 60%;
+	width: 821px;
+    height: 554px;
+	background: #F2F2F2;
+}
+.image-column img{
+	height: 679px;
+    width: 616px;
+    object-fit: cover;
+} */
+
+
+
+
+.award-section{
+	padding-top: 92px;
+	background: #F2F2F2;
+}
+.award-section .heading-content h2{
+	font-size: 70px;
+	line-height: 84px;
+}
+.award-section .award-content{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	/* column-gap: 1.7%; */
+	grid-column-gap: 1.7% ;
+	grid-row-gap: 40px;
+	margin-top: 80px;
+	padding-bottom: 100px;
+}
+
+
+
+
+
+
+
+
+
+/*==================== Contact Section CSS ====================*/
+
+
+
+/* @media only screen and (max-width: 991px) {
+.header-menu-section .navbar-brand{
+	display: block;
+}
+.header-menu-section .navbar-brand img{
+	max-width: 150px;
+}
+.header-menu-section .navbar-toggler{
+	height: 40px;
+	background: #fff;
+}
+} */
+/* @media only screen and (max-width: 1199px) {
+	.header-menu-section .navbar-brand{
+		display: block;
+	}
+	.header-menu-section .navbar-brand img{
+		max-width: 150px;
+	}
+	.header-menu-section .navbar-toggler{
+		height: 40px;
+		background: #fff;
+	}
+}  */
