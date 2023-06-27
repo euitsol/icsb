@@ -1,0 +1,1354 @@
+@media only screen and (max-width: 1400px) {
+    .banner-section .carousel .carousel-item {
+        height: 600px;
+    }
+    .global-lg-button {
+        max-width: 200px;
+        height: 60px;
+        line-height: 60px;
+    }
+}
+
+@media only screen and (max-width: 1366px){
+	.common-heading {
+		font-size: 60px;
+		line-height: 66px;
+		margin-top: -10px;
+	}
+	.exam-section .exam-content-column h1 {
+		margin-bottom: 30px;
+	}
+}
+
+@media only screen and (max-width: 1300px) {
+    .header-top-section {
+        padding: 8px 0;
+    }
+    .header-top-section .header-top-content ul li a {
+        color: #111;
+        font-size: 12px;
+        line-height: 18px;
+    }
+    .header-logo-section .deatiles-items a {
+        color: #111;
+        display: block;
+        font-size: 12px;
+        line-height: 18px;
+    }
+    .header-logo-section .deatiles-items p {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+
+    /* ==================== header Style =================== */
+
+    
+.header-logo-section .detailes-column {
+    width: calc(85% - 0px);
+	justify-content: center;
+}
+
+.header-logo-section .social-column ul label {
+	font-size: 14px;
+	line-height: 25px;
+	width: 25px;
+	height: 25px;
+	background-color: #dbd3d3;
+	text-align: center;
+	border-radius: 50%;
+	overflow: hidden;
+	cursor: pointer;
+    display: inline-block;
+}
+.header-logo-section .social-column ul label img {
+	padding: 5px;
+}
+/* 
+.header-logo-section .social-column ul {
+	position: relative;
+	align-items: center;
+	padding: 0;
+}
+.header-logo-section .social-column ul li {
+	position: absolute;
+	transition: all 0.3s;
+}
+.header-logo-section .social-column ul li:nth-child(1) {
+	transition: all 0.3s;
+	right: 0px;
+}
+.header-logo-section .social-column ul li:nth-child(2) {
+	transition: all 0.3s;
+	right: 30px;
+}
+.header-logo-section .social-column ul li:nth-child(3) {
+	transition: all 0.3s;
+	right: 60px;
+}
+.header-logo-section .social-column ul li:nth-child(4) {
+	right: 90px;
+}
+.header-logo-section .social-column .share-box li {
+	display: none;
+}
+.header-logo-section .social-column .share-box.show li {
+	display: block;
+}
+.header-logo-section .social-column .share-box.show label {
+	position: relative;
+	right: -26px;
+	opacity: 0;
+} */
+
+
+input {
+    margin-bottom: 0px;
+}
+.form-section {
+    padding-bottom: 130px;
+}
+.form-section .form-content {
+    column-gap: 40px;
+}
+.form-section h2 {
+    font-size: 57px;
+    line-height: 54px;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+.form-section .detailes-column h3 {
+    font-size: 50px;
+    line-height: 56px;
+    margin-bottom: 25px;
+}
+.form-section .detailes-column img{
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+}
+.form-section .detailes-column .deatiles-items {
+    display: flex;
+    column-gap: 15px;
+    margin-top: 15px;
+}
+.form-section .detailes-column .deatiles-items a {
+    font-size: 18px;
+    line-height: 25px;
+    max-width: 100%;
+}
+.form-section .detailes-column .deatiles-items h4 {
+    margin-bottom: 3px;
+}
+.form-section .detailes-column {
+    padding-bottom: 50px;
+    height: 100%;
+}
+.form-section .form-column textarea {
+    height: 150px;
+}
+
+
+/* ======================== Start Footer Style ====================== */
+footer .logo-col .col-inner a:not(ul li a) {
+	margin-bottom: 10px;
+}
+.footer-content ul {
+	margin-top: 15px;
+}
+.footer-content ul li a:not(.visitor-col .social-box ul li a) {
+	line-height: 22px;
+}
+footer .footer-menu ul li {
+	margin-bottom: 6px;
+}
+footer .logo-col ul li {
+	margin-bottom: 6px;
+}
+footer .visitor-col .visitor-wrapp ul li span {
+	font-size: 14px;
+	line-height: 18px;
+}
+footer .footer-main .visitor-col h3 {
+	font-size: 18px;
+	line-height: 24px;
+}
+
+/* ======================== Start Footer Style ====================== */
+
+}
+
+
+@media only screen and (max-width: 1200px) {
+    .navbar-expand-lg .navbar-toggler {
+      display: none;
+    }
+    .header-menu-section .navbar-brand{
+        display: none;
+    }
+    .header-menu-section .navbar-brand img{
+        max-width: 150px;
+    }
+    .header-menu-section .navbar-toggler{
+        height: 40px;
+    }
+    /* ====================== Start Header Style ==================== */
+    .header-logo-section .header-logo-content {
+        padding: 10px 0;
+    }
+    .header-logo-section .detailes-column {
+        width: calc(100% - 50px);
+        width: calc(100% - 0px);
+        justify-content: flex-start;
+    }
+  /*  .header-menu-section .container #navbarSupportedContent {
+        padding: 20px;
+    }*/
+    .header-menu-section .container #navbarSupportedContent ul {
+        text-align: center;
+    }
+    .header-menu-section ul{
+        width: 80%;
+    }
+    .header-menu-section form{
+        width: 20%;
+    }
+    .header-menu-section ul li a {
+        font-size: 12px;
+        line-height: 18px;
+    }
+/*    .header-menu-section .container #navbarSupportedContent{
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        z-index: 999;
+        background: #152360;
+        left: 0;
+        z-index: 999999999999;
+    }*/
+    /* .header-menu-section .container #navbarSupportedContent.show {
+        top: 100%;
+    } */
+    .header-menu-section .header-search {
+        max-width: 232px;
+        margin: 12px auto;
+    }
+
+    /* ====================== Start Header Style ==================== */
+
+    .articel-details h2 {
+        font-size: 18px;
+        line-height: 22px;
+        word-wrap: anywhere;
+    }
+    .author-box span {
+        font-size: 14px;
+        line-height: 18px;
+    }
+    .logo-section .logo-inner-wrapp .inner-item .logo-wrapp {
+        max-width: 48%;
+        margin: 0 auto 16px auto;
+    }
+/*    .header-logo-section .logo-column {
+        display: none;
+    }*/
+
+}
+
+@media only screen and (max-width: 1024px) {
+	.title {
+        font-size: 50px;
+        line-height: 60px;
+    }
+    .global-lg-button {
+        font-size: 16px;
+        max-width: 135px;
+        height: 50px;
+        line-height: 50px;
+    }
+
+/* ================= Start Header Style ==================== */
+.header-logo-section .detailes-column {
+	width: calc(100% - 0px);
+	justify-content: space-between;
+}
+.header-logo-section .social-column {
+	display: none !important;
+}
+
+/* ================= End Header Style ==================== */
+
+
+/* ========================== Start Home Page Style ==================== */
+
+    .banner-section .carousel .carousel-item {
+        height: 500px;
+    }
+    .banner-section .carousel .global-lg-button {
+        font-size: 16px;
+    }
+
+    .who-you-section .who-row {
+        align-items: self-start;
+    }
+    .who-you-section .image-column {
+        margin-top: 35px;
+    }
+    .who-you-section .content-column h2 {
+        margin-bottom: 10px;
+    }
+    .who-you-section .content-column p {
+        line-height: 20px;
+    }
+    .who-you-section .content-column .text-inner-wrapp .text-wrapp .button-wrapp {
+        padding-top: 25px;
+        padding-bottom: 10px;
+    }
+    .who-you-section .content-column .bg-wrapper {
+        padding: 40px 20px 30px 10px;
+        bottom: unset;
+    }
+
+    .president-section .president-row {
+        align-items: flex-start;
+    }
+    .president-section .content-column {
+        margin-bottom: 0;
+        margin-top: 16px;
+    }
+    .president-section .content-column .bg-wrapper::before {
+        left: -24px;
+        width: 25px;
+    }
+    .president-section .image-column .president-title h3 {
+        font-size: 18px;
+        line-height: 24px;
+    }
+    .president-section .content-column .text-wrapp {
+        padding: 40px 20px 40px 0;
+    }
+    .president-section .content-column .text-wrapp .title {
+        margin-bottom: 10px;
+    }
+    .president-section .content-column .text-wrapp p {
+        margin-bottom: 10px;
+        line-height: 20px;
+    }
+    .president-section .content-column .text-wrapp .button-wrapp .small-btn {
+        margin-top: 20px;
+    }
+
+/* ========================== End Home Page Style ==================== */
+
+/* ========================== End About Page Style ==================== */
+
+    .about-section .content-column .text-wrapp .title {
+        padding: 0 0px 5px;
+    }
+    .about-section .content-column .text-wrapp p {
+        margin-top: 10px;
+    }
+    
+    .help-section .help-box p {
+        font-size: 20px;
+        line-height: 25px;
+        margin-bottom: 40px;
+    }
+    /* ========================== End About Page Style ==================== */
+
+
+
+    input {
+		font-size: 15px;
+		line-height: 21px;
+		height: 48px;
+		padding-left: 15px;
+		margin-bottom: -6px;
+	}
+	.common-heading {
+		font-size: 45px;
+		line-height: 51px;
+	}
+	.section-padding {
+		padding-top: 70px;
+		padding-bottom: 90px;
+	}
+
+
+	.faq-section {
+		padding-top: 75px;
+		padding-bottom: 75px;
+	}
+	.faq-section .faq-content{
+		flex-wrap: wrap;
+		margin-top: 27px;
+	}
+	.faq-section .faq-content .left-column{
+		width: 100%;
+	}
+	.faq-section .faq-content .right-column{
+		width: 100%;
+	}
+	.faq-section .faq-content .accordion-item {
+		margin-top: 14px;
+	}
+
+
+
+	.handbook-section .handbook-column {
+		flex-wrap: wrap;
+		/*flex-direction: column-reverse;*/
+	}
+	.handbook-section .handbook-column {
+		margin-top: 0px;
+	}
+	.exam-section .exam-content-column p {
+		margin-top: 10px;
+		max-width: 100%;
+	}
+	.handbook-section .handbook-column .new-handbook {
+		width: 100%;
+	}
+	.handbook-section .handbook-column .old-handbook {
+		width: 100%;
+	}
+	.exam-section .exam-content-column h1 {
+		margin-bottom: 25px;
+	}
+	.handbook-section .handbook-column .old-handbook {
+		margin-top: 55px;
+	}
+
+/*=========================== Eligibility Page CSS ============================*/
+	.eligibility-section .eligibility-column {
+		flex-wrap: wrap;
+		margin-top: 10px;
+		flex-direction: column-reverse;
+	}
+	.eligibility-section .eligibility-column .eligibility-left {
+		width: 100%;
+		margin-top: 55px;
+	}
+	.eligibility-section .eligibility-column .eligibility-right {
+		width: 100%;
+	}
+	.eligibility-section .eligibility-column .eligibility-right .common-heading{
+		margin-bottom: 20px;
+	}
+
+/*=========================== Contact Page CSS ============================*/
+	.form-section {
+		padding-top: 70px;
+		padding-bottom: 90px;
+	}
+	.form-section .form-content{
+		flex-wrap: wrap;
+		flex-direction: column-reverse;
+	}
+	.form-section .detailes-column{
+		width: 100%;
+		margin-top: 75px;
+	}
+	.form-section .form-column{
+		width: 100%;
+	}
+	.form-section h2 {
+		font-size: 45px;
+		line-height: 51px;
+		margin-bottom: 25px;
+	}
+	.form-section .detailes-column h3 {
+		font-size: 45px;
+		line-height: 51px;
+		margin-bottom: 25px;
+	}
+	.form-section .detailes-column .deatiles-items a {
+		max-width: 100%;
+		font-size: 18px;
+		line-height: 26px;
+	}
+	.form-section .detailes-column .deatiles-items img{
+		width: auto;
+	}
+	.form-section .detailes-column .deatiles-items h4 {
+		margin-bottom: 0;
+	}
+
+}
+
+@media only screen and (max-width: 991px) {
+    .header-menu-section form {
+        justify-content: center;
+    }
+    .header-menu-section button {
+        background: #122F98;
+    }
+    .header-logo-section .logo-column {
+        display: none;
+    }
+    .navbar-expand-lg .navbar-toggler {
+      display: block;
+    }
+    .header-menu-section .navbar-brand{
+        display: block;
+    }
+    .header-menu-section .container #navbarSupportedContent{
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        z-index: 999;
+        background: #152360;
+        left: 0;
+        z-index: 999999999999;
+    }
+    .header-menu-section .container #navbarSupportedContent {
+        padding: 40px;
+    }
+    .header-menu-section ul li a {
+        font-size: 15px;
+        line-height: 20px;
+    }
+    .header-menu-section ul{
+        width: 100%;
+    }
+    .header-menu-section form{
+        width: 100%;
+    }
+
+
+    .banner-section .carousel .carousel-caption {
+        max-width: 495px;
+        width: 100%;
+    }
+    .banner-section .carousel h1 {
+        font-size: 50px;
+        line-height: 55px;
+    }
+
+    .banner-section .carousel .carousel-indicators [data-bs-target] {
+        width: 10px;
+        height: 10px;
+    }
+
+
+    .articel-featured {
+        width: 120px;
+    }
+    .articel-details {
+        width: calc(100% - 120px);
+    }
+    .articel-featured img {
+        min-height: auto;
+    }
+
+
+    /*================== About Page ================*/
+    .about-section {
+        padding-top: 63px;
+    }
+    .mission-section {
+        padding: 58px 0 63px 0;
+    }
+
+    /* -----------============ Start Council Page Style ==========---------- */
+    .member-box {
+        margin-top: 70px;
+    }
+    .member-box .image-wrapp {
+        max-width: 60%;
+        top: -70px;
+    }
+    .councilor-info {
+        margin-top: -70px;
+    }
+
+    /* -----------============ Start Council Page Style ==========---------- */
+
+    /* -----------============ Start Fee Page Style ==========---------- */
+    .table-section .student-regi-fee-table {
+        margin-bottom: 20px;
+    }
+    table tbody tr td {
+        padding: 8px 8px !important;
+    }
+    table thead tr th, table tfoot tr td {
+        padding: 10px 10px !important;
+    }
+    .table-section .council-table-row table thead tr th, .table-section .council-table-row table tfoot tr td {
+        padding: 8px 8px !important;
+    }
+    .table-section .council-table-row table tbody tr td {
+        padding: 6px 6px !important;
+    }
+    /* -----------============ Start Fee Page Style ==========---------- */
+
+/* ================= Start Footer Style ====================*/
+    .footer-section {
+        padding-top: 60px;
+    }
+    footer .footer-main {
+        padding-bottom: 60px;
+    }
+    footer .news-letter-section {
+        padding-bottom: 60px;
+    }
+    footer .news-letter-section .news-letter-wrapp h2 {
+        font-size: 30px;
+        line-height: 35px;
+        margin-bottom: 12px;
+    }
+    footer .news-letter-section .news-letter input[type="email"] {
+        height: 45px;
+    }
+    footer .news-letter-section .news-letter .custom-btn {
+        height: 45px;
+    }
+    .footer-content img {
+        margin-right: auto;
+        margin-left: auto;
+    }
+    footer .logo-col {
+        width: 100%;
+        text-align: center;
+    }
+    footer .logo-col ul li {
+        justify-content: center;
+    }
+
+    footer .visitor-col {
+        width: 32%;
+        margin-top: 60px;
+    }
+    footer .ft-menu-left {
+        width: 32%;
+        margin-top: 60px;
+    }
+    footer .ft-menu-left .footer-menu {
+        margin-left: 0;
+    }
+    footer .ft-menu-right {
+        width: 32%;
+        margin-top: 60px;
+    }
+    footer .ft-menu-right .footer-menu {
+        margin-right: auto;
+    }
+    footer .visitor-col .visitor-wrapp {
+        margin-left: auto;
+        text-align: center;
+    }
+    footer .visitor-col .social-box ul{
+        text-align: right;
+    }
+
+
+    footer .logo-col ul li::before {
+        display: none;
+    }
+    footer .logo-col ul li a.in-icon::before {
+        display: inline-block;
+    }
+
+
+
+
+    .container {
+		padding: 0 20px;
+	}
+	label {
+		font-size: 18px;
+		line-height: 25px;
+		margin-bottom: 8px;
+	}
+	.submit-button {
+		font-size: 18px;
+		line-height: 25px;
+		max-width: 200px;
+		height: 55px;
+	}
+	.bredcum-section {
+		padding: 90px 0;
+	}
+
+	.admission-form-section {
+		padding-top: 80px;
+		padding-bottom: 75px;
+	}
+	.admission-form-section .admission-content .submit-button {
+		margin-top: 20px;
+	}
+	.admission-form-section .admission-content {
+		margin-top: 50px;
+	}
+
+
+	.gallery-section {
+		padding-top: 70px;
+		padding-bottom: 89px;
+	}
+	.gallery-section .gallery-content {
+		margin-top: 15px;
+		column-gap: 2%;
+	}
+	.gallery-section .gallery-items {
+		margin-top: 20px;
+		width: 49%;
+	}
+	.gallery-section .gallery-items a{
+		display: block;
+	}
+	.gallery-button-section a {
+		font-size: 18px;
+		line-height: 55px;
+		height: 55px;
+		max-width: 185px;
+	}
+
+
+	.admission-form-section .admission-content .input-items{
+		width: 100%;
+	}
+
+	.cpd-program-section .cpd-program-content {
+		row-gap: 20px;
+	}
+	.cpd-program-section .cpd-program-content .cpd-program-items .cpd-program-items-content{
+		flex-wrap: wrap;
+	}
+	.cpd-program-section .cpd-program-content .cpd-program-items .cpd-program-items-content .image-column{
+		width: 100%;
+	}
+	.cpd-program-section .cpd-program-content .cpd-program-items .cpd-program-items-content .image-column a{
+		display: block;
+	}
+	.cpd-program-section .cpd-program-content .cpd-program-items .cpd-program-items-content .content-column{
+		width: 100%;
+	}
+	.cpd-program-section .cpd-program-content .cpd-program-items .cpd-program-items-content .content-column a h3 {
+		font-size: 17px;
+		line-height: 23px;
+	}
+	.cpd-program-section .cpd-program-content .cpd-program-items .cpd-button a {
+		height: 45px;
+		font-size: 16px;
+		line-height: 45px;
+	}
+
+
+	.blog-content-section .blog-content .blog-content-column{
+		width: 100%;
+	}
+	.blog-content-section .blog-content .blog-sidebar-column{
+		width: 100%;
+	}
+
+
+	.admission-rules-section .rules-image-column{
+		width: 100%;
+	}
+	.admission-rules-section .rules-content-column{
+		width: 100%;
+	}
+	.admission-rules-section .rules-content-column .common-heading {
+		margin-top: 25px;
+		margin-bottom: 30px;
+	}
+
+}
+
+@media only screen and (max-width: 767px) {
+    /* ===================== Header Style ===================== */
+    .header-logo-section .deatiles-items:last-child {
+        display: none !important;
+    }
+    .header-top-section {
+        display: none;
+    }
+    .header-logo-section .detailes-column {
+        column-gap: 18px;
+    }
+
+
+    .top-border::before {
+        width: 150px;
+        border: 5px solid #122f98;
+    }
+    .top-border::after {
+        height: 150px;
+        border: 5px solid #122f98;
+    }
+    .bottom-border::before {
+        width: 150px;
+        border: 5px solid #122f98;
+    }
+    .bottom-border::after {
+        height: 150px;
+        border: 5px solid #122f98;
+    }
+
+    .top-border-animation::after {
+        height: 150px;
+        border: 5px solid #122F98;
+    }
+    .top-border-animation::before {
+        width: 150px;
+        border: 5px solid #122F98;
+    }
+    .president-section .image-column .president-img {
+        padding: 10px 10px 0 10px;
+    }
+    .president-section .image-column .president-img::after {
+        width: 10px;
+        height: calc(100% - 150px);
+    }
+
+    .small-btn {
+        font-size: 14px;
+    }
+    .title {
+        font-size: 35px;
+        line-height: 40px;
+    }
+
+
+/* ========================== Start Home Page Style ==================== */
+    .banner-section .carousel .carousel-item {
+        height: 400px;
+    }
+
+
+    .who-you-section {
+        padding-top: 63px;
+        padding-bottom: 64px;
+    }
+    .who-you-section .content-column .text-inner-wrapp {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+    .who-you-section .image-column {
+        width: 100%;
+        margin-top: 0;
+    }
+    .who-you-section .content-column {
+        width: 100%;
+        margin-top: 25px;
+    }
+    .who-you-section .content-column .bg-wrapper {
+        padding: 35px 20px 30px 20px;
+    }
+    .who-you-section .content-column .bg-wrapper::before {
+        display: none;
+    }
+
+    .president-section .image-column {
+        width: 100%;
+    }
+    .president-section .content-column {
+        width: 100%;
+        margin-top: 40px;
+    }
+    .president-section .content-column .bg-wrapper::before {
+        display: none;
+    }
+    .president-section .content-column .text-wrapp {
+        padding: 40px 20px 40px 20px;
+    }
+    .president-section .content-column .text-wrapp .button-wrapp {
+        text-align: left;
+    }
+
+    .logo-section .logo-inner-wrapp .logo-title {
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    .recent-video-section {
+        padding: 56px 0 63px 0;
+    }
+    .recent-video-section .title-row {
+        margin-bottom: 33px;
+    }
+
+    .update-section .title-row {
+        margin-bottom: 40px;
+    }
+    .update-section {
+        padding: 59px 0 64px 0;
+    }
+
+    .award-section {
+        padding-top: 68px;
+    }
+    .award-section .award-content .award-items {
+        width: 48.3%;
+        text-align: center;
+    }
+    .award-section .award-content {
+        margin-top: 40px;
+        padding-bottom: 64px;
+    }
+
+    /*================= Council Page =====================*/
+    .council-section {
+        padding: 59px 0 63px 0;
+    }
+
+    /*================== Single Blog Page ==================*/
+    .blog-thumbnail-section {
+        padding-top: 63px;
+    }
+    .blog-content-section .blog-content {
+        margin-top: 33px;
+    }
+
+    /*================== World Wide Page ==================*/
+    .world-wide-section {
+        padding: 58px 0 64px 0;
+    }
+    .world-wide-section .title-row {
+        margin-bottom: 27px;
+    }
+
+    .footer-location-section .location-content {
+        flex-wrap: wrap;
+        column-gap: 0;
+        justify-content: center;
+    }
+    .footer-location-section .loction-items{
+        text-align: center;
+        justify-content: center;
+    }
+    .footer-location-section .loction-items:nth-child(1){
+        width: 50%;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .footer-location-section .loction-items:nth-child(2){
+        width: 50%;
+        flex-wrap: wrap;
+    }
+    .footer-location-section .loction-items:nth-child(3){
+        width: 100%;
+        flex-wrap: wrap;
+        margin-top: 35px;
+    }
+    .footer-location-section .loction-items .icon{
+        width: 100%;
+        display: flex;
+        margin-bottom: 10px;
+        justify-content: center;
+    }
+    .footer-location-section .loction-items .icon img{
+        width: auto;
+    }
+    .footer-location-section .location-content a {
+        font-size: 14px;
+        line-height: 19px;
+    }
+    .footer-location-section {
+        padding: 45px 0;
+    }
+/* ========================== End Home Page Style ==================== */
+
+
+/* ========================== End About Page Style ==================== */
+
+    .about-section .image-column {
+        width: 100%;
+    }
+    .about-section .content-column {
+        width: 100%;
+        margin-top: 40px;
+    }
+    .about-section .content-column .text-inner-wrapp {
+        padding-left: 0;
+    }
+    .about-section .content-row {
+        padding-top: 10px;
+    }
+    .mission-section .content-column {
+        margin-top: 40px;
+    }
+/* ========================== End About Page Style ==================== */
+
+    /* -----------=========== End President Page Style ===========---------- */
+    .president-portfolio-section .image-column .ingfo-wrapp .name {
+        font-size: 25px;
+        line-height: 30px;
+    }
+    .president-portfolio-section .image-column .content-box {
+        padding: 30px 20px 30px;
+    }
+    .president-portfolio-section .image-column .ingfo-wrapp {
+        padding-bottom: 25px;
+        margin-bottom: 25px;
+    }
+    .president-portfolio-section .image-column .social-box {
+        padding: 12px 10px;
+    }
+    .president-portfolio-section .image-column .ingfo-wrapp .deg {
+        font-size: 20px;
+        line-height: 25px;
+    }
+    .president-portfolio-section .content-column {
+        margin-top: 40px;
+    }
+    /* -----------=========== End President Page Style ===========---------- */
+
+    .section-padding {
+        padding-top: 67px;
+        padding-bottom: 65px;
+	}
+	.common-heading {
+		font-size: 35px;
+		line-height: 41px;
+		font-weight: 500;
+	}
+	.bredcum-section {
+		padding: 60px 0;
+	}
+	input {
+		height: 45px;
+		font-size: 15px;
+		line-height: 21px;
+		padding-left: 15px;
+		margin-bottom: -5px;
+	}
+	label {
+		font-size: 17px;
+		line-height: 24px;
+		margin-bottom: 6px;
+	}
+	.submit-button {
+		font-size: 18px;
+		line-height: 25px;
+		font-weight: 400;
+		max-width: 200px;
+		height: 57px;
+	}
+
+
+
+	.header-top-section{
+		display: none;
+	}
+	.header-logo-section .logo-column{
+		display: none;
+	}
+	.header-logo-section .header-logo-content{
+		flex-wrap: wrap;
+	}
+	.header-logo-section .detailes-column{
+		width: 100%;
+	}
+	.header-logo-section .deatiles-items:last-child{
+		display: none !important;
+	}
+
+    /*================= Assigned Ofiicers Page ===============*/
+    .assigned-officers-section .assigned-officers-content {
+        margin-top: 47px;
+    }
+    .assigned-officers-section .assigned-officers-content table thead {
+        height: 70px;
+    }
+    .assigned-officers-section .assigned-officers-content table thead th {
+        font-size: 17px;
+        line-height: 23px;
+    }
+    .assigned-officers-section .assigned-officers-content table tbody tr {
+        height: 63px;
+    }
+    .assigned-officers-section .assigned-officers-content table tbody td {
+        font-size: 15px;
+        line-height: 23px;
+    }
+
+
+	.admission-form-section {
+		padding-top: 73px;
+		padding-bottom: 83px;
+	}
+	.admission-form-section .admission-content .submit-button {
+		margin-top: 20px;
+	}
+	.admission-form-section .admission-content {
+		margin-top: 40px;
+	}
+
+	.form-section {
+	  padding-top: 50px;
+	  padding-bottom: 65px;
+	}
+	.form-section h2 {
+		font-size: 35px;
+		line-height: 41px;
+		margin-bottom: 25px;
+	}
+	.form-section .detailes-column h3 {
+		font-size: 35px;
+		line-height: 41px;
+		margin-bottom: 25px;
+	}
+	.form-section .form-column form {
+		row-gap: 25px;
+	}
+	.form-section .form-column input {
+		padding-left: 15px;
+	}
+	.form-section .form-column textarea {
+		padding-left: 15px;
+	}
+	.form-section .form-column input {
+		height: 45px;
+	}
+	.form-section .form-column .submit-button {
+		font-size: 18px;
+		line-height: 25px;
+		font-weight: 400;
+		max-width: 200px;
+		height: 55px;
+		width: 100%;
+	}
+	.form-section .detailes-column {
+		width: 100%;
+	}
+
+	.gallery-section {
+        padding-top: 66px;
+        padding-bottom: 64px;
+	}
+	.gallery-section .gallery-content {
+		margin-top: 20px;
+	}
+	.gallery-section .gallery-items{
+		width: 100%;
+		margin-top: 20px;
+	}
+	.gallery-section .gallery-items a{
+		display: block;
+	}
+	.gallery-button-section a {
+		font-size: 18px;
+		line-height: 50px;
+		height: 50px;
+		max-width: 165px;
+	}
+	.gallery-button-section {
+		margin-top: 35px;
+	}
+
+
+
+
+	.cpd-program-section .cpd-program-content .cpd-program-items{
+		width: 100%;
+	}
+	.cpd-program-section .cpd-program-content .cpd-program-items .cpd-program-items-content{
+		flex-wrap: wrap;
+	}
+	.cpd-program-section .cpd-program-content .cpd-program-items .cpd-program-items-content .image-column{
+		width: 100%;
+	}
+	.cpd-program-section .cpd-program-content .cpd-program-items .cpd-program-items-content .image-column a{
+		display: block;
+	}
+	.cpd-program-section .cpd-program-content .cpd-program-items .cpd-program-items-content .content-column{
+		width: 100%;
+		margin-top: -8px;
+	}
+	.cpd-program-section .cpd-program-content .cpd-program-items .cpd-program-items-content .content-column a h3 {
+		font-size: 17px;
+		line-height: 23px;
+	}
+	.cpd-program-section .cpd-program-content .cpd-program-items .cpd-program-items-content {
+		padding: 20px;
+		padding-bottom: 50px;
+	}
+	.cpd-program-section .cpd-program-content {
+		row-gap: 10px;
+		margin-top: 35px;
+	}
+
+
+
+	.exam-section .exam-content-column h1 {
+		margin-bottom: 25px;
+	}
+	.handbook-section .handbook-column .old-handbook {
+		margin-top: 55px;
+	}
+
+
+	.faq-section {
+		padding-top: 68px;
+		padding-bottom: 65px;
+	}
+	.faq-section .faq-content {
+		margin-top: 25px;
+	}
+	.faq-section .faq-content .accordion-item .accordion-body {
+		padding: 33px 25px;
+	}
+	.faq-section .faq-content .accordion-item .accordion-button {
+		height: 54px;
+		padding-left: 50px;
+	}
+	.faq-section .faq-content .accordion-item .collapsed {
+		height: 54px;
+		padding-left: 50px;
+	}
+	.faq-section .faq-content .accordion-item {
+		margin-top: 15px;
+	}
+	.faq-section .faq-content .accordion-item .accordion-button::before {
+		left: 25px;
+	}
+
+
+
+}
+
+
+@media only screen and (max-width: 580px) {
+
+    /* ========================== Start Header Style ==================== */
+    .logo-section .logo-inner-wrapp .inner-item .logo-wrapp {
+        max-width: 60%;
+    }
+    .header-logo-section {
+        display: none;
+    }
+    .banner-section .carousel .carousel-item {
+        height: 400px;
+    }
+    
+        /* ========================== End Header Style ==================== */
+        
+    /* ========================== Start Home Page Style ==================== */
+    /* .banner-section .carousel .carousel-item {
+        height: 400px;
+    } */
+    .banner-section .carousel .carousel-caption {
+        max-width: 300px;
+    }
+    .banner-section .carousel h1 {
+        font-size: 35px;
+        line-height: 40px;
+    }
+
+    /* ========================== End Home Page Style ==================== */
+
+
+    /* -----------=========== Start About Us Page Style ===========---------- */
+    .mission-section .image-column .video iframe {
+        height: 220px;
+    }
+
+     /* -----------=========== End About Us Page Style ===========---------- */
+
+     /* -----------=========== Start Past President Page Style ===========---------- */
+     .past-predident-section .president-row .president-column .president-column-inner {
+        flex-direction: column-reverse;
+    }
+     .past-predident-section .president-row .content-col {
+        width: 100%;
+    }
+    .past-predident-section .president-row .content-col::after {
+        display: none;
+    }
+    .past-predident-section .president-row .image-col {
+        width: 100%;
+        padding: 0;
+    }
+    .past-predident-section .president-row .content-col .content-col-inner {
+        text-align: center;
+    }
+     /* -----------=========== End Past President Page Style ===========---------- */
+
+
+    /* ======================== Start Footer Style ======================  */
+    .footer-section {
+        padding-top: 40px;
+    }
+    footer .news-letter-section {
+        padding-bottom: 40px;
+    }
+    footer .news-letter-section .news-letter input[type="email"] {
+        width: calc(100% - 85px);
+    }
+    footer .news-letter-section .news-letter .custom-btn {
+        width: 85px;
+    }
+    footer .footer-main {
+        padding-bottom: 40px;
+    }
+    .footer-content ul {
+        margin-top: 12px;
+    }
+    footer .ft-menu-left,
+    footer .ft-menu-right,
+    footer .visitor-col {
+        width: 100%;
+        margin-top: 35px;
+    }
+    footer .ft-menu-left .footer-menu,
+    footer .ft-menu-right .footer-menu,
+    footer .visitor-col .visitor-wrapp {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+    footer .visitor-col .social-box ul {
+        text-align: center;
+    }
+    footer .footer-menu ul li {
+        margin-bottom: 2px;
+    }
+
+
+    .form-section .detailes-column .deatiles-items img{
+		width: 47px;
+		height: 47px;
+		object-fit: cover;
+	}
+	.form-section .detailes-column{
+		padding: 25px;
+		padding-bottom: 30px;
+	}
+	.form-section .detailes-column .deatiles-items a {
+		font-size: 15px;
+		line-height: 21px;
+	}
+	.form-section .detailes-column .deatiles-items {
+		column-gap: 13px;
+		margin-top: 20px;
+	}
+	.form-section .detailes-column .deatiles-items h4 {
+		font-size: 20px;
+		line-height: 27px;
+	}
+
+	.faq-section .faq-content .accordion-item .accordion-body {
+		padding: 25px 25px;
+	}
+
+}
+@media only screen and (max-width: 480px){
+	.common-heading {
+		font-size: 30px;
+		line-height: 36px;
+	}
+
+	.faq-section .faq-content .accordion-item .collapsed {
+		font-size: 15px;
+		line-height: 20px;
+	}
+}
+
+@media only screen and (max-width: 414px) {
+    .award-section .award-content .award-items {
+        width: 100%;
+        text-align: center;
+    }
+}
