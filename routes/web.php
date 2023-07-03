@@ -9,6 +9,7 @@ use App\Http\Controllers\Frontend\MembersPagesController;
 use App\Http\Controllers\Frontend\RulesAndRegulationsPagesController;
 use App\Http\Controllers\Frontend\PublicationsPagesController;
 use App\Http\Controllers\Frontend\ContactPagesController;
+use App\Http\Controllers\Frontend\ArticlesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -88,6 +89,9 @@ Route::group(['as' => 'publications.', 'prefix' => 'publications'], function () 
 });
 Route::group(['as' => 'contact.', 'prefix' => 'contact'], function () {
     Route::get('/contact-us', [ContactPagesController::class, 'index'])->name('index');
+});
+Route::group(['as' => 'article.', 'prefix' => 'article'], function () {
+    Route::get('/single', [ArticlesController::class, 'single'])->name('single');
 });
 
 

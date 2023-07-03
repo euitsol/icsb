@@ -200,7 +200,7 @@
                     <h2 class="title text-white text-center">Mission & Vision</h2>
                     <p class="text-white">Curabitur pharetra rutrum lorem, vel imperdiet odio viverra nec.</p>
                     <div class="button-group">
-                        <a href="" class="member-button global-lg-button">Contact Us</a>
+                        <a href="{{route('contact.index')}}" class="member-button global-lg-button">Contact Us</a>
                     </div>
                 </div>
             </div>

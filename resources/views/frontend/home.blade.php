@@ -25,7 +25,7 @@
 							<h2 class="title black-color">Who We Are</h2>
 							<p>At Studio 271 your well being is our greatest concern. Our caring and highly skilled professionals are ready to pamper you with our fine selection of salon and spa services and techniques and are dedicated to making you look and feel your best from head to toe. Shoaleh has been a cosmetologist since 2000. She purchased Studio 271 in 2004. Her passion is staying current in styles, trends and techniques by attending salon advanced training and hair shows regularly.</p>
 							<div class="button-wrapp">
-								<a class="small-btn" href="#">Read More</a>
+								<a class="small-btn" href="{{route('about.icsb')}}">Read More</a>
 							</div>
 						</div>
 					</div>
@@ -44,13 +44,13 @@
 			</div>
 			<div class="notice-board-wrappper">
 				<ul>
-					<li><a class="black-color" href="#">Mohammad Asad Ullah FCS Elected as President of ICSB for the Fifth Term 2022-25</a></li>
-					<li><a class="black-color" href="#">Admission Notice January-June 2023 Session</a></li>
-					<li><a class="black-color" href="#">Notification Regarding Change of the Election Venue</a></li>
-					<li><a class="black-color" href="#">Notice & Class Routine of CL-II, III and PL-I & II for (July-Dece, 2022 Session)</a></li>
+					<li><a class="black-color" href="{{route('students.notice_board')}}">Mohammad Asad Ullah FCS Elected as President of ICSB for the Fifth Term 2022-25</a></li>
+					<li><a class="black-color" href="{{route('students.notice_board')}}">Admission Notice January-June 2023 Session</a></li>
+					<li><a class="black-color" href="{{route('students.notice_board')}}">Notification Regarding Change of the Election Venue</a></li>
+					<li><a class="black-color" href="{{route('students.notice_board')}}">Notice & Class Routine of CL-II, III and PL-I & II for (July-Dece, 2022 Session)</a></li>
 				</ul>
 				<div class="button-wrapp text-center">
-					<a class="small-btn" href="#">View All</a>
+					<a class="small-btn" href="{{route('students.notice_board')}}">View All</a>
 				</div>
 			</div>
 		</div>
@@ -80,7 +80,7 @@
 							<h2 class="title black-color">ICSB President</h2>
 							<p>My dear ICSB Professional Colleagues, Interns, Students, and ICSB officers and staffs! Ralph Waldo Emerson once said, “Nothing great was ever achieved without enthusiasm!” I keep this mantra above my desk as a reminder to be enthusiastic about the works ahead. Those words act as a cheer-leader for me on days when I cannot bear any more bad news. They motivate me when I feel stuck or burned out as we collectively pull through. My hope is that they will set the tone for my presidency with the ICSB, which began this month.</p>
 							<div class="button-wrapp">
-								<a class="small-btn" href="#">Read More</a>
+								<a class="small-btn" href="{{route('council.president')}}">Read More</a>
 							</div>
 						</div>
 					</div>
