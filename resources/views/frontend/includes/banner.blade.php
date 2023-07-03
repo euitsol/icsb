@@ -11,8 +11,8 @@
 		      <div class="carousel-caption d-md-block">
 		        <h1>Institute Of Chartered Secretaries Of Bangladesh</h1>
 		        <div class="button-group">
-		        	<a href="" class="about-button global-lg-button">About Us</a>
-		        	<a href="" class="member-button global-lg-button">Members</a>
+		        	<a href="{{route('about.icsb')}}" class="about-button global-lg-button">About Us</a>
+		        	<a href="{{route('members.council')}}" class="member-button global-lg-button">Members</a>
 		        </div>
 		      </div>
 		    </div>
@@ -21,8 +21,8 @@
 		      <div class="carousel-caption d-md-block">
 		        <h1>Institute Of Chartered Secretaries Of Bangladesh</h1>
 		        <div class="button-group">
-		        	<a href="" class="about-button global-lg-button">About Us</a>
-		        	<a href="" class="member-button global-lg-button">Members</a>
+		        	<a href="{{route('about.icsb')}}" class="about-button global-lg-button">About Us</a>
+		        	<a href="{{route('members.council')}}" class="member-button global-lg-button">Members</a>>
 		        </div>
 		      </div>
 		    </div>
@@ -31,8 +31,8 @@
 		      <div class="carousel-caption d-md-block">
 		        <h1>Institute Of Chartered Secretaries Of Bangladesh</h1>
 		        <div class="button-group">
-		        	<a href="" class="about-button global-lg-button">About Us</a>
-		        	<a href="" class="member-button global-lg-button">Members</a>
+		        	<a href="{{route('about.icsb')}}" class="about-button global-lg-button">About Us</a>
+		        	<a href="{{route('members.council')}}" class="member-button global-lg-button">Members</a>
 		        </div>
 		      </div>
 		    </div>
