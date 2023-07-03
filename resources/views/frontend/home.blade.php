@@ -172,5 +172,7 @@
 
 
 @include('frontend.includes.partners')
+@include('frontend.includes.footer.footer_top')
+
 
 @endsection
