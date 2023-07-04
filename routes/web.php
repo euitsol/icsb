@@ -47,6 +47,8 @@ Route::group(['middleware' => 'auth'], function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::group(['as' => 'faq.', 'prefix' => 'faq'], function () {
         Route::get('/index', [FaqController::class, 'index'])->name('index');
+        Route::get('/create', [FaqController::class, 'create'])->name('create');
+        Route::post('/store', [FaqController::class, 'store'])->name('store');
     });
 });
 

@@ -22,19 +22,28 @@
 		<div class="faq-content">
 			<div class="left-column">
 				<div class="accordion" id="accordionExample">
-				  <div class="accordion-item">
-				    <h2 class="accordion-header" id="headingOne">
-				      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-				        What is ICSB?
-				      </button>
-				    </h2>
-				    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-				      <div class="accordion-body">
-				        Institute of Chartered Secretaries of Bangladesh. It offers professional degree of Chartered Secretaries. It is a statutory body under Ministry of Commerce, Govt. of Bangladesh.
-				      </div>
-				    </div>
-				  </div>
-				  <div class="accordion-item">
+                @forelse ($faqs as $key=>$faq)
+                    @if($key%2 != 0)
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                {{$faq->title}}
+                            </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                {{$faq->description}}
+                            </div>
+                            </div>
+                        </div>
+                    @else
+                        @continue
+                    @endif
+                @empty
+
+                @endforelse
+
+				  {{-- <div class="accordion-item">
 					    <h2 class="accordion-header" id="headingTwo">
 					      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
 					        Is it like ICAB and ICMAB?
@@ -135,23 +144,31 @@
 				        Semester wise, by bank deposit.
 				      </div>
 				    </div>
-				  </div>
+				  </div> --}}
 				</div>
 			</div>
 			<div class="right-column">
 				<div class="accordion accordion-flush" id="accordionFlushExample">
-				  <div class="accordion-item">
-				    <h2 class="accordion-header" id="flush-headingOne">
-				      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-				        How many Subjects are there?
-				      </button>
-				    </h2>
-				    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-				      <div class="accordion-body">18 Subjects (Five Semesters).</div>
-				    </div>
-				  </div>
+                    @forelse ($faqs as $key=>$faq)
+                    @if($key%2 == 0)
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                {{$faq->title}}
+                            </button>
+                            </h2>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">{{$faq->description}}</div>
+                            </div>
+                        </div>
+                    @else
+                        @continue
+                    @endif
+                @empty
 
-				  <div class="accordion-item">
+                @endforelse
+
+				  {{-- <div class="accordion-item">
 				    <h2 class="accordion-header" id="flush-headingTwo">
 				      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
 				        What about class attendance?
@@ -248,7 +265,7 @@
 				    <div id="flush-collapseTen" class="accordion-collapse collapse" aria-labelledby="flush-headingTen" data-bs-parent="#accordionFlushExample">
 				      <div class="accordion-body">The Institute tries to provide required help in getting placement in job to all his/her qualified students, but it is not obligatory. Generally all the qualified secretaries are employed in various organizations in good position, because of this Professional Degree.</div>
 				    </div>
-				  </div>
+				  </div> --}}
 				</div>
 			</div>
 		</div>

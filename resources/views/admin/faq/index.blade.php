@@ -5,7 +5,7 @@
         <div class="card card-plain">
             <div class="card-header card-header-primary d-flex justify-content-between">
                 <h4 class="card-title mt-0"> FAQS</h4>
-                <a href="" class="btn btn-primary">Add FAQ</a>
+                <a href="{{route('faq.create')}}" class="btn btn-primary">Add FAQ</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">

@@ -17,7 +17,7 @@
                     <p>{{ _('FAQ') }}</p>
                 </a>
             </li>
-            {{-- <li>
+            <li>
                 <a data-toggle="collapse" href="#laravel-examples" aria-expanded="true">
                     <i class="fab fa-laravel" ></i>
                     <span class="nav-link-text" >{{ __('Laravel Examples') }}</span>
@@ -82,7 +82,7 @@
                     <i class="tim-icons icon-spaceship"></i>
                     <p>{{ _('Upgrade to PRO') }}</p>
                 </a>
-            </li> --}}
+            </li>
         </ul>
     </div>
 </div>

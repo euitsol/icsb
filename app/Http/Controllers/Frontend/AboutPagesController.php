@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Faq;
 
 class AboutPagesController extends Controller
 {
@@ -17,7 +18,8 @@ class AboutPagesController extends Controller
         return view('frontend.about.csr_activities');
     }
     public function faq(){
-        return view('frontend.about.faq');
+        $n['faqs']= Faq::latest()->get();
+        return view('frontend.about.faq',$n);
     }
     public function assignedOfficer(){
         return view('frontend.about.assigned_officer');

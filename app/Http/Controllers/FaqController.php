@@ -16,4 +16,14 @@ class FaqController extends Controller
         $n['faqs'] = Faq::latest()->get();
         return view('admin.faq.index',$n);
     }
+    public function create(){
+        return view('admin.faq.create');
+    }
+    public function store(Request $request){
+        $faq = new Faq;
+        $faq->title = $request->title;
+        $faq->description = $request->description;
+        $faq->save();
+        return redirect()->route('faq.index');
+    }
 }
