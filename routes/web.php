@@ -1,7 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Frontend\HomePageController;
+use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\UserManagement\RoleController;
+use App\Http\Controllers\Backend\UserManagement\PermissionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,5 +42,44 @@ Route::group(['middleware' => 'auth'], function () {
 //Frontend Routes
 
 Route::get('/', [HomePageController::class, 'index'])->name('home');
+
+
+//Backend Routes
+
+Route::group(['middleware' => 'auth', 'permission'], function () {
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+        //User Management
+        Route::group(['as' => 'um.', 'prefix' => 'user-management'], function () {
+
+            //Role Management
+            Route::group(['as' => 'role.', 'prefix' => 'role'], function () {
+                Route::get('list',           [RoleController::class, 'index'])->name('role_list');
+                Route::get('create',         [RoleController::class, 'create'])->name('role_create');
+                Route::post('create',        [RoleController::class, 'store'])->name('role_create');
+                Route::get('edit/{id}',      [RoleController::class, 'edit'])->name('role_edit');
+                Route::put('edit/{id}',      [RoleController::class, 'update'])->name('role_edit');
+                Route::get('delete/{id}', [RoleController::class, 'delete'])->name('role_delete');
+            });
+
+            //Permission Management
+            Route::group(['as' => 'permission.','prefix' => 'permission'], function () {
+                Route::get('list',          [PermissionController::class, 'index'])->name('list');
+                Route::get('create',        [PermissionController::class, 'create'])->name('add');
+                Route::post('store',        [PermissionController::class, 'store'])->name('store');
+            });
+
+        });
+});
+
+
+//Developer Routes
+//This will export the permissions as csv for seeders
+Route::get('/export-permissions', function () {
+    $filename = 'permissions.csv';
+    $filePath = createCSV($filename);
+
+    return Response::download($filePath, $filename);
+})->name('export.permissions');
 
 
