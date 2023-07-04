@@ -22,13 +22,13 @@
 						<div class="article-wrapp">
 							<div class="article-content-row">
 								<div class="articel-featured">
-									<a href=""><img src="{{asset('frontend/img/blog-img/post-featured-image.png')}}" alt="Article Featured image"></a>
+									<a href="{{route('article.single')}}"><img src="{{asset('frontend/img/blog-img/post-featured-image.png')}}" alt="Article Featured image"></a>
 								</div>
 								<div class="articel-details">
-									<h2><a href="">Chief guest speech in the 9th ICSB CGE Award, 20211</a></h2>
+									<h2><a href="{{route('article.single')}}">Chief guest speech in the 9th ICSB CGE Award, 20211</a></h2>
 									<div class="author-box">
-										<span class="author"><a href=""><i class="fa-solid fa-user"></i> Admin</a></span>
-										<span class="post-date"><a href=""><i class="fa-regular fa-calendar-check"></i> Mar 3, 2020</a></span>
+										<span class="author"><a href="{{route('article.single')}}"><i class="fa-solid fa-user"></i> Admin</a></span>
+										<span class="post-date"><a href="{{route('article.single')}}"><i class="fa-regular fa-calendar-check"></i> Mar 3, 2020</a></span>
 									</div>
 								</div>
 							</div>
@@ -37,10 +37,10 @@
 						<div class="article-wrapp">
 							<div class="article-content-row">
 								<div class="articel-featured">
-									<a href=""><img src="{{asset('frontend/img/blog-img/President-image.jpg')}}" alt="President image"></a>
+									<a href="{{route('article.single')}}"><img src="{{asset('frontend/img/blog-img/President-image.jpg')}}" alt="President image"></a>
 								</div>
 								<div class="articel-details">
-									<h2><a href="">President’s speech in the 9th ICSB CGE Award, 20211</a></h2>
+									<h2><a href="{{route('article.single')}}">President’s speech in the 9th ICSB CGE Award, 20211</a></h2>
 									<div class="author-box">
 										<span class="author">Posted byICSB in Recent News,</span>
 										<span class="post-date">Posted on Mar 3, 2020</span>
@@ -52,10 +52,10 @@
 						<div class="article-wrapp">
 							<div class="article-content-row">
 								<div class="articel-featured">
-									<a href=""><img src="{{asset('frontend/img/blog-img/Soviner.jpg')}}" alt="Article Featured image"></a>
+									<a href="{{route('article.single')}}"><img src="{{asset('frontend/img/blog-img/Soviner.jpg')}}" alt="Article Featured image"></a>
 								</div>
 								<div class="articel-details">
-									<h2><a href="">6th ICSB National Award 2018 FOR CORPORATE</a></h2>
+									<h2><a href="{{route('article.single')}}">6th ICSB National Award 2018 FOR CORPORATE</a></h2>
 									<div class="author-box">
 										<span class="author">Posted byICSB in Recent News,</span>
 										<span class="post-date">Posted on Mar 3, 2020</span>
@@ -83,10 +83,10 @@
 						<div class="article-wrapp">
 							<div class="article-content-row">
 								<div class="articel-featured">
-									<a href=""><img src="{{asset('frontend/img/blog-img/exam.jpg')}}" alt="Article Featured image"></a>
+									<a href="{{route('article.single')}}"><img src="{{asset('frontend/img/blog-img/exam.jpg')}}" alt="Article Featured image"></a>
 								</div>
 								<div class="articel-details">
-									<h2><a href="">Examination Notice, Program & Form for July</a></h2>
+									<h2><a href="{{route('article.single')}}">Examination Notice, Program & Form for July</a></h2>
 									<div class="author-box">
 										<span class="author">Posted byICSB in Recent News,</span>
 										<span class="post-date">Posted on Mar 3, 2020</span>
@@ -98,10 +98,10 @@
 						<div class="article-wrapp">
 							<div class="article-content-row">
 								<div class="articel-featured">
-									<a href=""><img src="{{asset('frontend/img/blog-img/admission-notice.jpg')}}" alt="Article Featured image"></a>
+									<a href="{{route('article.single')}}"><img src="{{asset('frontend/img/blog-img/admission-notice.jpg')}}" alt="Article Featured image"></a>
 								</div>
 								<div class="articel-details">
-									<h2><a href="">Admission Notice January-June 2023 Session</a></h2>
+									<h2><a href="{{route('article.single')}}">Admission Notice January-June 2023 Session</a></h2>
 									<div class="author-box">
 										<span class="author">Posted byICSB in Recent News,</span>
 										<span class="post-date">Posted on Mar 3, 2020</span>
@@ -113,10 +113,10 @@
 						<div class="article-wrapp">
 							<div class="article-content-row">
 								<div class="articel-featured">
-									<a href=""><img src="{{asset('frontend/img/blog-img/admission.jpg')}}" alt="Article Featured image"></a>
+									<a href="{{route('article.single')}}"><img src="{{asset('frontend/img/blog-img/admission.jpg')}}" alt="Article Featured image"></a>
 								</div>
 								<div class="articel-details">
-									<h2><a href="">Admission/Conversion to New Syllabus, July</a></h2>
+									<h2><a href="{{route('article.single')}}">Admission/Conversion to New Syllabus, July</a></h2>
 									<div class="author-box">
 										<span class="author">Posted byICSB in Recent News,</span>
 										<span class="post-date">Posted on Mar 3, 2020</span>
@@ -145,10 +145,10 @@
 						<div class="article-wrapp">
 							<div class="article-content-row">
 								<div class="articel-featured">
-									<a href=""><img src="{{asset('frontend/img/blog-img/event.jpg')}}" alt="Article Featured image"></a>
+									<a href="{{route('article.single')}}"><img src="{{asset('frontend/img/blog-img/event.jpg')}}" alt="Article Featured image"></a>
 								</div>
 								<div class="articel-details">
-									<h2><a href="">ICSB Council Meets with the Chairman, BSEC</a></h2>
+									<h2><a href="{{route('article.single')}}">ICSB Council Meets with the Chairman, BSEC</a></h2>
 									<div class="author-box">
 										<span class="author">Posted byICSB in Recent News,</span>
 										<span class="post-date">Posted on Mar 3, 2020</span>
@@ -160,10 +160,10 @@
 						<div class="article-wrapp">
 							<div class="article-content-row">
 								<div class="articel-featured">
-									<a href=""><img src="{{asset('frontend/img/blog-img/placard.jpg')}}" alt="Article Featured image"></a>
+									<a href="{{route('article.single')}}"><img src="{{asset('frontend/img/blog-img/placard.jpg')}}" alt="Article Featured image"></a>
 								</div>
 								<div class="articel-details">
-									<h2><a href="">ICSB ORGANISED NEW MEMBERS’ RECEPTION</a></h2>
+									<h2><a href="{{route('article.single')}}">ICSB ORGANISED NEW MEMBERS’ RECEPTION</a></h2>
 									<div class="author-box">
 										<span class="author">Posted byICSB in Recent News,</span>
 										<span class="post-date">Posted on Mar 3, 2020</span>
@@ -175,10 +175,10 @@
 						<div class="article-wrapp">
 							<div class="article-content-row">
 								<div class="articel-featured">
-									<a href=""><img src="{{asset('frontend/img/blog-img/Council.jpg')}}" alt="Article Featured image"></a>
+									<a href="{{route('article.single')}}"><img src="{{asset('frontend/img/blog-img/Council.jpg')}}" alt="Article Featured image"></a>
 								</div>
 								<div class="articel-details">
-									<h2><a href="">ICSB Council Meets with Senior Secretary</a></h2>
+									<h2><a href="{{route('article.single')}}">ICSB Council Meets with Senior Secretary</a></h2>
 									<div class="author-box">
 										<span class="author">Posted byICSB in Recent News,</span>
 										<span class="post-date">Posted on Mar 3, 2020</span>
