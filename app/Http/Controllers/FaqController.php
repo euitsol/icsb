@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Faq;
+use App\Http\Requests\FaqRequest;
 
 class FaqController extends Controller
 {
@@ -19,7 +20,7 @@ class FaqController extends Controller
     public function create(){
         return view('admin.faq.create');
     }
-    public function store(Request $request){
+    public function store(FaqRequest $request){
         $faq = new Faq;
         $faq->title = $request->title;
         $faq->description = $request->description;
