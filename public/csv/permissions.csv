@@ -1,0 +1,10 @@
+name,guard_name
+role_create,web
+role_edit,web
+role_list,web
+role_delete,web
+user_create,web
+user_edit,web
+user_list,web
+user_delete,web
+site_settings,web

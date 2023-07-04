@@ -1,0 +1,16 @@
+.has-success:after,
+.has-danger:after {
+    top: 35% !important;
+}
+
+.pagination {
+    justify-content: end !important;
+}
+
+.dataTables_filter {
+    float: right !important;
+}
+
+.page-link {
+    padding: .2rem .6rem !important;
+}

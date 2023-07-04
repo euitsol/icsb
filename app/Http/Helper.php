@@ -1,0 +1,65 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use League\Csv\Writer;
+use App\Models\Permission;
+
+
+//This will retun the route prefix of the routes for permission check
+function get_permission_routes()
+{
+  return ['um.role.'];
+}
+
+//This will check the permission of the given route name. Can be used for buttons
+function check_access_by_route_name($routeName = null)
+{
+    if($routeName == null){
+        $routeName = Route::currentRouteName();
+    }
+
+    $allowedPrefixes = get_permission_routes();
+
+    $shouldCheckPermission = false;
+    foreach ($allowedPrefixes as $prefix) {
+        if (str_starts_with($routeName, $prefix)) {
+            $shouldCheckPermission = true;
+            break;
+        }
+    }
+
+    if ($shouldCheckPermission) {
+        $routeParts = explode('.', $routeName);
+        $lastRoutePart = end($routeParts);
+
+        if (!auth()->user()->can($lastRoutePart)) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+//This will export the permissions as csv for seeders
+function createCSV($filename = 'permissions.csv')
+{
+    $permissions = Permission::all();
+
+    $data = $permissions->map(function ($permission) {
+        return [
+            'name' => $permission->name,
+            'guard_name' => $permission->guard_name,
+        ];
+    });
+
+    $csv = Writer::createFromPath(public_path('csv/' . $filename), 'w+');
+
+    $csv->insertOne(array_keys($data->first()));
+
+    foreach ($data as $record) {
+        $csv->insertOne($record);
+    }
+
+    return public_path('csv/' . $filename);
+}
+
