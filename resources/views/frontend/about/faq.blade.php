@@ -27,11 +27,11 @@
 
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingOne{{$key}}">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne{{$key}}" aria-expanded="false" aria-controls="collapseOne{{$key}}">
+                                        <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne{{$key}}" aria-expanded="false" aria-controls="collapseOne{{$key}}">
                                             {{$faq->title}}
                                         </button>
                                     </h2>
-                                <div id="collapseOne{{$key}}" class="accordion-collapse collapse show" aria-labelledby="headingOne{{$key}}" data-bs-parent="#accordionExample">
+                                <div id="collapseOne{{$key}}" class="accordion-collapse collapse @if($key == 0)show @endif" aria-labelledby="headingOne{{$key}}" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
                                         {{$faq->description}}
                                     </div>
