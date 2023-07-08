@@ -169,7 +169,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Jorenvh\Share\Providers\ShareServiceProvider::class,
-    ])->toArray(),
+        Yajra\DataTables\DataTablesServiceProvider::class,
+        RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        ])->toArray(),
 
     /*
     |--------------------------------------------------------------------------
@@ -184,6 +186,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         'Share' => Jorenvh\Share\ShareFacade::class,
+        'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
     ])->toArray(),
 
 ];
