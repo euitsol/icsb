@@ -36,6 +36,12 @@
                     </ul>
                 </div>
             </li>
+            <li @if ($pageSlug == 'faq') class="active " @endif>
+                <a href="{{ route('faq.faq_list') }}">
+                    <i class="tim-icons icon-chart-pie-36"></i>
+                    <p>{{ _('FAQ') }}</p>
+                </a>
+            </li>
 
         </ul>
     </div>

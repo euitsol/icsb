@@ -1,50 +1,60 @@
-@extends('layouts.app', ['page' => __('FAQ'), 'pageSlug' => 'faq'])
+@extends('backend.layouts.master', ['pageSlug' => 'faq'])
+
+@section('title', 'Frequently Asked Questions')
 
 @section('content')
-    <div class="col-md-12">
-        <div class="card card-plain">
-            <div class="card-header card-header-primary d-flex justify-content-between">
-                <h4 class="card-title mt-0"> FAQS</h4>
-                <a href="{{route('faq.create')}}" class="btn btn-primary">Add FAQ</a>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-hover">
-                        <thead class="">
-                            <th>
-                                SN
-                            </th>
-                            <th>
-                                Title
-                            </th>
-                            <th>
-                                Description
-                            </th>
-                            <th>
-                                Action
-                            </th>
-                        </thead>
-                        <tbody>
-                            @foreach ($faqs as $key=>$faq)
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card ">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-8">
+                            <h4 class="card-title">{{ _('Frequently Asked Questions') }}</h4>
+                        </div>
+                        <div class="col-4 text-right">
+                            @include('backend.partials.button', ['routeName' => 'faq.faq_create', 'className' => 'btn-primary', 'label' => 'Add FAQ'])
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    @include('alerts.success')
+                    <div class="">
+                        <table class="table tablesorter datatable">
+                            <thead class=" text-primary">
                                 <tr>
-                                    <td>
-                                        {{$key+1}}
-                                    </td>
-                                    <td>
-                                        {{$faq->title}}
-                                    </td>
-                                    <td>
-                                        {{$faq->description}}
-                                    </td>
-                                    <td>
-                                    </td>
+                                    <th>{{ _('Title') }}</th>
+                                    <th>{{ _('Description') }}</th>
+                                    <th>{{ _('Creation date') }}</th>
+                                    <th>{{ _('Created by') }}</th>
+                                    <th>{{ _('Action') }}</th>
                                 </tr>
-                            @endforeach
-
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach ($faqs as $faq)
+                                    <tr>
+                                        <td> {{ $faq->title }} </td>
+                                        <td> {{ $faq->description }} </td>
+                                        <td> {{ $faq->created_at }} </td>
+                                        <td> {{ $faq->created_user->name ?? 'system' }} </td>
+                                        <td>
+                                            @include('backend.partials.action_buttons', [
+                                                'menuItems' => [
+                                                    ['routeName' => '', 'label' => 'View'],
+                                                    ['routeName' => '',   'params' => [$faq->id], 'label' => 'Update'],
+                                                    ['routeName' => '', 'params' => [$faq->id], 'label' => 'Delete', 'delete' => true],
+                                                ]
+                                            ])
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 @endsection
+
+@include('backend.partials.datatable', ['columns_to_show' => [0,1,2]])
+

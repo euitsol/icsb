@@ -25,6 +25,6 @@ class FaqController extends Controller
         $faq->title = $request->title;
         $faq->description = $request->description;
         $faq->save();
-        return redirect()->route('faq.index');
+        return redirect()->route('faq.faq_list');
     }
 }
