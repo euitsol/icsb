@@ -12,7 +12,7 @@
                             <h4 class="card-title">{{ _('Frequently Asked Questions') }}</h4>
                         </div>
                         <div class="col-4 text-right">
-                            @include('backend.partials.button', ['routeName' => 'faq.faq_create', 'className' => 'btn-primary', 'label' => 'Add FAQ'])
+                            @include('backend.partials.button', ['routeName' => 'about.faq.faq_create', 'className' => 'btn-primary', 'label' => 'Add FAQ'])
                         </div>
                     </div>
                 </div>
@@ -40,8 +40,8 @@
                                             @include('backend.partials.action_buttons', [
                                                 'menuItems' => [
                                                     ['routeName' => '', 'label' => 'View'],
-                                                    ['routeName' => '',   'params' => [$faq->id], 'label' => 'Update'],
-                                                    ['routeName' => '', 'params' => [$faq->id], 'label' => 'Delete', 'delete' => true],
+                                                    ['routeName' => 'about.faq.faq_edit',   'params' => [$faq->id], 'label' => 'Update'],
+                                                    ['routeName' => 'about.faq.faq_delete', 'params' => [$faq->id], 'label' => 'Delete', 'delete' => true],
                                                 ]
                                             ])
                                         </td>

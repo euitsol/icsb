@@ -85,10 +85,15 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
     });
 
     // FAQ
-    Route::group(['as' => 'faq.', 'prefix' => 'faq'], function () {
-        Route::get('index', [FaqController::class, 'index'])->name('faq_list');
-        Route::get('create', [FaqController::class, 'create'])->name('faq_create');
-        Route::post('create', [FaqController::class, 'store'])->name('faq_create');
+    Route::group(['as' => 'about.', 'prefix' => 'about'], function () {
+        Route::group(['as' => 'faq.', 'prefix' => 'faq'], function () {
+            Route::get('index', [FaqController::class, 'index'])->name('faq_list');
+            Route::get('create', [FaqController::class, 'create'])->name('faq_create');
+            Route::post('create', [FaqController::class, 'store'])->name('faq_create');
+            Route::get('edit/{id}',      [FaqController::class, 'edit'])->name('faq_edit');
+            Route::put('edit/{id}',      [FaqController::class, 'update'])->name('faq_edit');
+            Route::get('delete/{id}', [FaqController::class, 'delete'])->name('faq_delete');
+        });
     });
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Models\Faq;
 use App\Http\Requests\FaqRequest;
@@ -28,5 +29,26 @@ class FaqController extends Controller
         $faq->description = $request->description;
         $faq->save();
         return redirect()->route('faq.faq_list');
+    }
+    public function edit($id){
+        $n['faq'] = Faq::findOrFail($id);
+        return view('backend.faq.edit', $n);
+    }
+    public function update(FaqRequest $request, $id)
+    {
+        $faq = faq::findOrFail($id);
+        $faq->title = $request->title;
+        $faq->description = $request->description;
+        $faq->updated_by = auth()->user()->id;
+        $faq->save();
+
+        return redirect()->route('about.faq.faq_list')->withStatus(__('Faq '.$faq->title.' updated successfully.'));
+    }
+    public function delete($id)
+    {
+        $faq = faq::findOrFail($id);
+        $faq->delete();
+
+        return redirect()->route('about.faq.faq_list')->withStatus(__('Faq '.$faq->title.' deleted successfully.'));
     }
 }

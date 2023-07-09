@@ -14,13 +14,19 @@ return new class extends Migration
         Schema::create('faqs', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('description');
+            $table->longText('description');
             $table->timestamps();
+            $table->softDeletes();
+            $this->addAuditColumns($table);
         });
     }
 
     public function down(): void
     {
-         Schema::dropIfExists('faqs');
+         Schema::table('faqs', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+            $this->dropAuditColumns($table);
+        });
+
     }
 };

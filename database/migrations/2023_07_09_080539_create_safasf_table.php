@@ -11,16 +11,14 @@ return new class extends Migration
 
     public function up(): void
     {
-        Schema::create('{{ table }}', function (Blueprint $table) {
+        Schema::create('safasf', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->softDeletes();
-            $this->addAuditColumns($table);
         });
     }
 
     public function down(): void
     {
-         Schema::dropIfExists('{{ table }}');
+         Schema::dropIfExists('safasf');
     }
 };

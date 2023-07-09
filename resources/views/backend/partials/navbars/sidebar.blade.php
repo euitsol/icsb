@@ -36,13 +36,24 @@
                     </ul>
                 </div>
             </li>
-            <li @if ($pageSlug == 'faq') class="active " @endif>
-                <a href="{{ route('faq.faq_list') }}">
-                    <i class="tim-icons icon-chart-pie-36"></i>
-                    <p>{{ _('FAQ') }}</p>
+            <li>
+                <a class="@if($pageSlug == 'faq')@else collapsed @endif" data-toggle="collapse" href="#about" @if ($pageSlug == 'faq') aria-expanded="true" @else aria-expanded="false"@endif">
+                    <i class="fa-solid fa-users-gear"></i>
+                    <span class="nav-link-text" >{{ __('About') }}</span>
+                    <b class="caret mt-1"></b>
                 </a>
-            </li>
 
+                <div class="collapse @if ($pageSlug == 'faq') show @endif" id="about">
+                    <ul class="nav pl-4">
+                        <li @if ($pageSlug == 'faq') class="active " @endif>
+                            <a href="{{ route('about.faq.faq_list') }}">
+                                <i class="tim-icons icon-chart-pie-36"></i>
+                                <p>{{ _('FAQ') }}</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
         </ul>
     </div>
 </div>
