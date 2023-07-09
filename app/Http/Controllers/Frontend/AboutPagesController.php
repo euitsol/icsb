@@ -5,11 +5,13 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Faq;
+use App\Models\Service;
 
 class AboutPagesController extends Controller
 {
     public function index(){
-        return view('frontend.about.about');
+        $n['services'] = Service::get();
+        return view('frontend.about.about',$n);
     }
     public function council(){
         return view('frontend.about.council');
