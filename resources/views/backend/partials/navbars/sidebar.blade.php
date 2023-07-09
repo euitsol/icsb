@@ -1,8 +1,8 @@
 <div class="sidebar">
     <div class="sidebar-wrapper">
         <div class="logo">
-            <a href="#" class="simple-text logo-mini">{{ _('WD') }}</a>
-            <a href="#" class="simple-text logo-normal">{{ _('White Dashboard') }}</a>
+            <a href="{{ route('dashboard') }}" class="simple-text logo-mini">{{ _('ICSB') }}</a>
+            <a href="{{ route('dashboard') }}" class="simple-text logo-normal">{{ _('Institute Of Chartered Secretaries Of Bangladesh') }}</a>
         </div>
         <ul class="nav">
             <li @if ($pageSlug == 'dashboard') class="active " @endif>
@@ -11,7 +11,12 @@
                     <p>{{ _('Dashboard') }}</p>
                 </a>
             </li>
-
+            <li @if ($pageSlug == 'service') class="active " @endif>
+                <a href="{{ route('service.service_list') }}">
+                    <i class="tim-icons icon-vector"></i>
+                    <p>{{ _('Service') }}</p>
+                </a>
+            </li>
             <li>
                 <a class="@if($pageSlug == 'role')@else collapsed @endif" data-toggle="collapse" href="#user-management" @if ($pageSlug == 'role') aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-solid fa-users-gear"></i>

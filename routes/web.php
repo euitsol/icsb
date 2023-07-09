@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Frontend\HomePageController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\FaqController;
+use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\UserManagement\RoleController;
 use App\Http\Controllers\Backend\UserManagement\PermissionController;
 use App\Http\Controllers\Frontend\AboutPagesController;
@@ -84,8 +85,9 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
 
     });
 
-    // FAQ
+    // About Pages Routes
     Route::group(['as' => 'about.', 'prefix' => 'about'], function () {
+        // FAQ Routes
         Route::group(['as' => 'faq.', 'prefix' => 'faq'], function () {
             Route::get('index', [FaqController::class, 'index'])->name('faq_list');
             Route::get('create', [FaqController::class, 'create'])->name('faq_create');
@@ -94,6 +96,16 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
             Route::put('edit/{id}',      [FaqController::class, 'update'])->name('faq_edit');
             Route::get('delete/{id}', [FaqController::class, 'delete'])->name('faq_delete');
         });
+    });
+
+    // Service Routes
+    Route::group(['as' => 'service.', 'prefix' => 'service'], function () {
+        Route::get('index', [ServiceController::class, 'index'])->name('service_list');
+        Route::get('create', [ServiceController::class, 'create'])->name('service_create');
+        Route::post('create', [ServiceController::class, 'store'])->name('service_create');
+        Route::get('edit/{id}',      [ServiceController::class, 'edit'])->name('service_edit');
+        Route::put('edit/{id}',      [ServiceController::class, 'update'])->name('service_edit');
+        Route::get('delete/{id}', [ServiceController::class, 'delete'])->name('service_delete');
     });
 
 
