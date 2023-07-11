@@ -12,8 +12,6 @@
                 <form method="POST" action="{{ route('um.permission.store') }}" autocomplete="off">
                     @csrf
                     <div class="card-body">
-                            @include('alerts.success')
-
                             <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                 <label>{{ _('Permission Name') }}</label>
                                 <input type="text" name="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ _('Name') }}" value="{{ old('name') }}">

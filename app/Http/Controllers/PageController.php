@@ -1,75 +1,47 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\View\View;
 
 class PageController extends Controller
 {
-    /**
-     * Display icons page
-     *
-     * @return \Illuminate\View\View
-     */
-    public function icons()
+
+    public function icons(): View
     {
         return view('pages.icons');
     }
 
-    /**
-     * Display maps page
-     *
-     * @return \Illuminate\View\View
-     */
-    public function maps()
+
+    public function maps(): View
     {
         return view('pages.maps');
     }
 
-    /**
-     * Display tables page
-     *
-     * @return \Illuminate\View\View
-     */
-    public function tables()
+
+    public function tables(): View
     {
         return view('pages.tables');
     }
 
-    /**
-     * Display notifications page
-     *
-     * @return \Illuminate\View\View
-     */
-    public function notifications()
+
+    public function notifications(): View
     {
         return view('pages.notifications');
     }
 
-    /**
-     * Display rtl page
-     *
-     * @return \Illuminate\View\View
-     */
-    public function rtl()
+
+    public function rtl(): View
     {
         return view('pages.rtl');
     }
 
-    /**
-     * Display typography page
-     *
-     * @return \Illuminate\View\View
-     */
-    public function typography()
+
+    public function typography(): View
     {
         return view('pages.typography');
     }
 
-    /**
-     * Display upgrade page
-     *
-     * @return \Illuminate\View\View
-     */
-    public function upgrade()
+    public function upgrade(): View
     {
         return view('pages.upgrade');
     }

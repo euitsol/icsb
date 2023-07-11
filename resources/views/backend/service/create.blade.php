@@ -12,8 +12,6 @@
                 <form method="POST" action="{{ route('service.service_create') }}" autocomplete="off" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
-                            @include('alerts.success')
-
                             <div class="form-group{{ $errors->has('title') ? ' has-danger' : '' }}">
                                 <label>{{ _('Service Title') }}</label>
                                 <input type="text" name="title" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ _('Service Title') }}" value="{{ old('title') }}">
@@ -21,20 +19,32 @@
                             </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
+                            {{-- image-1 --}}
+
                             <div class="form-group{{ $errors->has('image') ? ' has-danger' : '' }}">
                                 <label>{{ _('Service Image') }}</label>
-                                <input type="file" id="upImgInput1" name="image" class="form-control {{ $errors->has('image') ? ' is-invalid' : '' }}">
+                                <input type="file" id="upImgInput" name="image" onchange="myFunction('upImg1')" class="form-control {{ $errors->has('image') ? ' is-invalid' : '' }}">
                                 @include('alerts.feedback', ['field' => 'image'])
                            </div>
                            <div class="mt-1">
                                   <img src="{{ asset('no_img/no_img.jpg') }}" id="upImg1"
-                                        class="upImg1 rounded me-50 border" alt="service image" height="100">
+                                        class="upImg rounded me-50 border" alt="service image" height="100">
                             </div>
                             <div class="mt-1 mb-2">
-                                   <button type="button" id="upImgReset1"
+                                   <button type="button" id="upImgReset"
                                         class="btn btn-sm btn-outline-secondary mb-75 waves-effect">Reset</button>
                             </div>
-
 
 
 

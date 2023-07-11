@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\View\View;
 
 class HomeController extends Controller
 {
@@ -14,12 +15,7 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function index()
+    public function index(): View
     {
         return view('dashboard');
     }

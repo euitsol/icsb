@@ -23,10 +23,6 @@ return new class extends Migration
 
     public function down(): void
     {
-         Schema::table('faqs', function (Blueprint $table) {
-            $table->dropSoftDeletes();
-            $this->dropAuditColumns($table);
-        });
-
+         Schema::dropIfExists('faqs');
     }
 };
