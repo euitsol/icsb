@@ -52,7 +52,7 @@
 
 <!-- ======================= Start Services Section ======================= -->
 
-@include('frontend.includes.services_one',['services' => [$services]])
+@include('frontend.includes.services_one',['services' =>$services])
 
 <!-- ======================= End Services Section ======================= -->
 

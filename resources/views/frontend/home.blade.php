@@ -57,8 +57,8 @@
 	</div>
 </section>
 
-@include('frontend.includes.services_one',['services' => [$services]])
-@include('frontend.includes.services_two',['services' => [$services]])
+@include('frontend.includes.services_one',['services' => $services])
+@include('frontend.includes.services_two',['services' => $services])
 
 <section class="president-section">
 	<div class="container">
