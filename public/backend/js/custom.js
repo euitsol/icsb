@@ -50,3 +50,66 @@ function deleteItem(modelName, itemId) {
             swal('Error', 'An error occurred while deleting the item.', 'error');
         });
 }
+
+
+
+// // Upload image
+$(function () {
+    $('#upImg').each(function () {
+        var accountUploadImg = $(this);
+        var accountUploadBtn = $('#upImgInput');
+        var accountUserImage = $('.upImg');
+        var accountResetBtn = $('#upImgReset');
+
+        if (accountUserImage) {
+            var resetImage = accountUserImage.attr("src");
+            accountUploadBtn.on("change", function (e) {
+                var reader = new FileReader(),
+                    files = e.target.files;
+                reader.onload = function () {
+                    if (accountUploadImg) {
+                        accountUploadImg.attr("src", reader.result);
+                    }
+                };
+                reader.readAsDataURL(files[0]);
+            });
+
+            accountResetBtn.on("click", function () {
+                accountUserImage.attr("src", resetImage);
+                accountUploadBtn.val(null);
+            });
+        }
+    });
+});
+// // Upload image
+$(function () {
+    $('#upImg').each(function () {
+        var accountUploadImg = $(this);
+        var accountUploadBtn = $('#upImgInput');
+        var accountUserImage = $('.upImg');
+        var accountResetBtn = $('#upImgReset');
+
+        if (accountUserImage) {
+            var resetImage = accountUserImage.attr("src");
+            accountUploadBtn.on("change", function (e) {
+                var reader = new FileReader(),
+                    files = e.target.files;
+                reader.onload = function () {
+                    if (accountUploadImg) {
+                        accountUploadImg.attr("src", reader.result);
+                    }
+                };
+                reader.readAsDataURL(files[0]);
+            });
+
+            accountResetBtn.on("click", function () {
+                accountUserImage.attr("src", resetImage);
+                accountUploadBtn.val(null);
+            });
+        }
+    });
+});
+
+
+
+

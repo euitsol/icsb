@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Role;
 use App\Models\Permission;
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class PermissionController extends Controller
 {
@@ -15,18 +17,18 @@ class PermissionController extends Controller
         return $this->middleware('auth');
     }
 
-    public function index()
+    public function index(): View
     {
         $permissions = Permission::orderBy('prefix')->get();
         return view('backend.user-management.permission.index', ['permissions' =>$permissions]);
     }
 
-    public function create()
+    public function create(): View
     {
         return view('backend.user-management.permission.create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $permission = new Permission;
         $permission->name = $request->name;

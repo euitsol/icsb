@@ -1,9 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Frontend\HomePageController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\FaqController;
+use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\UserManagement\RoleController;
 use App\Http\Controllers\Backend\UserManagement\PermissionController;
 use App\Http\Controllers\Frontend\AboutPagesController;
@@ -14,7 +17,7 @@ use App\Http\Controllers\Frontend\RulesAndRegulationsPagesController;
 use App\Http\Controllers\Frontend\PublicationsPagesController;
 use App\Http\Controllers\Frontend\ContactPagesController;
 use App\Http\Controllers\Frontend\ArticlesController;
-use App\Http\Controllers\FaqController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -46,15 +49,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
+
 });
 
-Route::group(['middleware' => 'auth'], function () {
-    Route::group(['as' => 'faq.', 'prefix' => 'faq'], function () {
-        Route::get('/index', [FaqController::class, 'index'])->name('index');
-        Route::get('/create', [FaqController::class, 'create'])->name('create');
-        Route::post('/store', [FaqController::class, 'store'])->name('store');
-    });
-});
 
 //Frontend Routes
 
@@ -66,27 +63,52 @@ Route::get('/', [HomePageController::class, 'index'])->name('home');
 Route::group(['middleware' => 'auth', 'permission'], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-        //User Management
-        Route::group(['as' => 'um.', 'prefix' => 'user-management'], function () {
+    //User Management
+    Route::group(['as' => 'um.', 'prefix' => 'user-management'], function () {
 
-            //Role Management
-            Route::group(['as' => 'role.', 'prefix' => 'role'], function () {
-                Route::get('list',           [RoleController::class, 'index'])->name('role_list');
-                Route::get('create',         [RoleController::class, 'create'])->name('role_create');
-                Route::post('create',        [RoleController::class, 'store'])->name('role_create');
-                Route::get('edit/{id}',      [RoleController::class, 'edit'])->name('role_edit');
-                Route::put('edit/{id}',      [RoleController::class, 'update'])->name('role_edit');
-                Route::get('delete/{id}', [RoleController::class, 'delete'])->name('role_delete');
-            });
-
-            //Permission Management
-            Route::group(['as' => 'permission.','prefix' => 'permission'], function () {
-                Route::get('list',          [PermissionController::class, 'index'])->name('list');
-                Route::get('create',        [PermissionController::class, 'create'])->name('add');
-                Route::post('store',        [PermissionController::class, 'store'])->name('store');
-            });
-
+        //Role Management
+        Route::group(['as' => 'role.', 'prefix' => 'role'], function () {
+            Route::get('list',           [RoleController::class, 'index'])->name('role_list');
+            Route::get('create',         [RoleController::class, 'create'])->name('role_create');
+            Route::post('create',        [RoleController::class, 'store'])->name('role_create');
+            Route::get('edit/{id}',      [RoleController::class, 'edit'])->name('role_edit');
+            Route::put('edit/{id}',      [RoleController::class, 'update'])->name('role_edit');
+            Route::get('delete/{id}', [RoleController::class, 'delete'])->name('role_delete');
         });
+
+        //Permission Management
+        Route::group(['as' => 'permission.','prefix' => 'permission'], function () {
+            Route::get('list',          [PermissionController::class, 'index'])->name('list');
+            Route::get('create',        [PermissionController::class, 'create'])->name('add');
+            Route::post('store',        [PermissionController::class, 'store'])->name('store');
+        });
+
+    });
+
+    // About Pages Routes
+    Route::group(['as' => 'about.', 'prefix' => 'about'], function () {
+        // FAQ Routes
+        Route::group(['as' => 'faq.', 'prefix' => 'faq'], function () {
+            Route::get('index', [FaqController::class, 'index'])->name('faq_list');
+            Route::get('create', [FaqController::class, 'create'])->name('faq_create');
+            Route::post('create', [FaqController::class, 'store'])->name('faq_create');
+            Route::get('edit/{id}',      [FaqController::class, 'edit'])->name('faq_edit');
+            Route::put('edit/{id}',      [FaqController::class, 'update'])->name('faq_edit');
+            Route::get('delete/{id}', [FaqController::class, 'delete'])->name('faq_delete');
+        });
+    });
+
+    // Service Routes
+    Route::group(['as' => 'service.', 'prefix' => 'service'], function () {
+        Route::get('index', [ServiceController::class, 'index'])->name('service_list');
+        Route::get('create', [ServiceController::class, 'create'])->name('service_create');
+        Route::post('create', [ServiceController::class, 'store'])->name('service_create');
+        Route::get('edit/{id}',      [ServiceController::class, 'edit'])->name('service_edit');
+        Route::put('edit/{id}',      [ServiceController::class, 'update'])->name('service_edit');
+        Route::get('delete/{id}', [ServiceController::class, 'delete'])->name('service_delete');
+    });
+
+
 });
 
 

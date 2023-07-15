@@ -8,3 +8,11 @@ user_edit,web
 user_list,web
 user_delete,web
 site_settings,web
+faq_create,web
+faq_edit,web
+faq_list,web
+faq_delete,web
+service_list,web
+service_create,web
+service_edit,web
+service_delete,web

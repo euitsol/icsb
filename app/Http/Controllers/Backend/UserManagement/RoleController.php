@@ -8,6 +8,8 @@ use App\Models\Role;
 use App\Models\Permission;
 use App\Http\Requests\RoleRequest;
 use Illuminate\Support\Facades\Route;
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class RoleController extends Controller
 {
@@ -17,7 +19,7 @@ class RoleController extends Controller
 
     }
 
-    public function index()
+    public function index(): View
     {
         $roles = Role::where('deleted_at', null)->with('permissions')->latest()->get();
 
@@ -28,7 +30,7 @@ class RoleController extends Controller
         return view('backend.user-management.role.index', ['roles' =>$roles]);
     }
 
-    public function create()
+    public function create(): View
     {
 
         $permissions = Permission::orderBy('name')->get();
@@ -38,7 +40,7 @@ class RoleController extends Controller
         return view('backend.user-management.role.create', ['groupedPermissions' => $groupedPermissions]);
     }
 
-    public function store(RoleRequest $request)
+    public function store(RoleRequest $request): RedirectResponse
     {
         $role = new Role;
         $role->name = $request->name;
@@ -51,7 +53,8 @@ class RoleController extends Controller
         return redirect()->route('um.role.role_list')->withStatus(__('New role created successfully.'));
     }
 
-    public function edit($id){
+    public function edit($id): View
+    {
         $role = Role::findOrFail($id);
         $permissions = Permission::orderBy('name')->get();
         $groupedPermissions = $permissions->groupBy(function ($permission) {
@@ -60,7 +63,7 @@ class RoleController extends Controller
         return view('backend.user-management.role.edit', ['role' => $role, 'groupedPermissions' => $groupedPermissions]);
     }
 
-    public function update(RoleRequest $request, $id)
+    public function update(RoleRequest $request, $id): RedirectResponse
     {
         $role = Role::findOrFail($id);
         $role->name = $request->name;
@@ -73,7 +76,7 @@ class RoleController extends Controller
         return redirect()->route('um.role.role_list')->withStatus(__('Role '.$role->name.' updated successfully.'));
     }
 
-    public function delete($id)
+    public function delete($id): RedirectResponse
     {
         $role = Role::findOrFail($id);
         $role->delete();

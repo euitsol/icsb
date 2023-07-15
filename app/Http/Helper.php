@@ -8,11 +8,11 @@ use App\Models\Permission;
 //This will retun the route prefix of the routes for permission check
 function get_permission_routes()
 {
-  return ['um.role.'];
+  return ['um.role.','about.faq.','service.'];
 }
 
 //This will check the permission of the given route name. Can be used for buttons
-function check_access_by_route_name($routeName = null)
+function check_access_by_route_name($routeName = null): bool
 {
     if($routeName == null){
         $routeName = Route::currentRouteName();
@@ -41,7 +41,7 @@ function check_access_by_route_name($routeName = null)
 }
 
 //This will export the permissions as csv for seeders
-function createCSV($filename = 'permissions.csv')
+function createCSV($filename = 'permissions.csv'): string
 {
     $permissions = Permission::all();
 

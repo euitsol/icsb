@@ -1,17 +1,22 @@
 <div class="sidebar">
     <div class="sidebar-wrapper">
         <div class="logo">
-            <a href="#" class="simple-text logo-mini">{{ _('WD') }}</a>
-            <a href="#" class="simple-text logo-normal">{{ _('White Dashboard') }}</a>
+            <a href="{{ route('dashboard') }}" class="simple-text logo-mini">{{ _('ICSB') }}</a>
+            <a href="{{ route('dashboard') }}" class="simple-text logo-normal">{{ _('Institute Of Chartered Secretaries Of Bangladesh') }}</a>
         </div>
         <ul class="nav">
             <li @if ($pageSlug == 'dashboard') class="active " @endif>
-                <a href="{{ route('home') }}">
+                <a href="{{ route('dashboard') }}">
                     <i class="tim-icons icon-chart-pie-36"></i>
                     <p>{{ _('Dashboard') }}</p>
                 </a>
             </li>
-
+            <li @if ($pageSlug == 'service') class="active " @endif>
+                <a href="{{ route('service.service_list') }}">
+                    <i class="tim-icons icon-vector"></i>
+                    <p>{{ _('Service') }}</p>
+                </a>
+            </li>
             <li>
                 <a class="@if($pageSlug == 'role')@else collapsed @endif" data-toggle="collapse" href="#user-management" @if ($pageSlug == 'role') aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-solid fa-users-gear"></i>
@@ -36,7 +41,24 @@
                     </ul>
                 </div>
             </li>
+            <li>
+                <a class="@if($pageSlug == 'faq')@else collapsed @endif" data-toggle="collapse" href="#about" @if ($pageSlug == 'faq') aria-expanded="true" @else aria-expanded="false"@endif">
+                    <i class="fa-solid fa-users-gear"></i>
+                    <span class="nav-link-text" >{{ __('About') }}</span>
+                    <b class="caret mt-1"></b>
+                </a>
 
+                <div class="collapse @if ($pageSlug == 'faq') show @endif" id="about">
+                    <ul class="nav pl-4">
+                        <li @if ($pageSlug == 'faq') class="active " @endif>
+                            <a href="{{ route('about.faq.faq_list') }}">
+                                <i class="tim-icons icon-chart-pie-36"></i>
+                                <p>{{ _('FAQ') }}</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
         </ul>
     </div>
 </div>
