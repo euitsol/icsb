@@ -7,6 +7,7 @@ use App\Http\Controllers\Frontend\HomePageController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\FaqController;
 use App\Http\Controllers\Backend\ServiceController;
+use App\Http\Controllers\Backend\ContactController;
 use App\Http\Controllers\Backend\UserManagement\RoleController;
 use App\Http\Controllers\Backend\UserManagement\PermissionController;
 use App\Http\Controllers\Frontend\AboutPagesController;
@@ -106,6 +107,14 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::get('edit/{id}',      [ServiceController::class, 'edit'])->name('service_edit');
         Route::put('edit/{id}',      [ServiceController::class, 'update'])->name('service_edit');
         Route::get('delete/{id}', [ServiceController::class, 'delete'])->name('service_delete');
+    });
+    // Contact Us Routes
+    Route::group(['as' => 'contact.', 'prefix' => 'contact'], function () {
+        Route::get('index', [ContactController::class, 'index'])->name('contact_list');
+        Route::post('create/location', [ContactController::class, 'createLocation'])->name('location.contact_create');
+        Route::post('create/social', [ContactController::class, 'createSocial'])->name('social.contact_create');
+        Route::post('create/phone', [ContactController::class, 'createPhone'])->name('phone.contact_create');
+        Route::post('create/email', [ContactController::class, 'createEmail'])->name('email.contact_create');
     });
 
 
