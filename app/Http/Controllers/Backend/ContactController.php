@@ -40,7 +40,6 @@ class ContactController extends Controller
     }
     public function createSocial(ContactRequest $request): RedirectResponse
     {
-
         $contact = Contact::where('deleted_at', null)->first();
         if ($contact === null) {
             $contact = new Contact();
@@ -50,7 +49,7 @@ class ContactController extends Controller
         }
         $contact->social = json_encode($request->social);
         $contact->updated_by = auth()->user()->id;
-        $contact->update();
+        $contact->save();
         return redirect()->route('contact.contact_list')->withStatus(__('Contact social info updated successfully.'));
     }
 
@@ -64,7 +63,6 @@ class ContactController extends Controller
             $contact->phone = json_encode($request->phone);
             $contact->created_by = auth()->user()->id;
             $contact->save();
-            return redirect()->route('contact.contact_list')->withStatus(__('Contact phone created successfully.'));
         }
         $contact->phone = json_encode($request->phone);
         $contact->updated_by = auth()->user()->id;
