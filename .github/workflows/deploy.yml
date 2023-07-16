@@ -22,4 +22,7 @@ jobs:
         passphrase: ${{ secrets.PASSPHRASE }}
         script: |
             cd www
+            cd icsb.sandeepc.sg-host.com
+            git pull origin main
+            php artisan optimize:clear
             
