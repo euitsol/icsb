@@ -21,6 +21,7 @@ class ContactController extends Controller
     public function index(): View
     {
         $n['contact'] = Contact::where('deleted_at', null)->first();
+        // dd($n);
         return view('backend.contact.index',$n);
     }
     public function createLocation(ContactRequest $request): RedirectResponse
@@ -31,7 +32,6 @@ class ContactController extends Controller
             $contact->location = json_encode($request->location);
             $contact->created_by = auth()->user()->id;
             $contact->save();
-            return redirect()->route('contact.contact_list')->withStatus(__('Contact location created successfully.'));
         }
         $contact->location = json_encode($request->location);
         $contact->updated_by = auth()->user()->id;
@@ -40,17 +40,15 @@ class ContactController extends Controller
     }
     public function createSocial(ContactRequest $request): RedirectResponse
     {
+
         $contact = Contact::where('deleted_at', null)->first();
         if ($contact === null) {
             $contact = new Contact();
-            $contact->social_link = json_encode($request->social_link);
-            $contact->social_icon = json_encode($request->social_icon);
+            $contact->social = json_encode($request->social);
             $contact->created_by = auth()->user()->id;
             $contact->save();
-            return redirect()->route('contact.contact_list')->withStatus(__('Contact social info created successfully.'));
         }
-        $contact->social_link = json_encode($request->social_link);
-        $contact->social_icon = json_encode($request->social_icon);
+        $contact->social = json_encode($request->social);
         $contact->updated_by = auth()->user()->id;
         $contact->update();
         return redirect()->route('contact.contact_list')->withStatus(__('Contact social info updated successfully.'));
@@ -64,13 +62,11 @@ class ContactController extends Controller
         if ($contact === null) {
             $contact = new Contact();
             $contact->phone = json_encode($request->phone);
-            $contact->type = json_encode($request->type);
             $contact->created_by = auth()->user()->id;
             $contact->save();
             return redirect()->route('contact.contact_list')->withStatus(__('Contact phone created successfully.'));
         }
         $contact->phone = json_encode($request->phone);
-        $contact->type = json_encode($request->type);
         $contact->updated_by = auth()->user()->id;
         $contact->update();
         return redirect()->route('contact.contact_list')->withStatus(__('Contact phone updated successfully.'));

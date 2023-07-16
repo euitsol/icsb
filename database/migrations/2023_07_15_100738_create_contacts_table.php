@@ -14,10 +14,8 @@ return new class extends Migration
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
             $table->json('location')->nullable();
-            $table->json('social_link')->nullable();
-            $table->json('social_icon')->nullable();
+            $table->json('social')->nullable();
             $table->json('phone')->nullable();
-            $table->json('type')->nullable();
             $table->json('email')->nullable();
             $table->timestamps();
             $table->softDeletes();
