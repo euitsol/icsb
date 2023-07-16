@@ -157,17 +157,17 @@
                                                     <input type="url" name="social[{{$count}}][link]" class="form-control" placeholder="{{ _('Enter social media information') }}" value="{{$social->link}}">
                                                     <div class="div">
                                                         <select class="input-group-text form-select" name="social[{{$count}}][icon]" id="">
-                                                            <option value="fa-brands fa-facebook-f" @if( $social->icon == "fa-brands fa-facebook-f" ) selected @endif><i class="my-2 d-block">&#xf09a</i></option>
-                                                            <option value="fa-brands fa-twitter"    @if( $social->icon == "fa-brands fa-twitter" ) selected @endif><i class="my-2 d-block">&#xf099</i></option>
-                                                            <option value="fa-brands fa-linkedin-in"@if( $social->icon == "fa-brands fa-linkedin-in" ) selected @endif><i class="my-2 d-block">&#xf0e1</i></option>
-                                                            <option value="fa-brands fa-instagram"  @if( $social->icon == "fa-brands fa-instagram" ) selected @endif><i class="my-2 d-block">&#xf16d</i></option>
-                                                            <option value="fa-brands fa-youtube"    @if( $social->icon == "fa-brands fa-youtube" ) selected @endif><i class="my-2 d-block">&#xf167</i></option>
-                                                            <option value="fa-brands fa-pinterest"  @if( $social->icon == "fa-brands fa-pinterest" ) selected @endif><i class="my-2 d-block">&#xf0d2</i></option>
-                                                            <option value="fa-brands fa-google"     @if( $social->icon == "fa-brands fa-google" ) selected @endif><i class="my-2 d-block">&#xf1a0</i></option>
-                                                            <option value="fa-brands fa-tiktok"     @if( $social->icon == "fa-brands fa-tiktok" ) selected @endif><i class="my-2 d-block">&#xe07b</i></option>
-                                                            <option value="fa-brands fa-telegram"   @if( $social->icon == "fa-brands fa-telegram" ) selected @endif><i class="my-2 d-block">&#xf2c6</i></option>
-                                                            <option value="fa-brands fa-whatsapp"   @if( $social->icon == "fa-brands fa-whatsapp" ) selected @endif><i class="my-2 d-block">&#xf232</i></option>
-                                                            <option value="fa-brands fa-reddit"     @if( $social->icon == "fa-brands fa-reddit" ) selected @endif><i class="my-2 d-block">&#xf1a1</i></option>
+                                                            <option value="fa-brands fa-facebook-f" @if( $social->icon == "fa-brands fa-facebook-f" ) selected @endif><i>&#xf09a</i></option>
+                                                            <option value="fa-brands fa-twitter"    @if( $social->icon == "fa-brands fa-twitter" ) selected @endif><i>&#xf099</i></option>
+                                                            <option value="fa-brands fa-linkedin-in"@if( $social->icon == "fa-brands fa-linkedin-in" ) selected @endif><i>&#xf0e1</i></option>
+                                                            <option value="fa-brands fa-instagram"  @if( $social->icon == "fa-brands fa-instagram" ) selected @endif><i>&#xf16d</i></option>
+                                                            <option value="fa-brands fa-youtube"    @if( $social->icon == "fa-brands fa-youtube" ) selected @endif><i>&#xf167</i></option>
+                                                            <option value="fa-brands fa-pinterest"  @if( $social->icon == "fa-brands fa-pinterest" ) selected @endif><i>&#xf0d2</i></option>
+                                                            <option value="fa-brands fa-google"     @if( $social->icon == "fa-brands fa-google" ) selected @endif><i>&#xf1a0</i></option>
+                                                            <option value="fa-brands fa-tiktok"     @if( $social->icon == "fa-brands fa-tiktok" ) selected @endif><i>&#xe07b</i></option>
+                                                            <option value="fa-brands fa-telegram"   @if( $social->icon == "fa-brands fa-telegram" ) selected @endif><i>&#xf2c6</i></option>
+                                                            <option value="fa-brands fa-whatsapp"   @if( $social->icon == "fa-brands fa-whatsapp" ) selected @endif><i>&#xf232</i></option>
+                                                            <option value="fa-brands fa-reddit"     @if( $social->icon == "fa-brands fa-reddit" ) selected @endif><i>&#xf1a1</i></option>
                                                         </select>
                                                         @if($count>1)
                                                             <span class="input-group-text text-danger" onclick="delete_section_2({{$count}})"><i class="tim-icons icon-trash-simple"></i></span>
@@ -185,17 +185,17 @@
                                                 <input type="url" name="social[1][link]" class="form-control" placeholder="{{ _('Enter socilal link') }}" value="{{ old('social[1][link') }}">
                                                 <div class="div">
                                                     <select class="input-group-text form-select" name="social[1][icon]" id="">
-                                                        <option value="fa-brands fa-facebook-f">Facebook</option>
-                                                        <option value="fa-brands fa-twitter">Twitter</option>
-                                                        <option value="fa-brands fa-linkedin-in">Linkedin</option>
-                                                        <option value="fa-brands fa-instagram">Instagram</option>
-                                                        <option value="fa-brands fa-youtube">Youtube</option>
-                                                        <option value="fa-brands fa-pinterest">Pinterest</option>
-                                                        <option value="fa-brands fa-google">Google</option>
-                                                        <option value="fa-brands fa-tiktok">Tiktok</option>
-                                                        <option value="fa-brands fa-telegram">Telegram</option>
-                                                        <option value="fa-brands fa-whatsapp">WhatsApp</option>
-                                                        <option value="fa-brands fa-reddit">Reddit</option>
+                                                        <option value="fa-brands fa-facebook-f"><i>&#xf09a</i></option>
+                                                        <option value="fa-brands fa-twitter"><i>&#xf099</i></option>
+                                                        <option value="fa-brands fa-linkedin-in"><i>&#xf0e1</i></option>
+                                                        <option value="fa-brands fa-instagram"><i>&#xf16d</i></option>
+                                                        <option value="fa-brands fa-youtube"><i>&#xf167</i></option>
+                                                        <option value="fa-brands fa-pinterest"><i>&#xf0d2</i></option>
+                                                        <option value="fa-brands fa-google"><i>&#xf1a0</i></option>
+                                                        <option value="fa-brands fa-tiktok"><i>&#xe07b</i></option>
+                                                        <option value="fa-brands fa-telegram"><i>&#xf2c6</i></option>
+                                                        <option value="fa-brands fa-whatsapp"><i>&#xf232</i></option>
+                                                        <option value="fa-brands fa-reddit"><i>&#xf1a1</i></option>
                                                     </select>
                                                     <span class="input-group-text" id="add_social" data-count="1"><i class="tim-icons icon-simple-add"></i></span>
                                                 </div>
@@ -418,17 +418,17 @@ $('#add_social').click(function() {
                     <input type="url" name="social[${count}][link]" class="form-control" placeholder="{{ _('Enter socilal media information') }}" value="{{ old("social[${count}]['link']") }}">
                     <div class="div">
                         <select class="input-group-text form-select" name="social[${count}][icon]">
-                            <option value="fa-brands fa-facebook-f">Facebook</option>
-                            <option value="fa-brands fa-twitter">Twitter</option>
-                            <option value="fa-brands fa-linkedin-in">Linkedin</option>
-                            <option value="fa-brands fa-instagram">Instagram</option>
-                            <option value="fa-brands fa-youtube">Youtube</option>
-                            <option value="fa-brands fa-pinterest">Pinterest</option>
-                            <option value="fa-brands fa-google">Google</option>
-                            <option value="fa-brands fa-tiktok">Tiktok</option>
-                            <option value="fa-brands fa-telegram">Telegram</option>
-                            <option value="fa-brands fa-whatsapp">WhatsApp</option>
-                            <option value="fa-brands fa-reddit">Reddit</option>
+                            <option value="fa-brands fa-facebook-f"><i>&#xf09a</i></option>
+                            <option value="fa-brands fa-twitter"><i>&#xf099</i></option>
+                            <option value="fa-brands fa-linkedin-in"><i>&#xf0e1</i></option>
+                            <option value="fa-brands fa-instagram"><i>&#xf16d</i></option>
+                            <option value="fa-brands fa-youtube"><i>&#xf167</i></option>
+                            <option value="fa-brands fa-pinterest"><i>&#xf0d2</i></option>
+                            <option value="fa-brands fa-google"><i>&#xf1a0</i></option>
+                            <option value="fa-brands fa-tiktok"><i>&#xe07b</i></option>
+                            <option value="fa-brands fa-telegram"><i>&#xf2c6</i></option>
+                            <option value="fa-brands fa-whatsapp"><i>&#xf232</i></option>
+                            <option value="fa-brands fa-reddit"><i>&#xf1a1</i></option>
                         </select>
                         <span class="input-group-text text-danger" onclick="delete_section_2(${count})"><i class="tim-icons icon-trash-simple"></i></span>
                     </div>

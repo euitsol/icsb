@@ -36,7 +36,7 @@ class ContactController extends Controller
         $contact->location = json_encode($request->location);
         $contact->updated_by = auth()->user()->id;
         $contact->update();
-        return redirect()->route('contact.contact_list')->withStatus(__('Contact location updated successfully.'));
+        return redirect()->route('contact.contact_create')->withStatus(__('Contact location updated successfully.'));
     }
     public function createSocial(ContactRequest $request): RedirectResponse
     {
@@ -50,7 +50,7 @@ class ContactController extends Controller
         $contact->social = json_encode($request->social);
         $contact->updated_by = auth()->user()->id;
         $contact->save();
-        return redirect()->route('contact.contact_list')->withStatus(__('Contact social info updated successfully.'));
+        return redirect()->route('contact.contact_create')->withStatus(__('Contact social info updated successfully.'));
     }
 
 
@@ -67,7 +67,7 @@ class ContactController extends Controller
         $contact->phone = json_encode($request->phone);
         $contact->updated_by = auth()->user()->id;
         $contact->update();
-        return redirect()->route('contact.contact_list')->withStatus(__('Contact phone updated successfully.'));
+        return redirect()->route('contact.contact_create')->withStatus(__('Contact phone updated successfully.'));
     }
     public function createEmail(ContactRequest $request): RedirectResponse
     {
@@ -77,12 +77,12 @@ class ContactController extends Controller
             $contact->email = json_encode($request->email);
             $contact->created_by = auth()->user()->id;
             $contact->save();
-            return redirect()->route('contact.contact_list')->withStatus(__('Contact email created successfully.'));
+            return redirect()->route('contact.contact_create')->withStatus(__('Contact email created successfully.'));
         }
         $contact->email = json_encode($request->email);
         $contact->updated_by = auth()->user()->id;
         $contact->update();
-        return redirect()->route('contact.contact_list')->withStatus(__('Contact email updated successfully.'));
+        return redirect()->route('contact.contact_create')->withStatus(__('Contact email updated successfully.'));
     }
 
 

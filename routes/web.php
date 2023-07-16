@@ -110,7 +110,7 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
     });
     // Contact Us Routes
     Route::group(['as' => 'contact.', 'prefix' => 'contact'], function () {
-        Route::get('index', [ContactController::class, 'index'])->name('contact_list');
+        Route::get('index', [ContactController::class, 'index'])->name('contact_create');
         Route::post('create/location', [ContactController::class, 'createLocation'])->name('location.contact_create');
         Route::post('create/social', [ContactController::class, 'createSocial'])->name('social.contact_create');
         Route::post('create/phone', [ContactController::class, 'createPhone'])->name('phone.contact_create');

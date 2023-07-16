@@ -16,3 +16,4 @@ service_list,web
 service_create,web
 service_edit,web
 service_delete,web
+contact_create,web
