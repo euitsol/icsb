@@ -17,6 +17,7 @@ return new class extends Migration
             $table->json('social_link')->nullable();
             $table->json('social_icon')->nullable();
             $table->json('phone')->nullable();
+            $table->json('type')->nullable();
             $table->json('email')->nullable();
             $table->timestamps();
             $table->softDeletes();

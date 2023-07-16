@@ -64,11 +64,13 @@ class ContactController extends Controller
         if ($contact === null) {
             $contact = new Contact();
             $contact->phone = json_encode($request->phone);
+            $contact->type = json_encode($request->type);
             $contact->created_by = auth()->user()->id;
             $contact->save();
             return redirect()->route('contact.contact_list')->withStatus(__('Contact phone created successfully.'));
         }
         $contact->phone = json_encode($request->phone);
+        $contact->type = json_encode($request->type);
         $contact->updated_by = auth()->user()->id;
         $contact->update();
         return redirect()->route('contact.contact_list')->withStatus(__('Contact phone updated successfully.'));

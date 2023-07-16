@@ -30,6 +30,18 @@
   border-left: none;
   min-height: 80vh;
 }
+@media only screen and (max-width: 767px) {
+    .tab button {
+    width: auto !important;
+    font-size: .6em;
+    }
+    .tab {
+    min-height: auto !important;
+    }
+    .tabcontent {
+    min-height: auto !important;
+    }
+}
 </style>
 @endpush
 
@@ -38,7 +50,7 @@
         <div class="col-md-12">
             @include('alerts.success')
         </div>
-        <div class="tab col-md-2 p-0">
+        <div class="tab col-md-2 p-md-0 pl-sm-3">
             <button class="tablinks p-3" onclick="openTab(event, 'tab1')"
             @if ((strpos(session($key ?? 'status'), 'location') !== false) || !session($key ?? 'status'))
                 id="defaultOpen"
@@ -75,7 +87,7 @@
                                     @if(isset($contact) && is_array(json_decode($contact->location)))
                                         @foreach (json_decode($contact->location) as $key=>$location)
                                             <div class="form-group{{ $errors->has('location') ? ' has-danger' : '' }}" @if($key>0) id="location-{{$key+1}}" @endif>
-                                                <label>{{ _('Location-1') }}</label>
+                                                <label>{{ _('Location-'.$key+1) }}</label>
                                                 <div class="input-group mb-3">
                                                     <input type="text" name="location[]" class="form-control{{ $errors->has('location') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter Location') }}" value="{{ $location }}">
                                                     @if($key>0)
@@ -137,7 +149,7 @@
                                     @if(isset($contact) && is_array(json_decode($contact->social_link)))
                                         @foreach (json_decode($contact->social_link) as $key=>$social_link)
                                             <div class="form-group{{ $errors->has('social_link') ? ' has-danger' : '' }}" @if($key>0) id="social-{{$key+1}}" @endif>
-                                                <label>{{ _('Social Link-1') }}</label>
+                                                <label>{{ _('Social Information-'.$key+1) }}</label>
                                                 <div class="input-group mb-3">
                                                     <input type="url" name="social_link[]" class="form-control{{ $errors->has('social_link') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter socilal link') }}" value="{{ $social_link }}">
                                                     <div class="div">
@@ -171,7 +183,7 @@
                                         @endforeach
                                     @else
                                         <div class="form-group{{ $errors->has('social_link') ? ' has-danger' : '' }}">
-                                            <label>{{ _('Social Link-1') }}</label>
+                                            <label>{{ _('Social Information-1') }}</label>
                                             <div class="input-group mb-3">
                                                 <input type="url" name="social_link[]" class="form-control{{ $errors->has('social_link') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter socilal link') }}" value="{{ old('social_link') }}">
                                                 <div class="div">
@@ -230,7 +242,59 @@
                             <form method="POST" action="{{route('contact.phone.contact_create')}}" autocomplete="off">
                                 @csrf
                                 <div class="card-body">
+
+
                                     @if(isset($contact) && is_array(json_decode($contact->phone)))
+                                        @foreach (json_decode($contact->phone) as $key=>$phone)
+                                            <div class="form-group{{ $errors->has('phone') ? ' has-danger' : '' }}" @if($key>0) id="phone-{{$key+1}}" @endif>
+                                                <label>{{ _('Phone-'.$key+1) }}</label>
+                                                <div class="input-group mb-3">
+                                                    <input type="tel" name="phone[]" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter phone') }}" value="{{ $phone }}">
+                                                    <div class="div">
+                                                        @foreach (json_decode($contact->type) as $key_2=>$type)
+                                                            @if($key == $key_2)
+                                                                <select class="input-group-text form-select" name="type[]" id="">
+                                                                    <option value="Phone" @if($type == "Phone") selected @endif>Phone</option>
+                                                                    <option value="Telephone" @if($type == "Telephone") selected @endif>Telephone</option>
+                                                                    <option value="Fax" @if($type == "Fax") selected @endif>Fax</option>
+                                                                    <option value="WhatsApp" @if($type == "WhatsApp") selected @endif>WhatsApp</option>
+                                                                    <option value="Imo" @if($type == "Imo") selected @endif>Imo</option>
+                                                                </select>
+                                                            @endif
+                                                        @endforeach
+                                                        @include('alerts.feedback', ['field' => 'type'])
+                                                        @if($key>0)
+                                                            <span class="input-group-text text-danger" onclick="delete_section_3({{$key+1}})"><i class="tim-icons icon-trash-simple"></i></span>
+                                                        @else
+                                                            <span class="input-group-text" id="add_phone" data-count="1"><i class="tim-icons icon-simple-add"></i></span>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                                @include('alerts.feedback', ['field' => 'phone'])
+                                            </div>
+                                        @endforeach
+                                    @else
+                                        <div class="form-group{{ $errors->has('phone') ? ' has-danger' : '' }}">
+                                            <label>{{ _('Social Link-1') }}</label>
+                                            <div class="input-group mb-3">
+                                                <input type="tel" name="phone[]" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter phone') }}" value="{{ old('phone') }}">
+                                                <div class="div">
+                                                    <select class="input-group-text form-select" name="type[]" id="">
+                                                        <option value="Phone" >Phone</option>
+                                                        <option value="Telephone">Telephone</option>
+                                                        <option value="Fax" >Fax</option>
+                                                        <option value="WhatsApp" >WhatsApp</option>
+                                                        <option value="Imo" >Imo</option>
+                                                    </select>
+                                                    @include('alerts.feedback', ['field' => 'type'])
+                                                    <span class="input-group-text" id="add_phone" data-count="1"><i class="tim-icons icon-simple-add"></i></span>
+                                                </div>
+                                            </div>
+                                            @include('alerts.feedback', ['field' => 'phone'])
+                                        </div>
+                                    @endif
+
+                                    {{-- @if(isset($contact) && is_array(json_decode($contact->phone)))
                                         @foreach (json_decode($contact->phone) as $key=>$phone)
                                             <div class="form-group{{ $errors->has('phone') ? ' has-danger' : '' }}" @if($key>0) id="phone-{{$key+1}}" @endif>
                                                 <label>{{ _('Phone-1') }}</label>
@@ -254,7 +318,7 @@
                                             </div>
                                             @include('alerts.feedback', ['field' => 'phone'])
                                         </div>
-                                    @endif
+                                    @endif --}}
                                     <div id="phone">
 
                                     </div>
@@ -293,7 +357,7 @@
                                     @if(isset($contact) && is_array(json_decode($contact->email)))
                                         @foreach (json_decode($contact->email) as $key=>$email)
                                             <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}" @if($key>0) id="email-{{$key+1}}" @endif>
-                                                <label>{{ _('Email-1') }}</label>
+                                                <label>{{ _('Email-'.$key+1) }}</label>
                                                 <div class="input-group mb-3">
                                                     <input type="tel" name="email[]" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter Email') }}" value="{{ $email }}">
                                                     @if($key>0)
@@ -430,6 +494,27 @@ function delete_section_2(count) {
 
 
 //Append for Phone
+// $('#add_phone').click(function() {
+//     result = '';
+//     count = $(this).data('count') + 1;
+//     $(this).data('count', count);
+
+//     result = `<div class="form-group{{ $errors->has('phone') ? ' has-danger' : '' }}" id="phone-${count}">
+//                 <label>{{ _('Phone-${count}') }}</label>
+//                 <div class="input-group mb-3">
+//                     <input type="text" name="phone[]" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter Phone') }}" value="{{ old('phone') }}">
+//                     <span class="input-group-text text-danger" onclick="delete_section_3(${count})"><i class="tim-icons icon-trash-simple"></i></span>
+//                 </div>
+//                 @include('alerts.feedback', ['field' => 'phone'])
+//             </div>`;
+
+//     $('#phone').append(result);
+// });
+// function delete_section_3(count) {
+//         $('#phone-' + count).remove();
+// };
+
+
 $('#add_phone').click(function() {
 result = '';
 count = $(this).data('count') + 1;
@@ -438,8 +523,18 @@ $(this).data('count', count);
 result = `<div class="form-group{{ $errors->has('phone') ? ' has-danger' : '' }}" id="phone-${count}">
             <label>{{ _('Phone-${count}') }}</label>
             <div class="input-group mb-3">
-                <input type="text" name="phone[]" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter Phone') }}" value="{{ old('phone') }}">
-                <span class="input-group-text text-danger" onclick="delete_section_3(${count})"><i class="tim-icons icon-trash-simple"></i></span>
+                <input type="tel" name="phone[]" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter phone') }}" value="{{ old('phone') }}">
+                <div class="div">
+                    <select class="input-group-text form-select" name="type[]" id="">
+                        <option value="Phone" >Phone</option>
+                        <option value="Telephone">Telephone</option>
+                        <option value="Fax" >Fax</option>
+                        <option value="WhatsApp" >WhatsApp</option>
+                        <option value="Imo" >Imo</option>
+                    </select>
+                    @include('alerts.feedback', ['field' => 'type'])
+                    <span class="input-group-text text-danger" onclick="delete_section_3(${count})"><i class="tim-icons icon-trash-simple"></i></span>
+                </div>
             </div>
             @include('alerts.feedback', ['field' => 'phone'])
         </div>`;
