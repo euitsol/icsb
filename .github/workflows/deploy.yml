@@ -25,5 +25,5 @@ jobs:
             cd icsb.sandeepc.sg-host.com
             git fetch --all
             git reset --hard origin/main
-            php artisan optimize:clear
+            /usr/local/php82/bin/php-cli artisan optimize:clear
             
