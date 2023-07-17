@@ -41,13 +41,11 @@
                                         </td>
                                         <td> {{ $connection->url }} </td>
                                         <td>
-                                            <a href="{{route('national_connection.status.national_connection_edit',$connection->id)}}">
-                                                @if ($connection->status == 1)
-                                                    <span class="badge badge-success">Active</span>
-                                                @else
-                                                    <span class="badge badge-danger">Deactive</span>
-                                                @endif
-                                            </a>
+                                            @if ($connection->status == 1)
+                                                @include('backend.partials.button', ['routeName' => 'national_connection.status.national_connection_edit','params' => [$connection->id], 'className' => 'btn-success', 'label' => 'Active'])
+                                            @else
+                                                @include('backend.partials.button', ['routeName' => 'national_connection.status.national_connection_edit','params' => [$connection->id], 'className' => 'btn-danger', 'label' => 'Deactive'])
+                                            @endif
                                         </td>
                                         <td> {{ $connection->created_at }} </td>
                                         <td> {{ $connection->created_user->name ?? 'system' }} </td>
