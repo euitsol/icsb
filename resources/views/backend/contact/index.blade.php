@@ -2,46 +2,7 @@
 @section('title', 'Conntact Us')
 @push('css')
 <style>
-/* Style the tab */
-.tab {
 
-  border-radius: 5px 0 0 5px;
-  border: 1px solid #ccc;
-  min-height: 80vh;
-}
-.tab button {
-    width: 100%;
-    border: none;
-    outline: none;
-    text-align: left;
-    cursor: pointer;
-    transition: 0.3s;
-    font-size: 1em;
-    color: rgba(34, 42, 66, 0.7);
-    text-transform: uppercase;
-}
-.tab button:hover {
-  background-color: #ddd;
-}
-.tabcontent {
-  border-radius: 0 5px 5px 0;
-  padding: 0px 12px;
-  border: 1px solid #ccc;
-  border-left: none;
-  min-height: 80vh;
-}
-@media only screen and (max-width: 767px) {
-    .tab button {
-    width: auto !important;
-    font-size: .6em;
-    }
-    .tab {
-    min-height: auto !important;
-    }
-    .tabcontent {
-    min-height: auto !important;
-    }
-}
 </style>
 @endpush
 
@@ -49,7 +10,7 @@
 @php
     $count = 0;
 @endphp
-    <div class="row">
+    <div class="row contact_wrap">
         <div class="col-md-12">
             @include('alerts.success')
         </div>
@@ -106,7 +67,7 @@
                                         <div class="form-group ">
                                             <label>{{ _('Location-1') }}</label>
                                             <div class="input-group mb-3">
-                                                <input type="text" name="location[]" class="form-control " placeholder="{{ _('Enter Location') }}" value="{{ old('location') }}" required>
+                                                <input type="text" name="location[]" class="form-control " placeholder="{{ _('Enter Location') }}" required>
                                                 <span class="input-group-text" id="add_location" data-count="1"><i class="tim-icons icon-simple-add"></i></span>
                                             </div>
                                         </div>
@@ -156,7 +117,7 @@
                                                 <div class="input-group mb-3">
                                                     <input type="url" name="social[{{$count}}][link]" class="form-control" placeholder="{{ _('Enter social media information') }}" value="{{$social->link}}" required>
                                                     <div class="div">
-                                                        <select class="input-group-text form-select" name="social[{{$count}}][icon]" required>
+                                                        <select class="input-group-text form-select" name="social[{{$count}}][icon]">
                                                             <option value="fa-brands fa-facebook-f" @if( $social->icon == "fa-brands fa-facebook-f" ) selected @endif title="Facebook" ><i>&#xf09a</i></option>
                                                             <option value="fa-brands fa-twitter"    @if( $social->icon == "fa-brands fa-twitter" ) selected @endif title="Twitter" ><i>&#xf099</i></option>
                                                             <option value="fa-brands fa-linkedin-in"@if( $social->icon == "fa-brands fa-linkedin-in" ) selected @endif title="Linkedin" ><i>&#xf0e1</i></option>
@@ -182,9 +143,9 @@
                                         <div class="form-group">
                                             <label>{{ _('Social Media Information-1') }}</label>
                                             <div class="input-group mb-3">
-                                                <input type="url" name="social[1][link]" class="form-control" placeholder="{{ _('Enter socilal link') }}" value="{{ old('social[1][link') }}" required>
+                                                <input type="url" name="social[1][link]" class="form-control" placeholder="{{ _('Enter socilal link') }}" required>
                                                 <div class="div">
-                                                    <select class="input-group-text form-select" name="social[1][icon]" required>
+                                                    <select class="input-group-text form-select" name="social[1][icon]">
                                                         <option value="fa-brands fa-facebook-f" title="Facebook"><i>&#xf09a</i></option>
                                                         <option value="fa-brands fa-twitter" title="Twitter"><i>&#xf099</i></option>
                                                         <option value="fa-brands fa-linkedin-in" title="Linkedin"><i>&#xf0e1</i></option>
@@ -251,7 +212,7 @@
                                                 <div class="input-group mb-3">
                                                     <input type="tel" name="phone[{{$count}}][number]" class="form-control" placeholder="{{ _('Enter phone number') }}" value="{{ $phone->number }}" required>
                                                     <div class="div">
-                                                        <select class="input-group-text form-select" name="phone[{{$count}}][type]" required>
+                                                        <select class="input-group-text form-select" name="phone[{{$count}}][type]">
                                                             <option value="Phone" @if($phone->type == "Phone") selected @endif title='Phone'><i>&#xf2a0</i></option>
                                                             <option value="Telephone" @if($phone->type == "Telephone") selected @endif title='Telephone'><i>&#xf1e4</i></option>
                                                             <option value="Fax" @if($phone->type == "Fax") selected @endif title='Fax'><i>&#xf1ac</i></option>
@@ -269,9 +230,9 @@
                                         <div class="form-group">
                                             <label>{{ _('Phone Number-1') }}</label>
                                             <div class="input-group mb-3">
-                                                <input type="tel" name="phone[1][number]" class="form-control" placeholder="{{ _('Enter phone number') }}" value="{{ old('phone[1][number]') }}" required>
+                                                <input type="tel" name="phone[1][number]" class="form-control" placeholder="{{ _('Enter phone number') }}" required>
                                                 <div class="div">
-                                                    <select class="input-group-text form-select" name="phone[1][type]" required>
+                                                    <select class="input-group-text form-select" name="phone[1][type]">
                                                         <option value="Phone" title='Phone'><i>&#xf2a0</i></option>
                                                         <option value="Telephone" title='Telephone'><i>&#xf1e4</i></option>
                                                         <option value="Fax" title='Fax'><i>&#xf1ac</i></option>
@@ -335,7 +296,7 @@
                                         <div class="form-group">
                                             <label>{{ _('Email-1') }}</label>
                                             <div class="input-group mb-3">
-                                                <input type="email" name="email[]" class="form-control" placeholder="{{ _('Enter Email') }}" value="{{ old('email') }}" required>
+                                                <input type="email" name="email[]" class="form-control" placeholder="{{ _('Enter Email') }}"  required>
                                                 <span class="input-group-text" id="add_email" data-count="1"><i class="tim-icons icon-simple-add"></i></span>
                                             </div>
                                         </div>
@@ -369,120 +330,6 @@
     </div>
 
 @endsection
-
-
-
-@push('js')
-<script>
-
-
-
-
-//Append for location
-$('#add_location').click(function() {
-    result = '';
-    count = $(this).data('count') + 1;
-    console.log(count);
-    $(this).data('count', count);
-
-    result = `<div class="form-group " id="location-${count}">
-                <label>{{ _('Location-${count}') }}</label>
-                <div class="input-group mb-3">
-                    <input type="text" name="location[]" class="form-control" placeholder="{{ _('Enter Location') }}" value="{{ old('location') }}" required>
-                    <span class="input-group-text text-danger" onclick="delete_section_1(${count})"><i class="tim-icons icon-trash-simple"></i></span>
-                </div>
-            </div>`;
-
-    $('#location').append(result);
-});
-function delete_section_1(count) {
-    $('#location-' + count).remove();
-};
-
-
-//Append for social
-$('#add_social').click(function() {
-    result = '';
-    count = $(this).data('count') + 1;
-    $(this).data('count', count);
-
-    result = `<div class="form-group" id='social-${count}'>
-                <label>{{ _('Social Media Information-${count}') }}</label>
-                <div class="input-group mb-3">
-                    <input type="url" name="social[${count}][link]" class="form-control" placeholder="{{ _('Enter socilal media information') }}" value="{{ old("social[${count}]['link']") }}" required>
-                    <div class="div">
-                        <select class="input-group-text form-select" name="social[${count}][icon]" required>
-                            <option value="fa-brands fa-facebook-f" title="Facebook"><i>&#xf09a</i></option>
-                            <option value="fa-brands fa-twitter" title="Twitter"><i>&#xf099</i></option>
-                            <option value="fa-brands fa-linkedin-in" title="Linkedin"><i>&#xf0e1</i></option>
-                            <option value="fa-brands fa-instagram" title="Instagram"><i>&#xf16d</i></option>
-                            <option value="fa-brands fa-youtube" title="Youtube"><i>&#xf167</i></option>
-                            <option value="fa-brands fa-pinterest" title="Pinterest"><i>&#xf0d2</i></option>
-                            <option value="fa-brands fa-google" title="Google"><i>&#xf1a0</i></option>
-                            <option value="fa-brands fa-tiktok" title="Tiktok"><i>&#xe07b</i></option>
-                            <option value="fa-brands fa-telegram" title="Telegram"><i>&#xf2c6</i></option>
-                            <option value="fa-brands fa-whatsapp" title="WhatsApp"><i>&#xf232</i></option>
-                            <option value="fa-brands fa-reddit" title="Reddit"><i>&#xf1a1</i></option>
-                        </select>
-                        <span class="input-group-text text-danger" onclick="delete_section_2(${count})"><i class="tim-icons icon-trash-simple"></i></span>
-                    </div>
-                </div>
-            </div>`;
-
-    $('#social').append(result);
-});
-function delete_section_2(count) {
-    $('#social-' + count).remove();
-};
-
-
-
-$('#add_phone').click(function() {
-    result = '';
-    count = $(this).data('count') + 1;
-    $(this).data('count', count);
-
-    result = `<div class="form-group" id="phone-${count}">
-                <label>{{ _('Phone Number-${count}') }}</label>
-                <div class="input-group mb-3">
-                    <input type="tel" name="phone[${count}][number]" class="form-control" placeholder="{{ _('Enter phone number') }}" value="{{ old("phone[${count}]['number']") }}" required>
-                    <div class="div">
-                        <select class="input-group-text form-select" name="phone[${count}][type]" required>
-                            <option value="Phone" title='Phone'><i>&#xf2a0</i></option>
-                            <option value="Telephone" title='Telephone'><i>&#xf1e4</i></option>
-                            <option value="Fax" title='Fax'><i>&#xf1ac</i></option>
-                        </select>
-                        <span class="input-group-text text-danger" onclick="delete_section_3(${count})"><i class="tim-icons icon-trash-simple"></i></span>
-                    </div>
-                </div>
-            </div>`;
-    $('#phone').append(result);
-});
-function delete_section_3(count) {
-    $('#phone-' + count).remove();
-};
-
-
-//Append for Email
-$('#add_email').click(function() {
-    result = '';
-    count = $(this).data('count') + 1;
-    $(this).data('count', count);
-
-    result = `<div class="form-group" id="email-${count}">
-                <label>{{ _('Email-${count}') }}</label>
-                <div class="input-group mb-3">
-                    <input type="text" name="email[]" class="form-control" placeholder="{{ _('Enter Phone') }}" value="{{ old('email') }}" required>
-                    <span class="input-group-text text-danger" onclick="delete_section_4(${count})"><i class="tim-icons icon-trash-simple"></i></span>
-                </div>
-            </div>`;
-
-    $('#email').append(result);
-
-});
-function delete_section_4(count) {
-    $('#email-' + count).remove();
-};
-
-</script>
+@push('js_link')
+<script src="{{ asset('backend/js/contact.js') }}"></script>
 @endpush

@@ -28,7 +28,7 @@
                         <div class="content">
                             <h4>Email:</h4>
                             @foreach (json_decode($contact->email) as $key=>$email)
-                                <a href="mailto:{{$email}}">{{$email}}</a>
+                                <a href="mailto:{{$email}}">{{$email}}</a><br>
                             @endforeach
                         </div>
                     </div>

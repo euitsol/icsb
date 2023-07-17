@@ -24,11 +24,13 @@
     width: 2.5rem;
     padding: 0;
 }
-.input-group>.div{
+
+.input-group>.div {
     position: relative;
     display: flex;
 }
-.input-group>.div> select {
+
+.input-group>.div>select {
     display: block;
     width: auto;
     height: 100%;
@@ -36,12 +38,67 @@
     outline: 0;
     text-align: left;
     border-radius: 0;
-    border-right:0;
+    border-right: 0;
     font-family: 'FontAwesome', 'Second Font name'
 }
-.input-group-text > i{
+
+.input-group-text>i {
     margin: 0 auto;
 }
+
 .input-group-text:hover {
     border-color: #e14eca;
 }
+
+/*=============================================================
+                Contac Us Backend CSS Start
+ =============================================================*/
+.contact_wrap .tab {
+
+    border-radius: 5px 0 0 5px;
+    border: 1px solid #ccc;
+    min-height: 80vh;
+}
+
+.contact_wrap .tab button {
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1em;
+    color: rgba(34, 42, 66, 0.7);
+    text-transform: uppercase;
+}
+
+.contact_wrap .tab button:hover {
+    background-color: #ddd;
+}
+
+.contact_wrap .tabcontent {
+    border-radius: 0 5px 5px 0;
+    padding: 0px 12px;
+    border: 1px solid #ccc;
+    border-left: none;
+    min-height: 80vh;
+}
+
+@media only screen and (max-width: 767px) {
+    .contact_wrap .tab button {
+        width: auto !important;
+        font-size: .6em;
+    }
+
+    .contact_wrap .tab {
+        min-height: auto !important;
+    }
+
+    .contact_wrap .tabcontent {
+        min-height: auto !important;
+    }
+}
+
+/*=============================================================
+                Contac Us Backend CSS End
+ =============================================================*/
