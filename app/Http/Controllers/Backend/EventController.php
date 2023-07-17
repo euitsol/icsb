@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Event;
 use Illuminate\View\View;
+use App\Http\Requests\EventRequest;
+use Illuminate\Http\RedirectResponse;
+
 
 class EventController extends Controller
 {
@@ -23,5 +26,25 @@ class EventController extends Controller
     public function create(): View
     {
         return view('backend.event.create');
+    }
+    public function store(EventRequest $request): RedirectResponse
+    {
+        $event = new Event();
+        $image = $request->file('image');
+        if ($image) {
+            $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('uploaded/event'), $imageName);
+            $event->image = '/uploaded/event/' . $imageName;
+        }
+        $event->title = $request->title;
+        $event->total_participant = $request->total_participant;
+        $event->event_location = $request->event_location;
+        $event->video_url = $request->video_url;
+        $event->event_start_time = $request->event_start_time;
+        $event->event_end_time = $request->event_end_time;
+        $event->description = $request->description;
+        $event->created_by = auth()->user()->id;
+        $event->save();
+        return redirect()->route('event.event_list')->withStatus(__('Event '.$request->title.' created successfully.'));
     }
 }

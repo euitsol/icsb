@@ -121,7 +121,7 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
     Route::group(['as' => 'event.', 'prefix' => 'event'], function () {
         Route::get('index', [EventController::class, 'index'])->name('event_list');
         Route::get('create', [EventController::class, 'create'])->name('event_create');
-        // Route::post('create', [EventController::class, 'store'])->name('event_create');
+        Route::post('create', [EventController::class, 'store'])->name('event_create');
         // Route::get('edit/{id}',      [EventController::class, 'edit'])->name('event_edit');
         // Route::put('edit/{id}',      [EventController::class, 'update'])->name('event_edit');
         // Route::get('delete/{id}', [EventController::class, 'delete'])->name('event_delete');

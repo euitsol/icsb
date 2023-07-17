@@ -16,9 +16,13 @@ class EventRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'description' => 'required|max:10000',
-            'event_time' => 'required|date_format:H:i',
-            'event_date' => 'required|date',
+            'description' => 'required|srting|max:10000',
+            'event_start_time' => 'required|date|date_format:Y-m-d H:i:s',
+            'event_end_time' => 'required|date|date_format:Y-m-d H:i:s',
+            'total_participant' => 'required|numeric',
+            'event_location' => 'required',
+            'video_url' => 'nullable',
+            'status' => 'nullable|boolean',
 
         ]
         +
