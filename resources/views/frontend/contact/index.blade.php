@@ -20,51 +20,73 @@
 		<div class="form-content">
 			<div class="detailes-column">
 				<h3>Contact Info.</h3>
-				<div class="deatiles-items">
-					<div class="icon">
-						<img src="{{asset('frontend/img/contact/contact-email.png')}}" alt="Contact Email">
-					</div>
-					<div class="content">
-						<h4>Email:</h4>
-						<a href="mailto:icsb@icsb.edu.bd">icsb@icsb.edu.bd</a>
-					</div>
-				</div>
-				<div class="deatiles-items">
-					<div class="icon">
-						<img src="{{asset('frontend/img/contact/contact-phone.png')}}" alt="Contact Email">
-					</div>
-					<div class="content">
-						<h4>Phone:</h4>
-						<a href="tel:+8801708030804">+8801708030804</a>
-					</div>
-				</div>
-				<div class="deatiles-items">
-					<div class="icon">
-						<img src="{{asset('frontend/img/contact/contact-telephone.png')}}" alt="Contact Email">
-					</div>
-					<div class="content">
-						<h4>Telephone No:</h4>
-						<a href="">880-2-933 6901, 49349578  (PABX)</a>
-					</div>
-				</div>
-				<div class="deatiles-items">
-					<div class="icon">
-						<img src="{{asset('frontend/img/contact/contact-fax.png')}}" alt="Contact Email">
-					</div>
-					<div class="content">
-						<h4>Fax No:</h4>
-						<a href="tel:880-2-933-9957">880-2-933-9957</a>
-					</div>
-				</div>
-				<div class="deatiles-items">
-					<div class="icon">
-						<img src="{{asset('frontend/img/contact/contact-location.png')}}" alt="Contact Email">
-					</div>
-					<div class="content">
-						<h4>Address:</h4>
-						<a href="">Padma Life Tower, ( 8th floor), 115 kazi Nazrul Islam Avenue. Bangla Motor, Dhaka-1000.</a>
-					</div>
-				</div>
+                @if(isset($contact) && is_array(json_decode($contact->email)))
+                    <div class="deatiles-items">
+                        <div class="icon">
+                            <img src="{{asset('frontend/img/contact/contact-email.png')}}" alt="Contact Email">
+                        </div>
+                        <div class="content">
+                            <h4>Email:</h4>
+                            @foreach (json_decode($contact->email) as $key=>$email)
+                                <a href="mailto:{{$email}}">{{$email}}</a>
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
+                @if(isset($contact) && !empty(json_decode($contact->phone)))
+                    <div class="deatiles-items">
+                        <div class="icon">
+                            <img src="{{asset('frontend/img/contact/contact-phone.png')}}" alt="Contact Email">
+                        </div>
+                        <div class="content">
+                            <h4>Phone:</h4>
+                            @foreach (json_decode($contact->phone) as $key=>$phone)
+                                @if($phone->type == "Phone")
+                                    <a href="tel:+88{{$phone->number}}">+88{{$phone->number}}</a><br>
+                                @endif
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="deatiles-items">
+                        <div class="icon">
+                            <img src="{{asset('frontend/img/contact/contact-telephone.png')}}" alt="Contact Email">
+                        </div>
+                        <div class="content">
+                            <h4>Telephone No:</h4>
+                            @foreach (json_decode($contact->phone) as $key=>$phone)
+                                @if($phone->type == "Telephone")
+                                    <a href="tel:{{$phone->number}}">{{$phone->number}}</a><br>
+                                @endif
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="deatiles-items">
+                        <div class="icon">
+                            <img src="{{asset('frontend/img/contact/contact-fax.png')}}" alt="Contact Email">
+                        </div>
+                        <div class="content">
+                            <h4>Fax No:</h4>
+                            @foreach (json_decode($contact->phone) as $key=>$phone)
+                                @if($phone->type == "Telephone")
+                                    <a href="tel:{{$phone->number}}">{{$phone->number}}</a><br>
+                                @endif
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
+                @if(isset($contact) && is_array(json_decode($contact->location)))
+                    <div class="deatiles-items">
+                        <div class="icon">
+                            <img src="{{asset('frontend/img/contact/contact-location.png')}}" alt="Contact Email">
+                        </div>
+                        <div class="content">
+                            <h4>Address:</h4>
+                            @foreach (json_decode($contact->location) as $key=>$location)
+                                <a href="">{{$location}}</a>
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
 			</div>
 			<div class="form-column">
 				<h2>Fill The Form Below</h2>

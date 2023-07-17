@@ -45,14 +45,3 @@
 .input-group-text:hover {
     border-color: #e14eca;
 }
-.select option {
-    border: none;
-    outline: none;
-    font-size: 18px;
-    padding: 5px 55px 5px 5px;
-    background-color: slategray;
-    color: white;
-    -webkit-appearance: none; /* for Safari */
-    margin: 0;
-    border-radius: 0;
-}
