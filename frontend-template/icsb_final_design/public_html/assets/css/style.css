@@ -1,0 +1,410 @@
+/* ====================== Start Global CSS ========================= */
+*{
+	margin: 0;
+	padding: 0;
+	outline: 0;
+}
+img{
+	width: 100%;
+}
+a{
+	display: inline-block;
+	text-decoration: none;
+	font-family: 'Poppins', sans-serif;
+}
+p{
+	margin: 0;
+	font-style: 16px;
+	line-height: 22px;
+	font-weight: 400;
+	font-family: 'Poppins', sans-serif;
+}
+li{
+	list-style: none;
+}
+h1,h2,h3,h4,h5,h6{
+	font-family: 'Roboto', sans-serif;
+}
+.container{
+	max-width: 1460px;
+	padding: 0 30px;
+	margin: 0 auto;
+}
+.flex{
+	display: flex;
+}
+.text-align{
+	text-align: center;
+}
+.section-heading h2{
+	color: #fff;
+	font-size: 70px;
+	line-height: 76px;
+	margin-bottom: 50px;
+}
+
+
+/*=================== Top Header Section ===================*/
+.top-header-section{
+	padding: 15px 0;
+	background: #182456;
+}
+.top-header-section .header-content-column{
+	align-items: center;
+	justify-content: space-between;
+}
+.top-header-section .header-column{
+	column-gap: 20px;
+}
+.top-header-section .header-column a{
+	color: #fff;
+	width: 146px;
+	height: 26px;
+	font-size: 14px;
+	line-height: 26px;
+	border-radius: 13px;
+	transition: 0.4s;
+	border: 1px solid #fff;
+}
+.top-header-section .header-column a:hover{
+	color: #162B75;
+	background: #fff;
+}
+.top-header-section .header-column p{
+	color: #fff;
+	font-weight: 600;
+}
+.top-header-section .header-info-column a{
+	width: 190px;
+}
+.top-header-section .header-info-column a i{
+	margin-right: 4px;
+}
+/*================== Header Section =====================*/
+.main-header-section{
+	padding: 18px 0;
+}
+.main-header-section .header-content img{
+	width: auto;
+}
+.main-header-section .header-content .logo-column{
+	display: block;
+}
+.main-header-section .header-content h1{
+	color: #162B75;
+	font-size: 55px;
+	line-height: 61px;
+	position: relative;
+	margin-top: 10px;
+	display: inline-block;
+	font-family: 'Teko', sans-serif;
+}
+.main-header-section .header-content h1:after{
+	content: '';
+	position: absolute;
+	background: #162B75;
+	width: 100%;
+	height: 1.5px;
+	left: 0;
+	top: 60px;
+}
+.main-header-section .header-content h2{
+	color: #162B75;
+	font-size: 22px;
+	line-height: 26px;
+	font-weight: 500;
+	letter-spacing: 1.25px;
+	font-family: 'Poppins', sans-serif;
+}
+.main-header-section .header-content p{
+	color: #162B75;
+	font-style: italic;
+}
+
+/*====================== Header Menu Section =====================*/
+.header-menu-section{
+	padding: 27px 0;
+	background: #182456;
+}
+.header-menu-section .nav-menu ul{
+	margin: 0;
+	column-gap: 38px;
+	justify-content: center;
+	align-content: center;
+}
+.header-menu-section .nav-menu a{
+	color: #fff;
+	font-size: 16px;
+	line-height: 22px;
+	text-transform: uppercase;
+}
+
+
+
+.banner-section .carousel-inner{
+	position: relative;
+}
+.banner-section .carousel-inner:after{
+	content: '';
+	position: absolute;
+	background: #111;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	opacity: 0.3;
+}
+.banner-section .carousel-control-prev{
+	opacity: 1;
+}
+.banner-section .carousel-control-next{
+	opacity: 1;
+}
+.banner-section .carousel-indicators{
+	margin-bottom: 35px;
+}
+.banner-section .carousel-indicators button{
+	width: 35px;
+	height: 13px;
+	opacity: 1;
+	border: 2px solid #162B75;
+	background: transparent;
+}
+.banner-section .carousel-indicators .active{
+	background: #162B75;
+}
+
+
+
+.we-are-section{
+	padding: 100px 0 163px 0;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url("../img/about_us_bg.png");
+}
+.we-are-section .we-are-coulmn{
+	align-items: center;
+	justify-content: space-between;
+}
+.we-are-section .we-are-coulmn .content-column h2{
+	color: #111;
+}
+.we-are-section .we-are-coulmn .content-column p{
+	max-width: 500px;
+}
+.we-are-section .we-are-coulmn .content-column a{
+	color: #182456;
+	width: 100%;
+	max-width: 170px;
+	height: 40px;
+	font-size: 18px;
+	line-height: 40px;
+	border-radius: 50px;
+	transition: 0.4s;
+	text-align: center;
+	margin-top: 52px;
+	transition: 0.4s;
+	border: 1.5px solid #182456;
+}
+.we-are-section .we-are-coulmn .content-column a:hover{
+	color: #fff;
+	background: #162B75;
+}
+
+
+.endorsement-section{
+	padding: 98px 0;
+}
+.endorsement-section .endorsement-column{
+	width: 33.33%;
+/*	height: 360px;*/
+	display: flex;
+	padding: 115px 40px;
+	flex-wrap: wrap;
+	align-items: center;
+}
+.endorsement-section .endorsement-column .heading{
+	width: 100%;
+}
+.endorsement-section .endorsement-column .button{
+	width: 100%;
+}
+.endorsement-section .endorsement-column .button a{
+	color: #182456;
+	font-size: 18px;
+	line-height: 40px;
+	height: 40px;
+	width: 100%;
+	max-width: 169px;
+	border-radius: 50px;
+	transition: 0.4s;
+	border: 1.5px solid #182456;
+}
+.endorsement-section .endorsement-column .button a:hover{
+	color: #fff;
+	background: #182456;
+}
+.endorsement-section .endorsement-column h3{
+	color: #111;
+	font-size: 22px;
+	line-height: 28px;
+	font-weight: 500;
+	max-width: 230px;
+	margin-bottom: 33px;
+	font-family: 'Poppins', sans-serif;
+}
+.endorsement-section .endorsement-student-column{
+	background-repeat: no-repeat;
+	background-image: url("../img/endorsement/student_bg.png");
+}
+.endorsement-section .endorsement-member-column{
+	background-repeat: no-repeat;
+	background-image: url("../img/endorsement/member_bg.png");
+}
+.endorsement-section .endorsement-member-column h3{
+	color: #fff;
+}
+.endorsement-section .endorsement-row .endorsement-member-column .button  a{
+	color: #fff;
+	font-size: 18px;
+	border: 1.5px solid #fff;
+}
+.endorsement-section .endorsement-row .endorsement-member-column .button  a:hover{
+	color: #182456;
+	background: #fff;
+}
+.endorsement-section .endorsement-endor-column{
+	background-repeat: no-repeat;
+	background-image: url("../img/endorsement/endorsement_bg.png");
+}
+
+
+.national-award-section{
+	padding: 102px 0 114px 0;
+	position: relative;
+	background-image: url("../img/award/national award bg.png");
+}
+.national-award-section:after{
+	content: '';
+	position: absolute;
+	background: #2A160F;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	opacity: 0.67;
+}
+.national-award-section .award-row{
+	z-index: 999;
+	position: relative;
+}
+.national-award-section .award-column{
+	column-gap: 1.7%;
+}
+.national-award-section .award-column .award-inner{
+	width: 23.725%;
+}
+
+
+
+
+.recent-video-section{
+	padding: 100px 0;
+	position: relative;
+	background-image: url("../img/recent_video_bg.png");
+}
+.recent-video-section:after{
+	content: '';
+	position: absolute;
+	background: #E2E2E2;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	opacity: 0.6;
+}
+.recent-video-section .section-heading h2{
+	color: #111;
+	z-index: 999;
+	position: relative;
+}
+.recent-video-section .videos-row {
+	grid-row-gap: 25px;
+	z-index: 999;
+	position: relative;
+}
+.recent-video-section .video iframe {
+	border: 5px solid #8A8A8A;
+}
+.recent-video-section .video .video-title {
+	padding: 12px;
+	background-color: #152360;
+}
+.recent-video-section .video {
+	line-height: 0;
+}
+.recent-video-section .video p {
+	font-family: 'Poppins', sans-serif;
+	font-size: 14px;
+	line-height: 20px;
+	text-align: center;
+	text-transform: capitalize;
+	color: #fff;
+	margin: 0;
+}
+.recent-video-section .video .ytp-show-cards-title {
+	display: none;
+}
+.recent-video-section .video .ytp-large-play-button {
+	display: none;
+}
+
+/*=================== Footer Section ====================*/
+.main-footer-section{
+	padding: 65px 0;
+	background: #182456;
+}
+.main-footer-section .footer-row{
+	justify-content: space-between;
+}
+.main-footer-section h2{
+	font-size: 24px;
+	line-height: 30px;
+	font-family: 'Poppins', sans-serif;
+}
+.main-footer-section h2 a{
+	color: #fff;
+}
+.main-footer-section ul{
+	margin: 0;
+	padding: 0;
+	margin-top: 13px;
+}
+.main-footer-section ul li{
+	margin-bottom: 4px;
+}
+.main-footer-section ul li:last-child{
+	margin-bottom: 0;
+}
+.main-footer-section ul li a{
+	color: #fff;
+	font-size: 16px;
+	line-height: 22px;
+}
+.main-footer-section ul li a i{
+	margin-right: 5px;
+}
+.main-footer-section .footer-column iframe{
+	border-radius: 24px;
+}
+
+.copyright-section{
+	padding: 19px 0;
+	background: #122F98;
+}
+.copyright-section p, .copyright-section p a{
+	color: #fff;
+	font-size: 16px;
+	line-height: 22px;
+}
