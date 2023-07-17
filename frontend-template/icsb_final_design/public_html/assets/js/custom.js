@@ -1,26 +1,23 @@
 $(document).ready(function(){
-    var owl = $('.owl-carousel');
+    var owl = $('.cs-wide-slider');
         owl.owlCarousel({
             // items:6,
             loop:true,
-            margin:10,
+            margin:20,
             nav: true,
             dots: false,
-            autoplay:true,
+            autoplay:false,
             autoplayTimeout:1000,
             autoplayHoverPause:true,
             responsive:{
                 0:{
-                    items:3
+                    items:2
                 },
                 600:{
-                    items:4
+                    items:3
                 },
                 800:{
-                    items:5
-                },
-                991:{
-                    items:6
+                    items:4
                 }
             }
     });

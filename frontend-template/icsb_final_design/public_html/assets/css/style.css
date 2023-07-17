@@ -448,6 +448,38 @@ h1,h2,h3,h4,h5,h6{
 	display: none;
 }
 
+
+/*==================== CS Logo Carousel ======================== */
+.colo-black {
+	color: #000000;
+}
+.heading-element h2 {
+	font-size: 70px;
+	line-height: 76px;
+	margin-bottom: 50px;
+}
+.cs-wide-section .content {
+	padding-top: 100px;
+	padding-bottom: 90px;
+}
+.cs-wide-section {
+	background-color: #D1E3FB;
+}
+.cs-wide-section .cs-wide-slider .owl-stage {
+	display: flex;
+	align-items: center;
+}
+.cs-wide-section .cs-wide-slider .owl-item {
+	padding: 20px;
+	background-color: #ffffff;
+}
+.cs-wide-section .cs-wide-slider .owl-item .item {}
+.cs-wide-section .cs-wide-slider .owl-item img {
+	width: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 /*=================== Footer Section ====================*/
 .main-footer-section{
 	padding: 65px 0;
