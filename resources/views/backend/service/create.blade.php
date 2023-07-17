@@ -34,11 +34,11 @@
 
                             <div class="form-group{{ $errors->has('image') ? ' has-danger' : '' }}">
                                 <label>{{ _('Service Image') }}</label>
-                                <input type="file" id="upImgInput" name="image" onchange="myFunction('upImg1')" class="form-control {{ $errors->has('image') ? ' is-invalid' : '' }}">
+                                <input type="file" id="upImgInput" name="image" onchange="myFunction('upImg')" class="form-control {{ $errors->has('image') ? ' is-invalid' : '' }}">
                                 @include('alerts.feedback', ['field' => 'image'])
                            </div>
                            <div class="mt-1">
-                                  <img src="{{ asset('no_img/no_img.jpg') }}" id="upImg1"
+                                  <img src="{{ asset('no_img/no_img.jpg') }}" id="upImg"
                                         class="upImg rounded me-50 border" alt="service image" height="100">
                             </div>
                             <div class="mt-1 mb-2">
