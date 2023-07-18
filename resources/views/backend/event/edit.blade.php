@@ -30,10 +30,11 @@
 
                         {{-- image --}}
 
-                        <div class="form-group{{ $errors->has('image') ? ' has-danger' : '' }}">
+                        <div class="form-group {{ $errors->has('image.*') ? 'is-invalid' : '' }} {{ $errors->has('image') ? 'is-invalid' : '' }}">
                             <label>{{ _('Event Image') }}</label>
-                            <input type="file" name="image[]" class="form-control" value="" multiple>
+                            <input type="file" name="image[]" class="form-control {{ $errors->has('image.*') ? 'is-invalid' : '' }} {{ $errors->has('image') ? 'is-invalid' : '' }}" value="" multiple>
                             @include('alerts.feedback', ['field' => 'image'])
+                            @include('alerts.feedback', ['field' => 'image.*'])
                         </div>
 
                         <div class="form-group{{ $errors->has('video_url') ? ' has-danger' : '' }}">
