@@ -10,7 +10,11 @@ use Illuminate\Support\Facades\Storage;
 class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
-
+    public function imageDelete($image){
+        if ($image) {
+            Storage::delete('public/' . $image);
+        }
+    }
 
     public function imageDelete($image){
         if ($image) {

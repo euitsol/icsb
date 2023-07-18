@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\FaqController;
 use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\ContactController;
+use App\Http\Controllers\Backend\EventController;
 use App\Http\Controllers\Backend\UserManagement\RoleController;
 use App\Http\Controllers\Backend\UserManagement\PermissionController;
 use App\Http\Controllers\Frontend\AboutPagesController;
@@ -115,6 +116,15 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::post('create/social', [ContactController::class, 'createSocial'])->name('social.contact_create');
         Route::post('create/phone', [ContactController::class, 'createPhone'])->name('phone.contact_create');
         Route::post('create/email', [ContactController::class, 'createEmail'])->name('email.contact_create');
+    });
+    // Event Routes
+    Route::group(['as' => 'event.', 'prefix' => 'event'], function () {
+        Route::get('index', [EventController::class, 'index'])->name('event_list');
+        Route::get('create', [EventController::class, 'create'])->name('event_create');
+        Route::post('create', [EventController::class, 'store'])->name('event_create');
+        Route::get('edit/{id}',      [EventController::class, 'edit'])->name('event_edit');
+        Route::put('edit/{id}',      [EventController::class, 'update'])->name('event_edit');
+        Route::get('delete/{id}', [EventController::class, 'delete'])->name('event_delete');
     });
 
 
