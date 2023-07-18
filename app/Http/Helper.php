@@ -63,3 +63,6 @@ function createCSV($filename = 'permissions.csv'): string
     return public_path('csv/' . $filename);
 }
 
+function storage_url($url){
+    return asset('storage/'.$url);
+}
