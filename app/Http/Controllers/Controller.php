@@ -15,5 +15,14 @@ class Controller extends BaseController
             Storage::delete('public/' . $image);
         }
     }
+    public function statusChange($modelData){
+        if($modelData->status == 1){
+            $modelData->status = 0;
+        }else{
+            $modelData->status = 1;
+        }
+        $modelData->updated_by = auth()->user()->id;
+        $modelData->save();
+    }
 
 }

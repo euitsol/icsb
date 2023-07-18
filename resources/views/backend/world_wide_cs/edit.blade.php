@@ -1,33 +1,40 @@
-@extends('backend.layouts.master', ['pageSlug' => 'national_connection'])
+@extends('backend.layouts.master', ['pageSlug' => 'wwcs'])
 
-@section('title', 'Edit National Connection')
+@section('title', 'Edit World Wide CS')
 
 @section('content')
     <div class="row">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="title">{{ _('Edit National Connection') }}</h5>
+                    <h5 class="title">{{ _('Edit World Wide CS') }}</h5>
                 </div>
-                <form method="POST" action="{{ route('national_connection.national_connection_edit', $connection->id) }}" autocomplete="off" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('wwcs.wwcs_edit', $wwcs->id) }}" autocomplete="off" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     <div class="card-body">
                             <div class="form-group{{ $errors->has('title') ? ' has-danger' : '' }}">
                                 <label>{{ _('Title') }}</label>
-                                <input type="text" name="title" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" value="{{ $connection->title }}">
+                                <input type="text" name="title" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" value="{{ $wwcs->title }}">
                                 @include('alerts.feedback', ['field' => 'title'])
                             </div>
 
                             <div class="form-group{{ $errors->has('logo') ? ' has-danger' : '' }}">
                                 <label class="form-label">Logo</label>
                                 <input type="file" id="upImgInput" name="logo"
-                                    class="form-control {{ $errors->has('logo') ? ' is-invalid' : '' }}" value="{{ $connection->logo }}">
+                                    class="form-control {{ $errors->has('logo') ? ' is-invalid' : '' }}" value="{{ $wwcs->logo }} image-upload">
                             </div>
                             <div class="form-group{{ $errors->has('url') ? ' has-danger' : '' }}">
                                 <label>{{ _('URL') }}</label>
-                                <input type="text" name="url" class="form-control{{ $errors->has('url') ? ' is-invalid' : '' }}" value="{{ $connection->url }}">
+                                <input type="text" name="url" class="form-control{{ $errors->has('url') ? ' is-invalid' : '' }}" value="{{ $wwcs->url }}">
                                 @include('alerts.feedback', ['field' => 'url'])
+                            </div>
+                            <div class="form-group{{ $errors->has('description') ? ' has-danger' : '' }}">
+                                <label>{{ _('Description(optional)') }} </label>
+                                <textarea rows="3" name="description" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}">
+                                    {{ $wwcs->description }}
+                                </textarea>
+                                @include('alerts.feedback', ['field' => 'description'])
                             </div>
                     </div>
                     <div class="card-footer">
@@ -40,7 +47,7 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        Service
+                        World Wide CS
                     </p>
                     <div class="card-description">
                         {{ _('The faq\'s manages user permissions by assigning different faqs to users. Each faq defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
