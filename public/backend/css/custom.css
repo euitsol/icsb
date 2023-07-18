@@ -24,11 +24,13 @@
     width: 2.5rem;
     padding: 0;
 }
-.input-group>.div{
+
+.input-group>.div {
     position: relative;
     display: flex;
 }
-.input-group>.div> select {
+
+.input-group>.div>select {
     display: block;
     width: auto;
     height: 100%;
@@ -36,15 +38,18 @@
     outline: 0;
     text-align: left;
     border-radius: 0;
-    border-right:0;
+    border-right: 0;
     font-family: 'FontAwesome', 'Second Font name'
 }
-.input-group-text > i{
+
+.input-group-text>i {
     margin: 0 auto;
 }
+
 .input-group-text:hover {
     border-color: #e14eca;
 }
+
 .select option {
     border: none;
     outline: none;
@@ -52,7 +57,8 @@
     padding: 5px 55px 5px 5px;
     background-color: slategray;
     color: white;
-    -webkit-appearance: none; /* for Safari */
+    -webkit-appearance: none;
+    /* for Safari */
     margin: 0;
     border-radius: 0;
 }

@@ -51,81 +51,134 @@ function deleteItem(modelName, itemId) {
         });
 }
 
+// Get the necessary elements
+const imageUploadInputs = document.querySelectorAll('.image-upload');
+const existingFilesArray = [];
 
+// Add event listener for each file input change
+imageUploadInputs.forEach(function (imageUploadInput, index) {
 
-// // Upload image
-$(function () {
-    $('#upImg').each(function () {
-        var accountUploadImg = $(this);
-        var accountUploadBtn = $('#upImgInput');
-        var accountUserImage = $('.upImg');
-        var accountResetBtn = $('#upImgReset');
+    const mainDiv = document.createElement('div');
+    mainDiv.classList.add('imagePreviewMainDiv');
 
-        if (accountUserImage) {
-            var resetImage = accountUserImage.attr("src");
-            accountUploadBtn.on("change", function (e) {
-                var reader = new FileReader(),
-                    files = e.target.files;
-                reader.onload = function () {
-                    if (accountUploadImg) {
-                        accountUploadImg.attr("src", reader.result);
-                    }
-                };
-                reader.readAsDataURL(files[0]);
-            });
+    imageUploadInput.parentNode.append(mainDiv);
 
-            accountResetBtn.on("click", function () {
-                accountUserImage.attr("src", resetImage);
-                accountUploadBtn.val(null);
+    // Check if data-existing-files attribute is present
+    if (imageUploadInput.hasAttribute('data-existing-files')) {
+
+        const existingFilesValue = imageUploadInput.getAttribute('data-existing-files');
+        if (existingFilesValue) {
+            let existingFiles;
+            try {
+                existingFiles = JSON.parse(existingFilesValue);
+            } catch (error) {
+                existingFiles = [existingFilesValue];
+            }
+
+            existingFilesArray[index] = existingFiles;
+            populateImagePreview(existingFiles, mainDiv);
+        }
+    }
+
+    imageUploadInput.addEventListener('change', function () {
+        const files = Array.from(this.files);
+
+        // Remove previous images if not multiple
+        if (!this.hasAttribute('multiple')) {
+            const previousImages = this.parentNode.querySelectorAll('.imagePreview');
+            previousImages.forEach(function (image) {
+                image.parentNode.remove();
             });
         }
-    });
-});
-// // Upload image
-$(function () {
-    $('#upImg').each(function () {
-        var accountUploadImg = $(this);
-        var accountUploadBtn = $('#upImgInput');
-        var accountUserImage = $('.upImg');
-        var accountResetBtn = $('#upImgReset');
 
-        if (accountUserImage) {
-            var resetImage = accountUserImage.attr("src");
-            accountUploadBtn.on("change", function (e) {
-                var reader = new FileReader(),
-                    files = e.target.files;
-                reader.onload = function () {
-                    if (accountUploadImg) {
-                        accountUploadImg.attr("src", reader.result);
-                    }
+        files.forEach(function (file) {
+            if (file) {
+
+                const imageUploadContainer = imageUploadInput.parentNode;
+
+                const imagePreviewDiv = document.createElement('div');
+                imagePreviewDiv.classList.add('imagePreviewDiv');
+
+                // Create the image element
+                const previewImage = document.createElement('img');
+                previewImage.classList.add('imagePreview', 'rounded', 'me-50', 'border');
+                previewImage.setAttribute('src', '#');
+                previewImage.setAttribute('alt', 'Uploaded Image');
+
+                // Create the remove button
+                const removeButton = document.createElement('i');
+                removeButton.classList.add('fa-solid', 'fa-trash', 'removeImage', 'text-danger');
+
+                // Add event listener for remove button click
+                removeButton.addEventListener('click', function () {
+                    const imageContainer = this.parentNode;
+                    const imagePreview = imageContainer.querySelector('.imagePreview');
+
+                    // Remove the image, remove button, and clear the file input value
+                    imageContainer.remove();
+                    imageUploadInput.value = '';
+                });
+
+                // Append the image and remove button to the preview div
+                imagePreviewDiv.appendChild(previewImage);
+                imagePreviewDiv.appendChild(removeButton);
+
+                // Append the preview div to the container
+                mainDiv.appendChild(imagePreviewDiv);
+
+                // Read the file and set the image source
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    previewImage.setAttribute('src', e.target.result);
                 };
-                reader.readAsDataURL(files[0]);
-            });
-
-            accountResetBtn.on("click", function () {
-                accountUserImage.attr("src", resetImage);
-                accountUploadBtn.val(null);
-            });
-        }
+                reader.readAsDataURL(file);
+            }
+        });
     });
 });
 
+function populateImagePreview(files, container) {
+    files.forEach(function (file) {
+        const imagePreviewDiv = document.createElement('div');
+        imagePreviewDiv.classList.add('imagePreviewDiv');
 
+        // Create the image element
+        const previewImage = document.createElement('img');
+        previewImage.classList.add('imagePreview', 'rounded', 'me-50', 'border');
+        previewImage.setAttribute('src', file);
+        previewImage.setAttribute('alt', 'Uploaded Image');
 
+        // Create the remove button
+        const removeButton = document.createElement('i');
+        removeButton.classList.add('fa-solid', 'fa-trash', 'removeImage', 'text-danger');
 
-function openTab(evt, tabName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace("btn-success", "");
-    }
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " btn-success";
-}
+        // Add event listener for remove button click
+        removeButton.addEventListener('click', function () {
+            const imageContainer = this.parentNode;
+            const imagePreview = imageContainer.querySelector('.imagePreview');
 
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
+            // Remove the image, remove button, and clear the file input value
+            imageContainer.remove();
+            // TODO: Handle removal of file from the existingFilesArray if needed
+        });
+
+        // Append the image and remove button to the preview div
+        imagePreviewDiv.appendChild(previewImage);
+        imagePreviewDiv.appendChild(removeButton);
+
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace("btn-success", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " btn-success";
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
