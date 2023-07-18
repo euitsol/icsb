@@ -111,7 +111,7 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
     });
     // Contact Us Routes
     Route::group(['as' => 'contact.', 'prefix' => 'contact'], function () {
-        Route::get('index', [ContactController::class, 'index'])->name('contact_list');
+        Route::get('index', [ContactController::class, 'index'])->name('contact_create');
         Route::post('create/location', [ContactController::class, 'createLocation'])->name('location.contact_create');
         Route::post('create/social', [ContactController::class, 'createSocial'])->name('social.contact_create');
         Route::post('create/phone', [ContactController::class, 'createPhone'])->name('phone.contact_create');
@@ -180,7 +180,7 @@ Route::group(['as' => 'rules_and_regulations.', 'prefix' => 'rulse-&-regulations
 Route::group(['as' => 'publications.', 'prefix' => 'publications'], function () {
     Route::get('/photo-gallery', [PublicationsPagesController::class, 'photoGallery'])->name('photo_gallery');
 });
-Route::group(['as' => 'contact.', 'prefix' => 'contact'], function () {
+Route::group(['as' => 'contact_view.', 'prefix' => 'contact'], function () {
     Route::get('/contact-us', [ContactPagesController::class, 'index'])->name('index');
 });
 Route::group(['as' => 'article.', 'prefix' => 'article'], function () {

@@ -13,8 +13,8 @@ class CheckPermissionMiddleware
         $routeName = Route::currentRouteName();
 
         // Specify the route name prefixes that require permission checks
-        $allowedPrefixes = []; //for testing purpose
-        // $allowedPrefixes = get_permission_routes();
+        // $allowedPrefixes = []; //for testing purpose
+        $allowedPrefixes = get_permission_routes();
 
         $shouldCheckPermission = false;
         foreach ($allowedPrefixes as $prefix) {
