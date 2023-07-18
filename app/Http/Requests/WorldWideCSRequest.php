@@ -16,6 +16,9 @@ class WorldWideCSRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'url' => 'required|url',
+            'description' => 'nullable|max:10000',
+            'status' => 'nullable|boolean',
 
         ]
         +
@@ -25,14 +28,16 @@ class WorldWideCSRequest extends FormRequest
     protected function store(): array
     {
         return [
-
+            'title' => 'required|unique:national_connections,title,NULL,id,deleted_at,NULL',
+            'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 
     protected function update(): array
     {
         return [
-
+            'title' => 'required|unique:national_connections,title,' . $this->route('id') . ',id,deleted_at,NULL',
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 }

@@ -13,8 +13,6 @@
                     @method('PUT')
                     @csrf
                     <div class="card-body">
-                            @include('alerts.success')
-
                             <div class="form-group{{ $errors->has('title') ? ' has-danger' : '' }}">
                                 <label>{{ _('Title') }}</label>
                                 <input type="text" name="title" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" value="{{ $connection->title }}">
@@ -25,14 +23,6 @@
                                 <label class="form-label">Logo</label>
                                 <input type="file" id="upImgInput" name="logo"
                                     class="form-control {{ $errors->has('logo') ? ' is-invalid' : '' }}" value="{{ $connection->logo }}">
-                            </div>
-                            <div class="mb-1">
-                                <img src="@if ($connection->logo) {{ asset('storage/'.$connection->logo) }} @else {{ asset('no_img/no_img.jpg') }} @endif" id="upImg"
-                                    class="upImg rounded me-50 border" alt="service logo" height="100">
-                            </div>
-                            <div class="mt-1 mb-2">
-                                <button type="button" id="upImgReset"
-                                    class="btn btn-sm btn-outline-secondary mb-75 waves-effect">Reset</button>
                             </div>
                             <div class="form-group{{ $errors->has('url') ? ' has-danger' : '' }}">
                                 <label>{{ _('URL') }}</label>

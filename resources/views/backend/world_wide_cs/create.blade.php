@@ -1,15 +1,15 @@
-@extends('backend.layouts.master', ['pageSlug' => 'national_connection'])
+@extends('backend.layouts.master', ['pageSlug' => 'wwcs'])
 
-@section('title', 'National Connection')
+@section('title', 'World Wide CS')
 
 @section('content')
     <div class="row">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="title">{{ _('Add National Connection') }}</h5>
+                    <h5 class="title">{{ _('Add World Wide CS') }}</h5>
                 </div>
-                <form method="POST" action="{{ route('national_connection.national_connection_create') }}" autocomplete="off" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('wwcs.wwcs_create') }}" autocomplete="off" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                             <div class="form-group{{ $errors->has('title') ? ' has-danger' : '' }}">
@@ -20,24 +20,22 @@
 
                             {{-- Logo --}}
 
-                            <div class="form-group{{ $errors->has('logo') ? ' has-danger' : '' }}">
+                            <div class="form-group {{ $errors->has('logo') ? ' has-danger' : '' }}">
                                 <label>{{ _('Logo') }}</label>
-                                <input type="file" id="upImgInput" name="logo" onchange="myFunction('upImg')" class="form-control {{ $errors->has('logo') ? ' is-invalid' : '' }}">
+                                <input type="file" name="logo" class="form-control {{ $errors->has('logo') ? ' is-invalid' : '' }}">
                                 @include('alerts.feedback', ['field' => 'logo'])
                            </div>
-                           <div class="mt-1">
-                                  <img src="{{ asset('no_img/no_img.jpg') }}" id="upImg"
-                                        class="upImg rounded me-50 border" alt="logo" height="100">
-                            </div>
-                            <div class="mt-1 mb-2">
-                                   <button type="button" id="upImgReset"
-                                        class="btn btn-sm btn-outline-secondary mb-75 waves-effect">Reset</button>
-                            </div>
-
                             <div class="form-group{{ $errors->has('url') ? ' has-danger' : '' }}">
                                 <label>{{ _('URL') }}</label>
                                 <input type="url" name="url" class="form-control{{ $errors->has('url') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter URL') }}" value="{{ old('url') }}">
                                 @include('alerts.feedback', ['field' => 'url'])
+                            </div>
+                            <div class="form-group{{ $errors->has('description') ? ' has-danger' : '' }}">
+                                <label>{{ _('Description(optional)') }} </label>
+                                <textarea rows="3" name="description" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}">
+                                    {{ old('description') }}
+                                </textarea>
+                                @include('alerts.feedback', ['field' => 'description'])
                             </div>
 
                     </div>
@@ -51,7 +49,7 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        National Connection
+                        World Wide CS
                     </p>
                     <div class="card-description">
                         {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}

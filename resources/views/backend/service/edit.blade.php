@@ -13,8 +13,6 @@
                     @method('PUT')
                     @csrf
                     <div class="card-body">
-                            @include('alerts.success')
-
                             <div class="form-group{{ $errors->has('title') ? ' has-danger' : '' }}">
                                 <label>{{ _('Title') }}</label>
                                 <input type="text" name="title" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ _('Title') }}" value="{{ $service->title }}">

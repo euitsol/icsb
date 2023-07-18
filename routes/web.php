@@ -141,11 +141,12 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
     // World Wide CS Routes
     Route::group(['as' => 'wwcs.', 'prefix' => 'wwcs'], function () {
         Route::get('index', [WWCSController::class, 'index'])->name('wwcs_list');
-        // Route::get('create', [WWCSController::class, 'create'])->name('wwcs_create');
-        // Route::post('create', [WWCSController::class, 'store'])->name('wwcs_create');
-        // Route::get('edit/{id}',      [WWCSController::class, 'edit'])->name('wwcs_edit');
-        // Route::put('edit/{id}',      [WWCSController::class, 'update'])->name('wwcs_edit');
-        // Route::get('delete/{id}', [WWCSController::class, 'delete'])->name('wwcs_delete');
+        Route::get('create', [WWCSController::class, 'create'])->name('wwcs_create');
+        Route::post('create', [WWCSController::class, 'store'])->name('wwcs_create');
+        Route::get('edit/{id}',      [WWCSController::class, 'edit'])->name('wwcs_edit');
+        Route::put('edit/{id}',      [WWCSController::class, 'update'])->name('wwcs_edit');
+        Route::get('status/{id}',      [WWCSController::class, 'status'])->name('status.wwcs_edit');
+        Route::get('delete/{id}', [WWCSController::class, 'delete'])->name('wwcs_delete');
     });
 
 

@@ -12,7 +12,7 @@
                             <h4 class="card-title">{{ _('National World Wide CS') }}</h4>
                         </div>
                         <div class="col-4 text-right">
-                            @include('backend.partials.button', ['routeName' => 'wwcs.wwcs_create', 'className' => 'btn-primary', 'label' => 'Add National wwcs'])
+                            @include('backend.partials.button', ['routeName' => 'wwcs.wwcs_create', 'className' => 'btn-primary', 'label' => 'Add World Wide CS'])
                         </div>
                     </div>
                 </div>

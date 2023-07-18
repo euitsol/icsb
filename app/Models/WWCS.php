@@ -11,4 +11,5 @@ class WWCS extends BaseModel
     use HasFactory;
 
     public $guarded = [];
+    protected $table = 'wwcs';
 }
