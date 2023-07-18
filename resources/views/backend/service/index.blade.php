@@ -35,7 +35,7 @@
                                     <tr>
                                         <td> {{ $service->title }} </td>
                                         <td><img class="rounded" width="60"
-                                            src="@if ($service->image) {{ asset($service->image) }} @else {{ asset('no_img/no_img.jpg') }} @endif"
+                                            src="@if ($service->image) {{ asset('storage/'.$service->image) }} @else {{ asset('no_img/no_img.jpg') }} @endif"
                                             alt="{{ $service->title }}">
                                         </td>
                                         <td> {{ $service->description }} </td>

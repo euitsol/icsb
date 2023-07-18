@@ -27,7 +27,7 @@
                                     class="form-control {{ $errors->has('image') ? ' is-invalid' : '' }}" value="{{ $service->image }}">
                             </div>
                             <div class="mb-1">
-                                <img src="@if ($service->image) {{ asset($service->image) }} @else {{ asset('no_img/no_img.jpg') }} @endif" id="upImg"
+                                <img src="@if ($service->image) {{ asset('storage/'.$service->image) }} @else {{ asset('no_img/no_img.jpg') }} @endif" id="upImg"
                                     class="upImg rounded me-50 border" alt="service image" height="100">
                             </div>
                             <div class="mt-1 mb-2">

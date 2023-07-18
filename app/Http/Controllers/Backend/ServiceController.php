@@ -10,6 +10,7 @@ use App\Models\Service;
 use App\Http\Requests\ServiceRequest;
 use Psr\Log\NullLogger;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Storage;
 
 
 class ServiceController extends Controller
@@ -31,14 +32,12 @@ class ServiceController extends Controller
     public function store(ServiceRequest $request): RedirectResponse
     {
         $service = new Service;
-
-
-        $image = $request->file('image');
-        if ($image) {
-            $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('uploaded/service'), $imageName);
-            $service->image = '/uploaded/service/' . $imageName;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $path = $image->store('services', 'public');
+            $service->image = $path;
         }
+
         $service->title = $request->title;
         $service->description = $request->description;
         $service->created_by = auth()->user()->id;
@@ -53,14 +52,13 @@ class ServiceController extends Controller
     public function update(ServiceRequest $request, $id): RedirectResponse
     {
         $service = Service::findOrFail($id);
-
-        $image = $request->file('image');
-        if ($image) {
-            $image_path = public_path($service->image);
-            @unlink($image_path);
-            $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('uploaded/service'), $imageName);
-            $service->image = '/uploaded/service/' . $imageName;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $path = $image->store('services', 'public');
+            if ($service->image) {
+                Storage::delete('public/' . $service->image);
+            }
+            $service->image = $path;
         }
 
         $service->title = $request->title;
@@ -73,6 +71,9 @@ class ServiceController extends Controller
     public function delete($id): RedirectResponse
     {
         $service = Service::findOrFail($id);
+        if ($service->image) {
+            Storage::delete('public/' . $service->image);
+        }
         $service->delete();
 
         return redirect()->route('service.service_list')->withStatus(__('Faq '.$service->title.' deleted successfully.'));
