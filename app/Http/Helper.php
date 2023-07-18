@@ -9,6 +9,7 @@ use App\Models\Permission;
 function get_permission_routes()
 {
 
+  return ['about.faq.','service.','contact.','national_connection.','wwcs.'];
   return ['about.faq.','service.','contact.','national_connection.','event.'];
 
 }

@@ -70,11 +70,17 @@
                     <i class="tim-icons icon-chat-33"></i>
                     <p>{{ _('National Connection') }}</p>
                  </a>
-            </li>     
+            </li>
             <li @if ($pageSlug == 'event') class="active " @endif>
                 <a href="{{route('event.event_list')}}">
                     <i class="tim-icons icon-chat-33"></i>
                     <p>{{ _('Event') }}</p>
+                </a>
+            </li>
+            <li @if ($pageSlug == 'wwcs') class="active " @endif>
+                <a href="{{route('wwcs.wwcs_list')}}">
+                    <i class="tim-icons icon-chat-33"></i>
+                    <p>{{ _('World Wide CS') }}</p>
                 </a>
             </li>
         </ul>

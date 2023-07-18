@@ -25,3 +25,7 @@ event_list,web
 event_create,web
 event_edit,web
 event_delete,web
+wwcs_list,web
+wwcs_create,web
+wwcs_edit,web
+wwcs_delete,web
