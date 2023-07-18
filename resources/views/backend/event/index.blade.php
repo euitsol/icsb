@@ -28,6 +28,7 @@
                                     <th>{{ _('Event Start Time') }}</th>
                                     <th>{{ _('Event End Time') }}</th>
                                     <th>{{ _('Event Type') }}</th>
+                                    <th>{{ _('Status') }}</th>
                                     <th>{{ _('Creation date') }}</th>
                                     <th>{{ _('Created by') }}</th>
                                     <th>{{ _('Action') }}</th>
@@ -59,6 +60,13 @@
                                                 <span class="badge badge-warning">{{ $event->type }}</span>
                                             @endif
 
+                                        </td>
+                                        <td>
+                                            @if ($event->status == 1)
+                                                @include('backend.partials.button', ['routeName' => 'event.status.event_edit','params' => [$event->id], 'className' => 'btn-success', 'label' => 'Active'])
+                                            @else
+                                                @include('backend.partials.button', ['routeName' => 'event.status.event_edit','params' => [$event->id], 'className' => 'btn-danger', 'label' => 'Deactive'])
+                                            @endif
                                         </td>
                                         <td> {{ $event->created_at }} </td>
                                         <td> {{ $event->created_user->name ?? 'system' }} </td>

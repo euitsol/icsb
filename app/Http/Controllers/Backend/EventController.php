@@ -97,4 +97,10 @@ class EventController extends Controller
 
         return redirect()->route('event.event_list')->withStatus(__('Event '.$event->title.' deleted successfully.'));
     }
+    public function status($id): RedirectResponse
+    {
+        $event = Event::findOrFail($id);
+        $this->statusChange($event);
+        return redirect()->route('event.event_list')->withStatus(__($event->title.' status updated successfully.'));
+    }
 }
