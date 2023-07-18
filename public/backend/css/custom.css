@@ -62,3 +62,26 @@
     margin: 0;
     border-radius: 0;
 }
+
+/* Image Upload */
+.imagePreviewMainDiv {
+    display: flex;
+    align-items: center;
+}
+
+.imagePreviewDiv {
+    position: relative;
+    margin: .3rem;
+}
+
+.imagePreview {
+    object-fit: cover;
+    width: auto;
+    height: 6rem;
+}
+
+.removeImage {
+    position: absolute;
+    left: 88%;
+    top: 10%;
+}
