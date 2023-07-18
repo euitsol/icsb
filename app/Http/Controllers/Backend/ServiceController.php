@@ -55,9 +55,7 @@ class ServiceController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $path = $image->store('services', 'public');
-            if ($service->image) {
-                Storage::delete('public/' . $service->image);
-            }
+            $this->imageDelete($service->image);
             $service->image = $path;
         }
 
@@ -71,9 +69,7 @@ class ServiceController extends Controller
     public function delete($id): RedirectResponse
     {
         $service = Service::findOrFail($id);
-        if ($service->image) {
-            Storage::delete('public/' . $service->image);
-        }
+        $this->imageDelete($service->image);
         $service->delete();
 
         return redirect()->route('service.service_list')->withStatus(__('Faq '.$service->title.' deleted successfully.'));
