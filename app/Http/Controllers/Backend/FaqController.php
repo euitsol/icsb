@@ -29,7 +29,7 @@ class FaqController extends Controller
     }
     public function store(FaqRequest $request): RedirectResponse
     {
-        $faq = new Faq;
+        $faq = new Faq();
         $faq->title = $request->title;
         $faq->description = $request->description;
         $faq->created_by = auth()->user()->id;

@@ -59,6 +59,12 @@
                     </ul>
                 </div>
             </li>
+            <li @if ($pageSlug == 'contact') class="active " @endif>
+                <a href="{{route('contact.contact_list')}}">
+                    <i class="tim-icons icon-chat-33"></i>
+                    <p>{{ _('Contact Us') }}</p>
+                </a>
+            </li>
         </ul>
     </div>
 </div>
