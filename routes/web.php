@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\ContactController;
 use App\Http\Controllers\Backend\NationalConnectionController;
 use App\Http\Controllers\Backend\EventController;
+use App\Http\Controllers\Backend\WWCSController;
 use App\Http\Controllers\Backend\UserManagement\RoleController;
 use App\Http\Controllers\Backend\UserManagement\PermissionController;
 use App\Http\Controllers\Frontend\AboutPagesController;
@@ -136,6 +137,15 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::get('edit/{id}',      [EventController::class, 'edit'])->name('event_edit');
         Route::put('edit/{id}',      [EventController::class, 'update'])->name('event_edit');
         Route::get('delete/{id}', [EventController::class, 'delete'])->name('event_delete');
+    });
+    // World Wide CS Routes
+    Route::group(['as' => 'wwcs.', 'prefix' => 'wwcs'], function () {
+        Route::get('index', [WWCSController::class, 'index'])->name('wwcs_list');
+        // Route::get('create', [WWCSController::class, 'create'])->name('wwcs_create');
+        // Route::post('create', [WWCSController::class, 'store'])->name('wwcs_create');
+        // Route::get('edit/{id}',      [WWCSController::class, 'edit'])->name('wwcs_edit');
+        // Route::put('edit/{id}',      [WWCSController::class, 'update'])->name('wwcs_edit');
+        // Route::get('delete/{id}', [WWCSController::class, 'delete'])->name('wwcs_delete');
     });
 
 

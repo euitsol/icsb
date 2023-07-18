@@ -74,15 +74,7 @@ class NationalConnectionController extends Controller
     public function status($id): RedirectResponse
     {
         $nationalConnection = NationalConnection::findOrFail($id);
-        if($nationalConnection->status == 1){
-            $nationalConnection->status = 0;
-        }else{
-            $nationalConnection->status = 1;
-        }
-        $nationalConnection->save();
-        $nationalConnection->updated_by = auth()->user()->id;
-        $nationalConnection->save();
-
+        $this->statusChange($nationalConnection);
         return redirect()->route('national_connection.national_connection_list')->withStatus(__($nationalConnection->title.' status updated successfully.'));
     }
 }
