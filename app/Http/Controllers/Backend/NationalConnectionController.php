@@ -28,12 +28,12 @@ class NationalConnectionController extends Controller
     public function store(NationalConnectionRequest $request): RedirectResponse
     {
         $nationalConnection = new NationalConnection;
-        $logo = $request->file('logo');
-        if ($logo) {
-            $logoName = time() . '_' . uniqid() . '.' . $logo->getClientOriginalExtension();
-            $logo->move(public_path('uploaded/National_Connection'), $logoName);
-            $nationalConnection->logo = '/uploaded/National_Connection/' . $logoName;
+        if ($request->hasFile('logo')) {
+            $logo = $request->file('logo');
+            $path = $logo->store('nationalConnections', 'public');
+            $nationalConnection->logo = $path;
         }
+
         $nationalConnection->title = $request->title;
         $nationalConnection->url = $request->url;
         $nationalConnection->created_by = auth()->user()->id;
@@ -49,13 +49,11 @@ class NationalConnectionController extends Controller
     {
         $nationalConnection = NationalConnection::findOrFail($id);
 
-        $logo = $request->file('logo');
-        if ($logo) {
-            $logo_path = public_path($nationalConnection->logo);
-            @unlink($logo_path);
-            $logoName = time() . '_' . uniqid() . '.' . $logo->getClientOriginalExtension();
-            $logo->move(public_path('uploaded/nationalConnection'), $logoName);
-            $nationalConnection->logo = '/uploaded/nationalConnection/' . $logoName;
+        if ($request->hasFile('logo')) {
+            $logo = $request->file('logo');
+            $path = $logo->store('nationalConnections', 'public');
+            $this->imageDelete($nationalConnection->logo);
+            $nationalConnection->logo = $path;
         }
 
         $nationalConnection->title = $request->title;
@@ -68,6 +66,7 @@ class NationalConnectionController extends Controller
     public function delete($id): RedirectResponse
     {
         $nationalConnection = NationalConnection::findOrFail($id);
+        $this->imageDelete($nationalConnection->logo);
         $nationalConnection->delete();
 
         return redirect()->route('national_connection.national_connection_list')->withStatus(__('National Connection '.$nationalConnection->title.' deleted successfully.'));

@@ -36,7 +36,7 @@
                                     <tr>
                                         <td> {{ $connection->title }} </td>
                                         <td><img class="rounded" width="60"
-                                            src="@if ($connection->logo) {{ asset($connection->logo) }} @else {{ asset('no_img/no_img.jpg') }} @endif"
+                                            src="@if ($connection->logo) {{ asset('storage/'.$connection->logo) }} @else {{ asset('no_img/no_img.jpg') }} @endif"
                                             alt="{{ $connection->title }}">
                                         </td>
                                         <td> {{ $connection->url }} </td>
