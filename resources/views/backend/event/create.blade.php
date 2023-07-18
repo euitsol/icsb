@@ -32,8 +32,8 @@
                         {{-- image --}}
 
                         <div class="form-group {{ $errors->has('image.*') ? 'is-invalid' : '' }} {{ $errors->has('image') ? 'is-invalid' : '' }}">
-                            <label>{{ _('Event Image') }}</label>
-                            <input type="file" name="image[]" class="form-control {{ $errors->has('image.*') ? 'is-invalid' : '' }} {{ $errors->has('image') ? 'is-invalid' : '' }}" multiple>
+                            <label>{{ _('Event Images') }}</label>
+                            <input type="file" name="image[]" class="form-control {{ $errors->has('image.*') ? 'is-invalid' : '' }} {{ $errors->has('image') ? 'is-invalid' : '' }} image-upload" multiple>
                             @include('alerts.feedback', ['field' => 'image'])
                             @include('alerts.feedback', ['field' => 'image.*'])
                         </div>

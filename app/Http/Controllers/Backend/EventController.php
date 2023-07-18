@@ -81,6 +81,7 @@ class EventController extends Controller
         $event->event_start_time = $request->event_start_time;
         $event->event_end_time = $request->event_end_time;
         $event->description = $request->description;
+        $event->type = $request->type;
         $event->created_by = auth()->user()->id;
         $event->save();
 

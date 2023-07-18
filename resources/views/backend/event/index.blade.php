@@ -25,8 +25,9 @@
                                     <th>{{ _('Title') }}</th>
                                     <th>{{ _('Image') }}</th>
                                     <th>{{ _('Description') }}</th>
-                                    <th>{{ _('Event Time') }}</th>
-                                    <th>{{ _('Event Date') }}</th>
+                                    <th>{{ _('Event Start Time') }}</th>
+                                    <th>{{ _('Event End Time') }}</th>
+                                    <th>{{ _('Event Type') }}</th>
                                     <th>{{ _('Creation date') }}</th>
                                     <th>{{ _('Created by') }}</th>
                                     <th>{{ _('Action') }}</th>
@@ -49,8 +50,16 @@
                                             "alt="{{ $event->title }}">
                                         </td>
                                         <td> {{ $event->description }} </td>
-                                        <td> {{ $event->event_time }} </td>
-                                        <td> {{ $event->event_date }} </td>
+                                        <td> {{ date("d-M-Y H:i A", strtotime($event->event_start_time)) }} </td>
+                                        <td> {{ date("d-M-Y H:i A", strtotime($event->event_end_time)) }} </td>
+                                        <td>
+                                            @if ($event->type == 'online')
+                                                <span class="badge badge-info">{{ $event->type }}</span>
+                                            @else
+                                                <span class="badge badge-warning">{{ $event->type }}</span>
+                                            @endif
+
+                                        </td>
                                         <td> {{ $event->created_at }} </td>
                                         <td> {{ $event->created_user->name ?? 'system' }} </td>
                                         <td>

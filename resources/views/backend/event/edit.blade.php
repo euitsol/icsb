@@ -31,8 +31,8 @@
                         {{-- image --}}
 
                         <div class="form-group {{ $errors->has('image.*') ? 'is-invalid' : '' }} {{ $errors->has('image') ? 'is-invalid' : '' }}">
-                            <label>{{ _('Event Image') }}</label>
-                            <input type="file" name="image[]" class="form-control {{ $errors->has('image.*') ? 'is-invalid' : '' }} {{ $errors->has('image') ? 'is-invalid' : '' }}" value="" multiple>
+                            <label>{{ _('Event Images') }}</label>
+                            <input type="file" name="image[]" class="form-control {{ $errors->has('image.*') ? 'is-invalid' : '' }} {{ $errors->has('image') ? 'is-invalid' : '' }} image-upload" multiple>
                             @include('alerts.feedback', ['field' => 'image'])
                             @include('alerts.feedback', ['field' => 'image.*'])
                         </div>
@@ -70,6 +70,14 @@
                                 class="form-control{{ $errors->has('event_location') ? ' is-invalid' : '' }}"
                                  value="{{ $event->event_location }}">
                             @include('alerts.feedback', ['field' => 'event_location'])
+                        </div>
+                        <div class="form-group {{ $errors->has('type') ? ' has-danger' : '' }}">
+                            <label>{{ _('Event Type') }}</label>
+                            <select name="type" class="form-control {{ $errors->has('type') ? ' is-invalid' : '' }}">
+                                <option value="online" @if($event->type === "online") selected @endif>Online</option>
+                                <option value="offline" @if($event->type === "offline") selected @endif>Offline</option>
+                            </select>
+                            @include('alerts.feedback', ['field' => 'type'])
                         </div>
                         <div class="form-group{{ $errors->has('description') ? ' has-danger' : '' }}">
                             <label>{{ _('Description') }} </label>
