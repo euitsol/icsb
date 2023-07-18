@@ -64,7 +64,7 @@
                          <li><a class="dropdown-item" href="{{route('publications.photo_gallery')}}">Photo Gallery</a></li>
                        </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('contact.index')}}">Contact Us</a>
+                    <li class="nav-item"><a class="nav-link" href="{{route('contact_view.index')}}">Contact Us</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">

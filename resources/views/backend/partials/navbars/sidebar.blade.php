@@ -60,7 +60,7 @@
                 </div>
             </li>
             <li @if ($pageSlug == 'contact') class="active " @endif>
-                <a href="{{route('contact.contact_list')}}">
+                <a href="{{route('contact.contact_create')}}">
                     <i class="tim-icons icon-chat-33"></i>
                     <p>{{ _('Contact Us') }}</p>
                 </a>
@@ -69,6 +69,12 @@
                 <a href="{{route('national_connection.national_connection_list')}}">
                     <i class="tim-icons icon-chat-33"></i>
                     <p>{{ _('National Connection') }}</p>
+                 </a>
+            </li>     
+            <li @if ($pageSlug == 'event') class="active " @endif>
+                <a href="{{route('event.event_list')}}">
+                    <i class="tim-icons icon-chat-33"></i>
+                    <p>{{ _('Event') }}</p>
                 </a>
             </li>
         </ul>

@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\FaqController;
 use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\ContactController;
 use App\Http\Controllers\Backend\NationalConnectionController;
+use App\Http\Controllers\Backend\EventController;
 use App\Http\Controllers\Backend\UserManagement\RoleController;
 use App\Http\Controllers\Backend\UserManagement\PermissionController;
 use App\Http\Controllers\Frontend\AboutPagesController;
@@ -111,7 +112,7 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
     });
     // Contact Us Routes
     Route::group(['as' => 'contact.', 'prefix' => 'contact'], function () {
-        Route::get('index', [ContactController::class, 'index'])->name('contact_list');
+        Route::get('index', [ContactController::class, 'index'])->name('contact_create');
         Route::post('create/location', [ContactController::class, 'createLocation'])->name('location.contact_create');
         Route::post('create/social', [ContactController::class, 'createSocial'])->name('social.contact_create');
         Route::post('create/phone', [ContactController::class, 'createPhone'])->name('phone.contact_create');
@@ -126,6 +127,15 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::put('edit/{id}',      [NationalConnectionController::class, 'update'])->name('national_connection_edit');
         Route::get('status/{id}',      [NationalConnectionController::class, 'status'])->name('status.national_connection_edit');
         Route::get('delete/{id}', [NationalConnectionController::class, 'delete'])->name('national_connection_delete');
+    });
+    // Event Routes
+    Route::group(['as' => 'event.', 'prefix' => 'event'], function () {
+        Route::get('index', [EventController::class, 'index'])->name('event_list');
+        Route::get('create', [EventController::class, 'create'])->name('event_create');
+        Route::post('create', [EventController::class, 'store'])->name('event_create');
+        Route::get('edit/{id}',      [EventController::class, 'edit'])->name('event_edit');
+        Route::put('edit/{id}',      [EventController::class, 'update'])->name('event_edit');
+        Route::get('delete/{id}', [EventController::class, 'delete'])->name('event_delete');
     });
 
 
@@ -181,7 +191,7 @@ Route::group(['as' => 'rules_and_regulations.', 'prefix' => 'rulse-&-regulations
 Route::group(['as' => 'publications.', 'prefix' => 'publications'], function () {
     Route::get('/photo-gallery', [PublicationsPagesController::class, 'photoGallery'])->name('photo_gallery');
 });
-Route::group(['as' => 'contact.', 'prefix' => 'contact'], function () {
+Route::group(['as' => 'contact_view.', 'prefix' => 'contact'], function () {
     Route::get('/contact-us', [ContactPagesController::class, 'index'])->name('index');
 });
 Route::group(['as' => 'article.', 'prefix' => 'article'], function () {
