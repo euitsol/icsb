@@ -15,7 +15,7 @@
             @include('alerts.success')
         </div>
         <div class="tab col-md-2 p-md-0 pl-sm-3">
-            <button class="tablinks p-3" onclick="openTab(event, 'tab1')"
+            <button class="tablinks p-3 btn-success text-white" onclick="openTab(event, 'tab1')"
             @if ((strpos(session($key ?? 'status'), 'location') !== false) || !session($key ?? 'status'))
                 id="defaultOpen"
             @endif

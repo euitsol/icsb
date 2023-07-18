@@ -103,3 +103,18 @@ $('#add_email').click(function() {
 function delete_section_4(count) {
     $('#email-' + count).remove();
 };
+
+// Tab JS
+function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" btn-success text-white", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " btn-success text-white";
+  }
