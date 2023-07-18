@@ -30,11 +30,15 @@ class EventController extends Controller
     public function store(EventRequest $request): RedirectResponse
     {
         $event = new Event();
-        $image = $request->file('image');
-        if ($image) {
-            $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('uploaded/event'), $imageName);
-            $event->image = '/uploaded/event/' . $imageName;
+        if(!empty($request->image)){
+            $images = array();
+            foreach($request->image as $image){
+                if ($image) {
+                    $path = $image->store('events', 'public');
+                    array_push($images, $path);
+                }
+            }
+            $event->image= json_encode($images);
         }
         $event->title = $request->title;
         $event->total_participant = $request->total_participant;
@@ -46,5 +50,50 @@ class EventController extends Controller
         $event->created_by = auth()->user()->id;
         $event->save();
         return redirect()->route('event.event_list')->withStatus(__('Event '.$request->title.' created successfully.'));
+    }
+    public function edit($id): View
+    {
+        $n['event'] = Event::findOrFail($id);
+        return view('backend.event.edit', $n);
+    }
+    public function update(EventRequest $request, $id): RedirectResponse
+    {
+        $event = Event::findOrFail($id);
+
+        if(!empty($request->image)){
+            foreach(json_decode($event->image) as $db_image){
+                $this->imageDelete($db_image);
+            }
+            $images = array();
+            foreach($request->image as $image){
+                if ($image) {
+                    $path = $image->store('events', 'public');
+                    array_push($images, $path);
+                }
+            }
+
+            $event->image= json_encode($images);
+        }
+        $event->title = $request->title;
+        $event->total_participant = $request->total_participant;
+        $event->event_location = $request->event_location;
+        $event->video_url = $request->video_url;
+        $event->event_start_time = $request->event_start_time;
+        $event->event_end_time = $request->event_end_time;
+        $event->description = $request->description;
+        $event->created_by = auth()->user()->id;
+        $event->save();
+
+        return redirect()->route('event.event_list')->withStatus(__('Event '.$event->title.' updated successfully.'));
+    }
+    public function delete($id): RedirectResponse
+    {
+        $event = Event::findOrFail($id);
+        foreach(json_decode($event->image) as $db_image){
+            $this->imageDelete($db_image);
+        }
+        $event->delete();
+
+        return redirect()->route('event.event_list')->withStatus(__('Event '.$event->title.' deleted successfully.'));
     }
 }

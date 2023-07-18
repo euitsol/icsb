@@ -37,8 +37,16 @@
                                     <tr>
                                         <td> {{ $event->title }} </td>
                                         <td><img class="rounded" width="60"
-                                            src="@if ($event->image) {{ asset($event->image) }} @else {{ asset('no_img/no_img.jpg') }} @endif"
-                                            alt="{{ $event->title }}">
+                                            src="
+                                                @if ($event->image)
+                                                    @foreach (json_decode($event->image) as $image)
+                                                        {{ asset('storage/'.$image) }}
+                                                    @endforeach
+
+                                                @else
+                                                {{ asset('no_img/no_img.jpg') }}
+                                                @endif
+                                            "alt="{{ $event->title }}">
                                         </td>
                                         <td> {{ $event->description }} </td>
                                         <td> {{ $event->event_time }} </td>
@@ -49,8 +57,8 @@
                                             @include('backend.partials.action_buttons', [
                                                 'menuItems' => [
                                                     ['routeName' => '', 'label' => 'View'],
-                                                    ['routeName' => '',   'params' => [$event->id], 'label' => 'Update'],
-                                                    ['routeName' => '', 'params' => [$event->id], 'label' => 'Delete', 'delete' => true],
+                                                    ['routeName' => 'event.event_edit',   'params' => [$event->id], 'label' => 'Update'],
+                                                    ['routeName' => 'event.event_delete', 'params' => [$event->id], 'label' => 'Delete', 'delete' => true],
                                                 ]
                                             ])
                                         </td>

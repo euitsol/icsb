@@ -16,12 +16,12 @@ class EventRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'description' => 'required|srting|max:10000',
-            'event_start_time' => 'required|date|date_format:Y-m-d H:i:s',
-            'event_end_time' => 'required|date|date_format:Y-m-d H:i:s',
+            'description' => 'required|max:10000',
+            'event_start_time' => 'required',
+            'event_end_time' => 'required',
             'total_participant' => 'required|numeric',
             'event_location' => 'required',
-            'video_url' => 'nullable',
+            'video_url' => 'nullable|url',
             'status' => 'nullable|boolean',
 
         ]
@@ -33,7 +33,8 @@ class EventRequest extends FormRequest
     {
         return [
             'title' => 'required|unique:events,title,NULL,id,deleted_at,NULL',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|array',
+            'image.*' => 'image|mimes:mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 
@@ -41,7 +42,8 @@ class EventRequest extends FormRequest
     {
         return [
             'title' => 'required|unique:events,title,' . $this->route('id') . ',id,deleted_at,NULL',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'nullable|array',
+            'image.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 }
