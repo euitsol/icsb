@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\FaqController;
 use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\ContactController;
+use App\Http\Controllers\Backend\NationalConnectionController;
 use App\Http\Controllers\Backend\EventController;
 use App\Http\Controllers\Backend\UserManagement\RoleController;
 use App\Http\Controllers\Backend\UserManagement\PermissionController;
@@ -116,6 +117,16 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::post('create/social', [ContactController::class, 'createSocial'])->name('social.contact_create');
         Route::post('create/phone', [ContactController::class, 'createPhone'])->name('phone.contact_create');
         Route::post('create/email', [ContactController::class, 'createEmail'])->name('email.contact_create');
+    });
+    // National Connection Routes
+    Route::group(['as' => 'national_connection.', 'prefix' => 'national_connection'], function () {
+        Route::get('index', [NationalConnectionController::class, 'index'])->name('national_connection_list');
+        Route::get('create', [NationalConnectionController::class, 'create'])->name('national_connection_create');
+        Route::post('create', [NationalConnectionController::class, 'store'])->name('national_connection_create');
+        Route::get('edit/{id}',      [NationalConnectionController::class, 'edit'])->name('national_connection_edit');
+        Route::put('edit/{id}',      [NationalConnectionController::class, 'update'])->name('national_connection_edit');
+        Route::get('status/{id}',      [NationalConnectionController::class, 'status'])->name('status.national_connection_edit');
+        Route::get('delete/{id}', [NationalConnectionController::class, 'delete'])->name('national_connection_delete');
     });
     // Event Routes
     Route::group(['as' => 'event.', 'prefix' => 'event'], function () {

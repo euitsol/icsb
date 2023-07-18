@@ -8,7 +8,9 @@ use App\Models\Permission;
 //This will retun the route prefix of the routes for permission check
 function get_permission_routes()
 {
-  return ['about.faq.','service.','contact.','event.'];
+
+  return ['about.faq.','service.','contact.','national_connection.'];
+
 }
 
 //This will check the permission of the given route name. Can be used for buttons

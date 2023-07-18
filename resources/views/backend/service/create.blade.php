@@ -18,6 +18,7 @@
                                 @include('alerts.feedback', ['field' => 'title'])
                             </div>
 
+
                             <div class="form-group{{ $errors->has('image') ? ' has-danger' : '' }}">
                                 <label>{{ _('Service Image') }}</label>
 

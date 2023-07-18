@@ -65,6 +65,12 @@
                     <p>{{ _('Contact Us') }}</p>
                 </a>
             </li>
+            <li @if ($pageSlug == 'national_connection') class="active " @endif>
+                <a href="{{route('national_connection.national_connection_list')}}">
+                    <i class="tim-icons icon-chat-33"></i>
+                    <p>{{ _('National Connection') }}</p>
+                 </a>
+            </li>     
             <li @if ($pageSlug == 'event') class="active " @endif>
                 <a href="{{route('event.event_list')}}">
                     <i class="tim-icons icon-chat-33"></i>

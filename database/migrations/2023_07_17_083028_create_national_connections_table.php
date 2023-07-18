@@ -11,11 +11,12 @@ return new class extends Migration
 
     public function up(): void
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('national_connections', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
             $table->string('title')->unique();
-            $table->longText('description');
+            $table->string('logo');
+            $table->string('url');
+            $table->boolean('status')->nullable()->default(1);
             $table->timestamps();
             $table->softDeletes();
             $this->addAuditColumns($table);
@@ -24,6 +25,6 @@ return new class extends Migration
 
     public function down(): void
     {
-         Schema::dropIfExists('services');
+         Schema::dropIfExists('national_connections');
     }
 };
