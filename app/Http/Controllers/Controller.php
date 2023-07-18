@@ -16,4 +16,9 @@ class Controller extends BaseController
         }
     }
 
+    public function imageDelete($image){
+        if ($image) {
+            Storage::delete('public/' . $image);
+        }
+    }
 }
