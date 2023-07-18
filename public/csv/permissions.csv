@@ -17,3 +17,11 @@ service_create,web
 service_edit,web
 service_delete,web
 contact_create,web
+national_connection_list,web
+national_connection_create,web
+national_connection_edit,web
+national_connection_delete,web
+event_list,web
+event_create,web
+event_edit,web
+event_delete,web

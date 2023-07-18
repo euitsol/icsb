@@ -102,3 +102,40 @@
 /*=============================================================
                 Contac Us Backend CSS End
  =============================================================*/
+
+.select option {
+    border: none;
+    outline: none;
+    font-size: 18px;
+    padding: 5px 55px 5px 5px;
+    background-color: slategray;
+    color: white;
+    -webkit-appearance: none;
+    /* for Safari */
+    margin: 0;
+    border-radius: 0;
+}
+
+/* Image Upload */
+.imagePreviewMainDiv {
+    display: flex;
+    align-items: center;
+}
+
+.imagePreviewDiv {
+    position: relative;
+    margin: .3rem;
+}
+
+.imagePreview {
+    object-fit: cover;
+    width: auto;
+    height: 6rem;
+}
+
+.removeImage {
+    position: absolute;
+    left: 88%;
+    top: 10%;
+}
+

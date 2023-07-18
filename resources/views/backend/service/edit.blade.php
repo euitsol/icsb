@@ -24,15 +24,7 @@
                             <div class="form-group{{ $errors->has('image') ? ' has-danger' : '' }}">
                                 <label class="form-label">Service Image</label>
                                 <input type="file" id="upImgInput" name="image"
-                                    class="form-control {{ $errors->has('image') ? ' is-invalid' : '' }}" value="{{ $service->image }}">
-                            </div>
-                            <div class="mb-1">
-                                <img src="@if ($service->image) {{ asset($service->image) }} @else {{ asset('no_img/no_img.jpg') }} @endif" id="upImg"
-                                    class="upImg rounded me-50 border" alt="service image" height="100">
-                            </div>
-                            <div class="mt-1 mb-2">
-                                <button type="button" id="upImgReset"
-                                    class="btn btn-sm btn-outline-secondary mb-75 waves-effect">Reset</button>
+                                    class="form-control image-upload {{ $errors->has('image') ? ' is-invalid' : '' }}" data-existing-files="{{ storage_url($service->image) }}">
                             </div>
 
                             <div class="form-group{{ $errors->has('description') ? ' has-danger' : '' }}">

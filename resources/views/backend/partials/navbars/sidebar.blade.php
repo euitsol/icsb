@@ -65,6 +65,12 @@
                     <p>{{ _('Contact Us') }}</p>
                 </a>
             </li>
+            <li @if ($pageSlug == 'event') class="active " @endif>
+                <a href="{{route('event.event_list')}}">
+                    <i class="tim-icons icon-chat-33"></i>
+                    <p>{{ _('Event') }}</p>
+                </a>
+            </li>
         </ul>
     </div>
 </div>

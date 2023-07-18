@@ -1,6 +1,6 @@
-@extends('backend.layouts.master', ['pageSlug' => 'service'])
+@extends('backend.layouts.master', ['pageSlug' => 'event'])
 
-@section('title', 'Service')
+@section('title', 'Event')
 
 @section('content')
     <div class="row">
@@ -9,10 +9,10 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-8">
-                            <h4 class="card-title">{{ _('Service') }}</h4>
+                            <h4 class="card-title">{{ _('Event') }}</h4>
                         </div>
                         <div class="col-4 text-right">
-                            @include('backend.partials.button', ['routeName' => 'service.service_create', 'className' => 'btn-primary', 'label' => 'Add Service'])
+                            @include('backend.partials.button', ['routeName' => 'event.event_create', 'className' => 'btn-primary', 'label' => 'Add Event'])
                         </div>
                     </div>
                 </div>
@@ -25,28 +25,40 @@
                                     <th>{{ _('Title') }}</th>
                                     <th>{{ _('Image') }}</th>
                                     <th>{{ _('Description') }}</th>
+                                    <th>{{ _('Event Time') }}</th>
+                                    <th>{{ _('Event Date') }}</th>
                                     <th>{{ _('Creation date') }}</th>
                                     <th>{{ _('Created by') }}</th>
                                     <th>{{ _('Action') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($services as $service)
+                                @foreach ($events as $event)
                                     <tr>
-                                        <td> {{ $service->title }} </td>
+                                        <td> {{ $event->title }} </td>
                                         <td><img class="rounded" width="60"
-                                            src="@if ($service->image) {{ asset('storage/'.$service->image) }} @else {{ asset('no_img/no_img.jpg') }} @endif"
-                                            alt="{{ $service->title }}">
+                                            src="
+                                                @if ($event->image)
+                                                    @foreach (json_decode($event->image) as $image)
+                                                        {{ asset('storage/'.$image) }}
+                                                    @endforeach
+
+                                                @else
+                                                {{ asset('no_img/no_img.jpg') }}
+                                                @endif
+                                            "alt="{{ $event->title }}">
                                         </td>
-                                        <td> {{ $service->description }} </td>
-                                        <td> {{ $service->created_at }} </td>
-                                        <td> {{ $service->created_user->name ?? 'system' }} </td>
+                                        <td> {{ $event->description }} </td>
+                                        <td> {{ $event->event_time }} </td>
+                                        <td> {{ $event->event_date }} </td>
+                                        <td> {{ $event->created_at }} </td>
+                                        <td> {{ $event->created_user->name ?? 'system' }} </td>
                                         <td>
                                             @include('backend.partials.action_buttons', [
                                                 'menuItems' => [
                                                     ['routeName' => '', 'label' => 'View'],
-                                                    ['routeName' => 'service.service_edit',   'params' => [$service->id], 'label' => 'Update'],
-                                                    ['routeName' => 'service.service_delete', 'params' => [$service->id], 'label' => 'Delete', 'delete' => true],
+                                                    ['routeName' => 'event.event_edit',   'params' => [$event->id], 'label' => 'Update'],
+                                                    ['routeName' => 'event.event_delete', 'params' => [$event->id], 'label' => 'Delete', 'delete' => true],
                                                 ]
                                             ])
                                         </td>
