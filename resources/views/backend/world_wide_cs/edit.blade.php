@@ -22,7 +22,7 @@
                             <div class="form-group{{ $errors->has('logo') ? ' has-danger' : '' }}">
                                 <label class="form-label">Logo</label>
                                 <input type="file" id="upImgInput" name="logo"
-                                    class="form-control {{ $errors->has('logo') ? ' is-invalid' : '' }}" value="{{ $wwcs->logo }}">
+                                    class="form-control {{ $errors->has('logo') ? ' is-invalid' : '' }}" value="{{ $wwcs->logo }} image-upload">
                             </div>
                             <div class="form-group{{ $errors->has('url') ? ' has-danger' : '' }}">
                                 <label>{{ _('URL') }}</label>
