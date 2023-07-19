@@ -9,7 +9,7 @@ use App\Models\Permission;
 function get_permission_routes()
 {
 
-  return ['about.faq.','service.','contact.','national_connection.','wwcs.'];
+  return ['about.faq.','service.','contact.','national_connection.','event.','wwcs.'];
 
 }
 
@@ -67,4 +67,7 @@ function createCSV($filename = 'permissions.csv'): string
 
 function storage_url($url){
     return asset('storage/'.$url);
+}
+function timeFormate($time){
+    return date("d-M-Y H:i A", strtotime($time));
 }

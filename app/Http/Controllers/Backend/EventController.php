@@ -81,6 +81,7 @@ class EventController extends Controller
         $event->event_start_time = $request->event_start_time;
         $event->event_end_time = $request->event_end_time;
         $event->description = $request->description;
+        $event->type = $request->type;
         $event->created_by = auth()->user()->id;
         $event->save();
 
@@ -95,5 +96,11 @@ class EventController extends Controller
         $event->delete();
 
         return redirect()->route('event.event_list')->withStatus(__('Event '.$event->title.' deleted successfully.'));
+    }
+    public function status($id): RedirectResponse
+    {
+        $event = Event::findOrFail($id);
+        $this->statusChange($event);
+        return redirect()->route('event.event_list')->withStatus(__($event->title.' status updated successfully.'));
     }
 }
