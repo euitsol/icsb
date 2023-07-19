@@ -6,8 +6,8 @@ $(document).ready(function(){
             margin:20,
             nav: true,
             dots: false,
-            autoplay:false,
-            autoplayTimeout:1000,
+            autoplay:true,
+            autoplayTimeout:3000,
             autoplayHoverPause:true,
             responsive:{
                 0:{
@@ -18,6 +18,75 @@ $(document).ready(function(){
                 },
                 800:{
                     items:4
+                }
+            }
+    });
+
+        var owl = $('.recent-update-slider');
+        owl.owlCarousel({
+            // items:6,
+            loop:true,
+            margin:23,
+            nav: false,
+            dots: true,
+            autoplay:true,
+            autoplayTimeout:3000,
+            autoplayHoverPause:true,
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:2
+                },
+                800:{
+                    items:4
+                }
+            }
+    }); 
+
+    var owl = $('.events-slider');
+        owl.owlCarousel({
+            // items:6,
+            loop:true,
+            margin:25,
+            nav: false,
+            dots: true,
+            autoplay:true,
+            autoplayTimeout:3000,
+            autoplayHoverPause:true,
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:1
+                },
+                800:{
+                    items:3
+                }
+            }
+    }); 
+
+    var owl = $('.national-connection');
+        owl.owlCarousel({
+            // items:6,
+            loop:true,
+            margin:20,
+            nav: true,
+            dots: false,
+            autoplay:false,
+            autoplayTimeout:3000,
+            autoplayHoverPause:true,
+            responsive:{
+                0:{
+                    items:2
+                },
+                600:{
+                    items:3
+                },
+                800:{
+                    items:6
                 }
             }
     });
