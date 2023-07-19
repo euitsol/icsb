@@ -44,6 +44,7 @@ class EventRequest extends FormRequest
             'title' => 'required|unique:events,title,' . $this->route('id') . ',id,deleted_at,NULL',
             'image' => 'nullable|array',
             'image.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'type' => 'required|in:online,offline',
         ];
     }
 }

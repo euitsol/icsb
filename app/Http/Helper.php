@@ -11,6 +11,7 @@ function get_permission_routes()
 
   return ['about.faq.','service.','contact.','national_connection.','wwcs.','event.','national_award.'];
 
+
 }
 
 //This will check the permission of the given route name. Can be used for buttons
@@ -67,4 +68,7 @@ function createCSV($filename = 'permissions.csv'): string
 
 function storage_url($url){
     return asset('storage/'.$url);
+}
+function timeFormate($time){
+    return date("d-M-Y H:i A", strtotime($time));
 }

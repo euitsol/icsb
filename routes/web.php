@@ -138,6 +138,7 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::post('create', [EventController::class, 'store'])->name('event_create');
         Route::get('edit/{id}',      [EventController::class, 'edit'])->name('event_edit');
         Route::put('edit/{id}',      [EventController::class, 'update'])->name('event_edit');
+        Route::get('status/{id}',      [EventController::class, 'status'])->name('status.event_edit');
         Route::get('delete/{id}', [EventController::class, 'delete'])->name('event_delete');
     });
     // World Wide CS Routes

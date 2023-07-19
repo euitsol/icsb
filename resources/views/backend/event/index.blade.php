@@ -25,8 +25,10 @@
                                     <th>{{ _('Title') }}</th>
                                     <th>{{ _('Image') }}</th>
                                     <th>{{ _('Description') }}</th>
-                                    <th>{{ _('Event Time') }}</th>
-                                    <th>{{ _('Event Date') }}</th>
+                                    <th>{{ _('Event Start Time') }}</th>
+                                    <th>{{ _('Event End Time') }}</th>
+                                    <th>{{ _('Event Type') }}</th>
+                                    <th>{{ _('Status') }}</th>
                                     <th>{{ _('Creation date') }}</th>
                                     <th>{{ _('Created by') }}</th>
                                     <th>{{ _('Action') }}</th>
@@ -40,18 +42,32 @@
                                             src="
                                                 @if ($event->image)
                                                     @foreach (json_decode($event->image) as $image)
-                                                        {{ asset('storage/'.$image) }}
+                                                        {{ storage_url($image) }}
                                                     @endforeach
-
                                                 @else
                                                 {{ asset('no_img/no_img.jpg') }}
                                                 @endif
                                             "alt="{{ $event->title }}">
                                         </td>
                                         <td> {{ $event->description }} </td>
-                                        <td> {{ $event->event_time }} </td>
-                                        <td> {{ $event->event_date }} </td>
-                                        <td> {{ $event->created_at }} </td>
+                                        <td> {{ timeFormate($event->event_start_time) }} </td>
+                                        <td> {{ timeFormate($event->event_end_time) }} </td>
+                                        <td>
+                                            @if ($event->type == 'online')
+                                                <span class="badge badge-info">{{ $event->type }}</span>
+                                            @else
+                                                <span class="badge badge-warning">{{ $event->type }}</span>
+                                            @endif
+
+                                        </td>
+                                        <td>
+                                            @if ($event->status == 1)
+                                                @include('backend.partials.button', ['routeName' => 'event.status.event_edit','params' => [$event->id], 'className' => 'btn-success', 'label' => 'Active'])
+                                            @else
+                                                @include('backend.partials.button', ['routeName' => 'event.status.event_edit','params' => [$event->id], 'className' => 'btn-danger', 'label' => 'Deactive'])
+                                            @endif
+                                        </td>
+                                        <td> {{ timeFormate($event->created_at) }} </td>
                                         <td> {{ $event->created_user->name ?? 'system' }} </td>
                                         <td>
                                             @include('backend.partials.action_buttons', [
