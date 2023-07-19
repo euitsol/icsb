@@ -61,11 +61,7 @@
 
                                         </td>
                                         <td>
-                                            @if ($event->status == 1)
-                                                @include('backend.partials.button', ['routeName' => 'event.status.event_edit','params' => [$event->id], 'className' => 'btn-success', 'label' => 'Active'])
-                                            @else
-                                                @include('backend.partials.button', ['routeName' => 'event.status.event_edit','params' => [$event->id], 'className' => 'btn-danger', 'label' => 'Deactive'])
-                                            @endif
+                                            @include('backend.partials.button', ['routeName' => 'event.status.event_edit','params' => [$event->id], 'className' => $event->getStatusClass(), 'label' => $event->getStatus() ])
                                         </td>
                                         <td> {{ timeFormate($event->created_at) }} </td>
                                         <td> {{ $event->created_user->name ?? 'system' }} </td>

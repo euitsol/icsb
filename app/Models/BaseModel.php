@@ -18,4 +18,34 @@ class BaseModel extends Model
     {
         return $this->belongsTo(User::class, 'deleted_by');
     }
+
+    // public function getPermission(){
+    //     if($this->permission == 1){
+    //         return 'Accepted';
+    //     }elseif($this->permission == 0){
+    //         return 'Pending';
+    //     }elseif($this->permission == -1){
+    //         return 'Declined';
+    //     }else{
+    //         return'Not Specified';
+    //     }
+    // }
+
+    public function getStatus()
+    {
+        if ($this->status == 1) {
+            return 'Active';
+        } else {
+            return 'Deactive';
+        }
+    }
+
+    public function getStatusClass()
+    {
+        if ($this->status == 1) {
+            return 'btn-success';
+        } else {
+            return 'btn-danger';
+        }
+    }
 }

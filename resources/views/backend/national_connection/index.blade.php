@@ -41,11 +41,7 @@
                                         </td>
                                         <td> {{ $connection->url }} </td>
                                         <td>
-                                            @if ($connection->status == 1)
-                                                @include('backend.partials.button', ['routeName' => 'national_connection.status.national_connection_edit','params' => [$connection->id], 'className' => 'btn-success', 'label' => 'Active'])
-                                            @else
-                                                @include('backend.partials.button', ['routeName' => 'national_connection.status.national_connection_edit','params' => [$connection->id], 'className' => 'btn-danger', 'label' => 'Deactive'])
-                                            @endif
+                                            @include('backend.partials.button', ['routeName' => 'national_connection.status.national_connection_edit','params' => [$connection->id], 'className' => $connection->getStatusClass(), 'label' => $connection->getStatus() ])
                                         </td>
                                         <td> {{ $connection->created_at }} </td>
                                         <td> {{ $connection->created_user->name ?? 'system' }} </td>

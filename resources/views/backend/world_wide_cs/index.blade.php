@@ -43,11 +43,7 @@
                                         <td> {{ $wwcs->url }} </td>
                                         <td> {{ $wwcs->description }} </td>
                                         <td>
-                                            @if ($wwcs->status == 1)
-                                                @include('backend.partials.button', ['routeName' => 'wwcs.status.wwcs_edit','params' => [$wwcs->id], 'className' => 'btn-success', 'label' => 'Active'])
-                                            @else
-                                                @include('backend.partials.button', ['routeName' => 'wwcs.status.wwcs_edit','params' => [$wwcs->id], 'className' => 'btn-danger', 'label' => 'Deactive'])
-                                            @endif
+                                            @include('backend.partials.button', ['routeName' => 'wwcs.status.wwcs_edit','params' => [$wwcs->id], 'className' => $wwcs->getStatusClass(), 'label' => $wwcs->getStatus() ])
                                         </td>
                                         <td> {{ $wwcs->created_at }} </td>
                                         <td> {{ $wwcs->created_user->name ?? 'system' }} </td>

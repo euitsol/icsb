@@ -40,14 +40,12 @@
                                             src="@if ($national_award->image) {{ asset('storage/'.$national_award->image) }} @else {{ asset('no_img/no_img.jpg') }} @endif"
                                             alt="{{ $national_award->title }}">
                                         </td>
-                                        <td> <a href="{{route('download',base64_encode($national_award->file))}}" class="btn btn-info btn-sm"><i class="fa-regular fa-circle-down"></i></a> </td>
+                                        <td>
+                                            <a href="{{route('download',base64_encode($national_award->file))}}" class="btn btn-info btn-sm"><i class="fa-regular fa-circle-down"></i></a>
+                                        </td>
                                         <td> {{ $national_award->description }} </td>
                                         <td>
-                                            @if ($national_award->status == 1)
-                                                @include('backend.partials.button', ['routeName' => 'national_award.status.national_award_edit','params' => [$national_award->id], 'className' => 'btn-success', 'label' => 'Active'])
-                                            @else
-                                                @include('backend.partials.button', ['routeName' => 'national_award.status.national_award_edit','params' => [$national_award->id], 'className' => 'btn-danger', 'label' => 'Deactive'])
-                                            @endif
+                                            @include('backend.partials.button', ['routeName' => 'national_award.status.national_award_edit','params' => [$national_award->id], 'className' => $national_award->getStatusClass(), 'label' => $national_award->getStatus() ])
                                         </td>
                                         <td> {{ $national_award->created_at }} </td>
                                         <td> {{ $national_award->created_user->name ?? 'system' }} </td>
