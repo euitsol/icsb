@@ -68,3 +68,6 @@ function createCSV($filename = 'permissions.csv'): string
 function storage_url($url){
     return asset('storage/'.$url);
 }
+function timeFormate($time){
+    return date("d-M-Y H:i A", strtotime($time));
+}

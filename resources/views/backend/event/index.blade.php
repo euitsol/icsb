@@ -42,17 +42,16 @@
                                             src="
                                                 @if ($event->image)
                                                     @foreach (json_decode($event->image) as $image)
-                                                        {{ asset('storage/'.$image) }}
+                                                        {{ storage_url($image) }}
                                                     @endforeach
-
                                                 @else
                                                 {{ asset('no_img/no_img.jpg') }}
                                                 @endif
                                             "alt="{{ $event->title }}">
                                         </td>
                                         <td> {{ $event->description }} </td>
-                                        <td> {{ date("d-M-Y H:i A", strtotime($event->event_start_time)) }} </td>
-                                        <td> {{ date("d-M-Y H:i A", strtotime($event->event_end_time)) }} </td>
+                                        <td> {{ timeFormate($event->event_start_time) }} </td>
+                                        <td> {{ timeFormate($event->event_end_time) }} </td>
                                         <td>
                                             @if ($event->type == 'online')
                                                 <span class="badge badge-info">{{ $event->type }}</span>
@@ -68,7 +67,7 @@
                                                 @include('backend.partials.button', ['routeName' => 'event.status.event_edit','params' => [$event->id], 'className' => 'btn-danger', 'label' => 'Deactive'])
                                             @endif
                                         </td>
-                                        <td> {{ $event->created_at }} </td>
+                                        <td> {{ timeFormate($event->created_at) }} </td>
                                         <td> {{ $event->created_user->name ?? 'system' }} </td>
                                         <td>
                                             @include('backend.partials.action_buttons', [
