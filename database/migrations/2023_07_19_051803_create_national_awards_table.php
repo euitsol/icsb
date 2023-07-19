@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('title')->unique();
             $table->string('image');
-            $table->string('file');
+            $table->string('file')->nullable();
             $table->longText('description');
-            $table->boolean('status')->nullable()->default(1);
+            $table->boolean('status')->default(1);
             $table->timestamps();
             $table->softDeletes();
             $this->addAuditColumns($table);

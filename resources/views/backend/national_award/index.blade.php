@@ -9,7 +9,7 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-8">
-                            <h4 class="card-title">{{ _('National National Award') }}</h4>
+                            <h4 class="card-title">{{ _('National Award') }}</h4>
                         </div>
                         <div class="col-4 text-right">
                             @include('backend.partials.button', ['routeName' => 'national_award.national_award_create', 'className' => 'btn-primary', 'label' => 'Add National Award'])
@@ -41,7 +41,7 @@
                                             alt="{{ $national_award->title }}">
                                         </td>
                                         <td>
-                                            <a href="{{route('download',base64_encode($national_award->file))}}" class="btn btn-info btn-sm"><i class="fa-regular fa-circle-down"></i></a>
+                                            <a href="{{route('download',base64_encode($national_award->file))}}" class="btn btn-info btn-sm {{$national_award->file ?  : 'd-none'}}"><i class="fa-regular fa-circle-down"></i></a>
                                         </td>
                                         <td> {{ $national_award->description }} </td>
                                         <td>

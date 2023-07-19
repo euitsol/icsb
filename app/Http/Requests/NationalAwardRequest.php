@@ -11,6 +11,7 @@ class NationalAwardRequest extends FormRequest
         return [
             'description' => 'nullable|max:10000',
             'status' => 'nullable|boolean',
+            'file' => 'nullable|file|mimes:jpg,png,pdf,doc,docx,xls,xlsx,ppt,pptx,odt,ods,odp',
 
         ]
         +
@@ -22,7 +23,6 @@ class NationalAwardRequest extends FormRequest
         return [
             'title' => 'required|unique:national_awards,title,NULL,id,deleted_at,NULL',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'file' => 'required|file|mimes:jpg,png,pdf,doc,docx,xls,xlsx,ppt,pptx,odt,ods,odp',
         ];
     }
 
@@ -31,7 +31,6 @@ class NationalAwardRequest extends FormRequest
         return [
             'title' => 'required|unique:national_awards,title,' . $this->route('id') . ',id,deleted_at,NULL',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'file' => 'nullable|file|mimes:jpg,png,pdf,doc,docx,xls,xlsx,ppt,pptx,odt,ods,odp',
         ];
     }
 }

@@ -1,6 +1,6 @@
 @extends('backend.layouts.master', ['pageSlug' => 'national_award'])
 
-@section('title', 'National Award')
+@section('title', 'Add National Award')
 
 @section('content')
     <div class="row">
