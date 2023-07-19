@@ -1,3 +1,38 @@
+@media only screen and (max-width: 1200px){
+    .main-footer-section {
+        padding: 55px 0 10px 0;
+    }
+    .main-footer-section h2 {
+        font-size: 19px;
+        line-height: 25px;
+        margin-bottom: 10px;
+    }
+    .main-footer-section ul li {
+        margin-bottom: 8px;
+    }
+    .main-footer-section ul li a {
+        font-size: 15px;
+        line-height: 21px;
+    }
+    .main-footer-section ul{
+        margin-bottom: 40px;
+    }
+    .main-footer-section .footer-row {
+       padding: 0;
+    }
+    .main-footer-section .footer-row .footer-column{
+        width: 50%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+    .main-footer-section .footer-row .first-column{
+        justify-content: flex-start;
+    }
+    .main-footer-section .visitor-column ul {
+        margin-top: 10px;
+    }
+}
 @media only screen and (max-width: 989px){
     .flex{
         flex-wrap: wrap;
@@ -79,6 +114,64 @@
         left: 0;
         transition: all 0.2s;
     }
+
+
+    .we-are-section {
+        padding: 59px 0 130px 0;
+    }
+    .we-are-section .we-are-coulmn .content-column{
+        margin-top: 30px;
+    }
+    .we-are-section .we-are-coulmn{
+        flex-direction: column-reverse;
+    }
+    .we-are-section .we-are-coulmn .content-column a {
+        margin-top: 30px;
+    }
+    .we-are-section .we-are-coulmn .image-column::after {
+        left: 11px;
+        top: 11px;
+        width: 93%;
+        height: 93%;
+    }
+
+
+    .president-section {
+        padding: 40px 0 20px 0;
+    }
+    .president-section .president-column .left-column {
+        width: 100%;
+    }
+    .president-section .president-column .right-column {
+        width: 100%;
+        margin-top: 30px;
+    }
+    .president-section .president-column .left-column .president-info {
+        padding: 30px 20px 30px 20px;
+    }
+    .president-section .president-column .left-column h3 {
+        font-size: 20px;
+        line-height: 26px;
+    }
+    .president-section .president-column .right-column h2 {
+        font-size: 35px;
+        line-height: 41px;
+        margin-bottom: 15px;
+    }
+    .president-section .president-column .right-column a {
+        margin-top: 25px;
+    }
+
+
+    .endorsement-section {
+        padding: 80px 0;
+    }
+    .endorsement-section .endorsement-column{
+        width: 50%;
+    }
+    .endorsement-section .endorsement-column .reg-field-wrapp {
+        padding: 100px 25px;
+    }
 }
 
 @media only screen and (max-width: 767px) {
@@ -88,7 +181,7 @@
     .section-heading h2 {
         font-size: 35px;
         line-height: 41px;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
     }
 
     .top-header-section .header-content-column {
@@ -115,10 +208,110 @@
     }
 
 
+    .banner-section img{
+        height: 260px;
+        object-fit: cover;
+    }
+    .banner-section .carousel-control-prev {
+        display: none;
+    }
+    .banner-section .carousel-control-next {
+        display: none;
+    }
+
+
+    .bss-section .bss-row .bss-left-column {
+        width: 100%;
+        padding: 0;
+    }
+    .bss-section .bss-row .bss-left-column h2 {
+        font-size: 32px;
+        line-height: 38px;
+        max-width: 100%;
+        text-align: center;
+    }
+    .bss-section .bss-row .bss-right-column {
+        width: 100%;
+        margin-top: 80px;
+        column-gap: 5%;
+    }
+    .bss-section .bss-row .bss-right-column .bss-item {
+        width: 47.5%;
+        background: #fff;
+        position: relative;
+        border-radius: 27px;
+        padding: 20px 15px 14px 15px;
+    }
+    .bss-section .bss-row .bss-right-column .bss-item h3 {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+
+    .recent-update-section .recent-update-row .item a{
+        display: block;
+    }
+
+
+    .cs-wide-section .owl-dot {
+        position: absolute;
+        right: 50%;
+        top: 165px;
+        display: block;
+    }
+
+    .endorsement-section {
+        padding: 60px 0;
+    }
+    .endorsement-section .endorsement-column{
+        width: 100%;
+    }
+    .endorsement-section .endorsement-column .reg-field-wrapp {
+        padding: 100px 25px;
+    }
+
+
     .national-award-section .award-column {
         row-gap: 25px;
     }
     .national-award-section .award-column .award-inner{
         width: 49.15%;
+    }
+}
+@media only screen and (max-width: 600px){
+    .main-footer-section h2 {
+        text-align: center;
+    }
+    .main-footer-section .footer-row .footer-column{
+        width: 100%;
+        justify-content: center;
+    }
+    .main-footer-section ul li {
+        display: flex;
+        justify-content: center;
+    }
+    .main-footer-section ul li a {
+        max-width: 290px;
+        text-align: center;
+    }
+    .main-footer-section .visitor-column ul{
+        column-gap: 8px;
+        margin-top: 40px;
+        padding: 18px 0;
+    }
+    .main-footer-section .visitor-column ul li:first-child{
+        display: block;
+        width: 100%;
+    }
+    .main-footer-section .visitor-column p {
+        font-size: 13px;
+        line-height: 19px;
+    }
+/*    .main-footer-section .visitor-column ul .indicator{
+        display: none;
+    }*/
+    .main-footer-section .footer-column iframe {
+        width: 100%;
+        height: 250px;
     }
 }

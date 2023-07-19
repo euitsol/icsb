@@ -113,6 +113,7 @@ h1,h2,h3,h4,h5,h6{
 	line-height: 61px;
 	position: relative;
 	margin-top: 10px;
+	margin-bottom: 10px;
 	display: inline-block;
 	font-family: 'Teko', sans-serif;
 }
@@ -302,7 +303,18 @@ h1,h2,h3,h4,h5,h6{
 	color: #fff;
 	background: #162B75;
 }
-
+.we-are-section .we-are-coulmn .image-column{
+	position: relative;
+}
+.we-are-section .we-are-coulmn .image-column:after{
+	content: '';
+	position: absolute;
+	border: 16px solid #FF8601;
+	left: 16px;
+	top: 16px;
+	width: 95%;
+	height: 94%
+}
 
 
 .president-section{
@@ -984,6 +996,9 @@ h1,h2,h3,h4,h5,h6{
 .cs-wide-section .owl-carousel .owl-nav .owl-next{
 	right: -114px;
 	position: absolute;
+}
+.cs-wide-section .owl-dot{
+	display: none;
 }
 
 
