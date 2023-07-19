@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Frontend\HomePageController;
+use App\Http\Controllers\Backend\DefaultController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\FaqController;
 use App\Http\Controllers\Backend\ServiceController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\Backend\ContactController;
 use App\Http\Controllers\Backend\NationalConnectionController;
 use App\Http\Controllers\Backend\EventController;
 use App\Http\Controllers\Backend\WWCSController;
+use App\Http\Controllers\Backend\NationalAwardController;
 use App\Http\Controllers\Backend\UserManagement\RoleController;
 use App\Http\Controllers\Backend\UserManagement\PermissionController;
 use App\Http\Controllers\Frontend\AboutPagesController;
@@ -148,7 +150,19 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::get('status/{id}',      [WWCSController::class, 'status'])->name('status.wwcs_edit');
         Route::get('delete/{id}', [WWCSController::class, 'delete'])->name('wwcs_delete');
     });
+    // National Award
+    Route::group(['as' => 'national_award.', 'prefix' => 'national-award'], function () {
+        Route::get('index', [NationalAwardController::class, 'index'])->name('national_award_list');
+        Route::get('create', [NationalAwardController::class, 'create'])->name('national_award_create');
+        Route::post('create', [NationalAwardController::class, 'store'])->name('national_award_create');
+        Route::get('edit/{id}',      [NationalAwardController::class, 'edit'])->name('national_award_edit');
+        Route::put('edit/{id}',      [NationalAwardController::class, 'update'])->name('national_award_edit');
+        Route::get('status/{id}',      [NationalAwardController::class, 'status'])->name('status.national_award_edit');
+        Route::get('delete/{id}', [NationalAwardController::class, 'delete'])->name('national_award_delete');
+    });
 
+    // Default File Download Route
+        Route::get('download/{filename}', [DefaultController::class, 'download'])->name('download');
 
 });
 
