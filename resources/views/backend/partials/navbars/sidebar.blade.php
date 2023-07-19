@@ -83,6 +83,12 @@
                     <p>{{ _('World Wide CS') }}</p>
                 </a>
             </li>
+            <li @if ($pageSlug == 'national_award') class="active " @endif>
+                <a href="{{route('national_award.national_award_list')}}">
+                    <i class="tim-icons icon-chat-33"></i>
+                    <p>{{ _('National Award') }}</p>
+                </a>
+            </li>
         </ul>
     </div>
 </div>
