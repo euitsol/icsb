@@ -21,7 +21,7 @@
 
                             <div class="form-group{{ $errors->has('image') ? ' has-danger' : '' }}">
                                 <label class="form-label">Service Image</label>
-                                <input type="file" id="upImgInput" name="image"
+                                <input type="file" accept="image/*" name="image"
                                     class="form-control image-upload {{ $errors->has('image') ? ' is-invalid' : '' }}" data-existing-files="{{ storage_url($service->image) }}">
                             </div>
 

@@ -21,12 +21,12 @@
 
                             <div class="form-group{{ $errors->has('image') ? ' has-danger' : '' }}">
                                 <label class="form-label">Image</label>
-                                <input type="file" name="image"
-                                    class="form-control {{ $errors->has('image') ? ' is-invalid' : '' }}" value="{{ $national_award->image }}" class="image-upload">
+                                <input type="file" accept="image/*" name="image"
+                                    class="form-control image-upload {{ $errors->has('image') ? ' is-invalid' : '' }}" data-existing-files="{{ storage_url($national_award->image) }}">
                             </div>
                             <div class="form-group{{ $errors->has('file') ? ' has-danger' : '' }}">
                                 <label class="form-label">file</label>
-                                <input type="file" name="file"
+                                <input type="file" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.odt,.ods,.odp" name="file"
                                     class="form-control {{ $errors->has('file') ? ' is-invalid' : '' }}" value="{{ $national_award->file }}">
                             </div>
                             <div class="form-group{{ $errors->has('description') ? ' has-danger' : '' }}">

@@ -22,7 +22,7 @@
                             <div class="form-group{{ $errors->has('image') ? ' has-danger' : '' }}">
                                 <label>{{ _('Service Image') }}</label>
 
-                                <input type="file" name="image" class="form-control image-upload {{ $errors->has('image') ? ' is-invalid' : '' }}">
+                                <input type="file" accept="image/*" name="image" class="form-control image-upload {{ $errors->has('image') ? ' is-invalid' : '' }}">
                                 @include('alerts.feedback', ['field' => 'image'])
                            </div>
 

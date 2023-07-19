@@ -25,7 +25,7 @@
                            </div>
                             <div class="form-group {{ $errors->has('file') ? ' has-danger' : '' }}">
                                 <label>{{ _('File') }}</label>
-                                <input type="file" accept="" name="file" class="form-control {{ $errors->has('file') ? ' is-invalid' : '' }}">
+                                <input type="file" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.odt,.ods,.odp" name="file" class="form-control {{ $errors->has('file') ? ' is-invalid' : '' }}">
                                 @include('alerts.feedback', ['field' => 'file'])
                            </div>
                             <div class="form-group{{ $errors->has('description') ? ' has-danger' : '' }}">
