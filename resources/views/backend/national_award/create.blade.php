@@ -20,12 +20,12 @@
 
                             <div class="form-group {{ $errors->has('image') ? ' has-danger' : '' }}">
                                 <label>{{ _('Image') }}</label>
-                                <input type="file" name="image" class="form-control {{ $errors->has('image') ? ' is-invalid' : '' }} image-upload">
+                                <input type="file" accept="image/*" name="image" class="form-control {{ $errors->has('image') ? ' is-invalid' : '' }} image-upload">
                                 @include('alerts.feedback', ['field' => 'image'])
                            </div>
                             <div class="form-group {{ $errors->has('file') ? ' has-danger' : '' }}">
                                 <label>{{ _('File') }}</label>
-                                <input type="file" name="file" class="form-control {{ $errors->has('file') ? ' is-invalid' : '' }}">
+                                <input type="file" accept="" name="file" class="form-control {{ $errors->has('file') ? ' is-invalid' : '' }}">
                                 @include('alerts.feedback', ['field' => 'file'])
                            </div>
                             <div class="form-group{{ $errors->has('description') ? ' has-danger' : '' }}">
