@@ -34,7 +34,7 @@
                                     <tr>
                                         <td> {{ $faq->title }} </td>
                                         <td> {{ $faq->description }} </td>
-                                        <td> {{ $faq->created_at }} </td>
+                                        <td> {{ timeFormate($faq->created_at)}} </td>
                                         <td> {{ $faq->created_user->name ?? 'system' }} </td>
                                         <td>
                                             @include('backend.partials.action_buttons', [

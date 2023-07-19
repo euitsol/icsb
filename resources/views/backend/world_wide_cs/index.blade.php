@@ -37,7 +37,7 @@
                                     <tr>
                                         <td> {{ $wwcs->title }} </td>
                                         <td><img class="rounded" width="60"
-                                            src="@if ($wwcs->logo) {{ asset('storage/'.$wwcs->logo) }} @else {{ asset('no_img/no_img.jpg') }} @endif"
+                                            src="@if ($wwcs->logo) {{ storage_url($wwcs->logo) }} @else {{ asset('no_img/no_img.jpg') }} @endif"
                                             alt="{{ $wwcs->title }}">
                                         </td>
                                         <td> {{ $wwcs->url }} </td>
@@ -45,7 +45,7 @@
                                         <td>
                                             @include('backend.partials.button', ['routeName' => 'wwcs.status.wwcs_edit','params' => [$wwcs->id], 'className' => $wwcs->getStatusClass(), 'label' => $wwcs->getStatus() ])
                                         </td>
-                                        <td> {{ $wwcs->created_at }} </td>
+                                        <td> {{ timeFormate($wwcs->created_at) }} </td>
                                         <td> {{ $wwcs->created_user->name ?? 'system' }} </td>
                                         <td>
                                             @include('backend.partials.action_buttons', [

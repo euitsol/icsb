@@ -35,7 +35,7 @@
                                         <td> {{ $permission->name }} </td>
                                         <td> {{ $permission->guard_name  }} </td>
                                         <td> {{ $permission->prefix }} </td>
-                                        <td> {{ $permission->created_at }} </td>
+                                        <td> {{ timeFormate($permission->created_at) }} </td>
                                         <td>
                                             @include('backend.partials.action_buttons', [
                                                 'menuItems' => [

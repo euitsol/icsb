@@ -21,7 +21,7 @@ return new class extends Migration
             $table->dateTime('event_start_time');
             $table->dateTime('event_end_time');
             $table->string('video_url')->nullable();
-            $table->enum('type', ['online', 'offline'])->default('offline');
+            $table->enum('type', ["1", "0"])->default("0");
             $table->boolean('status')->default(1);
             $table->integer('notify')->default(1);
             $table->timestamps();

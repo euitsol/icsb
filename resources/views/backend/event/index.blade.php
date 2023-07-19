@@ -53,12 +53,7 @@
                                         <td> {{ timeFormate($event->event_start_time) }} </td>
                                         <td> {{ timeFormate($event->event_end_time) }} </td>
                                         <td>
-                                            @if ($event->type == 'online')
-                                                <span class="badge badge-info">{{ $event->type }}</span>
-                                            @else
-                                                <span class="badge badge-warning">{{ $event->type }}</span>
-                                            @endif
-
+                                            <span class="badge badge-info">{{ $event->getType() }}</span>
                                         </td>
                                         <td>
                                             @include('backend.partials.button', ['routeName' => 'event.status.event_edit','params' => [$event->id], 'className' => $event->getStatusClass(), 'label' => $event->getStatus() ])

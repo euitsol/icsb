@@ -74,8 +74,8 @@
                         <div class="form-group {{ $errors->has('type') ? ' has-danger' : '' }}">
                             <label>{{ _('Event Type') }}</label>
                             <select name="type" class="form-control {{ $errors->has('type') ? ' is-invalid' : '' }}">
-                                <option value="online" @if($event->type === "online") selected @endif>Online</option>
-                                <option value="offline" @if($event->type === "offline") selected @endif>Offline</option>
+                                <option value="1" @if($event->type == "1") selected @endif>Online</option>
+                                <option value="0" @if($event->type == "0") selected @endif>Offline</option>
                             </select>
                             @include('alerts.feedback', ['field' => 'type'])
                         </div>
