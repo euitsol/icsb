@@ -95,6 +95,12 @@
                     <p>{{ _('National Award') }}</p>
                 </a>
             </li>
+            <li @if ($pageSlug == 'blog') class="active " @endif>
+                <a href="{{route('blog.blog_list')}}">
+                    <i class="fa-brands fa-blogger-b @if ($pageSlug == 'blog')fa-beat-fade @endif"></i>
+                    <p>{{ _('Blog') }}</p>
+                </a>
+            </li>
         </ul>
     </div>
 </div>

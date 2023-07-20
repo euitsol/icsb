@@ -29,3 +29,11 @@ wwcs_list,web
 wwcs_create,web
 wwcs_edit,web
 wwcs_delete,web
+national_award_list,web
+national_award_create,web
+national_award_edit,web
+national_award_delete,web
+blog_list,web
+blog_create,web
+blog_edit,web
+blog_delete,web
