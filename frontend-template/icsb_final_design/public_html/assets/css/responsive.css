@@ -1,4 +1,19 @@
+@media only screen and (max-width: 1460px){
+    .header-menu-section .navbar-nav {
+        column-gap: 3px;
+    }
+    .header-menu-section .navbar-nav li a {
+        font-size: 14px;
+        line-height: 20px;
+    }
+}
 @media only screen and (max-width: 1200px){
+    .recent-update-section .recent-update-row .item h3 {
+        font-size: 19px;
+        line-height: 25px;
+    }
+
+
     .main-footer-section {
         padding: 55px 0 10px 0;
     }
@@ -33,27 +48,7 @@
         margin-top: 10px;
     }
 }
-@media only screen and (max-width: 989px){
-    .flex{
-        flex-wrap: wrap;
-    }
-
-    .top-header-section .header-column {
-        width: 100%;
-        justify-content: center;
-    }
-    .main-header-section .header-content h1 {
-        font-size: 40px;
-        line-height: 46px;
-    }
-    .main-header-section .header-content h1::after {
-        top: 43px;
-    }
-    .main-header-section .header-content p {
-        font-size: 14px;
-        line-height: 20px;
-    }
-
+@media only screen and (max-width: 1199px){
     .header-menu-section {
         padding: 7px 0 6px 0;
     }
@@ -114,7 +109,46 @@
         left: 0;
         transition: all 0.2s;
     }
+}
+@media only screen and (max-width: 1024px){
+    .faq-section {
+        padding-top: 75px;
+        padding-bottom: 75px;
+    }
+    .faq-section .faq-content{
+        flex-wrap: wrap;
+        margin-top: 27px;
+    }
+    .faq-section .faq-content .left-column{
+        width: 100%;
+    }
+    .faq-section .faq-content .right-column{
+        width: 100%;
+    }
+    .faq-section .faq-content .accordion-item {
+        margin-top: 14px;
+    }
+}
+@media only screen and (max-width: 989px){
+    .flex{
+        flex-wrap: wrap;
+    }
 
+    .top-header-section .header-column {
+        width: 100%;
+        justify-content: center;
+    }
+    .main-header-section .header-content h1 {
+        font-size: 40px;
+        line-height: 46px;
+    }
+    .main-header-section .header-content h1::after {
+        top: 43px;
+    }
+    .main-header-section .header-content p {
+        font-size: 14px;
+        line-height: 20px;
+    }
 
     .we-are-section {
         padding: 59px 0 130px 0;
@@ -134,7 +168,6 @@
         width: 93%;
         height: 93%;
     }
-
 
     .president-section {
         padding: 40px 0 20px 0;
@@ -162,6 +195,24 @@
         margin-top: 25px;
     }
 
+    .recent-update-section {
+        padding: 70px 0 30px 0;
+    }
+    .section-heading h2 {
+        font-size: 45px;
+        line-height: 51px;
+        margin-bottom: 43px;
+    }
+    .recent-update-section .recent-update-row .see-button a {
+        top: -110px;
+    }
+    .recent-update-section .recent-update-row .item a {
+        display: block;
+    }
+    .recent-update-section .recent-update-row .item h3 {
+        font-size: 20px;
+        line-height: 26px;
+    }
 
     .endorsement-section {
         padding: 80px 0;
@@ -179,9 +230,13 @@
         padding: 0 20px;
     }
     .section-heading h2 {
+        font-size: 33px;
+        line-height: 40px;
+        margin-bottom: 15px;
+    }
+    .common-heading{
         font-size: 35px;
         line-height: 41px;
-        margin-bottom: 15px;
     }
 
     .top-header-section .header-content-column {
@@ -259,6 +314,31 @@
         top: 165px;
         display: block;
     }
+    .recent-update-section {
+        padding: 52px 0 8px 0;
+    }
+    .recent-update-section .recent-update-row .recent-update-slider{
+        margin-top: 32px;
+    }
+    .recent-update-section .recent-update-row .item h3 {
+        font-size: 18px;
+        line-height: 25px;
+    }
+    .recent-update-section .recent-update-row .item .post-content p {
+        margin-top: 10px;
+    }
+    .recent-update-section .recent-update-row .owl-theme .owl-dots {
+        margin-top: 90px;
+    }
+    .recent-update-section .recent-update-row .see-button a {
+        top: -80px;
+    }
+    .recent-update-section .recent-update-row .owl-theme .owl-dots .owl-dot span {
+        width: 25px;
+        height: 10px;
+        margin: 0px 4px;
+    }
+
 
     .endorsement-section {
         padding: 60px 0;
@@ -276,6 +356,32 @@
     }
     .national-award-section .award-column .award-inner{
         width: 49.15%;
+    }
+
+
+    .faq-section {
+        padding-top: 68px;
+        padding-bottom: 65px;
+    }
+    .faq-section .faq-content {
+        margin-top: 25px;
+    }
+    .faq-section .faq-content .accordion-item .accordion-body {
+        padding: 33px 25px;
+    }
+    .faq-section .faq-content .accordion-item .accordion-button {
+        height: 54px;
+        padding-left: 50px;
+    }
+    .faq-section .faq-content .accordion-item .collapsed {
+        height: 54px;
+        padding-left: 50px;
+    }
+    .faq-section .faq-content .accordion-item {
+        margin-top: 15px;
+    }
+    .faq-section .faq-content .accordion-item .accordion-button::before {
+        left: 25px;
     }
 }
 @media only screen and (max-width: 600px){

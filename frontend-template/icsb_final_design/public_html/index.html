@@ -22,7 +22,7 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
 	 <!-- Links to the BXSlider -->
-	<link rel="stylesheet" href="assets/css/jquery.bxslider.css">
+	<link rel="stylesheet" href="assets/css/bxslider.min.css">
 	<!----------------------- Owal Carousel ------------------------>
 	<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
 	<link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
@@ -84,7 +84,7 @@
 					<li><a href="#">Contact Us</a></li>
 				</ul>
 			</div> -->
-			<nav class="navbar navbar-expand-lg">
+			<nav class="navbar navbar-expand-xl">
 			    	<a class="navbar-brand" href="index.html"><img src="assets/img/icsb-logo.svg"></a>
 				    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="icon-bar"></span>
@@ -172,6 +172,17 @@
 
 
 <div class="main">
+    <section class="bxslider">
+        <div class="container">
+            <!-- Slider HTML (change this to your own!) -->
+            <div class="bxslider slider">
+                <div>I am a slide.</div>
+                <div>I am another slide.</div>
+                <div>I am another slide 3.</div>
+                <div>I am another slide 4.</div>
+            </div>
+        </div>
+    </section>
 	<section class="banner-section">
 		<div id="carouselExampleCaptions" class="carousel slide">
 		    <div class="carousel-indicators">
@@ -199,38 +210,7 @@
 			    <span class="visually-hidden">Next</span>
 			</button>
 		</div>
-        <aside class="socila-media-sidebar">
-            <div class="social-link-wrapper">
-                <ul>
-                    <li class="active"><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-pinterest"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
-                </ul>
-            </div>
-        </aside>
 	</section>
-
-    <!-- Start News Ticker Section -->
-    <section class="news-ticker-section">
-        <div class="full-container">
-            <div class="ticker-wrapper">
-                <div class="ticker-title">
-                    <h3>LATEST NEWS</h3>
-                </div>
-                <div class="ticker-desc">
-                    <ul class="bxnewsticker">
-                        <li><a href="#">বাংলাদেশ ব্যাংক কর্তৃক তালিকাভুক্তির জন্য সিএ ফার্মের আবেদনের সময়সীমা ২৮ ডিসেম্বর ২০২২ ইং পর্যন্ত নির্ধারণ</a></li>
-                        <li><a href="#">Notice & Students' Enrolment Form: Online Evening Shift Regular Classes for Professional & Ad</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End News Ticker Section -->
 
 	<section class="lates-news-section">
 
@@ -247,9 +227,7 @@
 					<a href="#">Read More</a>
 				</div>
 				<div class="image-column">
-					<div class="img-wrapper">
-                        <img src="assets/img/about_image.png">
-                    </div>
+					<img src="assets/img/about_image.png">
 				</div>
 			</div>
 		</div>
@@ -346,85 +324,70 @@
 		</div>
 	</section>
 
-    <!-- ============== Start Notice Board Section ================ -->
 	<section class="notice-section">
 		<div class="container">
 			<div class="notice-row">
 				<div class="section-heading text-align">
 					<h2>Notice Board</h2>
 				</div>
-				<div class="notice-board-wrapper">
-                    <div class="left-column notice-details-col">
-                        <div class="notice-content flex">
-                            <div class="date-col">
-                                <h4> Jan 9, 2023</h4>
-                            </div>
-                            <div class="content-col">
-                                <h3><a href="#">Mohammad Asad Ullah FCS Elected as President of ICSB for the Fifth Term 2022-25</a></h3>
-                                <ul>
-                                    <li><i class="fa-solid fa-clock"></i>09.00 am</li>
-                                    <li><i class="fa-solid fa-user-large"></i>Member</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="notice-content flex">
-                            <div class="date-col">
-                                <h4> Jan 9, 2023</h4>
-                            </div>
-                            <div class="content-col">
-                                <h3><a href="#">Mohammad Asad Ullah FCS Elected as President of ICSB for the Fifth Term 2022-25</a></h3>
-                                <ul>
-                                    <li><i class="fa-solid fa-clock"></i>09.00 am</li>
-                                    <li><i class="fa-solid fa-user-large"></i>Member</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="notice-content flex">
-                            <div class="date-col">
-                                <h4> Jan 9, 2023</h4>
-                            </div>
-                            <div class="content-col">
-                                <h3><a href="#">Mohammad Asad Ullah FCS Elected as President of ICSB for the Fifth Term 2022-25</a></h3>
-                                <ul>
-                                    <li><i class="fa-solid fa-clock"></i>09.00 am</li>
-                                    <li><i class="fa-solid fa-user-large"></i>Member</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="notice-content flex">
-                            <div class="date-col">
-                                <h4> Jan 9, 2023</h4>
-                            </div>
-                            <div class="content-col">
-                                <h3><a href="#">Mohammad Asad Ullah FCS Elected as President of ICSB for the Fifth Term 2022-25</a></h3>
-                                <ul>
-                                    <li><i class="fa-solid fa-clock"></i>09.00 am</li>
-                                    <li><i class="fa-solid fa-user-large"></i>Member</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right-column notice-title-col">
-                        <div class="notice-wrapper">
-                            <div class="title-box">
-                                <h4>Categories</h4>
-                                <ul>
-                                    <li class="active"><a href="#">All</a></li>
-                                    <li><a href="#">Member</a></li>
-                                    <li><a href="#">Student</a></li>
-                                    <li><a href="#">Others</a></li>
-                                </ul>
-                                <div class="button-wrapper">
-                                    <a class="transparent-button" href="#">View All</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+				<div class="notice-column">
+					<div class="left-column">
+						<div class="notice-content flex">
+							<div class="date-col">
+								<h4> Jan 9, 2023</h4>
+							</div>
+							<div class="content-col">
+								<h3><a href="#">Mohammad Asad Ullah FCS Elected as President of ICSB for the Fifth Term 2022-25</a></h3>
+								<ul>
+									<li><i class="fa-solid fa-clock"></i>09.00 am</li>
+									<li><i class="fa-solid fa-user-large"></i>Member</li>
+								</ul>
+							</div>
+						</div>
+						<div class="notice-content flex">
+							<div class="date-col">
+								<h4> Jan 9, 2023</h4>
+							</div>
+							<div class="content-col">
+								<h3><a href="#">Mohammad Asad Ullah FCS Elected as President of ICSB for the Fifth Term 2022-25</a></h3>
+								<ul>
+									<li><i class="fa-solid fa-clock"></i>09.00 am</li>
+									<li><i class="fa-solid fa-user-large"></i>Member</li>
+								</ul>
+							</div>
+						</div>
+						<div class="notice-content flex">
+							<div class="date-col">
+								<h4> Jan 9, 2023</h4>
+							</div>
+							<div class="content-col">
+								<h3><a href="#">Mohammad Asad Ullah FCS Elected as President of ICSB for the Fifth Term 2022-25</a></h3>
+								<ul>
+									<li><i class="fa-solid fa-clock"></i>09.00 am</li>
+									<li><i class="fa-solid fa-user-large"></i>Member</li>
+								</ul>
+							</div>
+						</div>
+						<div class="notice-content flex">
+							<div class="date-col">
+								<h4> Jan 9, 2023</h4>
+							</div>
+							<div class="content-col">
+								<h3><a href="#">Mohammad Asad Ullah FCS Elected as President of ICSB for the Fifth Term 2022-25</a></h3>
+								<ul>
+									<li><i class="fa-solid fa-clock"></i>09.00 am</li>
+									<li><i class="fa-solid fa-user-large"></i>Member</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="right-column">
+
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
-    <!-- ============== End Notice Board Section ================ -->
 
 	<section class="recent-update-section">
 		<div class="container">
@@ -884,6 +847,12 @@
 		</div>
 	</div>
 </section>
+<<<<<<< HEAD
+=======
+
+</div>
+
+>>>>>>> 6250e4a38cad798aefb3359078cdd1c632c0d934
 
 <footer class="footer-section">
 	<div class="main-footer-section">
@@ -932,13 +901,12 @@
 <!-- ======================= JavaScript Link ======================= -->
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js" integrity="sha512-3dZ9wIrMMij8rOH7X3kLfXAzwtcHpuYpEgQg1OA4QAob1e81H8ntUQmQm3pBudqIoySO5j0tHN4ENzA6+n2r4w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-
+<!-- BXSlider -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="assets/js/bxslider.min.js"></script>
 <!-- Owal Carosel -->
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
 <script src="assets/js/query.min.js"></script>
 <script src="assets/js/owl.carousel.min.js"></script>
-<!-- BXSlider -->
-<script src="assets/js/jquery.bxslider.min.js"></script>
 <!-- Custom js -->
 <script src="assets/js/custom.js"></script>
 </body>

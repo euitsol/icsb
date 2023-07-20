@@ -1,0 +1,41 @@
+.common-heading{
+	font-size: 50px;
+	line-height: 56px;
+}
+
+
+
+.breadcrumbs-section .breadcrumbs-row .left-column{
+	width: 62%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url("../img/breadcumb/breadcumb-shape.png");
+}
+.breadcrumbs-section .breadcrumbs-row .content-column{
+	padding: 90px 0;
+}
+.breadcrumbs-section .breadcrumbs-row .right-column{
+	width: 38%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url("../img/breadcumb/icsb-profile.png");
+}
+
+
+
+.world-wide-section{
+	padding: 100px 0;
+}
+.world-wide-section .world-wide-column{
+	column-gap: 2%;
+}
+.world-wide-section .world-wide-column .world-wide-item{
+	background: #F2F2F2;
+	width: 49%;
+	padding: 50px;
+}
+.world-wide-section img{
+	width: auto;
+}
