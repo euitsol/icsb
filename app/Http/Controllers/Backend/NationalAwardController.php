@@ -9,6 +9,8 @@ use Illuminate\View\View;
 use App\Models\NationalAward;
 use App\Http\Requests\NationalAwardRequest;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class NationalAwardController extends Controller
 {
@@ -36,7 +38,8 @@ class NationalAwardController extends Controller
         }
         if ($request->hasFile('file')) {
             $file = $request->file('file');
-            $path = $file->store('nationalAwards', 'public');
+            $customFileName = $request->title .'.' . $file->getClientOriginalExtension();
+            $path = $file->storeAs('nationalAwards', $customFileName,'public');
             $nationalAward->file = $path;
         }
 
@@ -57,17 +60,27 @@ class NationalAwardController extends Controller
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $path = $image->store('national_awards', 'public');
+            $path = $image->store('nationalAwards', 'public');
             $this->imageDelete($national_award->image);
             $national_award->image = $path;
         }
-        if ($request->hasFile('file')) {
-            $file = $request->file('file');
-            $path = $file->store('national_awards', 'public');
-            $this->imageDelete($national_award->file);
-            $national_award->file = $path;
-        }
+        if ($request->title != $national_award->title || $request->hasFile('file')) {
+            if ($request->hasFile('file')) {
+                $file = $request->file('file');
+                $this->imageDelete($national_award->file);
+                $customFileName = $request->title .'.' . $file->getClientOriginalExtension();
+                $path = $file->storeAs('nationalAwards', $customFileName,'public');
+                $national_award->file = $path;
+            }else{
+                $extension = pathinfo($national_award->file, PATHINFO_EXTENSION);
+                $currentFilePath = public_path('storage/'.$national_award->file);
+                $newFileName = $request->title.'.'.$extension;
+                $newFilePath = Str::replaceLast(basename($currentFilePath), $newFileName, $currentFilePath);
+                File::move($currentFilePath, $newFilePath);
+                $national_award->file ='nationalAwards/'.$request->title.'.'.$extension;
+            }
 
+        }
         $national_award->title = $request->title;
         $national_award->description = $request->description;
         $national_award->updated_by = auth()->user()->id;
