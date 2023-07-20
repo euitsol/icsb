@@ -32,7 +32,7 @@
 
                         <div class="form-group {{ $errors->has('image.*') ? 'is-invalid' : '' }} {{ $errors->has('image') ? 'is-invalid' : '' }}">
                             <label>{{ _('Event Images') }}</label>
-                            <input type="file" name="image[]" class="form-control {{ $errors->has('image.*') ? 'is-invalid' : '' }} {{ $errors->has('image') ? 'is-invalid' : '' }} image-upload" multiple>
+                            <input type="file" accept="image/*" name="image[]" class="form-control {{ $errors->has('image.*') ? 'is-invalid' : '' }} {{ $errors->has('image') ? 'is-invalid' : '' }} image-upload" multiple >
                             @include('alerts.feedback', ['field' => 'image'])
                             @include('alerts.feedback', ['field' => 'image.*'])
                         </div>
@@ -74,8 +74,8 @@
                         <div class="form-group {{ $errors->has('type') ? ' has-danger' : '' }}">
                             <label>{{ _('Event Type') }}</label>
                             <select name="type" class="form-control {{ $errors->has('type') ? ' is-invalid' : '' }}">
-                                <option value="online" @if($event->type === "online") selected @endif>Online</option>
-                                <option value="offline" @if($event->type === "offline") selected @endif>Offline</option>
+                                <option value="1" @if($event->type == "1") selected @endif>Online</option>
+                                <option value="0" @if($event->type == "0") selected @endif>Offline</option>
                             </select>
                             @include('alerts.feedback', ['field' => 'type'])
                         </div>

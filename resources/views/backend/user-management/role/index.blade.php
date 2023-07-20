@@ -34,7 +34,7 @@
                                     <tr>
                                         <td> {{ $role->name }} </td>
                                         <td> {{ $role->permissionNames }} </td>
-                                        <td> {{ $role->created_at }} </td>
+                                        <td> {{ timeFormate($role->created_at) }} </td>
                                         <td> {{ $role->created_user->name ?? 'system' }} </td>
                                         <td>
                                             @include('backend.partials.action_buttons', [

@@ -22,7 +22,7 @@
 
                             <div class="form-group{{ $errors->has('logo') ? ' has-danger' : '' }}">
                                 <label>{{ _('Logo') }}</label>
-                                <input type="file" id="upImgInput" name="logo" onchange="myFunction('upImg')" class="form-control {{ $errors->has('logo') ? ' is-invalid' : '' }}">
+                                <input type="file" accept="image/*" name="logo" class="form-control image-upload {{ $errors->has('logo') ? ' is-invalid' : '' }}">
                                 @include('alerts.feedback', ['field' => 'logo'])
                            </div>
 

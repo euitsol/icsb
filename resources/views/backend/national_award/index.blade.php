@@ -9,7 +9,7 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-8">
-                            <h4 class="card-title">{{ _('National National Award') }}</h4>
+                            <h4 class="card-title">{{ _('National Award') }}</h4>
                         </div>
                         <div class="col-4 text-right">
                             @include('backend.partials.button', ['routeName' => 'national_award.national_award_create', 'className' => 'btn-primary', 'label' => 'Add National Award'])
@@ -37,19 +37,17 @@
                                     <tr>
                                         <td> {{ $national_award->title }} </td>
                                         <td><img class="rounded" width="60"
-                                            src="@if ($national_award->image) {{ asset('storage/'.$national_award->image) }} @else {{ asset('no_img/no_img.jpg') }} @endif"
+                                            src="@if ($national_award->image) {{ storage_url($national_award->image) }} @else {{ asset('no_img/no_img.jpg') }} @endif"
                                             alt="{{ $national_award->title }}">
                                         </td>
-                                        <td> <a href="{{route('download',base64_encode($national_award->file))}}" class="btn btn-info btn-sm"><i class="fa-regular fa-circle-down"></i></a> </td>
+                                        <td>
+                                            <a href="{{route('download',base64_encode($national_award->file))}}" class="btn btn-info btn-sm {{$national_award->file ?  : 'd-none'}}"><i class="fa-regular fa-circle-down"></i></a>
+                                        </td>
                                         <td> {{ $national_award->description }} </td>
                                         <td>
-                                            @if ($national_award->status == 1)
-                                                @include('backend.partials.button', ['routeName' => 'national_award.status.national_award_edit','params' => [$national_award->id], 'className' => 'btn-success', 'label' => 'Active'])
-                                            @else
-                                                @include('backend.partials.button', ['routeName' => 'national_award.status.national_award_edit','params' => [$national_award->id], 'className' => 'btn-danger', 'label' => 'Deactive'])
-                                            @endif
+                                            @include('backend.partials.button', ['routeName' => 'national_award.status.national_award_edit','params' => [$national_award->id], 'className' => $national_award->getStatusClass(), 'label' => $national_award->getStatus() ])
                                         </td>
-                                        <td> {{ $national_award->created_at }} </td>
+                                        <td> {{ timeFormate($national_award->created_at) }} </td>
                                         <td> {{ $national_award->created_user->name ?? 'system' }} </td>
                                         <td>
                                             @include('backend.partials.action_buttons', [

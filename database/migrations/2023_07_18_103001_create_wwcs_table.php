@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('logo');
             $table->longText('description')->nullable();
             $table->string('url');
-            $table->boolean('status')->nullable()->default(1);
+            $table->boolean('status')->default(1);
             $table->timestamps();
             $table->softDeletes();
             $this->addAuditColumns($table);

@@ -35,11 +35,11 @@
                                     <tr>
                                         <td> {{ $service->title }} </td>
                                         <td><img class="rounded" width="60"
-                                            src="@if ($service->image) {{ asset('storage/'.$service->image) }} @else {{ asset('no_img/no_img.jpg') }} @endif"
+                                            src="@if ($service->image) {{ storage_url($service->image) }} @else {{ asset('no_img/no_img.jpg') }} @endif"
                                             alt="{{ $service->title }}">
                                         </td>
                                         <td> {{ $service->description }} </td>
-                                        <td> {{ $service->created_at }} </td>
+                                        <td> {{ timeFormate($service->created_at) }} </td>
                                         <td> {{ $service->created_user->name ?? 'system' }} </td>
                                         <td>
                                             @include('backend.partials.action_buttons', [
