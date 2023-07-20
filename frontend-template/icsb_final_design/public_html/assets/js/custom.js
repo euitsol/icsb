@@ -5,7 +5,7 @@ $(document).ready(function(){
             loop:true,
             margin:20,
             nav: true,
-            dots: true,
+            dots: false,
             autoplay:true,
             autoplayTimeout:3000,
             autoplayHoverPause:true,
@@ -36,10 +36,13 @@ $(document).ready(function(){
                 0:{
                     items:1
                 },
-                600:{
-                    items:1
+                650:{
+                    items:2
                 },
-                800:{
+                989:{
+                    items: 3
+                },
+                1200:{
                     items:4
                 }
             }
@@ -94,62 +97,30 @@ $(document).ready(function(){
   });
 
 //  Custom jQuery apply
+    $(document).ready(function(){
+    //     $(".social-column .share-box label").click(function(){
+    //         $(".social-column .share-box").toggleClass("show");
+    //     });
+
+
+    // $(".banner-section .carousel").swipe({
+
+    //     swipe: function(event, direction, distance, duration, fingerCount, fingerData) {
+
+    //       if (direction == 'left') $(this).carousel('next');
+    //       if (direction == 'right') $(this).carousel('prev');
+
+    //     },
+    //     allowPageScroll:"vertical"
+
+    //   });
+
+    })
 
     // BX Slider
     $(document).ready(function(){
-        $(".slider2").bxSlider();
+        $('.slider').bxSlider();
     });
-
-    $('.bxnewsticker').bxSlider({
-        minSlides: 1,
-        maxSlides: 1,
-        // slideWidth: 170,
-        slideMargin: 10,
-        ticker: true,
-        speed: 20900
-      });
-
-
-    // Social media link active class
-    // Get all the anchor tags inside the social-link-wrapper
-    const socialLinks = document.querySelectorAll(".social-link-wrapper a");
-    // Add click event listener to each anchor tag
-    socialLinks.forEach(link => {
-        link.addEventListener("click", (event) => {
-            event.preventDefault(); // Prevent the default link behavior
-
-            // Remove active class from the currently active li element
-            const currentlyActive = document.querySelector(".social-link-wrapper li.active");
-            if (currentlyActive) {
-                currentlyActive.classList.remove("active");
-            }
-
-            // Add active class to the parent li element of the clicked anchor tag
-            link.parentElement.classList.add("active");
-        });
-    });
-
-    // Social media link active class
-    // Get all the anchor tags inside the social-link-wrapper
-    const noticebar = document.querySelectorAll(".notice-wrapper ul a");
-    // Add click event listener to each anchor tag
-    noticebar.forEach(link => {
-        link.addEventListener("click", (event) => {
-            event.preventDefault(); // Prevent the default link behavior
-
-            // Remove active class from the currently active li element
-            const currentlyActive = document.querySelector(".notice-wrapper ul li.active");
-            if (currentlyActive) {
-                currentlyActive.classList.remove("active");
-            }
-
-            // Add active class to the parent li element of the clicked anchor tag
-            link.parentElement.classList.add("active");
-        });
-    });
-
-
-
 
 
 
