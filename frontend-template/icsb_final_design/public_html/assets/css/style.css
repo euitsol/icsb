@@ -266,7 +266,45 @@ h1,h2,h3,h4,h5,h6{
 	background: #162B75;
 }
 
+/* ================== Start Ticker Section ==============*/
+.news-ticker-section .full-container {
+	border-top: 2px solid #182456;
+	border-bottom: 2px solid #182456;
+}
+.news-ticker-section .ticker-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+    background-color: #EFE4B0;
+}
+.news-ticker-section .ticker-title {
+	width: 250px;
+	padding: 15px 25px;
+	background-color: #182456;
+	clip-path: polygon(0% 0%, 94% 0%, 100% 50%, 94% 100%, 0% 100%);
+}
+.news-ticker-section .ticker-title h3 {
+    color:#ffffff;
+	font-family: 'Poppins', sans-serif;
+	font-size: 24px;
+	line-height: 30px;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+.news-ticker-section .ticker-desc {
+    width: calc(100% - 250px);
+}
+.news-ticker-section .ticker-desc .bx-wrapper {
+	max-width: 100%;
+	margin: 0;
+    -moz-box-shadow: unset;
+    -webkit-box-shadow: unset;
+    box-shadow: unset;
+    border: none;
+    background: transparent;
+}
 
+/* ================== End Ticker Section ==============*/
 
 .we-are-section{
 	padding: 100px 0 163px 0;
@@ -334,7 +372,7 @@ h1,h2,h3,h4,h5,h6{
 .president-section .president-column .left-column h3{
 	font-size: 24px;
 	line-height: 30px;
-	font-family: 'Poppins', sans-serif;	
+	font-family: 'Poppins', sans-serif;
 }
 .president-section .president-column .left-column p{
 	font-size: 17px;
@@ -520,7 +558,7 @@ h1,h2,h3,h4,h5,h6{
 }
 .notice-section .notice-row .notice-column .left-column .content-col ul li{
 	color: #FF8601;
-	font-size: 15px; 
+	font-size: 15px;
 	line-height: 21px;
 	font-family: 'Poppins', sans-serif;
 }
@@ -605,7 +643,7 @@ h1,h2,h3,h4,h5,h6{
 }
 .recent-update-section .recent-update-row .owl-theme .owl-dots .active span{
 	background: #182456;
-} 
+}
 
 /*.endorsement-section{
 	padding: 98px 0;
@@ -838,7 +876,7 @@ h1,h2,h3,h4,h5,h6{
 }
 .events-section .events-row .owl-theme .owl-dots .active span{
 	background: #182456;
-} 
+}
 
 
 
@@ -991,7 +1029,7 @@ h1,h2,h3,h4,h5,h6{
 }
 .cs-wide-section .owl-carousel .owl-nav .owl-prev{
 	left: -114px;
-	position: absolute;	
+	position: absolute;
 }
 .cs-wide-section .owl-carousel .owl-nav .owl-next{
 	right: -114px;
@@ -1009,7 +1047,7 @@ h1,h2,h3,h4,h5,h6{
 .national-connection-section .national-connection .owl-item img{
 	width: auto;
 	margin-left: auto;
-	margin-right: auto;	
+	margin-right: auto;
 }
 .national-connection-section .national-connection .owl-item  h3{
 	font-size: 24px;

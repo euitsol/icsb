@@ -116,8 +116,19 @@ $(document).ready(function(){
 
     // BX Slider
     $(document).ready(function(){
-        $('.slider').bxSlider();
+        $(".slider2").bxSlider();
     });
+
+    $('.bxslider').bxSlider({
+        minSlides: 2,
+        maxSlides: 2,
+        // slideWidth: 170,
+        slideMargin: 10,
+        ticker: true,
+        speed: 20800
+      });
+
+
 
 
 
