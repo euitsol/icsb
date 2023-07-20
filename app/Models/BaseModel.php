@@ -48,4 +48,12 @@ class BaseModel extends Model
             return 'btn-danger';
         }
     }
+    public function getFeatured()
+    {
+        if ($this->is_featured == 1) {
+            return 'Remove from featured';
+        } else {
+            return 'Make featured';
+        }
+    }
 }

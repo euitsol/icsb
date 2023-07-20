@@ -53,6 +53,7 @@
                                             @include('backend.partials.action_buttons', [
                                                 'menuItems' => [
                                                     ['routeName' => '', 'label' => 'View'],
+                                                    ['routeName' => 'national_award.featured.national_award_edit',   'params' => [$national_award->id], 'label' => $national_award->getFeatured() ],
                                                     ['routeName' => 'national_award.national_award_edit',   'params' => [$national_award->id], 'label' => 'Update'],
                                                     ['routeName' => 'national_award.national_award_delete', 'params' => [$national_award->id], 'label' => 'Delete', 'delete' => true],
                                                 ]

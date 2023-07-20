@@ -103,4 +103,10 @@ class NationalAwardController extends Controller
         $this->statusChange($national_award);
         return redirect()->route('national_award.national_award_list')->withStatus(__($national_award->title.' status updated successfully.'));
     }
+    public function featured($id): RedirectResponse
+    {
+        $national_award = NationalAward::findOrFail($id);
+        $this->featuredChange($national_award);
+        return redirect()->route('national_award.national_award_list')->withStatus(__($national_award->title.' featured updated successfully.'));
+    }
 }
