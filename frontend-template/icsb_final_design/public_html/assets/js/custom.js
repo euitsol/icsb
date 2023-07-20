@@ -43,7 +43,7 @@ $(document).ready(function(){
                     items:4
                 }
             }
-    }); 
+    });
 
     var owl = $('.events-slider');
         owl.owlCarousel({
@@ -66,7 +66,7 @@ $(document).ready(function(){
                     items:3
                 }
             }
-    }); 
+    });
 
     var owl = $('.national-connection');
         owl.owlCarousel({
@@ -103,16 +103,22 @@ $(document).ready(function(){
     // $(".banner-section .carousel").swipe({
 
     //     swipe: function(event, direction, distance, duration, fingerCount, fingerData) {
-      
+
     //       if (direction == 'left') $(this).carousel('next');
     //       if (direction == 'right') $(this).carousel('prev');
-      
+
     //     },
     //     allowPageScroll:"vertical"
-      
+
     //   });
 
     })
 
+    // BX Slider
+    $(document).ready(function(){
+        $('.slider').bxSlider();
+    });
 
-    
+
+
+
