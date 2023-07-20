@@ -97,7 +97,7 @@
                 </div>
             </div>
             {{-- Tab-2 --}}
-            <div id="tab2" class="tabcontent py-3">
+            <div id="tab2" class="tabcontent py-3" style="display: none;">
                 <div class="row">
                     <div class="col-md-8">
                         <div class="card">
@@ -188,7 +188,7 @@
                 </div>
             </div>
             {{-- Tab-3 --}}
-            <div id="tab3" class="tabcontent py-3">
+            <div id="tab3" class="tabcontent py-3" style="display: none;">
                 <div class="row">
                     <div class="col-md-8">
                         <div class="card">
@@ -268,7 +268,7 @@
                 </div>
             </div>
             {{-- Tab-4 --}}
-            <div id="tab4" class="tabcontent py-3">
+            <div id="tab4" class="tabcontent py-3" style="display: none;">
                 <div class="row">
                     <div class="col-md-8">
                         <div class="card">

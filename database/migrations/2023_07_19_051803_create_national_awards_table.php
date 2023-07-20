@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('file')->nullable();
             $table->longText('description');
             $table->boolean('status')->default(1);
+            $table->enum('is_featured', ["0", "1"])->default("0");
             $table->timestamps();
             $table->softDeletes();
             $this->addAuditColumns($table);

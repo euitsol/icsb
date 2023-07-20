@@ -24,5 +24,14 @@ class Controller extends BaseController
         $modelData->updated_by = auth()->user()->id;
         $modelData->save();
     }
+    public function featuredChange($modelData){
+        if($modelData->is_featured == 1){
+            $modelData->is_featured= '0';
+        }else{
+            $modelData->is_featured = '1';
+        }
+        $modelData->updated_by = auth()->user()->id;
+        $modelData->save();
+    }
 
 }

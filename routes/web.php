@@ -159,6 +159,7 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::get('edit/{id}',      [NationalAwardController::class, 'edit'])->name('national_award_edit');
         Route::put('edit/{id}',      [NationalAwardController::class, 'update'])->name('national_award_edit');
         Route::get('status/{id}',      [NationalAwardController::class, 'status'])->name('status.national_award_edit');
+        Route::get('featured/{id}',      [NationalAwardController::class, 'featured'])->name('featured.national_award_edit');
         Route::get('delete/{id}', [NationalAwardController::class, 'delete'])->name('national_award_delete');
     });
 
