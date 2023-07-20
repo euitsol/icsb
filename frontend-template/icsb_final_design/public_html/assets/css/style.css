@@ -60,6 +60,41 @@ h1,h2,h3,h4,h5,h6{
 .align{
 	align-items: center;
 }
+.transparent-button {
+	color: #ffffff;
+	width: 100%;
+	max-width: 170px;
+	height: 40px;
+	font-size: 18px;
+	line-height: 38px;
+	border-radius: 50px;
+	transition: 0.4s;
+	text-align: center;
+	transition: 0.4s;
+    background-color: #182456;
+	border: 1.5px solid #182456;
+}
+.transparent-button:hover {
+	color: #182456;
+	background: transparent;
+}
+.color-button {
+	color: #182456;
+	width: 100%;
+	max-width: 170px;
+	height: 40px;
+	font-size: 18px;
+	line-height: 38px;
+	border-radius: 50px;
+	transition: 0.4s;
+	text-align: center;
+	transition: 0.4s;
+	border: 1.5px solid #182456;
+}
+.color-button:hover {
+	color: #fff;
+	background: #162B75;
+}
 
 /*=================== Top Header Section ===================*/
 .top-header-section{
@@ -265,6 +300,61 @@ h1,h2,h3,h4,h5,h6{
 .banner-section .carousel-indicators .active{
 	background: #162B75;
 }
+/* ==================== Start Social Media Link ====================== */
+.banner-section {
+    position: relative;
+}
+.socila-media-sidebar {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	transform: translateY(-50%);
+    z-index: 99;
+}
+.socila-media-sidebar .social-link-wrapper ul {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	padding: 0;
+	margin: 0;
+	width: 78px;
+	background-color: rgba(0,0,0,0.52);
+}
+.socila-media-sidebar .social-link-wrapper ul li {
+	display: inline-block;
+	text-align: center;
+	padding: 10px;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.socila-media-sidebar .social-link-wrapper ul li a {
+	width: 42px;
+	height: 42px;
+	background-color: #ffffff;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+	font-size: 23px;
+	color: #162b75;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.socila-media-sidebar .social-link-wrapper ul li:hover {
+    background-color: #162b75;
+}
+.socila-media-sidebar .social-link-wrapper ul li.active {
+    background-color: #162b75;
+}
+.socila-media-sidebar .social-link-wrapper ul li.active a {
+    background-color: transparent;
+    color: #ffffff;
+}
+.socila-media-sidebar .social-link-wrapper ul li:hover a {
+    background-color: transparent;
+    color: #ffffff;
+}
 
 /* ================== Start Ticker Section ==============*/
 .news-ticker-section .full-container {
@@ -279,7 +369,7 @@ h1,h2,h3,h4,h5,h6{
 }
 .news-ticker-section .ticker-title {
 	width: 250px;
-	padding: 15px 25px;
+	padding: 18px 25px;
 	background-color: #182456;
 	clip-path: polygon(0% 0%, 94% 0%, 100% 50%, 94% 100%, 0% 100%);
 }
@@ -302,6 +392,17 @@ h1,h2,h3,h4,h5,h6{
     box-shadow: unset;
     border: none;
     background: transparent;
+}
+.news-ticker-section .ticker-desc .bx-wrapper li,
+.news-ticker-section .ticker-desc .bx-wrapper li a {
+	font-size: 18px;
+	line-height: 25px;
+	font-weight: 500;
+	color: #111111;
+}
+.news-ticker-section .ticker-desc .bx-wrapper li:hover,
+.news-ticker-section .ticker-desc .bx-wrapper li a:hover {
+    color: #182456;
 }
 
 /* ================== End Ticker Section ==============*/
@@ -341,7 +442,7 @@ h1,h2,h3,h4,h5,h6{
 	color: #fff;
 	background: #162B75;
 }
-.we-are-section .we-are-coulmn .image-column{
+/* .we-are-section .we-are-coulmn .image-column{
 	position: relative;
 }
 .we-are-section .we-are-coulmn .image-column:after{
@@ -352,8 +453,33 @@ h1,h2,h3,h4,h5,h6{
 	top: 16px;
 	width: 95%;
 	height: 94%
+} */
+/* Start Image Bordder effect */
+.img-wrapper {
+    background-color: #FF8601;
 }
+.img-wrapper img {
+    --b: 16px;  /* the border thickness */
+    --d: 12px; /* the distance from the edge */
+    --o: 20px; /* the offset on hover */
+    --s: 1;    /* the direction of the hover effect (+1 or -1)*/
 
+    --_d: calc(var(--d) + var(--s)*1em);
+    --_g: calc(100% - 2*(var(--_d) + var(--b)));
+    --_m:
+      conic-gradient(from 90deg at var(--_d) var(--_d),#0000 25%,#000 0)
+       0 0/calc(100% - var(--_d)) calc(100% - var(--_d)),
+      linear-gradient(#000 0 0) 50%/var(--_g) var(--_g) no-repeat;
+    -webkit-mask: var(--_m);
+            mask: var(--_m);
+    font-size: 0;
+    cursor: pointer;
+    transition: .35s;
+  }
+  .img-wrapper img:hover {
+    font-size: var(--o);
+  }
+  /* End Image Bordder effect */
 
 .president-section{
 	padding: 40px 0 63px 0;
@@ -500,7 +626,7 @@ h1,h2,h3,h4,h5,h6{
 
 
 .notice-section{
-	padding: 102px 0 62px 0;
+	padding: 110px 0 100px 0;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -509,30 +635,34 @@ h1,h2,h3,h4,h5,h6{
 .notice-section .section-heading h2{
 	color: #fff;
 }
-.notice-section .notice-row .notice-column{
+.notice-section .notice-row .notice-board-wrapper {
 	display: flex;
+	flex-wrap: wrap;
+	max-width: 1263px;
+	grid-column-gap: 3.2%;
 }
-.notice-section .notice-row .notice-column .notice-content{
+.notice-section .notice-row .notice-board-wrapper .notice-content{
 	column-gap: 23px;
 	padding-bottom: 15px;
 	border-bottom: 1px solid #707070;
 }
-.notice-section .notice-row .notice-column .notice-content:last-child{
+.notice-section .notice-row .notice-board-wrapper .notice-content:last-child{
 	border-bottom: none;
+    padding-bottom: 0;
 }
-.notice-section .notice-row .notice-column .left-column{
-	width: 66%;
+.notice-section .notice-row .notice-board-wrapper .left-column {
+	width: 69.4%;
 	column-gap: 24px;
 	background: #fff;
 	display: flex;
 	flex-wrap: wrap;
 	row-gap: 20px;
-	padding: 25px 25px 25px 45px;
+	padding: 40px 45px;
 }
-.notice-section .notice-row .notice-column .left-column .date-col h4{
+.notice-section .notice-row .notice-board-wrapper .left-column .date-col h4{
 	color: #fff;
-	font-size: 15px;
-	line-height: 21px;
+	font-size: 12px;
+	line-height: 18px;
 	background: #182456;
 	max-width: 65px;
 	width: 100%;
@@ -542,32 +672,69 @@ h1,h2,h3,h4,h5,h6{
 	text-align: center;
 	font-family: 'Poppins', sans-serif;
 }
-.notice-section .notice-row .notice-column .left-column .content-col h3{
+.notice-section .notice-row .notice-board-wrapper .left-column .content-col h3{
 	font-size: 16px;
 	line-height: 22px;
 	margin-bottom: 13px;
 }
-.notice-section .notice-row .notice-column .left-column .content-col h3 a{
+.notice-section .notice-row .notice-board-wrapper .left-column .content-col h3 a{
 	color: #111;
 }
-.notice-section .notice-row .notice-column .left-column .content-col ul{
+.notice-section .notice-row .notice-board-wrapper .left-column .content-col ul{
 	margin: 0;
 	padding: 0;
 	display: flex;
 	column-gap: 25px;
 }
-.notice-section .notice-row .notice-column .left-column .content-col ul li{
+.notice-section .notice-row .notice-board-wrapper .left-column .content-col ul li{
 	color: #FF8601;
 	font-size: 15px;
 	line-height: 21px;
 	font-family: 'Poppins', sans-serif;
 }
-.notice-section .notice-row .notice-column .left-column .content-col ul li i{
+.notice-section .notice-row .notice-board-wrapper .left-column .content-col ul li i {
 	margin-right: 6px;
+	font-size: 12px;
+	position: relative;
+	top: -2px;
 }
-.notice-section .notice-row .notice-column .right-column{
-	width: 40%;
+.notice-section .notice-row .notice-board-wrapper .right-column {
+	width: 27.4%;
 }
+.notice-section .notice-row .notice-board-wrapper .right-column h4 {
+    font-family: 'Poppins', sans-serif;
+	font-size: 18px;
+	line-height: 24px;
+	font-weight: 600;
+	color: #122F98;
+	padding: 17px 25px;
+	background-color: #fff;
+}
+.notice-section .notice-row .notice-board-wrapper .right-column ul {
+    padding: 0;
+}
+.notice-section .notice-row .notice-board-wrapper .right-column ul li a {
+    display: block;
+	font-size: 18px;
+	line-height: 22px;
+	color: #ffffff;
+	background-color: #FF8601;
+	border-top: 1px solid #FFFFFF;
+	padding: 10px 25px;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.notice-section .notice-row .notice-board-wrapper .right-column ul li a:hover,
+.notice-section .notice-row .notice-board-wrapper .right-column ul li.active a {
+    background-color: #182456;
+}
+.notice-section .notice-row .notice-board-wrapper .right-column .button-wrapper {
+	margin-top: 48px;
+}
+
+
+/* ================= End Notice Section ============ */
 
 .recent-update-section{
 	padding: 102px 0 62px 0;
