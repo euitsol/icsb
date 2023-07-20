@@ -31,7 +31,7 @@ class BaseModel extends Model
     //     }
     // }
 
-    public function getStatus()
+    public function getStatus(): string
     {
         if ($this->status == 1) {
             return 'Active';
@@ -40,7 +40,7 @@ class BaseModel extends Model
         }
     }
 
-    public function getStatusClass()
+    public function getStatusClass(): string
     {
         if ($this->status == 1) {
             return 'btn-success';
@@ -48,7 +48,7 @@ class BaseModel extends Model
             return 'btn-danger';
         }
     }
-    public function getFeatured()
+    public function getFeatured(): string
     {
         if ($this->is_featured == 1) {
             return 'Remove from featured';

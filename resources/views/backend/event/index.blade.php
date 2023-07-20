@@ -53,7 +53,7 @@
                                         <td> {{ timeFormate($event->event_start_time) }} </td>
                                         <td> {{ timeFormate($event->event_end_time) }} </td>
                                         <td>
-                                            <span class="badge badge-info">{{ $event->getType() }}</span>
+                                            <span class="badge {{ $event->getTypeClass() }}">{{ $event->getType() }}</span>
                                         </td>
                                         <td>
                                             @include('backend.partials.button', ['routeName' => 'event.status.event_edit','params' => [$event->id], 'className' => $event->getStatusClass(), 'label' => $event->getStatus() ])
