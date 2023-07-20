@@ -1217,10 +1217,13 @@ h1,h2,h3,h4,h5,h6{
 	margin-right: auto;
 }
 .national-connection-section .national-connection .owl-item  h3{
+	color: #122F98;
+	font-family: 'Poppins', sans-serif;
 	font-size: 24px;
 	line-height: 30px;
 	text-transform: uppercase;
-	display: none;
+	font-weight: 500;
+	margin-top: 35px;
 }
 .national-connection-section .owl-carousel .owl-nav.disabled {
 	display: block;

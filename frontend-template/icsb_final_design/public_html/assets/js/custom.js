@@ -71,11 +71,12 @@ $(document).ready(function(){
     var owl = $('.national-connection');
         owl.owlCarousel({
             // items:6,
+            autoWidth:true,
             loop:true,
             margin:20,
             nav: true,
             dots: false,
-            autoplay:false,
+            autoplay:true,
             autoplayTimeout:3000,
             autoplayHoverPause:true,
             responsive:{
@@ -84,9 +85,6 @@ $(document).ready(function(){
                 },
                 600:{
                     items:3
-                },
-                800:{
-                    items:6
                 }
             }
     });
