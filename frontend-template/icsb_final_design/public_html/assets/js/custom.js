@@ -116,6 +116,78 @@ $(document).ready(function(){
 
     })
 
+
+
+//  Custom jQuery apply
+
+    // BX Slider
+//  Custom jQuery apply
+    $(document).ready(function(){
+        $(".slider2").bxSlider();
+    });
+    //     $(".social-column .share-box label").click(function(){
+    //         $(".social-column .share-box").toggleClass("show");
+    //     });
+
+    $('.bxnewsticker').bxSlider({
+        minSlides: 1,
+        maxSlides: 1,
+        // slideWidth: 170,
+        slideMargin: 10,
+        ticker: true,
+        speed: 20900
+      });
+
+
+    // Social media link active class
+    // Get all the anchor tags inside the social-link-wrapper
+    const socialLinks = document.querySelectorAll(".social-link-wrapper a");
+    // Add click event listener to each anchor tag
+    socialLinks.forEach(link => {
+        link.addEventListener("click", (event) => {
+            event.preventDefault(); // Prevent the default link behavior
+
+            // Remove active class from the currently active li element
+            const currentlyActive = document.querySelector(".social-link-wrapper li.active");
+            if (currentlyActive) {
+                currentlyActive.classList.remove("active");
+            }
+
+            // Add active class to the parent li element of the clicked anchor tag
+            link.parentElement.classList.add("active");
+        });
+    });
+    // $(".banner-section .carousel").swipe({
+
+    // Social media link active class
+    // Get all the anchor tags inside the social-link-wrapper
+    const noticebar = document.querySelectorAll(".notice-wrapper ul a");
+    // Add click event listener to each anchor tag
+    noticebar.forEach(link => {
+        link.addEventListener("click", (event) => {
+            event.preventDefault(); // Prevent the default link behavior
+
+            // Remove active class from the currently active li element
+            const currentlyActive = document.querySelector(".notice-wrapper ul li.active");
+            if (currentlyActive) {
+                currentlyActive.classList.remove("active");
+            }
+    //     swipe: function(event, direction, distance, duration, fingerCount, fingerData) {
+
+            // Add active class to the parent li element of the clicked anchor tag
+            link.parentElement.classList.add("active");
+        });
+    });
+    //       if (direction == 'left') $(this).carousel('next');
+    //       if (direction == 'right') $(this).carousel('prev');
+
+    //     },
+    //     allowPageScroll:"vertical"
+
+    //   });
+
+
+
     // BX Slider
     $(document).ready(function(){
         $('.slider').bxSlider();
