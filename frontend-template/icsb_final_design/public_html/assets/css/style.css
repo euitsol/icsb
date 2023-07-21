@@ -216,7 +216,7 @@ h1,h2,h3,h4,h5,h6{
 	border: 0;
 	padding: 0;
 	margin: 0;
-	margin-top: 32px;
+	margin-top: 25px;
 	border-radius: 0;
 	transition: 0.4s;
 	border-bottom: 5px solid #FF8601;
@@ -1197,6 +1197,103 @@ h1,h2,h3,h4,h5,h6{
 	background: #182456;
 }
 
+
+.breadcrumbs-section{
+	position: relative;
+	overflow: hidden;
+	max-height: 350px;
+	background: #122F98;
+}
+.breadcrumbs-section .overly-image{
+	top: 0;
+	right: 0;
+	width: 50%;
+	height: 350px;
+	position: absolute;
+}
+.breadcrumbs-section .overly-image img{
+	height: 350px;
+	object-fit: cover;
+}
+.breadcrumbs-section .breadcrumbs-row .left-column{
+	width: 50%;
+	position: relative;
+	padding: 132px 0;
+}
+.breadcrumbs-section .breadcrumbs-row .left-column::after{
+	content: url("../img/breadcumb/shape.png");
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	right: -490px;
+}
+.breadcrumbs-section .breadcrumbs-row .left-column ul{
+	padding: 0;
+	margin: 0;
+	column-gap: 6px;
+	align-items: center;
+	margin-top: 12px;
+	font-family: 'Poppins', sans-serif;
+}
+.breadcrumbs-section .breadcrumbs-row .left-column ul li a{
+	color: #fff;
+	font-size: 20px;
+	line-height: 26px;
+	transition: 0.4s;
+	text-transform: uppercase;
+}
+.breadcrumbs-section .breadcrumbs-row .left-column ul li a:hover{
+	color: #FF8601;
+}
+.breadcrumbs-section .breadcrumbs-row .left-column ul li p{ 
+	color: #F2F2F2;
+	font-size: 20px;
+	line-height: 26px;
+}
+
+/*========================== About ICSB Page CSS =========================*/
+.about-us-section{
+	padding: 110px 0;
+	background: #F2F2F2;
+}
+.about-us-section .about-us-row{
+	column-gap: 5%;
+	align-items: center;
+}
+.about-us-section .about-us-row h2{
+	color: #111111;
+	font-size: 70px;
+	line-height: 76px;
+	margin-bottom: 47px;
+}
+.about-us-section .about-us-row p{
+	margin-bottom: 20px;
+}
+.about-us-section .about-us-row .image-column{
+	width: 49%;
+}
+.about-us-section .about-us-row .image-column img{
+	width: auto;
+}
+.about-us-section .about-us-row .image-column .first-image{
+	width: 540px;
+}
+.about-us-section .about-us-row .image-column .second-image{
+	width: 535px;
+	float: right;
+	margin-top: -340px;
+	z-index: 9999;
+	position: relative;
+}
+.about-us-section .about-us-row .content-column{
+	width: 46%;
+}
+
+/*======================== Objectives Page CSS ==========================*/
+.objectives-section{
+
+}
 
 /*======================== FAQ Page CSS ==========================*/
 .faq-section{
