@@ -29,53 +29,6 @@ class BlogController extends Controller
     }
     public function store(BlogRequest $request): RedirectResponse
     {
-
-
-        // if(!empty($request->files)){
-        //     foreach(json_decode($blog->files) as $db_file){
-        //         $this->imageDelete($db_file);
-        //     }
-        //     $files = array();
-        //     foreach($request->files as $file){
-        //         if ($file) {
-        //             $customFileName = $request->file_name .'.' . $file->getClientOriginalExtension();
-        //             $path = $file->storeAs('blogs/files', $customFileName,'public');
-        //             array_push($files, $path);
-        //         }
-        //     }
-        //     $blog->files= json_encode($files);
-        // }
-        // $contact = Contact::where('deleted_at', null)->first();
-        // if ($contact === null) {
-        //     $contact = new Contact();
-        //     $contact->phone = json_encode($filteredPhone);
-        //     $contact->created_by = auth()->user()->id;
-        //     $contact->save();
-        // }
-
-        // if(!empty($file['file_path']->getClientOriginalName())){
-        //     foreach(json_decode($blog->files) as $db_file){
-        //         $this->imageDelete($db_file->file_path);
-        //     }
-        //     $files = array();
-        //     foreach($request->files as $file){
-        //         if ($file) {
-        //             $customFileName = $request->file_name .'.' . $file->getClientOriginalExtension();
-        //             $path = $file->storeAs('blogs/files', $customFileName,'public');
-        //             array_push($files, $path);
-        //         }
-        //     }
-        //     $blog->files= json_encode($files);
-        // }
-
-
-
-
-
-
-
-
-
         $blog = new Blog();
         if ($request->hasFile('thumbnail_image')) {
 
@@ -151,7 +104,7 @@ class BlogController extends Controller
                    isset($entry['file_path']) && !is_null($entry['file_path']);
         });
         $data = array();
-        if ($filteredFiles == true) {
+        if (!empty($filteredFiles)) {
             foreach(json_decode($blog->files) as $file){
                 $this->imageDelete($file->file_path);
             }
@@ -167,8 +120,9 @@ class BlogController extends Controller
                     }
                 }
             }
+            $blog->files = json_encode($data);
         }
-        $blog->files = json_encode($data);
+
         if($blog->title != $request->title){
             $blog->slug = $request->slug;
         }

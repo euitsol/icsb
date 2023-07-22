@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title')->unique();
             $table->string('slug');
             $table->string('thumbnail_image');
-            $table->json('additional_images');
+            $table->json('additional_images')->nullable();
             $table->json('files')->nullable();
             $table->longText('description');
             $table->enum('permission', ["0", "1","-1"])->default("0");

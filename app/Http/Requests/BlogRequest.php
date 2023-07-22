@@ -16,6 +16,10 @@ class BlogRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'description' => 'nullable|max:10000',
+            'file.*.file_path' => 'nullable|file|mimes:jpg,png,pdf,doc,docx,xls,xlsx,ppt,pptx,odt,ods,odp',
+            'file.*.file_name' => 'nullable|string',
+            'additional_images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
         ]
         +
@@ -25,14 +29,16 @@ class BlogRequest extends FormRequest
     protected function store(): array
     {
         return [
-
+            'title' => 'required|unique:blogs,title,NULL,id,deleted_at,NULL',
+            'thumbnail_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 
     protected function update(): array
     {
         return [
-
+            'title' => 'required|unique:blogs,title,' . $this->route('id') . ',id,deleted_at,NULL',
+            'thumbnail_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 }
