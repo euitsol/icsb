@@ -61,13 +61,13 @@ class NationalAwardController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $path = $image->store('nationalAwards', 'public');
-            $this->imageDelete($national_award->image);
+            $this->fileDelete($national_award->image);
             $national_award->image = $path;
         }
         if ($request->title != $national_award->title || $request->hasFile('file')) {
             if ($request->hasFile('file')) {
                 $file = $request->file('file');
-                $this->imageDelete($national_award->file);
+                $this->fileDelete($national_award->file);
                 $customFileName = $request->title .'.' . $file->getClientOriginalExtension();
                 $path = $file->storeAs('nationalAwards', $customFileName,'public');
                 $national_award->file = $path;
@@ -91,8 +91,8 @@ class NationalAwardController extends Controller
     public function delete($id): RedirectResponse
     {
         $national_award = NationalAward::findOrFail($id);
-        $this->imageDelete($national_award->image);
-        $this->imageDelete($national_award->file);
+        $this->fileDelete($national_award->image);
+        $this->fileDelete($national_award->file);
         $national_award->delete();
 
         return redirect()->route('national_award.national_award_list')->withStatus(__('National Award '.$national_award->title.' deleted successfully.'));

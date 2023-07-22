@@ -74,6 +74,26 @@ class BlogController extends Controller
         $blog->save();
         return redirect()->route('blog.blog_list')->withStatus(__('Blog '.$request->title.' created successfully.'));
     }
+    public function edit($id): View
+    {
+        $n['blog'] = Blog::findOrFail($id);
+        return view('backend.blog.edit', $n);
+    }
+
+    public function singleFileDelete($id, $key): RedirectResponse
+    {
+        $blog = Blog::findOrFail($id);
+        $files = json_decode($blog->files, true);
+        if (isset($files[$key])) {
+            $filePathToDelete = $files[$key]['file_path'];
+            unset($files[$key]);
+            $blog->files = json_encode($files);
+            $blog->save();
+            $this->fileDelete($filePathToDelete);
+        }
+
+        return redirect()->back();
+    }
     public function update(BlogRequest $request, $id): RedirectResponse
     {
         $blog = Blog::findOrFail($id);
@@ -81,12 +101,12 @@ class BlogController extends Controller
 
             $thumbnail_image = $request->file('thumbnail_image');
             $path = $thumbnail_image->store('blogs/thumbnail_image', 'public');
-            $this->imageDelete($blog->thumbnail_image);
+            $this->fileDelete($blog->thumbnail_image);
             $blog->thumbnail_image = $path;
         }
         if(!empty($request->additional_images)){
             foreach(json_decode($blog->additional_images) as $db_image){
-                $this->imageDelete($db_image);
+                $this->fileDelete($db_image);
             }
             $additional_images = array();
             foreach($request->additional_images as $image){
@@ -103,26 +123,20 @@ class BlogController extends Controller
             return isset($entry['file_name']) && !is_null($entry['file_name']) &&
                    isset($entry['file_path']) && !is_null($entry['file_path']);
         });
-        $data = array();
         if (!empty($filteredFiles)) {
-            foreach(json_decode($blog->files) as $file){
-                $this->imageDelete($file->file_path);
-            }
-            foreach ($request->file as $key => $file) {
-                if (isset($file['file_name']) && isset($file['file_path'])) {
-                    $input_file = $file['file_path'];
-                    if (!empty($input_file)) {
-                        $customFileName = $file['file_name'] . '.' . $input_file->getClientOriginalExtension();
-                        $path = $input_file->storeAs('blogs', $customFileName, 'public');
-
-                        $data[$key]['file_path'] = 'blogs/' . $customFileName;
-                        $data[$key]['file_name'] = $file['file_name'];
-                    }
+            foreach ($request->file as $file) {
+                $files = json_decode($blog->files, true);
+                $input_file = $file['file_path'];
+                if (!empty($input_file) && !empty($file['file_name'])) {
+                    $customFileName = $file['file_name'] . '.' . $input_file->getClientOriginalExtension();
+                    $path = $input_file->storeAs('blogs', $customFileName, 'public');
+                    $newFileName = $file['file_name'];
+                    $newFilePath = 'blogs/'.$customFileName;
+                    array_push($files, ["file_path" => $newFilePath, "file_name" => $newFileName]);
                 }
+                $blog->files = json_encode($files);
             }
-            $blog->files = json_encode($data);
         }
-
         if($blog->title != $request->title){
             $blog->slug = $request->slug;
         }
@@ -132,27 +146,46 @@ class BlogController extends Controller
         $blog->save();
         return redirect()->route('blog.blog_list')->withStatus(__('Blog '.$request->title.' created successfully.'));
     }
-    public function edit($id): View
+    public function delete($id): RedirectResponse
     {
-        $n['blog'] = Blog::findOrFail($id);
-        return view('backend.blog.edit', $n);
+        $blog = Blog::findOrFail($id);
+        $this->fileDelete($blog->thumbnail_image);
+        if(!empty($blog->additional_images)){
+            foreach(json_decode($blog->additional_images) as $db_image){
+                $this->fileDelete($db_image);
+            }
+        }
+        $files = json_decode($blog->files, true);
+        if(!empty($files)){
+            foreach($files as $key=>$file){
+                $filePathToDelete = $files[$key]['file_path'];
+                $this->fileDelete($filePathToDelete);
+            }
+        }
+        $blog->delete();
+        return redirect()->route('blog.blog_list')->withStatus(__('blog '.$blog->title.' deleted successfully.'));
     }
     public function permissionAccept($id): RedirectResponse
     {
         $blog = Blog::findOrFail($id);
         $this->permissionAcceptFunction($blog);
-        return redirect()->route('blog.blog_list')->withStatus(__($blog->title.' permission updated successfully.'));
+        return redirect()->route('blog.blog_list')->withStatus(__($blog->title.' accept successfully.'));
     }
     public function permissionDeclaine($id): RedirectResponse
     {
         $blog = Blog::findOrFail($id);
         $this->permissionDeclaineFunction($blog);
-        return redirect()->route('blog.blog_list')->withStatus(__($blog->title.' permission updated successfully.'));
+        return redirect()->route('blog.blog_list')->withStatus(__($blog->title.' declaine successfully.'));
     }
     public function featured($id): RedirectResponse
     {
         $blog = Blog::findOrFail($id);
         $this->featuredChange($blog);
-        return redirect()->route('blog.blog_list')->withStatus(__($blog->title.' featured updated successfully.'));
+        if($blog->is_featured == 1)
+        {
+            return redirect()->back()->withStatus(__($blog->title.' added on featured successfully.'));
+        }else{
+            return redirect()->back()->withStatus(__($blog->title.' remove from featured successfully.'));
+        }
     }
 }

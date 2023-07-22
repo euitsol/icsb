@@ -30,6 +30,7 @@ class BlogRequest extends FormRequest
     {
         return [
             'title' => 'required|unique:blogs,title,NULL,id,deleted_at,NULL',
+            'slug' => 'required|unique:blogs,slug,NULL,id,deleted_at,NULL',
             'thumbnail_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
@@ -38,6 +39,7 @@ class BlogRequest extends FormRequest
     {
         return [
             'title' => 'required|unique:blogs,title,' . $this->route('id') . ',id,deleted_at,NULL',
+            'slug' => 'required|unique:blogs,slug,' . $this->route('id') . ',id,deleted_at,NULL',
             'thumbnail_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }

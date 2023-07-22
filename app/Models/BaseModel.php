@@ -85,4 +85,20 @@ class BaseModel extends Model
             return 'Make featured';
         }
     }
+    public function getFeaturedStatus()
+    {
+        if ($this->is_featured == 1) {
+            return "Yes";
+        } else {
+            return "No";
+        }
+    }
+    public function getFeaturedStatusClass()
+    {
+        if ($this->is_featured == 1) {
+            return "badge badge-primary";
+        } else {
+            return "badge badge-secondary";
+        }
+    }
 }

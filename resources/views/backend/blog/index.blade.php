@@ -24,8 +24,9 @@
                                 <tr>
                                     <th>{{ _('Title') }}</th>
                                     <th>{{ _('Thumbnail Image') }}</th>
-                                    <th>{{ _('Additional Images') }}</th>
-                                    <th>{{ _('Files') }}</th>
+                                    {{-- <th>{{ _('Additional Images') }}</th>
+                                    <th>{{ _('Files') }}</th> --}}
+                                    <th>{{ _('Featured') }}</th>
                                     <th>{{ _('Status') }}</th>
                                     <th>{{ _('Creation date') }}</th>
                                     <th>{{ _('Created by') }}</th>
@@ -40,7 +41,7 @@
                                             src="@if ($blog->thumbnail_image) {{ storage_url($blog->thumbnail_image) }} @else {{ asset('no_img/no_img.jpg') }} @endif"
                                             alt="{{ $blog->title }}">
                                         </td>
-                                        <td>
+                                        {{-- <td>
                                             @if(!empty(json_decode($blog->additional_images)))
                                                 @foreach (json_decode($blog->additional_images) as $image)
                                                     <img class="rounded" width="60"
@@ -63,7 +64,8 @@
                                                 @endforeach
                                             @endif
 
-                                        </td>
+                                        </td> --}}
+                                        <td><span class='{{ $blog->getFeaturedStatusClass() }}'>{{ $blog->getFeaturedStatus() }}</span></td>
                                         <td>
                                             <span class="badge {{ $blog->getPermissionClass() }}">{{ $blog->getPermission() }}</span>
                                         </td>
@@ -74,7 +76,7 @@
                                                 'menuItems' => [
                                                     ['routeName' => '', 'label' => 'View'],
                                                     ['routeName' => 'blog.permission.accept.blog_edit',   'params' => [$blog->id], 'label' => 'Accept', 'className'=>$blog->getPermissionAcceptTogleClassName() ],
-                                                    ['routeName' => 'blog.permission.declaine.blog_edit',   'params' => [$blog->id], 'label' => 'Declain', 'className'=>$blog->getPermissionDeclaineTogleClassName() ],
+                                                    ['routeName' => 'blog.permission.declaine.blog_edit',   'params' => [$blog->id], 'label' => 'Declaine', 'className'=>$blog->getPermissionDeclaineTogleClassName() ],
                                                     ['routeName' => 'blog.featured.blog_edit',   'params' => [$blog->id], 'label' => $blog->getFeatured() ],
                                                     ['routeName' => 'blog.blog_edit',   'params' => [$blog->id], 'label' => 'Update'],
                                                     ['routeName' => 'blog.blog_delete', 'params' => [$blog->id], 'label' => 'Delete', 'delete' => true],

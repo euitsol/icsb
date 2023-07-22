@@ -172,6 +172,7 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::post('create', [BlogController::class, 'store'])->name('blog_create');
         Route::get('edit/{id}',      [BlogController::class, 'edit'])->name('blog_edit');
         Route::put('edit/{id}',      [BlogController::class, 'update'])->name('blog_edit');
+        Route::get('single-file/delete/{id}/{key}',      [BlogController::class, 'singleFileDelete'])->name('single_file.delete.blog_edit');
         Route::get('permission/accept/{id}',      [BlogController::class, 'permissionAccept'])->name('permission.accept.blog_edit');
         Route::get('permission/declaine/{id}',      [BlogController::class, 'permissionDeclaine'])->name('permission.declaine.blog_edit');
         Route::get('featured/{id}',      [BlogController::class, 'featured'])->name('featured.blog_edit');

@@ -62,7 +62,7 @@ class EventController extends Controller
 
         if(!empty($request->image)){
             foreach(json_decode($event->image) as $db_image){
-                $this->imageDelete($db_image);
+                $this->fileDelete($db_image);
             }
             $images = array();
             foreach($request->image as $image){
@@ -91,7 +91,7 @@ class EventController extends Controller
     {
         $event = Event::findOrFail($id);
         foreach(json_decode($event->image) as $db_image){
-            $this->imageDelete($db_image);
+            $this->fileDelete($db_image);
         }
         $event->delete();
 

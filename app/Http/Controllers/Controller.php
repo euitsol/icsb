@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
-    public function imageDelete($image)
+    public function fileDelete($image)
     {
         if ($image) {
             Storage::delete('public/' . $image);
@@ -42,11 +42,14 @@ class Controller extends BaseController
     {
         if($modelData->is_featured == 1){
             $modelData->is_featured= '0';
+            $message = ' remove from featured successfully.';
         }else{
             $modelData->is_featured = '1';
+            $message = ' added on featured successfully.';
         }
         $modelData->updated_by = auth()->user()->id;
         $modelData->save();
+
     }
 
 }

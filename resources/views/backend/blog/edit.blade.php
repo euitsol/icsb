@@ -45,14 +45,43 @@
                             @include('alerts.feedback', ['field' => 'additional_images'])
                             @include('alerts.feedback', ['field' => 'additional_images.*'])
                         </div>
-                        <div class="form-group">
-                            <label>{{ _('File-1') }}</label>
-                            <div class="input-group mb-3">
-                                <input type="text" name="file[1][file_name]" class="form-control" placeholder="{{ _('Enter file name') }}" >
-                                <input type="file" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.odt,.ods,.odp" name="file[1][file_path]" class="form-control" >
-                                <span class="input-group-text" id="add_file" data-count="1"><i class="tim-icons icon-simple-add"></i></span>
+                        @php
+                            $count = 0;
+                        @endphp
+                        @if(isset($blog) && !empty(json_decode($blog->files)))
+                            @foreach (json_decode($blog->files) as $key=>$file)
+                            @php
+                                $count++;
+                            @endphp
+                                <div class="form-group" @if($count) id="file-{{$count}}" @endif>
+                                    <label>{{ _('File-'.$count) }}</label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" name="file[{{$count}}][file_name]" class="form-control" value="{{$file->file_name}}" disabled>
+                                        <input type="text" name="file[{{$count}}][file_path]" class="form-control" value="{{$file->file_path}}" disabled>
+                                        <a href="{{route('blog.single_file.delete.blog_edit',['key'=>$key, 'id'=>$blog->id])}}">
+                                            <span class="input-group-text text-danger h-100"><i class="tim-icons icon-trash-simple"></i></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            @endforeach
+                            <div class="form-group">
+                                <label>{{ _('File-1') }}</label>
+                                <div class="input-group mb-3">
+                                    <input type="text" name="file[1][file_name]" class="form-control" placeholder="{{ _('Enter file name') }}" >
+                                    <input type="file" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.odt,.ods,.odp" name="file[1][file_path]" class="form-control" >
+                                    <span class="input-group-text" id="add_file" data-count="1"><i class="tim-icons icon-simple-add"></i></span>
+                                </div>
                             </div>
-                        </div>
+                        @else
+                            <div class="form-group">
+                                <label>{{ _('File-1') }}</label>
+                                <div class="input-group mb-3">
+                                    <input type="text" name="file[1][file_name]" class="form-control" placeholder="{{ _('Enter file name') }}" >
+                                    <input type="file" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.odt,.ods,.odp" name="file[1][file_path]" class="form-control" >
+                                    <span class="input-group-text" id="add_file" data-count="1"><i class="tim-icons icon-simple-add"></i></span>
+                                </div>
+                            </div>
+                        @endif
                         <div id="file">
 
                         </div>

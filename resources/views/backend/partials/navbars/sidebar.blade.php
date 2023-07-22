@@ -11,12 +11,6 @@
                     <p>{{ _('Dashboard') }}</p>
                 </a>
             </li>
-            <li @if ($pageSlug == 'service') class="active " @endif>
-                <a href="{{ route('service.service_list') }}">
-                    <i class="fa-solid fa-screwdriver-wrench @if ($pageSlug == 'service')fa-beat-fade @endif"></i>
-                    <p>{{ _('Service') }}</p>
-                </a>
-            </li>
             <li>
                 <a class="@if($pageSlug == 'role' || $pageSlug == 'permission')@else collapsed @endif" data-toggle="collapse" href="#user-management" @if ($pageSlug == 'role' || $pageSlug == 'permission') aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-solid fa-users-gear"></i>
@@ -64,6 +58,12 @@
                         </li>
                     </ul>
                 </div>
+            </li>
+            <li @if ($pageSlug == 'service') class="active " @endif>
+                <a href="{{ route('service.service_list') }}">
+                    <i class="fa-solid fa-screwdriver-wrench @if ($pageSlug == 'service')fa-beat-fade @endif"></i>
+                    <p>{{ _('Service') }}</p>
+                </a>
             </li>
             <li @if ($pageSlug == 'contact') class="active " @endif>
                 <a href="{{route('contact.contact_create')}}">
