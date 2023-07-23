@@ -5,18 +5,11 @@
             <a href="{{ route('dashboard') }}" class="simple-text logo-normal">{{ _('Institute Of Chartered Secretaries Of Bangladesh') }}</a>
         </div>
         <ul class="nav">
-            <li @if ($pageSlug == 'dashboard') class="active " @endif>
-                <a href="{{ route('dashboard') }}">
-                    <i class="fa-solid fa-chart-line @if ($pageSlug == 'dashboard')fa-beat-fade @endif"></i>
-                    <p>{{ _('Dashboard') }}</p>
-                </a>
-            </li>
-            <li @if ($pageSlug == 'service') class="active " @endif>
-                <a href="{{ route('service.service_list') }}">
-                    <i class="fa-solid fa-screwdriver-wrench @if ($pageSlug == 'service')fa-beat-fade @endif"></i>
-                    <p>{{ _('Service') }}</p>
-                </a>
-            </li>
+            @include('backend.partials.menu_buttons', [
+                'menuItems' => [
+                    ['pageSlug' => 'dashboard', 'routeName' => 'dashboard', 'iconClass' => 'fa-solid fa-chart-line', 'label' => 'Dashboard'],
+                ]
+            ])
             <li>
                 <a class="@if($pageSlug == 'role' || $pageSlug == 'permission')@else collapsed @endif" data-toggle="collapse" href="#user-management" @if ($pageSlug == 'role' || $pageSlug == 'permission') aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-solid fa-users-gear"></i>
@@ -26,24 +19,13 @@
 
                 <div class="collapse @if ($pageSlug == 'role' || $pageSlug == 'permission') show @endif" id="user-management">
                     <ul class="nav pl-4">
-                        <li @if ($pageSlug == 'user') class="active " @endif>
-                            <a href="">
-                                <i class="fa-solid fa-user-group @if ($pageSlug == 'user')fa-beat-fade @endif"></i>
-                                <p>{{ _('Users') }}</p>
-                            </a>
-                        </li>
-                        <li @if ($pageSlug == 'role') class="active " @endif>
-                            <a href="{{ route('um.role.role_list') }}">
-                                <i class="fa-solid fa-person-circle-check @if ($pageSlug == 'role')fa-beat-fade @endif"></i>
-                                <p>{{ _('Roles') }}</p>
-                            </a>
-                        </li>
-                        <li @if ($pageSlug == 'permission') class="active " @endif>
-                            <a href="{{ route('um.permission.list') }}">
-                                <i class="fa-solid fa-check-double @if ($pageSlug == 'permission')fa-beat-fade @endif"></i>
-                                <p>{{ _('Permission') }}</p>
-                            </a>
-                        </li>
+                        @include('backend.partials.menu_buttons', [
+                            'menuItems' => [
+                                ['pageSlug' => 'user', 'routeName' => '', 'iconClass' => 'fa-solid fa-user-group', 'label' => 'Users'],
+                                ['pageSlug' => 'role', 'routeName' => 'um.role.role_list', 'iconClass' => 'fa-solid fa-person-circle-check', 'label' => 'Roles'],
+                                ['pageSlug' => 'permission', 'routeName' => 'um.permission.list', 'iconClass' => 'fa-solid fa-check-double', 'label' => 'Permission'],
+                            ]
+                        ])
                     </ul>
                 </div>
             </li>
@@ -56,45 +38,25 @@
 
                 <div class="collapse @if ($pageSlug == 'faq') show @endif" id="about">
                     <ul class="nav pl-4">
-                        <li @if ($pageSlug == 'faq') class="active " @endif>
-                            <a href="{{ route('about.faq.faq_list') }}">
-                                <i class="fa-solid fa-recycle  @if ($pageSlug == 'faq')fa-beat-fade @endif"></i>
-                                <p>{{ _('FAQ') }}</p>
-                            </a>
-                        </li>
+                        @include('backend.partials.menu_buttons', [
+                            'menuItems' => [
+                                ['pageSlug' => 'faq', 'routeName' => 'about.faq.faq_list', 'iconClass' => 'fa-solid fa-recycle', 'label' => 'FAQ'],
+                            ]
+                        ])
                     </ul>
                 </div>
             </li>
-            <li @if ($pageSlug == 'contact') class="active " @endif>
-                <a href="{{route('contact.contact_create')}}">
-                    <i class="fa-solid fa-tty @if ($pageSlug == 'contact')fa-beat-fade @endif"></i>
-                    <p>{{ _('Contact Us') }}</p>
-                </a>
-            </li>
-            <li @if ($pageSlug == 'national_connection') class="active " @endif>
-                <a href="{{route('national_connection.national_connection_list')}}">
-                    <i class="fa-solid fa-rss @if ($pageSlug == 'national_connection')fa-beat-fade @endif"></i>
-                    <p>{{ _('National Connection') }}</p>
-                 </a>
-            </li>
-            <li @if ($pageSlug == 'event') class="active " @endif>
-                <a href="{{route('event.event_list')}}">
-                    <i class="fa-solid fa-bullhorn @if ($pageSlug == 'event')fa-beat-fade @endif"></i>
-                    <p>{{ _('Event') }}</p>
-                </a>
-            </li>
-            <li @if ($pageSlug == 'wwcs') class="active " @endif>
-                <a href="{{route('wwcs.wwcs_list')}}">
-                    <i class="fa-solid fa-earth-americas @if ($pageSlug == 'wwcs')fa-beat-fade @endif"></i>
-                    <p>{{ _('World Wide CS') }}</p>
-                </a>
-            </li>
-            <li @if ($pageSlug == 'national_award') class="active " @endif>
-                <a href="{{route('national_award.national_award_list')}}">
-                    <i class="fa-solid fa-trophy @if ($pageSlug == 'national_award')fa-beat-fade @endif"></i>
-                    <p>{{ _('National Award') }}</p>
-                </a>
-            </li>
+            @include('backend.partials.menu_buttons', [
+                'menuItems' => [
+                    ['pageSlug' => 'service', 'routeName' => 'service.service_list', 'iconClass' => 'fa-solid fa-screwdriver-wrench', 'label' => 'Service'],
+                    ['pageSlug' => 'contact', 'routeName' => 'contact.contact_create', 'iconClass' => 'fa-solid fa-tty', 'label' => 'Contact Us'],
+                    ['pageSlug' => 'national_connection', 'routeName' => 'national_connection.national_connection_list', 'iconClass' => 'fa-solid fa-rss', 'label' => 'National Connection'],
+                    ['pageSlug' => 'event', 'routeName' => 'event.event_list', 'iconClass' => 'fa-solid fa-bullhorn', 'label' => 'Event'],
+                    ['pageSlug' => 'wwcs', 'routeName' => 'wwcs.wwcs_list', 'iconClass' => 'fa-solid fa-earth-americas', 'label' => 'World Wide CS'],
+                    ['pageSlug' => 'national_award', 'routeName' => 'national_award.national_award_list', 'iconClass' => 'fa-solid fa-trophy', 'label' => 'National Award'],
+                    ['pageSlug' => 'blog', 'routeName' => 'blog.blog_list', 'iconClass' => 'fa-brands fa-blogger-b', 'label' => 'Blog'],
+                ]
+            ])
         </ul>
     </div>
 </div>
