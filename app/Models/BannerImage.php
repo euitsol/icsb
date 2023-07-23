@@ -11,4 +11,8 @@ class BannerImage extends BaseModel
     use HasFactory;
 
     public $guarded = [];
+    public function banner()
+    {
+        return $this->belongsTo(Banner::class);
+    }
 }

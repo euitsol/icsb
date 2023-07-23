@@ -18,6 +18,8 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
             $this->addAuditColumns($table);
+
+            $table->foreign('banner_id')->references('id')->on('banners')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
@@ -25,4 +27,5 @@ return new class extends Migration
     {
          Schema::dropIfExists('banner_images');
     }
+
 };

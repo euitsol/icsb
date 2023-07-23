@@ -11,4 +11,8 @@ class Banner extends BaseModel
     use HasFactory;
 
     public $guarded = [];
+    public function images()
+    {
+        return $this->hasMany(BannerImage::class);
+    }
 }
