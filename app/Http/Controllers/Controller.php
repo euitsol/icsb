@@ -22,7 +22,7 @@ class Controller extends BaseController
         $modelData->updated_by = auth()->user()->id;
         $modelData->save();
     }
-    public function permissionDeclaineFunction($modelData)
+    public function permissionDeclineFunction($modelData)
     {
         $modelData->permission = '-1';
         $modelData->updated_by = auth()->user()->id;

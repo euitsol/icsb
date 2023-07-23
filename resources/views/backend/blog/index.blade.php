@@ -76,7 +76,7 @@
                                                 'menuItems' => [
                                                     ['routeName' => '', 'label' => 'View'],
                                                     ['routeName' => 'blog.permission.accept.blog_edit',   'params' => [$blog->id], 'label' => 'Accept', 'className'=>$blog->getPermissionAcceptTogleClassName() ],
-                                                    ['routeName' => 'blog.permission.declaine.blog_edit',   'params' => [$blog->id], 'label' => 'Declaine', 'className'=>$blog->getPermissionDeclaineTogleClassName() ],
+                                                    ['routeName' => 'blog.permission.decline.blog_edit',   'params' => [$blog->id], 'label' => 'Decline', 'className'=>$blog->getPermissionDeclineTogleClassName() ],
                                                     ['routeName' => 'blog.featured.blog_edit',   'params' => [$blog->id], 'label' => $blog->getFeatured() ],
                                                     ['routeName' => 'blog.blog_edit',   'params' => [$blog->id], 'label' => 'Update'],
                                                     ['routeName' => 'blog.blog_delete', 'params' => [$blog->id], 'label' => 'Delete', 'delete' => true],

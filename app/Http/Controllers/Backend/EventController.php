@@ -82,7 +82,7 @@ class EventController extends Controller
         $event->event_end_time = $request->event_end_time;
         $event->description = $request->description;
         $event->type = $request->type;
-        $event->created_by = auth()->user()->id;
+        $event->updated_by = auth()->user()->id;
         $event->save();
 
         return redirect()->route('event.event_list')->withStatus(__('Event '.$event->title.' updated successfully.'));

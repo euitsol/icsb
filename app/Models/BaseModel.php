@@ -51,7 +51,7 @@ class BaseModel extends Model
             return'd-none';
         }
     }
-    public function getPermissionDeclaineTogleClassName()
+    public function getPermissionDeclineTogleClassName()
     {
         if($this->permission != -1 || $this->permission == 0){
             return 'd-block';

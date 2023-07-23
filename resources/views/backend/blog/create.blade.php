@@ -26,21 +26,26 @@
                 <form method="POST" action="{{ route('blog.blog_create') }}" autocomplete="off" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
-                            <div class="form-group{{ $errors->has('title') ? ' has-danger' : '' }}">
+                            <div class="form-group {{ $errors->has('title') ? ' has-danger' : '' }}">
                                 <label>{{ _('Title') }}</label>
-                                <input type="text" name="title" id="title" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter Title') }}" value="{{ old('title') }}">
-                                <input type="text" class="form-control" id="slug" name="slug" hidden>
+                                <input type="text" name="title" id="title" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter Title') }}" value="{{ old('title') }}">
                                 @include('alerts.feedback', ['field' => 'title'])
                             </div>
 
-                            <div class="form-group {{ $errors->has('thumbnail_image') ? ' has-danger' : '' }}">
+                            <div class="form-group {{ $errors->has('slug') ? ' has-danger' : '' }}">
+                                <label>{{ _('Slug') }}</label>
+                                <input type="text" class="form-control {{ $errors->has('slug') ? ' is-invalid' : '' }}" id="slug" name="slug" placeholder="{{ _('Enter Slug (must be use - on white speace)') }}">
+                                @include('alerts.feedback', ['field' => 'slug'])
+                            </div>
+
+                            <div class="form-group  {{ $errors->has('thumbnail_image') ? ' has-danger' : '' }}">
                                 <label>{{ _('Thumbnail Image') }}</label>
-                                <input type="file" accept="image/*" name="thumbnail_image" class="form-control {{ $errors->has('thumbnail_image') ? ' is-invalid' : '' }} image-upload">
+                                <input type="file" accept="image/*" name="thumbnail_image" class="form-control  {{ $errors->has('thumbnail_image') ? ' is-invalid' : '' }} image-upload">
                                 @include('alerts.feedback', ['field' => 'image'])
                            </div>
-                           <div class="form-group {{ $errors->has('additional_images.*') ? 'is-invalid' : '' }} {{ $errors->has('additional_images') ? 'is-invalid' : '' }}">
+                           <div class="form-group  {{ $errors->has('additional_images.*') ? 'is-invalid' : '' }}  {{ $errors->has('additional_images') ? 'is-invalid' : '' }}">
                                 <label>{{ _('Additional Images') }}</label>
-                                <input type="file" accept="image/*" name="additional_images[]" class="form-control {{ $errors->has('additional_images.*') ? 'is-invalid' : '' }} {{ $errors->has('additional_images') ? 'is-invalid' : '' }} image-upload" multiple>
+                                <input type="file" accept="image/*" name="additional_images[]" class="form-control  {{ $errors->has('additional_images.*') ? 'is-invalid' : '' }}  {{ $errors->has('additional_images') ? 'is-invalid' : '' }} image-upload" multiple>
                                 @include('alerts.feedback', ['field' => 'additional_images'])
                                 @include('alerts.feedback', ['field' => 'additional_images.*'])
                             </div>
@@ -55,9 +60,9 @@
                             <div id="file">
 
                             </div>
-                            <div class="form-group{{ $errors->has('description') ? ' has-danger' : '' }}">
+                            <div class="form-group {{ $errors->has('description') ? ' has-danger' : '' }}">
                                 <label>{{ _('Description') }} </label>
-                                <textarea rows="3" name="description" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}">
+                                <textarea rows="3" name="description" class="form-control {{ $errors->has('description') ? ' is-invalid' : '' }}">
                                     {{ old('description') }}
                                 </textarea>
                                 @include('alerts.feedback', ['field' => 'description'])
@@ -74,7 +79,7 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        Blog
+                        {{ _('Blog') }}
                     </p>
                     <div class="card-description">
                         {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
@@ -85,42 +90,6 @@
     </div>
 @endsection
 
-@push('js')
-<script>
-    $('#add_file').click(function() {
-    result = '';
-    count = $(this).data('count') + 1;
-    $(this).data('count', count);
-
-    result =`<div class="form-group" id="file-${count}">
-                <label>File-${count}</label>
-                <div class="input-group mb-3">
-                    <input type="text" name="file[${count}][file_name]" class="form-control" placeholder="{{ _('Enter file name') }}" >
-                    <input type="file" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.odt,.ods,.odp" name="file[${count}][file_path]" class="form-control" >
-                    <span class="input-group-text text-danger" onclick="delete_section(${count})"><i class="tim-icons icon-trash-simple"></i></span>
-                </div>
-            </div>`;
-    $('#file').append(result);
-});
-function delete_section(count) {
-    $('#file-' + count).remove();
-};
-</script>
-
-<script>
-     function generateSlug(str) {
-            return str
-                .toLowerCase()
-                .replace(/\s+/g, '-')
-                .replace(/[^\w-]+/g, '')
-                .replace(/--+/g, '-')
-                .replace(/^-+|-+$/g, '');
-        }
-
-        $('#title').on('keyup', function() {
-            const titleValue = $(this).val().trim();
-            const slugValue = generateSlug(titleValue);
-            $('#slug').val(slugValue);
-        });
-</script>
+@push('js_link')
+<script src="{{ asset('backend/js/blog.js') }}"></script>
 @endpush

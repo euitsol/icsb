@@ -142,7 +142,7 @@ class BlogController extends Controller
         }
         $blog->title = $request->title;
         $blog->description = $request->description;
-        $blog->created_by = auth()->user()->id;
+        $blog->updated_by = auth()->user()->id;
         $blog->save();
         return redirect()->route('blog.blog_list')->withStatus(__('Blog '.$request->title.' created successfully.'));
     }
@@ -171,11 +171,11 @@ class BlogController extends Controller
         $this->permissionAcceptFunction($blog);
         return redirect()->route('blog.blog_list')->withStatus(__($blog->title.' accept successfully.'));
     }
-    public function permissionDeclaine($id): RedirectResponse
+    public function permissionDecline($id): RedirectResponse
     {
         $blog = Blog::findOrFail($id);
-        $this->permissionDeclaineFunction($blog);
-        return redirect()->route('blog.blog_list')->withStatus(__($blog->title.' declaine successfully.'));
+        $this->permissionDeclineFunction($blog);
+        return redirect()->route('blog.blog_list')->withStatus(__($blog->title.' decline successfully.'));
     }
     public function featured($id): RedirectResponse
     {

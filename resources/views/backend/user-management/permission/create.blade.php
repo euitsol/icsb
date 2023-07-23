@@ -12,15 +12,15 @@
                 <form method="POST" action="{{ route('um.permission.store') }}" autocomplete="off">
                     @csrf
                     <div class="card-body">
-                            <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                            <div class="form-group {{ $errors->has('name') ? ' has-danger' : '' }}">
                                 <label>{{ _('Permission Name') }}</label>
-                                <input type="text" name="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ _('Name') }}" value="{{ old('name') }}">
+                                <input type="text" name="name" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ _('Name') }}" value="{{ old('name') }}">
                                 @include('alerts.feedback', ['field' => 'name'])
                             </div>
 
-                            <div class="form-group{{ $errors->has('prefix') ? ' has-danger' : '' }}">
+                            <div class="form-group {{ $errors->has('prefix') ? ' has-danger' : '' }}">
                                 <label>{{ _('Prefix') }}</label>
-                                <input type="text" name="prefix" class="form-control{{ $errors->has('prefix') ? ' is-invalid' : '' }}" placeholder="{{ _('Prefix') }}" value="{{ old('prefix') }}">
+                                <input type="text" name="prefix" class="form-control {{ $errors->has('prefix') ? ' is-invalid' : '' }}" placeholder="{{ _('Prefix') }}" value="{{ old('prefix') }}">
                                 @include('alerts.feedback', ['field' => 'prefix'])
                             </div>
 
@@ -35,7 +35,7 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        Permission
+                        {{ _('Permission') }}
                     </p>
                     <div class="card-description">
 

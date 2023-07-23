@@ -12,15 +12,15 @@
                 <form method="POST" action="{{ route('um.role.role_create') }}" autocomplete="off">
                     @csrf
                     <div class="card-body">
-                            <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                            <div class="form-group {{ $errors->has('name') ? ' has-danger' : '' }}">
                                 <label>{{ _('Role Name') }}</label>
-                                <input type="text" name="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ _('Name') }}" value="{{ old('name') }}">
+                                <input type="text" name="name" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ _('Name') }}" value="{{ old('name') }}">
                                 @include('alerts.feedback', ['field' => 'name'])
                             </div>
 
-                            <div class="form-group{{ $errors->has('note') ? ' has-danger' : '' }}">
+                            <div class="form-group {{ $errors->has('note') ? ' has-danger' : '' }}">
                                 <label>{{ _('Note') }} </label><small>({{ _('optional') }})</small>
-                                <textarea rows="3" name="note" class="form-control{{ $errors->has('note') ? ' is-invalid' : '' }}">
+                                <textarea rows="3" name="note" class="form-control {{ $errors->has('note') ? ' is-invalid' : '' }}">
                                     {{ old('note') }}
                                 </textarea>
                                 @include('alerts.feedback', ['field' => 'note'])
@@ -57,7 +57,7 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        Roles
+                        {{ _('Role') }}
                     </p>
                     <div class="card-description">
                         {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
