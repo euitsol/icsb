@@ -32,7 +32,7 @@
                     <div class="row">
                         @foreach ($banner->images as $image)
                             <div class="col-md-4 pb-5" style="height: 20rem;">
-                                <img src="{{storage_url($image->image)}}" class="h-100 w-100" alt="">
+                                <img src="{{storage_url($image->image)}}" class="h-100 w-100 p-2" alt="{{$banner->banner_name}}" style="border: 1px solid #e8e4e4;">
                                 <a href="{{route('banner.image.banner_delete',$image->id)}}" class="btn btn-danger btn-sm"><i class="tim-icons icon-trash-simple"></i></a>
                             </div>
                         @endforeach
