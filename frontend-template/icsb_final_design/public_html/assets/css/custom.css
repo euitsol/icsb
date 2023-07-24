@@ -15,16 +15,34 @@
 .world-wide-section{
 	padding: 100px 0;
 }
-.world-wide-section .world-wide-column{
-	column-gap: 2%;
+.world-wide-section .section-heading h2 {
+	font-size: 70px;
+	line-height: 76px;
+	margin-bottom: 70px;
 }
-.world-wide-section .world-wide-column .world-wide-item{
+.world-wide-section .world-wide-column {
+	column-gap: 25px;
+	padding-bottom: 25px;
+}
+.world-wide-section .world-wide-column .world-wide-item {
 	background: #F2F2F2;
 	width: 49%;
-	padding: 50px;
+	padding: 72px 40px 0 40px;
+	min-height: 654px;
 }
 .world-wide-section img{
 	width: auto;
+}
+.world-wide-section .world-wide-column .world-wide-item .chart-heading {
+	padding-bottom: 25px;
+}
+.world-wide-section .world-wide-column .world-wide-item .chart-link {
+	padding-top: 24px;
+}
+.world-wide-section .world-wide-column .world-wide-item .society-text {
+	max-width: 330px;
+	margin: 0 auto;
+	padding-bottom: 25px;
 }
 
 /* ========= president-content-section =========== */

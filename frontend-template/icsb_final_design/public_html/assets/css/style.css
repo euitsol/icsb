@@ -1308,7 +1308,7 @@ h1,h2,h3,h4,h5,h6{
 .executive-committee-section .committee-row .committee-items{
 	width: 31.33%;
 	column-gap: 30px;
-	align-items: center;
+	align-items: flex-start;
 }
 .executive-committee-section .committee-row .committee-items img{
 	width: 150px;
@@ -1318,8 +1318,8 @@ h1,h2,h3,h4,h5,h6{
 .executive-committee-section .committee-row .committee-items h3{
 	font-size: 21px;
 	line-height: 28px;
-	max-width: 185px;
-	margin-bottom: 1px;
+	max-width: 220px;
+	margin-bottom: 15px;
 }
 .executive-committee-section .committee-row .committee-items h4{
 	color: #182456;
@@ -1436,6 +1436,66 @@ h1,h2,h3,h4,h5,h6{
 	color: #fff;
 	background-color: #122F98;
 }
+
+.past-president-layout{
+	padding: 100px 0;
+}
+.past-president-layout .president-row{
+	column-gap: 2.5%;
+	flex-wrap: wrap;
+	row-gap: 35px;
+	justify-content: center;
+}
+.past-president-layout .president-row .items{
+	width: 31.66%;
+	padding: 33px;
+	background: #F2F2F2;
+}
+.past-president-layout .president-row .items img{
+	width: 180px;
+	border-radius: 50%;
+}
+.past-president-layout .president-row .items a{
+	color: #182456;
+	font-size: 18px;
+	width: 100%;
+	height: 40px;
+	line-height: 38px;
+	max-width: 140px;
+	text-align: center;
+	border-radius: 20px;
+	transition: 0.4s;
+	margin-top: 30px;
+	border: 1.5px solid #182456;
+}
+.past-president-layout .president-row .items a:hover{
+	color: #fff;
+	background: #182456;
+}
+
+
+.objectives-section{
+	padding: 100px 0;
+}
+.objectives-section .objective-row{
+	padding: 100px;
+	column-gap: 4%;
+	align-items: center;
+	background: #182456;
+}
+.objectives-section .objective-row .right-column{
+	width: 48%;
+}
+.objectives-section .objective-row .left-column{
+	width: 48%;
+}
+.objectives-section .objective-row .right-column h2{
+	margin-bottom: 35px;
+}
+.objectives-section .objective-row .right-column p{
+	margin-bottom: 15px;
+}
+
 /*======================== FAQ Page CSS ==========================*/
 .faq-section{
 	padding-top: 100px;
