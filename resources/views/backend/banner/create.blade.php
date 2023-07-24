@@ -1,6 +1,6 @@
 @extends('backend.layouts.master', ['pageSlug' => 'banner'])
 
-@section('title', 'Banner')
+@section('title', 'Add Banner')
 
 @section('content')
     <div class="row">
@@ -28,26 +28,29 @@
                                 </span>
                             </label>
                         </div>
-                        <div class="row banner_duration" style="display: none;">
-                            <div class="col-md-6">
-                                <div class="form-group{{ $errors->has('from_time') ? ' has-danger' : '' }}">
-                                    <label>{{ _('Banner Start Time') }}</label>
-                                    <input type="datetime-local" name="from_time"
-                                        class="form-control{{ $errors->has('from_time') ? ' is-invalid' : '' }}"
-                                        value="{{ old('from_time') }}">
-                                    @include('alerts.feedback', ['field' => 'from_time'])
+                        <div class="banner_duration" style="display:none;">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group {{ $errors->has('from_time') ? ' has-danger' : '' }}">
+                                        <label>{{ _('Banner Start Time') }}</label>
+                                        <input type="datetime-local" name="from_time"
+                                            class="form-control {{ $errors->has('from_time') ? ' is-invalid' : '' }} start_time"
+                                            value="{{ old('from_time') }}">
+                                        @include('alerts.feedback', ['field' => 'from_time'])
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group{{ $errors->has('to_time') ? ' has-danger' : '' }}">
-                                    <label>{{ _('Banner End Time') }}</label>
-                                    <input type="datetime-local" name="to_time"
-                                        class="form-control{{ $errors->has('to_time') ? ' is-invalid' : '' }}"
-                                        value="{{ old('to_time') }}">
-                                    @include('alerts.feedback', ['field' => 'to_time'])
+                                <div class="col-md-6">
+                                    <div class="form-group {{ $errors->has('to_time') ? ' has-danger' : '' }}">
+                                        <label>{{ _('Banner End Time') }}</label>
+                                        <input type="datetime-local" name="to_time"
+                                            class="form-control {{ $errors->has('to_time') ? ' is-invalid' : '' }} end_time"
+                                            value="{{ old('to_time') }}">
+                                        @include('alerts.feedback', ['field' => 'to_time'])
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                     <div class="card-footer">
                         <button type="submit" class="btn btn-fill btn-primary">{{ _('Save') }}</button>
@@ -75,11 +78,13 @@
 $(document).ready(function() {
         var checkbox = $('.checkBox');
         var divElement = $('.banner_duration');
-        checkbox.on('change', function() {
+        checkbox.on('load reset change', function() {
             if (checkbox.prop('checked')) {
                 divElement.show();
             } else {
                 divElement.hide();
+                $('.start_time').val('');
+                $('.end_time').val('');
             }
         });
     });
