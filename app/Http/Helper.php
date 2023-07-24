@@ -8,7 +8,7 @@ use App\Models\Permission;
 //This will retun the route prefix of the routes for permission check
 function get_permission_routes()
 {
-  return ['about.faq.','service.','contact.','national_connection.','wwcs.','event.','national_award.', 'blog.', 'settings.','banner.'];
+  return ['about.faq.','service.','contact.','national_connection.','wwcs.','event.','national_award.', 'blog.', 'settings.','banner.', 'member.'];
 }
 
 //This will check the permission of the given route name. Can be used for buttons
@@ -89,4 +89,17 @@ function availableTimezones(){
     }
 
     return $timezones;
+}
+
+
+function generateRandomPassword() {
+    $length = 6;
+    $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $password = '';
+
+    for ($i = 0; $i < $length; $i++) {
+        $password .= $characters[rand(0, strlen($characters) - 1)];
+    }
+
+    return $password;
 }
