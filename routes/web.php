@@ -15,6 +15,7 @@ use App\Http\Controllers\Backend\WWCSController;
 use App\Http\Controllers\Backend\NationalAwardController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\BannerController;
+use App\Http\Controllers\Backend\MemberController;
 use App\Http\Controllers\Backend\UserManagement\RoleController;
 use App\Http\Controllers\Backend\UserManagement\PermissionController;
 use App\Http\Controllers\Frontend\AboutPagesController;
@@ -205,6 +206,26 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::get('featured/{id}',      [BannerController::class, 'featured'])->name('featured.banner_edit');
         Route::get('image/delete/{id}',      [BannerController::class, 'deleteImage'])->name('image.banner_delete');
         Route::get('delete/{id}', [BannerController::class, 'delete'])->name('banner_delete');
+    });
+
+
+    // Member Module
+    Route::group(['as' => 'member.', 'prefix' => 'member'], function () {
+        Route::get('index', [MemberController::class, 'index'])->name('member_list');
+        Route::get('create', [MemberController::class, 'create'])->name('member_create');
+        Route::post('create', [MemberController::class, 'store'])->name('member_create');
+        Route::get('edit/{id}', [MemberController::class, 'edit'])->name('member_edit');
+        Route::put('edit/{id}', [MemberController::class, 'update'])->name('member_edit');
+        Route::get('status/{id}', [MemberController::class, 'status'])->name('status.member_edit');
+        Route::get('delete/{id}', [MemberController::class, 'delete'])->name('member_delete');
+
+
+        Route::get('member-type/create', [MemberController::class, 'mt_create'])->name('member_type_create');
+        Route::post('member-type/create', [MemberController::class, 'mt_store'])->name('member_type_create');
+        Route::get('member-type/edit/{id}', [MemberController::class, 'mt_edit'])->name('member_type_edit');
+        Route::put('member-type/edit/{id}', [MemberController::class, 'mt_update'])->name('member_type_edit');
+        Route::get('member-type/status/{id}', [MemberController::class, 'mt_status'])->name('status.member_type_edit');
+        Route::get('member-type/delete/{id}', [MemberController::class, 'mt_delete'])->name('member_type_delete');
     });
 
 });

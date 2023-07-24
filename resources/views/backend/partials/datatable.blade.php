@@ -17,7 +17,6 @@
             dom: 'Bfrtip',
             buttons: [{
                     extend: 'pdfHtml5',
-                    title: 'Blood Group Management',
                     download: 'open',
                     orientation: 'potrait',
                     pagesize: 'A4',

@@ -41,3 +41,10 @@ banner_list,web
 banner_create,web
 banner_edit,web
 banner_delete,web
+member_list,web
+member_create,web
+member_edit,web
+member_delete,web
+member_type_create,web
+member_type_edit,web
+member_type_delete,web

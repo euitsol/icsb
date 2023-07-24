@@ -57,6 +57,7 @@
                     ['pageSlug' => 'blog', 'routeName' => 'blog.blog_list', 'iconClass' => 'fa-brands fa-blogger-b', 'label' => 'Blog'],
                     ['pageSlug' => 'banner', 'routeName' => 'banner.banner_list', 'iconClass' => 'fa-regular fa-images', 'label' => 'Banner'],
                     ['pageSlug' => 'settings', 'routeName' => 'settings.site_settings', 'iconClass' => 'fa-solid fa-gear', 'label' => 'Site Settings'],
+                    ['pageSlug' => 'member', 'routeName' => 'member.member_list', 'iconClass' => 'fa-solid fa-user-gear', 'label' => 'Member'],
                 ]
             ])
         </ul>
