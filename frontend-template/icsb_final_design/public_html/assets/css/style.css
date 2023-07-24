@@ -1278,13 +1278,17 @@ h1,h2,h3,h4,h5,h6{
 }
 .about-us-section .about-us-row .image-column .first-image{
 	width: 540px;
+	outline: 8px solid #182456;
+	border: 8px solid #ffffff;
 }
 .about-us-section .about-us-row .image-column .second-image{
 	width: 535px;
 	float: right;
-	margin-top: -340px;
+	margin-top: -350px;
 	z-index: 9999;
 	position: relative;
+	outline: 8px solid #FF8601;
+	border: 8px solid #ffffff;
 }
 .about-us-section .about-us-row .content-column{
 	width: 46%;
@@ -1504,6 +1508,40 @@ h1,h2,h3,h4,h5,h6{
 }
 .objectives-section .objective-row .right-column p{
 	margin-bottom: 20px;
+}
+
+
+.mision-vision-section{
+	padding: 100px 0;
+}
+.mision-vision-section .mission-row{
+	max-width: 1115px;
+	margin: 0 auto;
+	align-items: center;
+}
+.mision-vision-section .mission-row .content-column, .vision-mission-section .mission-row .content-column{
+	left: -100px;
+	position: relative;
+	padding: 70px 40px;
+	max-width: 500px;
+	background: #182456;
+	border: 8px double #fff;
+	outline: 8px solid #FF8601;
+}
+.mision-vision-section .mission-row .content-column h2, .vision-mission-section .mission-row .content-column h2{
+	margin-bottom: 25px;
+}
+.vision-mission-section{
+	padding-bottom: 100px;
+}
+.vision-mission-section .mission-row{
+	max-width: 1115px;
+	margin: 0 auto;
+	align-items: center;
+}
+.vision-mission-section .mission-row .content-column{
+	left: 100px;
+	padding: 50px 40px;
 }
 
 /*========================= Exam Schedul Page Style ========================*/
