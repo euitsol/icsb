@@ -14,7 +14,7 @@ class DefaultController extends Controller
     public function __construct() {
         return $this->middleware('auth');
     }
-    public function download($fileName)
+    public function download($fileName): RedirectResponse
     {
         $fileName = base64_decode($fileName);
         $folderName = strstr($fileName, '/', true);

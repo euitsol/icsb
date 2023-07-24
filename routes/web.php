@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\NationalConnectionController;
 use App\Http\Controllers\Backend\EventController;
 use App\Http\Controllers\Backend\WWCSController;
 use App\Http\Controllers\Backend\NationalAwardController;
+use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\BannerController;
 use App\Http\Controllers\Backend\UserManagement\RoleController;
 use App\Http\Controllers\Backend\UserManagement\PermissionController;
@@ -24,6 +25,7 @@ use App\Http\Controllers\Frontend\RulesAndRegulationsPagesController;
 use App\Http\Controllers\Frontend\PublicationsPagesController;
 use App\Http\Controllers\Frontend\ContactPagesController;
 use App\Http\Controllers\Frontend\ArticlesController;
+use App\Http\Controllers\SettingsController;
 
 
 /*
@@ -69,6 +71,8 @@ Route::get('/', [HomePageController::class, 'index'])->name('home');
 
 Route::group(['middleware' => 'auth', 'permission'], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    // Default File Download Route
+    Route::get('download/{filename}', [DefaultController::class, 'download'])->name('download');
 
     //User Management
     Route::group(['as' => 'um.', 'prefix' => 'user-management'], function () {
@@ -152,7 +156,7 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::get('status/{id}',      [WWCSController::class, 'status'])->name('status.wwcs_edit');
         Route::get('delete/{id}', [WWCSController::class, 'delete'])->name('wwcs_delete');
     });
-    // National Award
+    // National Award Routes
     Route::group(['as' => 'national_award.', 'prefix' => 'national-award'], function () {
         Route::get('index', [NationalAwardController::class, 'index'])->name('national_award_list');
         Route::get('create', [NationalAwardController::class, 'create'])->name('national_award_create');
@@ -163,9 +167,28 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::get('featured/{id}',      [NationalAwardController::class, 'featured'])->name('featured.national_award_edit');
         Route::get('delete/{id}', [NationalAwardController::class, 'delete'])->name('national_award_delete');
     });
+    // Blog Routes
+    Route::group(['as' => 'blog.', 'prefix' => 'blog'], function () {
+        Route::get('index', [BlogController::class, 'index'])->name('blog_list');
+        Route::get('create', [BlogController::class, 'create'])->name('blog_create');
+        Route::post('create', [BlogController::class, 'store'])->name('blog_create');
+        Route::get('edit/{id}',      [BlogController::class, 'edit'])->name('blog_edit');
+        Route::put('edit/{id}',      [BlogController::class, 'update'])->name('blog_edit');
+        Route::get('single-file/delete/{id}/{key}',      [BlogController::class, 'singleFileDelete'])->name('single_file.delete.blog_edit');
+        Route::get('permission/accept/{id}',      [BlogController::class, 'permissionAccept'])->name('permission.accept.blog_edit');
+        Route::get('permission/decline/{id}',      [BlogController::class, 'permissionDecline'])->name('permission.decline.blog_edit');
+        Route::get('featured/{id}',      [BlogController::class, 'featured'])->name('featured.blog_edit');
+        Route::get('delete/{id}', [BlogController::class, 'delete'])->name('blog_delete');
+    });
 
-    // Default File Download Route
-        Route::get('download/{filename}', [DefaultController::class, 'download'])->name('download');
+
+
+
+    // Site Settings
+    Route::group(['as' => 'settings.', 'prefix' => 'site-settings'], function () {
+        Route::get('index', [SettingsController::class, 'index'])->name('site_settings');
+        Route::post('store', [SettingsController::class, 'store'])->name('site_settings');
+    });
 
     // National Award
     Route::group(['as' => 'banner.', 'prefix' => 'banner'], function () {

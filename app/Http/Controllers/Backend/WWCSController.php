@@ -54,7 +54,7 @@ class WWCSController extends Controller
         if ($request->hasFile('logo')) {
             $logo = $request->file('logo');
             $path = $logo->store('world_wide_cs', 'public');
-            $this->imageDelete($wwcs->logo);
+            $this->fileDelete($wwcs->logo);
             $wwcs->logo = $path;
         }
 
@@ -69,7 +69,7 @@ class WWCSController extends Controller
     public function delete($id): RedirectResponse
     {
         $wwcs = WWCS::findOrFail($id);
-        $this->imageDelete($wwcs->logo);
+        $this->fileDelete($wwcs->logo);
         $wwcs->delete();
 
         return redirect()->route('wwcs.wwcs_list')->withStatus(__('World Wide CS '.$wwcs->title.' deleted successfully.'));

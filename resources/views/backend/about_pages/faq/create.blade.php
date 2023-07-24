@@ -12,15 +12,15 @@
                 <form method="POST" action="{{ route('about.faq.faq_create') }}" autocomplete="off">
                     @csrf
                     <div class="card-body">
-                            <div class="form-group{{ $errors->has('title') ? ' has-danger' : '' }}">
+                            <div class="form-group {{ $errors->has('title') ? ' has-danger' : '' }}">
                                 <label>{{ _('Faq Title') }}</label>
-                                <input type="text" name="title" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ _('Faq Title') }}" value="{{ old('title') }}">
+                                <input type="text" name="title" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ _('Faq Title') }}" value="{{ old('title') }}">
                                 @include('alerts.feedback', ['field' => 'title'])
                             </div>
 
-                            <div class="form-group{{ $errors->has('description') ? ' has-danger' : '' }}">
+                            <div class="form-group {{ $errors->has('description') ? ' has-danger' : '' }}">
                                 <label>{{ _('Description') }} </label>
-                                <textarea rows="3" name="description" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}">
+                                <textarea rows="3" name="description" class="form-control {{ $errors->has('description') ? ' is-invalid' : '' }}">
                                     {{ old('description') }}
                                 </textarea>
                                 @include('alerts.feedback', ['field' => 'description'])
@@ -36,7 +36,7 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        Faqs
+                        {{ _('Faqs') }}
                     </p>
                     <div class="card-description">
                         {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}

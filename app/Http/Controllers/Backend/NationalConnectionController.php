@@ -52,7 +52,7 @@ class NationalConnectionController extends Controller
         if ($request->hasFile('logo')) {
             $logo = $request->file('logo');
             $path = $logo->store('nationalConnections', 'public');
-            $this->imageDelete($nationalConnection->logo);
+            $this->fileDelete($nationalConnection->logo);
             $nationalConnection->logo = $path;
         }
 
@@ -66,7 +66,7 @@ class NationalConnectionController extends Controller
     public function delete($id): RedirectResponse
     {
         $nationalConnection = NationalConnection::findOrFail($id);
-        $this->imageDelete($nationalConnection->logo);
+        $this->fileDelete($nationalConnection->logo);
         $nationalConnection->delete();
 
         return redirect()->route('national_connection.national_connection_list')->withStatus(__('National Connection '.$nationalConnection->title.' deleted successfully.'));
