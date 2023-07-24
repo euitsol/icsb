@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BannerRequest extends FormRequest
+class BannerImageRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -16,9 +16,6 @@ class BannerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'from_time' => 'nullable',
-            'to_time' => 'nullable',
-            'status' => 'nullable|boolean',
 
         ]
         +
@@ -28,15 +25,16 @@ class BannerRequest extends FormRequest
     protected function store(): array
     {
         return [
-            'banner_name' => 'required|unique:banners,banner_name,NULL,id,deleted_at,NULL',
+            'images' => 'required|array',
+            'images.*' => 'image|mimes:mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 
     protected function update(): array
     {
         return [
-            'banner_name' => 'required|unique:banners,banner_name,' . $this->route('id') . ',id,deleted_at,NULL',
-
+            'images' => 'nullable|array',
+            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 }

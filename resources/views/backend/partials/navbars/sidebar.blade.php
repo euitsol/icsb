@@ -10,6 +10,7 @@
                     ['pageSlug' => 'dashboard', 'routeName' => 'dashboard', 'iconClass' => 'fa-solid fa-chart-line', 'label' => 'Dashboard'],
                     ]
                ])
+            <li>
                 <a class="@if($pageSlug == 'role' || $pageSlug == 'permission')@else collapsed @endif" data-toggle="collapse" href="#user-management" @if ($pageSlug == 'role' || $pageSlug == 'permission') aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-solid fa-users-gear"></i>
                     <span class="nav-link-text" >{{ __('User Management') }}</span>
