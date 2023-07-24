@@ -13,25 +13,25 @@
                     @method('PUT')
                     @csrf
                     <div class="card-body">
-                            <div class="form-group{{ $errors->has('title') ? ' has-danger' : '' }}">
+                            <div class="form-group {{ $errors->has('title') ? ' has-danger' : '' }}">
                                 <label>{{ _('Title') }}</label>
-                                <input type="text" name="title" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" value="{{ $national_award->title }}">
+                                <input type="text" name="title" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" value="{{ $national_award->title }}">
                                 @include('alerts.feedback', ['field' => 'title'])
                             </div>
 
-                            <div class="form-group{{ $errors->has('image') ? ' has-danger' : '' }}">
+                            <div class="form-group {{ $errors->has('image') ? ' has-danger' : '' }}">
                                 <label class="form-label">Image</label>
                                 <input type="file" accept="image/*" name="image"
-                                    class="form-control image-upload {{ $errors->has('image') ? ' is-invalid' : '' }}" data-existing-files="{{ storage_url($national_award->image) }}">
+                                    class="form-control image-upload  {{ $errors->has('image') ? ' is-invalid' : '' }}" data-existing-files="{{ storage_url($national_award->image) }}">
                             </div>
-                            <div class="form-group{{ $errors->has('file') ? ' has-danger' : '' }}">
+                            <div class="form-group {{ $errors->has('file') ? ' has-danger' : '' }}">
                                 <label class="form-label">file</label>
                                 <input type="file" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.odt,.ods,.odp" name="file"
-                                    class="form-control {{ $errors->has('file') ? ' is-invalid' : '' }}" value="{{ $national_award->file }}">
+                                    class="form-control  {{ $errors->has('file') ? ' is-invalid' : '' }}" value="{{ $national_award->file }}">
                             </div>
-                            <div class="form-group{{ $errors->has('description') ? ' has-danger' : '' }}">
+                            <div class="form-group {{ $errors->has('description') ? ' has-danger' : '' }}">
                                 <label>{{ _('Description(optional)') }} </label>
-                                <textarea rows="3" name="description" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}">
+                                <textarea rows="3" name="description" class="form-control {{ $errors->has('description') ? ' is-invalid' : '' }}">
                                     {{ $national_award->description }}
                                 </textarea>
                                 @include('alerts.feedback', ['field' => 'description'])
@@ -47,7 +47,7 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        National Award
+                        {{ _('National Award') }}
                     </p>
                     <div class="card-description">
                         {{ _('The faq\'s manages user permissions by assigning different faqs to users. Each faq defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}

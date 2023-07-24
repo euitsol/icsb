@@ -13,20 +13,20 @@
                     @method('PUT')
                     @csrf
                     <div class="card-body">
-                            <div class="form-group{{ $errors->has('title') ? ' has-danger' : '' }}">
+                            <div class="form-group {{ $errors->has('title') ? ' has-danger' : '' }}">
                                 <label>{{ _('Title') }}</label>
-                                <input type="text" name="title" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" value="{{ $connection->title }}">
+                                <input type="text" name="title" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" value="{{ $connection->title }}">
                                 @include('alerts.feedback', ['field' => 'title'])
                             </div>
 
-                            <div class="form-group{{ $errors->has('logo') ? ' has-danger' : '' }}">
+                            <div class="form-group {{ $errors->has('logo') ? ' has-danger' : '' }}">
                                 <label class="form-label">Logo</label>
                                 <input type="file" accept="image/*" name="logo"
-                                    class="form-control image-upload {{ $errors->has('logo') ? ' is-invalid' : '' }}" value="{{ $connection->logo }}" data-existing-files="{{ storage_url($connection->logo) }}">
+                                    class="form-control image-upload  {{ $errors->has('logo') ? ' is-invalid' : '' }}" value="{{ $connection->logo }}" data-existing-files="{{ storage_url($connection->logo) }}">
                             </div>
-                            <div class="form-group{{ $errors->has('url') ? ' has-danger' : '' }}">
+                            <div class="form-group {{ $errors->has('url') ? ' has-danger' : '' }}">
                                 <label>{{ _('URL') }}</label>
-                                <input type="text" name="url" class="form-control{{ $errors->has('url') ? ' is-invalid' : '' }}" value="{{ $connection->url }}">
+                                <input type="text" name="url" class="form-control {{ $errors->has('url') ? ' is-invalid' : '' }}" value="{{ $connection->url }}">
                                 @include('alerts.feedback', ['field' => 'url'])
                             </div>
                     </div>
@@ -40,7 +40,7 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        Service
+                        {{ _('National Connection') }}
                     </p>
                     <div class="card-description">
                         {{ _('The faq\'s manages user permissions by assigning different faqs to users. Each faq defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}

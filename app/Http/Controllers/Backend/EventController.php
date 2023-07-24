@@ -62,7 +62,7 @@ class EventController extends Controller
 
         if(!empty($request->image)){
             foreach(json_decode($event->image) as $db_image){
-                $this->imageDelete($db_image);
+                $this->fileDelete($db_image);
             }
             $images = array();
             foreach($request->image as $image){
@@ -82,7 +82,7 @@ class EventController extends Controller
         $event->event_end_time = $request->event_end_time;
         $event->description = $request->description;
         $event->type = $request->type;
-        $event->created_by = auth()->user()->id;
+        $event->updated_by = auth()->user()->id;
         $event->save();
 
         return redirect()->route('event.event_list')->withStatus(__('Event '.$event->title.' updated successfully.'));
@@ -91,7 +91,7 @@ class EventController extends Controller
     {
         $event = Event::findOrFail($id);
         foreach(json_decode($event->image) as $db_image){
-            $this->imageDelete($db_image);
+            $this->fileDelete($db_image);
         }
         $event->delete();
 
