@@ -1294,9 +1294,138 @@ h1,h2,h3,h4,h5,h6{
 	width: 46%;
 }
 
-/*======================== Objectives Page CSS ==========================*/
-.objectives-section{
-
+/*==================== Contact Page CSS ====================*/
+.form-section{
+	padding: 100px 0;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-image: url("../img/events-bg.png");
+}
+.form-section .detailes-column h3{
+	color: #fff;
+	font-size: 50px;
+	line-height: 56px;
+	font-weight: 600;
+	margin-bottom: 45px;
+}
+.form-section .detailes-column .deatiles-items{
+	display: flex;
+	column-gap: 25px;
+	margin-top: 25px;
+}
+.form-section .detailes-column .deatiles-items img{
+	width: 60px;
+	height: 60px;
+	object-fit: cover;
+}
+.form-section .detailes-column .deatiles-items h4{
+	color: #fff;
+	font-size: 22px;
+	line-height: 33px;
+	font-weight: 600;
+}
+.form-section .detailes-column .deatiles-items a{
+	color: #fff;
+	font-size: 16px;
+	line-height: 27px;
+	font-weight: 400;
+	max-width: 380px;
+}
+.form-section .detailes-column .deatiles-items a:hover{
+	color: #FF8601;
+}
+.form-section h2{
+	font-size: 50px;
+	line-height: 56px;
+	margin-bottom: 34px;
+	font-weight: 600;
+}
+.form-section .form-content{
+	display: flex;
+	/* column-gap: 74px; */
+}
+.form-section .detailes-column{
+	width: 40%;
+	padding: 35px;
+	padding-bottom: 47px;
+	background: #182456;
+}
+.form-section .form-column{
+	width: 60%;
+	padding: 50px 60px;
+	background: #fff;
+	border: 1px solid #ccc;
+	box-shadow: 0px 0px 7px 0px rgba(166.99999999999997, 163.99999999999997, 163.99999999999997, 0.5);
+}
+.form-section .form-column input{
+	font-size: 16px;
+	line-height: 25px;
+	width: 48.75%;
+	height: 52px;
+	padding-left: 21px;
+	border-radius: 0;
+	transition: 0.4s;
+	background: transparent;
+	border: 1px solid #182456;
+}
+.form-section .form-column input:focus{
+	border: 1px solid #FF8601;
+}
+.form-section .form-column form{
+	display: flex;
+	flex-wrap: wrap;
+	row-gap: 29px;
+	column-gap: 2.5%;
+}
+.form-section .form-column .submit-button{
+	color: #152360;
+	padding: 0;
+	border: none;
+	font-size: 20px;
+	line-height: 30px;
+	font-weight: 400;
+	max-width: 230px;
+	height: 55px;
+	border-radius: 100px;
+	background: transparent;
+	transition: 0.4s;
+	border: 1px solid #152360;
+}
+.form-section .form-column .submit-button:hover{
+	color: #fff;
+	background: #152360;
+}
+::-webkit-input-placeholder { 
+ 	 color: #070000;
+ 	 opacity: 1;
+}
+:-ms-input-placeholder { 
+  	color: #070000;
+  	opacity: 1;
+}
+::placeholder {
+  	color: #070000;
+  	opacity: 1;
+}
+.form-section .form-column textarea{
+	font-size: 16px;
+	line-height: 25px;	
+	width: 100%;
+	padding-left: 21px;	
+	resize: none;
+	height: 190px;
+	padding-top: 14px;
+	transition: 0.4s;
+	border: 1px solid #707070;	
+	font-family: 'Poppins', sans-serif;
+}
+.form-section .form-column textarea:focus{
+	border: 1px solid #FF8601;
+}
+.form-section .form-column .g-recaptcha{
+	width: 100%;
+	max-width: 100%;
 }
 
 /* ===========================  Executive Committee Page Style ========================*/
