@@ -68,7 +68,7 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        event
+                        {{ _('Banner Image') }}
                     </p>
                     <div class="card-description">
                         {{ _('The faq\'s manages user permissions by assigning different faqs to users. Each faq defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}

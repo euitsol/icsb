@@ -187,10 +187,10 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
     // Site Settings
     Route::group(['as' => 'settings.', 'prefix' => 'site-settings'], function () {
         Route::get('index', [SettingsController::class, 'index'])->name('site_settings');
-        Route::post('store', [SettingsController::class, 'store'])->name('site_settings');
+        Route::post('index', [SettingsController::class, 'store'])->name('site_settings');
     });
 
-    // National Award
+    // Banner Route
     Route::group(['as' => 'banner.', 'prefix' => 'banner'], function () {
         Route::get('index', [BannerController::class, 'index'])->name('banner_list');
         Route::get('create', [BannerController::class, 'create'])->name('banner_create');

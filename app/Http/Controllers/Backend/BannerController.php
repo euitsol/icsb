@@ -10,7 +10,8 @@ use App\Models\BannerImage;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\BannerRequest;
-use Illuminate\Support\Facades\File;
+use App\Http\Requests\BannerImageRequest;
+use Illuminate\Support\Facades\Storage;
 
 class BannerController extends Controller
 {
@@ -45,7 +46,7 @@ class BannerController extends Controller
         $s['banner'] = Banner::findOrFail($banner_id);
         return view('backend.banner.image_upload',$s);
     }
-    public function storeImage(BannerRequest $request, $banner_id): RedirectResponse
+    public function storeImage(BannerImageRequest $request, $banner_id): RedirectResponse
     {
         if(!empty($request->images) && $request->hasFile('images')){
             foreach($request->images as $image){
@@ -118,10 +119,10 @@ class BannerController extends Controller
     }
     public function delete($id): RedirectResponse
     {
-        $banner = Banner::findOrFail($id);
+        $banner = Banner::with('images')->findOrFail($id);
         foreach($banner->images as $image){
             $this->fileDelete($image->image);
-            File::deleteDirectory('public/storage/banner/'.$image->id);
+            Storage::deleteDirectory('public/banner/'.$banner->id);
         }
         $banner->delete();
         return redirect()->route('banner.banner_list')->withStatus(__('banner '.$banner->banner_name.' deleted successfully.'));

@@ -30,9 +30,11 @@
                     enctype="multipart/form-data">
                     @csrf
                     <div class="card-body" id='image-upload-container'>
-                        <div class="form-group">
+                        <div class="form-group {{ $errors->has('images.*') ? 'is-invalid' : '' }}  {{ $errors->has('images') ? 'is-invalid' : '' }}">
                             <label>{{ _('Banner Image-1') }}</label>
-                            <input type="file" name="images[]" class="form-control image-upload">
+                            <input type="file" name="images[]" class="form-control image-upload {{ $errors->has('images.*') ? 'is-invalid' : '' }}  {{ $errors->has('images') ? 'is-invalid' : '' }}">
+                            @include('alerts.feedback', ['field' => 'images'])
+                            @include('alerts.feedback', ['field' => 'images.*'])
                         </div>
                         <div id="image">
 
@@ -70,8 +72,10 @@ $(document).ready(function(){
 
         result = `<div class="form-group image_group" id="image-${count}">
                     <label>Banner Image-${count}</label>
-                        <input type="file" name="images[]" class="form-control image-upload">
-                        <span class="input-group-text text-danger delete_btn" onclick="delete_section(${count})"><i class="tim-icons icon-trash-simple"></i></span>
+                    <input type="file" name="images[]" class="form-control image-upload">
+                    <span class="input-group-text text-danger delete_btn" onclick="delete_section(${count})"><i class="tim-icons icon-trash-simple"></i></span>
+                    @include('alerts.feedback', ['field' => 'image'])
+                    @include('alerts.feedback', ['field' => 'image.*'])
                 </div>`;
 
         $('#image').append(result);
