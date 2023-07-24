@@ -8,10 +8,7 @@ use App\Models\Permission;
 //This will retun the route prefix of the routes for permission check
 function get_permission_routes()
 {
-
-  return ['about.faq.','service.','contact.','national_connection.','wwcs.','event.','national_award.','blog.'];
-
-
+  return ['about.faq.','service.','contact.','national_connection.','wwcs.','event.','national_award.', 'blog.', 'settings.'];
 }
 
 //This will check the permission of the given route name. Can be used for buttons
@@ -70,5 +67,26 @@ function storage_url($url){
     return asset('storage/'.$url);
 }
 function timeFormate($time){
-    return date("d-M-Y H:i A", strtotime($time));
+    $dateFormat = env('DATE_FORMAT', 'd-M-Y');
+    $timeFormat = env('TIME_FORMAT', 'H:i A');
+    return date($dateFormat." ".$timeFormat, strtotime($time));
+}
+
+function availableTimezones(){
+    $timezones = [];
+    $timezoneIdentifiers = DateTimeZone::listIdentifiers();
+
+    foreach ($timezoneIdentifiers as $timezoneIdentifier) {
+        $timezone = new DateTimeZone($timezoneIdentifier);
+        $offset = $timezone->getOffset(new DateTime());
+        $offsetPrefix = $offset < 0 ? '-' : '+';
+        $offsetFormatted = gmdate('H:i', abs($offset));
+
+        $timezones[] = [
+            'timezone' => $timezoneIdentifier,
+            'name' => "(UTC $offsetPrefix$offsetFormatted) $timezoneIdentifier",
+        ];
+    }
+
+    return $timezones;
 }

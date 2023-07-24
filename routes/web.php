@@ -14,6 +14,7 @@ use App\Http\Controllers\Backend\EventController;
 use App\Http\Controllers\Backend\WWCSController;
 use App\Http\Controllers\Backend\NationalAwardController;
 use App\Http\Controllers\Backend\BlogController;
+use App\Http\Controllers\Backend\BannerController;
 use App\Http\Controllers\Backend\UserManagement\RoleController;
 use App\Http\Controllers\Backend\UserManagement\PermissionController;
 use App\Http\Controllers\Frontend\AboutPagesController;
@@ -24,6 +25,7 @@ use App\Http\Controllers\Frontend\RulesAndRegulationsPagesController;
 use App\Http\Controllers\Frontend\PublicationsPagesController;
 use App\Http\Controllers\Frontend\ContactPagesController;
 use App\Http\Controllers\Frontend\ArticlesController;
+use App\Http\Controllers\SettingsController;
 
 
 /*
@@ -180,6 +182,30 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
     });
 
 
+
+
+    // Site Settings
+    Route::group(['as' => 'settings.', 'prefix' => 'site-settings'], function () {
+        Route::get('index', [SettingsController::class, 'index'])->name('site_settings');
+        Route::post('store', [SettingsController::class, 'store'])->name('site_settings');
+    });
+
+    // National Award
+    Route::group(['as' => 'banner.', 'prefix' => 'banner'], function () {
+        Route::get('index', [BannerController::class, 'index'])->name('banner_list');
+        Route::get('create', [BannerController::class, 'create'])->name('banner_create');
+        Route::get('create/{banner_id}', [BannerController::class, 'createImage'])->name('image.banner_create');
+        Route::post('create', [BannerController::class, 'store'])->name('banner_create');
+        Route::post('create/{banner_id}', [BannerController::class, 'storeImage'])->name('image.banner_create');
+        Route::get('edit/image/{banner_id}',      [BannerController::class, 'editImage'])->name('image.banner_edit');
+        Route::get('edit/{id}',      [BannerController::class, 'edit'])->name('banner_edit');
+        Route::put('edit/{id}',      [BannerController::class, 'update'])->name('banner_edit');
+        Route::put('edit/image/{banner_id}',      [BannerController::class, 'updateImage'])->name('image.banner_edit');
+        Route::get('status/{id}',      [BannerController::class, 'status'])->name('status.banner_edit');
+        Route::get('featured/{id}',      [BannerController::class, 'featured'])->name('featured.banner_edit');
+        Route::get('image/delete/{id}',      [BannerController::class, 'deleteImage'])->name('image.banner_delete');
+        Route::get('delete/{id}', [BannerController::class, 'delete'])->name('banner_delete');
+    });
 
 });
 

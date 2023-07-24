@@ -37,3 +37,7 @@ blog_list,web
 blog_create,web
 blog_edit,web
 blog_delete,web
+banner_list,web
+banner_create,web
+banner_edit,web
+banner_delete,web

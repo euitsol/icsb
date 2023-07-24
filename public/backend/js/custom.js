@@ -50,92 +50,98 @@ function deleteItem(modelName, itemId) {
             swal('Error', 'An error occurred while deleting the item.', 'error');
         });
 }
+const imageUploadContainer = document.getElementById('image-upload-container');
 
-// Get the necessary elements
-const imageUploadInputs = document.querySelectorAll('.image-upload');
-const existingFilesArray = [];
+// Add event listener to the parent container using event delegation
+imageUploadContainer.addEventListener('change', function (event) {
+    const imageUploadInputs = document.querySelectorAll('.image-upload');
+    const existingFilesArray = [];
 
-// Add event listener for each file input change
-imageUploadInputs.forEach(function (imageUploadInput, index) {
+    // Add event listener for each file input change
+    imageUploadInputs.forEach(function (imageUploadInput, index) {
 
-    const mainDiv = document.createElement('div');
-    mainDiv.classList.add('imagePreviewMainDiv');
+        const mainDiv = document.createElement('div');
+        mainDiv.classList.add('imagePreviewMainDiv');
 
-    imageUploadInput.parentNode.append(mainDiv);
+        imageUploadInput.parentNode.append(mainDiv);
 
-    // Check if data-existing-files attribute is present
-    if (imageUploadInput.hasAttribute('data-existing-files')) {
+        // Check if data-existing-files attribute is present
+        if (imageUploadInput.hasAttribute('data-existing-files')) {
 
-        const existingFilesValue = imageUploadInput.getAttribute('data-existing-files');
-        if (existingFilesValue) {
-            let existingFiles;
-            try {
-                existingFiles = JSON.parse(existingFilesValue);
-            } catch (error) {
-                existingFiles = [existingFilesValue];
+            const existingFilesValue = imageUploadInput.getAttribute('data-existing-files');
+            if (existingFilesValue) {
+                let existingFiles;
+                try {
+                    existingFiles = JSON.parse(existingFilesValue);
+                } catch (error) {
+                    existingFiles = [existingFilesValue];
+                }
+
+                existingFilesArray[index] = existingFiles;
+                populateImagePreview(existingFiles, mainDiv);
             }
-
-            existingFilesArray[index] = existingFiles;
-            populateImagePreview(existingFiles, mainDiv);
-        }
-    }
-
-    imageUploadInput.addEventListener('change', function () {
-        const files = Array.from(this.files);
-
-        // Remove previous images if not multiple
-        if (!this.hasAttribute('multiple')) {
-            const previousImages = this.parentNode.querySelectorAll('.imagePreview');
-            previousImages.forEach(function (image) {
-                image.parentNode.remove();
-            });
         }
 
-        files.forEach(function (file) {
-            if (file) {
+        imageUploadInput.addEventListener('change', function () {
+            const files = Array.from(this.files);
 
-                const imageUploadContainer = imageUploadInput.parentNode;
-
-                const imagePreviewDiv = document.createElement('div');
-                imagePreviewDiv.classList.add('imagePreviewDiv');
-
-                // Create the image element
-                const previewImage = document.createElement('img');
-                previewImage.classList.add('imagePreview', 'rounded', 'me-50', 'border');
-                previewImage.setAttribute('src', '#');
-                previewImage.setAttribute('alt', 'Uploaded Image');
-
-                // Create the remove button
-                const removeButton = document.createElement('i');
-                removeButton.classList.add('fa-solid', 'fa-trash', 'removeImage', 'text-danger');
-
-                // Add event listener for remove button click
-                removeButton.addEventListener('click', function () {
-                    const imageContainer = this.parentNode;
-                    const imagePreview = imageContainer.querySelector('.imagePreview');
-
-                    // Remove the image, remove button, and clear the file input value
-                    imageContainer.remove();
-                    imageUploadInput.value = '';
+            // Remove previous images if not multiple
+            if (!this.hasAttribute('multiple')) {
+                const previousImages = this.parentNode.querySelectorAll('.imagePreview');
+                previousImages.forEach(function (image) {
+                    image.parentNode.remove();
                 });
-
-                // Append the image and remove button to the preview div
-                imagePreviewDiv.appendChild(previewImage);
-                imagePreviewDiv.appendChild(removeButton);
-
-                // Append the preview div to the container
-                mainDiv.appendChild(imagePreviewDiv);
-
-                // Read the file and set the image source
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    previewImage.setAttribute('src', e.target.result);
-                };
-                reader.readAsDataURL(file);
             }
+
+            files.forEach(function (file) {
+                if (file) {
+
+                    const imageUploadContainer = imageUploadInput.parentNode;
+
+                    const imagePreviewDiv = document.createElement('div');
+                    imagePreviewDiv.classList.add('imagePreviewDiv');
+
+                    // Create the image element
+                    const previewImage = document.createElement('img');
+                    previewImage.classList.add('imagePreview', 'rounded', 'me-50', 'border');
+                    previewImage.setAttribute('src', '#');
+                    previewImage.setAttribute('alt', 'Uploaded Image');
+
+                    // Create the remove button
+                    const removeButton = document.createElement('i');
+                    removeButton.classList.add('fa-solid', 'fa-trash', 'removeImage', 'text-danger');
+
+                    // Add event listener for remove button click
+                    removeButton.addEventListener('click', function () {
+                        const imageContainer = this.parentNode;
+                        const imagePreview = imageContainer.querySelector('.imagePreview');
+
+                        // Remove the image, remove button, and clear the file input value
+                        imageContainer.remove();
+                        imageUploadInput.value = '';
+                    });
+
+                    // Append the image and remove button to the preview div
+                    imagePreviewDiv.appendChild(previewImage);
+                    imagePreviewDiv.appendChild(removeButton);
+
+                    // Append the preview div to the container
+                    mainDiv.appendChild(imagePreviewDiv);
+
+                    // Read the file and set the image source
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        previewImage.setAttribute('src', e.target.result);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
         });
     });
 });
+// Get the necessary elements
+
+
 
 function populateImagePreview(files, container) {
     files.forEach(function (file) {
