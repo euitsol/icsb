@@ -24,6 +24,7 @@ use App\Http\Controllers\Frontend\RulesAndRegulationsPagesController;
 use App\Http\Controllers\Frontend\PublicationsPagesController;
 use App\Http\Controllers\Frontend\ContactPagesController;
 use App\Http\Controllers\Frontend\ArticlesController;
+use App\Http\Controllers\SettingsController;
 
 
 /*
@@ -166,6 +167,13 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
 
     // Default File Download Route
         Route::get('download/{filename}', [DefaultController::class, 'download'])->name('download');
+
+
+    // Site Settings
+    Route::group(['as' => 'settings.', 'prefix' => 'site-settings'], function () {
+        Route::get('index', [SettingsController::class, 'index'])->name('site_settings');
+        Route::post('store', [SettingsController::class, 'store'])->name('site_settings');
+    });
 
     // National Award
     Route::group(['as' => 'banner.', 'prefix' => 'banner'], function () {

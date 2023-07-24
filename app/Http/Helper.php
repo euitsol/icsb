@@ -9,7 +9,7 @@ use App\Models\Permission;
 function get_permission_routes()
 {
 
-  return ['about.faq.','service.','contact.','national_connection.','wwcs.','event.','national_award.'];
+  return ['about.faq.','service.','contact.','national_connection.','wwcs.','event.','national_award.', 'settings.'];
 
 
 }
@@ -70,5 +70,26 @@ function storage_url($url){
     return asset('storage/'.$url);
 }
 function timeFormate($time){
-    return date("d-M-Y H:i A", strtotime($time));
+    $dateFormat = env('DATE_FORMAT', 'd-M-Y');
+    $timeFormat = env('TIME_FORMAT', 'H:i A');
+    return date($dateFormat." ".$timeFormat, strtotime($time));
+}
+
+function availableTimezones(){
+    $timezones = [];
+    $timezoneIdentifiers = DateTimeZone::listIdentifiers();
+
+    foreach ($timezoneIdentifiers as $timezoneIdentifier) {
+        $timezone = new DateTimeZone($timezoneIdentifier);
+        $offset = $timezone->getOffset(new DateTime());
+        $offsetPrefix = $offset < 0 ? '-' : '+';
+        $offsetFormatted = gmdate('H:i', abs($offset));
+
+        $timezones[] = [
+            'timezone' => $timezoneIdentifier,
+            'name' => "(UTC $offsetPrefix$offsetFormatted) $timezoneIdentifier",
+        ];
+    }
+
+    return $timezones;
 }
