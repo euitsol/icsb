@@ -1496,6 +1496,281 @@ h1,h2,h3,h4,h5,h6{
 	margin-bottom: 15px;
 }
 
+/*========================= Exam Schedul Page Style ========================*/
+.handbook-section{
+	padding: 100px 0;
+}
+.handbook-section .handbook-column{
+	column-gap: 4%;
+	display: flex;
+}
+.handbook-section .handbook-column h2{
+	margin-bottom: 30px;
+}
+.handbook-section .handbook-column h3{
+	font-size: 20px;
+	line-height: 26px;
+	font-weight: 600;
+	margin-bottom: 14px;
+}
+.handbook-section .handbook-column p{
+	margin-bottom: 30px;
+	max-width: 650px;
+}
+.handbook-section .handbook-column a{
+	display: block;
+}
+.handbook-section .handbook-column .new-handbook{
+	width: 48%;
+}
+.handbook-section .handbook-column .old-handbook{
+	width: 48%;
+}
+
+/*============================ Fellow Member Page Style =====================*/
+.fellow-member-section{
+	padding: 100px 0;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-image: url("../img/events-bg.png");
+}
+.fellow-row{
+	column-gap: 2%;
+	margin-top: 50px;
+	flex-wrap: wrap;
+	row-gap: 30px;
+}
+.fellow-row .fellow-items{
+	width: 49%;
+	column-gap: 5%;
+	background: #fff;
+	border: 1px solid #ccc;
+	padding: 34px 28px 25px 28px;
+}
+.fellow-row .fellow-items .image-column{
+	width: 30%;
+}
+.content-column{
+	width: 65%;
+}
+.fellow-row .fellow-items h4{
+	color: #FF8601;
+	font-size: 20px;
+	line-height: 26px;
+	margin-bottom: 4px;
+	font-family: 'Poppins', sans-serif;	
+}
+.fellow-row .fellow-items img{
+	height: 225px;
+	object-fit: cover;
+	border: 4px solid #182456;
+	border-radius: 65px 0px 65px 0px;
+}
+.fellow-row .fellow-items h3{
+	font-size: 25px;
+	line-height: 31px;
+	margin-bottom: 6px;
+}
+.fellow-row .fellow-items p{
+	max-width: 380px;
+	margin-bottom: 20px;
+}
+.fellow-row .fellow-items p strong{
+	color: #595656;
+	font-size: 15px;
+	line-height: 21px;
+	font-weight: 500;
+	font-family: 'Poppins', sans-serif;		
+}
+.fellow-row .fellow-items li{
+	margin-bottom: 5px;
+}
+.fellow-row .fellow-items li i{
+	color: #182456;
+	margin-right: 6px;
+}
+.fellow-row .fellow-items li a{
+	color: #182456;
+}
+.fellow-row .fellow-items li a:hover{
+	color: #FF8601;
+}
+
+
+/*===================== Code Of Consuct Page Style =======================*/
+.codeof-conduct-section{
+	padding: 100px 0;
+}
+.codeof-conduct-section .codeof-conduct-row{
+	column-gap: 4%;
+	flex-wrap: wrap;
+}
+.codeof-conduct-section .codeof-conduct-row .image-column{
+	width: 40%;
+	margin-bottom: 45px;
+}
+.codeof-conduct-section .codeof-conduct-row .content-column{
+	width: 56%;
+}
+.codeof-conduct-section .codeof-conduct-row h3{
+	font-size: 20px;
+	line-height: 26px;
+	margin-top: 13px;
+	margin-bottom: 15px;
+	font-family: 'Poppins', sans-serif;	
+}
+.codeof-conduct-section .codeof-conduct-row h4{
+	font-size: 20px;
+	line-height: 26px;
+	margin-bottom: 15px;
+	font-family: 'Poppins', sans-serif;		
+}
+.codeof-conduct-section .codeof-conduct-row p{
+	margin-bottom: 20px;
+}
+.codeof-conduct-section .codeof-conduct-row ul{
+	padding: 0;
+	margin: 0;
+	padding-left: 13px;
+}
+.codeof-conduct-section .codeof-conduct-row ul li{
+	list-style: inherit;
+	margin-bottom: 10px;
+}
+
+
+/*========================= CPD Programme Page Style =====================*/
+.cpd-section{
+	padding: 100px 0;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-image: url("../img/events-bg.png");
+}
+.cpd-section .cpd-row{
+	column-gap: 2%;
+	flex-wrap: wrap;
+	row-gap: 32px;
+}
+.cpd-section .cpd-row .cpd-items{
+	width: 32%;
+	background: #fff;
+	transition: 0.5s;
+	border: 1px solid #ccc;
+	box-shadow: 0px 0px 7px 0px rgba(166.99999999999997, 163.99999999999997, 163.99999999999997, 0.5);
+}
+.cpd-section .cpd-row .cpd-items:hover{
+	margin-top: -5px;
+}
+.cpd-section .cpd-row .cpd-items .cpd-content{
+	padding: 25px;
+}
+.cpd-section .cpd-row .cpd-items .cpd-content ul{
+	padding: 0;
+	margin: 0;
+	column-gap: 28px;
+	margin-bottom: 14px;
+}
+.cpd-section .cpd-row .cpd-items .cpd-content ul li i{
+	color: #FF8601;
+	margin-right: 5px;
+}
+.cpd-section .cpd-row .cpd-items .cpd-content h2{
+	font-size: 20px;
+	line-height: 26px;
+	margin-bottom: 13px;
+	font-family: 'Poppins', sans-serif;	
+}
+.cpd-section .cpd-row .cpd-items .cpd-content h2 a{
+	color: #111;
+}
+.cpd-section .cpd-row .cpd-items .cpd-content h2 a:hover{
+	color: #FF8601;
+}
+.cpd-section .cpd-row .cpd-items .cpd-content p{
+	margin-bottom: 15px;
+}
+.cpd-section .cpd-row .cpd-items .cpd-content .button{
+	width: 100%;
+	height: 39px;
+	color: #152360;
+	font-size: 17px;
+	line-height: 36px;
+	max-width: 160px;
+	text-align: center;
+	margin-top: 18px;
+	border-radius: 100px;
+	border: 1px solid #152360;
+}
+.cpd-section .cpd-row .cpd-items .cpd-content .button:hover{
+	color: #fff;
+	background: #152360;
+}
+
+/*========================= Notices Board Page Style ====================*/
+.notice-board-section{
+	padding: 100px 0;
+}
+.notice-board-section .notice-board-content thead{
+	color: #fff;
+	height: 70px;
+	background: #8A8A8A;
+}
+.notice-board-section .notice-board-content thead th{
+	text-align: center;
+}
+.notice-board-section .notice-board-content tbody tr{
+	height: 63px;
+	text-align: center;
+	background: #F2F2F2;
+	border-bottom: 10px solid #fff;
+}
+.notice-board-section .notice-board-content tbody tr a{
+	color: #111;
+	transition: 0.4s;
+}
+.notice-board-section .notice-board-content tbody tr a:hover{
+	color: #FF8601;
+}
+.notice-board-section .notice-board-content{
+	display: grid;
+	margin-top: 51px;
+}
+.notice-board-section .notice-board-content .notice-board-content{
+	order: 1;
+}
+.notice-board-section .notice-board-content .table-pagination{
+	order: 2;
+	display: flex;
+	margin-top: 15px;
+	justify-content: end;
+}
+.notice-board-section .notice-board-content .table-pagination ul{
+	column-gap: 15px;
+	align-items: center;
+}
+.notice-board-section .notice-board-content .table-pagination li a{
+	border: 0;
+	color: #111;
+	padding: 0;
+	font-size: 14px;
+	line-height: 20px;
+}
+.notice-board-section .notice-board-content .table-pagination li .active{
+	color: #fff;
+	padding: 3px 11px;
+}
+.notice-board-section .notice-board-content .table-pagination li a:hover{
+	border: 0;
+	outline: 0;
+}
+.notice-board-section .notice-board-content .table-pagination li a:focus{
+	border: 0;
+	outline: 0;
+}
+
+
 /*======================== FAQ Page CSS ==========================*/
 .faq-section{
 	padding-top: 100px;

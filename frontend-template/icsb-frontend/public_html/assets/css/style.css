@@ -2199,16 +2199,9 @@ table {
 
 
 /*================================ Students Handbook Page CSS =========================*/
-.handbook-bredcum-section{
-	background: url(../img/breadcumb/book-image.png);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-}
 .handbook-section .handbook-column{
 	column-gap: 2%;
 	display: flex;
-	margin-top: 60px;
 }
 .handbook-section .handbook-column h3{
 	color: #fff;
