@@ -1,20 +1,26 @@
 <section class="banner-section">
     <div id="carouselExampleCaptions" class="carousel slide">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            @if(isset($banner->images))
+                @foreach ($banner->images as $key=>$image)
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{$key}}" class="@if($key == 0) active @endif" aria-current="@if($key == 0) true @endif" aria-label="Slide {{$key+1}}"></button>
+                @endforeach
+            @else
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            @endif
         </div>
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="{{asset('frontend/img/slider/slider_one.png')}}" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="{{asset('frontend/img/slider/slider_one.png')}}" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="{{asset('frontend/img/slider/slider_one.png')}}" class="d-block w-100" alt="...">
-            </div>
+            @if(isset($banner->images))
+                @foreach ($banner->images as $key=>$image)
+                    <div class="carousel-item @if($key == 0) active @endif">
+                        <img src="{{ storage_url($image->image) }}" class="d-block w-100" alt="{{ $banner->banner_name }}">
+                    </div>
+                @endforeach
+            @else
+                <div class="carousel-item active">
+                    <img src="{{asset('no_img/no_img.jpg')}}" class="d-block w-100" alt="...." style="height: 70vh">
+                </div>
+            @endif
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -29,12 +35,9 @@
         <div class="social-link-wrapper">
             <ul>
                 <li class="active"><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-pinterest"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                @foreach (json_decode($contact->social) as $social)
+                    <li><a href="{{$social->link}}" target="_blank"><i class="{{$social->icon}}"></i></a></li>
+                @endforeach
             </ul>
         </div>
     </aside>

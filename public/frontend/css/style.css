@@ -442,7 +442,7 @@ h1,h2,h3,h4,h5,h6{
 	font-size: 24px;
 	line-height: 30px;
 	font-family: 'Poppins', sans-serif;
-	font-family: 'Poppins', sans-serif;	
+	font-family: 'Poppins', sans-serif;
 }
 .president-section .president-column .left-column p{
 	font-size: 17px;
@@ -629,7 +629,7 @@ h1,h2,h3,h4,h5,h6{
 .notice-section .notice-row .notice-board-wrapper .left-column .content-col ul li{
 	color: #FF8601;
 	font-size: 15px;
-	font-size: 15px; 
+	font-size: 15px;
 	line-height: 21px;
 	font-family: 'Poppins', sans-serif;
 }
@@ -733,7 +733,7 @@ h1,h2,h3,h4,h5,h6{
 	border-radius: 29px;
 	background: #182456;
 	transition: 0.4s;
-	top: -100px;
+	top: 30px;
 	z-index: 999;
 	position: relative;
 	border: 1px solid #182456;
@@ -1132,7 +1132,7 @@ h1,h2,h3,h4,h5,h6{
 .cs-wide-section .owl-carousel .owl-nav .owl-prev{
 	left: -114px;
 	position: absolute;
-	position: absolute;	
+	position: absolute;
 }
 .cs-wide-section .owl-carousel .owl-nav .owl-next{
 	right: -114px;
@@ -1148,7 +1148,7 @@ h1,h2,h3,h4,h5,h6{
 	width: auto;
 	margin-left: auto;
 	margin-right: auto;
-	margin-right: auto;	
+	margin-right: auto;
 }
 .national-connection-section .national-connection .owl-item  h3{
 	color: #122F98;
@@ -1246,7 +1246,7 @@ h1,h2,h3,h4,h5,h6{
 .breadcrumbs-section .breadcrumbs-row .left-column ul li a:hover{
 	color: #FF8601;
 }
-.breadcrumbs-section .breadcrumbs-row .left-column ul li p{ 
+.breadcrumbs-section .breadcrumbs-row .left-column ul li p{
 	color: #F2F2F2;
 	font-size: 20px;
 	line-height: 26px;
@@ -1396,11 +1396,11 @@ h1,h2,h3,h4,h5,h6{
 	color: #fff;
 	background: #152360;
 }
-::-webkit-input-placeholder { 
+::-webkit-input-placeholder {
  	 color: #070000;
  	 opacity: 1;
 }
-:-ms-input-placeholder { 
+:-ms-input-placeholder {
   	color: #070000;
   	opacity: 1;
 }
@@ -1410,14 +1410,14 @@ h1,h2,h3,h4,h5,h6{
 }
 .form-section .form-column textarea{
 	font-size: 16px;
-	line-height: 25px;	
+	line-height: 25px;
 	width: 100%;
-	padding-left: 21px;	
+	padding-left: 21px;
 	resize: none;
 	height: 190px;
 	padding-top: 14px;
 	transition: 0.4s;
-	border: 1px solid #707070;	
+	border: 1px solid #707070;
 	font-family: 'Poppins', sans-serif;
 }
 .form-section .form-column textarea:focus{
@@ -1512,7 +1512,7 @@ h1,h2,h3,h4,h5,h6{
 }
 .past-predident-section .president-row .president-column {
 	margin-bottom: 40px;
-} 
+}
 .past-predident-section .president-row .president-column .president-column-inner {
 	align-items: center;
 }
@@ -1736,7 +1736,7 @@ h1,h2,h3,h4,h5,h6{
 	font-size: 20px;
 	line-height: 26px;
 	margin-bottom: 4px;
-	font-family: 'Poppins', sans-serif;	
+	font-family: 'Poppins', sans-serif;
 }
 .fellow-row .fellow-items img{
 	height: 225px;
@@ -1758,7 +1758,7 @@ h1,h2,h3,h4,h5,h6{
 	font-size: 15px;
 	line-height: 21px;
 	font-weight: 500;
-	font-family: 'Poppins', sans-serif;		
+	font-family: 'Poppins', sans-serif;
 }
 .fellow-row .fellow-items li{
 	margin-bottom: 5px;
@@ -1795,13 +1795,13 @@ h1,h2,h3,h4,h5,h6{
 	line-height: 26px;
 	margin-top: 13px;
 	margin-bottom: 15px;
-	font-family: 'Poppins', sans-serif;	
+	font-family: 'Poppins', sans-serif;
 }
 .codeof-conduct-section .codeof-conduct-row h4{
 	font-size: 20px;
 	line-height: 26px;
 	margin-bottom: 15px;
-	font-family: 'Poppins', sans-serif;		
+	font-family: 'Poppins', sans-serif;
 }
 .codeof-conduct-section .codeof-conduct-row p{
 	margin-bottom: 20px;
@@ -1857,7 +1857,7 @@ h1,h2,h3,h4,h5,h6{
 	font-size: 20px;
 	line-height: 26px;
 	margin-bottom: 13px;
-	font-family: 'Poppins', sans-serif;	
+	font-family: 'Poppins', sans-serif;
 }
 .cpd-section .cpd-row .cpd-items .cpd-content h2 a{
 	color: #111;
@@ -2009,7 +2009,7 @@ h1,h2,h3,h4,h5,h6{
 	font-weight: 400;
 	padding: 33px 48px;
 	background: #F2F2F2;
-	font-family: 'Poppins', sans-serif;	
+	font-family: 'Poppins', sans-serif;
 }
 .faq-section .faq-content .accordion-item .accordion-button:before{
 	content: url('../img/faq/faq-white.png');
@@ -2028,7 +2028,7 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .faq-section .faq-content .accordion-item .collapsed:before{
-	content: url('../img/faq/faq-icon.png');	
+	content: url('../img/faq/faq-icon.png');
 }
 
 

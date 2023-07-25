@@ -5,18 +5,11 @@
                 <h2>ICSB National Award</h2>
             </div>
             <div class="award-column flex">
-                <div class="award-inner">
-                    <a href="#"><img src="{{asset('frontend/img/award/7th ICSB award.png')}}" align="7th ICSB National Award"></a>
-                </div>
-                <div class="award-inner">
-                    <a href="#"><img src="{{asset('frontend/img/award/6th ICSB award.png')}}" align="6th ICSB National Award"></a>
-                </div>
-                <div class="award-inner">
-                    <a href="#"><img src="{{asset('frontend/img/award/7th ICSB convention.png')}}" align="7th ICSB convention.png"></a>
-                </div>
-                <div class="award-inner">
-                    <a href="#"><img src="{{asset('frontend/img/award/5th ICSB award.png')}}" align="5th ICSB National Award"></a>
-                </div>
+                @foreach ($national_awards as $award)
+                    <div class="award-inner">
+                        <a href="{{$award->url}}"><img src="{{storage_url($award->image)}}" align="{{ $award->title }}"></a>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>

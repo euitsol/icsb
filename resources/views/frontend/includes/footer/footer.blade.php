@@ -24,11 +24,14 @@
 			</div>
 			<div class="footer-social-column">
 				<ul>
-					<li><a href="#" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
+					{{-- <li><a href="#" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
 					<li><a href="#" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
 					<li><a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
 					<li><a href="#" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></li>
-					<li><a href="#" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
+					<li><a href="#" target="_blank"><i class="fa-brands fa-twitter"></i></a></li> --}}
+                    @foreach (json_decode($contact->social) as $social)
+                        <li><a href="{{$social->link}}" target="_blank"><i class="{{$social->icon}}"></i></a></li>
+                    @endforeach
 				</ul>
 			</div>
 		</div>

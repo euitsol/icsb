@@ -4,7 +4,13 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Service;
+use App\Models\Contact;
+use App\Models\Banner;
+use App\Models\Blog;
+use App\Models\WWCS;
+use App\Models\Event;
+use App\Models\NationalAward;
+use App\Models\NationalConnection;
 use Illuminate\View\View;
 
 class HomePageController extends Controller
@@ -13,7 +19,13 @@ class HomePageController extends Controller
 
     public function index(): View
     {
-        $n['services'] = Service::get();
-        return view('frontend.home',$n);
+        $s['contact'] = Contact::where('deleted_at', null)->first();
+        $s['banner'] = Banner::with('images')->where('deleted_at', null)->where('status',1)->first();
+        $s['blogs'] = Blog::where('deleted_at', null)->where('is_featured','1')->latest()->get();
+        $s['wwcss'] = WWCS::where('deleted_at', null)->where('status',1)->latest()->get();
+        $s['events'] = Event::where('deleted_at', null)->where('status',1)->latest()->get();
+        $s['national_awards'] = NationalAward::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
+        $s['national_connections'] = NationalConnection::where('deleted_at', null)->where('status',1)->latest()->get();
+        return view('frontend.home',$s);
     }
 }

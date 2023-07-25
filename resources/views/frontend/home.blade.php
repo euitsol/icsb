@@ -3,9 +3,8 @@
 @section('title', 'Home')
 
 @section('content')
-
 {{-- Banner Section --}}
-@include('frontend.includes.banner')
+@include('frontend.includes.banner',['contact'=>$contact, 'banner'=>$banner])
 
  <!-- Start News Ticker Section -->
  <section class="news-ticker-section">
@@ -214,11 +213,11 @@
 </section>
 
 
-@include('frontend.includes.recent_updates')
+@include('frontend.includes.recent_updates',['blogs'=>$blogs])
 @include('frontend.includes.endorsement')
-@include('frontend.includes.world_wide_cs')
-@include('frontend.includes.events')
-@include('frontend.includes.national_awards')
+@include('frontend.includes.world_wide_cs',['wwcss'=>$wwcss])
+@include('frontend.includes.events',['events'=>$events])
+@include('frontend.includes.national_awards',['national_awards'=>$national_awards])
 @include('frontend.includes.recent_videos')
-@include('frontend.includes.national_connection')
+@include('frontend.includes.national_connection',['national_connections'=>$national_connections])
 @endsection

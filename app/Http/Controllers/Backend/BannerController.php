@@ -85,7 +85,7 @@ class BannerController extends Controller
         return view('backend.banner.image_edit',$s);
     }
 
-    public function updateImage(BannerRequest $request, $banner_id): RedirectResponse
+    public function updateImage(BannerImageRequest $request, $banner_id): RedirectResponse
     {
         if(!empty($request->images) && $request->hasFile('images')){
             foreach($request->images as $image){

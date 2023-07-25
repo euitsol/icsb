@@ -6,42 +6,14 @@
             </div>
             <div class="logo-carousel">
                 <div class="national-connection owl-carousel owl-theme">
-                    <div class="item">
-                        <div class="logo-wrapp">
-                            <img src="{{asset('frontend/img/national logo/bangladesh-govt-logo.png')}}">
-                            <h3 class="text-align">National Web Portal</h3>
+                    @foreach ($national_connections as $connection)
+                        <div class="item">
+                            <div class="logo-wrapp">
+                                <img src="{{ storage_url($connection->logo) }}">
+                                <h3 class="text-align">{{$connection->title}}</h3>
+                            </div>
                         </div>
-                    </div>
-                    <div class="item">
-                        <div class="logo-wrapp">
-                            <img src="{{asset('frontend/img/national logo/bangladesh-govt-logo.png')}}">
-                            <h3 class="text-align">Ministry Of Commerce</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="logo-wrapp">
-                            <img src="{{asset('frontend/img/national logo/bsec-logo.png')}}">
-                            <h3 class="text-align">bsec</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="logo-wrapp">
-                            <img src="{{asset('frontend/img/national logo/bangladesh-bank-logo.png')}}">
-                            <h3 class="text-align">Bangladesh Bank</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="logo-wrapp">
-                            <img src="{{asset('frontend/img/national logo/dse.png')}}">
-                            <h3 class="text-align">Dse</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="logo-wrapp">
-                            <img src="{{asset('frontend/img/national logo/bangladesh-govt-logo.png')}}">
-                            <h3 class="text-align">Rjsc</h3>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

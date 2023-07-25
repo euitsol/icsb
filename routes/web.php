@@ -62,12 +62,6 @@ Route::group(['middleware' => 'auth'], function () {
 
 });
 
-
-//Frontend Routes
-
-Route::get('/', [HomePageController::class, 'index'])->name('home');
-
-
 //Backend Routes
 
 Route::group(['middleware' => 'auth', 'permission'], function () {
@@ -240,6 +234,9 @@ Route::get('/export-permissions', function () {
     return Response::download($filePath, $filename);
 })->name('export.permissions');
 
+//Frontend Routes
+
+Route::get('/', [HomePageController::class, 'index'])->name('home');
 
 Route::group(['as' => 'about.', 'prefix' => 'about'], function () {
     Route::get('/icsb', [AboutPagesController::class, 'index'])->name('icsb');

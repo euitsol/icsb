@@ -6,46 +6,13 @@
             </div>
             <div class="logo-carousel">
                 <div class="cs-wide-slider owl-carousel owl-theme">
-                    <div class="item">
-                        <div class="logo-wrapp">
-                            <img src="{{asset('frontend/img/CS-logo-slider/charter-hongkong-logo.png')}}">
+                    @foreach ($wwcss as $wwcs)
+                        <div class="item">
+                            <div class="logo-wrapp">
+                                <img src="{{storage_url($wwcs->logo)}}" alt="{{$wwcs->title}}">
+                            </div>
                         </div>
-                    </div>
-                    <div class="item">
-                        <div class="logo-wrapp">
-                            <img src="{{asset('frontend/img/CS-logo-slider/charter-UK-logo.png')}}">
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="logo-wrapp">
-                            <img src="{{asset('frontend/img/CS-logo-slider/charter-australia-logo.png')}}">
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="logo-wrapp">
-                            <img src="{{asset('frontend/img/CS-logo-slider/charter-india-logo.png')}}">
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="logo-wrapp">
-                            <img src="{{asset('frontend/img/CS-logo-slider/charter-india-logo.png')}}">
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="logo-wrapp">
-                            <img src="{{asset('frontend/img/CS-logo-slider/charter-india-logo.png')}}">
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="logo-wrapp">
-                            <img src="{{asset('frontend/img/CS-logo-slider/charter-india-logo.png')}}">
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="logo-wrapp">
-                            <img src="{{asset('frontend/img/CS-logo-slider/charter-india-logo.png')}}">
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
