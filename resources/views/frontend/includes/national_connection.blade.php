@@ -6,14 +6,21 @@
             </div>
             <div class="logo-carousel">
                 <div class="national-connection owl-carousel owl-theme">
-                    @foreach ($national_connections as $connection)
+                    @forelse ($national_connections as $connection)
                         <div class="item">
                             <div class="logo-wrapp">
                                 <img src="{{ storage_url($connection->logo) }}">
                                 <h3 class="text-align">{{$connection->title}}</h3>
                             </div>
                         </div>
-                    @endforeach
+                    @empty
+                    <div class="item">
+                        <div class="logo-wrapp">
+                            <img src="{{ asset('no_img/no_img.jpg') }}">
+                            <h3 class="text-align"></h3>
+                        </div>
+                    </div>
+                    @endforelse
                 </div>
             </div>
         </div>

@@ -5,11 +5,15 @@
                 <h2>ICSB National Award</h2>
             </div>
             <div class="award-column flex">
-                @foreach ($national_awards as $award)
+                @forelse ($national_awards as $award)
                     <div class="award-inner">
                         <a href="{{$award->url}}"><img src="{{storage_url($award->image)}}" align="{{ $award->title }}"></a>
                     </div>
-                @endforeach
+                @empty
+                <div class="award-inner">
+                    <a href=""><img src="{{ asset('no_img/no_img.jpg')}}" align="...."></a>
+                </div>
+                @endforelse
             </div>
         </div>
     </div>

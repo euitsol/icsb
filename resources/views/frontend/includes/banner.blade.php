@@ -35,11 +35,13 @@
         <div class="social-link-wrapper">
             <ul>
                 <li class="active"><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
-                @foreach (json_decode($contact->social) as $social)
-                    <li>
-                        <a href="{{$social->link}}" target="_blank"><i class="{{$social->icon}}"></i></a>
-                    </li>
-                @endforeach
+                @if(!empty($contact->social))
+                    @foreach (json_decode($contact->social) as $social)
+                        <li>
+                            <a href="{{$social->link}}" target="_blank"><i class="{{$social->icon}}"></i></a>
+                        </li>
+                    @endforeach
+                @endif
             </ul>
         </div>
     </aside>

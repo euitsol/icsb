@@ -5,9 +5,25 @@
 				<div class="footer-column first-column">
 					<h2><a href="index.html">Institute of Chartered Secretaries of Bangladesh (ICSB)</a></h2>
 					<ul>
-						<li><a href="#"><i class="fa-solid fa-location-dot"></i> Padma Life Tower, ( 8th floor), 115 kazi Nazrul Islam Avenue.Bangla Motor, Dhaka-1000</a></li>
-						<li><a href="tel:8801708030804"><i class="fa-solid fa-phone"></i> +880-1708030804</a></li>
-						<li><a href="mailto:icsb@icsb.edu.bd"><i class="fa-solid fa-envelope"></i> ICSB@ICSB.EDU.BD</a></li>
+                        @if(!empty($contact->location))
+                            @foreach (json_decode($contact->location) as $location)
+                                <li><a href="#"><i class="fa-solid fa-location-dot"></i>{{ $location }}</a></li>
+                                @break
+                            @endforeach
+                        @endif
+
+                        @if(!empty($contact->phone))
+                            @foreach (json_decode($contact->phone) as $phone)
+                                @if($phone->type == 'Phone')
+                                    <li><a href="tel:88{{$phone->number}}"><i class="fa-solid fa-phone"></i> +88{{$phone->number}}</a></li>
+                                @endif
+                            @endforeach
+                        @endif
+                        @if(!empty($contact->email))
+                            @foreach (json_decode($contact->email) as $email)
+                                <li><a href="mailto:{{$email}}"><i class="fa-solid fa-envelope"></i> {{ strtoupper($email) }}</a></li>
+                            @endforeach
+                        @endif
 					</ul>
 				</div>
 				<div class="footer-column">
@@ -24,21 +40,18 @@
 			</div>
 			<div class="footer-social-column">
 				<ul>
-					{{-- <li><a href="#" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
-					<li><a href="#" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
-					<li><a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
-					<li><a href="#" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></li>
-					<li><a href="#" target="_blank"><i class="fa-brands fa-twitter"></i></a></li> --}}
-                    @foreach (json_decode($contact->social) as $social)
-                        <li><a href="{{$social->link}}" target="_blank"><i class="{{$social->icon}}"></i></a></li>
-                    @endforeach
+                    @if(!empty($contact->social))
+                        @foreach (json_decode($contact->social) as $social)
+                            <li><a href="{{$social->link}}" target="_blank"><i class="{{$social->icon}}"></i></a></li>
+                        @endforeach
+                    @endif
 				</ul>
 			</div>
 		</div>
 	</div>
 	<div class="copyright-section text-align">
 		<div class="container">
-			<p>© Copyright 2023. All rights reserved | Web Design & Development by <a href="https://euitsols.com/" target="_blank">European IT Solutions, Bangladesh.</a></p>
+			<p>© Copyright 2023 {{date('Y', strtotime(Carbon\Carbon::now()))>2023 ? '-'.date('Y', strtotime(Carbon\Carbon::now())) : '' }}. All rights reserved | Web Design & Development by <a href="https://euitsols.com/" target="_blank">European IT Solutions, Bangladesh.</a></p>
 		</div>
 	</div>
 </footer>

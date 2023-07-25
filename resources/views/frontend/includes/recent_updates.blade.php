@@ -1,3 +1,4 @@
+@if(count($blogs)>0)
 <section class="recent-update-section">
     <div class="container">
         <div class="recent-update-row">
@@ -15,8 +16,8 @@
                                         <li><a href="#"><i class="fa-solid fa-file-import"></i>Latest News</a></li>
                                         <li><a href="#"><i class="fa-solid fa-calendar-check"></i>{{ date('d-M-Y', strtotime($blog->created_at))}}</a></li>
                                     </ul>
-                                    <h3><a href="#">{{$blog->title}} </a></h3>
-                                    <p>{{$blog->description}}</p>
+                                    <h3><a href="#">{{ stringLimit($blog->title, 30)}} </a></h3>
+                                    <p>{{stringLimit($blog->description, 60)}}</p>
                                 </div>
                             </div>
                         </div>
@@ -29,3 +30,4 @@
         </div>
     </div>
 </section>
+@endif
