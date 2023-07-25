@@ -394,6 +394,13 @@ h1,h2,h3,h4,h5,h6{
 	background-size: cover;
 	background-image: url("../img/about_us_bg.png");
 }
+.we-are-section img{
+	outline: 8px solid #FF8601;
+	border: 8px solid #ffffff;
+}
+.we-are-section h2{
+	margin-bottom: 25px;
+}
 .we-are-section .we-are-coulmn{
 	align-items: center;
 	justify-content: space-between;
@@ -402,10 +409,11 @@ h1,h2,h3,h4,h5,h6{
 	color: #111;
 }
 .we-are-section .we-are-coulmn .content-column p{
-	max-width: 500px;
+	max-width: 685px;
+	margin-bottom: 25px;
 }
 .we-are-section .we-are-coulmn .content-column a{
-	color: #182456;
+	color: #fff;
 	width: 100%;
 	max-width: 170px;
 	height: 40px;
@@ -414,13 +422,14 @@ h1,h2,h3,h4,h5,h6{
 	border-radius: 50px;
 	transition: 0.4s;
 	text-align: center;
-	margin-top: 52px;
+	margin-top: 20px;
 	transition: 0.4s;
+	background: #162B75;
 	border: 1.5px solid #182456;
 }
 .we-are-section .we-are-coulmn .content-column a:hover{
-	color: #fff;
-	background: #162B75;
+	color: #162B75;
+	background: #fff;
 }
 
 
@@ -756,70 +765,6 @@ h1,h2,h3,h4,h5,h6{
 	background: #182456;
 }
 
-/*.endorsement-section{
-	padding: 98px 0;
-}
-.endorsement-section .endorsement-column{
-	width: 33.33%;
-	display: flex;
-	padding: 115px 40px;
-	flex-wrap: wrap;
-	align-items: center;
-}
-.endorsement-section .endorsement-column .heading{
-	width: 100%;
-}
-.endorsement-section .endorsement-column .button{
-	width: 100%;
-}
-.endorsement-section .endorsement-column .button a{
-	color: #182456;
-	font-size: 18px;
-	line-height: 40px;
-	height: 40px;
-	width: 100%;
-	max-width: 169px;
-	border-radius: 50px;
-	transition: 0.4s;
-	border: 1.5px solid #182456;
-}
-.endorsement-section .endorsement-column .button a:hover{
-	color: #fff;
-	background: #182456;
-}
-.endorsement-section .endorsement-column h3{
-	color: #111;
-	font-size: 22px;
-	line-height: 28px;
-	font-weight: 500;
-	max-width: 230px;
-	margin-bottom: 33px;
-	font-family: 'Poppins', sans-serif;
-}
-.endorsement-section .endorsement-student-column{
-	background-repeat: no-repeat;
-	background-image: url("../img/endorsement/student_bg.png");
-}
-.endorsement-section .endorsement-member-column{
-	background-repeat: no-repeat;
-	background-image: url("../img/endorsement/member_bg.png");
-}
-.endorsement-section .endorsement-member-column h3{
-	color: #fff;
-}
-.endorsement-section .endorsement-row .endorsement-member-column .button  a{
-	color: #fff;
-	font-size: 18px;
-	border: 1.5px solid #fff;
-}
-.endorsement-section .endorsement-row .endorsement-member-column .button  a:hover{
-	color: #182456;
-	background: #fff;
-}
-.endorsement-section .endorsement-endor-column{
-	background-repeat: no-repeat;
-	background-image: url("../img/endorsement/endorsement_bg.png");
-}*/
 .endorsement-section{
 	padding: 98px 0;
 }
@@ -1428,6 +1373,33 @@ h1,h2,h3,h4,h5,h6{
 	max-width: 100%;
 }
 
+/*================================ CS Handbook Page CSS =========================*/
+.cs-handbook-section{
+	padding: 100px 0;
+}
+.cs-handbook-section .handbook-column{
+	column-gap: 2%;
+}
+.cs-handbook-section .handbook-column h3{
+	color: #fff;
+	padding: 15px;
+	font-size: 25px;
+	line-height: 31px;
+	margin-bottom: 10px;
+	background: #182456;
+	outline: 3px solid #FF8601;
+	border: 2px solid #fff;
+}
+.cs-handbook-section .handbook-column a{
+	display: block;
+}
+.cs-handbook-section .handbook-column .new-handbook{
+	width: 49%;
+}
+.cs-handbook-section .handbook-column .old-handbook{
+	width: 49%;
+}
+
 /* ===========================  Executive Committee Page Style ========================*/
 .executive-committee-section{
 	padding: 100px 0;
@@ -1688,7 +1660,7 @@ h1,h2,h3,h4,h5,h6{
 	font-size: 20px;
 	line-height: 26px;
 	font-weight: 600;
-	margin-bottom: 14px;
+	margin-bottom: 9px;
 }
 .handbook-section .handbook-column p{
 	margin-bottom: 30px;
