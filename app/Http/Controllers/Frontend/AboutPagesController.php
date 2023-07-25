@@ -6,14 +6,20 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Faq;
 use App\Models\Service;
+use App\Models\Contact;
 use Illuminate\View\View;
 
 class AboutPagesController extends Controller
 {
+    public function __construct() {
+        $this->contact = Contact::where('deleted_at', null)->first();
+        view()->share('contact', $this->contact);
+    }
+
     public function index(): View
     {
-        $n['services'] = Service::where('deleted_at', null)->get();
-        return view('frontend.about.about',$n);
+        $s['services'] = Service::where('deleted_at', null)->get();
+        return view('frontend.about.about',$s);
     }
     public function council(): View
     {
@@ -25,8 +31,8 @@ class AboutPagesController extends Controller
     }
     public function faq(): View
     {
-        $n['faqs']= Faq::where('deleted_at', null)->latest()->get();
-        return view('frontend.about.faq',$n);
+        $s['faqs']= Faq::where('deleted_at', null)->latest()->get();
+        return view('frontend.about.faq',$s);
     }
     public function assignedOfficer(): View
     {

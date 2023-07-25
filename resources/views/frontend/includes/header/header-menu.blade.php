@@ -10,7 +10,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{route('home')}}">Home</a></li>
                         <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">About ICSB</a>
                           <ul class="dropdown-menu">
@@ -19,7 +19,7 @@
                             <li><a class="dropdown-item" href="#">Vision & Mission</a></li>
                             <li><a class="dropdown-item" href="#">Objectives</a></li>
                             <li><a class="dropdown-item" href="#">World Wide CS</a></li>
-                            <li><a class="dropdown-item" href="#">FAQs</a></li>
+                            <li><a class="dropdown-item" href="{{ route('about.faq') }}">FAQs</a></li>
                           </ul>
                         </li>
                           <li class="nav-item dropdown">

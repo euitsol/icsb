@@ -38,6 +38,7 @@
 
 <body>
     @include('frontend.includes.header.header')
+
     <div class="main">
         @yield('content')
     </div>

@@ -141,22 +141,22 @@ $(document).ready(function(){
 
     // Social media link active class
     // Get all the anchor tags inside the social-link-wrapper
-    const socialLinks = document.querySelectorAll(".social-link-wrapper a");
-    // Add click event listener to each anchor tag
-    socialLinks.forEach(link => {
-        link.addEventListener("click", (event) => {
-            event.preventDefault(); // Prevent the default link behavior
+    // const socialLinks = document.querySelectorAll(".social-link-wrapper a");
+    // // Add click event listener to each anchor tag
+    // socialLinks.forEach(link => {
+    //     link.addEventListener("click", (event) => {
+    //         event.preventDefault(); // Prevent the default link behavior
 
-            // Remove active class from the currently active li element
-            const currentlyActive = document.querySelector(".social-link-wrapper li.active");
-            if (currentlyActive) {
-                currentlyActive.classList.remove("active");
-            }
+    //         // Remove active class from the currently active li element
+    //         const currentlyActive = document.querySelector(".social-link-wrapper li.active");
+    //         if (currentlyActive) {
+    //             currentlyActive.classList.remove("active");
+    //         }
 
-            // Add active class to the parent li element of the clicked anchor tag
-            link.parentElement.classList.add("active");
-        });
-    });
+    //         // Add active class to the parent li element of the clicked anchor tag
+    //         link.parentElement.classList.add("active");
+    //     });
+    // });
     // $(".banner-section .carousel").swipe({
 
     // Social media link active class

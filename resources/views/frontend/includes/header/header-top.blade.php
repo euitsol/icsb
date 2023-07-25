@@ -6,8 +6,8 @@
                 <a href="#">Students Login</a>
             </div>
             <div class="header-column text-align flex">
-                <p>Wednesday, July 12, 2023</p>
-                <p>Current Time: 9:12:30 PM (BST)</p>
+                <p>{{ date( 'l, M d, Y', strtotime(Carbon\Carbon::now()) ) }}</p>
+                <p>Current Time: {{ date( 'H:i A', strtotime(Carbon\Carbon::now()) ) }} (BST)</p>
             </div>
             <div class="header-column header-info-column text-align flex">
                 <a href="tel:8801708030804"><i class="fa-solid fa-phone"></i> +880-1708030804</a>

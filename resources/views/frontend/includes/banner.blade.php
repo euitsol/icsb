@@ -36,7 +36,9 @@
             <ul>
                 <li class="active"><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
                 @foreach (json_decode($contact->social) as $social)
-                    <li><a href="{{$social->link}}" target="_blank"><i class="{{$social->icon}}"></i></a></li>
+                    <li>
+                        <a href="{{$social->link}}" target="_blank"><i class="{{$social->icon}}"></i></a>
+                    </li>
                 @endforeach
             </ul>
         </div>
