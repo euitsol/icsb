@@ -1,0 +1,423 @@
+@media only screen and (max-width: 1460px){
+    .header-menu-section .navbar-nav {
+        column-gap: 3px;
+    }
+    .header-menu-section .navbar-nav li a {
+        font-size: 14px;
+        line-height: 20px;
+    }
+}
+@media only screen and (max-width: 1200px){
+    .recent-update-section .recent-update-row .item h3 {
+        font-size: 19px;
+        line-height: 25px;
+    }
+
+
+    .main-footer-section {
+        padding: 55px 0 10px 0;
+    }
+    .main-footer-section h2 {
+        font-size: 19px;
+        line-height: 25px;
+        margin-bottom: 10px;
+    }
+    .main-footer-section ul li {
+        margin-bottom: 8px;
+    }
+    .main-footer-section ul li a {
+        font-size: 15px;
+        line-height: 21px;
+    }
+    .main-footer-section ul{
+        margin-bottom: 40px;
+    }
+    .main-footer-section .footer-row {
+       padding: 0;
+    }
+    .main-footer-section .footer-row .footer-column{
+        width: 50%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+    .main-footer-section .footer-row .first-column{
+        justify-content: flex-start;
+    }
+    .main-footer-section .visitor-column ul {
+        margin-top: 10px;
+    }
+}
+@media only screen and (max-width: 1199px){
+    .header-menu-section {
+        padding: 7px 0 6px 0;
+    }
+    .main-header-section .header-content h1::after {
+        display: none;
+    }
+    .main-header-section .header-content h2 {
+        display: none;
+    }
+    .main-header-section .header-content p {
+       display: none;
+    }
+    .header-menu-section .navbar-nav li a {
+        text-align: center;
+    }
+    .header-menu-section .navbar-brand{
+        display: block;
+    }
+    .main-header-section .header-content img {
+        display: none;
+    }
+    .header-menu-section .navbar-brand img{
+        width: 160px;
+    }
+    .header-menu-section .navbar-toggler {
+        position: relative;
+        width: 46px;
+        height: 40px;
+        padding: 0;
+        border: 0;
+        margin-top: 6px;
+        background: transparent;
+    }
+    .header-menu-section .navbar-toggler:focus{
+        box-shadow: none;
+    }
+    .header-menu-section .navbar-toggler .icon-bar {
+        position: absolute;
+        width: calc(100% - 10px);
+        height: 3px;
+        background-color: #ffffff;
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        z-index: 9999999999999999;
+    }
+    .header-menu-section .navbar-toggler .icon-bar:nth-child(1) {
+        left: 0;
+        top: 3px;
+        transition: all 0.2s;
+    }
+    .header-menu-section .navbar-toggler .icon-bar:nth-child(2) {
+        right: 0;
+        top: 14px;
+    }
+    .header-menu-section .navbar-toggler .icon-bar:nth-child(3) {
+        bottom: 11px;
+        left: 0;
+        transition: all 0.2s;
+    }
+}
+@media only screen and (max-width: 1024px){
+    .faq-section {
+        padding-top: 75px;
+        padding-bottom: 75px;
+    }
+    .faq-section .faq-content{
+        flex-wrap: wrap;
+        margin-top: 27px;
+    }
+    .faq-section .faq-content .left-column{
+        width: 100%;
+    }
+    .faq-section .faq-content .right-column{
+        width: 100%;
+    }
+    .faq-section .faq-content .accordion-item {
+        margin-top: 14px;
+    }
+}
+@media only screen and (max-width: 989px){
+    .flex{
+        flex-wrap: wrap;
+    }
+
+    .top-header-section .header-column {
+        width: 100%;
+        justify-content: center;
+    }
+    .main-header-section .header-content h1 {
+        font-size: 40px;
+        line-height: 46px;
+    }
+    .main-header-section .header-content h1::after {
+        top: 43px;
+    }
+    .main-header-section .header-content p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .we-are-section {
+        padding: 59px 0 130px 0;
+    }
+    .we-are-section .we-are-coulmn .content-column{
+        margin-top: 30px;
+    }
+    .we-are-section .we-are-coulmn{
+        flex-direction: column-reverse;
+    }
+    .we-are-section .we-are-coulmn .content-column a {
+        margin-top: 30px;
+    }
+    .we-are-section .we-are-coulmn .image-column::after {
+        left: 11px;
+        top: 11px;
+        width: 93%;
+        height: 93%;
+    }
+
+    .president-section {
+        padding: 40px 0 20px 0;
+    }
+    .president-section .president-column .left-column {
+        width: 100%;
+    }
+    .president-section .president-column .right-column {
+        width: 100%;
+        margin-top: 30px;
+    }
+    .president-section .president-column .left-column .president-info {
+        padding: 30px 20px 30px 20px;
+    }
+    .president-section .president-column .left-column h3 {
+        font-size: 20px;
+        line-height: 26px;
+    }
+    .president-section .president-column .right-column h2 {
+        font-size: 35px;
+        line-height: 41px;
+        margin-bottom: 15px;
+    }
+    .president-section .president-column .right-column a {
+        margin-top: 25px;
+    }
+
+    .recent-update-section {
+        padding: 70px 0 30px 0;
+    }
+    .section-heading h2 {
+        font-size: 45px;
+        line-height: 51px;
+        margin-bottom: 43px;
+    }
+    .recent-update-section .recent-update-row .see-button a {
+        top: -110px;
+    }
+    .recent-update-section .recent-update-row .item a {
+        display: block;
+    }
+    .recent-update-section .recent-update-row .item h3 {
+        font-size: 20px;
+        line-height: 26px;
+    }
+
+    .endorsement-section {
+        padding: 80px 0;
+    }
+    .endorsement-section .endorsement-column{
+        width: 50%;
+    }
+    .endorsement-section .endorsement-column .reg-field-wrapp {
+        padding: 100px 25px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .container {
+        padding: 0 20px;
+    }
+    .section-heading h2 {
+        font-size: 33px;
+        line-height: 40px;
+        margin-bottom: 15px;
+    }
+    .common-heading{
+        font-size: 35px;
+        line-height: 41px;
+    }
+
+    .top-header-section .header-content-column {
+        justify-content: center;
+    }
+    .main-header-section {
+        padding: 10px 0;
+    }
+    .main-header-section .header-content h1 {
+        font-size: 35px;
+        line-height: 34px;
+        margin-top: 17px;
+    }
+    .main-header-section .header-content h1::after {
+        top: 70px;
+    }
+    .main-header-section .header-content h2 {
+        font-size: 17px;
+        line-height: 22px;
+        margin-top: 8px;
+    }
+    .main-header-section .header-content .logo-column {
+        display: none;
+    }
+
+
+    .banner-section img{
+        height: 260px;
+        object-fit: cover;
+    }
+    .banner-section .carousel-control-prev {
+        display: none;
+    }
+    .banner-section .carousel-control-next {
+        display: none;
+    }
+
+
+    .bss-section .bss-row .bss-left-column {
+        width: 100%;
+        padding: 0;
+    }
+    .bss-section .bss-row .bss-left-column h2 {
+        font-size: 32px;
+        line-height: 38px;
+        max-width: 100%;
+        text-align: center;
+    }
+    .bss-section .bss-row .bss-right-column {
+        width: 100%;
+        margin-top: 80px;
+        column-gap: 5%;
+    }
+    .bss-section .bss-row .bss-right-column .bss-item {
+        width: 47.5%;
+        background: #fff;
+        position: relative;
+        border-radius: 27px;
+        padding: 20px 15px 14px 15px;
+    }
+    .bss-section .bss-row .bss-right-column .bss-item h3 {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+
+    .recent-update-section .recent-update-row .item a{
+        display: block;
+    }
+
+
+    .cs-wide-section .owl-dot {
+        position: absolute;
+        right: 50%;
+        top: 165px;
+        display: block;
+    }
+    .recent-update-section {
+        padding: 52px 0 8px 0;
+    }
+    .recent-update-section .recent-update-row .recent-update-slider{
+        margin-top: 32px;
+    }
+    .recent-update-section .recent-update-row .item h3 {
+        font-size: 18px;
+        line-height: 25px;
+    }
+    .recent-update-section .recent-update-row .item .post-content p {
+        margin-top: 10px;
+    }
+    .recent-update-section .recent-update-row .owl-theme .owl-dots {
+        margin-top: 90px;
+    }
+    .recent-update-section .recent-update-row .see-button a {
+        top: -80px;
+    }
+    .recent-update-section .recent-update-row .owl-theme .owl-dots .owl-dot span {
+        width: 25px;
+        height: 10px;
+        margin: 0px 4px;
+    }
+
+
+    .endorsement-section {
+        padding: 60px 0;
+    }
+    .endorsement-section .endorsement-column{
+        width: 100%;
+    }
+    .endorsement-section .endorsement-column .reg-field-wrapp {
+        padding: 100px 25px;
+    }
+
+
+    .national-award-section .award-column {
+        row-gap: 25px;
+    }
+    .national-award-section .award-column .award-inner{
+        width: 49.15%;
+    }
+
+
+    .faq-section {
+        padding-top: 68px;
+        padding-bottom: 65px;
+    }
+    .faq-section .faq-content {
+        margin-top: 25px;
+    }
+    .faq-section .faq-content .accordion-item .accordion-body {
+        padding: 33px 25px;
+    }
+    .faq-section .faq-content .accordion-item .accordion-button {
+        height: 54px;
+        padding-left: 50px;
+    }
+    .faq-section .faq-content .accordion-item .collapsed {
+        height: 54px;
+        padding-left: 50px;
+    }
+    .faq-section .faq-content .accordion-item {
+        margin-top: 15px;
+    }
+    .faq-section .faq-content .accordion-item .accordion-button::before {
+        left: 25px;
+    }
+}
+@media only screen and (max-width: 600px){
+    .main-footer-section h2 {
+        text-align: center;
+    }
+    .main-footer-section .footer-row .footer-column{
+        width: 100%;
+        justify-content: center;
+    }
+    .main-footer-section ul li {
+        display: flex;
+        justify-content: center;
+    }
+    .main-footer-section ul li a {
+        max-width: 290px;
+        text-align: center;
+    }
+    .main-footer-section .visitor-column ul{
+        column-gap: 8px;
+        margin-top: 40px;
+        padding: 18px 0;
+    }
+    .main-footer-section .visitor-column ul li:first-child{
+        display: block;
+        width: 100%;
+    }
+    .main-footer-section .visitor-column p {
+        font-size: 13px;
+        line-height: 19px;
+    }
+/*    .main-footer-section .visitor-column ul .indicator{
+        display: none;
+    }*/
+    .main-footer-section .footer-column iframe {
+        width: 100%;
+        height: 250px;
+    }
+}

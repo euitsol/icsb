@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="260" height="227" viewBox="0 0 260 227">
+  <defs>
+    <filter id="UK" x="0" y="0" width="260" height="227" filterUnits="userSpaceOnUse">
+      <feOffset dy="5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="9" result="blur"/>
+      <feFlood flood-opacity="0.361"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_753" data-name="Group 753" transform="translate(-1195 -736)">
+    <g transform="matrix(1, 0, 0, 1, 1195, 736)" filter="url(#UK)">
+      <rect id="UK-2" data-name="UK" width="206" height="173" transform="translate(27 22)" fill="#fff"/>
+    </g>
+    <text id="United_States_of_America" data-name="United States
+of America" transform="translate(1325 840)" fill="#111" font-size="24" font-family="SegoeUI, Segoe UI"><tspan x="-70.23" y="0">United States</tspan><tspan x="-57.152" y="26">of America</tspan></text>
+  </g>
+</svg>
