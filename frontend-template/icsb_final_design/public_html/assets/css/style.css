@@ -1265,6 +1265,9 @@ h1,h2,h3,h4,h5,h6{
 .our-events-section .events-row .item h3 a{
 	color: #111;
 }
+.our-events-section .events-row .item h3 a:hover{
+	color: #FF8601;
+}
 .our-events-section .events-row .item ul{
 	padding: 0;
 	margin: 0;
@@ -1329,6 +1332,39 @@ h1,h2,h3,h4,h5,h6{
 	background: #152360;
 }
 
+/*========================== Event Single Page Style ===================*/
+.event-info-section{
+	padding: 40px;
+	background: #f6f6f6;
+}
+#event-detiles-section{
+	padding: 100px 0;
+}
+#event-detiles-section .event-info-section .info-row h2{
+	font-size: 27px;
+	line-height: 35px;
+	margin-bottom: 20px;
+}
+#event-detiles-section .event-info-section .info-row ul{
+	padding: 0;
+	margin: 0;
+	column-gap: 25px;
+}
+#event-detiles-section .event-info-section .info-row ul li{
+	list-style: none;
+}
+#event-detiles-section .event-info-section .info-row ul li i{
+	color: #152360;
+	margin-right: 8px;
+}
+#event-detiles-section .content-row .content-column{
+	padding-top: 0;
+	border: none;
+}
+#event-detiles-section .content-row .content-column .location-text{
+	margin-top: 20px;
+}
+
 /*==================== Contact Page CSS ====================*/
 .form-section{
 	padding: 100px 0;
@@ -1337,7 +1373,7 @@ h1,h2,h3,h4,h5,h6{
 	background-repeat: no-repeat;
 	background-image: url("../img/events-bg.png");
 }
-.form-section .detailes-column h3{
+.form-section .content-row .content-column .detailes-column h3{
 	color: #fff;
 	font-size: 50px;
 	line-height: 56px;
