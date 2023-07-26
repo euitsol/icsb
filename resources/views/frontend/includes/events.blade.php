@@ -27,6 +27,9 @@
                         @endforeach
                     </div>
                 </div>
+                <div class="see-button text-align d-block">
+                    <a href="{{route('event_view.all')}}">See All Events</a>
+                </div>
             </div>
         </div>
     </section>

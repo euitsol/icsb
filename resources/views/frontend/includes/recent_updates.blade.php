@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="see-button text-align d-block">
-                <a href="#">See All Events</a>
+                <a href="#">See All Updates</a>
             </div>
         </div>
     </div>

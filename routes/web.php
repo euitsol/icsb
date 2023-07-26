@@ -19,6 +19,7 @@ use App\Http\Controllers\Backend\MemberController;
 use App\Http\Controllers\Backend\UserManagement\RoleController;
 use App\Http\Controllers\Backend\UserManagement\PermissionController;
 use App\Http\Controllers\Frontend\AboutPagesController;
+use App\Http\Controllers\Frontend\EventPagesController;
 use App\Http\Controllers\Frontend\CouncilPagesController;
 use App\Http\Controllers\Frontend\StudentsPagesController;
 use App\Http\Controllers\Frontend\MembersPagesController;
@@ -245,6 +246,9 @@ Route::group(['as' => 'about.', 'prefix' => 'about'], function () {
     Route::get('/faq', [AboutPagesController::class, 'faq'])->name('faq');
     Route::get('/world-wide-cs', [AboutPagesController::class, 'wwcs'])->name('wwcs');
     // Route::get('/assigned-officer', [AboutPagesController::class, 'assignedOfficer'])->name('assigned_officer');
+});
+Route::group(['as' => 'event_view.', 'prefix' => 'event'], function () {
+    Route::get('/all-events', [EventPagesController::class, 'events'])->name('all');
 });
 
 // Route::group(['as' => 'council.', 'prefix' => 'council'], function () {
