@@ -103,4 +103,10 @@ class EventController extends Controller
         $this->statusChange($event);
         return redirect()->route('event.event_list')->withStatus(__($event->title.' status updated successfully.'));
     }
+    public function featured($id): RedirectResponse
+    {
+        $event = Event::findOrFail($id);
+        $this->featuredChange($event);
+        return redirect()->route('event.event_list')->withStatus(__($event->title.' featured updated successfully.'));
+    }
 }
