@@ -428,6 +428,13 @@
         /* margin-top: 33px; */
     }
 
+    .jobsingle-content-section .content-row .content-column {
+        width: 100%;
+    }
+    .jobsingle-content-section .content-row .summary-column {
+        width: 100%;
+    }
+
 }
 @media only screen and (max-width: 600px){
     .main-footer-section h2 {
