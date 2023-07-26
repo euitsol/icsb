@@ -104,7 +104,7 @@ function generateRandomPassword() {
 
     return $password;
 }
-function stringLimit($description, $limit){
-    $shortSrting = Str::limit($description, $limit);
+function stringLimit($description, $limit, $end){
+    $shortSrting = Str::limit($description, $limit, $end);
     return $shortSrting;
 }

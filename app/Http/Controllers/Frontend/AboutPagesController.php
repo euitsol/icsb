@@ -8,34 +8,24 @@ use App\Models\Faq;
 use App\Models\Service;
 use App\Models\Contact;
 use Illuminate\View\View;
+use App\Models\MemberType;
 
 class AboutPagesController extends Controller
 {
     public function __construct() {
-        $this->contact = Contact::where('deleted_at', null)->first();
-        view()->share('contact', $this->contact);
-    }
-
-    public function index(): View
-    {
-        $s['services'] = Service::where('deleted_at', null)->get();
-        return view('frontend.about.about',$s);
-    }
-    public function council(): View
-    {
-        return view('frontend.about.council');
-    }
-    public function csrActivities(): View
-    {
-        return view('frontend.about.csr_activities');
+        // $this->contact = Contact::where('deleted_at', null)->first();
+        // view()->share('contact', $this->contact);
+        $contact = Contact::where('deleted_at', null)->first();
+        $memberTypes = memberType::where('deleted_at', null)->where('status', 1)->get();
+        view()->share([
+            'contact' => $contact,
+            'memberTypes' => $memberTypes,
+        ]);
     }
     public function faq(): View
     {
         $s['faqs']= Faq::where('deleted_at', null)->latest()->get();
         return view('frontend.about.faq',$s);
     }
-    public function assignedOfficer(): View
-    {
-        return view('frontend.about.assigned_officer');
-    }
+
 }

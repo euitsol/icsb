@@ -11,13 +11,22 @@ use App\Models\WWCS;
 use App\Models\Event;
 use App\Models\NationalAward;
 use App\Models\NationalConnection;
+use App\Models\MemberType;
 use Illuminate\View\View;
 
 class HomePageController extends Controller
 {
     public function __construct() {
-        $this->contact = Contact::where('deleted_at', null)->first();
-        view()->share('contact', $this->contact);
+        // $this->contact = Contact::where('deleted_at', null)->first();
+        // view()->share('contact', $this->contact);
+        // $this->memberTypes = memberType::where('deleted_at', null)->where('status', 1)->get();
+        // view()->share('memberTypes', $this->memberTypes);
+        $contact = Contact::where('deleted_at', null)->first();
+        $memberTypes = memberType::where('deleted_at', null)->where('status', 1)->get();
+        view()->share([
+            'contact' => $contact,
+            'memberTypes' => $memberTypes,
+        ]);
     }
 
     public function index(): View

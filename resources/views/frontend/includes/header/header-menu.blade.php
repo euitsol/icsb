@@ -42,6 +42,11 @@
                              <li><a class="dropdown-item" href="exam-schedule.html">Exam Schedule</a></li>
                              <li><a class="dropdown-item" href="admission-rules.html">Admission Rules</a></li>
                              <li><a class="dropdown-item" href="admission-form.html">Admission Form</a></li>
+                             <li><a class="dropdown-item" href="admission-form.html">Member Search</a></li>
+                             @foreach ($memberTypes as $mType)
+                                <li><a class="dropdown-item" href="{{route('members.m_search',$mType->title)}}">{{ $mType->title }}</a></li>
+                             @endforeach
+
                            </ul>
                         </li>
                         <li class="nav-item dropdown">

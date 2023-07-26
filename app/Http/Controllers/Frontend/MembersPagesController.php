@@ -4,19 +4,27 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Contact;
+use App\Models\MemberType;
+use Illuminate\View\View;
 
 class MembersPagesController extends Controller
 {
-    public function council(){
-        return view('frontend.member.council');
+    public function __construct() {
+        // $this->contact = Contact::where('deleted_at', null)->first();
+        // view()->share('contact', $this->contact);
+        $contact = Contact::where('deleted_at', null)->first();
+        $memberTypes = memberType::where('deleted_at', null)->where('status', 1)->get();
+        view()->share([
+            'contact' => $contact,
+            'memberTypes' => $memberTypes,
+        ]);
     }
-    public function fees(){
-        return view('frontend.member.fees');
-    }
-    public function codeOfConduct(){
-        return view('frontend.member.code_of_conduct');
-    }
-    public function cpdProgram(){
-        return view('frontend.member.cpd_program');
+
+    public function memberSearch($type): View
+    {
+        $s['type'] = MemberType::with('members')->where('title', $type)->first();
+        return view('frontend.members.member_view',$s);
+
     }
 }
