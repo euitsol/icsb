@@ -249,6 +249,7 @@ Route::group(['as' => 'about.', 'prefix' => 'about'], function () {
 });
 Route::group(['as' => 'event_view.', 'prefix' => 'event'], function () {
     Route::get('/all-events', [EventPagesController::class, 'events'])->name('all');
+    Route::get('/view/{title}', [EventPagesController::class, 'view'])->name('view');
 });
 
 // Route::group(['as' => 'council.', 'prefix' => 'council'], function () {

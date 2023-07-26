@@ -20,7 +20,7 @@
                                     </ul>
                                     <div class="button">
                                         <a href="#">Enrol</a>
-                                        <a href="#" class="fill-button">Details</a>
+                                        <a href="{{route('event_view.view',$event->title)}}" class="fill-button">Details</a>
                                     </div>
                                 </div>
                             </div>

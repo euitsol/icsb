@@ -852,7 +852,6 @@ h1,h2,h3,h4,h5,h6{
 .endorsement-section .endorsement-endor-column{
 	background-color: #f2f2f2;
 }
-
 .events-section{
 	padding: 102px 0 114px 0;
 	background-size: cover;
@@ -928,25 +927,6 @@ h1,h2,h3,h4,h5,h6{
 }
 .events-section .events-row .owl-theme .owl-dots .active span{
 	background: #182456;
-}
-.events-section .events-row .see-button a{
-	color: #fff;
-	font-size: 18px;
-	line-height: 40px;
-	width: 100%;
-	height: 40px;
-	max-width: 239px;
-	border-radius: 29px;
-	background: #182456;
-	transition: 0.4s;
-	top: 40px;
-	z-index: 999;
-	position: relative;
-	border: 1px solid #182456;
-}
-.events-section .events-row .see-button a:hover{
-	color: #182456;
-	background: #fff;
 }
 
 
@@ -1285,6 +1265,9 @@ h1,h2,h3,h4,h5,h6{
 .our-events-section .events-row .item h3 a{
 	color: #111;
 }
+.our-events-section .events-row .item h3 a:hover{
+	color: #FF8601;
+}
 .our-events-section .events-row .item ul{
 	padding: 0;
 	margin: 0;
@@ -1349,6 +1332,94 @@ h1,h2,h3,h4,h5,h6{
 	background: #152360;
 }
 
+/*========================== Event Single Page Style ===================*/
+.event-info-section{
+	padding: 40px;
+	background: #f6f6f6;
+}
+#event-detiles-section{
+	padding: 100px 0;
+}
+#event-detiles-section .event-info-section .info-row h2{
+	font-size: 27px;
+	line-height: 35px;
+	margin-bottom: 20px;
+}
+#event-detiles-section .event-info-section .info-row ul{
+	padding: 0;
+	margin: 0;
+	column-gap: 25px;
+}
+#event-detiles-section .event-info-section .info-row ul li{
+	list-style: none;
+}
+#event-detiles-section .event-info-section .info-row ul li i{
+	color: #152360;
+	margin-right: 8px;
+}
+#event-detiles-section .content-row .content-column{
+	padding-top: 0;
+	border: none;
+}
+#event-detiles-section .content-row .content-column .location-text{
+	margin-top: 20px;
+}
+#event-detiles-section .content-row .content-column .speaker-info{
+	margin-top: 30px;
+}
+#event-detiles-section .content-row .content-column .speaker-info h3{
+	margin-bottom: 15px;
+}
+#event-detiles-section .content-row .content-column .speaker-info ul{
+	margin-top: 0;
+}
+#event-detiles-section .content-row .summary-column .job-summery{
+	padding: 30px 25px;
+}
+#event-summary ul{
+	padding: 0;
+	margin-top: 27px;
+}
+#event-summary ul li{
+	list-style: none;
+}
+#event-summary ul a{
+	width: 100%;
+	height: 40px;
+	color: #fff;
+	font-size: 18px;
+	line-height: 39px;
+	max-width: 200px;
+	text-align: center;
+	margin-top: 20px;
+	border-radius: 100px;
+	background: #152360;
+	border: 1px solid #152360;
+}
+#event-summary ul a:hover{
+	color: #152360;
+	background: #fff;
+}
+.events-section .events-row .see-button a{
+	color: #fff;
+	font-size: 18px;
+	line-height: 40px;
+	width: 100%;
+	height: 40px;
+	max-width: 239px;
+	border-radius: 29px;
+	background: #182456;
+	transition: 0.4s;
+	top: 40px;
+	z-index: 999;
+	position: relative;
+	border: 1px solid #182456;
+}
+.events-section .events-row .see-button a:hover{
+	color: #182456;
+	background: #fff;
+}
+
 /*==================== Contact Page CSS ====================*/
 .form-section{
 	padding: 100px 0;
@@ -1357,7 +1428,7 @@ h1,h2,h3,h4,h5,h6{
 	background-repeat: no-repeat;
 	background-image: url("../img/events-bg.png");
 }
-.form-section .detailes-column h3{
+.form-section .content-row .content-column .detailes-column h3{
 	color: #fff;
 	font-size: 50px;
 	line-height: 56px;
@@ -1405,6 +1476,11 @@ h1,h2,h3,h4,h5,h6{
 	padding: 35px;
 	padding-bottom: 47px;
 	background: #182456;
+}
+.form-section .detailes-column h3{
+	color: #fff;
+	font-size: 45px;
+	line-height: 51px;
 }
 .form-section .form-column{
 	width: 60%;
