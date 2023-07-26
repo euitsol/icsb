@@ -24,10 +24,10 @@
                                 <tr>
                                     <th>{{ _('Title') }}</th>
                                     <th>{{ _('Image') }}</th>
-                                    <th>{{ _('Description') }}</th>
                                     <th>{{ _('Event Start Time') }}</th>
                                     <th>{{ _('Event End Time') }}</th>
                                     <th>{{ _('Event Type') }}</th>
+                                    <th>{{ _('Featured') }}</th>
                                     <th>{{ _('Status') }}</th>
                                     <th>{{ _('Creation date') }}</th>
                                     <th>{{ _('Created by') }}</th>
@@ -37,7 +37,7 @@
                             <tbody>
                                 @foreach ($events as $event)
                                     <tr>
-                                        <td> {{ $event->title }} </td>
+                                        <td> {{ stringLimit($event->title, 30, '...') }} </td>
                                         <td><img class="rounded" width="60"
                                             src="
                                                 @if ($event->image)
@@ -49,12 +49,12 @@
                                                 @endif
                                             "alt="{{ $event->title }}">
                                         </td>
-                                        <td> {{ $event->description }} </td>
                                         <td> {{ timeFormate($event->event_start_time) }} </td>
                                         <td> {{ timeFormate($event->event_end_time) }} </td>
                                         <td>
                                             <span class="badge {{ $event->getTypeClass() }}">{{ $event->getType() }}</span>
                                         </td>
+                                        <td><span class='{{ $event->getFeaturedStatusClass() }}'>{{ $event->getFeaturedStatus() }}</span></td>
                                         <td>
                                             @include('backend.partials.button', ['routeName' => 'event.status.event_edit','params' => [$event->id], 'className' => $event->getStatusClass(), 'label' => $event->getStatus() ])
                                         </td>
@@ -64,6 +64,7 @@
                                             @include('backend.partials.action_buttons', [
                                                 'menuItems' => [
                                                     ['routeName' => '', 'label' => 'View'],
+                                                    ['routeName' => 'event.featured.event_edit',   'params' => [$event->id], 'label' => $event->getFeatured() ],
                                                     ['routeName' => 'event.event_edit',   'params' => [$event->id], 'label' => 'Update'],
                                                     ['routeName' => 'event.event_delete', 'params' => [$event->id], 'label' => 'Delete', 'delete' => true],
                                                 ]

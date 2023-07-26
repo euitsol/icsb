@@ -6,30 +6,32 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Faq;
 use App\Models\Service;
+use App\Models\Contact;
 use Illuminate\View\View;
+use App\Models\MemberType;
+use App\Models\WWCS;
 
 class AboutPagesController extends Controller
 {
-    public function index(): View
-    {
-        $n['services'] = Service::where('deleted_at', null)->get();
-        return view('frontend.about.about',$n);
-    }
-    public function council(): View
-    {
-        return view('frontend.about.council');
-    }
-    public function csrActivities(): View
-    {
-        return view('frontend.about.csr_activities');
+    public function __construct() {
+        // $this->contact = Contact::where('deleted_at', null)->first();
+        // view()->share('contact', $this->contact);
+        $contact = Contact::where('deleted_at', null)->first();
+        $memberTypes = memberType::where('deleted_at', null)->where('status', 1)->get();
+        view()->share([
+            'contact' => $contact,
+            'memberTypes' => $memberTypes,
+        ]);
     }
     public function faq(): View
     {
-        $n['faqs']= Faq::where('deleted_at', null)->latest()->get();
-        return view('frontend.about.faq',$n);
+        $s['faqs']= Faq::where('deleted_at', null)->latest()->get();
+        return view('frontend.about.faq',$s);
     }
-    public function assignedOfficer(): View
+    public function wwcs(): View
     {
-        return view('frontend.about.assigned_officer');
+        $s['wwcss'] = WWCS::where('status',1)->where('deleted_at', null)->latest()->get();
+        return view('frontend.about.wwcs',$s);
     }
+
 }

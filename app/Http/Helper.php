@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use League\Csv\Writer;
 use App\Models\Permission;
+use Illuminate\Support\Str;
 
 
 //This will retun the route prefix of the routes for permission check
@@ -102,4 +103,16 @@ function generateRandomPassword() {
     }
 
     return $password;
+}
+function stringLimit($description, $limit, $end){
+    $shortSrting = Str::limit($description, $limit, $end);
+    return $shortSrting;
+}
+function member_id($id){
+    $member_id = str_pad($id, 4, '0', STR_PAD_LEFT);
+    return $member_id;
+}
+function removeHttpProtocol($url)
+{
+    return str_replace(['http://', 'https://'], '', $url);
 }

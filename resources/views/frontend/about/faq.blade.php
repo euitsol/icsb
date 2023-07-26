@@ -1,28 +1,40 @@
 @extends('frontend.master')
 
-@section('title', 'Council')
+@section('title', 'FAQ')
 
 @section('content')
-    <!--=============================== Bredcum Section ========================== -->
+<section class="breadcrumbs-section">
+	<div class="overly-image">
+		<img src="{{asset('frontend/img/breadcumb/faqs-background.jpg')}}" alt="">
+	</div>
+	<div class="container">
+		<div class="breadcrumbs-row flex">
+		<div class="left-column content-column">
+			<div class="inner-column color-white">
+				<h1 class="breadcrumbs-heading">FAQs</h1>
+				<ul class="flex">
+					<li><a href="index">Home</a></li>
+					<li><i class="fa-solid fa-angle-right"></i></li>
+					<li><a href="#">About ICSB</a></li>
+					<li><i class="fa-solid fa-angle-right"></i></li>
+					<li><p>Faqs</p></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	</div>
+</section>
 
-    <section class="bredcum-section">
-        <div class="container">
-            <div class="bredcum-content text-align">
-                <p><a href="{{ route('home') }}">Home</a>| faq</p>
-            </div>
-        </div>
-    </section>
-
-    <!--============================= Start FAQ Section ========================-->
-    <section class="faq-section">
-        <div class="container">
-            <div class="heading-content text-align">
-                <h1 class="common-heading">Frequently Asked Questions</h1>
-            </div>
-            <div class="faq-content">
-                <div class="left-column">
-                    <div class="accordion" id="accordionExample">
-                        @forelse ($faqs as $key=>$faq)
+<!----============================= FAQ Section ========================---->
+	<section class="faq-section">
+		<div class="container">
+			<div class="heading-content text-align">
+				<h1 class="common-heading">Frequently Asked Questions</h1>
+			</div>
+			<div class="faq-content">
+				<div class="left-column">
+					<div class="accordion" id="accordionExample">
+                        @foreach ($faqs as $key=>$faq)
                             @if ($key % 2 == 0)
 
                                 <div class="accordion-item">
@@ -37,17 +49,13 @@
                                     </div>
                                 </div>
                                 </div>
-
-                            @else
-                                @continue
                             @endif
-                        @empty
-                        @endforelse
-                    </div>
-                </div>
-                <div class="right-column">
-                    <div class="accordion accordion-flush" id="accordionFlushExample">
-                        @forelse ($faqs as $key=>$faq)
+                        @endforeach
+					</div>
+				</div>
+				<div class="right-column">
+					<div class="accordion accordion-flush" id="accordionFlushExample">
+                        @foreach ($faqs as $key=>$faq)
                             @if ($key % 2 != 0)
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="flush-headingOne{{$key}}">
@@ -62,15 +70,13 @@
                                         <div class="accordion-body">{{ $faq->description }}</div>
                                     </div>
                                 </div>
-                            @else
-                                @continue
                             @endif
-                        @empty
-                        @endforelse
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--============================= End FAQ Section ========================-->
+                        @endforeach
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
 @endsection

@@ -67,7 +67,7 @@
                         </div>
                         <div class="form-group {{ $errors->has('event_location') ? ' has-danger' : '' }}">
                             <label>{{ _('Event Location') }}</label>
-                            <input type="url" name="event_location"
+                            <input type="text" name="event_location"
                                 class="form-control {{ $errors->has('event_location') ? ' is-invalid' : '' }}"
                                 placeholder="{{ _('Event Location') }}" value="{{ old('event_location') }}">
                             @include('alerts.feedback', ['field' => 'event_location'])

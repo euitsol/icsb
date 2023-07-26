@@ -3,177 +3,221 @@
 @section('title', 'Home')
 
 @section('content')
-
 {{-- Banner Section --}}
-@include('frontend.includes.banner')
+@include('frontend.includes.banner',['contact'=>$contact, 'banner'=>$banner])
 
-
-<section class="who-you-section">
-	<div class="container">
-		<div class="row who-row">
-			<div class="image-column ccol-md-6">
-				<div class="image-inner-wrapp">
-					<div class="top-border img-animaiton"></div>
-					<img src="{{asset('frontend/img/about/ICSB-Council.jpg')}}" alt="Our Image">
-					<div class="bottom-border img-animaiton"></div>
-				</div>
-			</div>
-			<div class="content-column ccol-md-6">
-				<div class="bg-wrapper">
-					<div class="text-inner-wrapp">
-						<div class="text-wrapp">
-							<h2 class="title black-color">Who We Are</h2>
-							<p>At Studio 271 your well being is our greatest concern. Our caring and highly skilled professionals are ready to pamper you with our fine selection of salon and spa services and techniques and are dedicated to making you look and feel your best from head to toe. Shoaleh has been a cosmetologist since 2000. She purchased Studio 271 in 2004. Her passion is staying current in styles, trends and techniques by attending salon advanced training and hair shows regularly.</p>
-							<div class="button-wrapp">
-								<a class="small-btn" href="{{route('about.icsb')}}">Read More</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+ <!-- Start News Ticker Section -->
+ <section class="news-ticker-section">
+    <div class="full-container">
+        <div class="ticker-wrapper">
+            <div class="ticker-title">
+                <h3>LATEST NEWS</h3>
+            </div>
+            <div class="ticker-desc">
+                <ul class="bxnewsticker">
+                    <li><a href="#">বাংলাদেশ ব্যাংক কর্তৃক তালিকাভুক্তির জন্য সিএ ফার্মের আবেদনের সময়সীমা ২৮ ডিসেম্বর ২০২২ ইং পর্যন্ত নির্ধারণ</a></li>
+                    <li><a href="#">Notice & Students' Enrolment Form: Online Evening Shift Regular Classes for Professional & Ad</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </section>
 
-
-<section class="notice-section">
-	<div class="container">
-		<div class="row">
-			<div class="title-row">
-				<h2 class="title black-color text-center">Notice Board</h2>
-			</div>
-			<div class="notice-board-wrappper">
-				<ul>
-					<li><a class="black-color" href="{{route('students.notice_board')}}">Mohammad Asad Ullah FCS Elected as President of ICSB for the Fifth Term 2022-25</a></li>
-					<li><a class="black-color" href="{{route('students.notice_board')}}">Admission Notice January-June 2023 Session</a></li>
-					<li><a class="black-color" href="{{route('students.notice_board')}}">Notification Regarding Change of the Election Venue</a></li>
-					<li><a class="black-color" href="{{route('students.notice_board')}}">Notice & Class Routine of CL-II, III and PL-I & II for (July-Dece, 2022 Session)</a></li>
-				</ul>
-				<div class="button-wrapp text-center">
-					<a class="small-btn" href="{{route('students.notice_board')}}">View All</a>
-				</div>
-			</div>
-		</div>
-	</div>
+<!----============================ Who We are Section ==========================---->
+<section class="we-are-section">
+    <div class="container">
+        <div class="we-are-coulmn flex">
+            <div class="content-column">
+                <div class="section-heading">
+                    <h2>Who We Are</h2>
+                </div>
+                <p>At Studio 271 your well being is our greatest concern. Our caring and highly skilled professionals are ready to pamper you with our fine selection of salon and spa services and techniques and are dedicated to making you look and feel your best from head to toe. Shoaleh has been a cosmetologist since 2000. She purchased Studio 271 in 2004. Her passion is staying current in styles, trends and techniques by attending salon advanced training and hair shows regularly.</p>
+                <a href="#">Read More</a>
+            </div>
+            <div class="image-column">
+                <img src="{{asset('frontend/img/about_image.png')}}">
+            </div>
+        </div>
+    </div>
 </section>
 
-@include('frontend.includes.services_one',['services' => $services])
-@include('frontend.includes.services_two',['services' => $services])
-
+<!----============================ President Section ==========================---->
 <section class="president-section">
-	<div class="container">
-		<div class="row president-row">
-			<div class="ccol-md-5 image-column">
-				<div class="image-inner-wrapp">
-					<div class="top-border-animation img-animaiton"></div>
-					<div class="president-img">
-						<img src="{{asset('frontend/img/Mr.-Mohammad-Asad-Ullah-FCS.jpg')}}" alt="Mr. Mohammad Asad Ullah FCS">
-					</div>
-					<div class="president-title">
-						<h3>Mohammad Asad Ullah FCS</h3>
-					</div>
-				</div>
-			</div>
-			<div class="ccol-md-7 content-column">
-				<div class="bg-wrapper">
-					<div class="text-inner-wrapp">
-						<div class="text-wrapp">
-							<h2 class="title black-color">ICSB President</h2>
-							<p>My dear ICSB Professional Colleagues, Interns, Students, and ICSB officers and staffs! Ralph Waldo Emerson once said, “Nothing great was ever achieved without enthusiasm!” I keep this mantra above my desk as a reminder to be enthusiastic about the works ahead. Those words act as a cheer-leader for me on days when I cannot bear any more bad news. They motivate me when I feel stuck or burned out as we collectively pull through. My hope is that they will set the tone for my presidency with the ICSB, which began this month.</p>
-							<div class="button-wrapp">
-								<a class="small-btn" href="{{route('council.president')}}">Read More</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="president-column flex">
+            <div class="left-column">
+                <img src="{{asset('frontend/img/president-image.png')}}" alt="President Image">
+                <div class="president-info text-align color-white">
+                    <h3>Mohammad Asad Ullah FCS</h3>
+                    <p>ICSB President</p>
+                </div>
+            </div>
+            <div class="right-column">
+                <h2>Message of The President</h2>
+                <p>My dear ICSB Professional Colleagues, Interns, Students, and ICSB officers and staffs! Ralph Waldo Emerson once said, “Nothing great was ever achieved without enthusiasm!” I keep this mantra above my desk as a reminder to be enthusiastic about the works ahead. Those words act as a cheer-leader for me on days when I cannot bear any more bad news. They motivate me when I feel stuck or burned out as we collectively pull through. My hope is that they will set the tone for my presidency with the ICSB, which began this month.</p>
+                <a href="#">Read More</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!----============================ BSS Secretarial Section ==========================---->
+<section class="bss-section">
+    <div class="container">
+        <div class="bss-row flex">
+            <div class="bss-left-column">
+                <h2>Bangladesh Secretarial Standards (BSS)</h2>
+            </div>
+            <div class="bss-right-column flex">
+                <div class="bss-item text-align">
+                    <div class="bss-icon">
+                        <img src="{{asset('frontend/img/bss/bss-1.png')}}" align="BSS-1 Icon">
+                    </div>
+                    <h3>Meetings of The Board of Directors</h3>
+                    <div class="bottom-content">
+                        <img src="{{asset('frontend/img/bss/bss-check-icon.png')}}">
+                        <h4>BSS-1</h4>
+                    </div>
+                </div>
+                <div class="bss-item text-align">
+                    <div class="bss-icon">
+                        <img src="{{asset('frontend/img/bss/bss-2.png')}}" align="BSS-2 Icon">
+                    </div>
+                    <h3>General Meetings</h3>
+                    <div class="bottom-content">
+                        <img src="{{asset('frontend/img/bss/bss-check-icon.png')}}">
+                        <h4>BSS-2</h4>
+                    </div>
+                </div>
+                <div class="bss-item text-align">
+                    <div class="bss-icon">
+                        <img src="{{asset('frontend/img/bss/bss-3.png')}}" align="BSS-3 Icon">
+                    </div>
+                    <h3>Minutes</h3>
+                    <div class="bottom-content">
+                        <img src="{{asset('frontend/img/bss/bss-check-icon.png')}}">
+                        <h4>BSS-3</h4>
+                    </div>
+                </div>
+                <div class="bss-item text-align">
+                    <div class="bss-icon">
+                        <img src="{{asset('frontend/img/bss/bss-4.png')}}" align="BSS-4 Icon">
+                    </div>
+                    <h3>Dividend</h3>
+                    <div class="bottom-content">
+                        <img src="{{asset('frontend/img/bss/bss-check-icon.png')}}">
+                        <h4>BSS-4</h4>
+                    </div>
+                </div>
+                <div class="bss-item text-align">
+                    <div class="bss-icon">
+                        <img src="{{asset('frontend/img/bss/bss-5.png')}}" align="BSS-5 Icon">
+                    </div>
+                    <h3>Virtual & Hybrid Meeting</h3>
+                    <div class="bottom-content">
+                        <img src="{{asset('frontend/img/bss/bss-check-icon.png')}}">
+                        <h4>BSS-5</h4>
+                    </div>
+                </div>
+                <div class="bss-item text-align">
+                    <div class="bss-icon">
+                        <img src="{{asset('frontend/img/bss/bss-6.png')}}" align="BSS-6 Icon">
+                    </div>
+                    <h3>Resolution by Circulation</h3>
+                    <div class="bottom-content">
+                        <img src="{{asset('frontend/img/bss/bss-check-icon.png')}}">
+                        <h4>BSS-6</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!----============================ Notices Section ==========================---->
+<section class="notice-section">
+    <div class="container">
+        <div class="notice-row">
+            <div class="section-heading text-align">
+                <h2>Notice Board</h2>
+            </div>
+            <div class="notice-board-wrapper">
+                <div class="left-column notice-details-col">
+                    <div class="notice-content flex">
+                        <div class="date-col">
+                            <h4> Jan 9, 2023</h4>
+                        </div>
+                        <div class="content-col">
+                            <h3><a href="#">Mohammad Asad Ullah FCS Elected as President of ICSB for the Fifth Term 2022-25</a></h3>
+                            <ul>
+                                <li><i class="fa-solid fa-clock"></i>09.00 am</li>
+                                <li><i class="fa-solid fa-user-large"></i>Member</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="notice-content flex">
+                        <div class="date-col">
+                            <h4> Jan 9, 2023</h4>
+                        </div>
+                        <div class="content-col">
+                            <h3><a href="#">Mohammad Asad Ullah FCS Elected as President of ICSB for the Fifth Term 2022-25</a></h3>
+                            <ul>
+                                <li><i class="fa-solid fa-clock"></i>09.00 am</li>
+                                <li><i class="fa-solid fa-user-large"></i>Member</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="notice-content flex">
+                        <div class="date-col">
+                            <h4> Jan 9, 2023</h4>
+                        </div>
+                        <div class="content-col">
+                            <h3><a href="#">Mohammad Asad Ullah FCS Elected as President of ICSB for the Fifth Term 2022-25</a></h3>
+                            <ul>
+                                <li><i class="fa-solid fa-clock"></i>09.00 am</li>
+                                <li><i class="fa-solid fa-user-large"></i>Member</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="notice-content flex">
+                        <div class="date-col">
+                            <h4> Jan 9, 2023</h4>
+                        </div>
+                        <div class="content-col">
+                            <h3><a href="#">Mohammad Asad Ullah FCS Elected as President of ICSB for the Fifth Term 2022-25</a></h3>
+                            <ul>
+                                <li><i class="fa-solid fa-clock"></i>09.00 am</li>
+                                <li><i class="fa-solid fa-user-large"></i>Member</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-column notice-title-col">
+                    <div class="notice-wrapper">
+                        <div class="title-box">
+                            <h4>Categories</h4>
+                            <ul>
+                                <li class="active"><a href="#">All</a></li>
+                                <li><a href="#">Member</a></li>
+                                <li><a href="#">Student</a></li>
+                                <li><a href="#">Others</a></li>
+                            </ul>
+                            <div class="button-wrapper">
+                                <a class="transparent-button" href="#">View All</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 
-@include('frontend.includes.recent_articles')
-
+@include('frontend.includes.recent_updates',['blogs'=>$blogs])
+@include('frontend.includes.endorsement')
+@include('frontend.includes.world_wide_cs',['wwcss'=>$wwcss])
+@include('frontend.includes.events',['events'=>$events])
+@include('frontend.includes.national_awards',['national_awards'=>$national_awards])
 @include('frontend.includes.recent_videos')
-
-<section class="update-section">
-	<div class="container">
-		<div class="row">
-			<div class="title-row">
-				<h2 class="title black-color text-center">Explore Our Updates</h2>
-			</div>
-		</div>
-		<div class="row update-row">
-			<div class="col-sm-6 col-md-3 update-column">
-				<div class="update-inner-wrapp">
-					<div class="update-img">
-						<img src="{{asset('frontend/img/update-img/8th_Convocation.jpg')}}" alt="Student Update">
-					</div>
-					<div class="update-title">
-						<h5>Students</h5>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-3 update-column">
-				<div class="update-inner-wrapp">
-					<div class="update-img">
-						<img src="{{asset('frontend/img/update-img/Members.jpg')}}" alt="Student Update">
-					</div>
-					<div class="update-title">
-						<h5>Members</h5>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-3 update-column">
-				<div class="update-inner-wrapp">
-					<div class="update-img">
-						<img src="{{asset('frontend/img/update-img/CA-Firms.jpg')}}" alt="Student Update">
-					</div>
-					<div class="update-title">
-						<h5>CA Firms</h5>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-3 update-column">
-				<div class="update-inner-wrapp">
-					<div class="update-img">
-						<img src="{{asset('frontend/img/update-img/african-student.jpg')}}" alt="Student Update">
-					</div>
-					<div class="update-title">
-						<h5>CA Stories</h5>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
-
-<section class="award-section">
-	<div class="container">
-		<div class="heading-content text-align">
-			<h2 class="common-heading">National Award</h2>
-		</div>
-		<div class="award-content">
-			<div class="award-items">
-				<a href="" target="_blank"><img src="{{asset('frontend/img/award/ICSB-natioanl-award-2019.png')}}"></a>
-			</div>
-			<div class="award-items">
-				<a href="" target="_blank"><img src="{{asset('frontend/img/award/icsb-national-award-2018.png')}}"></a>
-			</div>
-			<div class="award-items">
-				<a href="" target="_blank"><img src="{{asset('frontend/img/award/ICSB-national-blue-2018.png')}}"></a>
-			</div>
-			<div class="award-items">
-				<a href="" target="_blank"><img src="{{asset('frontend/img/award/ICSB-nation-award-2017.png')}}"></a>
-			</div>
-		</div>
-	</div>
-</section>
-
-
-@include('frontend.includes.partners')
-@include('frontend.includes.footer.footer_top')
-
-
+@include('frontend.includes.national_connection',['national_connections'=>$national_connections])
 @endsection

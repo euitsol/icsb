@@ -25,7 +25,7 @@
                                     <th>{{ _('Title') }}</th>
                                     <th>{{ _('Image') }}</th>
                                     <th>{{ _('File') }}</th>
-                                    <th>{{ _('Description') }}</th>
+                                    <th>{{ _('Featured') }}</th>
                                     <th>{{ _('Status') }}</th>
                                     <th>{{ _('Creation date') }}</th>
                                     <th>{{ _('Created by') }}</th>
@@ -43,7 +43,7 @@
                                         <td>
                                             <a href="{{route('download',base64_encode($national_award->file))}}" class="btn btn-info btn-sm {{$national_award->file ?  : 'd-none'}}"><i class="fa-regular fa-circle-down"></i></a>
                                         </td>
-                                        <td> {{ $national_award->description }} </td>
+                                        <td><span class='{{ $national_award->getFeaturedStatusClass() }}'>{{ $national_award->getFeaturedStatus() }}</span></td>
                                         <td>
                                             @include('backend.partials.button', ['routeName' => 'national_award.status.national_award_edit','params' => [$national_award->id], 'className' => $national_award->getStatusClass(), 'label' => $national_award->getStatus() ])
                                         </td>

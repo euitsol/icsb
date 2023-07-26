@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('video_url')->nullable();
             $table->enum('type', ["1", "0"])->default("0");
             $table->boolean('status')->default(1);
+            $table->enum('is_featured', ["0", "1"])->default("0");
             $table->integer('notify')->default(1);
             $table->timestamps();
             $table->softDeletes();
