@@ -451,7 +451,7 @@ h1,h2,h3,h4,h5,h6{
 	font-size: 24px;
 	line-height: 30px;
 	font-family: 'Poppins', sans-serif;
-	font-family: 'Poppins', sans-serif;	
+	font-family: 'Poppins', sans-serif;
 }
 .president-section .president-column .left-column p{
 	font-size: 17px;
@@ -638,7 +638,7 @@ h1,h2,h3,h4,h5,h6{
 .notice-section .notice-row .notice-board-wrapper .left-column .content-col ul li{
 	color: #FF8601;
 	font-size: 15px;
-	font-size: 15px; 
+	font-size: 15px;
 	line-height: 21px;
 	font-family: 'Poppins', sans-serif;
 }
@@ -742,7 +742,7 @@ h1,h2,h3,h4,h5,h6{
 	border-radius: 29px;
 	background: #182456;
 	transition: 0.4s;
-	top: -100px;
+	top: 40px;
 	z-index: 999;
 	position: relative;
 	border: 1px solid #182456;
@@ -1077,7 +1077,7 @@ h1,h2,h3,h4,h5,h6{
 .cs-wide-section .owl-carousel .owl-nav .owl-prev{
 	left: -114px;
 	position: absolute;
-	position: absolute;	
+	position: absolute;
 }
 .cs-wide-section .owl-carousel .owl-nav .owl-next{
 	right: -114px;
@@ -1093,7 +1093,7 @@ h1,h2,h3,h4,h5,h6{
 	width: auto;
 	margin-left: auto;
 	margin-right: auto;
-	margin-right: auto;	
+	margin-right: auto;
 }
 .national-connection-section .national-connection .owl-item  h3{
 	color: #122F98;
@@ -1193,7 +1193,7 @@ h1,h2,h3,h4,h5,h6{
 .breadcrumbs-section .breadcrumbs-row .left-column ul li a:hover{
 	color: #FF8601;
 }
-.breadcrumbs-section .breadcrumbs-row .left-column ul li p{ 
+.breadcrumbs-section .breadcrumbs-row .left-column ul li p{
 	color: #F2F2F2;
 	font-size: 20px;
 	line-height: 26px;
@@ -1265,6 +1265,9 @@ h1,h2,h3,h4,h5,h6{
 .our-events-section .events-row .item h3 a{
 	color: #111;
 }
+.our-events-section .events-row .item h3 a:hover{
+	color: #FF8601;
+}
 .our-events-section .events-row .item ul{
 	padding: 0;
 	margin: 0;
@@ -1329,6 +1332,94 @@ h1,h2,h3,h4,h5,h6{
 	background: #152360;
 }
 
+/*========================== Event Single Page Style ===================*/
+.event-info-section{
+	padding: 40px;
+	background: #f6f6f6;
+}
+#event-detiles-section{
+	padding: 100px 0;
+}
+#event-detiles-section .event-info-section .info-row h2{
+	font-size: 27px;
+	line-height: 35px;
+	margin-bottom: 20px;
+}
+#event-detiles-section .event-info-section .info-row ul{
+	padding: 0;
+	margin: 0;
+	column-gap: 25px;
+}
+#event-detiles-section .event-info-section .info-row ul li{
+	list-style: none;
+}
+#event-detiles-section .event-info-section .info-row ul li i{
+	color: #152360;
+	margin-right: 8px;
+}
+#event-detiles-section .content-row .content-column{
+	padding-top: 0;
+	border: none;
+}
+#event-detiles-section .content-row .content-column .location-text{
+	margin-top: 20px;
+}
+#event-detiles-section .content-row .content-column .speaker-info{
+	margin-top: 30px;
+}
+#event-detiles-section .content-row .content-column .speaker-info h3{
+	margin-bottom: 15px;
+}
+#event-detiles-section .content-row .content-column .speaker-info ul{
+	margin-top: 0;
+}
+#event-detiles-section .content-row .summary-column .job-summery{
+	padding: 30px 25px;
+}
+#event-summary ul{
+	padding: 0;
+	margin-top: 27px;
+}
+#event-summary ul li{
+	list-style: none;
+}
+#event-summary ul a{
+	width: 100%;
+	height: 40px;
+	color: #fff;
+	font-size: 18px;
+	line-height: 39px;
+	max-width: 200px;
+	text-align: center;
+	margin-top: 20px;
+	border-radius: 100px;
+	background: #152360;
+	border: 1px solid #152360;
+}
+#event-summary ul a:hover{
+	color: #152360;
+	background: #fff;
+}
+.events-section .events-row .see-button a{
+	color: #fff;
+	font-size: 18px;
+	line-height: 40px;
+	width: 100%;
+	height: 40px;
+	max-width: 239px;
+	border-radius: 29px;
+	background: #182456;
+	transition: 0.4s;
+	top: 40px;
+	z-index: 999;
+	position: relative;
+	border: 1px solid #182456;
+}
+.events-section .events-row .see-button a:hover{
+	color: #182456;
+	background: #fff;
+}
+
 /*==================== Contact Page CSS ====================*/
 .form-section{
 	padding: 100px 0;
@@ -1337,7 +1428,7 @@ h1,h2,h3,h4,h5,h6{
 	background-repeat: no-repeat;
 	background-image: url("../img/events-bg.png");
 }
-.form-section .detailes-column h3{
+.form-section .content-row .content-column .detailes-column h3{
 	color: #fff;
 	font-size: 50px;
 	line-height: 56px;
@@ -1386,6 +1477,11 @@ h1,h2,h3,h4,h5,h6{
 	padding-bottom: 47px;
 	background: #182456;
 }
+.form-section .detailes-column h3{
+	color: #fff;
+	font-size: 45px;
+	line-height: 51px;
+}
 .form-section .form-column{
 	width: 60%;
 	padding: 50px 60px;
@@ -1431,11 +1527,11 @@ h1,h2,h3,h4,h5,h6{
 	color: #fff;
 	background: #152360;
 }
-::-webkit-input-placeholder { 
+::-webkit-input-placeholder {
  	 color: #070000;
  	 opacity: 1;
 }
-:-ms-input-placeholder { 
+:-ms-input-placeholder {
   	color: #070000;
   	opacity: 1;
 }
@@ -1445,14 +1541,14 @@ h1,h2,h3,h4,h5,h6{
 }
 .form-section .form-column textarea{
 	font-size: 16px;
-	line-height: 25px;	
+	line-height: 25px;
 	width: 100%;
-	padding-left: 21px;	
+	padding-left: 21px;
 	resize: none;
 	height: 190px;
 	padding-top: 14px;
 	transition: 0.4s;
-	border: 1px solid #707070;	
+	border: 1px solid #707070;
 	font-family: 'Poppins', sans-serif;
 }
 .form-section .form-column textarea:focus{
@@ -2005,7 +2101,7 @@ h1,h2,h3,h4,h5,h6{
 }
 .past-predident-section .president-row .president-column {
 	margin-bottom: 40px;
-} 
+}
 .past-predident-section .president-row .president-column .president-column-inner {
 	align-items: center;
 }
@@ -2229,7 +2325,7 @@ h1,h2,h3,h4,h5,h6{
 	font-size: 20px;
 	line-height: 26px;
 	margin-bottom: 4px;
-	font-family: 'Poppins', sans-serif;	
+	font-family: 'Poppins', sans-serif;
 }
 .fellow-row .fellow-items img{
 	height: 225px;
@@ -2251,7 +2347,7 @@ h1,h2,h3,h4,h5,h6{
 	font-size: 15px;
 	line-height: 21px;
 	font-weight: 500;
-	font-family: 'Poppins', sans-serif;		
+	font-family: 'Poppins', sans-serif;
 }
 .fellow-row .fellow-items li{
 	margin-bottom: 5px;
@@ -2288,13 +2384,13 @@ h1,h2,h3,h4,h5,h6{
 	line-height: 26px;
 	margin-top: 13px;
 	margin-bottom: 15px;
-	font-family: 'Poppins', sans-serif;	
+	font-family: 'Poppins', sans-serif;
 }
 .codeof-conduct-section .codeof-conduct-row h4{
 	font-size: 20px;
 	line-height: 26px;
 	margin-bottom: 15px;
-	font-family: 'Poppins', sans-serif;		
+	font-family: 'Poppins', sans-serif;
 }
 .codeof-conduct-section .codeof-conduct-row p{
 	margin-bottom: 20px;
@@ -2350,7 +2446,7 @@ h1,h2,h3,h4,h5,h6{
 	font-size: 20px;
 	line-height: 26px;
 	margin-bottom: 13px;
-	font-family: 'Poppins', sans-serif;	
+	font-family: 'Poppins', sans-serif;
 }
 .cpd-section .cpd-row .cpd-items .cpd-content h2 a{
 	color: #111;
@@ -2502,7 +2598,7 @@ h1,h2,h3,h4,h5,h6{
 	font-weight: 400;
 	padding: 33px 48px;
 	background: #F2F2F2;
-	font-family: 'Poppins', sans-serif;	
+	font-family: 'Poppins', sans-serif;
 }
 .faq-section .faq-content .accordion-item .accordion-button:before{
 	content: url('../img/faq/faq-white.png');
@@ -2521,10 +2617,151 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .faq-section .faq-content .accordion-item .collapsed:before{
-	content: url('../img/faq/faq-icon.png');	
+	content: url('../img/faq/faq-icon.png');
+}
+/* ===================================================== */
+.common-heading{
+	font-size: 50px;
+	line-height: 56px;
+}
+.breadcrumbs-heading{
+	font-size: 50px;
+	line-height: 56px;
+	max-width: 540px;
 }
 
 
+
+
+
+/*====================== World Wide CS ===============*/
+.world-wide-section{
+	padding: 100px 0;
+}
+.world-wide-section .section-heading h2 {
+	font-size: 70px;
+	line-height: 76px;
+	margin-bottom: 70px;
+}
+.world-wide-section .world-wide-column {
+	column-gap: 25px;
+	padding-bottom: 25px;
+}
+.world-wide-section .world-wide-column .world-wide-item {
+	background: #F2F2F2;
+	width: 49%;
+	padding: 72px 40px 0 40px;
+	min-height: 654px;
+}
+.world-wide-section img{
+	width: auto;
+}
+.world-wide-section .world-wide-column .world-wide-item .chart-heading {
+	padding-bottom: 25px;
+}
+.world-wide-section .world-wide-column .world-wide-item .chart-link {
+	padding-top: 24px;
+}
+.world-wide-section .world-wide-column .world-wide-item .society-text {
+	max-width: 330px;
+	margin: 0 auto;
+	padding-bottom: 25px;
+}
+
+/* ========= president-content-section =========== */
+.president-content-section .president-content-row {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 100px 0;
+}
+.president-content-section .president-content-row .left-column{
+	width: 37.6%;
+}
+.president-content-section .president-content-row .right-column {
+	width: 59.4%;
+	padding-left: 3%;
+}
+.president-content-section .president-content-row .left-column img {
+	border: 10px solid #FF8601;
+}
+.president-content-section .president-content-row .left-column .name-tittle {
+	background: #F2F2F2;
+	padding: 54px 0px 54px 38px;
+	border-bottom: 1px solid #111111;
+}
+.president-content-section .president-content-row .left-column  .name-tittle h3 {
+	font-size: 32px;
+	line-height: 22px;
+	font-weight: 500;
+	color: #111111;
+	margin-bottom: 25px;
+}
+.president-content-section .president-content-row .left-column  .name-tittle p {
+	font-size: 25px;
+	line-height: 20px;
+	font-weight: 500;
+	color: #111111;
+}
+.president-content-section .president-content-row .left-column .contact-info {
+	background: #F2F2F2;
+	padding: 37px 0px 18px 40px;
+}
+.president-content-section .president-content-row .left-column .contact-info ul{
+	padding: 0;
+}
+.president-content-section .president-content-row .left-column .contact-info ul li a {
+	font-size: 16px;
+	line-height: 35px;
+	color: #111111;
+}
+.president-content-section .president-content-row .left-column .contact-info ul li a:hover{
+	color: #FF8601;
+}
+
+.president-content-section .president-content-row .left-column .contact-info ul li a i{
+	padding-right: 8px;
+}
+.president-content-section .president-content-row .left-column .social-media {
+	background: #182456;
+	padding: 26px 0;
+}
+.president-content-section .president-content-row .left-column .social-media ul {
+	display: flex;
+	column-gap: 15px;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+}
+.president-content-section .president-content-row .left-column .social-media ul li a {
+	color: #111;
+	width: 42px;
+	height: 42px;
+	font-size: 19px;
+	line-height: 25px;
+	background: #DCDCDC;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50px;
+	transition: 0.4s;
+}
+.president-content-section .president-content-row .left-column .social-media ul li a:hover {
+	color: #fff;
+	background: #122F98;
+}
+.president-content-section .president-content-row .right-column h2 {
+	font-size: 75px;
+	line-height: 85px;
+	font-weight: 500;
+	color: #111111;
+	padding-bottom: 40px;
+}
+.president-content-section .president-content-row .right-column p {
+	font-size: 16px;
+	line-height: 20px;
+	color: #111111;
+	padding-bottom: 17px;
+}
 /*=================== Footer Section ====================*/
 .main-footer-section{
 	padding: 65px 0 41px 0;
