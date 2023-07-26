@@ -742,7 +742,7 @@ h1,h2,h3,h4,h5,h6{
 	border-radius: 29px;
 	background: #182456;
 	transition: 0.4s;
-	top: -100px;
+	top: 40px;
 	z-index: 999;
 	position: relative;
 	border: 1px solid #182456;
@@ -1400,6 +1400,25 @@ h1,h2,h3,h4,h5,h6{
 	color: #152360;
 	background: #fff;
 }
+.events-section .events-row .see-button a{
+	color: #fff;
+	font-size: 18px;
+	line-height: 40px;
+	width: 100%;
+	height: 40px;
+	max-width: 239px;
+	border-radius: 29px;
+	background: #182456;
+	transition: 0.4s;
+	top: 40px;
+	z-index: 999;
+	position: relative;
+	border: 1px solid #182456;
+}
+.events-section .events-row .see-button a:hover{
+	color: #182456;
+	background: #fff;
+}
 
 /*==================== Contact Page CSS ====================*/
 .form-section{
@@ -1457,6 +1476,11 @@ h1,h2,h3,h4,h5,h6{
 	padding: 35px;
 	padding-bottom: 47px;
 	background: #182456;
+}
+.form-section .detailes-column h3{
+	color: #fff;
+	font-size: 45px;
+	line-height: 51px;
 }
 .form-section .form-column{
 	width: 60%;
