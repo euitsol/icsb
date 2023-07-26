@@ -2523,8 +2523,6 @@ h1,h2,h3,h4,h5,h6{
 .faq-section .faq-content .accordion-item .collapsed:before{
 	content: url('../img/faq/faq-icon.png');
 }
-
-
 /* ===================================================== */
 .common-heading{
 	font-size: 50px;
@@ -2668,8 +2666,6 @@ h1,h2,h3,h4,h5,h6{
 	color: #111111;
 	padding-bottom: 17px;
 }
-
-
 /*=================== Footer Section ====================*/
 .main-footer-section{
 	padding: 65px 0 41px 0;
