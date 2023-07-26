@@ -9,8 +9,7 @@
                     @forelse ($national_connections as $connection)
                         <div class="item">
                             <div class="logo-wrapp">
-                                <img src="{{ storage_url($connection->logo) }}">
-                                <h3 class="text-align">{{$connection->title}}</h3>
+                                <img title="{{$connection->title}}" src="{{ storage_url($connection->logo) }}">
                             </div>
                         </div>
                     @empty
