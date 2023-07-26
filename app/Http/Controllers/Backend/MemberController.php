@@ -133,6 +133,7 @@ class MemberController extends Controller
     {
         $type = new MemberType;
         $type->title = $request->title;
+        $type->slug = $request->slug;
         $type->description = $request->description;
         $type->created_by = auth()->user()->id;
         $type->save();
@@ -150,6 +151,7 @@ class MemberController extends Controller
     {
         $type = MemberType::findOrFail($id);
         $type->title = $request->title;
+        $type->slug = $request->slug;
         $type->description = $request->description;
         $type->updated_by = auth()->user()->id;
         $type->save();

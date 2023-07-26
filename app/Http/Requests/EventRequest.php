@@ -33,6 +33,7 @@ class EventRequest extends FormRequest
     {
         return [
             'title' => 'required|unique:events,title,NULL,id,deleted_at,NULL',
+            'slug' => 'required|unique:events,slug,NULL,id,deleted_at,NULL',
             'image' => 'required|array',
             'image.*' => 'image|mimes:mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
@@ -42,6 +43,7 @@ class EventRequest extends FormRequest
     {
         return [
             'title' => 'required|unique:events,title,' . $this->route('id') . ',id,deleted_at,NULL',
+            'slug' => 'required|unique:events,slug,' . $this->route('id') . ',id,deleted_at,NULL',
             'image' => 'nullable|array',
             'image.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'type' => 'required|in:1,0',

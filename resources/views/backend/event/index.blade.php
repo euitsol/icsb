@@ -24,8 +24,7 @@
                                 <tr>
                                     <th>{{ _('Title') }}</th>
                                     <th>{{ _('Image') }}</th>
-                                    <th>{{ _('Event Start Time') }}</th>
-                                    <th>{{ _('Event End Time') }}</th>
+                                    <th>{{ _('Event Duration') }}</th>
                                     <th>{{ _('Event Type') }}</th>
                                     <th>{{ _('Featured') }}</th>
                                     <th>{{ _('Status') }}</th>
@@ -49,8 +48,7 @@
                                                 @endif
                                             "alt="{{ $event->title }}">
                                         </td>
-                                        <td> {{ timeFormate($event->event_start_time) }} </td>
-                                        <td> {{ timeFormate($event->event_end_time) }} </td>
+                                        <td> {{ formatDateTimeRange($event->event_start_time, $event->event_end_time)}} </td>
                                         <td>
                                             <span class="badge {{ $event->getTypeClass() }}">{{ $event->getType() }}</span>
                                         </td>

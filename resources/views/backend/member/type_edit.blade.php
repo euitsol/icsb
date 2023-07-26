@@ -18,6 +18,11 @@
                             <input type="text" name="title" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter Title') }}" value="{{ $type->title }}">
                             @include('alerts.feedback', ['field' => 'title'])
                         </div>
+                        <div class="form-group {{ $errors->has('slug') ? ' has-danger' : '' }}">
+                            <label>{{ _('Slug') }}</label>
+                            <input type="text" class="form-control {{ $errors->has('slug') ? ' is-invalid' : '' }}" id="slug" name="slug" placeholder="{{ _('Enter Slug (must be use - on white speace)') }}" value="{{ $type->slug }}">
+                            @include('alerts.feedback', ['field' => 'slug'])
+                        </div>
                         <div class="form-group {{ $errors->has('description') ? ' has-danger' : '' }}">
                             <label>{{ _('Description(optional)') }} </label>
                             <textarea rows="3" name="description" class="form-control {{ $errors->has('description') ? ' is-invalid' : '' }}">
@@ -48,4 +53,21 @@
 @endsection
 
 @push('js')
+<script>
+    function generateSlug(str) {
+        return str
+            .toLowerCase()
+            .replace(/\s+/g, "-")
+            .replace(/[^\w-]+/g, "")
+            .replace(/--+/g, "-")
+            .replace(/^-+|-+$/g, "");
+    }
+$(document).ready(function () {
+    $("#title").on("keyup mouseleave blur focusout ", function () {
+        const titleValue = $(this).val().trim();
+        const slugValue = generateSlug(titleValue);
+        $("#slug").val(slugValue);
+    });
+});
+</script>
 @endpush

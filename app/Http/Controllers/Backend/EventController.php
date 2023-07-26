@@ -41,6 +41,7 @@ class EventController extends Controller
             $event->image= json_encode($images);
         }
         $event->title = $request->title;
+        $event->slug = $request->slug;
         $event->total_participant = $request->total_participant;
         $event->event_location = $request->event_location;
         $event->video_url = $request->video_url;
@@ -75,6 +76,7 @@ class EventController extends Controller
             $event->image= json_encode($images);
         }
         $event->title = $request->title;
+        $event->slug = $request->slug;
         $event->total_participant = $request->total_participant;
         $event->event_location = $request->event_location;
         $event->video_url = $request->video_url;
