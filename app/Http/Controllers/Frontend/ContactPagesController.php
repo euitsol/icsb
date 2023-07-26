@@ -23,7 +23,7 @@ class ContactPagesController extends Controller
     public function feedback(): View
     {
         $contact = Contact::where('deleted_at', null)->first();
-        $s['contact_numbers'] = collect(json_decode($contact->phone))->groupBy('type');
+        $s['contact_numbers'] = collect(json_decode($contact->phone ?? ''))->groupBy('type');
         return view('frontend.contact.feedback',$s);
     }
 }

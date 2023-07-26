@@ -13,15 +13,6 @@
                     @csrf
                     @method('PUT')
                     <div class="card-body">
-                        @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
                         <div class="form-group {{ $errors->has('name') ? ' has-danger' : '' }}">
                             <label>{{ _('Name') }}</label>
                             <input type="text" name="name" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter Member\'s Name') }}" value="{{ $member->name }}">

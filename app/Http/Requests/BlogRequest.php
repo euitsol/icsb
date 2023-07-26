@@ -16,7 +16,7 @@ class BlogRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'description' => 'nullable|max:10000',
+            'description' => 'nullable',
             'file.*.file_path' => 'nullable|file|mimes:jpg,png,pdf,doc,docx,xls,xlsx,ppt,pptx,odt,ods,odp',
             'file.*.file_name' => 'nullable|string',
             // 'file.*.file_path' => 'nullable|file|required_if:file.*.file_name,!=,null|mimes:jpg,png,pdf,doc,docx,xls,xlsx,ppt,pptx,odt,ods,odp',

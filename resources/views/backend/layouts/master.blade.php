@@ -84,6 +84,7 @@
 
         @stack('js_link')
         @stack('js')
-
+        <script src="{{ asset('backend/ckeditor/build/ckeditor.js') }}"></script>
+        <script src="{{ asset('backend/js/ckeditor.js') }}"></script>
     </body>
 </html>

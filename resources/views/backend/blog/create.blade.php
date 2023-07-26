@@ -13,6 +13,7 @@
         border-radius: 0;
         border-right: 0;
     }
+
 </style>
 @endpush
 
@@ -62,7 +63,7 @@
                             </div>
                             <div class="form-group {{ $errors->has('description') ? ' has-danger' : '' }}">
                                 <label>{{ _('Description') }} </label>
-                                <textarea rows="3" name="description" class="form-control {{ $errors->has('description') ? ' is-invalid' : '' }}">
+                                <textarea rows="3" id="editor" name="description" class="form-control {{ $errors->has('description') ? ' is-invalid' : '' }}">
                                     {{ old('description') }}
                                 </textarea>
                                 @include('alerts.feedback', ['field' => 'description'])
@@ -91,5 +92,22 @@
 @endsection
 
 @push('js_link')
-<script src="{{ asset('backend/js/blog.js') }}"></script>
+    <script src="{{ asset('backend/js/blog.js') }}"></script>
+    <script>
+        function generateSlug(str) {
+            return str
+                .toLowerCase()
+                .replace(/\s+/g, "-")
+                .replace(/[^\w-]+/g, "")
+                .replace(/--+/g, "-")
+                .replace(/^-+|-+$/g, "");
+        }
+    $(document).ready(function () {
+        $("#title").on("keyup mouseleave blur focusout ", function () {
+            const titleValue = $(this).val().trim();
+            const slugValue = generateSlug(titleValue);
+            $("#slug").val(slugValue);
+        });
+    });
+    </script>
 @endpush
