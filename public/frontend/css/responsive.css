@@ -223,6 +223,29 @@
     .endorsement-section .endorsement-column .reg-field-wrapp {
         padding: 100px 25px;
     }
+
+
+
+    .about-us-section .about-us-row {
+        flex-direction: column;
+    }
+    .about-us-section .about-us-row .image-column {
+        width: 100%;
+    }
+    .about-us-section .about-us-row .image-column .first-image {
+        width: 80%;
+    }
+    .about-us-section .about-us-row .image-column .second-image {
+        width: 80%;
+        margin-top: -163px;
+    }
+    .about-us-section .about-us-row .content-column {
+        width: 100%;
+        margin-top: 36px;
+    }
+    .about-us-section .about-us-row h2 {
+        margin-bottom: 19px;
+    }
 }
 
 @media only screen and (max-width: 767px) {
@@ -383,6 +406,35 @@
     .faq-section .faq-content .accordion-item .accordion-button::before {
         left: 25px;
     }
+
+
+
+    .about-us-section {
+        padding: 54px 0;
+    }
+
+    .about-us-section .about-us-row .image-column .first-image {
+        width: 76%;
+    }
+    .about-us-section .about-us-row .image-column .second-image {
+        width: 76%;
+        margin-top: -100px;
+    }
+
+    .about-us-section .about-us-row h2 {
+        font-size: 40px;
+        line-height: 60px;
+        margin-bottom: 5px;
+        /* margin-top: 33px; */
+    }
+
+    .jobsingle-content-section .content-row .content-column {
+        width: 100%;
+    }
+    .jobsingle-content-section .content-row .summary-column {
+        width: 100%;
+    }
+
 }
 @media only screen and (max-width: 600px){
     .main-footer-section h2 {

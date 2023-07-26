@@ -29,7 +29,7 @@ $(document).ready(function(){
             margin:23,
             nav: false,
             dots: true,
-            autoplay:true,
+            autoplay:false,
             autoplayTimeout:3000,
             autoplayHoverPause:true,
             responsive:{
@@ -145,7 +145,7 @@ $(document).ready(function(){
     // // Add click event listener to each anchor tag
     // socialLinks.forEach(link => {
     //     link.addEventListener("click", (event) => {
-    //         event.preventDefault(); // Prevent the default link behavior
+    //         // event.preventDefault(); // Prevent the default link behavior
 
     //         // Remove active class from the currently active li element
     //         const currentlyActive = document.querySelector(".social-link-wrapper li.active");
