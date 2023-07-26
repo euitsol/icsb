@@ -1163,7 +1163,7 @@ h1,h2,h3,h4,h5,h6{
 .breadcrumbs-section .breadcrumbs-row .left-column{
 	width: 50%;
 	position: relative;
-	padding: 132px 0;
+	padding: 97px 0 140px 0;
 }
 .breadcrumbs-section .breadcrumbs-row .left-column::after{
 	content: url("../img/breadcumb/shape.png");
@@ -1784,6 +1784,37 @@ h1,h2,h3,h4,h5,h6{
 }
 .jobsingle-content-section .content-row .summary-column .email-column p a:hover{
 	color: #FF8601;
+}
+
+/*========================= Board Of Metting Page Style =======================*/
+.director-metting-section{
+	padding: 100px 0;
+}
+.director-metting-section .director-row{
+	max-width: 800px;
+	margin: 0 auto;
+}
+.director-metting-section .director-row img{
+	border: 2px solid #ddd;
+}
+.director-metting-section .director-row .button a{
+	color: #fff;
+	font-size: 18px;
+	line-height: 48px;
+	height: 48px;
+	width: 100%;
+	max-width: 320px;
+	border-radius: 100px;
+	background: #152360;
+	margin-top: 40px;
+	border: 1px solid #152360;
+}
+.director-metting-section .director-row .button a:hover{
+	color: #152360;
+	background: #fff;
+}
+.director-metting-section .director-row a i{
+	margin-right: 7px;
 }
 
 /*============================ The Chartered Secretaries Act-2010 Page  =====================*/

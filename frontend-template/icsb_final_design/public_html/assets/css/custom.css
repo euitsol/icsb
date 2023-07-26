@@ -5,13 +5,14 @@
 .breadcrumbs-heading{
 	font-size: 50px;
 	line-height: 56px;
+	max-width: 540px;
 }
 
 
 
 
 
-
+/*====================== World Wide CS ===============*/
 .world-wide-section{
 	padding: 100px 0;
 }
@@ -46,7 +47,6 @@
 }
 
 /* ========= president-content-section =========== */
-
 .president-content-section .president-content-row {
 	display: flex;
 	flex-wrap: wrap;
@@ -127,7 +127,6 @@
 	color: #fff;
 	background: #122F98;
 }
-
 .president-content-section .president-content-row .right-column h2 {
 	font-size: 75px;
 	line-height: 85px;
