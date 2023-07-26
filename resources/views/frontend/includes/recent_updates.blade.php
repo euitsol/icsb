@@ -17,7 +17,7 @@
                                         <li><a href="#"><i class="fa-solid fa-calendar-check"></i>{{ date('d-M-Y', strtotime($blog->created_at))}}</a></li>
                                     </ul>
                                     <h3><a href="#">{{ stringLimit($blog->title, 30,'...')}} </a></h3>
-                                    <p>{{stringLimit($blog->description, 60)}}</p>
+                                    <p>{{stringLimit($blog->description, 60,'...')}}</p>
                                 </div>
                             </div>
                         </div>

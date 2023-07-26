@@ -278,9 +278,9 @@ Route::group(['as' => 'members.', 'prefix' => 'members'], function () {
 // Route::group(['as' => 'publications.', 'prefix' => 'publications'], function () {
 //     Route::get('/photo-gallery', [PublicationsPagesController::class, 'photoGallery'])->name('photo_gallery');
 // });
-// Route::group(['as' => 'contact_view.', 'prefix' => 'contact'], function () {
-//     Route::get('/contact-us', [ContactPagesController::class, 'index'])->name('index');
-// });
+Route::group(['as' => 'contact_us.', 'prefix' => 'contact'], function () {
+    Route::get('/contact-us', [ContactPagesController::class, 'feedback'])->name('feedback');
+});
 // Route::group(['as' => 'article.', 'prefix' => 'article'], function () {
 //     Route::get('/single', [ArticlesController::class, 'single'])->name('single');
 // });

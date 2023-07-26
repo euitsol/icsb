@@ -38,10 +38,9 @@
                     <img src="{{storage_url($member->image)}}" alt="{{$member->name}}">
                 </div>
                 <div class="content-column">
-                    <h4>H-{{str_pad($member->id, 4, '0', STR_PAD_LEFT)}}</h4>
+                    <h4>H-{{member_id($member->id)}}</h4>
                     <h3 class="mb-0">{{$member->name}}</h3>
-                    <span class="mb-2 d-block"><b>{{$member->designation}}</b></span>
-                    <p><strong>{{stringLimit($type->description, 100, '...')}}</strong></p>
+                    <p><strong>{{$member->designation}}</strong></p>
                     @if(!empty($member->address))
                         <li><i class="fa-solid fa-house-circle-exclamation"></i>{{$member->address}}</li>
                     @endif

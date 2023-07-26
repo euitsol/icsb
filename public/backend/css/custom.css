@@ -39,7 +39,10 @@
     text-align: left;
     border-radius: 0;
     border-right: 0;
-    font-family: 'FontAwesome', 'Second Font name'
+    font-family: 'FontAwesome', 'Second Font name';
+}
+.input-group>.contact_div>select {
+    font-family: "Poppins", sans-serif !important;
 }
 
 .input-group-text>i {

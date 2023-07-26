@@ -108,3 +108,7 @@ function stringLimit($description, $limit, $end){
     $shortSrting = Str::limit($description, $limit, $end);
     return $shortSrting;
 }
+function member_id($id){
+    $member_id = str_pad($id, 4, '0', STR_PAD_LEFT);
+    return $member_id;
+}

@@ -83,6 +83,7 @@
                           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Contact Us</a>
                            <ul class="dropdown-menu">
                              <li><a class="dropdown-item" href="photo-gallery.html">Photo Gallery</a></li>
+                             <li><a class="dropdown-item" href="{{route('contact_us.feedback')}}">Feedback</a></li>
                            </ul>
                         </li>
                     </ul>

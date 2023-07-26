@@ -70,11 +70,11 @@ $(document).ready(function() {
                     <label>Phone Number-${count}</label>
                     <div class="input-group mb-3">
                         <input type="tel" name="phone[${count}][number]" class="form-control" placeholder="Enter phone number" required>
-                        <div class="div">
+                        <div class="div contact_div">
                             <select class="input-group-text form-select" name="phone[${count}][type]">
-                                <option value="Phone" title='Phone'><i>&#xf2a0</i></option>
-                                <option value="Telephone" title='Telephone'><i>&#xf1e4</i></option>
-                                <option value="Fax" title='Fax'><i>&#xf1ac</i></option>
+                                <option value="Phone" title='Phone'>Phone</option>
+                                <option value="Telephone" title='Telephone'>Telephone</option>
+                                <option value="Fax" title='Fax'>Fax</option>
                             </select>
                             <span class="input-group-text text-danger" onclick="delete_section_3(${count})"><i class="tim-icons icon-trash-simple"></i></span>
                         </div>

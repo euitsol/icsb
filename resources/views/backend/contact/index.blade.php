@@ -211,11 +211,11 @@
                                                 <label>{{ _('Phone Number-'.$count) }}</label>
                                                 <div class="input-group mb-3">
                                                     <input type="tel" name="phone[{{$count}}][number]" class="form-control" placeholder="{{ _('Enter phone number') }}" value="{{ $phone->number }}" required>
-                                                    <div class="div">
+                                                    <div class="div contact_div">
                                                         <select class="input-group-text form-select" name="phone[{{$count}}][type]">
-                                                            <option value="Phone" @if($phone->type == "Phone") selected @endif title='Phone'><i>&#xf2a0</i></option>
-                                                            <option value="Telephone" @if($phone->type == "Telephone") selected @endif title='Telephone'><i>&#xf1e4</i></option>
-                                                            <option value="Fax" @if($phone->type == "Fax") selected @endif title='Fax'><i>&#xf1ac</i></option>
+                                                            <option value="Phone" @if($phone->type == "Phone") selected @endif title='Phone'>Phone</option>
+                                                            <option value="Telephone" @if($phone->type == "Telephone") selected @endif title='Telephone'>Telephone</option>
+                                                            <option value="Fax" @if($phone->type == "Fax") selected @endif title='Fax'>Fax</option>
                                                         </select>
                                                         @if($count>1)
                                                             <span class="input-group-text text-danger" onclick="delete_section_3({{$count}})"><i class="tim-icons icon-trash-simple"></i></span>
@@ -233,9 +233,9 @@
                                                 <input type="tel" name="phone[1][number]" class="form-control" placeholder="{{ _('Enter phone number') }}" required>
                                                 <div class="div">
                                                     <select class="input-group-text form-select" name="phone[1][type]">
-                                                        <option value="Phone" title='Phone'><i>&#xf2a0</i></option>
-                                                        <option value="Telephone" title='Telephone'><i>&#xf1e4</i></option>
-                                                        <option value="Fax" title='Fax'><i>&#xf1ac</i></option>
+                                                        <option value="Phone" title='Phone'>Phone</option>
+                                                        <option value="Telephone" title='Telephone'>Telephone</option>
+                                                        <option value="Fax" title='Fax'>Fax</option>
                                                     </select>
                                                     <span class="input-group-text" id="add_phone" data-count="1"><i class="tim-icons icon-simple-add"></i></span>
                                                 </div>
