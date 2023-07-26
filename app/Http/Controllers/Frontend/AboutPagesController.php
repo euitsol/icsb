@@ -9,6 +9,7 @@ use App\Models\Service;
 use App\Models\Contact;
 use Illuminate\View\View;
 use App\Models\MemberType;
+use App\Models\WWCS;
 
 class AboutPagesController extends Controller
 {
@@ -26,6 +27,11 @@ class AboutPagesController extends Controller
     {
         $s['faqs']= Faq::where('deleted_at', null)->latest()->get();
         return view('frontend.about.faq',$s);
+    }
+    public function wwcs(): View
+    {
+        $s['wwcss'] = WWCS::where('status',1)->where('deleted_at', null)->latest()->get();
+        return view('frontend.about.wwcs',$s);
     }
 
 }

@@ -243,6 +243,7 @@ Route::group(['as' => 'about.', 'prefix' => 'about'], function () {
     // Route::get('/council', [AboutPagesController::class, 'council'])->name('council');
     // Route::get('/csr-activities', [AboutPagesController::class, 'csrActivities'])->name('csr_activities');
     Route::get('/faq', [AboutPagesController::class, 'faq'])->name('faq');
+    Route::get('/world-wide-cs', [AboutPagesController::class, 'wwcs'])->name('wwcs');
     // Route::get('/assigned-officer', [AboutPagesController::class, 'assignedOfficer'])->name('assigned_officer');
 });
 

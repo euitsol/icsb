@@ -112,3 +112,7 @@ function member_id($id){
     $member_id = str_pad($id, 4, '0', STR_PAD_LEFT);
     return $member_id;
 }
+function removeHttpProtocol($url)
+{
+    return str_replace(['http://', 'https://'], '', $url);
+}

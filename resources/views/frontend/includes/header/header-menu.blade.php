@@ -18,7 +18,7 @@
                             <li><a class="dropdown-item" href="#">Founding Members</a></li>
                             <li><a class="dropdown-item" href="#">Vision & Mission</a></li>
                             <li><a class="dropdown-item" href="#">Objectives</a></li>
-                            <li><a class="dropdown-item" href="#">World Wide CS</a></li>
+                            <li><a class="dropdown-item" href="{{ route('about.wwcs') }}">World Wide CS</a></li>
                             <li><a class="dropdown-item" href="{{ route('about.faq') }}">FAQs</a></li>
                           </ul>
                         </li>
