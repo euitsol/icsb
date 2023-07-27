@@ -143,3 +143,11 @@ function settings($key){
     $settings = SiteSetting::where('key',$key)->where('deleted_at', null)->first();
     return $settings->value;
 }
+function getYoutubeVideoId($url) {
+    $videoId = '';
+    parse_str(parse_url($url, PHP_URL_QUERY), $params);
+    if (isset($params['v'])) {
+        $videoId = $params['v'];
+    }
+    return $videoId;
+}

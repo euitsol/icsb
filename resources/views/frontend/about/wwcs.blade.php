@@ -43,7 +43,7 @@
                         </div>
                         <div class="chart-sec-content">
                             <h3 class="chart-heading">{{$wwcs->title}}</h3>
-                            <p class="chart-details">{{$wwcs->description}}</p>
+                            <p class="chart-details">{!! $wwcs->description !!}</p>
                             <div class="chart-link">
                                 <span>Website: <a href="{{$wwcs->url}}" target="_blank">{{removeHttpProtocol($wwcs->url)}}</a></span>
                             </div>

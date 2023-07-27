@@ -44,30 +44,15 @@
                     </div>
                 </div>
                 <div class="speaker-info">
-                    <div class="speaker-content">
-                        <h3>Speaker(s)</h3>
-                        <ul>
-                            <li>Ms Gloria So, Partner, SW Hong Kong</li>
-                            <li>Mr Ronald Chung, Assistant Manager, SW Hong Kong</li>
-                        </ul>
-                    </div>
                     <div class="event-description">
-                        <h3>Description</h3>
-                        <p>{{$event->description}}</p>
-                    </div>
-                    <div class="event-video">
-                        <h3>Event Videos</h3>
-                        <li>URL: <a href="{{$event->video_url}}" target="_blank">{{removeHttpProtocol($event->video_url)}}</a></li>
+                        <p>{!! $event->description !!}</p>
                     </div>
                 </div>
             </div>
             <div class="summary-column" id="event-summary">
                 <div class="job-summery">
-                    @if(!empty(json_decode($event->image)))
-                        @foreach (json_decode($event->image) as $image)
-                            <img src="{{storage_url($image)}}" alt="{{$event->title}}">
-                        @endforeach
-                    @endif
+
+                    <iframe width="100%" height="280" src="https://www.youtube.com/embed/{{getYoutubeVideoId($event->video_url)}}" frameborder="0" allowfullscreen></iframe>
                     <ul class="text-align">
                         <li><span>Total Participants:</span> {{$event->total_participant}} People</li>
                         <li><span>Registration Status:</span> Open</li>
@@ -78,6 +63,20 @@
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.050621451953!2d90.39431318612283!3d23.745574179751582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8967169ead3%3A0xf0167ae0ec63f58a!2sInstitute%20of%20Chartered%20Secretaries%20of%20Bangladesh%20(ICSB)!5e0!3m2!1sen!2sie!4v1689596152282!5m2!1sen!2sie" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
+        <!--=============================== Gallery Section ========================== -->
+	<section class="gallery-section">
+            <h3>Event Images</h3>
+			<div class="gallery-content">
+                @if(!empty(json_decode($event->image)))
+                        @foreach (json_decode($event->image) as $image)
+                            <div class="gallery-items">
+                                <a href=""><img src="{{storage_url($image)}}"></a>
+                            </div>
+                        @endforeach
+                    @endif
+
+			</div>
+	</section>
     </div>
 </section>
 @endsection

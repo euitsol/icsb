@@ -42,7 +42,7 @@
                                 <a href="#">Enrol</a>
                             </div>
                             <div class="fill-button flex">
-                                <a href="{{route('event_view.view',$event->title)}}">Details</a>
+                                <a href="{{route('event_view.view',$event->slug)}}">Details</a>
                             </div>
                         </div>
                     </div>

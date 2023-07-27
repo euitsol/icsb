@@ -26,9 +26,9 @@ class EventPagesController extends Controller
         $s['events'] = Event::where('status',1)->where('deleted_at', null)->latest()->get();
         return view('frontend.event.events',$s);
     }
-    public function view($title): View
+    public function view($slug): View
     {
-        $s['event'] = Event::where('title',$title)->first();
+        $s['event'] = Event::where('slug',$slug)->first();
         return view('frontend.event.view',$s);
     }
 

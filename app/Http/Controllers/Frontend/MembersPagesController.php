@@ -21,9 +21,9 @@ class MembersPagesController extends Controller
         ]);
     }
 
-    public function memberSearch($type): View
+    public function memberSearch($slug): View
     {
-        $s['type'] = MemberType::with('members')->where('title', $type)->first();
+        $s['type'] = MemberType::with('members')->where('slug', $slug)->first();
         return view('frontend.members.member_view',$s);
 
     }
