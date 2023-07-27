@@ -14,6 +14,110 @@
     }
 
 
+/*============================ Fellow Member Page ===============================*/
+     .fellow-member-section {
+        padding: 70px 0;
+    }
+    .fellow-member-section .fellow-row{
+        row-gap: 23px;
+        column-gap: 3%;
+        margin-top: 35px;
+    }
+    .fellow-member-section .fellow-row .fellow-items {
+        width: 48.5%;
+        flex-wrap: wrap;
+        padding: 28px 20px 25px 20px;
+    }
+    .fellow-member-section .fellow-row .fellow-items .image-column {
+        width: 100%;
+    }   
+    .fellow-member-section .fellow-row .fellow-items .content-column {
+        width: 100%;
+    } 
+    .fellow-member-section .fellow-row .fellow-items li {
+        font-size: 15px;
+        line-height: 21px;
+    }
+    .fellow-member-section .fellow-row .fellow-items h3 {
+        font-size: 20px;
+        line-height: 26px;
+    }
+    .fellow-member-section .fellow-row .fellow-items img {
+        height: auto;
+    }
+    .fellow-member-section .fellow-row .fellow-items p {
+        max-width: 100%;
+    }
+    .fellow-member-section .fellow-row .fellow-items h4 {
+        margin-top: 22px;
+    }
+
+/*========================= Gallery Page ====================*/
+    .gallery-section {
+        padding: 70px 0 89px 0;
+    }    
+    .gallery-section .gallery-button-section a {
+        line-height: 48px;
+        height: 50px;
+        max-width: 230px;
+    }
+/*===================== President Page ======================*/
+    .president-content-section .president-content-row {
+        padding: 90px 0 65px 0;
+    }
+    .president-content-section .president-content-row .right-column h2 {
+        font-size: 60px;
+        line-height: 64px;
+        padding-bottom: 15px;
+    }   
+    .president-content-section .president-content-row .left-column .name-tittle {
+        padding: 35px 20px 35px 20px;;
+    } 
+    .president-content-section .president-content-row .left-column .name-tittle h3 {
+        font-size: 24px;
+        line-height: 30px;
+        margin-bottom: 5px;
+    }
+    .president-content-section .president-content-row .left-column .name-tittle p {
+        font-size: 19px;
+        line-height: 26px;
+    }
+    .president-content-section .president-content-row .left-column .contact-info {
+        background: #F2F2F2;
+        padding: 37px 20px 18px 20px;
+    }
+    .president-content-section .president-content-row .left-column .contact-info {
+        background: #F2F2F2;
+        padding: 23px 20px 6px 20px;
+    }
+    .president-content-section .president-content-row .left-column .contact-info ul li a {
+        font-size: 16px;
+        line-height: 22px;
+    }
+    .president-content-section .president-content-row .left-column .contact-info ul li{
+        margin-bottom: 12px;
+    }
+    .president-content-section .president-content-row .left-column .social-media {
+        padding: 15px 0;
+    }
+    .president-content-section .president-content-row .left-column .social-media ul li a {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+        line-height: 22px;
+    }
+    .president-content-section .president-content-row .left-column .social-media ul {
+        column-gap: 13px;
+    }
+
+/*==================== Event & Blog Single Page =====================*/  
+    #event-detiles-section .event-info-section .info-row ul {
+        column-gap: 20px;
+    }
+    #event-detiles-section .event-info-section {
+        padding: 30px;
+    }
+
     .main-footer-section {
         padding: 55px 0 10px 0;
     }
@@ -139,11 +243,15 @@
     }
     .form-section .form-content {
         flex-wrap: wrap;
-    }
+    }   
 }
 @media only screen and (max-width: 989px){
     .flex{
         flex-wrap: wrap;
+    }
+    .common-heading {
+        font-size: 40px;
+        line-height: 46px;
     }
 
     .top-header-section .header-column {
@@ -258,6 +366,76 @@
     .about-us-section .about-us-row h2 {
         margin-bottom: 19px;
     }
+
+/*===================== Gallery Page ==========================*/
+    .gallery-section {
+        padding: 60px 0 80px 0;
+    }
+    .gallery-section .gallery-content {
+        column-gap: 3%;
+    }  
+    .gallery-section .gallery-items {
+        width: 48.5%;
+    }
+    .gallery-section .gallery-items a{
+        display: block;
+    }    
+    .gallery-section .gallery-button-section a {
+        line-height: 49px;
+        height: 50px;
+        max-width: 215px;
+    }
+
+/*======================== President Page ============================*/
+    .president-content-section .president-content-row {
+        padding: 78px 0 60px 0;
+    }
+    .president-content-section .president-content-row .left-column {
+        width: 100%;
+    }
+    .president-content-section .president-content-row .right-column {
+        width: 100%;
+        padding-left: 0;
+        margin-top: 40px;
+    }    
+    .president-content-section .president-content-row .right-column h2 {
+        font-size: 50px;
+        line-height: 56px;
+        padding-bottom: 15px;
+    } 
+    .president-content-section .president-content-row .left-column .social-media {
+        padding: 18px 0;
+    }
+    .president-content-section .president-content-row .left-column .name-tittle {
+        padding: 35px 40px 35px 40px;
+    }
+    .president-content-section .president-content-row .left-column .contact-info {
+        padding: 20px 40px 10px 40px;
+    }
+    .president-content-section .president-content-row .left-column .name-tittle h3 {
+        font-size: 30px;
+        line-height: 36px;
+        margin-bottom: 10px;
+    }
+    .president-content-section .president-content-row .left-column .name-tittle p {
+        font-size: 21px;
+        line-height: 25px;
+    }
+
+/*==================== Event & Blog Single Page =====================*/  
+    #event-detiles-section {
+        padding: 80px 0;
+    }
+    #event-detiles-section .event-info-section .info-row ul {
+        column-gap: 20px;
+    }
+    .jobsingle-content-section .content-row .content-column {
+        width: 100%;
+    }
+    .jobsingle-content-section .content-row .summary-column {
+        width: 100%;
+        margin-top: 40px;
+    }  
 }
 
 @media only screen and (max-width: 767px) {
@@ -449,6 +627,79 @@
         left: 25px;
     }
 
+/*========================= Fellow Member Page =========================*/
+    .fellow-member-section {
+        padding: 65px 0;
+    }
+    .fellow-member-section .fellow-row {
+        margin-top: 35px;
+    }
+    .fellow-member-section .fellow-row .fellow-items{
+        width: 100%;
+        padding: 30px 20px 25px 20px;
+    }
+    .fellow-member-section .fellow-row .fellow-items h3 {
+        font-size: 22px;
+        line-height: 28px;
+    }
+    .fellow-member-section .fellow-row .fellow-items {
+        width: 100%;
+    }
+
+/*====================== President Page ======================*/
+    .president-content-section .president-content-row {
+        padding: 63px 0 45px 0;
+    }
+    .president-content-section .president-content-row .left-column .name-tittle {
+        padding: 25px 20px;
+    }
+    .president-content-section .president-content-row .right-column h2 {
+        font-size: 45px;
+        line-height: 51px;
+        padding-bottom: 15px;
+    }
+    .president-content-section .president-content-row .left-column .name-tittle h3 {
+        font-size: 23px;
+        line-height: 32px;
+        margin-bottom: 6px;
+    }
+    .president-content-section .president-content-row .left-column .name-tittle p {
+        font-size: 19px;
+        line-height: 23px;
+    }
+    .president-content-section .president-content-row .left-column .contact-info {
+        padding: 25px 20px 10px 20px;
+    }
+    .president-content-section .president-content-row .left-column .contact-info ul li a {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .president-content-section .president-content-row .left-column .contact-info ul li{
+        margin-bottom: 7px;
+    }
+    .president-content-section .president-content-row .left-column .social-media {
+        padding: 15px 0;
+    }
+    .president-content-section .president-content-row .left-column .social-media ul {
+        column-gap: 10px;
+    }
+    .president-content-section .president-content-row .left-column .social-media ul li a {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+/*======================== Gallery Page ================*/  
+    .gallery-section {
+        padding: 43px 0 63px 0;
+    }
+    .gallery-section .gallery-button-section a {
+        line-height: 45px;
+        height: 47px;
+        max-width: 210px;
+    }
+
 
 
     .about-us-section {
@@ -470,11 +721,20 @@
         /* margin-top: 33px; */
     }
 
-    .jobsingle-content-section .content-row .content-column {
-        width: 100%;
+/*============================ Event & Blog Single Page =======================*/  
+    #event-detiles-section {
+        padding: 64px 0;
+    }  
+    .event-info-section {
+        padding: 25px;
     }
-    .jobsingle-content-section .content-row .summary-column {
-        width: 100%;
+    #event-detiles-section .event-info-section .info-row h2 {
+        font-size: 22px;
+        line-height: 30px;
+        margin-bottom: 20px;
+    }
+    #event-detiles-section .content-row .summary-column .job-summery {
+        padding: 25px 20px;
     }
 
 
@@ -568,6 +828,50 @@
         max-width: 100%;
     }
 
+/*======================== Fellow Member Page ===========================*/    
+    .fellow-row .fellow-items .image-column {
+        width: 100%;
+    }
+    .fellow-row .fellow-items .content-column {
+        width: 100%;
+        margin-top: 25px;
+    }
+    .fellow-member-section .fellow-row .fellow-items {
+        width: 100%;
+    }
+    .fellow-member-section .fellow-row .fellow-items h4 {
+        margin-top: 0px;
+    }
+    .fellow-row .fellow-items img{
+        height: auto;
+    }
+    .fellow-row .fellow-items p {
+        max-width: 100%;
+    }
+    .fellow-row .fellow-items li{
+        font-size: 14px;
+        line-height: 21px;
+        margin-bottom: 7px;
+    }
+    .fellow-row .fellow-items h3 {
+        font-size: 20px;
+        line-height: 26px;
+        margin-bottom: 7px;
+    }
+    .fellow-row .fellow-items p strong {
+        font-size: 14px;
+        line-height: 22px;
+    }
+    .fellow-row .fellow-items h4 {
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 0px;
+    }
+
+/*======================== gallery Page =========================*/
+    .gallery-section .gallery-items {
+        width: 100%;
+    }    
 
     .main-footer-section h2 {
         text-align: center;

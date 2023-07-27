@@ -12,7 +12,7 @@
 
 
 /*====================== World Wide CS ===============*/
-.world-wide-section{
+/* .world-wide-section{
 	padding: 100px 0;
 }
 .world-wide-section .section-heading h2 {
@@ -46,7 +46,7 @@
 }
 
 /* ========= president-content-section =========== */
-.president-content-section .president-content-row {
+/* .president-content-section .president-content-row {
 	display: flex;
 	flex-wrap: wrap;
 	padding: 100px 0;
@@ -134,11 +134,9 @@
 	padding-bottom: 40px;
 }
 .president-content-section .president-content-row .right-column p {
-	font-size: 16px;
-	line-height: 20px;
 	color: #111111;
 	padding-bottom: 17px;
-}
+}  */
 /*======================  Job Placement CS ===============*/
 .job-placement-section{
 	padding: 80px 0px;
