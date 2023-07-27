@@ -13,7 +13,7 @@
         <div class="breadcrumbs-row flex">
         <div class="left-column content-column">
             <div class="inner-column color-white">
-                <h1 class="breadcrumbs-heading blog-breadcrumbs-heading">Mohan Shaheed Dibosh and International Mother </h1>
+                <h1 class="breadcrumbs-heading blog-breadcrumbs-heading">{{$blog->title}}</h1>
             </div>
         </div>
     </div>

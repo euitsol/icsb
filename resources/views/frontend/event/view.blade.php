@@ -33,8 +33,7 @@
                     <div class="info-row">
                         <h2>{{$event->title}}</h2>
                         <ul class="flex">
-                            <li><i class="fa-solid fa-calendar-days"></i>{{ date('D d M Y', strtotime($event->event_start_time))}}</li>
-                            <li><i class="fa-regular fa-clock"></i>{{ date('H:i A', strtotime($event->event_start_time))}} – {{ date('H:i A', strtotime($event->event_end_time))}}</li>
+                            <li><i class="fa-solid fa-calendar-days"></i>{{ formatDateTimeRange($event->event_start_time, $event->event_end_time)}}</li>
                             <li><i class="fa-solid fa-briefcase"></i>Cantonese</li>
                         </ul>
                         <ul class="location-text">
