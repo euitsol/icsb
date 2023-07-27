@@ -7,12 +7,27 @@
         line-height: 20px;
     }
 }
+@media only screen and (max-width: 1300px){
+    .breadcrumbs-section .overly-image {
+        display: none;
+    }
+    .breadcrumbs-section .breadcrumbs-row .left-column {
+        width: 100%;
+    }
+    .breadcrumbs-section .breadcrumbs-row .left-column::after {
+        display: block;
+        left: 87%;
+        right: 0;
+    }
+    .breadcrumbs-heading {
+        max-width: 100%;
+    }
+}
 @media only screen and (max-width: 1200px){
     .recent-update-section .recent-update-row .item h3 {
         font-size: 19px;
         line-height: 25px;
     }
-
 
 /*============================ Fellow Member Page ===============================*/
      .fellow-member-section {
@@ -61,6 +76,12 @@
         height: 50px;
         max-width: 230px;
     }
+
+/*========================= Gajet Page =====================*/   
+    .gajet-section {
+        padding: 90px 0;
+    }
+
 /*===================== President Page ======================*/
     .president-content-section .president-content-row {
         padding: 90px 0 65px 0;
@@ -244,6 +265,60 @@
     .form-section .form-content {
         flex-wrap: wrap;
     }   
+
+/*======================== CPD Program Page =========================*/
+    .cpd-section {
+        padding: 80px 0;
+    }
+    .cpd-section .cpd-row {
+        row-gap: 22px;
+    }
+    .cpd-section .cpd-row .cpd-items {
+        width: 49%;
+    }    
+    .cpd-section .cpd-row .cpd-items .cpd-content h2 {
+        font-size: 18px;
+        line-height: 25px;
+        margin-bottom: 10px;
+    }
+
+/*=========================== Code of Conduct Page =======================*/ 
+    .codeof-conduct-section {
+        padding: 80px 0;
+    }   
+    .codeof-conduct-section .codeof-conduct-row .image-column {
+        width: 100%;
+        margin-bottom: 35px;
+    }    
+    .codeof-conduct-section .codeof-conduct-row .content-column {
+        width: 100%;
+    }
+/*======================== Board Meeting Page =========================*/
+    .director-metting-section {
+        padding: 63px 0;
+    }
+/*======================== CS Handbook Page ======================*/
+    .cs-handbook-section {
+        padding: 80px 0;
+    }
+/*======================= Exam Schedul Page ======================*/
+    .handbook-section .handbook-column {
+        flex-direction: column-reverse;
+    }
+    .handbook-section .handbook-column .new-handbook {
+        width: 100%;
+        margin-top: 35px;
+    }
+    .handbook-section .handbook-column .old-handbook {
+        width: 100%;
+    }    
+    .handbook-section {
+        padding: 80px 0 44px 0;
+    }
+    .handbook-section .handbook-column p {
+        margin-bottom: 25px;
+        max-width: 100%;
+    }
 }
 @media only screen and (max-width: 989px){
     .flex{
@@ -385,6 +460,11 @@
         height: 50px;
         max-width: 215px;
     }
+
+/*========================== Gajet Page ========================*/
+    .gajet-section {
+        padding: 80px 0;
+    }    
 
 /*======================== President Page ============================*/
     .president-content-section .president-content-row {
@@ -626,7 +706,6 @@
     .faq-section .faq-content .accordion-item .accordion-button::before {
         left: 25px;
     }
-
 /*========================= Fellow Member Page =========================*/
     .fellow-member-section {
         padding: 65px 0;
@@ -645,7 +724,13 @@
     .fellow-member-section .fellow-row .fellow-items {
         width: 100%;
     }
-
+/*====================== CPD Program Page =====================*/
+    .cpd-section {
+        padding: 63px 0;
+    }
+    .cpd-section .cpd-row .cpd-items {
+        width: 100%;
+    }    
 /*====================== President Page ======================*/
     .president-content-section .president-content-row {
         padding: 63px 0 45px 0;
@@ -689,7 +774,6 @@
         font-size: 16px;
         line-height: 22px;
     }
-
 /*======================== Gallery Page ================*/  
     .gallery-section {
         padding: 43px 0 63px 0;
@@ -699,8 +783,38 @@
         height: 47px;
         max-width: 210px;
     }
-
-
+/*======================= Code of Conduct Page =======================*/
+    .codeof-conduct-section {
+        padding: 63px 0;
+    }
+    .codeof-conduct-section .codeof-conduct-row h3 {
+        margin-top: 6px;
+        margin-bottom: 12px;
+    }
+/*======================== Board Meeting Page =========================*/
+    .director-metting-section {
+        padding: 63px 0;
+    }
+/*========================== CS Handbook Page ========================*/
+    .cs-handbook-section {
+        padding: 63px 0;
+    }
+    .cs-handbook-section .handbook-column {
+        row-gap: 40px;
+    }
+    .cs-handbook-section .handbook-column .new-handbook {
+        width: 100%;
+    }
+    .cs-handbook-section .handbook-column .old-handbook {
+        width: 100%;
+    }
+/*======================= Exam Schedul Page ======================*/
+    .handbook-section {
+        padding: 63px 0 30px 0;
+    }
+    .handbook-section .handbook-column h2 {
+        margin-bottom: 20px;
+    }
 
     .about-us-section {
         padding: 54px 0;
@@ -739,8 +853,8 @@
 
 
     .breadcrumbs-heading {
-        font-size: 33px;
-        line-height: 39px;
+        font-size: 30px;
+        line-height: 37px;
         max-width: 100%;
     }
     .breadcrumbs-section .breadcrumbs-row .left-column ul li a {
@@ -868,10 +982,32 @@
         margin-bottom: 0px;
     }
 
+/*========================= CPD Program Page ========================*/
+    .cpd-section .cpd-row .cpd-items .cpd-content h2 {
+        font-size: 18px;
+        line-height: 25px;
+        margin-bottom: 10px;
+    }    
+
 /*======================== gallery Page =========================*/
     .gallery-section .gallery-items {
         width: 100%;
     }    
+
+/*====================== Gajet Page Style ======================*/
+    .gajet-section {
+        padding: 63px 0;
+    }
+    .gajet-section .handbook-column {
+        row-gap: 23px;
+    }
+    .gajet-section .handbook-column .new-handbook {
+        width: 100%;
+    }
+    .gajet-section .handbook-column .old-handbook {
+        width: 100%;
+    }
+
 
     .main-footer-section h2 {
         text-align: center;
