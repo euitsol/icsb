@@ -128,6 +128,18 @@
     .faq-section .faq-content .accordion-item {
         margin-top: 14px;
     }
+
+    .form-section .detailes-column {
+        width: 100%;
+        padding: 30px 25px;
+    }
+    .form-section .form-column {
+        width: 100%;
+        padding: 40px 25px;
+    }
+    .form-section .form-content {
+        flex-wrap: wrap;
+    }
 }
 @media only screen and (max-width: 989px){
     .flex{
@@ -287,7 +299,7 @@
 
 
     .banner-section img{
-        height: 260px;
+        height: 350px;
         object-fit: cover;
     }
     .banner-section .carousel-control-prev {
@@ -295,6 +307,36 @@
     }
     .banner-section .carousel-control-next {
         display: none;
+    }
+    .news-ticker-section .ticker-title {
+        width: 160px;
+        padding: 10px 20px;
+    }
+    .news-ticker-section .ticker-title h3 {
+        font-size: 17px;
+        line-height: 28px;
+    }
+
+
+    .section-heading h2 {
+        margin-bottom: 10px;
+    }
+    .we-are-section {
+        padding: 65px 0 110px 0;
+    }
+    .we-are-section .we-are-coulmn .content-column {
+        width: 100%;
+        margin-top: 40px;
+    }
+    .we-are-section .we-are-coulmn .image-column{
+        width: 100%;
+    }
+    .we-are-section .we-are-coulmn .content-column p {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+    .we-are-section .we-are-coulmn .content-column a {
+        margin-top: 10px;
     }
 
 
@@ -435,6 +477,34 @@
         width: 100%;
     }
 
+
+    .breadcrumbs-heading {
+        font-size: 33px;
+        line-height: 39px;
+        max-width: 100%;
+    }
+    .breadcrumbs-section .breadcrumbs-row .left-column ul li a {
+        font-size: 16px;
+        line-height: 22px;
+    }
+    .breadcrumbs-section .breadcrumbs-row .left-column ul {
+        margin-top: 8px;
+    }
+    .breadcrumbs-section .overly-image {
+        display: none;
+    }
+    .breadcrumbs-section .breadcrumbs-row .left-column {
+        width: 100%;
+        height: 220px;
+    }
+    .breadcrumbs-section .breadcrumbs-row .left-column ul li p {
+        font-size: 16px;
+        line-height: 22px;
+    }
+    .breadcrumbs-section .breadcrumbs-row .left-column::after {
+        right: -573px;
+    }
+
     .our-events-section {
         padding: 60px 0;
     }
@@ -454,15 +524,8 @@
         row-gap: 6px;
     }
 
-    .form-section .form-content {
-        flex-wrap: wrap;
-    }
-    .form-section .detailes-column {
-        width: 100%;
-    }
-    .form-section .form-column {
-        width: 100%;
-        padding: 40px 25px;
+    .form-section {
+        padding: 65px 0;
     }
     .form-section h2 {
         font-size: 30px;
@@ -470,8 +533,29 @@
         margin-bottom: 22px;
         font-weight: 600;
     }
+    .form-section .detailes-column .deatiles-items h4 {
+        font-size: 20px;
+        line-height: 28px;
+        margin-top: -4px;
+    }
+    .form-section .detailes-column h3 {
+        font-size: 35px;
+        line-height: 41px;
+        margin-bottom: 30px;
+    }
+    .map-section iframe{
+        height: 350px;
+    }
 }
 @media only screen and (max-width: 600px){
+    .form-section .detailes-column .deatiles-items img {
+        width: 40px;
+        height: 40px;
+    }
+    .form-section .detailes-column .deatiles-items {
+        column-gap: 15px;
+        margin-top: 20px;
+    }
     .form-section .form-column input {
         width: 100%;
         height: 45px;
@@ -480,6 +564,7 @@
         row-gap: 20px;
     }
     .form-section .form-column .submit-button{
+        height: 50px;
         max-width: 100%;
     }
 

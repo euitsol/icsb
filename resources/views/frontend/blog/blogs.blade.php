@@ -1,6 +1,6 @@
 @extends('frontend.master')
 
-@section('title', 'Members')
+@section('title', 'Blogs')
 
 @section('content')
     <!----============================= Breadcrumbs Section ========================---->
@@ -31,7 +31,7 @@
                 <div class="col-md-6 col-lg-4 col-xl-3">
                     <div class="item">
                         <div class="logo-wrapp">
-                            <a href="#"><img src="{{storage_url($blog->thumbnail_image)}}" alt="..." /></a>
+                            <a href="{{route('blog_view.view',$blog->slug)}}"><img src="{{storage_url($blog->thumbnail_image)}}" alt="..." /></a>
                             <div class="post-content">
                                 <ul>
                                     <li>
@@ -41,7 +41,7 @@
                                         <a href="#"><i class="fa-solid fa-calendar-check"></i>{{ date('d M Y', strtotime($blog->created_at))}}</a>
                                     </li>
                                 </ul>
-                                <h3><a href="#">{{$blog->title}}</a></h3>
+                                <h3><a href="{{route('blog_view.view',$blog->slug)}}">{{$blog->title}}</a></h3>
                                 <p>{{ stringLimit(html_entity_decode_table($blog->description)) }}</p>
                             </div>
                         </div>

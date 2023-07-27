@@ -31,6 +31,7 @@
 	<link rel="stylesheet" href="{{asset('frontend/css/owl.theme.default.min.css')}}">
 	<!----------------------- Style Sheet -------------------------->
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/css/style.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('frontend/css/custom.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/css/responsive.css')}}">
 
     @stack('css')
