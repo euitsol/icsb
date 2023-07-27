@@ -33,7 +33,7 @@
                                 @foreach ($faqs as $faq)
                                     <tr>
                                         <td> {{ $faq->title }} </td>
-                                        <td> {{ $faq->description }} </td>
+                                        <td> {{ stringLimit(html_entity_decode_table($faq->description)) }} </td>
                                         <td> {{ timeFormate($faq->created_at)}} </td>
                                         <td> {{ $faq->created_user->name ?? 'system' }} </td>
                                         <td>

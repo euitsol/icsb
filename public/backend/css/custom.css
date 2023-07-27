@@ -41,6 +41,7 @@
     border-right: 0;
     font-family: 'FontAwesome', 'Second Font name';
 }
+
 .input-group>.contact_div>select {
     font-family: "Poppins", sans-serif !important;
 }
@@ -142,3 +143,8 @@
     top: 10%;
 }
 
+/* CKEDITOR css */
+.ck-rounded-corners .ck.ck-editor__main>.ck-editor__editable,
+.ck.ck-editor__main>.ck-editor__editable.ck-rounded-corners {
+    height: 50vh !important;
+}

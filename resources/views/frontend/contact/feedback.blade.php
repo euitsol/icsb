@@ -31,7 +31,7 @@
         <div class="form-content">
             <div class="detailes-column">
                 <h3>Contact Info.</h3>
-                @if(is_array(json_decode($contact->email)))
+                @if(isset($contact->email) && !empty(json_decode($contact->email)))
                 <div class="deatiles-items">
                     <div class="icon">
                         <img src="{{asset('frontend/img/contact/contact-email.png')}}" alt="Contact Email">
@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 @endif
-                @if(!empty(json_decode($contact->phone)))
+                @if(isset($contact->phone) && !empty(json_decode($contact->phone)))
                     @foreach ($contact_numbers as $key=>$numbers)
                         <div class="deatiles-items">
                             <div class="icon">
@@ -66,7 +66,7 @@
                         </div>
                     @endforeach
                 @endif
-                @if(is_array(json_decode($contact->location)))
+                @if(isset($contact->phone) && !empty(json_decode($contact->location)))
                     @foreach (json_decode($contact->location) as $key=>$location)
                         <div class="deatiles-items">
                             <div class="icon">

@@ -45,7 +45,7 @@
                                     </h2>
                                 <div id="collapseOne{{$key}}" class="accordion-collapse collapse @if($key == 0)show @endif" aria-labelledby="headingOne{{$key}}" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        {{$faq->description}}
+                                        {!! $faq->description !!}
                                     </div>
                                 </div>
                                 </div>
@@ -67,7 +67,7 @@
                                     </h2>
                                     <div id="flush-collapseOne{{$key}}" class="accordion-collapse collapse"
                                         aria-labelledby="flush-headingOne{{$key}}" data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body">{{ $faq->description }}</div>
+                                        <div class="accordion-body">{!! $faq->description !!}</div>
                                     </div>
                                 </div>
                             @endif

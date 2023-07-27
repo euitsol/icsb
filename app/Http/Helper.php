@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use League\Csv\Writer;
 use App\Models\Permission;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 use App\Models\SiteSetting;
 
 
@@ -105,7 +106,7 @@ function generateRandomPassword() {
 
     return $password;
 }
-function stringLimit($description, $limit, $end){
+function stringLimit($description, $limit = '50', $end = '...'){
     $shortSrting = Str::limit($description, $limit, $end);
     return $shortSrting;
 }
@@ -116,6 +117,26 @@ function member_id($id){
 function removeHttpProtocol($url)
 {
     return str_replace(['http://', 'https://'], '', $url);
+}
+
+function html_entity_decode_table($data){
+    return strip_tags(html_entity_decode($data));
+}
+
+function formatDateTimeRange($start_time, $end_time)
+{
+    $dateFormat = env('DATE_FORMAT', 'd-M-Y');
+    $timeFormat = env('TIME_FORMAT', 'H:i A');
+    $start = Carbon::parse($start_time);
+    $end = Carbon::parse($end_time);
+
+    // If the dates are the same, format the time range as "start_time - end_time"
+    if ($start->isSameDay($end)) {
+        return $start->format($dateFormat." ".$timeFormat) . ' - ' . $end->format($timeFormat);
+    } else {
+        // If the dates are different, format the time range as "start_time - end_time"
+        return $start->format($dateFormat." ".$timeFormat) . ' - ' . $end->format($dateFormat." ".$timeFormat);
+    }
 }
 
 function settings($key){
