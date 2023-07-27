@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="see-button text-align d-block">
-                <a href="#">See All Updates</a>
+                <a href="{{route('blog_view.all')}}">See All Updates</a>
             </div>
         </div>
     </div>

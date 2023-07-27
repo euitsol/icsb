@@ -20,6 +20,7 @@ use App\Http\Controllers\Backend\UserManagement\RoleController;
 use App\Http\Controllers\Backend\UserManagement\PermissionController;
 use App\Http\Controllers\Frontend\AboutPagesController;
 use App\Http\Controllers\Frontend\EventPagesController;
+use App\Http\Controllers\Frontend\BlogPagesController;
 use App\Http\Controllers\Frontend\CouncilPagesController;
 use App\Http\Controllers\Frontend\StudentsPagesController;
 use App\Http\Controllers\Frontend\MembersPagesController;
@@ -250,7 +251,11 @@ Route::group(['as' => 'about.', 'prefix' => 'about'], function () {
 });
 Route::group(['as' => 'event_view.', 'prefix' => 'event'], function () {
     Route::get('/all-events', [EventPagesController::class, 'events'])->name('all');
-    Route::get('/view/{title}', [EventPagesController::class, 'view'])->name('view');
+    Route::get('/view/{slug}', [EventPagesController::class, 'view'])->name('view');
+});
+Route::group(['as' => 'blog_view.', 'prefix' => 'blog'], function () {
+    Route::get('/all-blogs', [BlogPagesController::class, 'blogs'])->name('all');
+    Route::get('/view/{slug}', [BlogPagesController::class, 'view'])->name('view');
 });
 
 // Route::group(['as' => 'council.', 'prefix' => 'council'], function () {
@@ -275,7 +280,7 @@ Route::group(['as' => 'members.', 'prefix' => 'members'], function () {
     // Route::get('/fees', [MembersPagesController::class, 'fees'])->name('fees');
     // Route::get('/code-of-conduct', [MembersPagesController::class, 'codeOfConduct'])->name('code_of_conduct');
     // Route::get('/cpd-program', [MembersPagesController::class, 'cpdProgram'])->name('cpd_program');
-    Route::get('/member-search/{type}', [MembersPagesController::class, 'memberSearch'])->name('m_search');
+    Route::get('/member-search/{slug}', [MembersPagesController::class, 'memberSearch'])->name('m_search');
 
 });
 // Route::group(['as' => 'rules_and_regulations.', 'prefix' => 'rulse-&-regulations'], function () {
