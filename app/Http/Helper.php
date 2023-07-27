@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use League\Csv\Writer;
 use App\Models\Permission;
 use Illuminate\Support\Str;
+use App\Models\SiteSetting;
 
 
 //This will retun the route prefix of the routes for permission check
@@ -115,4 +116,9 @@ function member_id($id){
 function removeHttpProtocol($url)
 {
     return str_replace(['http://', 'https://'], '', $url);
+}
+
+function settings($key){
+    $settings = SiteSetting::where('key',$key)->where('deleted_at', null)->first();
+    return $settings->value;
 }
