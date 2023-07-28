@@ -403,6 +403,7 @@ h1,h2,h3,h4,h5,h6{
 }
 .we-are-section .we-are-coulmn{
 	align-items: center;
+	column-gap: 20px;
 	justify-content: space-between;
 }
 .we-are-section .we-are-coulmn .content-column h2{
@@ -694,7 +695,6 @@ h1,h2,h3,h4,h5,h6{
 
 
 /* ================= End Notice Section ============ */
-
 .recent-update-section{
 	padding: 102px 0 62px 0;
 	background-size: cover;
@@ -1095,7 +1095,7 @@ h1,h2,h3,h4,h5,h6{
 .national-connection-section{
 	padding: 105px 0;
 }
-.national-connection-section .national-connection .owl-item img{
+/* .national-connection-section .national-connection .owl-item img{
 	width: auto;
 	margin-left: auto;
 	margin-right: auto;
@@ -1146,7 +1146,7 @@ h1,h2,h3,h4,h5,h6{
 }
 .national-connection-section .owl-carousel .owl-nav button:hover {
 	background: #182456;
-}
+} */
 
 
 .breadcrumbs-section{
@@ -1564,6 +1564,9 @@ h1,h2,h3,h4,h5,h6{
 	width: 100%;
 	max-width: 100%;
 }
+
+
+
 
 /*================================ CS Handbook Page CSS =========================*/
 .cs-handbook-section{

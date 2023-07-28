@@ -138,6 +138,14 @@
     #event-detiles-section .event-info-section {
         padding: 30px;
     }
+/*============================= Objective Page =====================*/
+    .objectives-section {
+        padding: 90px 0;
+    }
+    .objectives-section .objective-row {
+        padding: 50px;
+    }
+
 
     .main-footer-section {
         padding: 55px 0 10px 0;
@@ -236,6 +244,22 @@
     }
 }
 @media only screen and (max-width: 1024px){
+    .breadcrumbs-section .breadcrumbs-row .left-column {
+        height: 300px;
+    }
+    .breadcrumbs-heading {
+        font-size: 45px;
+        line-height: 51px;
+    }
+    .breadcrumbs-section .breadcrumbs-row .left-column ul li a {
+        font-size: 17px;
+        line-height: 26px;
+    }
+    .breadcrumbs-section .breadcrumbs-row .left-column ul li p {
+        font-size: 17px;
+        line-height: 26px;
+    }
+
     .faq-section {
         padding-top: 75px;
         padding-bottom: 75px;
@@ -460,13 +484,11 @@
         height: 50px;
         max-width: 215px;
     }
-
 /*========================== Gajet Page ========================*/
     .gajet-section {
         padding: 80px 0;
     }    
-
-/*======================== President Page ============================*/
+/*======================= President Page ============================*/
     .president-content-section .president-content-row {
         padding: 78px 0 60px 0;
     }
@@ -501,7 +523,6 @@
         font-size: 21px;
         line-height: 25px;
     }
-
 /*==================== Event & Blog Single Page =====================*/  
     #event-detiles-section {
         padding: 80px 0;
@@ -516,6 +537,71 @@
         width: 100%;
         margin-top: 40px;
     }  
+/*============================= Objective Page ===========================*/
+    .objectives-section {
+        padding: 80px 0;
+    }
+    .objectives-section .objective-row {
+        padding: 50px 40px 30px 40px;
+    }
+    .objectives-section .objective-row .left-column {
+        width: 100%;
+    }    
+    .objectives-section .objective-row .left-column iframe{
+        width: 100%;
+    }
+    .objectives-section .objective-row .right-column {
+        width: 100%;
+        margin-top: 35px;
+    }   
+    .objectives-section .objective-row .right-column h2 {
+        margin-bottom: 20px;
+    } 
+/*====================== Mission & Vision Page =======================*/     
+    .mision-vision-section {
+        padding: 63px 0;
+    }
+    .vision-mission-section {
+        padding-bottom: 63px;
+    }
+    .vision-mission-section .mission-row {
+        max-width: 100%;
+        flex-direction: column-reverse;
+    } 
+    .mision-vision-section .mission-row .content-column, .vision-mission-section .mission-row .content-column {
+        left: 0;
+        padding: 45px 25px;
+        max-width: 100%;
+        border: 0;
+        outline: 0;
+    }
+    .mision-vision-section .mission-row .content-column h2, .vision-mission-section .mission-row .content-column h2 {
+        margin-bottom: 15px;
+    }
+    .mision-vision-section .content-column, .mision-vision-section .image-column, 
+    .vision-mission-section .mission-row .content-column, .vision-mission-section .mission-row .image-column{
+        width: 100%;
+    }
+
+
+    .executive-committee-section .committee-row {
+        row-gap: 45px;
+    }
+    .executive-committee-section .committee-row .committee-items {
+        justify-content: center;
+    }
+    .executive-committee-section .committee-row .committee-items img{
+        margin-bottom: 18px;
+    }
+    .executive-committee-section .committee-row .committee-items h3 {
+        font-size: 19px;
+        line-height: 27px;
+        max-width: 280px;
+        text-align: center;
+    }
+    .executive-committee-section .committee-row .committee-items li {
+        justify-content: center;
+    }
 }
 
 @media only screen and (max-width: 767px) {
@@ -528,8 +614,8 @@
         margin-bottom: 15px;
     }
     .common-heading{
-        font-size: 35px;
-        line-height: 41px;
+        font-size: 30px;
+        line-height: 36px;
     }
 
     .top-header-section .header-content-column {
@@ -815,11 +901,10 @@
     .handbook-section .handbook-column h2 {
         margin-bottom: 20px;
     }
-
+/*============================ About ICSB Page =========================*/
     .about-us-section {
         padding: 54px 0;
     }
-
     .about-us-section .about-us-row .image-column .first-image {
         width: 76%;
     }
@@ -827,7 +912,6 @@
         width: 76%;
         margin-top: -100px;
     }
-
     .about-us-section .about-us-row h2 {
         font-size: 40px;
         line-height: 60px;
@@ -850,8 +934,7 @@
     #event-detiles-section .content-row .summary-column .job-summery {
         padding: 25px 20px;
     }
-
-
+/*=========================== Breascrumb Section ====================*/    
     .breadcrumbs-heading {
         font-size: 30px;
         line-height: 37px;
@@ -878,7 +961,7 @@
     .breadcrumbs-section .breadcrumbs-row .left-column::after {
         right: -573px;
     }
-
+/*============================== Event Page ========================*/    
     .our-events-section {
         padding: 60px 0;
     }
@@ -920,8 +1003,114 @@
     .map-section iframe{
         height: 350px;
     }
+/*=========================== Objective Page ==============================*/
+    .objectives-section {
+        padding: 63px 0;
+    }
+    .objectives-section .container{
+        padding: 0;
+    }
+    .objectives-section .objective-row {
+        padding: 60px 30px 35px 30px;
+    }
+    .objectives-section .objective-row .right-column h2 {
+        margin-bottom: 15px;
+    }
+    .objectives-section .objective-row .right-column p {
+        margin-bottom: 15px;
+    }
+    .objectives-section .objective-row .left-column iframe{
+        width: 100%;
+    }
+/*================================ Mission & Vision Page ===============================*/   
+    .mision-vision-section {
+        padding: 63px 0;
+    }
+    .vision-mission-section {
+        padding-bottom: 63px;
+    }
+    .vision-mission-section .mission-row {
+        max-width: 100%;
+        flex-direction: column-reverse;
+    } 
+    .mision-vision-section .mission-row .content-column, .vision-mission-section .mission-row .content-column {
+        left: 0;
+        padding: 45px 25px;
+        max-width: 100%;
+        border: 0;
+        outline: 0;
+    }
+    .mision-vision-section .mission-row .content-column h2, .vision-mission-section .mission-row .content-column h2 {
+        margin-bottom: 15px;
+    }
+    .mision-vision-section .content-column, .mision-vision-section .image-column, 
+    .vision-mission-section .mission-row .content-column, .vision-mission-section .mission-row .image-column{
+        width: 100%;
+    }
+/*================================= Executive Member Page =============================*/   
+    .executive-committee-section {
+        padding: 63px 0;
+    }
+    .executive-committee-section .committee-row {
+        column-gap: 2%;
+    } 
+    .executive-committee-section .committee-row .committee-items {
+        width: 49%;
+        justify-content: center;
+        text-align: center;
+    }
+    .executive-committee-section .committee-row .committee-items h3 {
+        margin: 0 auto;
+        font-size: 20px;
+        line-height: 26px;
+        max-width: 250px;
+        padding-bottom: 12px;
+    }
+    .executive-committee-section .committee-row .committee-items img {
+        margin-bottom: 20px;
+    }
+    .executive-committee-section .committee-row .committee-items li {
+        justify-content: center;
+    }
 }
 @media only screen and (max-width: 600px){
+    .top-header-section .header-column {
+        column-gap: 10px;
+    }
+    .top-header-section .date-column{
+        column-gap: 21px;
+    }
+    .top-header-section .header-column p {
+        font-size: 15px;
+        font-weight: 400;
+        position: relative;
+    }
+    .top-header-section .header-column p::before{
+        content: '|';
+        left: -12px;
+        position: absolute;
+    }
+    .top-header-section .header-column p:first-child::before{
+        display: none;
+    }
+    .top-header-section .header-content-column {
+        flex-direction: column-reverse;
+    }
+    .top-header-section .header-column:first-child{
+        display: none;
+    }
+    .top-header-section .header-info-column a {
+        width: 160px;
+        font-size: 13px;
+        line-height: 24px;
+    }
+    .top-header-section .header-column p span{
+        display: none;
+    }
+    .top-header-section .header-info-column{
+        margin-bottom: 8px;
+    }
+
     .form-section .detailes-column .deatiles-items img {
         width: 40px;
         height: 40px;
@@ -1007,6 +1196,30 @@
     .gajet-section .handbook-column .old-handbook {
         width: 100%;
     }
+/*======================== Objective Page =======================*/
+    .objectives-section .objective-row {
+        padding: 60px 25px 35px 25px;
+    }
+    .objectives-section .objective-row .left-column iframe{
+        width: 100%;
+        height: 290px;
+        border: 5px double #fff;
+        outline: 5px solid #FF8601;
+    }
+/*========================= Excutive Member Page =====================*/
+    .executive-committee-section .committee-row .committee-items {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+    .executive-committee-section .committee-row .committee-items .content-column{
+        width: 100%;
+    }
+    .executive-committee-section .committee-row .committee-items .image-column{
+        width: 100%;
+    }
+
+
 
 
     .main-footer-section h2 {
