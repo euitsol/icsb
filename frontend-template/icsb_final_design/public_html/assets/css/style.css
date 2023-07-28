@@ -124,12 +124,24 @@ h1,h2,h3,h4,h5,h6{
 .top-header-section .header-column p{
 	color: #fff;
 	font-weight: 600;
+	position: relative;
 }
 .top-header-section .header-info-column a{
 	width: 190px;
 }
 .top-header-section .header-info-column a i{
 	margin-right: 4px;
+}
+.top-header-section .date-column {
+	column-gap: 30px;
+}
+.top-header-section .header-column p::before {
+	content: '|';
+	left: -17px;
+	position: absolute;
+}
+.top-header-section .header-column p:first-child:before{
+	display: none;
 }
 /*================== Header Section =====================*/
 .main-header-section{
@@ -1191,8 +1203,8 @@ h1,h2,h3,h4,h5,h6{
 }
 .breadcrumbs-section .breadcrumbs-row .left-column ul li a{
 	color: #fff;
-	font-size: 20px;
-	line-height: 26px;
+	font-size: 17px;
+	line-height: 25px;
 	transition: 0.4s;
 	text-transform: uppercase;
 }
@@ -1201,8 +1213,8 @@ h1,h2,h3,h4,h5,h6{
 }
 .breadcrumbs-section .breadcrumbs-row .left-column ul li p{
 	color: #F2F2F2;
-	font-size: 20px;
-	line-height: 26px;
+	font-size: 17px;
+	line-height: 25px;
 }
 
 /*========================== About ICSB Page CSS =========================*/
