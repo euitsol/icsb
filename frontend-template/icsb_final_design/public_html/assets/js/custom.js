@@ -21,6 +21,28 @@ $(document).ready(function(){
                 }
             }
     });
+    var owl = $('.nation-slider');
+    owl.owlCarousel({
+        // items:6,
+        loop:true,
+        margin:20,
+        nav: true,
+        dots: false,
+        autoplay:true,
+        autoplayTimeout:3000,
+        autoplayHoverPause:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:2
+            },
+            800:{
+                items:7
+            }
+        }
+});
 
         var owl = $('.recent-update-slider');
         owl.owlCarousel({

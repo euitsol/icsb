@@ -1117,20 +1117,11 @@ h1,h2,h3,h4,h5,h6{
 .national-connection-section{
 	padding: 105px 0;
 }
-/* .national-connection-section .national-connection .owl-item img{
+.national-connection-section .logo-carousel .owl-item img{
 	width: auto;
 	margin-left: auto;
 	margin-right: auto;
 	margin-right: auto;
-}
-.national-connection-section .national-connection .owl-item  h3{
-	color: #122F98;
-	font-family: 'Poppins', sans-serif;
-	font-size: 24px;
-	line-height: 30px;
-	text-transform: uppercase;
-	font-weight: 500;
-	margin-top: 35px;
 }
 .national-connection-section .owl-carousel .owl-nav.disabled {
 	display: block;
@@ -1141,6 +1132,10 @@ h1,h2,h3,h4,h5,h6{
 	display: flex;
 	justify-content: center;
 	position: relative;
+}
+.national-connection-section .owl-carousel{
+	display: flex;
+	align-items: center;
 }
 .national-connection-section .owl-carousel .owl-nav button {
 	color: #111111;
@@ -1153,6 +1148,9 @@ h1,h2,h3,h4,h5,h6{
 	margin: 0;
 	border-radius: 0;
 	transition: 0.4s;
+}
+.national-connection-section .owl-carousel .owl-nav{
+	margin-top: -45px;
 }
 .national-connection-section .owl-carousel .owl-nav .owl-prev {
 	left: -114px;
@@ -1168,7 +1166,7 @@ h1,h2,h3,h4,h5,h6{
 }
 .national-connection-section .owl-carousel .owl-nav button:hover {
 	background: #182456;
-} */
+}
 
 
 .breadcrumbs-section{
@@ -1652,6 +1650,9 @@ h1,h2,h3,h4,h5,h6{
 	margin-top: 23px;
 	outline: 3px solid #FF8601;
 	border: 4px double #062BB1;
+}
+.gallery-section .gallery-items a{
+	display: block;
 }
 .gallery-button-section{
 	margin-top: 43px;
