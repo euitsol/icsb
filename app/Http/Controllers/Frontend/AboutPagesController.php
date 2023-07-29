@@ -14,8 +14,6 @@ use App\Models\WWCS;
 class AboutPagesController extends Controller
 {
     public function __construct() {
-        // $this->contact = Contact::where('deleted_at', null)->first();
-        // view()->share('contact', $this->contact);
         $contact = Contact::where('deleted_at', null)->first();
         $memberTypes = memberType::where('deleted_at', null)->where('status', 1)->get();
         view()->share([
