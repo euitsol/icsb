@@ -508,6 +508,23 @@
     .founding-member-section{
         padding: 63px 0;
     }    
+
+    .global-page-section {
+        padding: 80px 0;
+    }
+    .global-page-section .global-row{
+        flex-direction: column-reverse;
+    }   
+    .global-page-section .global-row .left-column {
+        width: 100%;
+        margin-top: 45px;
+    }
+    .global-page-section .global-row .left-column table{
+        margin-top: 45px;
+    }
+    .global-page-section .global-row .right-column {
+        width: 100%;
+    }
 }
 @media only screen and (max-width: 989px){
     .flex{
@@ -1333,6 +1350,21 @@
     .world-wide-section .world-wide-column .cs-items h3 {
         font-size: 20px;
         line-height: 26px;
+    }
+/*=================== Global Table CSS ========================*/
+    .global-page-section {
+        padding: 63px 0;
+    } 
+    .global-page-section .global-row .left-column h2 {
+        font-size: 30px;
+        line-height: 36px;
+        margin-bottom: 13px;
+    }
+    .global-page-section .global-row .left-column table{
+        margin-top: 40px;
+    }
+    .global-table tr {
+        column-gap: 25px;
     }
 }
 @media only screen and (max-width: 600px){

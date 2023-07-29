@@ -2775,8 +2775,6 @@ h1,h2,h3,h4,h5,h6{
 	line-height: 56px;
 	max-width: 540px;
 }
-
-
 /*====================== World Wide CS ===============*/
 .world-wide-section{
 	padding: 100px 0;
@@ -2826,7 +2824,56 @@ h1,h2,h3,h4,h5,h6{
 	text-decoration: underline;
 	text-underline-offset: 2px;
 }
-
+/*================= Global Page Style ================*/
+.global-page-section{
+	padding: 100px 0;
+}
+.global-page-section .global-row{
+	column-gap: 5%;
+	margin-bottom: 60px;
+}
+.global-page-section .global-row .left-column{
+	width: 58%;
+}
+.global-page-section .global-row .left-column h2{
+	font-size: 40px;
+	line-height: 46px;
+	margin-bottom: 25px;
+}
+.global-page-section .global-row .left-column p{
+	margin-bottom: 20px;
+}
+.global-page-section .global-row .right-column{
+	width: 37%;
+}
+.global-gallery-section{
+	padding: 0;
+	margin-top: 50px;
+}
+.global-page-section .global-row .right-column img{
+	outline: 6px solid #B8C0C3;
+	border: 6px solid #ffffff;
+}
+.global-table table{
+	width: 100%;
+	/* max-width: 630px; */
+}
+.global-table tr{
+	display: flex;
+	column-gap: 66px;
+	padding: 10px 20px;
+	border: 1px solid #ddd;
+	justify-content: space-between;
+}
+.global-page-section .global-row {
+	margin-bottom: 65px;
+}
+.global-gallery-section{
+	padding: 0 !important;
+}
+.global-page-section .global-row .left-column table{
+	margin-top: 45px;
+}
 /* ========= president-content-section =========== */
 .president-content-section .president-content-row {
 	display: flex;
