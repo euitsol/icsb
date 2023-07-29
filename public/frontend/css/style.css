@@ -18,7 +18,7 @@ a:hover{
 }
 p{
 	margin: 0;
-	font-style: 16px;
+	font-size: 16px;
 	line-height: 22px;
 	font-weight: 400;
 	font-family: 'Poppins', sans-serif;
@@ -124,6 +124,7 @@ h1,h2,h3,h4,h5,h6{
 .top-header-section .header-column p{
 	color: #fff;
 	font-weight: 600;
+	position: relative;
 }
 .top-header-section .header-info-column a{
 	width: 190px;
@@ -131,9 +132,23 @@ h1,h2,h3,h4,h5,h6{
 .top-header-section .header-info-column a i{
 	margin-right: 4px;
 }
+.top-header-section .date-column {
+	column-gap: 30px;
+}
+.top-header-section .header-column p::before {
+	content: '|';
+	left: -17px;
+	position: absolute;
+}
+.top-header-section .header-column p:first-child:before{
+	display: none;
+}
 /*================== Header Section =====================*/
 .main-header-section{
 	padding: 18px 0;
+}
+.header-menu-section .mobile-header{
+	display: none;
 }
 .main-header-section .header-content img{
 	width: auto;
@@ -173,6 +188,13 @@ h1,h2,h3,h4,h5,h6{
 	font-style: italic;
 }
 /*====================== Header Menu Section =====================*/
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; 
+	z-index: 999;
+}
 .header-menu-section{
 	padding: 17px 0 12px 0;
 	background: #182456;
@@ -403,6 +425,7 @@ h1,h2,h3,h4,h5,h6{
 }
 .we-are-section .we-are-coulmn{
 	align-items: center;
+	column-gap: 20px;
 	justify-content: space-between;
 }
 .we-are-section .we-are-coulmn .content-column h2{
@@ -432,10 +455,16 @@ h1,h2,h3,h4,h5,h6{
 	background: #fff;
 }
 
-
 .president-section{
+	position: relative;
 	padding: 40px 0 63px 0;
 	background: #F2F2F2;
+}
+.president-section::after{
+	content: url("../img/metro-train.png");
+	right: 0;
+	bottom: 60px;
+	position: absolute;
 }
 .president-section .president-column{
 	column-gap: 7%;
@@ -688,7 +717,6 @@ h1,h2,h3,h4,h5,h6{
 
 
 /* ================= End Notice Section ============ */
-
 .recent-update-section{
 	padding: 102px 0 62px 0;
 	background-size: cover;
@@ -1089,7 +1117,7 @@ h1,h2,h3,h4,h5,h6{
 .national-connection-section{
 	padding: 105px 0;
 }
-.national-connection-section .national-connection .owl-item img{
+/* .national-connection-section .national-connection .owl-item img{
 	width: auto;
 	margin-left: auto;
 	margin-right: auto;
@@ -1140,7 +1168,7 @@ h1,h2,h3,h4,h5,h6{
 }
 .national-connection-section .owl-carousel .owl-nav button:hover {
 	background: #182456;
-}
+} */
 
 
 .breadcrumbs-section{
@@ -1185,8 +1213,8 @@ h1,h2,h3,h4,h5,h6{
 }
 .breadcrumbs-section .breadcrumbs-row .left-column ul li a{
 	color: #fff;
-	font-size: 20px;
-	line-height: 26px;
+	font-size: 17px;
+	line-height: 25px;
 	transition: 0.4s;
 	text-transform: uppercase;
 }
@@ -1195,8 +1223,8 @@ h1,h2,h3,h4,h5,h6{
 }
 .breadcrumbs-section .breadcrumbs-row .left-column ul li p{
 	color: #F2F2F2;
-	font-size: 20px;
-	line-height: 26px;
+	font-size: 17px;
+	line-height: 25px;
 }
 
 /*========================== About ICSB Page CSS =========================*/
@@ -1455,7 +1483,7 @@ h1,h2,h3,h4,h5,h6{
 	color: #fff;
 	font-size: 16px;
 	line-height: 27px;
-	font-weight: 400;
+	font-weight: 300;
 	max-width: 380px;
 }
 .form-section .detailes-column .deatiles-items a:hover{
@@ -1548,7 +1576,7 @@ h1,h2,h3,h4,h5,h6{
 	height: 190px;
 	padding-top: 14px;
 	transition: 0.4s;
-	border: 1px solid #707070;
+	border: 1px solid #182456;
 	font-family: 'Poppins', sans-serif;
 }
 .form-section .form-column textarea:focus{
@@ -1558,6 +1586,9 @@ h1,h2,h3,h4,h5,h6{
 	width: 100%;
 	max-width: 100%;
 }
+
+
+
 
 /*================================ CS Handbook Page CSS =========================*/
 .cs-handbook-section{
@@ -2262,6 +2293,94 @@ h1,h2,h3,h4,h5,h6{
 	padding: 50px 40px;
 }
 
+/*=========================== Library Page Style ============================*/
+.search-row{
+	max-width: 1225px;
+	margin: 0 auto;
+	justify-content: space-between;
+}
+.search-row .search-input{
+	width: 240px;
+	height: 38px;
+	padding: 6px 13px;
+	border: 1px solid #152360;
+}
+.search-row .search-button{
+	color: #fff;
+	height: 38px;
+	width: 45px;
+	margin-left: -4px;
+	border: 1px solid #152360;
+	background: #152360;
+}
+.search-row  .download-button a{
+	color: #fff;
+	width: 100%;
+	height: 40px;
+	font-size: 17px;
+	line-height: 19px;
+	max-width: 185px;
+	padding: 10px 52px;
+	background: #182456;
+	border: 1px solid #182456;
+}
+.search-row  .download-button a:hover{
+	color: #182456;
+	background: #ffffff;
+}
+.library-section{
+	padding: 100px 0;
+}
+.library-section .library-row{
+	max-width: 1225px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+.library-section .library-row .library-item{
+	align-items: center;
+	background: #F2F2F2;
+	padding: 15px 60px;
+	margin-bottom: 28px;
+	justify-content: space-between;
+}
+.library-section .library-row .library-item ul{
+	padding: 0;
+	margin: 0;
+	column-gap: 25px;
+	align-items: center;
+}
+.library-section .library-row .library-item a{
+	color: #111;
+	font-size: 22px;
+	line-height: 28px;
+	font-weight: 500;
+}
+.library-section .library-row .library-item a:hover{
+	color: #FF8601;
+}
+.library-section .library-row .library-item i{
+	color: #111;
+	font-size: 30px;
+	line-height: 36px;
+	margin-top: 2px;
+	transition: 0.4s;
+}
+.library-section .library-row .library-item i:hover{
+	color: #FF8601;
+}
+.library-section .pagination{
+	justify-content: flex-end;
+}
+.library-section .pagination .page-link{
+	color: #111;
+	border: none;
+	font-size: 18px;
+}
+.library-section .pagination .active{
+	color: #fff;
+	background: #182456;
+}
+
 /*========================= Exam Schedul Page Style ========================*/
 .handbook-section{
 	padding: 100px 0;
@@ -2757,15 +2876,26 @@ h1,h2,h3,h4,h5,h6{
 	padding-bottom: 40px;
 }
 .president-content-section .president-content-row .right-column p {
-	font-size: 16px;
-	line-height: 20px;
 	color: #111111;
 	padding-bottom: 17px;
 }
 /*=================== Footer Section ====================*/
 .main-footer-section{
+	position: relative;
 	padding: 65px 0 41px 0;
 	background: #182456;
+}
+.main-footer-section::after{
+	position: absolute;
+	top: 50px;
+	left: 50px;
+	content: url("../img/footer-shape.png");
+}
+.main-footer-section::before{
+	position: absolute;
+	content: url("../img/footer-shape.png");
+	right: 50px;
+	bottom: 35px;
 }
 .main-footer-section .footer-row{
 	padding: 0 57px;

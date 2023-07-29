@@ -41,7 +41,7 @@
                                             alt="{{ $wwcs->title }}">
                                         </td>
                                         <td> {{ $wwcs->url }} </td>
-                                        <td> {{ $wwcs->description }} </td>
+                                        <td> {{ stringLimit(html_entity_decode_table($wwcs->description)) }} </td>
                                         <td>
                                             @include('backend.partials.button', ['routeName' => 'wwcs.status.wwcs_edit','params' => [$wwcs->id], 'className' => $wwcs->getStatusClass(), 'label' => $wwcs->getStatus() ])
                                         </td>

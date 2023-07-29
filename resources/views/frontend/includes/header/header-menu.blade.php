@@ -44,7 +44,7 @@
                              <li><a class="dropdown-item" href="admission-form.html">Admission Form</a></li>
                              <li><a class="dropdown-item" href="admission-form.html">Member Search</a></li>
                              @foreach ($memberTypes as $mType)
-                                <li><a class="dropdown-item" href="{{route('members.m_search',$mType->title)}}">{{ $mType->title }}</a></li>
+                                <li><a class="dropdown-item" href="{{route('members.m_search',$mType->slug)}}">{{ $mType->title }}</a></li>
                              @endforeach
 
                            </ul>

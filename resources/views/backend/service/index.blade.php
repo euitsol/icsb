@@ -38,7 +38,7 @@
                                             src="@if ($service->image) {{ storage_url($service->image) }} @else {{ asset('no_img/no_img.jpg') }} @endif"
                                             alt="{{ $service->title }}">
                                         </td>
-                                        <td> {{ $service->description }} </td>
+                                        <td>{{ stringLimit(html_entity_decode_table($service->description)) }}</td>
                                         <td> {{ timeFormate($service->created_at) }} </td>
                                         <td> {{ $service->created_user->name ?? 'system' }} </td>
                                         <td>

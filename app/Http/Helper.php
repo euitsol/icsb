@@ -5,6 +5,8 @@ use League\Csv\Writer;
 use App\Models\Permission;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
+use App\Models\SiteSetting;
+
 
 //This will retun the route prefix of the routes for permission check
 function get_permission_routes()
@@ -135,4 +137,19 @@ function formatDateTimeRange($start_time, $end_time)
         // If the dates are different, format the time range as "start_time - end_time"
         return $start->format($dateFormat." ".$timeFormat) . ' - ' . $end->format($dateFormat." ".$timeFormat);
     }
+}
+
+function settings($key){
+    $setting = SiteSetting::where('key',$key)->where('deleted_at', null)->first();
+    if($setting){
+        return $setting->value;
+    }
+}
+function getYoutubeVideoId($url) {
+    $videoId = '';
+    parse_str(parse_url($url, PHP_URL_QUERY), $params);
+    if (isset($params['v'])) {
+        $videoId = $params['v'];
+    }
+    return $videoId;
 }

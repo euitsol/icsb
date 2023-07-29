@@ -88,12 +88,26 @@ $(document).ready(function(){
                 },
                 600:{
                     items:3
+                },
+                800:{
+                    items:3
                 }
             }
     });
 
   });
+// Sticky Nav Menu
 
+    $(window).scroll(function(){
+        if ($(window).scrollTop() >= 300) {
+            $('.header-menu-section').addClass('fixed-header');
+            // $('nav div').addClass('visible-title');
+        }
+        else {
+            $('.header-menu-section').removeClass('fixed-header');
+            // $('nav div').removeClass('visible-title');
+        }
+    });
 
 //  Custom jQuery apply
     $(document).ready(function(){
