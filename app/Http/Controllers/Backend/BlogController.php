@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\BlogCategoryRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Blog;
 use App\Http\Requests\BlogRequest;
+use App\Models\BlogCategory;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 
@@ -20,12 +22,14 @@ class BlogController extends Controller
 
     public function index(): View
     {
-        $n['blogs'] = Blog::where('deleted_at', null)->latest()->get();
-        return view('backend.blog.index',$n);
+        $s['blogs'] = Blog::where('deleted_at', null)->latest()->get();
+        $s['blog_cats'] = BlogCategory::where('deleted_at', null)->latest()->get();
+        return view('backend.blog.index',$s);
     }
     public function create(): View
     {
-        return view('backend.blog.create');
+        $s['blog_cats'] = BlogCategory::where('status',1)->where('deleted_at', null)->latest()->get();
+        return view('backend.blog.create',$s);
     }
     public function store(BlogRequest $request): RedirectResponse
     {
@@ -69,6 +73,7 @@ class BlogController extends Controller
         $blog->files = json_encode($data);
         $blog->title = $request->title;
         $blog->slug = $request->slug;
+        $blog->category_id = $request->category_id;
         $blog->description = $request->description;
         $blog->created_by = auth()->user()->id;
         $blog->save();
@@ -76,8 +81,9 @@ class BlogController extends Controller
     }
     public function edit($id): View
     {
-        $n['blog'] = Blog::findOrFail($id);
-        return view('backend.blog.edit', $n);
+        $s['blog'] = Blog::findOrFail($id);
+        $s['blog_cats'] = BlogCategory::where('status',1)->where('deleted_at', null)->latest()->get();
+        return view('backend.blog.edit', $s);
     }
 
     public function singleFileDelete($id, $key): RedirectResponse
@@ -140,6 +146,7 @@ class BlogController extends Controller
         if($blog->title != $request->title){
             $blog->slug = $request->slug;
         }
+        $blog->category_id = $request->category_id;
         $blog->title = $request->title;
         $blog->description = $request->description;
         $blog->updated_by = auth()->user()->id;
@@ -188,4 +195,57 @@ class BlogController extends Controller
             return redirect()->back()->withStatus(__($blog->title.' remove from featured successfully.'));
         }
     }
+
+    // Blog Category
+    public function cat_create():View
+    {
+        return view('backend.blog.cat_create');
+    }
+
+    public function cat_store(BlogCategoryRequest $request): RedirectResponse
+    {
+
+        $cat = new BlogCategory;
+        $cat->name = $request->name;
+        $cat->slug = $request->slug;
+        $cat->created_by = auth()->user()->id;
+        $cat->save();
+
+        return redirect()->route('blog.blog_list')->withStatus(__('Blog Category '.$cat->name.' created successfully.'));
+    }
+
+    public function cat_edit($id):View
+    {
+        $s['cat'] = BlogCategory::findOrFail($id);
+        return view('backend.blog.cat_edit',$s);
+    }
+
+    public function cat_update(BlogCategoryRequest $request, $id): RedirectResponse
+    {
+        $cat = BlogCategory::findOrFail($id);
+        $cat->name = $request->name;
+        $cat->slug = $request->slug;
+        $cat->updated_by = auth()->user()->id;
+        $cat->save();
+
+        return redirect()->route('blog.blog_list')->withStatus(__('Blog Category '.$cat->name.' updated successfully.'));
+    }
+
+    public function cat_status($id): RedirectResponse
+    {
+        $cat = BlogCategory::findOrFail($id);
+        $this->statusChange($cat);
+        return redirect()->route('blog.blog_list')->withStatus(__($cat->name.' status updated successfully.'));
+    }
+
+    public function cat_delete($id): RedirectResponse
+    {
+        $cat = BlogCategory::findOrFail($id);
+        if($cat->blogs->count() > 0){
+            return redirect()->route('blog.blog_list')->withStatus(__($cat->name.' has '.$cat->blogs->count().' blogs assigned. Can\'t be deleted. Best option is to deactivate it.'));
+        }
+        $this->soft_delete($cat);
+        return redirect()->route('blog.blog_list')->withStatus(__('Category '.$cat->name.' deleted successfully.'));
+    }
+
 }
