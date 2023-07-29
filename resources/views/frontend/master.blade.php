@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>
-        @yield('title', 'ICSB') ICSB - Institute of Chartered Secretaries of Bangladesh
+        @yield('title', 'ICSB') CS Bangladesh
     </title>
 	<!------------- Teko Font Family ----------------->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,6 +30,7 @@
 	<link rel="stylesheet" href="{{asset('frontend/css/owl.carousel.min.css')}}">
 	<link rel="stylesheet" href="{{asset('frontend/css/owl.theme.default.min.css')}}">
 	<!----------------------- Style Sheet -------------------------->
+    <link rel="icon" href="{{storage_url(settings('site_favicon'))}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/css/style.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/css/custom.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/css/responsive.css')}}">

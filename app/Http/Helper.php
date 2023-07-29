@@ -140,8 +140,10 @@ function formatDateTimeRange($start_time, $end_time)
 }
 
 function settings($key){
-    $settings = SiteSetting::where('key',$key)->where('deleted_at', null)->first();
-    return $settings->value;
+    $setting = SiteSetting::where('key',$key)->where('deleted_at', null)->first();
+    if($setting){
+        return $setting->value;
+    }
 }
 function getYoutubeVideoId($url) {
     $videoId = '';

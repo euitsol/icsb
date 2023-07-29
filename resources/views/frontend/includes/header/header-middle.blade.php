@@ -3,7 +3,7 @@
         <div class="main-header-column">
             <div class="header-content text-align">
                 <div class="logo-column">
-                    <a href=""><img src="{{asset('frontend/img/logo.svg')}}"></a>
+                    <a href=""><img src="{{storage_url(settings('site_logo'))}}"></a>
                 </div>
                 <a href="{{route('home')}}"><h1>{{settings('site_name')}}</h1></a>
                 <h2>A Statutory Body under an Act of Parliament</h2>
