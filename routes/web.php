@@ -15,6 +15,7 @@ use App\Http\Controllers\Backend\WWCSController;
 use App\Http\Controllers\Backend\NationalAwardController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\BannerController;
+use App\Http\Controllers\Backend\ICSBProfileController;
 use App\Http\Controllers\Backend\MemberController;
 use App\Http\Controllers\Backend\UserManagement\RoleController;
 use App\Http\Controllers\Backend\UserManagement\PermissionController;
@@ -223,6 +224,15 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::put('member-type/edit/{id}', [MemberController::class, 'mt_update'])->name('member_type_edit');
         Route::get('member-type/status/{id}', [MemberController::class, 'mt_status'])->name('status.member_type_edit');
         Route::get('member-type/delete/{id}', [MemberController::class, 'mt_delete'])->name('member_type_delete');
+    });
+    // ICSB Profile
+    Route::group(['as' => 'icsb_profile.', 'prefix' => 'icsb-profile'], function () {
+        Route::get('create', [ICSBProfileController::class, 'index'])->name('icsb_profile_create');
+        Route::post('create', [ICSBProfileController::class, 'store'])->name('icsb_profile_create');
+        // Route::get('edit/{id}',      [ICSBProfileController::class, 'edit'])->name('icsb_profile_edit');
+        // Route::put('edit/{id}',      [ICSBProfileController::class, 'update'])->name('icsb_profile_edit');
+        // Route::get('status/{id}',      [ICSBProfileController::class, 'status'])->name('status.icsb_profile_edit');
+        // Route::get('delete/{id}', [ICSBProfileController::class, 'delete'])->name('icsb_profile_delete');
     });
 
 });
