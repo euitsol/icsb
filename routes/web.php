@@ -16,6 +16,7 @@ use App\Http\Controllers\Backend\NationalAwardController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\BannerController;
 use App\Http\Controllers\Backend\MemberController;
+use App\Http\Controllers\Backend\SinglePagesController;
 use App\Http\Controllers\Backend\UserManagement\RoleController;
 use App\Http\Controllers\Backend\UserManagement\PermissionController;
 use App\Http\Controllers\Frontend\AboutPagesController;
@@ -236,6 +237,14 @@ Route::get('/export-permissions', function () {
 
     return Response::download($filePath, $filename);
 })->name('export.permissions');
+Route::get('/single-page/create', [SinglePagesController::class, 'create'])->name('sp.create');
+Route::post('/single-page/store', [SinglePagesController::class, 'store'])->name('sp.store');
+
+
+Route::get('/single-page/show/{page_slug}', [SinglePagesController::class, 'show'])->name('sp.show');
+Route::post('/single-page/store/{page_slug}', [SinglePagesController::class, 'form_store'])->name('sp.form.store');
+
+
 
 //Frontend Routes
 
