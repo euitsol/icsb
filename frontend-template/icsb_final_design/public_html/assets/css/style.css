@@ -42,6 +42,10 @@ h1,h2,h3,h4,h5,h6{
 .flex{
 	display: flex;
 }
+.z-index{
+	z-index: 11;
+	position: relative;
+}
 .text-align{
 	text-align: center;
 }
@@ -719,7 +723,7 @@ h1,h2,h3,h4,h5,h6{
 
 /* ================= End Notice Section ============ */
 .recent-update-section{
-	padding: 102px 0 62px 0;
+	padding: 102px 0 120px 0;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -781,7 +785,7 @@ h1,h2,h3,h4,h5,h6{
 	background: #fff;
 }
 .recent-update-section .recent-update-row .owl-theme .owl-dots{
-	margin-top: 135px;
+	margin-top: 65px;
 }
 .recent-update-section .recent-update-row .owl-theme .owl-dots .owl-dot span{
 	width: 40px;
@@ -2773,41 +2777,54 @@ h1,h2,h3,h4,h5,h6{
 }
 
 
-
-
-
 /*====================== World Wide CS ===============*/
 .world-wide-section{
 	padding: 100px 0;
 }
-.world-wide-section .section-heading h2 {
-	font-size: 70px;
-	line-height: 76px;
-	margin-bottom: 70px;
+.world-wide-section .world-wide-column{
+	column-gap: 2%;
+	flex-wrap: wrap;
+	row-gap: 30px;
 }
-.world-wide-section .world-wide-column {
-	column-gap: 25px;
-	padding-bottom: 25px;
+.world-wide-section .world-wide-column .cs-items{
+	width: 32%;
 }
-.world-wide-section .world-wide-column .world-wide-item {
-	background: #F2F2F2;
-	width: 49%;
-	padding: 72px 40px 0 40px;
-	min-height: 654px;
+.world-wide-section .world-wide-column .cs-items h3{
+	color: #fff;
+	padding: 15px;
+	font-size: 23px;
+	line-height: 29px;
+	background: #182456;
 }
-.world-wide-section img{
-	width: auto;
+.world-wide-section .world-wide-column .cs-items img{
+	width: fit-content;
+	left: 50%;
+	position: relative;
+	margin-top: 28px;
+	margin-bottom: 30px;
+	transform: translateX(-50%);
 }
-.world-wide-section .world-wide-column .world-wide-item .chart-heading {
-	padding-bottom: 25px;
+.world-wide-section .world-wide-column .cs-items ul{
+	padding: 0;
+	margin: 0;
+	column-gap: 40px;
+	justify-content: center;
+	padding-bottom: 40px;
 }
-.world-wide-section .world-wide-column .world-wide-item .chart-link {
-	padding-top: 24px;
+.world-wide-section .world-wide-column .cs-items ul li i{
+	margin-right: 5px;
 }
-.world-wide-section .world-wide-column .world-wide-item .society-text {
-	max-width: 330px;
-	margin: 0 auto;
-	padding-bottom: 25px;
+.world-wide-section .world-wide-column .cs-items ul li a{
+	color: #182456;
+	font-size: 17px;
+	line-height: 25px;
+}
+.world-wide-section .world-wide-column .cs-items ul li a:hover{
+	color: #FF8601;
+}
+.world-wide-section .world-wide-column .cs-items ul li span{
+	text-decoration: underline;
+	text-underline-offset: 2px;
 }
 
 /* ========= president-content-section =========== */

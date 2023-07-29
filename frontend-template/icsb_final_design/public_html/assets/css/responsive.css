@@ -504,19 +504,6 @@
         padding: 64px 0;
     }
 
-    .world-wide-section .world-wide-column .world-wide-item {
-        min-height: 620px;
-        padding: 30px 30px 0 30px;
-    }
-    .world-wide-section .world-wide-column .world-wide-item .chart-heading {
-        padding-bottom: 16px;
-        font-size: 23px;
-        line-height: 30px;
-    }
-    .world-wide-section img {
-        width: 210px;
-        object-fit: cover;
-    }
 /*=================== Founding Members Page ===========================*/
     .founding-member-section{
         padding: 63px 0;
@@ -814,18 +801,6 @@
         line-height: 25px;
         margin-bottom: 18px;
     }    
-/*======================== World Wide CS ======================*/
-    .world-wide-section .world-wide-column .world-wide-item {
-        width: 100%;
-        margin-bottom: 30px;
-        min-height: 0;
-        padding: 25px 35px 40px 35px;
-    }   
-    .world-wide-section .section-heading h2 {
-        font-size: 40px;
-        line-height: 46px;
-        margin-bottom: 35px;
-    }
 
     .job-detailes-section {
         padding: 80px 0 30px 0;
@@ -836,6 +811,21 @@
     .job-detailes-section .job-row .job-detail-item ul{
         padding: 0;
         margin: 0;
+    }
+/*======================= World Wide CS =======================*/   
+    .world-wide-section {
+        padding: 80px 0;
+    }
+    .world-wide-section .world-wide-column {
+        column-gap: 3%;
+        row-gap: 25px;
+    } 
+    .world-wide-section .world-wide-column .cs-items {
+        width: 48.5%;
+    }
+    .world-wide-section .world-wide-column .cs-items h3 {
+        font-size: 21px;
+        line-height: 27px;
     }
 }
 @media only screen and (max-width: 991px){
@@ -1333,16 +1323,19 @@
         width: 100%;
         margin-top: -18px;
     }
-
-/*==================== World Wide CS ===========================*/
-    .world-wide-section .section-heading h2 {
-        font-size: 35px;
-        line-height: 41px;
-        margin-bottom: 35px;
+/*===================== World Wide CSS ==========================*/
+    .world-wide-section {
+        padding: 63px 0;
+    }
+    .world-wide-section .world-wide-column .cs-items {
+        width: 100%;
     }    
+    .world-wide-section .world-wide-column .cs-items h3 {
+        font-size: 20px;
+        line-height: 26px;
+    }
 }
 @media only screen and (max-width: 600px){
-
     .faq-section .faq-content .accordion-item .collapsed {
         font-size: 15px;
         line-height: 21px;
@@ -1455,17 +1448,7 @@
     .executive-committee-section .committee-row .committee-items .image-column{
         width: 100%;
     }
-/*=================== World Wide CS =======================*/
-    .world-wide-section img {
-        width: 200px;
-        object-fit: cover;
-    }
-    .world-wide-section .world-wide-column .world-wide-item .chart-heading {
-        padding-bottom: 15px;
-    }
-
-
-
+/*============================ Footer Section =======================*/
     .main-footer-section h2 {
         text-align: center;
     }
