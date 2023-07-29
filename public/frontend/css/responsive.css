@@ -7,10 +7,193 @@
         line-height: 20px;
     }
 }
+@media only screen and (max-width: 1405px){
+/*====================== Event Page Style ======================*/
+    .our-events-section .events-row{
+        column-gap: 3%;
+    }
+    .our-events-section .events-row .item {
+        width: 48.5%;
+        align-items: center;
+        display: flex;
+    }  
+}
+@media only screen and (max-width: 1300px){
+    .top-header-section .header-column {
+        column-gap: 17px;
+    }
+    .top-header-section .header-column a {
+        width: 135px;
+    }
+    .top-header-section .header-info-column a {
+        width: 175px;
+    }
+    .top-header-section .header-column p span{
+        display: none;
+    }
+    .top-header-section .header-column p::before {
+        left: -11px;
+    }
+
+
+    .breadcrumbs-section .overly-image {
+        display: none;
+    }
+    .breadcrumbs-section .breadcrumbs-row .left-column {
+        width: 100%;
+    }
+    .breadcrumbs-section .breadcrumbs-row .left-column::after {
+        display: block;
+        left: 87%;
+        right: 0;
+    }
+    .breadcrumbs-heading {
+        max-width: 100%;
+    }
+
+
+    .job-detailes-section .job-row {
+        row-gap: 20px;
+        flex-wrap: wrap;
+    }
+    .job-detailes-section .job-row .job-detail-item {
+        width: 50%;
+    }
+    .job-detailes-section .job-row .job-detail-item ul{
+        padding: 0;
+        margin: 0;
+    }
+}
 @media only screen and (max-width: 1200px){
+    .main-header-section {
+        padding: 36px 0 10px 0;
+    }
+    .main-header-section .header-content h1 {
+        font-size: 45px;
+        line-height: 51px;
+        margin-top: 0px;
+        margin-bottom: 15px;
+    }
     .recent-update-section .recent-update-row .item h3 {
         font-size: 19px;
         line-height: 25px;
+    }
+
+/*============================ Fellow Member Page ===============================*/
+     .fellow-member-section {
+        padding: 70px 0;
+    }
+    .fellow-member-section .fellow-row{
+        row-gap: 23px;
+        column-gap: 3%;
+        margin-top: 35px;
+    }
+    .fellow-member-section .fellow-row .fellow-items {
+        width: 48.5%;
+        flex-wrap: wrap;
+        padding: 28px 20px 25px 20px;
+    }
+    .fellow-member-section .fellow-row .fellow-items .image-column {
+        width: 100%;
+    }   
+    .fellow-member-section .fellow-row .fellow-items .content-column {
+        width: 100%;
+    } 
+    .fellow-member-section .fellow-row .fellow-items li {
+        font-size: 15px;
+        line-height: 21px;
+    }
+    .fellow-member-section .fellow-row .fellow-items h3 {
+        font-size: 20px;
+        line-height: 26px;
+    }
+    .fellow-member-section .fellow-row .fellow-items img {
+        height: auto;
+    }
+    .fellow-member-section .fellow-row .fellow-items p {
+        max-width: 100%;
+    }
+    .fellow-member-section .fellow-row .fellow-items h4 {
+        margin-top: 22px;
+    }
+
+/*========================= Gallery Page ====================*/
+    .gallery-section {
+        padding: 70px 0 89px 0;
+    }    
+    .gallery-section .gallery-button-section a {
+        line-height: 48px;
+        height: 50px;
+        max-width: 230px;
+    }
+
+/*========================= Gajet Page =====================*/   
+    .gajet-section {
+        padding: 90px 0;
+    }
+
+/*===================== President Page ======================*/
+    .president-content-section .president-content-row {
+        padding: 90px 0 65px 0;
+    }
+    .president-content-section .president-content-row .right-column h2 {
+        font-size: 60px;
+        line-height: 64px;
+        padding-bottom: 15px;
+    }   
+    .president-content-section .president-content-row .left-column .name-tittle {
+        padding: 35px 20px 35px 20px;;
+    } 
+    .president-content-section .president-content-row .left-column .name-tittle h3 {
+        font-size: 24px;
+        line-height: 30px;
+        margin-bottom: 5px;
+    }
+    .president-content-section .president-content-row .left-column .name-tittle p {
+        font-size: 19px;
+        line-height: 26px;
+    }
+    .president-content-section .president-content-row .left-column .contact-info {
+        background: #F2F2F2;
+        padding: 37px 20px 18px 20px;
+    }
+    .president-content-section .president-content-row .left-column .contact-info {
+        background: #F2F2F2;
+        padding: 23px 20px 6px 20px;
+    }
+    .president-content-section .president-content-row .left-column .contact-info ul li a {
+        font-size: 16px;
+        line-height: 22px;
+    }
+    .president-content-section .president-content-row .left-column .contact-info ul li{
+        margin-bottom: 12px;
+    }
+    .president-content-section .president-content-row .left-column .social-media {
+        padding: 15px 0;
+    }
+    .president-content-section .president-content-row .left-column .social-media ul li a {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+        line-height: 22px;
+    }
+    .president-content-section .president-content-row .left-column .social-media ul {
+        column-gap: 13px;
+    }
+
+/*==================== Event & Blog Single Page =====================*/  
+    #event-detiles-section .event-info-section .info-row ul {
+        column-gap: 20px;
+    }
+    #event-detiles-section .event-info-section {
+        padding: 30px;
+    }
+/*============================= Objective Page =====================*/
+    .objectives-section {
+        padding: 90px 0;
+    }
+    .objectives-section .objective-row {
+        padding: 50px;
     }
 
 
@@ -71,7 +254,7 @@
         display: none;
     }
     .header-menu-section .navbar-brand img{
-        width: 160px;
+        width: 145px;
     }
     .header-menu-section .navbar-toggler {
         position: relative;
@@ -109,8 +292,130 @@
         left: 0;
         transition: all 0.2s;
     }
+    .header-menu-section .navbar-nav {
+        row-gap: 12px;
+        margin-bottom: 0 !important;
+    }
+    .header-menu-section .navbar-nav li a {
+        color: #111;
+        font-size: 16px;
+        line-height: 22px;
+    }
+    .header-menu-section .navbar-nav li .active {
+        color: #111;
+    }
+    #navbarSupportedContent{
+        position: absolute;
+        top: 100%;
+        width: calc(100% + 60px);
+        background: #122F98;
+        left: 0;
+        margin-left: -30px;
+        z-index: 999999999999;
+    }
+    .header-menu-section .navbar-nav .dropdown-menu {
+        margin: 0 auto;
+    }
+
+
+
+    .header-menu-section .mobile-header{
+        display: block;
+        position: fixed;
+        background: #182456;
+    }
+    .main{
+        margin-top: -14px;
+    }
+    .header-menu-section .mobile-header .container-fluid{
+        padding: 0;
+    }
+    .header-menu-section .bg-body-tertiary{
+        padding: 10px 20px;
+        background-color: #182456 !important;
+    }
+    .header-menu-section .mobile-header .navbar-toggler-icon{
+        color: #fff;
+        font-size: 40px;
+        background-image: none;
+    }
+    .header-menu-section .desktop-menu{
+        display: none;
+    }
+    .header-menu-section .navbar-nav li a {
+        text-align: left;
+        display: inline-block;
+    }
+    .header-menu-section .offcanvas-header{
+        padding: 20px 30px 10px 30px;
+    }
+    .header-menu-section .offcanvas-header .btn-close{
+        font-size: 23px;
+    }
+    .header-menu-section .offcanvas-body{
+        padding: 10px 30px;
+        margin-top: 25px;
+    }
+    .header-menu-section .offcanvas-body form{
+        margin-top: 40px !important; 
+        margin-bottom: 45px;
+    }
+    .header-menu-section .offcanvas-body form input{
+        border-radius: 0;
+        outline-offset: 0;
+        margin-right: 0 !important;
+        border: 1px solid #182456;
+    }
+    .header-menu-section .offcanvas-body form input:hover{
+        outline: 0;
+    }
+    .header-menu-section .offcanvas-body form input:focus{
+        outline: 0;
+    }
+    .header-menu-section .offcanvas-body form .btn{
+        color: #fff;
+        border-radius: 0;
+        border: none;
+        background: #182456;
+        border: 1px solid #182456;
+    }
+    .header-menu-section .mobile-menu-button{
+        column-gap: 16px;
+        flex-wrap: nowrap;
+    }
+    .mobile-menu-button a{
+        width: 100%;
+        max-width: 170px;
+        color: #182456;
+        border-radius: 100px;
+        border: 1px solid #182456;
+        font-size: 13px;
+        height: 35px;
+        line-height: 34px;
+        text-align: center;
+    }
+    .mobile-menu-button a:hover{
+        color: #fff;
+        background: #182456;
+    }
 }
 @media only screen and (max-width: 1024px){
+    .breadcrumbs-section .breadcrumbs-row .left-column {
+        height: 300px;
+    }
+    .breadcrumbs-heading {
+        font-size: 45px;
+        line-height: 51px;
+    }
+    .breadcrumbs-section .breadcrumbs-row .left-column ul li a {
+        font-size: 17px;
+        line-height: 26px;
+    }
+    .breadcrumbs-section .breadcrumbs-row .left-column ul li p {
+        font-size: 17px;
+        line-height: 26px;
+    }
+
     .faq-section {
         padding-top: 75px;
         padding-bottom: 75px;
@@ -139,15 +444,116 @@
     }
     .form-section .form-content {
         flex-wrap: wrap;
+    }   
+
+/*======================== CPD Program Page =========================*/
+    .cpd-section {
+        padding: 80px 0;
+    }
+    .cpd-section .cpd-row {
+        row-gap: 22px;
+    }
+    .cpd-section .cpd-row .cpd-items {
+        width: 49%;
+    }    
+    .cpd-section .cpd-row .cpd-items .cpd-content h2 {
+        font-size: 18px;
+        line-height: 25px;
+        margin-bottom: 10px;
+    }
+
+/*=========================== Code of Conduct Page =======================*/ 
+    .codeof-conduct-section {
+        padding: 80px 0;
+    }   
+    .codeof-conduct-section .codeof-conduct-row .image-column {
+        width: 100%;
+        margin-bottom: 35px;
+    }    
+    .codeof-conduct-section .codeof-conduct-row .content-column {
+        width: 100%;
+    }
+/*======================== Board Meeting Page =========================*/
+    .director-metting-section {
+        padding: 63px 0;
+    }
+/*======================== CS Handbook Page ======================*/
+    .cs-handbook-section {
+        padding: 80px 0;
+    }
+/*======================= Exam Schedul Page ======================*/
+    .handbook-section .handbook-column {
+        flex-direction: column-reverse;
+    }
+    .handbook-section .handbook-column .new-handbook {
+        width: 100%;
+        margin-top: 35px;
+    }
+    .handbook-section .handbook-column .old-handbook {
+        width: 100%;
+    }    
+    .handbook-section {
+        padding: 80px 0 44px 0;
+    }
+    .handbook-section .handbook-column p {
+        margin-bottom: 25px;
+        max-width: 100%;
+    }  
+
+    .our-events-section {
+        padding: 64px 0;
+    }
+
+    .world-wide-section .world-wide-column .world-wide-item {
+        min-height: 620px;
+        padding: 30px 30px 0 30px;
+    }
+    .world-wide-section .world-wide-column .world-wide-item .chart-heading {
+        padding-bottom: 16px;
+        font-size: 23px;
+        line-height: 30px;
+    }
+    .world-wide-section img {
+        width: 210px;
+        object-fit: cover;
     }
 }
 @media only screen and (max-width: 989px){
     .flex{
         flex-wrap: wrap;
     }
+    .common-heading {
+        font-size: 40px;
+        line-height: 46px;
+    }
 
+    .top-header-section .header-column:nth-child(1){
+        order: 2;
+        width: 50%;
+    }
+    .top-header-section .header-column:nth-child(3){
+        order: 3;
+        width: 50%;
+    }
+    .top-header-section .header-column:nth-child(2){
+        order: 1;
+        margin-bottom: 13px;
+    }
+    .top-header-section .header-column p{
+        font-weight: 400;
+    }
+    .top-header-section .date-column{
+        column-gap: 24px !important;
+    }
+    .top-header-section .header-column p::before {
+        left: -14px;
+    }
+    .top-header-section .header-info-column a {
+        width: 170px;
+    }
     .top-header-section .header-column {
         width: 100%;
+        column-gap: 12px;
         justify-content: center;
     }
     .main-header-section .header-content h1 {
@@ -258,8 +664,181 @@
     .about-us-section .about-us-row h2 {
         margin-bottom: 19px;
     }
-}
 
+/*===================== Gallery Page ==========================*/
+    .gallery-section {
+        padding: 60px 0 80px 0;
+    }
+    .gallery-section .gallery-content {
+        column-gap: 3%;
+    }  
+    .gallery-section .gallery-items {
+        width: 48.5%;
+    }
+    .gallery-section .gallery-items a{
+        display: block;
+    }    
+    .gallery-section .gallery-button-section a {
+        line-height: 49px;
+        height: 50px;
+        max-width: 215px;
+    }
+/*========================== Gajet Page ========================*/
+    .gajet-section {
+        padding: 80px 0;
+    }    
+/*======================= President Page ============================*/
+    .president-content-section .president-content-row {
+        padding: 78px 0 60px 0;
+    }
+    .president-content-section .president-content-row .left-column {
+        width: 100%;
+    }
+    .president-content-section .president-content-row .right-column {
+        width: 100%;
+        padding-left: 0;
+        margin-top: 40px;
+    }    
+    .president-content-section .president-content-row .right-column h2 {
+        font-size: 50px;
+        line-height: 56px;
+        padding-bottom: 15px;
+    } 
+    .president-content-section .president-content-row .left-column .social-media {
+        padding: 18px 0;
+    }
+    .president-content-section .president-content-row .left-column .name-tittle {
+        padding: 35px 40px 35px 40px;
+    }
+    .president-content-section .president-content-row .left-column .contact-info {
+        padding: 20px 40px 10px 40px;
+    }
+    .president-content-section .president-content-row .left-column .name-tittle h3 {
+        font-size: 30px;
+        line-height: 36px;
+        margin-bottom: 10px;
+    }
+    .president-content-section .president-content-row .left-column .name-tittle p {
+        font-size: 21px;
+        line-height: 25px;
+    }
+/*==================== Event & Blog Single Page =====================*/  
+    #event-detiles-section {
+        padding: 80px 0;
+    }
+    #event-detiles-section .event-info-section .info-row ul {
+        column-gap: 20px;
+    }
+    .jobsingle-content-section .content-row .content-column {
+        width: 100%;
+    }
+    .jobsingle-content-section .content-row .summary-column {
+        width: 100%;
+        margin-top: 40px;
+    }  
+/*============================= Objective Page ===========================*/
+    .objectives-section {
+        padding: 80px 0;
+    }
+    .objectives-section .objective-row {
+        padding: 50px 40px 30px 40px;
+    }
+    .objectives-section .objective-row .left-column {
+        width: 100%;
+    }    
+    .objectives-section .objective-row .left-column iframe{
+        width: 100%;
+    }
+    .objectives-section .objective-row .right-column {
+        width: 100%;
+        margin-top: 35px;
+    }   
+    .objectives-section .objective-row .right-column h2 {
+        margin-bottom: 20px;
+    } 
+/*====================== Mission & Vision Page =======================*/     
+    .mision-vision-section {
+        padding: 63px 0;
+    }
+    .vision-mission-section {
+        padding-bottom: 63px;
+    }
+    .vision-mission-section .mission-row {
+        max-width: 100%;
+        flex-direction: column-reverse;
+    } 
+    .mision-vision-section .mission-row .content-column, .vision-mission-section .mission-row .content-column {
+        left: 0;
+        padding: 45px 25px;
+        max-width: 100%;
+        border: 0;
+        outline: 0;
+    }
+    .mision-vision-section .mission-row .content-column h2, .vision-mission-section .mission-row .content-column h2 {
+        margin-bottom: 15px;
+    }
+    .mision-vision-section .content-column, .mision-vision-section .image-column, 
+    .vision-mission-section .mission-row .content-column, .vision-mission-section .mission-row .image-column{
+        width: 100%;
+    }
+
+
+    .executive-committee-section .committee-row {
+        row-gap: 45px;
+    }
+    .executive-committee-section .committee-row .committee-items {
+        justify-content: center;
+    }
+    .executive-committee-section .committee-row .committee-items img{
+        margin-bottom: 18px;
+    }
+    .executive-committee-section .committee-row .committee-items h3 {
+        font-size: 19px;
+        line-height: 27px;
+        max-width: 280px;
+        text-align: center;
+    }
+    .executive-committee-section .committee-row .committee-items li {
+        justify-content: center;
+    }
+/*======================== Event Page Style ========================*/
+    .our-events-section .events-row .item {
+        padding: 27px;
+    }
+    .our-events-section .events-row .item h3 {
+        font-size: 17px;
+        line-height: 25px;
+        margin-bottom: 18px;
+    }    
+/*======================== World Wide CS ======================*/
+    .world-wide-section .world-wide-column .world-wide-item {
+        width: 100%;
+        margin-bottom: 30px;
+        min-height: 0;
+        padding: 25px 35px 40px 35px;
+    }   
+    .world-wide-section .section-heading h2 {
+        font-size: 40px;
+        line-height: 46px;
+        margin-bottom: 35px;
+    }
+
+    .job-detailes-section {
+        padding: 80px 0 30px 0;
+    }
+    .job-detailes-section .job-row {
+        row-gap: 25px;
+    }
+    .job-detailes-section .job-row .job-detail-item ul{
+        padding: 0;
+        margin: 0;
+    }
+}
+@media only screen and (max-width: 991px){
+    .main-header-section {
+        padding: 30px 0 10px 0;
+    }
+}
 @media only screen and (max-width: 767px) {
     .container {
         padding: 0 20px;
@@ -270,17 +849,58 @@
         margin-bottom: 15px;
     }
     .common-heading{
-        font-size: 35px;
-        line-height: 41px;
+        font-size: 30px;
+        line-height: 36px;
+    }
+    .main {
+        margin-top: 70px;
     }
 
-    .top-header-section .header-content-column {
-        justify-content: center;
+    .top-header-section{
+        display: none;
     }
+    /* .top-header-section .header-column {
+        column-gap: 10px;
+    }
+    .top-header-section .date-column{
+        column-gap: 21px;
+    }
+    .top-header-section .header-column p {
+        font-size: 15px;
+        font-weight: 400;
+        position: relative;
+    }
+    .top-header-section .header-column p::before{
+        content: '|';
+        left: -12px;
+        position: absolute;
+    }
+    .top-header-section .header-column p:first-child::before{
+        display: none;
+    }
+    .top-header-section .header-content-column {
+        flex-direction: column-reverse;
+    }
+    .top-header-section .header-column:first-child{
+        display: none;
+    }
+    .top-header-section .header-info-column a {
+        width: 160px;
+        font-size: 13px;
+        line-height: 24px;
+    }
+    .top-header-section .header-column p span{
+        display: none;
+    }
+    .top-header-section .header-info-column{
+        margin-bottom: 8px;
+    } */
+
     .main-header-section {
         padding: 10px 0;
+        display: none;
     }
-    .main-header-section .header-content h1 {
+    /* .main-header-section .header-content h1 {
         font-size: 35px;
         line-height: 34px;
         margin-top: 17px;
@@ -295,7 +915,7 @@
     }
     .main-header-section .header-content .logo-column {
         display: none;
-    }
+    } */
 
 
     .banner-section img{
@@ -448,13 +1068,119 @@
     .faq-section .faq-content .accordion-item .accordion-button::before {
         left: 25px;
     }
-
-
-
+/*========================= Fellow Member Page =========================*/
+    .fellow-member-section {
+        padding: 65px 0;
+    }
+    .fellow-member-section .fellow-row {
+        margin-top: 35px;
+    }
+    .fellow-member-section .fellow-row .fellow-items{
+        width: 100%;
+        padding: 30px 20px 25px 20px;
+    }
+    .fellow-member-section .fellow-row .fellow-items h3 {
+        font-size: 22px;
+        line-height: 28px;
+    }
+    .fellow-member-section .fellow-row .fellow-items {
+        width: 100%;
+    }
+/*====================== CPD Program Page =====================*/
+    .cpd-section {
+        padding: 63px 0;
+    }
+    .cpd-section .cpd-row .cpd-items {
+        width: 100%;
+    }    
+/*====================== President Page ======================*/
+    .president-content-section .president-content-row {
+        padding: 63px 0 45px 0;
+    }
+    .president-content-section .president-content-row .left-column .name-tittle {
+        padding: 25px 20px;
+    }
+    .president-content-section .president-content-row .right-column h2 {
+        font-size: 35px;
+        line-height: 41px;
+        padding-bottom: 15px;
+    }
+    .president-content-section .president-content-row .left-column .name-tittle h3 {
+        font-size: 23px;
+        line-height: 32px;
+        margin-bottom: 6px;
+    }
+    .president-content-section .president-content-row .left-column .name-tittle p {
+        font-size: 19px;
+        line-height: 23px;
+    }
+    .president-content-section .president-content-row .left-column .contact-info {
+        padding: 25px 20px 10px 20px;
+    }
+    .president-content-section .president-content-row .left-column .contact-info ul li a {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .president-content-section .president-content-row .left-column .contact-info ul li{
+        margin-bottom: 7px;
+    }
+    .president-content-section .president-content-row .left-column .social-media {
+        padding: 15px 0;
+    }
+    .president-content-section .president-content-row .left-column .social-media ul {
+        column-gap: 10px;
+    }
+    .president-content-section .president-content-row .left-column .social-media ul li a {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+        line-height: 22px;
+    }
+/*======================== Gallery Page ================*/  
+    .gallery-section {
+        padding: 43px 0 63px 0;
+    }
+    .gallery-section .gallery-button-section a {
+        line-height: 45px;
+        height: 47px;
+        max-width: 210px;
+    }
+/*======================= Code of Conduct Page =======================*/
+    .codeof-conduct-section {
+        padding: 63px 0;
+    }
+    .codeof-conduct-section .codeof-conduct-row h3 {
+        margin-top: 6px;
+        margin-bottom: 12px;
+    }
+/*======================== Board Meeting Page =========================*/
+    .director-metting-section {
+        padding: 63px 0;
+    }
+/*========================== CS Handbook Page ========================*/
+    .cs-handbook-section {
+        padding: 63px 0;
+    }
+    .cs-handbook-section .handbook-column {
+        row-gap: 40px;
+    }
+    .cs-handbook-section .handbook-column .new-handbook {
+        width: 100%;
+    }
+    .cs-handbook-section .handbook-column .old-handbook {
+        width: 100%;
+    }
+/*======================= Exam Schedul Page ======================*/
+    .handbook-section {
+        padding: 63px 0 30px 0;
+    }
+    .handbook-section .handbook-column h2 {
+        margin-bottom: 20px;
+    }
+/*============================ About ICSB Page =========================*/
     .about-us-section {
         padding: 54px 0;
     }
-
     .about-us-section .about-us-row .image-column .first-image {
         width: 76%;
     }
@@ -462,7 +1188,6 @@
         width: 76%;
         margin-top: -100px;
     }
-
     .about-us-section .about-us-row h2 {
         font-size: 40px;
         line-height: 60px;
@@ -470,17 +1195,25 @@
         /* margin-top: 33px; */
     }
 
-    .jobsingle-content-section .content-row .content-column {
-        width: 100%;
+/*============================ Event & Blog Single Page =======================*/  
+    #event-detiles-section {
+        padding: 64px 0;
+    }  
+    .event-info-section {
+        padding: 25px;
     }
-    .jobsingle-content-section .content-row .summary-column {
-        width: 100%;
+    #event-detiles-section .event-info-section .info-row h2 {
+        font-size: 18px;
+        line-height: 26px;
+        margin-bottom: 15px;
     }
-
-
+    #event-detiles-section .content-row .summary-column .job-summery {
+        padding: 25px 20px;
+    }
+/*=========================== Breascrumb Section ====================*/    
     .breadcrumbs-heading {
-        font-size: 33px;
-        line-height: 39px;
+        font-size: 30px;
+        line-height: 37px;
         max-width: 100%;
     }
     .breadcrumbs-section .breadcrumbs-row .left-column ul li a {
@@ -504,7 +1237,7 @@
     .breadcrumbs-section .breadcrumbs-row .left-column::after {
         right: -573px;
     }
-
+/*============================== Event Page ========================*/    
     .our-events-section {
         padding: 60px 0;
     }
@@ -546,8 +1279,124 @@
     .map-section iframe{
         height: 350px;
     }
+/*=========================== Objective Page ==============================*/
+    .objectives-section {
+        padding: 63px 0;
+    }
+    .objectives-section .container{
+        padding: 0;
+    }
+    .objectives-section .objective-row {
+        padding: 60px 30px 35px 30px;
+    }
+    .objectives-section .objective-row .right-column h2 {
+        margin-bottom: 15px;
+    }
+    .objectives-section .objective-row .right-column p {
+        margin-bottom: 15px;
+    }
+    .objectives-section .objective-row .left-column iframe{
+        width: 100%;
+    }
+/*================================ Mission & Vision Page ===============================*/   
+    .mision-vision-section {
+        padding: 63px 0;
+    }
+    .vision-mission-section {
+        padding-bottom: 63px;
+    }
+    .vision-mission-section .mission-row {
+        max-width: 100%;
+        flex-direction: column-reverse;
+    } 
+    .mision-vision-section .mission-row .content-column, .vision-mission-section .mission-row .content-column {
+        left: 0;
+        padding: 45px 25px;
+        max-width: 100%;
+        border: 0;
+        outline: 0;
+    }
+    .mision-vision-section .mission-row .content-column h2, .vision-mission-section .mission-row .content-column h2 {
+        margin-bottom: 15px;
+    }
+    .mision-vision-section .content-column, .mision-vision-section .image-column, 
+    .vision-mission-section .mission-row .content-column, .vision-mission-section .mission-row .image-column{
+        width: 100%;
+    }
+/*================================= Executive Member Page =============================*/   
+    .executive-committee-section {
+        padding: 63px 0;
+    }
+    .executive-committee-section .committee-row {
+        column-gap: 2%;
+    } 
+    .executive-committee-section .committee-row .committee-items {
+        width: 49%;
+        justify-content: center;
+        text-align: center;
+    }
+    .executive-committee-section .committee-row .committee-items h3 {
+        margin: 0 auto;
+        font-size: 20px;
+        line-height: 26px;
+        max-width: 250px;
+        padding-bottom: 12px;
+    }
+    .executive-committee-section .committee-row .committee-items img {
+        margin-bottom: 20px;
+    }
+    .executive-committee-section .committee-row .committee-items li {
+        justify-content: center;
+    }
+
+
+    .past-president-layout .heading-content {
+        padding-bottom: 35px;
+    }
+
+    .job-detailes-section {
+        padding: 63px 0 20px 0;
+    }
+    .job-detailes-section .job-row {
+        column-gap: 30px;
+        row-gap: 2px;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+    .job-detailes-section .job-row .job-detail-item h3 {
+        font-size: 19px;
+        margin-top: 2px;
+        line-height: 21px;
+        margin-bottom: 2px;
+    }
+    .job-detailes-section .job-row .job-detail-item {
+        width: auto;
+    }
+    .job-detailes-section .job-row .last-item{
+        margin-top: 20px;
+    }
+    .job-detailes-section .job-row .job-detail-item:first-child{
+        margin-bottom: 20px;
+    }
+    .jobsingle-content-section .content-row .summary-column .email-column {
+        padding: 20px;
+        margin-bottom: 35px;
+        border: 1px solid #ddd;
+    }
+/*==================== World Wide CS ===========================*/
+    .world-wide-section .section-heading h2 {
+        font-size: 35px;
+        line-height: 41px;
+        margin-bottom: 35px;
+    }    
 }
 @media only screen and (max-width: 600px){
+
+    .faq-section .faq-content .accordion-item .collapsed {
+        font-size: 15px;
+        line-height: 21px;
+        height: 58px;
+    }
     .form-section .detailes-column .deatiles-items img {
         width: 40px;
         height: 40px;
@@ -567,6 +1416,103 @@
         height: 50px;
         max-width: 100%;
     }
+
+/*======================== Fellow Member Page ===========================*/    
+    .fellow-row .fellow-items .image-column {
+        width: 100%;
+    }
+    .fellow-row .fellow-items .content-column {
+        width: 100%;
+        margin-top: 25px;
+    }
+    .fellow-member-section .fellow-row .fellow-items {
+        width: 100%;
+    }
+    .fellow-member-section .fellow-row .fellow-items h4 {
+        margin-top: 0px;
+    }
+    .fellow-row .fellow-items img{
+        height: auto;
+    }
+    .fellow-row .fellow-items p {
+        max-width: 100%;
+    }
+    .fellow-row .fellow-items li{
+        font-size: 14px;
+        line-height: 21px;
+        margin-bottom: 7px;
+    }
+    .fellow-row .fellow-items h3 {
+        font-size: 20px;
+        line-height: 26px;
+        margin-bottom: 7px;
+    }
+    .fellow-row .fellow-items p strong {
+        font-size: 14px;
+        line-height: 22px;
+    }
+    .fellow-row .fellow-items h4 {
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 0px;
+    }
+
+/*========================= CPD Program Page ========================*/
+    .cpd-section .cpd-row .cpd-items .cpd-content h2 {
+        font-size: 18px;
+        line-height: 25px;
+        margin-bottom: 10px;
+    }    
+
+/*======================== gallery Page =========================*/
+    .gallery-section .gallery-items {
+        width: 100%;
+    }    
+
+/*====================== Gajet Page Style ======================*/
+    .gajet-section {
+        padding: 63px 0;
+    }
+    .gajet-section .handbook-column {
+        row-gap: 23px;
+    }
+    .gajet-section .handbook-column .new-handbook {
+        width: 100%;
+    }
+    .gajet-section .handbook-column .old-handbook {
+        width: 100%;
+    }
+/*======================== Objective Page =======================*/
+    .objectives-section .objective-row {
+        padding: 60px 25px 35px 25px;
+    }
+    .objectives-section .objective-row .left-column iframe{
+        width: 100%;
+        height: 290px;
+        border: 5px double #fff;
+        outline: 5px solid #FF8601;
+    }
+/*========================= Excutive Member Page =====================*/
+    .executive-committee-section .committee-row .committee-items {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+    .executive-committee-section .committee-row .committee-items .content-column{
+        width: 100%;
+    }
+    .executive-committee-section .committee-row .committee-items .image-column{
+        width: 100%;
+    }
+/*=================== World Wide CS =======================*/
+    .world-wide-section img {
+        width: 200px;
+        object-fit: cover;
+    }
+    .world-wide-section .world-wide-column .world-wide-item .chart-heading {
+        padding-bottom: 15px;
+    }
+
 
 
     .main-footer-section h2 {
@@ -603,5 +1549,16 @@
     .main-footer-section .footer-column iframe {
         width: 100%;
         height: 250px;
+    }
+}
+@media only screen and (max-width: 414px){
+    .header-menu-section .mobile-menu-button {
+        flex-wrap: wrap;
+        row-gap: 15px;
+        justify-content: center;
+    }
+    .mobile-menu-button a {
+        max-width: 200px;
+        font-size: 14px;
     }
 }

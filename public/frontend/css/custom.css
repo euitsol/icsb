@@ -1,3 +1,142 @@
+.common-heading{
+	font-size: 50px;
+	line-height: 56px;
+}
+.breadcrumbs-heading{
+	font-size: 50px;
+	line-height: 56px;
+}
+
+
+
+
+
+/*====================== World Wide CS ===============*/
+/* .world-wide-section{
+	padding: 100px 0;
+}
+.world-wide-section .section-heading h2 {
+	font-size: 70px;
+	line-height: 76px;
+	margin-bottom: 70px;
+}
+.world-wide-section .world-wide-column {
+	column-gap: 25px;
+	padding-bottom: 25px;
+}
+.world-wide-section .world-wide-column .world-wide-item {
+	background: #F2F2F2;
+	width: 49%;
+	padding: 72px 40px 0 40px;
+	min-height: 654px;
+}
+.world-wide-section img{
+	width: auto;
+}
+.world-wide-section .world-wide-column .world-wide-item .chart-heading {
+	padding-bottom: 25px;
+}
+.world-wide-section .world-wide-column .world-wide-item .chart-link {
+	padding-top: 24px;
+}
+.world-wide-section .world-wide-column .world-wide-item .society-text {
+	max-width: 330px;
+	margin: 0 auto;
+	padding-bottom: 25px;
+}
+
+/* ========= president-content-section =========== */
+/* .president-content-section .president-content-row {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 100px 0;
+}
+.president-content-section .president-content-row .left-column{
+	width: 37.6%;
+}
+.president-content-section .president-content-row .right-column {
+	width: 59.4%;
+	padding-left: 3%;
+}
+.president-content-section .president-content-row .left-column img {
+	border: 10px solid #FF8601;
+}
+.president-content-section .president-content-row .left-column .name-tittle {
+	background: #F2F2F2;
+	padding: 54px 0px 54px 38px;
+	border-bottom: 1px solid #111111;
+}
+.president-content-section .president-content-row .left-column  .name-tittle h3 {
+	font-size: 32px;
+	line-height: 22px;
+	font-weight: 500;
+	color: #111111;
+	margin-bottom: 25px;
+}
+.president-content-section .president-content-row .left-column  .name-tittle p {
+	font-size: 25px;
+	line-height: 20px;
+	font-weight: 500;
+	color: #111111;
+}
+.president-content-section .president-content-row .left-column .contact-info {
+	background: #F2F2F2;
+	padding: 37px 0px 18px 40px;
+}
+.president-content-section .president-content-row .left-column .contact-info ul{
+	padding: 0;
+}
+.president-content-section .president-content-row .left-column .contact-info ul li a {
+	font-size: 16px;
+	line-height: 35px;
+	color: #111111;
+}
+.president-content-section .president-content-row .left-column .contact-info ul li a:hover{
+	color: #FF8601;
+}
+
+.president-content-section .president-content-row .left-column .contact-info ul li a i{
+	padding-right: 8px;
+}
+.president-content-section .president-content-row .left-column .social-media {
+	background: #182456;
+	padding: 26px 0;
+}
+.president-content-section .president-content-row .left-column .social-media ul {
+	display: flex;
+	column-gap: 15px;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+}
+.president-content-section .president-content-row .left-column .social-media ul li a {
+	color: #111;
+	width: 42px;
+	height: 42px;
+	font-size: 19px;
+	line-height: 25px;
+	background: #DCDCDC;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50px;
+	transition: 0.4s;
+}
+.president-content-section .president-content-row .left-column .social-media ul li a:hover {
+	color: #fff;
+	background: #122F98;
+}
+.president-content-section .president-content-row .right-column h2 {
+	font-size: 75px;
+	line-height: 85px;
+	font-weight: 500;
+	color: #111111;
+	padding-bottom: 40px;
+}
+.president-content-section .president-content-row .right-column p {
+	color: #111111;
+	padding-bottom: 17px;
+}  */
 /*======================  Job Placement CS ===============*/
 .job-placement-section{
 	padding: 80px 0px;
@@ -61,7 +200,7 @@
 	font-weight: 400;
 	line-height: 27px;
 	margin-bottom:8px;
-}
+} 
 .job-placement-section .single-job .left-col .details-col span{
 	margin-left: 15px;
 	font-size: 15px;
@@ -84,7 +223,7 @@
 .job-placement-section .single-job .right-col .btn a{
 	color: #182456;
 	font-weight: 400;
-	border: 2px solid #182456;;
+	border: 2px solid #182456;;	
 	padding: 11px 40px;
 	font-size: 22px;
 	line-height: 27px;
@@ -119,9 +258,6 @@
 .blog-section .item {
 	background: #fff;
 	border-radius: 29px;
-}
-.blog-section .item a{
-	display: block;
 }
 .blog-section .item .post-content {
 	padding: 13px 23px 30px 23px;
@@ -204,7 +340,7 @@
 		width: 100%;
 	}
 
-  }
+  }	
 
 @media only screen and (max-width: 768px) {
 	.job-placement-section {
@@ -239,6 +375,515 @@
 	.job-placement-section .single-job .right-col .btn {
 		text-align: center;
 		margin-top: 15px;
+	}
+  }
+
+@media only screen and (max-width: 460px) {
+	.job-placement-section .single-job {
+		padding: 30px 10px;
+	}
+	.job-placement-section .job-table .table-serch {
+		justify-content: center;
+		margin-bottom: 25px;
+		row-gap: 11px;
+		flex-direction: column-reverse;
+	}
+  }
+
+
+  .common-heading{
+	font-size: 50px;
+	line-height: 56px;
+}
+.breadcrumbs-heading{
+	font-size: 50px;
+	line-height: 56px;
+}
+
+
+/* ============== past-president-layout ==============*/
+.past-president-layout{
+	padding: 100px 0;
+	background-color: #F1F1F1;
+}
+.past-president-layout .heading-content{
+	padding-bottom: 65px;
+}
+.past-president-layout .president-row{
+	column-gap: 2.5%;
+	flex-wrap: wrap;
+	row-gap: 35px;
+	justify-content: center;
+}
+.past-president-layout .president-row .items {
+	width: 31.66%;
+	padding: 35px;
+	background: #ffffff;
+	border-radius: 25px;
+}
+.past-president-layout .president-row .items img {
+	width: 100%;
+	border-radius: 25px;
+	transition: 0.4s;
+  }
+  .past-president-layout .president-row .items img:hover {
+	transform: scale(0.9);
+  }
+.past-president-layout .president-row .items a{
+	color: #182456;
+	font-size: 18px;
+	width: 100%;
+	height: 40px;
+	line-height: 38px;
+	max-width: 170px;
+	text-align: center;
+	border-radius: 20px;
+	transition: 0.4s;
+	margin-top: 30px;
+	border: 1.5px solid #182456;
+}
+.past-president-layout .president-row .items a:hover{
+	color: #fff;
+	background: #182456;
+}
+
+.past-president-layout .president-row .items h3 {
+	font-size: 22px;
+	line-height: 28px;
+	padding: 30px 0 5px 0;
+}
+.past-president-layout .president-row .items h4{
+	font-size: 17px;
+	line-height: 25px;
+	margin-bottom: 15px;
+}
+
+
+
+
+/*====================== World Wide CS ===============*/
+.world-wide-section{
+	padding: 100px 0;
+}
+.world-wide-section .section-heading h2 {
+	font-size: 70px;
+	line-height: 76px;
+	margin-bottom: 70px;
+}
+.world-wide-section .world-wide-column {
+	column-gap: 25px;
+	padding-bottom: 25px;
+}
+.world-wide-section .world-wide-column .world-wide-item {
+	background: #F2F2F2;
+	width: 49%;
+	padding: 72px 40px 45px 40px;
+	min-height: 635px;
+}
+.world-wide-section img{
+	width: auto;
+}
+.world-wide-section .world-wide-column .world-wide-item .chart-heading {
+	padding-bottom: 25px;
+}
+.world-wide-section .world-wide-column .world-wide-item .chart-link {
+	padding-top: 24px;
+}
+.world-wide-section .world-wide-column .world-wide-item .society-text {
+	max-width: 330px;
+	margin: 0 auto;
+	padding-bottom: 25px;
+}
+
+/* ========= president-content-section =========== */
+.president-content-section .president-content-row {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 100px 0;
+}
+.president-content-section .president-content-row .left-column{
+	width: 37.6%;
+}
+.president-content-section .president-content-row .right-column {
+	width: 59.4%;
+	padding-left: 3%;
+}
+.president-content-section .president-content-row .left-column img {
+	border: 10px solid #FF8601;
+}
+.president-content-section .president-content-row .left-column .name-tittle {
+	background: #F2F2F2;
+	padding: 54px 0px 54px 38px;
+	border-bottom: 1px solid #111111;
+}
+.president-content-section .president-content-row .left-column  .name-tittle h3 {
+	font-size: 32px;
+	line-height: 22px;
+	font-weight: 500;
+	color: #111111;
+	margin-bottom: 25px;
+}
+.president-content-section .president-content-row .left-column  .name-tittle p {
+	font-size: 25px;
+	line-height: 20px;
+	font-weight: 500;
+	color: #111111;
+}
+.president-content-section .president-content-row .left-column .contact-info {
+	background: #F2F2F2;
+	padding: 37px 0px 18px 40px;
+}
+.president-content-section .president-content-row .left-column .contact-info ul{
+	padding: 0;
+}
+.president-content-section .president-content-row .left-column .contact-info ul li a {
+	font-size: 16px;
+	line-height: 35px;
+	color: #111111;
+}
+.president-content-section .president-content-row .left-column .contact-info ul li a:hover{
+	color: #FF8601;
+}
+
+.president-content-section .president-content-row .left-column .contact-info ul li a i{
+	padding-right: 8px;
+}
+.president-content-section .president-content-row .left-column .social-media {
+	background: #182456;
+	padding: 26px 0;
+}
+.president-content-section .president-content-row .left-column .social-media ul {
+	display: flex;
+	column-gap: 15px;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+}
+.president-content-section .president-content-row .left-column .social-media ul li a {
+	color: #111;
+	width: 42px;
+	height: 42px;
+	font-size: 19px;
+	line-height: 25px;
+	background: #DCDCDC;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50px;
+	transition: 0.4s;
+}
+.president-content-section .president-content-row .left-column .social-media ul li a:hover {
+	color: #fff;
+	background: #122F98;
+}
+.president-content-section .president-content-row .right-column h2 {
+	font-size: 75px;
+	line-height: 85px;
+	font-weight: 500;
+	color: #111111;
+	padding-bottom: 40px;
+}
+.president-content-section .president-content-row .right-column p {
+	font-size: 16px;
+	line-height: 20px;
+	color: #111111;
+	padding-bottom: 17px;
+}
+/*======================  Job Placement CS ===============*/
+.job-placement-section{
+	padding: 80px 0px;
+}
+.job-placement-section .title h1{
+	font-size: 45px;
+	font-weight: 500;
+	margin-bottom: 50px;
+	text-align: center;
+}
+.job-placement-section .job-table .table-serch {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 25px;
+}
+.job-placement-section .job-table .table-serch .sort{
+	width: 170px;
+	background: #F2F2F2;
+	padding: 10px;
+	font-size: 15px;
+	text-align: center;
+}
+.job-placement-section .job-table .table-serch select{
+	background: none;
+	border: none;
+}
+.job-placement-section .single-job{
+	display: flex;
+	flex-wrap: wrap;
+	border: 1px solid;
+	padding: 30px 40px;
+	border-radius: 8px;
+	margin-bottom: 40px;
+}
+.job-placement-section .single-job .right-col{
+	width: 55%;
+	padding-left: 70px;
+}
+.job-placement-section .single-job .left-col{
+	display: flex;
+	column-gap: 25px;
+	border-right: 1px solid #182456;
+	width: 45%;
+}
+.job-placement-section .single-job .left-col .img-col{
+	width: 75px;
+}
+.job-placement-section .single-job .left-col .img-col img{
+	width: 100%;
+}
+.job-placement-section .single-job .left-col .details-col h2{
+	font-size: 30px;
+	font-weight: 500;
+	line-height: 37px;
+	margin-bottom: 2px;
+}
+.job-placement-section .single-job .left-col .details-col h3{
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 27px;
+	margin-bottom:8px;
+} 
+.job-placement-section .single-job .left-col .details-col span{
+	margin-left: 15px;
+	font-size: 15px;
+}
+.job-placement-section .single-job .left-col .details-col .day{
+	margin-left: 0;
+}
+.job-placement-section .single-job .left-col .details-col span i{
+	padding-right: 7px;
+}
+.job-placement-section .single-job .right-col ul li{
+	list-style-type: disc;
+	margin-bottom: 12px;
+}
+.job-placement-section .single-job .right-col .btn{
+	width: 100%;
+	text-align: right;
+	margin-top: 25px;
+}
+.job-placement-section .single-job .right-col .btn a{
+	color: #182456;
+	font-weight: 400;
+	border: 2px solid #182456;;	
+	padding: 11px 40px;
+	font-size: 22px;
+	line-height: 27px;
+	border-radius: 30px;
+	transition: 0.3s;
+}
+.job-placement-section .single-job .right-col .btn a:hover{
+	background: #182456;
+	color: #fff;
+	border: 2px solid #182456;
+}
+.job-placement-section .job-table .pagination{
+	display: flex;
+	justify-content: end;
+}
+.job-placement-section .job-table .pagination .page-item a{
+	color: #000;
+	border: none;
+}
+
+/*======================  Blog page css style===============*/
+.blog-section{
+	padding: 102px 0 114px 0;
+	background-size: cover;
+	background-position: 100%;
+	background-repeat: no-repeat;
+	background-image: url("../img/events-bg.png");
+}
+.blog-section .row{
+	row-gap: 30px;
+}
+.blog-section .item {
+	background: #fff;
+	border-radius: 29px;
+}
+.blog-section .item .post-content {
+	padding: 13px 23px 30px 23px;
+}
+.blog-section .item ul {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: space-between;
+}
+.blog-section .item .post-content ul li a {
+	color: #111111;
+	font-size: 16px;
+	line-height: 22px;
+	margin-bottom: 12px;
+}
+.blog-section .item .post-content ul li i {
+	margin-right: 6px;
+}
+.blog-section .item h3 {
+	font-size: 22px;
+	line-height: 28px;
+}
+.blog-section .item .post-content p {
+	margin-top: 15px;
+}
+.blog-section .item h3 a {
+	color: #111111;
+	transition: 0.4s;
+}
+.blog-section .item h3 a:hover {
+	color: #182456;
+}
+
+.blog-section .see-button a {
+	color: #fff;
+	font-size: 18px;
+	line-height: 40px;
+	width: 100%;
+	height: 40px;
+	max-width: 239px;
+	border-radius: 29px;
+	background: #182456;
+	transition: 0.4s;
+	border: 1px solid #182456;
+	margin-top: 40px;
+}
+.blog-section .see-button a:hover {
+	color: #182456;
+	background: #fff;
+}
+/*======================  Job Placement Responsive css ===============*/
+@media only screen and (max-width: 1024px) {
+	.job-placement-section .single-job .left-col {
+		width: 50%;
+	}
+	.job-placement-section .single-job .right-col {
+		width: 50%;
+		padding-left: 25px;
+	}
+	.job-placement-section .single-job .right-col ul{
+		padding-left: 0;
+	}
+	.job-placement-section .single-job {
+		padding: 30px 25px;
+	}
+	.job-placement-section .single-job .left-col .details-col h2 {
+		font-size: 20px;
+		line-height: 25px;
+	}
+	.job-placement-section .single-job .right-col .btn a {
+		padding: 10px 32px;
+		font-size: 18px;
+		line-height: 22px;
+	}
+	.job-placement-section .job-table .pagination {
+		justify-content: center;
+	}
+	.blog-section .item .logo-wrapp a{
+		width: 100%;
+	}
+	.past-president-layout .president-row {
+		display: grid;
+		grid-template-columns: auto auto;
+		column-gap: 35px;
+	}
+	.past-president-layout .president-row .items {
+		width: 100%;
+		padding: 25px;
+		background: #ffffff;
+		border-radius: 25px;
+	}
+	.past-president-layout {
+		padding: 80px 0;
+	}
+	.past-president-layout .heading-content {
+		padding-bottom: 60px;
+	}
+	.world-wide-section .world-wide-column .world-wide-item {
+		width: 48%;
+		min-height: 850px;
+	}
+	.world-wide-section .section-heading h2 {
+		font-size: 50px;
+		line-height: 56px;
+		margin-bottom: 60px;
+	}
+	.world-wide-section {
+		padding: 80px 0;
+	  }
+
+  }	
+
+@media only screen and (max-width: 768px) {
+	.job-placement-section {
+		padding: 40px 0px;
+	}
+	.job-placement-section .single-job .left-col{
+		width: 100%;
+		justify-content: center;
+		border-right: none;
+		flex-direction: column;
+		text-align: center;
+	}
+	.job-placement-section .title h1 {
+		font-size: 30px;
+		margin-bottom: 30px;
+	}
+	.job-placement-section .single-job .left-col .img-col{
+		margin: 0 auto;
+		margin-bottom: 20px;
+	}
+	.job-placement-section .single-job .right-col{
+		width: 100%;
+		text-align: center;
+		padding-left: 0;
+		margin-top: 15px;
+	}
+	.job-placement-section .single-job .right-col ul li {
+		list-style-type: none;
+		text-align: center;
+		margin-bottom: 5px;
+	}
+	.job-placement-section .single-job .right-col .btn {
+		text-align: center;
+		margin-top: 15px;
+	}
+	
+  }
+
+
+@media only screen and (max-width: 767px) {
+	.past-president-layout .president-row {
+		display: grid;
+		grid-template-columns: auto;
+	}
+	.past-president-layout {
+		padding: 65px 0;
+	}
+	.world-wide-section .world-wide-column .world-wide-item {
+		width: 100%;
+		margin-bottom: 30px;
+		min-height: 0;
+		padding: 25px 20px 40px 20px;
+	}
+	.world-wide-section .world-wide-column .world-wide-item  a{
+		word-wrap: anywhere;
+	}
+	.world-wide-section .world-wide-column {
+		column-gap: 0;
+		padding-bottom: 0;
+	  }
+	  .world-wide-section {
+		padding: 65px 0 35px 0;
 	}
   }
 
