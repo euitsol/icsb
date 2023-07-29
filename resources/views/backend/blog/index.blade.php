@@ -24,6 +24,7 @@
                             <thead class=" text-primary">
                                 <tr>
                                     <th>{{ _('Title') }}</th>
+                                    <th>{{ _('Category') }}</th>
                                     <th>{{ _('Thumbnail Image') }}</th>
                                     {{-- <th>{{ _('Additional Images') }}</th>
                                     <th>{{ _('Files') }}</th> --}}
@@ -38,6 +39,7 @@
                                 @foreach ($blogs as $blog)
                                     <tr>
                                         <td> {{ $blog->title }} </td>
+                                        <td> {{ $blog->cat->name }} </td>
                                         <td><img class="rounded" width="60"
                                             src="@if ($blog->thumbnail_image) {{ storage_url($blog->thumbnail_image) }} @else {{ asset('no_img/no_img.jpg') }} @endif"
                                             alt="{{ $blog->title }}">
