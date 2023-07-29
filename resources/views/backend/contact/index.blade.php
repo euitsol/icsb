@@ -231,7 +231,7 @@
                                             <label>{{ _('Phone Number-1') }}</label>
                                             <div class="input-group mb-3">
                                                 <input type="tel" name="phone[1][number]" class="form-control" placeholder="{{ _('Enter phone number') }}" required>
-                                                <div class="div">
+                                                <div class="div contact_div">
                                                     <select class="input-group-text form-select" name="phone[1][type]">
                                                         <option value="Phone" title='Phone'>Phone</option>
                                                         <option value="Telephone" title='Telephone'>Telephone</option>

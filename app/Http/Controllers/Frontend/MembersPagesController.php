@@ -11,8 +11,6 @@ use Illuminate\View\View;
 class MembersPagesController extends Controller
 {
     public function __construct() {
-        // $this->contact = Contact::where('deleted_at', null)->first();
-        // view()->share('contact', $this->contact);
         $contact = Contact::where('deleted_at', null)->first();
         $memberTypes = memberType::where('deleted_at', null)->where('status', 1)->get();
         view()->share([
@@ -23,7 +21,7 @@ class MembersPagesController extends Controller
 
     public function memberSearch($slug): View
     {
-        $s['type'] = MemberType::with('members')->where('slug', $slug)->first();
+        $s['type'] = MemberType::with('members')->where('status', 1)->where('slug', $slug)->first();
         return view('frontend.members.member_view',$s);
 
     }

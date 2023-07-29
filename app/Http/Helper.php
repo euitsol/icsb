@@ -11,7 +11,7 @@ use App\Models\SiteSetting;
 //This will retun the route prefix of the routes for permission check
 function get_permission_routes()
 {
-  return ['about.faq.','service.','contact.','national_connection.','wwcs.','event.','national_award.', 'blog.', 'settings.','banner.', 'member.'];
+  return ['about.faq.','service.','contact.','national_connection.','wwcs.','event.','national_award.', 'blog.', 'settings.','banner.', 'member.','icsb_profile.'];
 }
 
 //This will check the permission of the given route name. Can be used for buttons
@@ -145,11 +145,12 @@ function settings($key){
         return $setting->value;
     }
 }
-function getYoutubeVideoId($url) {
+function getYoutubeVideoIframe($url) {
     $videoId = '';
     parse_str(parse_url($url, PHP_URL_QUERY), $params);
     if (isset($params['v'])) {
         $videoId = $params['v'];
     }
-    return $videoId;
+    $iframe = '<iframe width="100%" height="280" src="https://www.youtube.com/embed/'.$videoId.'" frameborder="0" allowfullscreen></iframe>';
+    return $iframe;
 }

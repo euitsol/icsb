@@ -50,8 +50,7 @@
             </div>
             <div class="summary-column" id="event-summary">
                 <div class="job-summery">
-
-                    <iframe width="100%" height="280" src="https://www.youtube.com/embed/{{getYoutubeVideoId($event->video_url)}}" frameborder="0" allowfullscreen></iframe>
+                    {!! getYoutubeVideoIframe($event->video_url) !!}
                     <ul class="text-align">
                         <li><span>Total Participants:</span> {{$event->total_participant}} People</li>
                         <li><span>Registration Status:</span> Open</li>
