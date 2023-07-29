@@ -1227,6 +1227,27 @@ h1,h2,h3,h4,h5,h6{
 	line-height: 25px;
 }
 
+/*========================= Founding Members Page CSS =====================*/
+.founding-member-section{
+	padding: 100px 0;
+}
+.founding-member-section .member-row .member-content p{
+	margin-bottom: 20px;
+}
+.founding-member-section .member-row ul{
+	padding: 0;
+	margin: 0;
+	margin-top: 20px;
+	padding-left: 13px;
+}
+.founding-member-section .member-row ul li{
+	list-style: inherit;
+	margin-bottom: 4px;
+}
+.founding-member-section .member-divided-row{
+	column-gap: 60px;
+}
+
 /*========================== About ICSB Page CSS =========================*/
 .about-us-section{
 	padding: 110px 0;
