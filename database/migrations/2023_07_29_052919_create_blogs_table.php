@@ -15,6 +15,7 @@ return new class extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->string('title')->unique();
+            $table->unsignedBigInteger('category_id');
             $table->string('slug')->unique();
             $table->string('thumbnail_image');
             $table->json('additional_images')->nullable();
@@ -25,6 +26,8 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
             $this->addAuditColumns($table);
+
+            $table->foreign('category_id')->references('id')->on('blog_categories')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
