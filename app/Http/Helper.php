@@ -145,11 +145,12 @@ function settings($key){
         return $setting->value;
     }
 }
-function getYoutubeVideoId($url) {
+function getYoutubeVideoIframe($url) {
     $videoId = '';
     parse_str(parse_url($url, PHP_URL_QUERY), $params);
     if (isset($params['v'])) {
         $videoId = $params['v'];
     }
-    return $videoId;
+    $iframe = '<iframe width="100%" height="280" src="https://www.youtube.com/embed/'.$videoId.'" frameborder="0" allowfullscreen></iframe>';
+    return $iframe;
 }
