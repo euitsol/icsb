@@ -15,7 +15,9 @@ use App\Http\Controllers\Backend\WWCSController;
 use App\Http\Controllers\Backend\NationalAwardController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\BannerController;
+use App\Http\Controllers\Backend\ICSBProfileController;
 use App\Http\Controllers\Backend\MemberController;
+use App\Http\Controllers\Backend\SinglePagesController;
 use App\Http\Controllers\Backend\UserManagement\RoleController;
 use App\Http\Controllers\Backend\UserManagement\PermissionController;
 use App\Http\Controllers\Frontend\AboutPagesController;
@@ -224,6 +226,15 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::get('member-type/status/{id}', [MemberController::class, 'mt_status'])->name('status.member_type_edit');
         Route::get('member-type/delete/{id}', [MemberController::class, 'mt_delete'])->name('member_type_delete');
     });
+    // ICSB Profile
+    Route::group(['as' => 'icsb_profile.', 'prefix' => 'icsb-profile'], function () {
+        Route::get('create', [ICSBProfileController::class, 'index'])->name('icsb_profile_create');
+        Route::post('create', [ICSBProfileController::class, 'store'])->name('icsb_profile_create');
+        // Route::get('edit/{id}',      [ICSBProfileController::class, 'edit'])->name('icsb_profile_edit');
+        // Route::put('edit/{id}',      [ICSBProfileController::class, 'update'])->name('icsb_profile_edit');
+        // Route::get('status/{id}',      [ICSBProfileController::class, 'status'])->name('status.icsb_profile_edit');
+        // Route::get('delete/{id}', [ICSBProfileController::class, 'delete'])->name('icsb_profile_delete');
+    });
 
 });
 
@@ -236,6 +247,14 @@ Route::get('/export-permissions', function () {
 
     return Response::download($filePath, $filename);
 })->name('export.permissions');
+Route::get('/single-page/create', [SinglePagesController::class, 'create'])->name('sp.create');
+Route::post('/single-page/store', [SinglePagesController::class, 'store'])->name('sp.store');
+
+
+Route::get('/single-page/show/{page_slug}', [SinglePagesController::class, 'show'])->name('sp.show');
+Route::post('/single-page/store/{page_slug}', [SinglePagesController::class, 'form_store'])->name('sp.form.store');
+
+
 
 //Frontend Routes
 

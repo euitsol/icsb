@@ -29,7 +29,7 @@ class BlogPagesController extends Controller
     }
     public function view($slug): View
     {
-        $s['blog'] = Blog::where('slug',$slug)->first();
+        $s['blog'] = Blog::where('deleted_at', null)->where('permission','1')->where('slug',$slug)->first();
         return view('frontend.blog.view',$s);
     }
 }
