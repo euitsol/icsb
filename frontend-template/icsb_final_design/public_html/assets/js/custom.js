@@ -28,7 +28,7 @@ $(document).ready(function(){
         margin:20,
         nav: true,
         dots: false,
-        autoplay:false,
+        autoplay:true,
         autoplayTimeout:3000,
         autoplayHoverPause:true,
         responsive:{
@@ -43,6 +43,28 @@ $(document).ready(function(){
             }
         }
 });
+var owl = $('.about-slider');
+owl.owlCarousel({
+    // items:6,
+    loop:true,
+    margin:0,
+    nav: false,
+    dots: false,
+    autoplay:true,
+    autoplayTimeout:3000,
+    autoplayHoverPause:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:1
+        },
+        800:{
+            items:1
+        }
+    }
+});
 
         var owl = $('.recent-update-slider');
         owl.owlCarousel({
@@ -51,7 +73,7 @@ $(document).ready(function(){
             margin:23,
             nav: false,
             dots: true,
-            autoplay:false,
+            autoplay:true,
             autoplayTimeout:3000,
             autoplayHoverPause:true,
             responsive:{
@@ -77,7 +99,7 @@ $(document).ready(function(){
             margin:25,
             nav: false,
             dots: true,
-            autoplay:false,
+            autoplay:true,
             autoplayTimeout:3000,
             autoplayHoverPause:true,
             responsive:{
@@ -91,30 +113,6 @@ $(document).ready(function(){
                     items:2
                 },
                 1368:{
-                    items:3
-                }
-            }
-    });
-
-    var owl = $('.national-connection');
-        owl.owlCarousel({
-            // items:6,
-            autoWidth:true,
-            loop:true,
-            margin:20,
-            nav: true,
-            dots: false,
-            autoplay:true,
-            autoplayTimeout:3000,
-            autoplayHoverPause:true,
-            responsive:{
-                0:{
-                    items:2
-                },
-                600:{
-                    items:3
-                },
-                800:{
                     items:3
                 }
             }
@@ -153,8 +151,37 @@ $(document).ready(function(){
 
     //   });
 
-    })
 
+    });
+
+    $(document).ready(function(){
+
+        $("section .menu-bar ul li ").on('click',function(){
+            $("section .menu-bar ul li").removeClass("active");
+            $(this).addClass("active");
+        });
+
+
+        $("section .menu-bar ul li ul li").on('click',function(){
+            $("section .menu-bar ul li ul li").removeClass("activea");
+            $(this).addClass("activea");
+        });
+
+        // --------------- mobile menue -------
+        $(".offcanvas-body ul li").on('click',function(){
+            $(".offcanvas-body ul li").removeClass("active");
+            $(this).addClass("active");
+        });
+
+
+        $(".offcanvas-body ul li ul li").on('click',function(){
+        $(".offcanvas-body ul li ul li").removeClass("activea");
+        $(this).addClass("activea");
+        });
+
+
+
+    });
 
 
 //  Custom jQuery apply
@@ -231,6 +258,10 @@ $(document).ready(function(){
     $(document).ready(function(){
         $('.slider').bxSlider();
     });
+
+
+
+
 
 
 

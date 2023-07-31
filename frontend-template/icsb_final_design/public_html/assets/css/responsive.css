@@ -1,3 +1,29 @@
+@media only screen and (max-width: 1800px){
+    .level-2 {
+      column-gap: 5%;
+    }
+    .level-3 {
+      column-gap: 7%;
+    }
+  }
+  @media only screen and (max-width: 1700px){
+    .level-3 {
+      column-gap: 12%;
+    }
+    .level-2{
+      column-gap: 10%;
+    }
+  }
+  @media only screen and (max-width: 1600px){
+    .level-3 {
+      column-gap: 10%;
+    }
+  }
+@media only screen and (max-width: 1500px){
+    .level-3 {
+      padding-right: 0;
+    }
+  }
 @media only screen and (max-width: 1460px){
     .header-menu-section .navbar-nav {
         column-gap: 3px;
@@ -63,6 +89,16 @@
         padding: 0;
         margin: 0;
     }
+
+    .box {
+        width: 185px;
+      }
+      .level-2 {
+        column-gap: 7%;
+      }
+      .level-3 {
+        column-gap: 7%;
+      }
 }
 @media only screen and (max-width: 1200px){
     .main-header-section {
@@ -196,6 +232,20 @@
         padding: 50px;
     }
 
+    .box {
+        width: 150px;
+        padding: 5px;
+      }
+      .level-2 {
+        column-gap: 10%;
+      }
+      .level-3 .box::after {
+        height: calc(100% + 54px);
+        top: -153px;
+      }
+      .level-3 {
+        column-gap: 10%;
+      }
 
     .main-footer-section {
         padding: 55px 0 10px 0;
@@ -344,14 +394,6 @@
     .header-menu-section .navbar-nav .dropdown-menu li:hover a{
         color: #FF8601;
     }
-
-
-
-    .header-menu-section .mobile-header{
-        display: block;
-        position: fixed;
-        background: #182456;
-    }
     .main{
         margin-top: -14px;
     }
@@ -426,7 +468,56 @@
         color: #fff;
         background: #182456;
     }
+
+    .header-menu-section .offcanvas-body nav ul{
+        padding: 0;
+    }
+    .header-menu-section .offcanvas-body a:hover{
+        color: #FF8601;
+    }
+    .header-menu-section .offcanvas-body nav ul li{
+        margin-bottom: 4px;
+    }
+    .header-menu-section .offcanvas-body nav ul li ul{
+        padding-left: 25px;
+        margin-top: 10px;
+    }
+    .header-menu-section .offcanvas-body nav ul li ul li a{
+        font-size: 16px;
+        line-height: 22px;
+    }
+    .header-menu-section .offcanvas-body nav ul li a{
+        color: #111;
+        font-size: 19px;
+        line-height: 25px;
+    }
+    .header-menu-section .offcanvas-body nav ul li > ul {
+        display: none;
+    }
+    .header-menu-section .offcanvas-body nav ul li.active > ul {
+        display: block;
+    }
+
+    .header-menu-section .offcanvas-body nav ul li ul li > ul {
+        display: none;
+    }
+    .header-menu-section .offcanvas-body nav ul li li.activea > ul {
+        display: block !important;
+    }
+    .header-menu-section .mobile-header{
+        display: block;
+        position: fixed;
+        background: #182456;
+    }
 }
+@media only screen and (max-width: 1100px){
+    .level-2 {
+      column-gap: 8%;
+    }
+    .level-3 {
+      column-gap: 8%;
+    }
+  }
 @media only screen and (max-width: 1024px){
     .breadcrumbs-section .breadcrumbs-row .left-column {
         height: 300px;
@@ -872,6 +963,74 @@
         font-size: 21px;
         line-height: 27px;
     }
+/*============================ Organogram Page ===================*/
+    .level-2::after {
+        width: 161px;
+        height: 2px;
+        top: -25px;
+        left: 50%;
+        transform: translateX(-99%);
+      }
+      .level-1{
+        margin-bottom: 35px;
+       }
+      .chart-main {
+        row-gap: 20px;
+      }
+      .level-2{
+        flex-direction: column;
+        align-content: center;
+        row-gap: 20px;
+      }
+      .level-3 {  
+        flex-direction: column;
+        align-content: center;
+        row-gap: 20px;
+      }
+      .level-2 .box::after {
+        width: 50%;
+        height: 2px;
+        top: 50%;
+        left: -50%;
+      }
+      .level-3 .box::after {
+        width: 50%;
+        height: 2px;
+        top: 50%;
+        left: -50%;
+      }
+      .level-3 .box::before{
+        content: "";
+        position: absolute;
+        background: #000;
+        width: 2px;
+        height: 100px;
+        left: -80px;
+        top: -50px;
+      }
+      .level-2 .box::before{
+        content: "";
+        position: absolute;
+        background: #000;
+        width: 2px;
+        height: 100px;
+        left: -80px;
+        top: -50px;
+      }
+      .level-2 .box:first-child:before{
+        width: 2px;
+        height: 52px;
+        top: -26px;
+      }
+    
+      .level-1 .box:after{
+        content: "";
+        position: absolute;
+        background: #000;
+        width: 2px;
+        height: 30px;
+        bottom: -31px;
+      }
 }
 @media only screen and (max-width: 991px){
     .main-header-section {
@@ -1436,6 +1595,13 @@
     }
     .global-table tr {
         column-gap: 25px;
+    }
+
+    .main-footer-section::before {
+        display: none;
+    }
+    .main-footer-section::after {
+        display: none;
     }
 }
 @media only screen and (max-width: 600px){
