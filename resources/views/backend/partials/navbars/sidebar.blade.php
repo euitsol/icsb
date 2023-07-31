@@ -36,7 +36,8 @@
             {{-- About CS --}}
             <li>
                 <a class="@if(
-                        $pageSlug == 'icsb_profile' ||
+                        // $pageSlug == 'icsb_profile' ||
+                        $pageSlug == 'icsb-profile' ||
                         $pageSlug == 'vision' ||
                         $pageSlug == 'mission' ||
                         $pageSlug == 'objectives' ||
@@ -46,7 +47,8 @@
                         $pageSlug == 'cs-for-cg' ||
                         $pageSlug == 'faq'
                     )@else collapsed @endif" data-toggle="collapse" href="#about" @if (
-                        $pageSlug == 'icsb_profile' ||
+                        // $pageSlug == 'icsb_profile' ||
+                        $pageSlug == 'icsb-profile' ||
                         $pageSlug == 'vision' ||
                         $pageSlug == 'mission' ||
                         $pageSlug == 'objectives' ||
@@ -62,7 +64,8 @@
                 </a>
 
                 <div class="collapse @if (
-                    $pageSlug == 'icsb_profile' ||
+                    // $pageSlug == 'icsb_profile' ||
+                    $pageSlug == 'icsb-profile' ||
                     $pageSlug == 'vision' ||
                     $pageSlug == 'mission' ||
                     $pageSlug == 'objectives' ||
@@ -75,7 +78,8 @@
                     <ul class="nav pl-4">
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
-                                ['pageSlug' => 'icsb_profile', 'routeName' => 'icsb_profile.icsb_profile_create', 'label' => 'ICSB Profile'],
+                                // ['pageSlug' => 'icsb_profile', 'routeName' => 'icsb_profile.icsb_profile_create', 'label' => 'ICSB Profile'],
+                                ['pageSlug' => 'icsb-profile', 'routeName' => 'sp.show', 'params' => 'icsb-profile', 'label' => 'ICSB Profile'],
                                 ['pageSlug' => 'vision', 'routeName' => 'sp.show', 'params' => 'vision', 'label' => 'Vision'],
                                 ['pageSlug' => 'mission', 'routeName' => 'sp.show', 'params' => 'mission', 'label' => 'Mission'],
                                 ['pageSlug' => 'objectives', 'routeName' => 'sp.show', 'params' => 'objectives', 'label' => 'Objectives'],

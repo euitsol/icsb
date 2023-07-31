@@ -9,6 +9,7 @@ use App\Models\Event;
 use App\Models\MemberType;
 use App\Models\NationalAward;
 use App\Models\SinglePages;
+use App\Models\WWCS;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\View\View;
@@ -50,6 +51,11 @@ class FrontendSinglePagesController extends Controller
         if($s['single_page']->frontend_slug == 'job-placement')
         {
             return view('frontend.members.job_placement',$s);
+        }
+        if($s['single_page']->frontend_slug == 'icsb-profile')
+        {
+            $s['wwcss'] = WWCS::where('status',1)->where('deleted_at', null)->latest()->get();
+            return view('frontend.about.icsb_profile',$s);
         }
     }
 }

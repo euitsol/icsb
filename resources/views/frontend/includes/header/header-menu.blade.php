@@ -222,7 +222,8 @@
                         <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">About CS</a>
                           <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ route('about.icsb_profile') }}">ICSB Profile</a></li>
+                            {{-- <li><a class="dropdown-item" href="{{ route('about.icsb_profile') }}">ICSB Profile</a></li> --}}
+                            <li><a class="dropdown-item" href="{{ route('sp.frontend','icsb-profile') }}">ICSB Profile</a></li>
                             <li><a class="dropdown-item" href="{{ route('sp.frontend','vision') }}">Vision</a></li>
                             <li><a class="dropdown-item" href="{{ route('sp.frontend','mission') }}">Mission</a></li>
                             <li><a class="dropdown-item" href="{{route('sp.frontend','objectives')}}">Objectives</a></li>

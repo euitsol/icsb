@@ -10,6 +10,45 @@ class SinglePagesSeeder extends Seeder
     public function run()
     {
         SinglePages::create([
+            'page_key' => 'icsb-profile',
+            'frontend_slug' => 'icsb-profile',
+            'title' => 'Create ICSB Profile',
+            'form_data' => '{
+                "1":
+                {
+                    "field_key":"banner-image",
+                    "field_name":"Banner Image",
+                    "type":"image",
+                    "required":"required"
+                },
+                "2":
+                {
+                    "field_key":"back-image",
+                    "field_name":"Back Image",
+                    "type":"image",
+                    "required":"required"
+                },
+                "3":
+                {
+                    "field_key":"front-image",
+                    "field_name":"Front Image",
+                    "type":"image",
+                    "required":"required"
+                },
+                "4":
+                {
+                    "field_key":"details",
+                    "field_name":"Details",
+                    "type":"textarea",
+                    "required":"required"
+                }
+            }',
+            'documentation' => '{
+                "title":"ICSB Profile",
+                "details":"<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.<\/span><\/p>"
+            }',
+        ]);
+        SinglePages::create([
             'page_key' => 'vision',
             'frontend_slug' => 'vision',
             'title' => 'Create Vision',
