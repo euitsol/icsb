@@ -28,15 +28,15 @@ $(document).ready(function(){
         margin:20,
         nav: true,
         dots: false,
-        autoplay:true,
+        autoplay:false,
         autoplayTimeout:3000,
         autoplayHoverPause:true,
         responsive:{
             0:{
-                items:1
+                items:2
             },
             600:{
-                items:2
+                items:4
             },
             800:{
                 items:7
@@ -88,6 +88,9 @@ $(document).ready(function(){
                     items:1
                 },
                 800:{
+                    items:2
+                },
+                1368:{
                     items:3
                 }
             }
