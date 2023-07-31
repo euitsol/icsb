@@ -5,7 +5,7 @@
 @section('content')
 <section class="breadcrumbs-section">
 	<div class="overly-image">
-		<img src="{{asset('frontend/img/breadcumb/mision-vision-imgae.jpg')}}" alt="Vision & Mission">
+		<img src='{{storage_url(json_decode($single_page->saved_data)->{"banner-image"})}}' alt="Vision & Mission">
 	</div>
 	<div class="container">
 		<div class="breadcrumbs-row flex">
@@ -28,11 +28,10 @@
     <div class="container">
         <div class="mission-row flex">
             <div class="image-column">
-                <img src="{{asset('frontend/img/mission/banner-about-mission.jpg')}}" alt="">
+                <img src="{{storage_url(json_decode($single_page->saved_data)->{'image'})}}" alt="">
             </div>
             <div class="content-column color-white">
-                <h2>Our Vision</h2>
-                <p>To be the institutional leader in the creation of skilled professionals for proper development of corporate management and good governance.</p>
+                {!! (json_decode($single_page->saved_data)->{'details'}) !!}
             </div>
         </div>
     </div>
