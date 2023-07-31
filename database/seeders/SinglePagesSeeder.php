@@ -23,12 +23,19 @@ class SinglePagesSeeder extends Seeder
                 },
                 "2":
                 {
+                    "field_key":"image",
+                    "field_name":"Image",
+                    "type":"image",
+                    "required":"required"
+                },
+                "3":
+                {
                     "field_key":"additional-images",
                     "field_name":"Additional Images",
                     "type":"file_multiple",
                     "required":"nullable"
                 },
-                "3":
+                "4":
                 {
                     "field_key":"details",
                     "field_name":"Details",
@@ -55,12 +62,19 @@ class SinglePagesSeeder extends Seeder
                 },
                 "2":
                 {
+                    "field_key":"image",
+                    "field_name":"Image",
+                    "type":"image",
+                    "required":"required"
+                },
+                "3":
+                {
                     "field_key":"additional-images",
                     "field_name":"Additional Images",
                     "type":"file_multiple",
                     "required":"nullable"
                 },
-                "3":
+                "4":
                 {
                     "field_key":"details",
                     "field_name":"Details",
@@ -87,12 +101,19 @@ class SinglePagesSeeder extends Seeder
                 },
                 "2":
                 {
+                    "field_key":"image",
+                    "field_name":"Image",
+                    "type":"image",
+                    "required":"required"
+                },
+                "3":
+                {
                     "field_key":"additional-images",
                     "field_name":"Additional Images",
                     "type":"file_multiple",
                     "required":"nullable"
                 },
-                "3":
+                "4":
                 {
                     "field_key":"details",
                     "field_name":"Details",
@@ -439,12 +460,19 @@ class SinglePagesSeeder extends Seeder
                 },
                 "2":
                 {
+                    "field_key":"image",
+                    "field_name":"Image",
+                    "type":"image",
+                    "required":"required"
+                },
+                "3":
+                {
                     "field_key":"additional-images",
                     "field_name":"Additional Images",
                     "type":"file_multiple",
                     "required":"nullable"
                 },
-                "3":
+                "4":
                 {
                     "field_key":"details",
                     "field_name":"Details",
@@ -503,6 +531,59 @@ class SinglePagesSeeder extends Seeder
             }',
             'documentation' => '{
                 "title":"Members Lounge",
+                "details":"<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.<\/span><\/p>"
+            }',
+        ]);
+        SinglePages::create([
+            'page_key' => 'job-placement',
+            'frontend_slug' => 'job-placement',
+            'title' => 'Create Job Placement',
+            'form_data' => '{
+                "1":
+                {
+                    "field_key":"title",
+                    "field_name":"Title",
+                    "type":"text",
+                    "required":"required"},
+                "2":
+                {
+                    "field_key":"company-name",
+                    "field_name":"Company Name",
+                    "type":"text",
+                    "required":"required"},
+                "3":
+                {
+                    "field_key":"company-url",
+                    "field_name":"Company URL",
+                    "type":"url",
+                    "required":"required"},
+                "4":
+                {
+                    "field_key":"job-type",
+                    "field_name":"Job Type",
+                    "type":"text",
+                    "required":"required"},
+                "5":
+                {
+                    "field_key":"salary-per-month",
+                    "field_name":"Salary (Per Month)",
+                    "type":"number",
+                    "required":"required"},
+                "6":
+                {
+                    "field_key":"deadline",
+                    "field_name":"Deadline",
+                    "type":"text",
+                    "required":"required"},
+                "7":
+                {
+                    "field_key":"application-url",
+                    "field_name":"Application URL",
+                    "type":"url",
+                    "required":"required"}
+            }',
+            'documentation' => '{
+                "title":"Job Placement",
                 "details":"<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.<\/span><\/p>"
             }',
         ]);
