@@ -1273,8 +1273,8 @@
         padding: 65px 0;
     }
     .form-section h2 {
-        font-size: 30px;
-        line-height: 36px;
+        font-size: 35px;
+        line-height: 41px;
         margin-bottom: 22px;
         font-weight: 600;
     }
@@ -1290,6 +1290,14 @@
     }
     .map-section iframe{
         height: 350px;
+    }
+    .form-section .detailes-column .deatiles-items{
+        width: 100%;
+    }
+    .form-section .detailes-column .deatiles-items a {
+        font-size: 14px;
+        line-height: 21px;
+        max-width: 100%;
     }
 /*=========================== Objective Page ==============================*/
     .objectives-section {
