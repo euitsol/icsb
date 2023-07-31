@@ -30,13 +30,6 @@ class SinglePagesSeeder extends Seeder
                 },
                 "3":
                 {
-                    "field_key":"additional-images",
-                    "field_name":"Additional Images",
-                    "type":"file_multiple",
-                    "required":"nullable"
-                },
-                "4":
-                {
                     "field_key":"details",
                     "field_name":"Details",
                     "type":"textarea",
@@ -68,13 +61,6 @@ class SinglePagesSeeder extends Seeder
                     "required":"required"
                 },
                 "3":
-                {
-                    "field_key":"additional-images",
-                    "field_name":"Additional Images",
-                    "type":"file_multiple",
-                    "required":"nullable"
-                },
-                "4":
                 {
                     "field_key":"details",
                     "field_name":"Details",
@@ -108,13 +94,6 @@ class SinglePagesSeeder extends Seeder
                 },
                 "3":
                 {
-                    "field_key":"additional-images",
-                    "field_name":"Additional Images",
-                    "type":"file_multiple",
-                    "required":"nullable"
-                },
-                "4":
-                {
                     "field_key":"details",
                     "field_name":"Details",
                     "type":"textarea",
@@ -139,13 +118,6 @@ class SinglePagesSeeder extends Seeder
                     "required":"required"
                 },
                 "2":
-                {
-                    "field_key":"additional-images",
-                    "field_name":"Additional Images",
-                    "type":"file_multiple",
-                    "required":"nullable"
-                },
-                "3":
                 {
                     "field_key":"details",
                     "field_name":"Details",
@@ -172,13 +144,6 @@ class SinglePagesSeeder extends Seeder
                 },
                 "2":
                 {
-                    "field_key":"additional-images",
-                    "field_name":"Additional Images",
-                    "type":"file_multiple",
-                    "required":"nullable"
-                },
-                "3":
-                {
                     "field_key":"details",
                     "field_name":"Details",
                     "type":"textarea",
@@ -203,13 +168,6 @@ class SinglePagesSeeder extends Seeder
                     "required":"required"
                 },
                 "2":
-                {
-                    "field_key":"additional-images",
-                    "field_name":"Additional Images",
-                    "type":"file_multiple",
-                    "required":"nullable"
-                },
-                "3":
                 {
                     "field_key":"details",
                     "field_name":"Details",
@@ -236,13 +194,6 @@ class SinglePagesSeeder extends Seeder
                 },
                 "2":
                 {
-                    "field_key":"additional-images",
-                    "field_name":"Additional Images",
-                    "type":"file_multiple",
-                    "required":"nullable"
-                },
-                "3":
-                {
                     "field_key":"details",
                     "field_name":"Details",
                     "type":"textarea",
@@ -267,13 +218,6 @@ class SinglePagesSeeder extends Seeder
                     "required":"required"
                 },
                 "2":
-                {
-                    "field_key":"additional-images",
-                    "field_name":"Additional Images",
-                    "type":"file_multiple",
-                    "required":"nullable"
-                },
-                "3":
                 {
                     "field_key":"details",
                     "field_name":"Details",
@@ -300,13 +244,6 @@ class SinglePagesSeeder extends Seeder
                 },
                 "2":
                 {
-                    "field_key":"additional-images",
-                    "field_name":"Additional Images",
-                    "type":"file_multiple",
-                    "required":"nullable"
-                },
-                "3":
-                {
                     "field_key":"details",
                     "field_name":"Details",
                     "type":"textarea",
@@ -331,13 +268,6 @@ class SinglePagesSeeder extends Seeder
                     "required":"required"
                 },
                 "2":
-                {
-                    "field_key":"additional-images",
-                    "field_name":"Additional Images",
-                    "type":"file_multiple",
-                    "required":"nullable"
-                },
-                "3":
                 {
                     "field_key":"details",
                     "field_name":"Details",
@@ -364,13 +294,6 @@ class SinglePagesSeeder extends Seeder
                 },
                 "2":
                 {
-                    "field_key":"additional-images",
-                    "field_name":"Additional Images",
-                    "type":"file_multiple",
-                    "required":"nullable"
-                },
-                "3":
-                {
                     "field_key":"details",
                     "field_name":"Details",
                     "type":"textarea",
@@ -396,13 +319,6 @@ class SinglePagesSeeder extends Seeder
                 },
                 "2":
                 {
-                    "field_key":"additional-images",
-                    "field_name":"Additional Images",
-                    "type":"file_multiple",
-                    "required":"nullable"
-                },
-                "3":
-                {
                     "field_key":"details",
                     "field_name":"Details",
                     "type":"textarea",
@@ -427,13 +343,6 @@ class SinglePagesSeeder extends Seeder
                     "required":"required"
                 },
                 "2":
-                {
-                    "field_key":"additional-images",
-                    "field_name":"Additional Images",
-                    "type":"file_multiple",
-                    "required":"nullable"
-                },
-                "3":
                 {
                     "field_key":"details",
                     "field_name":"Details",
@@ -466,13 +375,6 @@ class SinglePagesSeeder extends Seeder
                     "required":"required"
                 },
                 "3":
-                {
-                    "field_key":"additional-images",
-                    "field_name":"Additional Images",
-                    "type":"file_multiple",
-                    "required":"nullable"
-                },
-                "4":
                 {
                     "field_key":"details",
                     "field_name":"Details",
@@ -513,15 +415,9 @@ class SinglePagesSeeder extends Seeder
                     "field_key":"title",
                     "field_name":"Title",
                     "type":"text",
-                    "required":"required"},
-                "2":
-                {
-                    "field_key":"images",
-                    "field_name":"Images",
-                    "type":"file_multiple",
                     "required":"required"
                 },
-                "3":
+                "2":
                 {
                     "field_key":"details",
                     "field_name":"Details",
