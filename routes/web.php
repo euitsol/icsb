@@ -30,6 +30,7 @@ use App\Http\Controllers\Frontend\RulesAndRegulationsPagesController;
 use App\Http\Controllers\Frontend\PublicationsPagesController;
 use App\Http\Controllers\Frontend\ContactPagesController;
 use App\Http\Controllers\Frontend\ArticlesController;
+use App\Http\Controllers\Frontend\ExaminationPagesController;
 use App\Http\Controllers\SettingsController;
 
 
@@ -261,12 +262,15 @@ Route::post('/single-page/store/{page_slug}', [SinglePagesController::class, 'fo
 Route::get('/', [HomePageController::class, 'index'])->name('home');
 
 Route::group(['as' => 'about.', 'prefix' => 'about'], function () {
-    // Route::get('/icsb', [AboutPagesController::class, 'index'])->name('icsb');
-    // Route::get('/council', [AboutPagesController::class, 'council'])->name('council');
-    // Route::get('/csr-activities', [AboutPagesController::class, 'csrActivities'])->name('csr_activities');
+    Route::get('/icsb-profile', [AboutPagesController::class, 'icsb_profile'])->name('icsb_profile');
+    Route::get('/vision', [AboutPagesController::class, 'vision'])->name('vision');
+    Route::get('/mission', [AboutPagesController::class, 'mission'])->name('mission');
+    Route::get('/objectives', [AboutPagesController::class, 'objectives'])->name('objectives');
     Route::get('/faq', [AboutPagesController::class, 'faq'])->name('faq');
     Route::get('/world-wide-cs', [AboutPagesController::class, 'wwcs'])->name('wwcs');
-    // Route::get('/assigned-officer', [AboutPagesController::class, 'assignedOfficer'])->name('assigned_officer');
+});
+Route::group(['as' => 'examination.', 'prefix' => 'examination'], function () {
+    Route::get('/exam-schedule', [ExaminationPagesController::class, 'examSchedule'])->name('exam_schedule');
 });
 Route::group(['as' => 'event_view.', 'prefix' => 'event'], function () {
     Route::get('/all-events', [EventPagesController::class, 'events'])->name('all');
@@ -300,6 +304,7 @@ Route::group(['as' => 'members.', 'prefix' => 'members'], function () {
     // Route::get('/code-of-conduct', [MembersPagesController::class, 'codeOfConduct'])->name('code_of_conduct');
     // Route::get('/cpd-program', [MembersPagesController::class, 'cpdProgram'])->name('cpd_program');
     Route::get('/member-search/{slug}', [MembersPagesController::class, 'memberSearch'])->name('m_search');
+    Route::get('/job-placement', [MembersPagesController::class, 'jobPlacement'])->name('job_placement');
 
 });
 // Route::group(['as' => 'rules_and_regulations.', 'prefix' => 'rulse-&-regulations'], function () {
