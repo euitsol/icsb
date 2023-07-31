@@ -304,6 +304,7 @@ Route::group(['as' => 'members.', 'prefix' => 'members'], function () {
     // Route::get('/code-of-conduct', [MembersPagesController::class, 'codeOfConduct'])->name('code_of_conduct');
     // Route::get('/cpd-program', [MembersPagesController::class, 'cpdProgram'])->name('cpd_program');
     Route::get('/member-search/{slug}', [MembersPagesController::class, 'memberSearch'])->name('m_search');
+    Route::get('/job-placement', [MembersPagesController::class, 'jobPlacement'])->name('job_placement');
 
 });
 // Route::group(['as' => 'rules_and_regulations.', 'prefix' => 'rulse-&-regulations'], function () {

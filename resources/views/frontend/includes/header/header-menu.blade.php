@@ -259,7 +259,7 @@
                              <li><a class="dropdown-item" href="#">Training Program</a></li>
                              <li><a class="dropdown-item" href="#">Members’ Lounge</a></li>
                              <li><a class="dropdown-item" href="#">Members’ Notice Board</a></li>
-                             <li><a class="dropdown-item" href="#">Job Placement</a></li>
+                             <li><a class="dropdown-item" href="{{ route('members.job_placement') }}">Job Placement</a></li>
                            </ul>
                         </li>
                         <li class="nav-item dropdown">

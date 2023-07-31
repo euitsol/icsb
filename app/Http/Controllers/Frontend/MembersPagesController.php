@@ -25,4 +25,9 @@ class MembersPagesController extends Controller
         return view('frontend.members.member_view',$s);
 
     }
+    public function jobPlacement(): View
+    {
+        return view('frontend.members.job_placement');
+
+    }
 }
