@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use Illuminate\Http\Request;
 use App\Models\Faq;
 use App\Models\Service;
 use App\Models\Contact;
+use App\Models\Event;
 use Illuminate\View\View;
 use App\Models\MemberType;
 use App\Models\WWCS;
@@ -30,6 +32,17 @@ class AboutPagesController extends Controller
     {
         $s['wwcss'] = WWCS::where('status',1)->where('deleted_at', null)->latest()->get();
         return view('frontend.about.wwcs',$s);
+    }
+    public function icsb_profile(): View
+    {
+        $s['wwcss'] = WWCS::where('status',1)->where('deleted_at', null)->latest()->get();
+        return view('frontend.about.icsb_profile',$s);
+    }
+    public function objectives(): View
+    {
+        $s['blogs'] = Blog::where('deleted_at', null)->where('permission','1')->where('is_featured','1')->latest()->get();
+        $s['events'] = Event::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
+        return view('frontend.about.objectives',$s);
     }
 
 }

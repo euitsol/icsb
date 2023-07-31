@@ -261,9 +261,10 @@ Route::post('/single-page/store/{page_slug}', [SinglePagesController::class, 'fo
 Route::get('/', [HomePageController::class, 'index'])->name('home');
 
 Route::group(['as' => 'about.', 'prefix' => 'about'], function () {
-    // Route::get('/icsb', [AboutPagesController::class, 'index'])->name('icsb');
+    Route::get('/icsb-profile', [AboutPagesController::class, 'icsb_profile'])->name('icsb_profile');
     // Route::get('/council', [AboutPagesController::class, 'council'])->name('council');
     // Route::get('/csr-activities', [AboutPagesController::class, 'csrActivities'])->name('csr_activities');
+    Route::get('/objectives', [AboutPagesController::class, 'objectives'])->name('objectives');
     Route::get('/faq', [AboutPagesController::class, 'faq'])->name('faq');
     Route::get('/world-wide-cs', [AboutPagesController::class, 'wwcs'])->name('wwcs');
     // Route::get('/assigned-officer', [AboutPagesController::class, 'assignedOfficer'])->name('assigned_officer');
