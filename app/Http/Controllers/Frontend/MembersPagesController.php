@@ -12,7 +12,7 @@ class MembersPagesController extends Controller
 {
     public function __construct() {
         $contact = Contact::where('deleted_at', null)->first();
-        $memberTypes = memberType::where('deleted_at', null)->where('status', 1)->get();
+        $memberTypes = MemberType::where('deleted_at', null)->where('status', 1)->get();
         view()->share([
             'contact' => $contact,
             'memberTypes' => $memberTypes,

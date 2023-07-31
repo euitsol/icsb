@@ -30,6 +30,7 @@ use App\Http\Controllers\Frontend\RulesAndRegulationsPagesController;
 use App\Http\Controllers\Frontend\PublicationsPagesController;
 use App\Http\Controllers\Frontend\ContactPagesController;
 use App\Http\Controllers\Frontend\ArticlesController;
+use App\Http\Controllers\Frontend\ExaminationPagesController;
 use App\Http\Controllers\SettingsController;
 
 
@@ -267,7 +268,9 @@ Route::group(['as' => 'about.', 'prefix' => 'about'], function () {
     Route::get('/objectives', [AboutPagesController::class, 'objectives'])->name('objectives');
     Route::get('/faq', [AboutPagesController::class, 'faq'])->name('faq');
     Route::get('/world-wide-cs', [AboutPagesController::class, 'wwcs'])->name('wwcs');
-    // Route::get('/assigned-officer', [AboutPagesController::class, 'assignedOfficer'])->name('assigned_officer');
+});
+Route::group(['as' => 'examination.', 'prefix' => 'examination'], function () {
+    Route::get('/exam-schedule', [ExaminationPagesController::class, 'examSchedule'])->name('exam_schedule');
 });
 Route::group(['as' => 'event_view.', 'prefix' => 'event'], function () {
     Route::get('/all-events', [EventPagesController::class, 'events'])->name('all');

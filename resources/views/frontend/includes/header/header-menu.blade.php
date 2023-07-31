@@ -308,7 +308,7 @@
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Examination</a>
                              <ul class="dropdown-menu">
                                <li><a class="dropdown-item" href="#">Eligibility</a></li>
-                               <li><a class="dropdown-item" href="#">Exam Schedule</a></li>
+                               <li><a class="dropdown-item" href="{{ route('examination.exam_schedule') }}">Exam Schedule</a></li>
                                <li><a class="dropdown-item" href="#">Results</a></li>
                                <li><a class="dropdown-item" href="#">Sample Question Papers</a></li>
                                <li><a class="dropdown-item" href="#">Exam FAQs</a></li>

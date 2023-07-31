@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 use App\Models\Contact;
 use App\Models\MemberType;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 use Illuminate\View\View;
 
-class ContactPagesController extends Controller
+class ExaminationPagesController extends Controller
 {
     public function __construct() {
         $contact = Contact::where('deleted_at', null)->first();
@@ -19,10 +19,8 @@ class ContactPagesController extends Controller
             'memberTypes' => $memberTypes,
         ]);
     }
-    public function feedback(): View
+    public function examSchedule(): View
     {
-        $contact = Contact::where('deleted_at', null)->first();
-        $s['contact_numbers'] = collect(json_decode($contact->phone ?? ''))->groupBy('type');
-        return view('frontend.contact.feedback',$s);
+        return view('frontend.examination.exam_schedule');
     }
 }
