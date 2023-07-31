@@ -42,6 +42,10 @@ h1,h2,h3,h4,h5,h6{
 .flex{
 	display: flex;
 }
+.z-index{
+	z-index: 11;
+	position: relative;
+}
 .text-align{
 	text-align: center;
 }
@@ -97,7 +101,7 @@ h1,h2,h3,h4,h5,h6{
 
 /*=================== Top Header Section ===================*/
 .top-header-section{
-	padding: 15px 0;
+	padding: 9px 0;
 	background: #182456;
 }
 .top-header-section .header-content-column{
@@ -123,7 +127,7 @@ h1,h2,h3,h4,h5,h6{
 }
 .top-header-section .header-column p{
 	color: #fff;
-	font-weight: 600;
+	font-weight: 400;
 	position: relative;
 }
 .top-header-section .header-info-column a{
@@ -145,24 +149,25 @@ h1,h2,h3,h4,h5,h6{
 }
 /*================== Header Section =====================*/
 .main-header-section{
-	padding: 18px 0;
+	padding: 10px 0 7px 0;
 }
 .header-menu-section .mobile-header{
 	display: none;
 }
 .main-header-section .header-content img{
-	width: auto;
+	width: 176px;
+	object-fit: cover;
 }
 .main-header-section .header-content .logo-column{
 	display: block;
 }
 .main-header-section .header-content h1{
 	color: #162B75;
-	font-size: 55px;
-	line-height: 61px;
+	font-size: 40px;
+	line-height: 46px;
 	position: relative;
-	margin-top: 10px;
-	margin-bottom: 10px;
+	margin-top: 5px;
+	margin-bottom: 2px;
 	display: inline-block;
 	font-family: 'Teko', sans-serif;
 }
@@ -173,12 +178,12 @@ h1,h2,h3,h4,h5,h6{
 	width: 100%;
 	height: 1.5px;
 	left: 0;
-	top: 60px;
+	top: 43px;
 }
 .main-header-section .header-content h2{
 	color: #162B75;
-	font-size: 22px;
-	line-height: 26px;
+	font-size: 18px;
+	line-height: 24px;
 	font-weight: 500;
 	letter-spacing: 1.25px;
 	font-family: 'Poppins', sans-serif;
@@ -196,7 +201,7 @@ h1,h2,h3,h4,h5,h6{
 	z-index: 999;
 }
 .header-menu-section{
-	padding: 17px 0 12px 0;
+	padding: 10px 0 5px 0;
 	background: #182456;
 }
 .header-menu-section .navbar-brand{
@@ -238,7 +243,7 @@ h1,h2,h3,h4,h5,h6{
 	border: 0;
 	padding: 0;
 	margin: 0;
-	margin-top: 25px;
+	margin-top: 18px;
 	border-radius: 0;
 	transition: 0.4s;
 	border-bottom: 5px solid #FF8601;
@@ -290,7 +295,7 @@ h1,h2,h3,h4,h5,h6{
 	opacity: 1;
 }
 .banner-section .carousel-indicators{
-	margin-bottom: 35px;
+	margin-bottom: 60px;
 }
 .banner-section .carousel-indicators button{
 	width: 40px;
@@ -417,7 +422,7 @@ h1,h2,h3,h4,h5,h6{
 	background-image: url("../img/about_us_bg.png");
 }
 .we-are-section img{
-	outline: 8px solid #FF8601;
+	outline: 8px solid #B8C0C3;
 	border: 8px solid #ffffff;
 }
 .we-are-section h2{
@@ -718,7 +723,7 @@ h1,h2,h3,h4,h5,h6{
 
 /* ================= End Notice Section ============ */
 .recent-update-section{
-	padding: 102px 0 62px 0;
+	padding: 102px 0 120px 0;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -780,7 +785,7 @@ h1,h2,h3,h4,h5,h6{
 	background: #fff;
 }
 .recent-update-section .recent-update-row .owl-theme .owl-dots{
-	margin-top: 135px;
+	margin-top: 65px;
 }
 .recent-update-section .recent-update-row .owl-theme .owl-dots .owl-dot span{
 	width: 40px;
@@ -838,7 +843,7 @@ h1,h2,h3,h4,h5,h6{
 .endorsement-section .endorsement-column .button a{
 	color: #182456;
 	font-size: 18px;
-	line-height: 40px;
+	line-height: 38px;
 	height: 40px;
 	width: 100%;
 	max-width: 169px;
@@ -1117,20 +1122,34 @@ h1,h2,h3,h4,h5,h6{
 .national-connection-section{
 	padding: 105px 0;
 }
-/* .national-connection-section .national-connection .owl-item img{
+.national-connection-section .logo-carousel .owl-item{
+	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.national-connection-section .logo-carousel .owl-item h3{
+	color: #fff;
+	font-size: 14px;
+	line-height: 20px;
+	position: relative;
+	bottom: 0;
+	opacity: 0;
+	left: 65px;
+	top: -72px;
+	padding: 3px 9px;
+	font-weight: 700;
+	transition: 0.6s;
+	background: #182456;
+}
+.national-connection-section .logo-carousel .owl-item:hover h3{
+	opacity: 1;
+}
+.national-connection-section .logo-carousel .owl-item img{
 	width: auto;
 	margin-left: auto;
 	margin-right: auto;
 	margin-right: auto;
-}
-.national-connection-section .national-connection .owl-item  h3{
-	color: #122F98;
-	font-family: 'Poppins', sans-serif;
-	font-size: 24px;
-	line-height: 30px;
-	text-transform: uppercase;
-	font-weight: 500;
-	margin-top: 35px;
 }
 .national-connection-section .owl-carousel .owl-nav.disabled {
 	display: block;
@@ -1141,6 +1160,10 @@ h1,h2,h3,h4,h5,h6{
 	display: flex;
 	justify-content: center;
 	position: relative;
+}
+.national-connection-section .owl-carousel{
+	display: flex;
+	align-items: center;
 }
 .national-connection-section .owl-carousel .owl-nav button {
 	color: #111111;
@@ -1153,6 +1176,9 @@ h1,h2,h3,h4,h5,h6{
 	margin: 0;
 	border-radius: 0;
 	transition: 0.4s;
+}
+.national-connection-section .owl-carousel .owl-nav{
+	margin-top: -45px;
 }
 .national-connection-section .owl-carousel .owl-nav .owl-prev {
 	left: -114px;
@@ -1168,7 +1194,7 @@ h1,h2,h3,h4,h5,h6{
 }
 .national-connection-section .owl-carousel .owl-nav button:hover {
 	background: #182456;
-} */
+}
 
 
 .breadcrumbs-section{
@@ -1225,6 +1251,71 @@ h1,h2,h3,h4,h5,h6{
 	color: #F2F2F2;
 	font-size: 17px;
 	line-height: 25px;
+}
+/*====================== Assigned Officers ====================*/
+.officers-section{
+	padding: 100px 0;
+}
+.officers-section table{
+	width: 100%;
+	max-width: 1150px;
+	margin: 0 auto;
+}
+.officers-section table, th, td{
+	border: 1px solid black;
+	border-collapse: collapse;
+	font-family: 'Poppins', sans-serif;
+}
+.officers-section table img{
+	width: 50px;
+}
+.officers-section table th{
+	text-align: center;
+	padding: 15px;
+	font-size: 18px;
+	line-height: 25px;
+	font-weight: 500;
+	background: #F2F2F2;
+	font-family: 'Roboto', sans-serif;
+}
+.officers-section table td{
+	padding: 10px 15px;
+}
+.officers-section table td a{
+	color: #182456;
+}
+.officers-section table td a:hover{
+	color: #FF8601;
+}
+.officers-section table tr:nth-child(odd){
+	background: #F2F2F2;
+}
+.officers-section table td:nth-child(1), .officers-section table td:nth-child(2){
+	text-align: center;
+}
+.officers-section table td:nth-child(3), .officers-section table td:nth-child(4){
+	padding: 10px 20px;
+}
+
+/*========================= Founding Members Page CSS =====================*/
+.founding-member-section{
+	padding: 100px 0;
+}
+.founding-member-section .member-row .member-content p{
+	margin-bottom: 20px;
+}
+.founding-member-section .member-row ul{
+	padding: 0;
+	margin: 0;
+	margin-top: 20px;
+	padding-left: 13px;
+}
+.founding-member-section .member-row ul li{
+	list-style: inherit;
+	margin-bottom: 4px;
+}
+.founding-member-section .member-divided-row{
+	column-gap: 60px;
 }
 
 /*========================== About ICSB Page CSS =========================*/
@@ -1631,6 +1722,9 @@ h1,h2,h3,h4,h5,h6{
 	margin-top: 23px;
 	outline: 3px solid #FF8601;
 	border: 4px double #062BB1;
+}
+.gallery-section .gallery-items a{
+	display: block;
 }
 .gallery-button-section{
 	margin-top: 43px;
@@ -2748,45 +2842,105 @@ h1,h2,h3,h4,h5,h6{
 	line-height: 56px;
 	max-width: 540px;
 }
-
-
-
-
-
 /*====================== World Wide CS ===============*/
 .world-wide-section{
 	padding: 100px 0;
 }
-.world-wide-section .section-heading h2 {
-	font-size: 70px;
-	line-height: 76px;
-	margin-bottom: 70px;
+.world-wide-section .world-wide-column{
+	column-gap: 2%;
+	flex-wrap: wrap;
+	row-gap: 30px;
 }
-.world-wide-section .world-wide-column {
-	column-gap: 25px;
-	padding-bottom: 25px;
+.world-wide-section .world-wide-column .cs-items{
+	width: 32%;
 }
-.world-wide-section .world-wide-column .world-wide-item {
-	background: #F2F2F2;
-	width: 49%;
-	padding: 72px 40px 0 40px;
-	min-height: 654px;
+.world-wide-section .world-wide-column .cs-items h3{
+	color: #fff;
+	padding: 15px;
+	font-size: 23px;
+	line-height: 29px;
+	background: #182456;
 }
-.world-wide-section img{
-	width: auto;
+.world-wide-section .world-wide-column .cs-items img{
+	width: fit-content;
+	left: 50%;
+	position: relative;
+	margin-top: 28px;
+	margin-bottom: 30px;
+	transform: translateX(-50%);
 }
-.world-wide-section .world-wide-column .world-wide-item .chart-heading {
-	padding-bottom: 25px;
+.world-wide-section .world-wide-column .cs-items ul{
+	padding: 0;
+	margin: 0;
+	column-gap: 40px;
+	justify-content: center;
+	padding-bottom: 40px;
 }
-.world-wide-section .world-wide-column .world-wide-item .chart-link {
-	padding-top: 24px;
+.world-wide-section .world-wide-column .cs-items ul li i{
+	margin-right: 5px;
 }
-.world-wide-section .world-wide-column .world-wide-item .society-text {
-	max-width: 330px;
-	margin: 0 auto;
-	padding-bottom: 25px;
+.world-wide-section .world-wide-column .cs-items ul li a{
+	color: #182456;
+	font-size: 17px;
+	line-height: 25px;
 }
-
+.world-wide-section .world-wide-column .cs-items ul li a:hover{
+	color: #FF8601;
+}
+.world-wide-section .world-wide-column .cs-items ul li span{
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+/*================= Global Page Style ================*/
+.global-page-section{
+	padding: 100px 0;
+}
+.global-page-section .global-row{
+	column-gap: 5%;
+	margin-bottom: 60px;
+}
+.global-page-section .global-row .left-column{
+	width: 58%;
+}
+.global-page-section .global-row .left-column h2{
+	font-size: 40px;
+	line-height: 46px;
+	margin-bottom: 25px;
+}
+.global-page-section .global-row .left-column p{
+	margin-bottom: 20px;
+}
+.global-page-section .global-row .right-column{
+	width: 37%;
+}
+.global-gallery-section{
+	padding: 0;
+	margin-top: 50px;
+}
+.global-page-section .global-row .right-column img{
+	outline: 6px solid #B8C0C3;
+	border: 6px solid #ffffff;
+}
+.global-table table{
+	width: 100%;
+	/* max-width: 630px; */
+}
+.global-table tr{
+	display: flex;
+	column-gap: 66px;
+	padding: 10px 20px;
+	border: 1px solid #ddd;
+	justify-content: space-between;
+}
+.global-page-section .global-row {
+	margin-bottom: 65px;
+}
+.global-gallery-section{
+	padding: 0 !important;
+}
+.global-page-section .global-row .left-column table{
+	margin-top: 45px;
+}
 /* ========= president-content-section =========== */
 .president-content-section .president-content-row {
 	display: flex;
@@ -2887,7 +3041,7 @@ h1,h2,h3,h4,h5,h6{
 }
 .main-footer-section::after{
 	position: absolute;
-	top: 50px;
+	bottom: 50px;
 	left: 50px;
 	content: url("../img/footer-shape.png");
 }

@@ -262,8 +262,8 @@ Route::get('/', [HomePageController::class, 'index'])->name('home');
 
 Route::group(['as' => 'about.', 'prefix' => 'about'], function () {
     Route::get('/icsb-profile', [AboutPagesController::class, 'icsb_profile'])->name('icsb_profile');
-    // Route::get('/council', [AboutPagesController::class, 'council'])->name('council');
-    // Route::get('/csr-activities', [AboutPagesController::class, 'csrActivities'])->name('csr_activities');
+    Route::get('/vision', [AboutPagesController::class, 'vision'])->name('vision');
+    Route::get('/mission', [AboutPagesController::class, 'mission'])->name('mission');
     Route::get('/objectives', [AboutPagesController::class, 'objectives'])->name('objectives');
     Route::get('/faq', [AboutPagesController::class, 'faq'])->name('faq');
     Route::get('/world-wide-cs', [AboutPagesController::class, 'wwcs'])->name('wwcs');

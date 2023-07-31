@@ -11,6 +11,7 @@ use App\Models\Contact;
 use App\Models\Event;
 use Illuminate\View\View;
 use App\Models\MemberType;
+use App\Models\NationalAward;
 use App\Models\WWCS;
 
 class AboutPagesController extends Controller
@@ -43,6 +44,16 @@ class AboutPagesController extends Controller
         $s['blogs'] = Blog::where('deleted_at', null)->where('permission','1')->where('is_featured','1')->latest()->get();
         $s['events'] = Event::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
         return view('frontend.about.objectives',$s);
+    }
+    public function vision(): View
+    {
+        $s['national_awards'] = NationalAward::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
+        return view('frontend.about.vision',$s);
+    }
+    public function mission(): View
+    {
+        $s['national_awards'] = NationalAward::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
+        return view('frontend.about.mission',$s);
     }
 
 }
