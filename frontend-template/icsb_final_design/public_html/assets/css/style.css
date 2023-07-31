@@ -1262,7 +1262,6 @@ h1,h2,h3,h4,h5,h6{
 	margin: 0 auto;
 }
 .officers-section table, th, td{
-	border: 1px solid black;
 	border-collapse: collapse;
 	font-family: 'Poppins', sans-serif;
 }
@@ -1277,6 +1276,9 @@ h1,h2,h3,h4,h5,h6{
 	font-weight: 500;
 	background: #F2F2F2;
 	font-family: 'Roboto', sans-serif;
+}
+.officers-section .fa-cloud-arrow-down{
+	color: #182456;
 }
 .officers-section table td{
 	padding: 10px 15px;
@@ -1677,10 +1679,12 @@ h1,h2,h3,h4,h5,h6{
 	width: 100%;
 	max-width: 100%;
 }
-
-
-
-
+/*=================== Location Page Style ========================*/
+.location-map-section{
+	max-width: 1300px;
+	margin: 0 auto;
+	padding: 100px 0;
+}
 /*================================ CS Handbook Page CSS =========================*/
 .cs-handbook-section{
 	padding: 100px 0;
