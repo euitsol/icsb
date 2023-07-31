@@ -137,24 +137,26 @@
                         $pageSlug == 'member' ||
                         $pageSlug == 'who-are-css' ||
                         $pageSlug == 'cs-membership' ||
+                        $pageSlug == 'member-portal' ||
                         $pageSlug == 'cs_firms' ||
                         $pageSlug == 'code-of-conducts' ||
                         $pageSlug == 'cpd-program' ||
                         $pageSlug == 'training-program' ||
-                        $pageSlug == 'members_lounge' ||
+                        $pageSlug == 'members-lounge' ||
                         $pageSlug == 'members_notice_board' ||
-                        $pageSlug == 'job_placement'
+                        $pageSlug == 'job-placement'
                     )@else collapsed @endif" data-toggle="collapse" href="#member" @if (
                         $pageSlug == 'member' ||
                         $pageSlug == 'who-are-css' ||
                         $pageSlug == 'cs-membership' ||
+                        $pageSlug == 'member-portal' ||
                         $pageSlug == 'cs_firms' ||
                         $pageSlug == 'code-of-conducts' ||
                         $pageSlug == 'cpd-program' ||
                         $pageSlug == 'training-program' ||
-                        $pageSlug == 'members_lounge' ||
+                        $pageSlug == 'members-lounge' ||
                         $pageSlug == 'members_notice_board' ||
-                        $pageSlug == 'job_placement'
+                        $pageSlug == 'job-placement'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-solid fa-people-group"></i>
                     <span class="nav-link-text" >{{ __('Members') }}</span>
@@ -165,13 +167,14 @@
                         $pageSlug == 'member' ||
                         $pageSlug == 'who-are-css' ||
                         $pageSlug == 'cs-membership' ||
+                        $pageSlug == 'member-portal' ||
                         $pageSlug == 'cs_firms' ||
                         $pageSlug == 'code-of-conducts' ||
                         $pageSlug == 'cpd-program' ||
                         $pageSlug == 'training-program' ||
-                        $pageSlug == 'members_lounge' ||
+                        $pageSlug == 'members-lounge' ||
                         $pageSlug == 'members_notice_board' ||
-                        $pageSlug == 'job_placement'
+                        $pageSlug == 'job-placement'
                 ) show @endif" id="member">
                     <ul class="nav pl-4">
                         @include('backend.partials.menu_buttons', [
@@ -179,13 +182,14 @@
                                 ['pageSlug' => 'who-are-css', 'routeName' => 'sp.show', 'params' => 'who-are-css', 'label' => 'Who are CSs'],
                                 ['pageSlug' => 'cs-membership', 'routeName' => 'sp.show', 'params' => 'cs-membership', 'label' => 'CS Membership'],
                                 ['pageSlug' => 'member', 'routeName' => 'member.member_list', 'label' => 'Member Search'],
+                                ['pageSlug' => 'member-portal', 'routeName' => 'sp.show', 'params' => 'member-portal', 'label' => 'Member Portal'],
                                 ['pageSlug' => 'cs_firms', 'routeName' => '', 'label' => 'CS Firms'],
                                 ['pageSlug' => 'code-of-conducts', 'routeName' => 'sp.show', 'params' => 'code-of-conducts', 'label' => 'Code of Conducts'],
                                 ['pageSlug' => 'cpd-program', 'routeName' => 'sp.show', 'params' => 'cpd-program', 'label' => 'CPD Program'],
                                 ['pageSlug' => 'training-program', 'routeName' => 'sp.show', 'params' => 'training-program', 'label' => 'Training Program'],
-                                ['pageSlug' => 'members_lounge', 'routeName' => '', 'label' => 'Members’ Lounge'],
+                                ['pageSlug' => 'members-lounge', 'routeName' => 'sp.show', 'params' => 'members-lounge', 'label' => 'Members’ Lounge'],
                                 ['pageSlug' => 'members_notice_board', 'routeName' => '', 'label' => 'Members’ Notice Board'],
-                                ['pageSlug' => 'job_placement', 'routeName' => '', 'label' => 'Job Placement'],
+                                ['pageSlug' => 'job-placement', 'routeName' => 'sp.show', 'params' => 'job-placement', 'label' => 'Job Placement'],
                             ]
                         ])
                     </ul>

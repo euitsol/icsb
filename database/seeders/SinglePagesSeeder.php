@@ -457,5 +457,54 @@ class SinglePagesSeeder extends Seeder
                 "details":"<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.<\/span><\/p>"
             }',
         ]);
+        SinglePages::create([
+            'page_key' => 'member-portal',
+            'frontend_slug' => 'member-portal',
+            'title' => 'Create Member Portal',
+            'form_data' => '{
+                "1":
+                {
+                    "field_key":"portal-url",
+                    "field_name":"Portal URL",
+                    "type":"url",
+                    "required":"required"
+                }
+            }',
+            'documentation' => '{
+                "title":"Member Portal",
+                "details":"<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.<\/span><\/p>"
+            }',
+        ]);
+        SinglePages::create([
+            'page_key' => 'members-lounge',
+            'frontend_slug' => 'members-lounge',
+            'title' => 'Create Members Lounge',
+            'form_data' => '{
+                "1":
+                {
+                    "field_key":"title",
+                    "field_name":"Title",
+                    "type":"text",
+                    "required":"required"},
+                "2":
+                {
+                    "field_key":"images",
+                    "field_name":"Images",
+                    "type":"file_multiple",
+                    "required":"required"
+                },
+                "3":
+                {
+                    "field_key":"details",
+                    "field_name":"Details",
+                    "type":"textarea",
+                    "required":"required"
+                }
+            }',
+            'documentation' => '{
+                "title":"Members Lounge",
+                "details":"<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.<\/span><\/p>"
+            }',
+        ]);
     }
 }
