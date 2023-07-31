@@ -12,7 +12,7 @@ class MembersPagesController extends Controller
 {
     public function __construct() {
         $contact = Contact::where('deleted_at', null)->first();
-        $memberTypes = memberType::where('deleted_at', null)->where('status', 1)->get();
+        $memberTypes = MemberType::where('deleted_at', null)->where('status', 1)->get();
         view()->share([
             'contact' => $contact,
             'memberTypes' => $memberTypes,
@@ -23,6 +23,11 @@ class MembersPagesController extends Controller
     {
         $s['type'] = MemberType::with('members')->where('status', 1)->where('slug', $slug)->first();
         return view('frontend.members.member_view',$s);
+
+    }
+    public function jobPlacement(): View
+    {
+        return view('frontend.members.job_placement');
 
     }
 }
