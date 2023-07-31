@@ -25,25 +25,25 @@
 
                                 @if($fd->type == "text")
                                     <div class="form-group {{ $errors->has($fd->field_key) ? ' has-danger' : '' }}">
-                                        <label for="{{$fd->field_key}}">{{ getSinglePageLebel($fd->field_name) }}</label>
+                                        <label for="{{$fd->field_key}}">{{ $fd->field_name }}</label>
                                         <input type="text" name="{{$fd->field_key}}" id="{{$fd->field_key}}" class="form-control title {{ $errors->has($fd->field_key) ? ' is-invalid' : '' }}" value="{{ json_decode($details->saved_data)->$a ?? old($fd->field_key) }}">
                                         @include('alerts.feedback', ['field' => $fd->field_key])
                                     </div>
                                 @elseif($fd->type == "number")
                                     <div class="form-group {{ $errors->has($fd->field_key) ? ' has-danger' : '' }}">
-                                        <label for="{{$fd->field_key}}">{{ getSinglePageLebel($fd->field_name) }}</label>
+                                        <label for="{{$fd->field_key}}">{{ $fd->field_name }}</label>
                                         <input type="number" name="{{$fd->field_key}}" id="{{$fd->field_key}}" class="form-control title {{ $errors->has($fd->field_key) ? ' is-invalid' : '' }}" value="{{ json_decode($details->saved_data)->$a ?? old($fd->field_key) }}">
                                         @include('alerts.feedback', ['field' => $fd->field_key])
                                     </div>
                                 @elseif($fd->type == "url")
                                     <div class="form-group {{ $errors->has($fd->field_key) ? ' has-danger' : '' }}">
-                                        <label for="{{$fd->field_key}}">{{ getSinglePageLebel($fd->field_name) }}</label>
+                                        <label for="{{$fd->field_key}}">{{ $fd->field_name }}</label>
                                         <input type="url" name="{{$fd->field_key}}" id="{{$fd->field_key}}" class="form-control title {{ $errors->has($fd->field_key) ? ' is-invalid' : '' }}" value="{{ json_decode($details->saved_data)->$a ?? old($fd->field_key) }}">
                                         @include('alerts.feedback', ['field' => $fd->field_key])
                                     </div>
                                 @elseif($fd->type == "textarea")
                                     <div class="form-group {{ $errors->has($fd->field_key) ? ' has-danger' : '' }}">
-                                        <label for="{{$fd->field_key}}">{{ getSinglePageLebel($fd->field_name) }}</label>
+                                        <label for="{{$fd->field_key}}">{{ $fd->field_name }}</label>
                                         <textarea name="{{$fd->field_key}}" id="{{$fd->field_key}}" class="form-control title {{ $errors->has($fd->field_key) ? ' is-invalid' : '' }}">
                                             {{ json_decode($details->saved_data)->$a ?? old($fd->field_key) }}
                                         </textarea>
@@ -51,7 +51,7 @@
                                     </div>
                                 @elseif($fd->type == "image")
                                     <div class="form-group {{ $errors->has($fd->field_key) ? ' has-danger' : '' }}">
-                                        <label for="{{$fd->field_key}}">{{ getSinglePageLebel($fd->field_name) }}</label>
+                                        <label for="{{$fd->field_key}}">{{ $fd->field_name }}</label>
                                         <input type="file" accept="image/*" name="{{$fd->field_key}}" id="{{$fd->field_key}}" class="form-control  {{ $errors->has($fd->field_key) ? 'is-invalid' : '' }} image-upload">
                                         @include('alerts.feedback', ['field' => $fd->field_key])
                                     </div>
@@ -63,13 +63,13 @@
 
                                 @elseif($fd->type == "file_single")
                                     <div class="form-group {{ $errors->has($fd->field_key) ? ' has-danger' : '' }}">
-                                        <label for="{{$fd->field_key}}">{{ getSinglePageLebel($fd->field_name) }}</label>
+                                        <label for="{{$fd->field_key}}">{{ $fd->field_name }}</label>
                                         <input type="file" accept="" name="{{$fd->field_key}}" id="{{$fd->field_key}}" class="form-control  {{ $errors->has($fd->field_key) ? 'is-invalid' : '' }}">
                                         @include('alerts.feedback', ['field' => $fd->field_key])
                                     </div>
                                 @elseif($fd->type == "email")
                                     <div class="form-group {{ $errors->has($fd->field_key) ? ' has-danger' : '' }}">
-                                        <label for="{{$fd->field_key}}">{{ getSinglePageLebel($fd->field_name) }}</label>
+                                        <label for="{{$fd->field_key}}">{{ $fd->field_name }}</label>
                                         <input type="email" name="{{$fd->field_key}}" id="{{$fd->field_key}}" class="form-control  {{ $errors->has($fd->field_key) ? 'is-invalid' : '' }}" value="{{ json_decode($details->saved_data)->$a ?? old($fd->field_key) }}">
                                         @include('alerts.feedback', ['field' => $fd->field_key])
                                     </div>

@@ -76,13 +76,13 @@
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
                                 ['pageSlug' => 'icsb_profile', 'routeName' => 'icsb_profile.icsb_profile_create', 'label' => 'ICSB Profile'],
-                                ['pageSlug' => 'vision', 'routeUrl' => '/single-page/show/', 'params' => 'vision', 'label' => 'Vision'],
-                                ['pageSlug' => 'mission', 'routeUrl' => '/single-page/show/', 'params' => 'mission', 'label' => 'Mission'],
-                                ['pageSlug' => 'objectives', 'routeUrl' => '/single-page/show/', 'params' => 'objectives', 'label' => 'Objectives'],
-                                ['pageSlug' => 'values', 'routeUrl' => '/single-page/show/', 'params' => 'values', 'label' => 'Values'],
+                                ['pageSlug' => 'vision', 'routeName' => 'sp.show', 'params' => 'vision', 'label' => 'Vision'],
+                                ['pageSlug' => 'mission', 'routeName' => 'sp.show', 'params' => 'mission', 'label' => 'Mission'],
+                                ['pageSlug' => 'objectives', 'routeName' => 'sp.show', 'params' => 'objectives', 'label' => 'Objectives'],
+                                ['pageSlug' => 'values', 'routeName' => 'sp.show', 'params' => 'values', 'label' => 'Values'],
                                 ['pageSlug' => 'wwcs', 'routeName' => 'wwcs.wwcs_list', 'label' => 'World Wide CS'],
-                                ['pageSlug' => 'corporate-governance', 'routeUrl' => '/single-page/show/', 'params' => 'corporate-governance', 'label' => 'Corporate Governance'],
-                                ['pageSlug' => 'cs-for-cg', 'routeUrl' => '/single-page/show/', 'params' => 'cs-for-cg', 'label' => 'CS for CG'],
+                                ['pageSlug' => 'corporate-governance', 'routeName' => 'sp.show', 'params' => 'corporate-governance', 'label' => 'Corporate Governance'],
+                                ['pageSlug' => 'cs-for-cg', 'routeName' => 'sp.show', 'params' => 'cs-for-cg', 'label' => 'CS for CG'],
                                 ['pageSlug' => 'faq', 'routeName' => 'about.faq.faq_list', 'label' => 'FAQ'],
                             ]
                         ])
@@ -176,13 +176,13 @@
                     <ul class="nav pl-4">
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
-                                ['pageSlug' => 'who-are-css', 'routeUrl' => '/single-page/show/', 'params' => 'who-are-css', 'label' => 'Who are CSs'],
-                                ['pageSlug' => 'cs-membership', 'routeUrl' => '/single-page/show/', 'params' => 'cs-membership', 'label' => 'CS Membership'],
+                                ['pageSlug' => 'who-are-css', 'routeName' => 'sp.show', 'params' => 'who-are-css', 'label' => 'Who are CSs'],
+                                ['pageSlug' => 'cs-membership', 'routeName' => 'sp.show', 'params' => 'cs-membership', 'label' => 'CS Membership'],
                                 ['pageSlug' => 'member', 'routeName' => 'member.member_list', 'label' => 'Member Search'],
                                 ['pageSlug' => 'cs_firms', 'routeName' => '', 'label' => 'CS Firms'],
-                                ['pageSlug' => 'code-of-conducts', 'routeUrl' => '/single-page/show/', 'params' => 'code-of-conducts', 'label' => 'Code of Conducts'],
-                                ['pageSlug' => 'cpd-program', 'routeUrl' => '/single-page/show/', 'params' => 'cpd-program', 'label' => 'CPD Program'],
-                                ['pageSlug' => 'training-program', 'routeUrl' => '/single-page/show/', 'params' => 'training-program', 'label' => 'Training Program'],
+                                ['pageSlug' => 'code-of-conducts', 'routeName' => 'sp.show', 'params' => 'code-of-conducts', 'label' => 'Code of Conducts'],
+                                ['pageSlug' => 'cpd-program', 'routeName' => 'sp.show', 'params' => 'cpd-program', 'label' => 'CPD Program'],
+                                ['pageSlug' => 'training-program', 'routeName' => 'sp.show', 'params' => 'training-program', 'label' => 'Training Program'],
                                 ['pageSlug' => 'members_lounge', 'routeName' => '', 'label' => 'Members’ Lounge'],
                                 ['pageSlug' => 'members_notice_board', 'routeName' => '', 'label' => 'Members’ Notice Board'],
                                 ['pageSlug' => 'job_placement', 'routeName' => '', 'label' => 'Job Placement'],
@@ -265,7 +265,7 @@
                                 ['pageSlug' => 'secretary_and_ceo', 'routeName' => '', 'label' => 'Secretary & CEO'],
                                 ['pageSlug' => 'organogram', 'routeName' => '', 'label' => 'Organogram'],
                                 ['pageSlug' => 'assigned_officers', 'routeName' => '', 'label' => 'Assigned Officers'],
-                                ['pageSlug' => 'help-desk', 'routeUrl' => '/single-page/show/', 'params' => 'help-desk', 'label' => 'Help Desk'],
+                                ['pageSlug' => 'help-desk', 'routeName' => 'sp.show', 'params' => 'help-desk', 'label' => 'Help Desk'],
                             ]
                         ])
                     </ul>
@@ -313,8 +313,8 @@
                     <ul class="nav pl-4">
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
-                                ['pageSlug' => 'eligibility', 'routeUrl' => '/single-page/show/', 'params' => 'eligibility', 'label' => 'Eligibility'],
-                                ['pageSlug' => 'exam-schedule', 'routeUrl' => '/single-page/show/', 'params' => 'exam-schedule', 'label' => 'Exam Schedule'],
+                                ['pageSlug' => 'eligibility', 'routeName' => 'sp.show', 'params' => 'eligibility', 'label' => 'Eligibility'],
+                                ['pageSlug' => 'exam-schedule', 'routeName' => 'sp.show', 'params' => 'exam-schedule', 'label' => 'Exam Schedule'],
                                 ['pageSlug' => 'results', 'routeName' => '', 'label' => 'Results'],
                                 ['pageSlug' => 'sample_question_papers', 'routeName' => '', 'label' => 'Sample Question Papers'],
                                 ['pageSlug' => 'exam_faqs', 'routeName' => '', 'label' => 'Exam FAQs'],
