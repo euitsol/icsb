@@ -21,6 +21,28 @@ $(document).ready(function(){
                 }
             }
     });
+    var owl = $('.nation-slider');
+    owl.owlCarousel({
+        // items:6,
+        loop:true,
+        margin:20,
+        nav: true,
+        dots: false,
+        autoplay:false,
+        autoplayTimeout:3000,
+        autoplayHoverPause:true,
+        responsive:{
+            0:{
+                items:2
+            },
+            600:{
+                items:4
+            },
+            800:{
+                items:7
+            }
+        }
+});
 
         var owl = $('.recent-update-slider');
         owl.owlCarousel({
@@ -66,6 +88,9 @@ $(document).ready(function(){
                     items:1
                 },
                 800:{
+                    items:2
+                },
+                1368:{
                     items:3
                 }
             }

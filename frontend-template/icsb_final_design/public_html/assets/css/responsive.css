@@ -504,18 +504,26 @@
         padding: 64px 0;
     }
 
-    .world-wide-section .world-wide-column .world-wide-item {
-        min-height: 620px;
-        padding: 30px 30px 0 30px;
+/*=================== Founding Members Page ===========================*/
+    .founding-member-section{
+        padding: 63px 0;
+    }    
+
+    .global-page-section {
+        padding: 80px 0;
     }
-    .world-wide-section .world-wide-column .world-wide-item .chart-heading {
-        padding-bottom: 16px;
-        font-size: 23px;
-        line-height: 30px;
+    .global-page-section .global-row{
+        flex-direction: column-reverse;
+    }   
+    .global-page-section .global-row .left-column {
+        width: 100%;
+        margin-top: 45px;
     }
-    .world-wide-section img {
-        width: 210px;
-        object-fit: cover;
+    .global-page-section .global-row .left-column table{
+        margin-top: 45px;
+    }
+    .global-page-section .global-row .right-column {
+        width: 100%;
     }
 }
 @media only screen and (max-width: 989px){
@@ -810,18 +818,6 @@
         line-height: 25px;
         margin-bottom: 18px;
     }    
-/*======================== World Wide CS ======================*/
-    .world-wide-section .world-wide-column .world-wide-item {
-        width: 100%;
-        margin-bottom: 30px;
-        min-height: 0;
-        padding: 25px 35px 40px 35px;
-    }   
-    .world-wide-section .section-heading h2 {
-        font-size: 40px;
-        line-height: 46px;
-        margin-bottom: 35px;
-    }
 
     .job-detailes-section {
         padding: 80px 0 30px 0;
@@ -832,6 +828,21 @@
     .job-detailes-section .job-row .job-detail-item ul{
         padding: 0;
         margin: 0;
+    }
+/*======================= World Wide CS =======================*/   
+    .world-wide-section {
+        padding: 80px 0;
+    }
+    .world-wide-section .world-wide-column {
+        column-gap: 3%;
+        row-gap: 25px;
+    } 
+    .world-wide-section .world-wide-column .cs-items {
+        width: 48.5%;
+    }
+    .world-wide-section .world-wide-column .cs-items h3 {
+        font-size: 21px;
+        line-height: 27px;
     }
 }
 @media only screen and (max-width: 991px){
@@ -855,68 +866,13 @@
     .main {
         margin-top: 70px;
     }
-
     .top-header-section{
         display: none;
     }
-    /* .top-header-section .header-column {
-        column-gap: 10px;
-    }
-    .top-header-section .date-column{
-        column-gap: 21px;
-    }
-    .top-header-section .header-column p {
-        font-size: 15px;
-        font-weight: 400;
-        position: relative;
-    }
-    .top-header-section .header-column p::before{
-        content: '|';
-        left: -12px;
-        position: absolute;
-    }
-    .top-header-section .header-column p:first-child::before{
-        display: none;
-    }
-    .top-header-section .header-content-column {
-        flex-direction: column-reverse;
-    }
-    .top-header-section .header-column:first-child{
-        display: none;
-    }
-    .top-header-section .header-info-column a {
-        width: 160px;
-        font-size: 13px;
-        line-height: 24px;
-    }
-    .top-header-section .header-column p span{
-        display: none;
-    }
-    .top-header-section .header-info-column{
-        margin-bottom: 8px;
-    } */
-
     .main-header-section {
         padding: 10px 0;
         display: none;
     }
-    /* .main-header-section .header-content h1 {
-        font-size: 35px;
-        line-height: 34px;
-        margin-top: 17px;
-    }
-    .main-header-section .header-content h1::after {
-        top: 70px;
-    }
-    .main-header-section .header-content h2 {
-        font-size: 17px;
-        line-height: 22px;
-        margin-top: 8px;
-    }
-    .main-header-section .header-content .logo-column {
-        display: none;
-    } */
-
 
     .banner-section img{
         height: 350px;
@@ -936,7 +892,6 @@
         font-size: 17px;
         line-height: 28px;
     }
-
 
     .section-heading h2 {
         margin-bottom: 10px;
@@ -958,7 +913,6 @@
     .we-are-section .we-are-coulmn .content-column a {
         margin-top: 10px;
     }
-
 
     .bss-section .bss-row .bss-left-column {
         width: 100%;
@@ -987,11 +941,9 @@
         line-height: 20px;
     }
 
-
     .recent-update-section .recent-update-row .item a{
         display: block;
     }
-
 
     .cs-wide-section .owl-dot {
         position: absolute;
@@ -1024,7 +976,6 @@
         margin: 0px 4px;
     }
 
-
     .endorsement-section {
         padding: 60px 0;
     }
@@ -1035,14 +986,47 @@
         padding: 100px 25px;
     }
 
+    .cs-wide-section .content {
+        padding-top: 53px;
+        padding-bottom: 54px;
+    }
+    .heading-element h2 {
+        font-size: 35px;
+        line-height: 41px;
+        margin-bottom: 30px;
+    }
 
+    .events-section {
+        padding: 55px 0 55px 0;
+    }
+    .events-section h2{
+        margin-bottom: 30px;
+    }
+
+    .national-award-section {
+        padding: 58px 0 65px 0;
+    }
+    .national-award-section h2{
+        margin-bottom: 30px;
+    }
     .national-award-section .award-column {
         row-gap: 25px;
     }
     .national-award-section .award-column .award-inner{
-        width: 49.15%;
+        width: 100%;
     }
 
+    .recent-video-section {
+        padding: 57px 0 65px 0;
+        background-repeat: no-repeat;
+    }
+    .recent-video-section h2{
+        margin-bottom: 30px;
+    }
+
+    .national-connection-section {
+        padding: 56px 0 40px 0;
+    }
 
     .faq-section {
         padding-top: 68px;
@@ -1383,15 +1367,42 @@
         margin-bottom: 35px;
         border: 1px solid #ddd;
     }
-/*==================== World Wide CS ===========================*/
-    .world-wide-section .section-heading h2 {
-        font-size: 35px;
-        line-height: 41px;
-        margin-bottom: 35px;
+/*=================== Founding Members Page ===========================*/
+    .founding-member-section{
+        padding: 63px 0;
+    }
+    .founding-member-section .member-divided-row .right-column{
+        width: 100%;
+        margin-top: -18px;
+    }
+/*===================== World Wide CSS ==========================*/
+    .world-wide-section {
+        padding: 63px 0;
+    }
+    .world-wide-section .world-wide-column .cs-items {
+        width: 100%;
     }    
+    .world-wide-section .world-wide-column .cs-items h3 {
+        font-size: 20px;
+        line-height: 26px;
+    }
+/*=================== Global Table CSS ========================*/
+    .global-page-section {
+        padding: 63px 0;
+    } 
+    .global-page-section .global-row .left-column h2 {
+        font-size: 30px;
+        line-height: 36px;
+        margin-bottom: 13px;
+    }
+    .global-page-section .global-row .left-column table{
+        margin-top: 40px;
+    }
+    .global-table tr {
+        column-gap: 25px;
+    }
 }
 @media only screen and (max-width: 600px){
-
     .faq-section .faq-content .accordion-item .collapsed {
         font-size: 15px;
         line-height: 21px;
@@ -1504,17 +1515,7 @@
     .executive-committee-section .committee-row .committee-items .image-column{
         width: 100%;
     }
-/*=================== World Wide CS =======================*/
-    .world-wide-section img {
-        width: 200px;
-        object-fit: cover;
-    }
-    .world-wide-section .world-wide-column .world-wide-item .chart-heading {
-        padding-bottom: 15px;
-    }
-
-
-
+/*============================ Footer Section =======================*/
     .main-footer-section h2 {
         text-align: center;
     }
