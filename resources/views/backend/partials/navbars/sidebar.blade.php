@@ -207,13 +207,13 @@
                         $pageSlug == 'financial_assistance' ||
                         $pageSlug == 'icsb_library' ||
                         $pageSlug == 'student_notice_board' ||
-                        $pageSlug == 'faculty_evaluation_system'
+                        $pageSlug == 'faculty-evaluation-system'
                     )@else collapsed @endif" data-toggle="collapse" href="#student" @if (
                         $pageSlug == 'admission' ||
                         $pageSlug == 'financial_assistance' ||
                         $pageSlug == 'icsb_library' ||
                         $pageSlug == 'student_notice_board' ||
-                        $pageSlug == 'faculty_evaluation_system'
+                        $pageSlug == 'faculty-evaluation-system'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-solid fa-graduation-cap"></i>
                     <span class="nav-link-text" >{{ __('Student') }}</span>
@@ -225,7 +225,7 @@
                         $pageSlug == 'financial_assistance' ||
                         $pageSlug == 'icsb_library' ||
                         $pageSlug == 'student_notice_board' ||
-                        $pageSlug == 'faculty_evaluation_system'
+                        $pageSlug == 'faculty-evaluation-system'
                 ) show @endif" id="student">
                     <ul class="nav pl-4">
                         @include('backend.partials.menu_buttons', [
@@ -235,7 +235,7 @@
                                 ['pageSlug' => 'financial_assistance', 'routeName' => '', 'label' => 'Financial Assistance'],
                                 ['pageSlug' => 'icsb_library', 'routeName' => '', 'label' => 'ICSB Library'],
                                 ['pageSlug' => 'student_notice_board', 'routeName' => '', 'label' => 'Student Notice Board'],
-                                ['pageSlug' => 'faculty_evaluation_system', 'routeName' => '', 'label' => 'Faculty Evaluation System'],
+                                ['pageSlug' => 'faculty-evaluation-system', 'routeName' => 'sp.show', 'params' => 'faculty-evaluation-system', 'label' => 'Faculty Evaluation System'],
                             ]
                         ])
                     </ul>

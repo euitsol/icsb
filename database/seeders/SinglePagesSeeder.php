@@ -522,5 +522,23 @@ class SinglePagesSeeder extends Seeder
                 "details":"<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.<\/span><\/p>"
             }',
         ]);
+        SinglePages::create([
+            'page_key' => 'faculty-evaluation-system',
+            'frontend_slug' => 'faculty-evaluation-system',
+            'title' => 'Create Faculty Evaluation System',
+            'form_data' => '{
+                "1":
+                {
+                    "field_key":"url",
+                    "field_name":"URL",
+                    "type":"url",
+                    "required":"required"
+                }
+            }',
+            'documentation' => '{
+                "title":"Faculty Evaluation System",
+                "details":"<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.<\/span><\/p>"
+            }',
+        ]);
     }
 }
