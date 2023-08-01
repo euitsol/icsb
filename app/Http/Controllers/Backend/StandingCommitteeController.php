@@ -137,7 +137,7 @@ class StandingCommitteeController extends Controller
     {
         return view('backend.council_pages.standing_committee.cmt_create');
     }
-     public function cmt_store(Request $request): RedirectResponse
+    public function cmt_store(Request $request): RedirectResponse
     {
         $cmt = new CommitteeMemberType();
         $cmt->title = $request->title;
@@ -179,6 +179,41 @@ class StandingCommitteeController extends Controller
         }
         $this->soft_delete($cmt);
         return redirect()->route('committee.committee_list')->withStatus(__($cmt->title.' status deleted successfully.'));
+    }
+
+    public function cm_index($id): View
+    {
+        // $s['committee'] = CommitteeMember::with(['committe','committe_member_type','member'])
+        //                                 ->where('deleted_at',null)
+        //                                 ->where('committee',$id)
+        //                                 ->latest()
+        //                                 ->get();
+        $s['committee'] = Committee::with(['committe_type','committe_members'])->where('deleted_at',null)->where('id',$id)->first();
+        return view('backend.council_pages.standing_committee.cm_index',$s);
+    }
+    public function cm_create($id): View
+    {
+        $s['committee'] = Committee::findOrFail($id);
+        $s['cm_types'] = CommitteeMemberType::with('committe_member_type_members')->where('deleted_at',null)->where('status',1)->latest()->get();
+        $s['committees'] = Committee::with(['committe_type','committe_members'])->where('deleted_at',null)->where('status',1)->latest()->get();
+        $s['members'] = Member::with('type')->where('deleted_at',null)->where('status',1)->latest()->get();
+        return view('backend.council_pages.standing_committee.cm_create',$s);
+    }
+    public function cm_store(Request $request, $id): RedirectResponse
+    {
+        $check = CommitteeMember::where('member_id', $request->member_id)->first();
+        $cm = new CommitteeMember();
+        if(empty($check)){
+            $cm->member_id = $request->member_id;
+            $cm->committee_id = $id;
+            $cm->cmt_id = $request->cmt_id;
+            $cm->created_by = auth()->user()->id;
+            $cm->save();
+            return redirect()->route('committee.committee_member_list',$id)->withStatus(__($cm->member->name.' created successfully.'));
+        }else{
+            return redirect()->route('committee.committee_member_list',$id)->withStatus(__($check->member->name.' already assigned in committee as a '.$check->committe_member_type->title));
+        }
+
     }
 
 

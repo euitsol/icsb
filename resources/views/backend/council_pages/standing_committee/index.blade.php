@@ -152,6 +152,7 @@
                                                 'menuItems' => [
                                                     ['routeName' => '', 'label' => 'View'],
                                                     ['routeName' => 'committee.committee_edit',   'params' => [$committee->id], 'label' => 'Update'],
+                                                    ['routeName' => 'committee.committee_member_list',   'params' => [$committee->id], 'label' => 'Committee Members'],
                                                     ['routeName' => 'committee.status.committee_edit',   'params' => [$committee->id], 'label' => 'Change Status'],
                                                     ['routeName' => 'committee.committee_delete', 'params' => [$committee->id], 'label' => 'Delete', 'delete' => true],
                                                 ]
