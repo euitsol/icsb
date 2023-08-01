@@ -1,0 +1,185 @@
+<?php
+
+namespace App\Http\Controllers\Backend;
+
+use App\Http\Controllers\Controller;
+use App\Models\Committee;
+use App\Models\CommitteeMember;
+use App\Models\CommitteeMemberType;
+use App\Models\CommitteeType;
+use App\Models\Member;
+use App\Models\MemberType;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Str;
+
+class StandingCommitteeController extends Controller
+{
+    //
+
+    public function __construct() {
+        return $this->middleware('auth');
+    }
+
+    public function index(): View
+    {
+        $s['cm_types'] = CommitteeMemberType::with('committe_member_type_members')->where('deleted_at',null)->latest()->get();
+        $s['c_types'] = CommitteeType::with('committees')->where('deleted_at',null)->latest()->get();
+        $s['committees'] = Committee::with(['committe_type','committe_members'])->where('deleted_at',null)->latest()->get();
+        $s['c_members'] = CommitteeMember::with(['committe','committe_member_type','member'])->where('deleted_at',null)->latest()->get();
+        return view('backend.council_pages.standing_committee.index',$s);
+    }
+    public function create(): View
+    {
+        $s['c_types'] = CommitteeType::where('deleted_at', null)->where('status',1)->latest()->get();
+        return view('backend.council_pages.standing_committee.create',$s);
+    }
+    public function store(Request $request): RedirectResponse
+    {
+        $committee = new Committee();
+        $committee->title = $request->title;
+        $committee->committee_type = $request->committee_type;
+        $committee->slug = $request->slug;
+        $committee->description = $request->description;
+        $committee->created_by = auth()->user()->id;
+        $committee->save();
+
+        return redirect()->route('committee.committee_list')->withStatus(__('Committee'.$committee->title.' created successfully.'));
+    }
+    public function edit($id): View
+    {
+        $s['committee'] = Committee::findOrFail($id);
+        $s['c_types'] = CommitteeType::where('deleted_at', null)->where('status',1)->latest()->get();
+        return view('backend.council_pages.standing_committee.edit',$s);
+    }
+     public function update(Request $request , $id): RedirectResponse
+    {
+        $committee = Committee::findOrFail($id);
+        $committee->title = $request->title;
+        $committee->committee_type = $request->committee_type;
+        $committee->slug = $request->slug;
+        $committee->description = $request->description;
+        $committee->updated_by = auth()->user()->id;
+        $committee->save();
+
+        return redirect()->route('committee.committee_list')->withStatus(__('Committee Type'.$committee->title.' updated successfully.'));
+    }
+    public function status($id): RedirectResponse
+    {
+        $committee = Committee::findOrFail($id);
+        $this->statusChange($committee);
+        return redirect()->route('committee.committee_list')->withStatus(__($committee->title.' status updated successfully.'));
+    }
+
+    public function delete($id): RedirectResponse
+    {
+        $committee = Committee::findOrFail($id);
+        if($committee->committe_members->count() > 0){
+            return redirect()->route('committee.committee_list')->withStatus(__($committee->title.' has '.$committee->committe_members->count().' members assigned. Can\'t be deleted. Best option is to deactivate it.'));
+        }
+        $this->soft_delete($committee);
+        return redirect()->route('committee.committee_list')->withStatus(__($committee->title.' status deleted successfully.'));
+    }
+
+
+
+    public function ct_create(): View
+    {
+        return view('backend.council_pages.standing_committee.ct_create');
+    }
+    public function ct_store(Request $request): RedirectResponse
+    {
+        $ct = new CommitteeType();
+        $ct->title = $request->title;
+        $ct->slug = $request->slug;
+        $ct->description = $request->description;
+        $ct->created_by = auth()->user()->id;
+        $ct->save();
+
+        return redirect()->route('committee.committee_list')->withStatus(__('Committee Type'.$ct->title.' created successfully.'));
+    }
+    public function ct_edit($id): View
+    {
+        $s['ct'] = CommitteeType::findOrFail($id);
+        return view('backend.council_pages.standing_committee.ct_edit',$s);
+    }
+     public function ct_update(Request $request , $id): RedirectResponse
+    {
+        $ct = CommitteeType::findOrFail($id);
+        $ct->title = $request->title;
+        $ct->slug = $request->slug;
+        $ct->description = $request->description;
+        $ct->updated_by = auth()->user()->id;
+        $ct->save();
+
+        return redirect()->route('committee.committee_list')->withStatus(__('Committee Type'.$ct->title.' updated successfully.'));
+    }
+    public function ct_status($id): RedirectResponse
+    {
+        $ct = CommitteeType::findOrFail($id);
+        $this->statusChange($ct);
+        return redirect()->route('committee.committee_list')->withStatus(__($ct->title.' status updated successfully.'));
+    }
+
+    public function ct_delete($id): RedirectResponse
+    {
+        $ct = CommitteeType::findOrFail($id);
+        if($ct->committees->count() > 0){
+            return redirect()->route('committee.committee_list')->withStatus(__($ct->title.' has '.$ct->committees->count().' committees assigned. Can\'t be deleted. Best option is to deactivate it.'));
+        }
+        $this->soft_delete($ct);
+        return redirect()->route('committee.committee_list')->withStatus(__($ct->title.' status deleted successfully.'));
+    }
+
+    public function cmt_create(): View
+    {
+        return view('backend.council_pages.standing_committee.cmt_create');
+    }
+     public function cmt_store(Request $request): RedirectResponse
+    {
+        $cmt = new CommitteeMemberType();
+        $cmt->title = $request->title;
+        $cmt->slug = $request->slug;
+        $cmt->description = $request->description;
+        $cmt->created_by = auth()->user()->id;
+        $cmt->save();
+
+        return redirect()->route('committee.committee_list')->withStatus(__('Committee Type'.$cmt->title.' created successfully.'));
+    }
+    public function cmt_edit($id): View
+    {
+        $s['cmt'] = CommitteeMemberType::findOrFail($id);
+        return view('backend.council_pages.standing_committee.cmt_edit',$s);
+    }
+     public function cmt_update(Request $request , $id): RedirectResponse
+    {
+        $cmt = CommitteeMemberType::findOrFail($id);
+        $cmt->title = $request->title;
+        $cmt->slug = $request->slug;
+        $cmt->description = $request->description;
+        $cmt->updated_by = auth()->user()->id;
+        $cmt->save();
+
+        return redirect()->route('committee.committee_list')->withStatus(__('Committee Type'.$cmt->title.' updated successfully.'));
+    }
+    public function cmt_status($id): RedirectResponse
+    {
+        $cmt = CommitteeMemberType::findOrFail($id);
+        $this->statusChange($cmt);
+        return redirect()->route('committee.committee_list')->withStatus(__($cmt->title.' status updated successfully.'));
+    }
+
+    public function cmt_delete($id): RedirectResponse
+    {
+        $cmt = CommitteeMemberType::findOrFail($id);
+        if($cmt->committe_member_type_members->count() > 0){
+            return redirect()->route('committee.committee_list')->withStatus(__($cmt->title.' has '.$cmt->committe_member_type_members->count().' members assigned. Can\'t be deleted. Best option is to deactivate it.'));
+        }
+        $this->soft_delete($cmt);
+        return redirect()->route('committee.committee_list')->withStatus(__($cmt->title.' status deleted successfully.'));
+    }
+
+
+}

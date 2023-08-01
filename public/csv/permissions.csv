@@ -48,7 +48,12 @@ member_delete,web
 member_type_create,web
 member_type_edit,web
 member_type_delete,web
-icsb_profile_list,web
 icsb_profile_create,web
-icsb_profile_edit,web
-icsb_profile_delete,web
+blog_cat_list,web
+blog_cat_create,web
+blog_cat_edit,web
+blog_cat_delete,web
+stc_member_list,web
+stc_member_create,web
+stc_member_edit,web
+stc_member_delete,web

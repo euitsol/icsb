@@ -18,6 +18,7 @@ use App\Http\Controllers\Backend\BannerController;
 use App\Http\Controllers\Backend\ICSBProfileController;
 use App\Http\Controllers\Backend\MemberController;
 use App\Http\Controllers\Backend\SinglePagesController;
+use App\Http\Controllers\Backend\StandingCommitteeController;
 use App\Http\Controllers\Backend\UserManagement\RoleController;
 use App\Http\Controllers\Backend\UserManagement\PermissionController;
 use App\Http\Controllers\Frontend\AboutPagesController;
@@ -226,6 +227,32 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::put('member-type/edit/{id}', [MemberController::class, 'mt_update'])->name('member_type_edit');
         Route::get('member-type/status/{id}', [MemberController::class, 'mt_status'])->name('status.member_type_edit');
         Route::get('member-type/delete/{id}', [MemberController::class, 'mt_delete'])->name('member_type_delete');
+    });
+    // Member Module
+    Route::group(['as' => 'committee.', 'prefix' => 'committee'], function () {
+        Route::get('index', [StandingCommitteeController::class, 'index'])->name('committee_list');
+
+        Route::get('create', [StandingCommitteeController::class, 'create'])->name('committee_create');
+        Route::post('create', [StandingCommitteeController::class, 'store'])->name('committee_create');
+        Route::get('edit/{id}', [StandingCommitteeController::class, 'edit'])->name('committee_edit');
+        Route::put('edit/{id}', [StandingCommitteeController::class, 'update'])->name('committee_edit');
+        Route::get('status/{id}', [StandingCommitteeController::class, 'status'])->name('status.committee_edit');
+        Route::get('delete/{id}', [StandingCommitteeController::class, 'delete'])->name('committee_delete');
+
+        Route::get('committee-type/create', [StandingCommitteeController::class, 'ct_create'])->name('committee_type_create');
+        Route::post('committee-type/create', [StandingCommitteeController::class, 'ct_store'])->name('committee_type_create');
+        Route::get('committee-type/edit/{id}', [StandingCommitteeController::class, 'ct_edit'])->name('committee_type_edit');
+        Route::put('committee-type/edit/{id}', [StandingCommitteeController::class, 'ct_update'])->name('committee_type_edit');
+        Route::get('committee-type/status/{id}', [StandingCommitteeController::class, 'ct_status'])->name('status.committee_type_edit');
+        Route::get('committee-type/delete/{id}', [StandingCommitteeController::class, 'ct_delete'])->name('committee_type_delete');
+
+        Route::get('committee-member-type/create', [StandingCommitteeController::class, 'cmt_create'])->name('cm_type_create');
+        Route::post('committee-member-type/create', [StandingCommitteeController::class, 'cmt_store'])->name('cm_type_create');
+        Route::get('committee-member-type/edit/{id}', [StandingCommitteeController::class, 'cmt_edit'])->name('cm_type_edit');
+        Route::put('committee-member-type/edit/{id}', [StandingCommitteeController::class, 'cmt_update'])->name('cm_type_edit');
+        Route::get('committee-member-type/status/{id}', [StandingCommitteeController::class, 'cmt_status'])->name('status.cm_type_edit');
+        Route::get('committee-member-type/delete/{id}', [StandingCommitteeController::class, 'cmt_delete'])->name('cm_type_delete');
+
     });
     // ICSB Profile
     Route::group(['as' => 'icsb_profile.', 'prefix' => 'icsb-profile'], function () {

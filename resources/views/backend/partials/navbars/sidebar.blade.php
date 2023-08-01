@@ -96,13 +96,13 @@
                         $pageSlug == 'council' ||
                         $pageSlug == 'president' ||
                         // $pageSlug == 'past_president' ||
-                        $pageSlug == 'standing_committees' ||
+                        $pageSlug == 'committee' ||
                         $pageSlug == 'sub_committees'
                     )@else collapsed @endif" data-toggle="collapse" href="#council" @if (
                         $pageSlug == 'council' ||
                         $pageSlug == 'president' ||
                         // $pageSlug == 'past_president' ||
-                        $pageSlug == 'standing_committees' ||
+                        $pageSlug == 'committee' ||
                         $pageSlug == 'sub_committees'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-brands fa-slack"></i>
@@ -114,17 +114,16 @@
                     $pageSlug == 'council' ||
                     $pageSlug == 'president' ||
                     // $pageSlug == 'past_president' ||
-                    $pageSlug == 'standing_committees' ||
+                    $pageSlug == 'committee' ||
                     $pageSlug == 'sub_committees'
                 ) show @endif" id="council">
                     <ul class="nav pl-4">
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
-                                ['pageSlug' => 'council', 'routeName' => '', 'label' => 'The Council'],
-                                ['pageSlug' => 'president', 'routeName' => '', 'label' => 'The President'],
+                                ['pageSlug' => 'council', 'routeName' => '', 'label' => 'Council'],
+                                ['pageSlug' => 'president', 'routeName' => '', 'label' => 'President'],
                                 // ['pageSlug' => 'past_president', 'routeName' => '', 'label' => 'The Past President'],
-                                ['pageSlug' => 'standing_committees', 'routeName' => '', 'label' => 'The Standing Committees'],
-                                ['pageSlug' => 'sub_committees', 'routeName' => '', 'label' => 'The Sub Committees'],
+                                ['pageSlug' => 'committee', 'routeName' => 'committee.committee_list', 'label' => 'Committee'],
                             ]
                         ])
                     </ul>
