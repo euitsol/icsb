@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Contact;
 use App\Models\MemberType;
 use App\Models\Blog;
+use App\Models\CommitteeType;
 use Illuminate\View\View;
 class BlogPagesController extends Controller
 {
@@ -16,10 +17,13 @@ class BlogPagesController extends Controller
     public function __construct() {
         $contact = Contact::where('deleted_at', null)->first();
         $memberTypes = MemberType::where('deleted_at', null)->where('status', 1)->get();
+        $committeeTypes = CommitteeType::with('committees')->where('deleted_at', null)->where('status', 1)->get();
         view()->share([
             'contact' => $contact,
             'memberTypes' => $memberTypes,
+            'committeeTypes' => $committeeTypes,
         ]);
+
     }
     public function blogs(): View
     {
