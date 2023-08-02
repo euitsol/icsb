@@ -22,6 +22,7 @@ class BlogRequest extends FormRequest
             // 'file.*.file_path' => 'nullable|file|required_if:file.*.file_name,!=,null|mimes:jpg,png,pdf,doc,docx,xls,xlsx,ppt,pptx,odt,ods,odp',
             // 'file.*.file_name' => 'nullable|string|required_if:file.*.file_path,!=,null',
             'additional_images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'category_id' => 'required|exists:blog_categories,id',
 
         ]
         +

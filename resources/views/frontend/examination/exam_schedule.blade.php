@@ -6,7 +6,9 @@
 <!----============================= Breadcrumbs Section ========================---->
 <section class="breadcrumbs-section">
     <div class="overly-image">
-        <img src="{{asset('frontend/img/breadcumb/objectives-background.jpg')}}" alt="">
+        @if(!empty(json_decode($single_page->saved_data)) && isset(json_decode($single_page->saved_data)->{"banner-image"}))
+		<img src='{{storage_url(json_decode($single_page->saved_data)->{"banner-image"})}}' alt="Vision & Mission">
+        @endif
     </div>
     <div class="container">
         <div class="breadcrumbs-row flex">
@@ -26,24 +28,18 @@
     </div>
 </section>
 <!--============================= Exam Schedul Section ==================-->
+@if(!empty($single_page) && !empty(json_decode($single_page->saved_data)) && isset(json_decode($single_page->saved_data)->{'image'}) && isset(json_decode($single_page->saved_data)->{'details'}))
 <section class="handbook-section exam-section section-padding">
     <div class="container">
         <div class="handbook-column flex">
             <div class="new-handbook content-column exam-content-column">
-                <div class="heading-content">
-                    <h2 class="common-heading">Exam Schedule</h2>
-                </div>
-                <h3>Examination Timetable:</h3>
-                <p>The examination timetable will be notified by the Council in the newspaper and in the notice board of the Institute.</p>
-                <h3>Examination Rules:</h3>
-                <p>In order to be eligible to appear at the examination students are required to comply with such conditions relating to examination as may be laid down by the council from time to time. To be specie, a student shall comply with the following regulations:</p>
-                <p>a) Students enrolled in a particular session must attend at least 75% classes. Students failing to pass in a particular examination may reappear in any subsequent examination until he successfully passes the examination.</p>
-                <p>b) Students enrolled under correspondence course and completed 100% assignments to the satisfaction of the Council are eligible to appear at the examination.</p>
+                {!! (json_decode($single_page->saved_data)->{'details'}) !!}
             </div>
             <div class="old-handbook text-align">
-                <img src="{{asset('frontend/img/student/exam-schedule.png')}}" alt="Exam Schedule">
+                <img src="{{storage_url(json_decode($single_page->saved_data)->{'image'})}}" alt="{{$single_page->page_key}}">
             </div>
         </div>
     </div>
 </section>
+@endif
 @endsection
