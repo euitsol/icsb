@@ -18,6 +18,7 @@ use App\Http\Controllers\Backend\BannerController;
 use App\Http\Controllers\Backend\ICSBProfileController;
 use App\Http\Controllers\Backend\MemberController;
 use App\Http\Controllers\Backend\SinglePagesController;
+use App\Http\Controllers\Backend\CommitteeController;
 use App\Http\Controllers\Backend\UserManagement\RoleController;
 use App\Http\Controllers\Backend\UserManagement\PermissionController;
 use App\Http\Controllers\Frontend\AboutPagesController;
@@ -235,6 +236,40 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::put('member-type/edit/{id}', [MemberController::class, 'mt_update'])->name('member_type_edit');
         Route::get('member-type/status/{id}', [MemberController::class, 'mt_status'])->name('status.member_type_edit');
         Route::get('member-type/delete/{id}', [MemberController::class, 'mt_delete'])->name('member_type_delete');
+    });
+    // Member Module
+    Route::group(['as' => 'committee.', 'prefix' => 'committee'], function () {
+        Route::get('index', [CommitteeController::class, 'index'])->name('committee_list');
+
+        Route::get('create', [CommitteeController::class, 'create'])->name('committee_create');
+        Route::post('create', [CommitteeController::class, 'store'])->name('committee_create');
+        Route::get('edit/{id}', [CommitteeController::class, 'edit'])->name('committee_edit');
+        Route::put('edit/{id}', [CommitteeController::class, 'update'])->name('committee_edit');
+        Route::get('status/{id}', [CommitteeController::class, 'status'])->name('status.committee_edit');
+        Route::get('delete/{id}', [CommitteeController::class, 'delete'])->name('committee_delete');
+
+        Route::get('committee-type/create', [CommitteeController::class, 'ct_create'])->name('committee_type_create');
+        Route::post('committee-type/create', [CommitteeController::class, 'ct_store'])->name('committee_type_create');
+        Route::get('committee-type/edit/{id}', [CommitteeController::class, 'ct_edit'])->name('committee_type_edit');
+        Route::put('committee-type/edit/{id}', [CommitteeController::class, 'ct_update'])->name('committee_type_edit');
+        Route::get('committee-type/status/{id}', [CommitteeController::class, 'ct_status'])->name('status.committee_type_edit');
+        Route::get('committee-type/delete/{id}', [CommitteeController::class, 'ct_delete'])->name('committee_type_delete');
+
+        Route::get('committee-member-type/create', [CommitteeController::class, 'cmt_create'])->name('cm_type_create');
+        Route::post('committee-member-type/create', [CommitteeController::class, 'cmt_store'])->name('cm_type_create');
+        Route::get('committee-member-type/edit/{id}', [CommitteeController::class, 'cmt_edit'])->name('cm_type_edit');
+        Route::put('committee-member-type/edit/{id}', [CommitteeController::class, 'cmt_update'])->name('cm_type_edit');
+        Route::get('committee-member-type/status/{id}', [CommitteeController::class, 'cmt_status'])->name('status.cm_type_edit');
+        Route::get('committee-member-type/delete/{id}', [CommitteeController::class, 'cmt_delete'])->name('cm_type_delete');
+
+        Route::get('committee-member/index/{id}', [CommitteeController::class, 'cm_index'])->name('committee_member_list');
+        Route::get('committee-member/create/{id}', [CommitteeController::class, 'cm_create'])->name('committee_member_create');
+        Route::post('committee-member/create/{id}', [CommitteeController::class, 'cm_store'])->name('committee_member_create');
+        Route::get('committee-member/edit/{id}', [CommitteeController::class, 'cm_edit'])->name('committee_member_edit');
+        Route::put('committee-member/edit/{id}', [CommitteeController::class, 'cm_update'])->name('committee_member_edit');
+        Route::get('committee-member/status/{id}', [CommitteeController::class, 'cm_status'])->name('status.committee_member_edit');
+        Route::get('committee-member/delete/{id}', [CommitteeController::class, 'cm_delete'])->name('committee_member_delete');
+
     });
     // ICSB Profile
     Route::group(['as' => 'icsb_profile.', 'prefix' => 'icsb-profile'], function () {
