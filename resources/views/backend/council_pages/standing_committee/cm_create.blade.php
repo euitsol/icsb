@@ -1,35 +1,48 @@
 @extends('backend.layouts.master', ['pageSlug' => 'committee'])
 
 @section('title', 'Create Committee Member')
+@push('css')
+<style>
+    .input-group .form-control:first-child{
+        border-right: 1px solid rgba(29, 37, 59, 0.5);
+    }
+    .input-group .form-control:not(:first-child):not(:last-child){
+        border-radius: 0;
+        border-right: 0;
+    }
+</style>
+@endpush
 @section('content')
     <div class="row">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="title">{{ _('Create '.$committee->title.' Member') }}</h5>
+                    <h5 class="title">{{ _('Add '.$committee->title.' Member') }}</h5>
                 </div>
                 <form method="POST" action="{{route('committee.committee_member_create',$committee->id)}}" autocomplete="off" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
-                        <div class="form-group {{ $errors->has('member_id') ? ' has-danger' : '' }}">
-                            <label>{{ _('Member') }}</label>
-                            <select name="member_id" class="form-control {{ $errors->has('member_id') ? ' is-invalid' : '' }}">
-                                <option selected hidden>{{_('Select Committee')}}</option>
-                                @foreach ($members as $member)
-                                    <option value="{{ $member->id }}" @if( old('member_id') == $member->id) selected @endif> {{ $member->name }}</option>
-                                @endforeach
-                            </select>
-                            @include('alerts.feedback', ['field' => 'member_id'])
+                        <div class="form-group ">
+                            <label>{{ _('Member-1') }}</label>
+                            <div class="input-group mb-3">
+                                <select name="cm[1][member_id]" class="form-control ">
+                                    <option selected hidden>{{_('Select Committee')}}</option>
+                                    @foreach ($members as $member)
+                                        <option value="{{ $member->id }}" @if( old('cm[1][member_id]') == $member->id) selected @endif> {{ $member->name }}</option>
+                                    @endforeach
+                                </select>
+                                <select name="cm[1][cmt_id]" class="form-control ">
+                                    <option selected hidden>{{_('Select Committee Member Type')}}</option>
+                                    @foreach ($cm_types as $type)
+                                        <option value="{{ $type->id }}" @if( old('cm[1][cmt_id]') == $type->id) selected @endif> {{ $type->title }}</option>
+                                    @endforeach
+                                </select>
+                                <span class="input-group-text" id="add_member" data-count="1"><i class="tim-icons icon-simple-add"></i></span>
+                            </div>
+                            @include('alerts.feedback', ['field' => 'cm'])
+                            @include('alerts.feedback', ['field' => 'cm.*'])
                         </div>
-                        <div class="form-group {{ $errors->has('cmt_id') ? ' has-danger' : '' }}">
-                            <label>{{ _('Committee Member Type') }}</label>
-                            <select name="cmt_id" class="form-control {{ $errors->has('cmt_id') ? ' is-invalid' : '' }}">
-                                <option selected hidden>{{_('Select Committee Member Type')}}</option>
-                                @foreach ($cm_types as $type)
-                                    <option value="{{ $type->id }}" @if( old('cmt_id') == $type->id) selected @endif> {{ $type->title }}</option>
-                                @endforeach
-                            </select>
-                            @include('alerts.feedback', ['field' => 'cmt_id'])
+                        <div id="append">
                         </div>
                     </div>
                     <div class="card-footer">
@@ -52,4 +65,46 @@
         </div>
     </div>
 @endsection
+@push('js')
+<script>
+$(function() {
+    $('#add_member').click(function() {
+
+        count = $(this).data('count') + 1;
+        $(this).data('count', count);
+
+        result = `
+                <div class="form-group ">
+                    <label>{{ _('Member-${count}') }}</label>
+                    <div class="input-group mb-3">
+                        <select name="cm[${count}][member_id]" class="form-control ">
+                            <option selected hidden>{{_('Select Committee')}}</option>
+                            @foreach ($members as $member)
+                                <option value="{{ $member->id }}" @if( old('cm[${count}][member_id]') == $member->id) selected @endif> {{ $member->name }}</option>
+                            @endforeach
+                        </select>
+                        <select name="cm[${count}][cmt_id]" class="form-control ">
+                            <option selected hidden>{{_('Select Committee Member Type')}}</option>
+                            @foreach ($cm_types as $type)
+                                <option value="{{ $type->id }}" @if( old('cm[${count}][cmt_id]') == $type->id) selected @endif> {{ $type->title }}</option>
+                            @endforeach
+                        </select>
+                        <span class="input-group-text text-danger delete_member"><i class="tim-icons icon-trash-simple"></i></span>
+                    </div>
+                    @include('alerts.feedback', ['field' => 'cm'])
+                    @include('alerts.feedback', ['field' => 'cm.*'])
+                </div>
+
+        `;
+
+        $('#append').append(result);
+
+    });
+
+    $(document).on('click', '.delete_member', function() {
+        $(this).closest('.form-group').remove();
+    });
+});
+</script>
+@endpush
 

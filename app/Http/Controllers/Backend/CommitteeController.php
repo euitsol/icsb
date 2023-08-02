@@ -48,8 +48,7 @@ class CommitteeController extends Controller
         $committee->description = $request->description;
         $committee->created_by = auth()->user()->id;
         $committee->save();
-
-        return redirect()->route('committee.committee_list')->withStatus(__('Committee'.$committee->title.' created successfully.'));
+        return redirect()->route('committee.committee_member_create',$committee->id)->withStatus(__('Committee'.$committee->title.' created successfully.'));
     }
     public function edit($id): View
     {
@@ -196,19 +195,32 @@ class CommitteeController extends Controller
         $s['members'] = Member::with('type')->where('deleted_at',null)->where('status',1)->latest()->get();
         return view('backend.council_pages.standing_committee.cm_create',$s);
     }
-    public function cm_store(CommitteeMemberRequest $request, $id): RedirectResponse
+    public function cm_store(Request $request, $id): RedirectResponse
     {
-        $check = CommitteeMember::where('member_id', $request->member_id)->where('committee_id',$id)->first();
-        $cm = new CommitteeMember();
-        if(empty($check)){
-            $cm->member_id = $request->member_id;
-            $cm->committee_id = $id;
-            $cm->cmt_id = $request->cmt_id;
-            $cm->created_by = auth()->user()->id;
-            $cm->save();
-            return redirect()->route('committee.committee_member_list',$id)->withStatus(__($cm->member->name.' assigned in this committee as a '.$cm->committe_member_type->title.' successfully'));
-        }else{
-            return redirect()->route('committee.committee_member_list',$id)->withStatus(__($check->member->name.' already assigned in this committee as a '.$check->committe_member_type->title));
+
+        $filteredInputs = array_filter($request->cm, function ($entry) {
+            return isset($entry['member_id']) && !is_null($entry['member_id']) &&
+                   isset($entry['cmt_id']) && !is_null($entry['cmt_id']);
+        });
+
+        if($filteredInputs){
+            $committee = Committee::findOrFail($id);
+            foreach($request->cm as $single_cm){
+                $check = CommitteeMember::where('member_id', $single_cm['member_id'])->where('committee_id',$id)->first();
+                $cm = new CommitteeMember();
+                if(empty($check)){
+                    $cm->member_id = $single_cm['member_id'];
+                    $cm->committee_id = $id;
+                    $cm->cmt_id = $single_cm['cmt_id'];
+                    $cm->created_by = auth()->user()->id;
+                    $cm->save();
+
+                }else{
+                    continue;
+                }
+            }
+            return redirect()->route('committee.committee_member_list',$id)->withStatus(__($committee->title.' member added successfully'));
+
         }
 
     }
@@ -219,7 +231,7 @@ class CommitteeController extends Controller
         $s['cm'] = CommitteeMember::findOrFail($id);
         return view('backend.council_pages.standing_committee.cm_edit',$s);
     }
-     public function cm_update(CommitteeMemberRequest $request , $id): RedirectResponse
+     public function cm_update(Request $request , $id): RedirectResponse
     {
         $cm = CommitteeMember::findOrFail($id);
         if($request->member_id != $cm->member_id){

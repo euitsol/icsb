@@ -13,7 +13,7 @@
                             <h4 class="card-title">{{$committee->title}}{{ _(' Member List') }}</h4>
                         </div>
                         <div class="col-4 text-right">
-                            @include('backend.partials.button', ['routeName' => 'committee.committee_member_create','params'=>[$committee->id], 'className' => 'btn-primary', 'label' => 'Create Committee Type'])
+                            @include('backend.partials.button', ['routeName' => 'committee.committee_member_create','params'=>[$committee->id], 'className' => 'btn-primary', 'label' => 'Add Committee Member'])
                         </div>
                     </div>
                 </div>

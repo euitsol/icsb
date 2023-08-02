@@ -16,10 +16,7 @@ class CommitteeMemberRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'description' => 'nullable',
             'status' => 'nullable|boolean',
-            'member_id'=> 'required|exists:members,id',
-            'cmt_id'=> 'required|exists:committee_member_types,id',
         ]
         +
         ($this->isMethod('POST') ? $this->store() : $this->update());
@@ -28,6 +25,8 @@ class CommitteeMemberRequest extends FormRequest
     protected function store(): array
     {
         return [
+            'cm.*.member_id' => 'required|exists:members,id',
+            'cm.*.cmt_id' => 'required|exists:committee_member_types,id',
             'committee_id'=> 'required|exists:committees,id',
         ];
     }
@@ -35,6 +34,8 @@ class CommitteeMemberRequest extends FormRequest
     protected function update(): array
     {
         return [
+            'member_id'=> 'required|exists:members,id',
+            'cmt_id'=> 'required|exists:committee_member_types,id',
             'committee_id'=> 'nullable',
         ];
     }
