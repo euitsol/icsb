@@ -341,7 +341,7 @@ h1,h2,h3,h4,h5,h6{
 	transition: 0.4s;
 	background: #182456;
 }
-.header-menu-section section .menu-bar ul li > ul li:hover a{
+.header-menu-section section .menu-bar ul li > ul li:hover > a{
 	color: #fff;
 }
 .header-menu-section section .menu-bar ul li > ul li:last-child{
@@ -555,13 +555,37 @@ h1,h2,h3,h4,h5,h6{
     color: #182456;
 }
 /* ================== End Ticker Section ==============*/
+.we-are-section .left-col{
+	width: 64%;
+	position: absolute;
+	left: 0;
+	z-index: -999;
+	bottom: 0;
+	opacity: 0.5;
+}
+.we-are-section .left-col img{
+	width: 63%;
+	border: none;
+	outline: none;
+}
+.we-are-section .right-col{
+	background: #162B75;
+	width: 36%;
+	height: 100%;
+	position: absolute;
+	right: 0;
+	z-index: -999;
+	top: 0;
+}
 
 .we-are-section{
-	padding: 100px 0 163px 0;
+	padding: 95px 0 155px 0;
+	position: relative;
+	/* padding: 100px 0 163px 0;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	background-image: url("../img/about_us_bg.png");
+	background-image: url("../img/about_us_bg.png"); */
 }
 .we-are-section img{
 	outline: 8px solid #B8C0C3;
@@ -969,7 +993,6 @@ h1,h2,h3,h4,h5,h6{
 	bottom: 0;
 	right: 0;
 	width: auto;
-	height: 100%;
 	z-index: 1;
 }
 .endorsement-section .endorsement-column .reg-field-wrapp .bg-image img {
