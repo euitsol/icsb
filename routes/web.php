@@ -180,6 +180,14 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::get('permission/decline/{id}',      [BlogController::class, 'permissionDecline'])->name('permission.decline.blog_edit');
         Route::get('featured/{id}',      [BlogController::class, 'featured'])->name('featured.blog_edit');
         Route::get('delete/{id}', [BlogController::class, 'delete'])->name('blog_delete');
+
+        // Blog Category
+        Route::get('category/create', [BlogController::class, 'cat_create'])->name('blog_cat_create');
+        Route::post('category/create', [BlogController::class, 'cat_store'])->name('blog_cat_create');
+        Route::get('category/edit/{id}', [BlogController::class, 'cat_edit'])->name('blog_cat_edit');
+        Route::put('category/edit/{id}', [BlogController::class, 'cat_update'])->name('blog_cat_edit');
+        Route::get('category/status/{id}', [BlogController::class, 'cat_status'])->name('status.blog_cat_edit');
+        Route::get('category/delete/{id}', [BlogController::class, 'cat_delete'])->name('blog_cat_delete');
     });
 
 
