@@ -50,7 +50,7 @@
                                         <td> {{ $committee_member->committe->committe_type->title  }} </td>
                                         <td> {{ $committee_member->committe_member_type->title  }} </td>
                                         <td>
-                                            @include('backend.partials.button', ['routeName' => 'committee.status.committee_type_edit','params' => [$committee_member->id], 'className' => $committee_member->getStatusClass(), 'label' => $committee_member->getStatus() ])
+                                            @include('backend.partials.button', ['routeName' => 'committee.status.committee_member_edit','params' => [$committee_member->id], 'className' => $committee_member->getStatusClass(), 'label' => $committee_member->getStatus() ])
                                         </td>
                                         <td> {{ timeFormate($committee_member->created_at) }} </td>
                                         <td> {{ $committee_member->created_user->name ?? 'system' }} </td>
@@ -58,9 +58,9 @@
                                             @include('backend.partials.action_buttons', [
                                                 'menuItems' => [
                                                     ['routeName' => '', 'label' => 'View'],
-                                                    ['routeName' => 'committee.committee_type_edit',     'params' => [$committee_member->id], 'label' => 'Update'],
-                                                    ['routeName' => 'committee.status.committee_type_edit',   'params' => [$committee_member->id], 'label' => 'Change Status'],
-                                                    ['routeName' => 'committee.committee_type_delete',   'params' => [$committee_member->id], 'label' => 'Delete', 'delete' => true],
+                                                    ['routeName' => 'committee.committee_member_edit',     'params' => [$committee_member->id], 'label' => 'Update'],
+                                                    ['routeName' => 'committee.status.committee_member_edit',   'params' => [$committee_member->id], 'label' => 'Change Status'],
+                                                    ['routeName' => 'committee.committee_member_delete',   'params' => [$committee_member->id], 'label' => 'Delete', 'delete' => true],
                                                 ]
                                             ])
                                         </td>

@@ -195,13 +195,12 @@ class StandingCommitteeController extends Controller
     {
         $s['committee'] = Committee::findOrFail($id);
         $s['cm_types'] = CommitteeMemberType::with('committe_member_type_members')->where('deleted_at',null)->where('status',1)->latest()->get();
-        $s['committees'] = Committee::with(['committe_type','committe_members'])->where('deleted_at',null)->where('status',1)->latest()->get();
         $s['members'] = Member::with('type')->where('deleted_at',null)->where('status',1)->latest()->get();
         return view('backend.council_pages.standing_committee.cm_create',$s);
     }
     public function cm_store(Request $request, $id): RedirectResponse
     {
-        $check = CommitteeMember::where('member_id', $request->member_id)->first();
+        $check = CommitteeMember::where('member_id', $request->member_id)->where('committee_id',$id)->first();
         $cm = new CommitteeMember();
         if(empty($check)){
             $cm->member_id = $request->member_id;
@@ -209,11 +208,50 @@ class StandingCommitteeController extends Controller
             $cm->cmt_id = $request->cmt_id;
             $cm->created_by = auth()->user()->id;
             $cm->save();
-            return redirect()->route('committee.committee_member_list',$id)->withStatus(__($cm->member->name.' created successfully.'));
+            return redirect()->route('committee.committee_member_list',$id)->withStatus(__($cm->member->name.' assigned in this committee as a '.$cm->committe_member_type->title.' successfully'));
         }else{
-            return redirect()->route('committee.committee_member_list',$id)->withStatus(__($check->member->name.' already assigned in committee as a '.$check->committe_member_type->title));
+            return redirect()->route('committee.committee_member_list',$id)->withStatus(__($check->member->name.' already assigned in this committee as a '.$check->committe_member_type->title));
         }
 
+    }
+    public function cm_edit($id): View
+    {
+        $s['cm_types'] = CommitteeMemberType::with('committe_member_type_members')->where('deleted_at',null)->where('status',1)->latest()->get();
+        $s['members'] = Member::with('type')->where('deleted_at',null)->where('status',1)->latest()->get();
+        $s['cm'] = CommitteeMember::findOrFail($id);
+        return view('backend.council_pages.standing_committee.cm_edit',$s);
+    }
+     public function cm_update(Request $request , $id): RedirectResponse
+    {
+        $cm = CommitteeMember::findOrFail($id);
+        if($request->member_id != $cm->member_id){
+            $check = CommitteeMember::where('member_id', $request->member_id)->where('committee_id',$cm->committee_id)->first();
+        }
+        if(empty($check)){
+            $cm->member_id = $request->member_id;
+            $cm->cmt_id = $request->cmt_id;
+            $cm->updated_by = auth()->user()->id;
+            $cm->save();
+            return redirect()->route('committee.committee_member_list',$cm->committee_id)->withStatus(__($cm->member->name.' assigned updated in this committee as a '.$cm->committe_member_type->title.' successfully'));
+        }
+        else{
+            return redirect()->route('committee.committee_member_list',$cm->committee_id)->withStatus(__($check->member->name.' already assigned in this committee as a '.$check->committe_member_type->title.'. Can\'t update this member!'));
+        }
+
+    }
+    public function cm_status($id): RedirectResponse
+    {
+        $cm = CommitteeMember::findOrFail($id);
+        $this->statusChange($cm);
+        return redirect()->route('committee.committee_member_list',$cm->committee_id)->withStatus(__($cm->member->name.' status updated successfully.'));
+    }
+
+    public function cm_delete($id): RedirectResponse
+    {
+        $cm = CommitteeMember::findOrFail($id);
+        // $this->soft_delete($cmt);
+        $cm->delete();
+        return redirect()->route('committee.committee_member_list',$cm->committee_id)->withStatus(__($cm->committee_id.' deleted successfully.'));
     }
 
 
