@@ -10,6 +10,59 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-8">
+                            <h4 class="card-title">{{ _('Committee') }}</h4>
+                        </div>
+                        <div class="col-4 text-right">
+                            @include('backend.partials.button', ['routeName' => 'committee.committee_create', 'className' => 'btn-primary', 'label' => 'Create Committee'])
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="">
+                        <table class="table tablesorter datatable">
+                            <thead class=" text-primary">
+                                <tr>
+                                    <th>{{ _('Title') }}</th>
+                                    <th>{{ _('Total Member') }}</th>
+                                    <th>{{ _('Status') }}</th>
+                                    <th>{{ _('Created at') }}</th>
+                                    <th>{{ _('Created by') }}</th>
+                                    <th>{{ _('Action') }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($committees as $committee)
+                                    <tr>
+                                        <td> {{ $committee->title  }} </td>
+                                        <td> {{ number_format($committee->committe_members->count()) }} </td>
+                                        <td>
+                                            @include('backend.partials.button', ['routeName' => 'committee.status.committee_edit','params' => [$committee->id], 'className' => $committee->getStatusClass(), 'label' => $committee->getStatus() ])
+                                        </td>
+                                        <td> {{ timeFormate($committee->created_at) }} </td>
+                                        <td> {{ $committee->created_user->name ?? 'system' }} </td>
+                                        <td>
+                                            @include('backend.partials.action_buttons', [
+                                                'menuItems' => [
+                                                    ['routeName' => '', 'label' => 'View'],
+                                                    ['routeName' => 'committee.committee_edit',   'params' => [$committee->id], 'label' => 'Update'],
+                                                    ['routeName' => 'committee.committee_member_list',   'params' => [$committee->id], 'label' => 'Committee Members'],
+                                                    ['routeName' => 'committee.status.committee_edit',   'params' => [$committee->id], 'label' => 'Change Status'],
+                                                    ['routeName' => 'committee.committee_delete', 'params' => [$committee->id], 'label' => 'Delete', 'delete' => true],
+                                                ]
+                                            ])
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card ">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-8">
                             <h4 class="card-title">{{ _('Committee Type List') }}</h4>
                         </div>
                         <div class="col-4 text-right">
@@ -113,58 +166,7 @@
                 </div>
             </div>
 
-            <div class="card ">
-                <div class="card-header">
-                    <div class="row">
-                        <div class="col-8">
-                            <h4 class="card-title">{{ _('Committee') }}</h4>
-                        </div>
-                        <div class="col-4 text-right">
-                            @include('backend.partials.button', ['routeName' => 'committee.committee_create', 'className' => 'btn-primary', 'label' => 'Create Committee'])
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="">
-                        <table class="table tablesorter datatable">
-                            <thead class=" text-primary">
-                                <tr>
-                                    <th>{{ _('Title') }}</th>
-                                    <th>{{ _('Total Member') }}</th>
-                                    <th>{{ _('Status') }}</th>
-                                    <th>{{ _('Created at') }}</th>
-                                    <th>{{ _('Created by') }}</th>
-                                    <th>{{ _('Action') }}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($committees as $committee)
-                                    <tr>
-                                        <td> {{ $committee->title  }} </td>
-                                        <td> {{ number_format($committee->committe_members->count()) }} </td>
-                                        <td>
-                                            @include('backend.partials.button', ['routeName' => 'committee.status.committee_edit','params' => [$committee->id], 'className' => $committee->getStatusClass(), 'label' => $committee->getStatus() ])
-                                        </td>
-                                        <td> {{ timeFormate($committee->created_at) }} </td>
-                                        <td> {{ $committee->created_user->name ?? 'system' }} </td>
-                                        <td>
-                                            @include('backend.partials.action_buttons', [
-                                                'menuItems' => [
-                                                    ['routeName' => '', 'label' => 'View'],
-                                                    ['routeName' => 'committee.committee_edit',   'params' => [$committee->id], 'label' => 'Update'],
-                                                    ['routeName' => 'committee.committee_member_list',   'params' => [$committee->id], 'label' => 'Committee Members'],
-                                                    ['routeName' => 'committee.status.committee_edit',   'params' => [$committee->id], 'label' => 'Change Status'],
-                                                    ['routeName' => 'committee.committee_delete', 'params' => [$committee->id], 'label' => 'Delete', 'delete' => true],
-                                                ]
-                                            ])
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+
 
 
 
