@@ -3,19 +3,22 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 use App\Models\Committee;
 use App\Models\CommitteeMember;
 use App\Models\CommitteeMemberType;
 use App\Models\CommitteeType;
 use App\Models\Member;
-use App\Models\MemberType;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Str;
+use App\Http\Requests\CommitteeMemberRequest;
+use App\Http\Requests\CommitteeMemberTypeRequest;
+use App\Http\Requests\CommitteeRequest;
+use App\Http\Requests\CommitteeTypeRequest;
 
-class StandingCommitteeController extends Controller
+class CommitteeController extends Controller
 {
     //
 
@@ -36,7 +39,7 @@ class StandingCommitteeController extends Controller
         $s['c_types'] = CommitteeType::where('deleted_at', null)->where('status',1)->latest()->get();
         return view('backend.council_pages.standing_committee.create',$s);
     }
-    public function store(Request $request): RedirectResponse
+    public function store(CommitteeRequest $request): RedirectResponse
     {
         $committee = new Committee();
         $committee->title = $request->title;
@@ -54,7 +57,7 @@ class StandingCommitteeController extends Controller
         $s['c_types'] = CommitteeType::where('deleted_at', null)->where('status',1)->latest()->get();
         return view('backend.council_pages.standing_committee.edit',$s);
     }
-     public function update(Request $request , $id): RedirectResponse
+     public function update(CommitteeRequest $request , $id): RedirectResponse
     {
         $committee = Committee::findOrFail($id);
         $committee->title = $request->title;
@@ -89,7 +92,7 @@ class StandingCommitteeController extends Controller
     {
         return view('backend.council_pages.standing_committee.ct_create');
     }
-    public function ct_store(Request $request): RedirectResponse
+    public function ct_store(CommitteeTypeRequest $request): RedirectResponse
     {
         $ct = new CommitteeType();
         $ct->title = $request->title;
@@ -105,7 +108,7 @@ class StandingCommitteeController extends Controller
         $s['ct'] = CommitteeType::findOrFail($id);
         return view('backend.council_pages.standing_committee.ct_edit',$s);
     }
-     public function ct_update(Request $request , $id): RedirectResponse
+     public function ct_update(CommitteeTypeRequest $request , $id): RedirectResponse
     {
         $ct = CommitteeType::findOrFail($id);
         $ct->title = $request->title;
@@ -137,7 +140,7 @@ class StandingCommitteeController extends Controller
     {
         return view('backend.council_pages.standing_committee.cmt_create');
     }
-    public function cmt_store(Request $request): RedirectResponse
+    public function cmt_store(CommitteeMemberTypeRequest $request): RedirectResponse
     {
         $cmt = new CommitteeMemberType();
         $cmt->title = $request->title;
@@ -153,7 +156,7 @@ class StandingCommitteeController extends Controller
         $s['cmt'] = CommitteeMemberType::findOrFail($id);
         return view('backend.council_pages.standing_committee.cmt_edit',$s);
     }
-     public function cmt_update(Request $request , $id): RedirectResponse
+     public function cmt_update(CommitteeMemberTypeRequest $request , $id): RedirectResponse
     {
         $cmt = CommitteeMemberType::findOrFail($id);
         $cmt->title = $request->title;
@@ -183,11 +186,6 @@ class StandingCommitteeController extends Controller
 
     public function cm_index($id): View
     {
-        // $s['committee'] = CommitteeMember::with(['committe','committe_member_type','member'])
-        //                                 ->where('deleted_at',null)
-        //                                 ->where('committee',$id)
-        //                                 ->latest()
-        //                                 ->get();
         $s['committee'] = Committee::with(['committe_type','committe_members'])->where('deleted_at',null)->where('id',$id)->first();
         return view('backend.council_pages.standing_committee.cm_index',$s);
     }
@@ -198,7 +196,7 @@ class StandingCommitteeController extends Controller
         $s['members'] = Member::with('type')->where('deleted_at',null)->where('status',1)->latest()->get();
         return view('backend.council_pages.standing_committee.cm_create',$s);
     }
-    public function cm_store(Request $request, $id): RedirectResponse
+    public function cm_store(CommitteeMemberRequest $request, $id): RedirectResponse
     {
         $check = CommitteeMember::where('member_id', $request->member_id)->where('committee_id',$id)->first();
         $cm = new CommitteeMember();
@@ -221,7 +219,7 @@ class StandingCommitteeController extends Controller
         $s['cm'] = CommitteeMember::findOrFail($id);
         return view('backend.council_pages.standing_committee.cm_edit',$s);
     }
-     public function cm_update(Request $request , $id): RedirectResponse
+     public function cm_update(CommitteeMemberRequest $request , $id): RedirectResponse
     {
         $cm = CommitteeMember::findOrFail($id);
         if($request->member_id != $cm->member_id){
