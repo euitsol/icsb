@@ -154,3 +154,9 @@ function getYoutubeVideoIframe($url) {
     $iframe = '<iframe width="100%" height="280" src="https://www.youtube.com/embed/'.$videoId.'" frameborder="0" allowfullscreen></iframe>';
     return $iframe;
 }
+// function getSinglePageLebel($fieldName){
+
+//     $withSpaces = str_replace('_', ' ', $fieldName);
+//     $capitalized = ucwords($withSpaces);
+//     return $capitalized;
+// }

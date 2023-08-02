@@ -19,8 +19,8 @@ class ExaminationPagesController extends Controller
             'memberTypes' => $memberTypes,
         ]);
     }
-    public function examSchedule(): View
-    {
-        return view('frontend.examination.exam_schedule');
-    }
+    // public function examSchedule(): View
+    // {
+    //     return view('frontend.examination.exam_schedule');
+    // }
 }
