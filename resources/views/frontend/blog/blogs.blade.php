@@ -12,11 +12,29 @@
             <div class="breadcrumbs-row flex">
                 <div class="left-column content-column">
                     <div class="inner-column color-white">
-                        <h1 class="breadcrumbs-heading">All Media Rooms</h1>
+                        <h1 class="breadcrumbs-heading">
+                            @if(isset($cat))
+                                {{$cat->name}}
+                            @else
+                                {{_('All Media Rooms')}}
+                            @endif
+                        </h1>
                         <ul class="flex">
-                            <li><a href="index">Home</a></li>
+                            <li>
+                                @if(isset($cat))
+                                <a href="{{route('media_room.all')}}">{{_('Media Room')}}</a>
+                            @else
+                                <a href="{{route('home')}}">{{_('Home')}}</a>
+                            @endif
+                            </li>
                             <li><i class="fa-solid fa-angle-right"></i></li>
-                            <li><a href="#">Media Rooms</a></li>
+                            <li>
+                                @if(isset($cat))
+                                <a href="{{route('media_room.cat.all',$cat->slug)}}">{{$cat->name}}</a>
+                            @else
+                                <a href="{{route('media_room.all')}}">{{_('Media Room')}}</a>
+                            @endif
+                            </li>
                         </ul>
                     </div>
                 </div>

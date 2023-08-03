@@ -328,6 +328,7 @@ Route::group(['as' => 'event_view.', 'prefix' => 'event'], function () {
 });
 Route::group(['as' => 'media_room.', 'prefix' => 'media-room'], function () {
     Route::get('/all', [MediaRoomPagesController::class, 'mr_all'])->name('all');
+    Route::get('/{slug}', [MediaRoomPagesController::class, 'cat_all'])->name('cat.all');
     Route::get('/view/{slug}', [MediaRoomPagesController::class, 'view'])->name('view');
 });
 
