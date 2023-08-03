@@ -28,7 +28,7 @@ class HomePageController extends Controller
     public function index(): View
     {
         $s['banner'] = Banner::with('images')->where('deleted_at', null)->where('status',1)->first();
-        $s['blogs'] = Blog::where('deleted_at', null)->where('permission','1')->where('is_featured','1')->latest()->get();
+        $s['media_rooms'] = Blog::where('deleted_at', null)->where('permission','1')->where('is_featured','1')->latest()->get();
         $s['wwcss'] = WWCS::where('deleted_at', null)->where('status',1)->latest()->get();
         $s['events'] = Event::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
         $s['national_awards'] = NationalAward::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
