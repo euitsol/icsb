@@ -32,12 +32,12 @@ class CommitteeController extends Controller
         $s['c_types'] = CommitteeType::with('committees')->where('deleted_at',null)->latest()->get();
         $s['committees'] = Committee::with(['committe_type','committe_members'])->where('deleted_at',null)->latest()->get();
         $s['c_members'] = CommitteeMember::with(['committe','committe_member_type','member'])->where('deleted_at',null)->latest()->get();
-        return view('backend.council_pages.standing_committee.index',$s);
+        return view('backend.council_pages.committee.index',$s);
     }
     public function create(): View
     {
         $s['c_types'] = CommitteeType::where('deleted_at', null)->where('status',1)->latest()->get();
-        return view('backend.council_pages.standing_committee.create',$s);
+        return view('backend.council_pages.committee.create',$s);
     }
     public function store(CommitteeRequest $request): RedirectResponse
     {
@@ -54,7 +54,7 @@ class CommitteeController extends Controller
     {
         $s['committee'] = Committee::findOrFail($id);
         $s['c_types'] = CommitteeType::where('deleted_at', null)->where('status',1)->latest()->get();
-        return view('backend.council_pages.standing_committee.edit',$s);
+        return view('backend.council_pages.committee.edit',$s);
     }
      public function update(CommitteeRequest $request , $id): RedirectResponse
     {
@@ -89,7 +89,7 @@ class CommitteeController extends Controller
 
     public function ct_create(): View
     {
-        return view('backend.council_pages.standing_committee.ct_create');
+        return view('backend.council_pages.committee.ct_create');
     }
     public function ct_store(CommitteeTypeRequest $request): RedirectResponse
     {
@@ -105,7 +105,7 @@ class CommitteeController extends Controller
     public function ct_edit($id): View
     {
         $s['ct'] = CommitteeType::findOrFail($id);
-        return view('backend.council_pages.standing_committee.ct_edit',$s);
+        return view('backend.council_pages.committee.ct_edit',$s);
     }
      public function ct_update(CommitteeTypeRequest $request , $id): RedirectResponse
     {
@@ -137,7 +137,7 @@ class CommitteeController extends Controller
 
     public function cmt_create(): View
     {
-        return view('backend.council_pages.standing_committee.cmt_create');
+        return view('backend.council_pages.committee.cmt_create');
     }
     public function cmt_store(CommitteeMemberTypeRequest $request): RedirectResponse
     {
@@ -153,7 +153,7 @@ class CommitteeController extends Controller
     public function cmt_edit($id): View
     {
         $s['cmt'] = CommitteeMemberType::findOrFail($id);
-        return view('backend.council_pages.standing_committee.cmt_edit',$s);
+        return view('backend.council_pages.committee.cmt_edit',$s);
     }
      public function cmt_update(CommitteeMemberTypeRequest $request , $id): RedirectResponse
     {
@@ -186,16 +186,16 @@ class CommitteeController extends Controller
     public function cm_index($id): View
     {
         $s['committee'] = Committee::with(['committe_type','committe_members'])->where('deleted_at',null)->where('id',$id)->first();
-        return view('backend.council_pages.standing_committee.cm_index',$s);
+        return view('backend.council_pages.committee.cm_index',$s);
     }
     public function cm_create($id): View
     {
         $s['committee'] = Committee::findOrFail($id);
         $s['cm_types'] = CommitteeMemberType::with('committe_member_type_members')->where('deleted_at',null)->where('status',1)->latest()->get();
         $s['members'] = Member::with('type')->where('deleted_at',null)->where('status',1)->latest()->get();
-        return view('backend.council_pages.standing_committee.cm_create',$s);
+        return view('backend.council_pages.committee.cm_create',$s);
     }
-    public function cm_store(Request $request, $id): RedirectResponse
+    public function cm_store(CommitteeMemberRequest $request, $id): RedirectResponse
     {
 
         $filteredInputs = array_filter($request->cm, function ($entry) {
@@ -229,9 +229,9 @@ class CommitteeController extends Controller
         $s['cm_types'] = CommitteeMemberType::with('committe_member_type_members')->where('deleted_at',null)->where('status',1)->latest()->get();
         $s['members'] = Member::with('type')->where('deleted_at',null)->where('status',1)->latest()->get();
         $s['cm'] = CommitteeMember::findOrFail($id);
-        return view('backend.council_pages.standing_committee.cm_edit',$s);
+        return view('backend.council_pages.committee.cm_edit',$s);
     }
-     public function cm_update(Request $request , $id): RedirectResponse
+     public function cm_update(CommitteeMemberRequest $request , $id): RedirectResponse
     {
         $cm = CommitteeMember::findOrFail($id);
         if($request->member_id != $cm->member_id){

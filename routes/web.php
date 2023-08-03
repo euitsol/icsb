@@ -318,6 +318,9 @@ Route::group(['as' => 'about.', 'prefix' => 'about'], function () {
     Route::get('/faq', [AboutPagesController::class, 'faq'])->name('faq');
     Route::get('/world-wide-cs', [AboutPagesController::class, 'wwcs'])->name('wwcs');
 });
+Route::group(['as' => 'council_view.', 'prefix' => 'council'], function () {
+    Route::get('/{slug}/members', [CouncilPagesController::class, 'committee'])->name('committee.members');
+});
 Route::group(['as' => 'examination.', 'prefix' => 'examination'], function () {
     // Route::get('/exam-schedule', [ExaminationPagesController::class, 'examSchedule'])->name('exam_schedule');
 });
