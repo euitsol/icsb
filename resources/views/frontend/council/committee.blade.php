@@ -35,7 +35,7 @@
             @foreach ($c_members as $key=>$member)
                 <div class="committee-items flex">
                     <div class="image-column">
-                        <img src="{{ storage_url($member->member->image) }}" alt="">
+                        <img src="{{ getMemberImage($member->member) }}" alt="">
                     </div>
                     <div class="content-column">
                         <h3>{{ $member->member->name }}</h3>

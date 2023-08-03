@@ -160,3 +160,16 @@ function getYoutubeVideoIframe($url) {
 //     $capitalized = ucwords($withSpaces);
 //     return $capitalized;
 // }
+function getMemberImage($object){
+    if($object->image){
+        return storage_url($object->image);
+    }else{
+        // if($object->gender == 'Male'){
+        //     return 'Male Image';
+        // }else{
+        //     return 'Female Image';
+        // }
+        return asset('no_img/no_img.jpg');
+    }
+
+}
