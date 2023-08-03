@@ -18,6 +18,7 @@ use App\Http\Controllers\Backend\BannerController;
 use App\Http\Controllers\Backend\ICSBProfileController;
 use App\Http\Controllers\Backend\MemberController;
 use App\Http\Controllers\Backend\SinglePagesController;
+use App\Http\Controllers\Backend\CommitteeController;
 use App\Http\Controllers\Backend\UserManagement\RoleController;
 use App\Http\Controllers\Backend\UserManagement\PermissionController;
 use App\Http\Controllers\Frontend\AboutPagesController;
@@ -31,6 +32,7 @@ use App\Http\Controllers\Frontend\PublicationsPagesController;
 use App\Http\Controllers\Frontend\ContactPagesController;
 use App\Http\Controllers\Frontend\ArticlesController;
 use App\Http\Controllers\Frontend\ExaminationPagesController;
+use App\Http\Controllers\Frontend\FrontendSinglePagesController;
 use App\Http\Controllers\SettingsController;
 
 
@@ -180,6 +182,14 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::get('permission/decline/{id}',      [BlogController::class, 'permissionDecline'])->name('permission.decline.blog_edit');
         Route::get('featured/{id}',      [BlogController::class, 'featured'])->name('featured.blog_edit');
         Route::get('delete/{id}', [BlogController::class, 'delete'])->name('blog_delete');
+
+        // Blog Category
+        Route::get('category/create', [BlogController::class, 'cat_create'])->name('blog_cat_create');
+        Route::post('category/create', [BlogController::class, 'cat_store'])->name('blog_cat_create');
+        Route::get('category/edit/{id}', [BlogController::class, 'cat_edit'])->name('blog_cat_edit');
+        Route::put('category/edit/{id}', [BlogController::class, 'cat_update'])->name('blog_cat_edit');
+        Route::get('category/status/{id}', [BlogController::class, 'cat_status'])->name('status.blog_cat_edit');
+        Route::get('category/delete/{id}', [BlogController::class, 'cat_delete'])->name('blog_cat_delete');
     });
 
 
@@ -227,6 +237,40 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::get('member-type/status/{id}', [MemberController::class, 'mt_status'])->name('status.member_type_edit');
         Route::get('member-type/delete/{id}', [MemberController::class, 'mt_delete'])->name('member_type_delete');
     });
+    // Member Module
+    Route::group(['as' => 'committee.', 'prefix' => 'committee'], function () {
+        Route::get('index', [CommitteeController::class, 'index'])->name('committee_list');
+
+        Route::get('create', [CommitteeController::class, 'create'])->name('committee_create');
+        Route::post('create', [CommitteeController::class, 'store'])->name('committee_create');
+        Route::get('edit/{id}', [CommitteeController::class, 'edit'])->name('committee_edit');
+        Route::put('edit/{id}', [CommitteeController::class, 'update'])->name('committee_edit');
+        Route::get('status/{id}', [CommitteeController::class, 'status'])->name('status.committee_edit');
+        Route::get('delete/{id}', [CommitteeController::class, 'delete'])->name('committee_delete');
+
+        Route::get('committee-type/create', [CommitteeController::class, 'ct_create'])->name('committee_type_create');
+        Route::post('committee-type/create', [CommitteeController::class, 'ct_store'])->name('committee_type_create');
+        Route::get('committee-type/edit/{id}', [CommitteeController::class, 'ct_edit'])->name('committee_type_edit');
+        Route::put('committee-type/edit/{id}', [CommitteeController::class, 'ct_update'])->name('committee_type_edit');
+        Route::get('committee-type/status/{id}', [CommitteeController::class, 'ct_status'])->name('status.committee_type_edit');
+        Route::get('committee-type/delete/{id}', [CommitteeController::class, 'ct_delete'])->name('committee_type_delete');
+
+        Route::get('committee-member-type/create', [CommitteeController::class, 'cmt_create'])->name('cm_type_create');
+        Route::post('committee-member-type/create', [CommitteeController::class, 'cmt_store'])->name('cm_type_create');
+        Route::get('committee-member-type/edit/{id}', [CommitteeController::class, 'cmt_edit'])->name('cm_type_edit');
+        Route::put('committee-member-type/edit/{id}', [CommitteeController::class, 'cmt_update'])->name('cm_type_edit');
+        Route::get('committee-member-type/status/{id}', [CommitteeController::class, 'cmt_status'])->name('status.cm_type_edit');
+        Route::get('committee-member-type/delete/{id}', [CommitteeController::class, 'cmt_delete'])->name('cm_type_delete');
+
+        Route::get('committee-member/index/{id}', [CommitteeController::class, 'cm_index'])->name('committee_member_list');
+        Route::get('committee-member/create/{id}', [CommitteeController::class, 'cm_create'])->name('committee_member_create');
+        Route::post('committee-member/create/{id}', [CommitteeController::class, 'cm_store'])->name('committee_member_create');
+        Route::get('committee-member/edit/{id}', [CommitteeController::class, 'cm_edit'])->name('committee_member_edit');
+        Route::put('committee-member/edit/{id}', [CommitteeController::class, 'cm_update'])->name('committee_member_edit');
+        Route::get('committee-member/status/{id}', [CommitteeController::class, 'cm_status'])->name('status.committee_member_edit');
+        Route::get('committee-member/delete/{id}', [CommitteeController::class, 'cm_delete'])->name('committee_member_delete');
+
+    });
     // ICSB Profile
     Route::group(['as' => 'icsb_profile.', 'prefix' => 'icsb-profile'], function () {
         Route::get('create', [ICSBProfileController::class, 'index'])->name('icsb_profile_create');
@@ -261,16 +305,19 @@ Route::post('/single-page/store/{page_slug}', [SinglePagesController::class, 'fo
 
 Route::get('/', [HomePageController::class, 'index'])->name('home');
 
+// Single Pages Route
+Route::get('/page/{frontend_slug}', [FrontendSinglePagesController::class, 'frontend'])->name('sp.frontend');
+
 Route::group(['as' => 'about.', 'prefix' => 'about'], function () {
     Route::get('/icsb-profile', [AboutPagesController::class, 'icsb_profile'])->name('icsb_profile');
-    Route::get('/vision', [AboutPagesController::class, 'vision'])->name('vision');
-    Route::get('/mission', [AboutPagesController::class, 'mission'])->name('mission');
-    Route::get('/objectives', [AboutPagesController::class, 'objectives'])->name('objectives');
+    // Route::get('/vision', [AboutPagesController::class, 'vision'])->name('vision');
+    // Route::get('/mission', [AboutPagesController::class, 'mission'])->name('mission');
+    // Route::get('/objectives', [AboutPagesController::class, 'objectives'])->name('objectives');
     Route::get('/faq', [AboutPagesController::class, 'faq'])->name('faq');
     Route::get('/world-wide-cs', [AboutPagesController::class, 'wwcs'])->name('wwcs');
 });
 Route::group(['as' => 'examination.', 'prefix' => 'examination'], function () {
-    Route::get('/exam-schedule', [ExaminationPagesController::class, 'examSchedule'])->name('exam_schedule');
+    // Route::get('/exam-schedule', [ExaminationPagesController::class, 'examSchedule'])->name('exam_schedule');
 });
 Route::group(['as' => 'event_view.', 'prefix' => 'event'], function () {
     Route::get('/all-events', [EventPagesController::class, 'events'])->name('all');
@@ -304,7 +351,7 @@ Route::group(['as' => 'members.', 'prefix' => 'members'], function () {
     // Route::get('/code-of-conduct', [MembersPagesController::class, 'codeOfConduct'])->name('code_of_conduct');
     // Route::get('/cpd-program', [MembersPagesController::class, 'cpdProgram'])->name('cpd_program');
     Route::get('/member-search/{slug}', [MembersPagesController::class, 'memberSearch'])->name('m_search');
-    Route::get('/job-placement', [MembersPagesController::class, 'jobPlacement'])->name('job_placement');
+    // Route::get('/job-placement', [MembersPagesController::class, 'jobPlacement'])->name('job_placement');
 
 });
 // Route::group(['as' => 'rules_and_regulations.', 'prefix' => 'rulse-&-regulations'], function () {

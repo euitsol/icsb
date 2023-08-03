@@ -36,7 +36,8 @@
             {{-- About CS --}}
             <li>
                 <a class="@if(
-                        $pageSlug == 'icsb_profile' ||
+                        // $pageSlug == 'icsb_profile' ||
+                        $pageSlug == 'icsb-profile' ||
                         $pageSlug == 'vision' ||
                         $pageSlug == 'mission' ||
                         $pageSlug == 'objectives' ||
@@ -46,7 +47,8 @@
                         $pageSlug == 'cs-for-cg' ||
                         $pageSlug == 'faq'
                     )@else collapsed @endif" data-toggle="collapse" href="#about" @if (
-                        $pageSlug == 'icsb_profile' ||
+                        // $pageSlug == 'icsb_profile' ||
+                        $pageSlug == 'icsb-profile' ||
                         $pageSlug == 'vision' ||
                         $pageSlug == 'mission' ||
                         $pageSlug == 'objectives' ||
@@ -62,7 +64,8 @@
                 </a>
 
                 <div class="collapse @if (
-                    $pageSlug == 'icsb_profile' ||
+                    // $pageSlug == 'icsb_profile' ||
+                    $pageSlug == 'icsb-profile' ||
                     $pageSlug == 'vision' ||
                     $pageSlug == 'mission' ||
                     $pageSlug == 'objectives' ||
@@ -75,7 +78,8 @@
                     <ul class="nav pl-4">
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
-                                ['pageSlug' => 'icsb_profile', 'routeName' => 'icsb_profile.icsb_profile_create', 'label' => 'ICSB Profile'],
+                                // ['pageSlug' => 'icsb_profile', 'routeName' => 'icsb_profile.icsb_profile_create', 'label' => 'ICSB Profile'],
+                                ['pageSlug' => 'icsb-profile', 'routeName' => 'sp.show', 'params' => 'icsb-profile', 'label' => 'ICSB Profile'],
                                 ['pageSlug' => 'vision', 'routeName' => 'sp.show', 'params' => 'vision', 'label' => 'Vision'],
                                 ['pageSlug' => 'mission', 'routeName' => 'sp.show', 'params' => 'mission', 'label' => 'Mission'],
                                 ['pageSlug' => 'objectives', 'routeName' => 'sp.show', 'params' => 'objectives', 'label' => 'Objectives'],
@@ -96,13 +100,13 @@
                         $pageSlug == 'council' ||
                         $pageSlug == 'president' ||
                         // $pageSlug == 'past_president' ||
-                        $pageSlug == 'standing_committees' ||
+                        $pageSlug == 'committee' ||
                         $pageSlug == 'sub_committees'
                     )@else collapsed @endif" data-toggle="collapse" href="#council" @if (
                         $pageSlug == 'council' ||
                         $pageSlug == 'president' ||
                         // $pageSlug == 'past_president' ||
-                        $pageSlug == 'standing_committees' ||
+                        $pageSlug == 'committee' ||
                         $pageSlug == 'sub_committees'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-brands fa-slack"></i>
@@ -114,17 +118,17 @@
                     $pageSlug == 'council' ||
                     $pageSlug == 'president' ||
                     // $pageSlug == 'past_president' ||
-                    $pageSlug == 'standing_committees' ||
+                    $pageSlug == 'committee' ||
                     $pageSlug == 'sub_committees'
                 ) show @endif" id="council">
                     <ul class="nav pl-4">
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
-                                ['pageSlug' => 'council', 'routeName' => '', 'params' => '', 'label' => 'The Council'],
-                                ['pageSlug' => 'president', 'routeName' => '', 'label' => 'The President'],
-                                // ['pageSlug' => 'past_president', 'routeName' => '', 'label' => 'The Past President'],
-                                ['pageSlug' => 'standing_committees', 'routeName' => '', 'label' => 'The Standing Committees'],
-                                ['pageSlug' => 'sub_committees', 'routeName' => '', 'label' => 'The Sub Committees'],
+                                ['pageSlug' => 'council', 'routeName' => '', 'label' => 'Council'],
+                                ['pageSlug' => 'president', 'routeName' => '', 'label' => 'President'],
+
+                                ['pageSlug' => 'past_president', 'routeName' => '', 'label' => 'Past President'],
+                                ['pageSlug' => 'committee', 'routeName' => 'committee.committee_list', 'label' => 'Committee'],
                             ]
                         ])
                     </ul>
@@ -203,13 +207,13 @@
                         $pageSlug == 'financial_assistance' ||
                         $pageSlug == 'icsb_library' ||
                         $pageSlug == 'student_notice_board' ||
-                        $pageSlug == 'faculty_evaluation_system'
+                        $pageSlug == 'faculty-evaluation-system'
                     )@else collapsed @endif" data-toggle="collapse" href="#student" @if (
                         $pageSlug == 'admission' ||
                         $pageSlug == 'financial_assistance' ||
                         $pageSlug == 'icsb_library' ||
                         $pageSlug == 'student_notice_board' ||
-                        $pageSlug == 'faculty_evaluation_system'
+                        $pageSlug == 'faculty-evaluation-system'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-solid fa-graduation-cap"></i>
                     <span class="nav-link-text" >{{ __('Student') }}</span>
@@ -221,7 +225,7 @@
                         $pageSlug == 'financial_assistance' ||
                         $pageSlug == 'icsb_library' ||
                         $pageSlug == 'student_notice_board' ||
-                        $pageSlug == 'faculty_evaluation_system'
+                        $pageSlug == 'faculty-evaluation-system'
                 ) show @endif" id="student">
                     <ul class="nav pl-4">
                         @include('backend.partials.menu_buttons', [
@@ -231,7 +235,7 @@
                                 ['pageSlug' => 'financial_assistance', 'routeName' => '', 'label' => 'Financial Assistance'],
                                 ['pageSlug' => 'icsb_library', 'routeName' => '', 'label' => 'ICSB Library'],
                                 ['pageSlug' => 'student_notice_board', 'routeName' => '', 'label' => 'Student Notice Board'],
-                                ['pageSlug' => 'faculty_evaluation_system', 'routeName' => '', 'label' => 'Faculty Evaluation System'],
+                                ['pageSlug' => 'faculty-evaluation-system', 'routeName' => 'sp.show', 'params' => 'faculty-evaluation-system', 'label' => 'Faculty Evaluation System'],
                             ]
                         ])
                     </ul>

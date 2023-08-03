@@ -89,7 +89,7 @@ class SinglePagesController extends Controller
                             $file = $request->file($input_name);
 
                             $customFileName = time().'.' . $file->getClientOriginalExtension();
-                            $path = $file->storeAs('single-page/image', $customFileName,'public');
+                            $path = $file->storeAs('single-page/'.$input_name, $customFileName,'public');
                             $data[$fd->field_key]=$path;
                         }
 

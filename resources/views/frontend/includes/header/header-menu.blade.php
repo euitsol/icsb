@@ -222,10 +222,11 @@
                         <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">About CS</a>
                           <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ route('about.icsb_profile') }}">ICSB Profile</a></li>
-                            <li><a class="dropdown-item" href="{{ route('about.vision') }}">Vision</a></li>
-                            <li><a class="dropdown-item" href="{{ route('about.mission') }}">Mission</a></li>
-                            <li><a class="dropdown-item" href="{{route('about.objectives')}}">Objectives</a></li>
+                            {{-- <li><a class="dropdown-item" href="{{ route('about.icsb_profile') }}">ICSB Profile</a></li> --}}
+                            <li><a class="dropdown-item" href="{{ route('sp.frontend','icsb-profile') }}">ICSB Profile</a></li>
+                            <li><a class="dropdown-item" href="{{ route('sp.frontend','vision') }}">Vision</a></li>
+                            <li><a class="dropdown-item" href="{{ route('sp.frontend','mission') }}">Mission</a></li>
+                            <li><a class="dropdown-item" href="{{route('sp.frontend','objectives')}}">Objectives</a></li>
                             <li><a class="dropdown-item" href="#">Values</a></li>
                             <li><a class="dropdown-item" href="{{ route('about.wwcs') }}">World Wide CS</a></li>
                             <li><a class="dropdown-item" href="#">Corporate Governance</a></li>
@@ -259,7 +260,7 @@
                              <li><a class="dropdown-item" href="#">Training Program</a></li>
                              <li><a class="dropdown-item" href="#">Members’ Lounge</a></li>
                              <li><a class="dropdown-item" href="#">Members’ Notice Board</a></li>
-                             <li><a class="dropdown-item" href="{{ route('members.job_placement') }}">Job Placement</a></li>
+                             <li><a class="dropdown-item" href="{{ route('sp.frontend','job-placement') }}">Job Placement</a></li>
                            </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -308,7 +309,7 @@
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Examination</a>
                              <ul class="dropdown-menu">
                                <li><a class="dropdown-item" href="#">Eligibility</a></li>
-                               <li><a class="dropdown-item" href="{{ route('examination.exam_schedule') }}">Exam Schedule</a></li>
+                               <li><a class="dropdown-item" href="{{ route('sp.frontend','exam-schedule') }}">Exam Schedule</a></li>
                                <li><a class="dropdown-item" href="#">Results</a></li>
                                <li><a class="dropdown-item" href="#">Sample Question Papers</a></li>
                                <li><a class="dropdown-item" href="#">Exam FAQs</a></li>

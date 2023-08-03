@@ -10,6 +10,45 @@ class SinglePagesSeeder extends Seeder
     public function run()
     {
         SinglePages::create([
+            'page_key' => 'icsb-profile',
+            'frontend_slug' => 'icsb-profile',
+            'title' => 'Create ICSB Profile',
+            'form_data' => '{
+                "1":
+                {
+                    "field_key":"banner-image",
+                    "field_name":"Banner Image",
+                    "type":"image",
+                    "required":"required"
+                },
+                "2":
+                {
+                    "field_key":"back-image",
+                    "field_name":"Back Image",
+                    "type":"image",
+                    "required":"required"
+                },
+                "3":
+                {
+                    "field_key":"front-image",
+                    "field_name":"Front Image",
+                    "type":"image",
+                    "required":"required"
+                },
+                "4":
+                {
+                    "field_key":"details",
+                    "field_name":"Details",
+                    "type":"textarea",
+                    "required":"required"
+                }
+            }',
+            'documentation' => '{
+                "title":"ICSB Profile",
+                "details":"<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.<\/span><\/p>"
+            }',
+        ]);
+        SinglePages::create([
             'page_key' => 'vision',
             'frontend_slug' => 'vision',
             'title' => 'Create Vision',
@@ -23,10 +62,10 @@ class SinglePagesSeeder extends Seeder
                 },
                 "2":
                 {
-                    "field_key":"additional-images",
-                    "field_name":"Additional Images",
-                    "type":"file_multiple",
-                    "required":"nullable"
+                    "field_key":"image",
+                    "field_name":"Image",
+                    "type":"image",
+                    "required":"required"
                 },
                 "3":
                 {
@@ -55,10 +94,10 @@ class SinglePagesSeeder extends Seeder
                 },
                 "2":
                 {
-                    "field_key":"additional-images",
-                    "field_name":"Additional Images",
-                    "type":"file_multiple",
-                    "required":"nullable"
+                    "field_key":"image",
+                    "field_name":"Image",
+                    "type":"image",
+                    "required":"required"
                 },
                 "3":
                 {
@@ -87,10 +126,10 @@ class SinglePagesSeeder extends Seeder
                 },
                 "2":
                 {
-                    "field_key":"additional-images",
-                    "field_name":"Additional Images",
-                    "type":"file_multiple",
-                    "required":"nullable"
+                    "field_key":"image",
+                    "field_name":"Image",
+                    "type":"image",
+                    "required":"required"
                 },
                 "3":
                 {
@@ -119,13 +158,6 @@ class SinglePagesSeeder extends Seeder
                 },
                 "2":
                 {
-                    "field_key":"additional-images",
-                    "field_name":"Additional Images",
-                    "type":"file_multiple",
-                    "required":"nullable"
-                },
-                "3":
-                {
                     "field_key":"details",
                     "field_name":"Details",
                     "type":"textarea",
@@ -150,13 +182,6 @@ class SinglePagesSeeder extends Seeder
                     "required":"required"
                 },
                 "2":
-                {
-                    "field_key":"additional-images",
-                    "field_name":"Additional Images",
-                    "type":"file_multiple",
-                    "required":"nullable"
-                },
-                "3":
                 {
                     "field_key":"details",
                     "field_name":"Details",
@@ -183,13 +208,6 @@ class SinglePagesSeeder extends Seeder
                 },
                 "2":
                 {
-                    "field_key":"additional-images",
-                    "field_name":"Additional Images",
-                    "type":"file_multiple",
-                    "required":"nullable"
-                },
-                "3":
-                {
                     "field_key":"details",
                     "field_name":"Details",
                     "type":"textarea",
@@ -214,13 +232,6 @@ class SinglePagesSeeder extends Seeder
                     "required":"required"
                 },
                 "2":
-                {
-                    "field_key":"additional-images",
-                    "field_name":"Additional Images",
-                    "type":"file_multiple",
-                    "required":"nullable"
-                },
-                "3":
                 {
                     "field_key":"details",
                     "field_name":"Details",
@@ -247,13 +258,6 @@ class SinglePagesSeeder extends Seeder
                 },
                 "2":
                 {
-                    "field_key":"additional-images",
-                    "field_name":"Additional Images",
-                    "type":"file_multiple",
-                    "required":"nullable"
-                },
-                "3":
-                {
                     "field_key":"details",
                     "field_name":"Details",
                     "type":"textarea",
@@ -278,13 +282,6 @@ class SinglePagesSeeder extends Seeder
                     "required":"required"
                 },
                 "2":
-                {
-                    "field_key":"additional-images",
-                    "field_name":"Additional Images",
-                    "type":"file_multiple",
-                    "required":"nullable"
-                },
-                "3":
                 {
                     "field_key":"details",
                     "field_name":"Details",
@@ -311,13 +308,6 @@ class SinglePagesSeeder extends Seeder
                 },
                 "2":
                 {
-                    "field_key":"additional-images",
-                    "field_name":"Additional Images",
-                    "type":"file_multiple",
-                    "required":"nullable"
-                },
-                "3":
-                {
                     "field_key":"details",
                     "field_name":"Details",
                     "type":"textarea",
@@ -342,13 +332,6 @@ class SinglePagesSeeder extends Seeder
                     "required":"required"
                 },
                 "2":
-                {
-                    "field_key":"additional-images",
-                    "field_name":"Additional Images",
-                    "type":"file_multiple",
-                    "required":"nullable"
-                },
-                "3":
                 {
                     "field_key":"details",
                     "field_name":"Details",
@@ -375,13 +358,6 @@ class SinglePagesSeeder extends Seeder
                 },
                 "2":
                 {
-                    "field_key":"additional-images",
-                    "field_name":"Additional Images",
-                    "type":"file_multiple",
-                    "required":"nullable"
-                },
-                "3":
-                {
                     "field_key":"details",
                     "field_name":"Details",
                     "type":"textarea",
@@ -406,13 +382,6 @@ class SinglePagesSeeder extends Seeder
                     "required":"required"
                 },
                 "2":
-                {
-                    "field_key":"additional-images",
-                    "field_name":"Additional Images",
-                    "type":"file_multiple",
-                    "required":"nullable"
-                },
-                "3":
                 {
                     "field_key":"details",
                     "field_name":"Details",
@@ -439,10 +408,10 @@ class SinglePagesSeeder extends Seeder
                 },
                 "2":
                 {
-                    "field_key":"additional-images",
-                    "field_name":"Additional Images",
-                    "type":"file_multiple",
-                    "required":"nullable"
+                    "field_key":"image",
+                    "field_name":"Image",
+                    "type":"image",
+                    "required":"required"
                 },
                 "3":
                 {
@@ -485,15 +454,9 @@ class SinglePagesSeeder extends Seeder
                     "field_key":"title",
                     "field_name":"Title",
                     "type":"text",
-                    "required":"required"},
-                "2":
-                {
-                    "field_key":"images",
-                    "field_name":"Images",
-                    "type":"file_multiple",
                     "required":"required"
                 },
-                "3":
+                "2":
                 {
                     "field_key":"details",
                     "field_name":"Details",
@@ -503,6 +466,77 @@ class SinglePagesSeeder extends Seeder
             }',
             'documentation' => '{
                 "title":"Members Lounge",
+                "details":"<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.<\/span><\/p>"
+            }',
+        ]);
+        SinglePages::create([
+            'page_key' => 'job-placement',
+            'frontend_slug' => 'job-placement',
+            'title' => 'Create Job Placement',
+            'form_data' => '{
+                "1":
+                {
+                    "field_key":"title",
+                    "field_name":"Title",
+                    "type":"text",
+                    "required":"required"},
+                "2":
+                {
+                    "field_key":"company-name",
+                    "field_name":"Company Name",
+                    "type":"text",
+                    "required":"required"},
+                "3":
+                {
+                    "field_key":"company-url",
+                    "field_name":"Company URL",
+                    "type":"url",
+                    "required":"required"},
+                "4":
+                {
+                    "field_key":"job-type",
+                    "field_name":"Job Type",
+                    "type":"text",
+                    "required":"required"},
+                "5":
+                {
+                    "field_key":"salary-per-month",
+                    "field_name":"Salary (Per Month)",
+                    "type":"number",
+                    "required":"required"},
+                "6":
+                {
+                    "field_key":"deadline",
+                    "field_name":"Deadline",
+                    "type":"text",
+                    "required":"required"},
+                "7":
+                {
+                    "field_key":"application-url",
+                    "field_name":"Application URL",
+                    "type":"url",
+                    "required":"required"}
+            }',
+            'documentation' => '{
+                "title":"Job Placement",
+                "details":"<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.<\/span><\/p>"
+            }',
+        ]);
+        SinglePages::create([
+            'page_key' => 'faculty-evaluation-system',
+            'frontend_slug' => 'faculty-evaluation-system',
+            'title' => 'Create Faculty Evaluation System',
+            'form_data' => '{
+                "1":
+                {
+                    "field_key":"url",
+                    "field_name":"URL",
+                    "type":"url",
+                    "required":"required"
+                }
+            }',
+            'documentation' => '{
+                "title":"Faculty Evaluation System",
                 "details":"<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.<\/span><\/p>"
             }',
         ]);

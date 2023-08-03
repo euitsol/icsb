@@ -38,6 +38,15 @@
                             <input type="text" class="form-control {{ $errors->has('slug') ? ' is-invalid' : '' }}" id="slug" name="slug" placeholder="{{ _('Enter Slug (must be use - on white speace)') }}" value="{{ $blog->slug }}">
                             @include('alerts.feedback', ['field' => 'slug'])
                         </div>
+                        <div class="form-group {{ $errors->has('category_id') ? ' has-danger' : '' }}">
+                            <label>{{ _('Category') }}</label>
+                            <select name="category_id" class="form-control {{ $errors->has('category_id') ? ' is-invalid' : '' }}">
+                                @foreach ($blog_cats as $cat)
+                                    <option value="{{ $cat->id }}" @if( $blog->category_id == $cat->id) selected @endif> {{ $cat->name }}</option>
+                                @endforeach
+                            </select>
+                            @include('alerts.feedback', ['field' => 'category_id'])
+                        </div>
 
                         <div class="form-group  {{ $errors->has('thumbnail_image') ? ' has-danger' : '' }}">
                             <label>{{ _('Thumbnail Image') }}</label>
