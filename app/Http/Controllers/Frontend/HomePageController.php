@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Contact;
 use App\Models\Banner;
 use App\Models\Blog;
+use App\Models\CommitteeType;
 use App\Models\WWCS;
 use App\Models\Event;
 use App\Models\NationalAward;
@@ -19,10 +20,13 @@ class HomePageController extends Controller
     public function __construct() {
         $contact = Contact::where('deleted_at', null)->first();
         $memberTypes = MemberType::where('deleted_at', null)->where('status', 1)->get();
+        $committeeTypes = CommitteeType::with('committees')->where('deleted_at', null)->where('status', 1)->get();
         view()->share([
             'contact' => $contact,
             'memberTypes' => $memberTypes,
+            'committeeTypes' => $committeeTypes,
         ]);
+
     }
 
     public function index(): View

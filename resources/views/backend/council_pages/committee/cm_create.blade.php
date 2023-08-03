@@ -17,8 +17,13 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="title">{{ _('Add '.$committee->title.' Member') }}</h5>
+                    <h5 class="title float-left">{{ _('Add '.$committee->title.' Member') }}</h5>
+                    <div class="col-4 text-right float-right">
+                        @include('backend.partials.button', ['routeName' => 'committee.committee_list', 'className' => 'btn-info', 'label' => 'Committees'])
+                        @include('backend.partials.button', ['routeName' => 'committee.committee_member_list', 'params'=>[$committee->id], 'className' => 'btn-success', 'label' => 'Member List'])
+                    </div>
                 </div>
+
                 <form method="POST" action="{{route('committee.committee_member_create',$committee->id)}}" autocomplete="off" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
@@ -39,9 +44,9 @@
                                 </select>
                                 <span class="input-group-text" id="add_member" data-count="1"><i class="tim-icons icon-simple-add"></i></span>
                             </div>
-                            @include('alerts.feedback', ['field' => 'cm'])
-                            @include('alerts.feedback', ['field' => 'cm.*'])
                         </div>
+                        @include('alerts.feedback', ['field' => 'cm.*.member_id'])
+                        @include('alerts.feedback', ['field' => 'cm.*.cmt_id'])
                         <div id="append">
                         </div>
                     </div>
@@ -91,12 +96,8 @@ $(function() {
                         </select>
                         <span class="input-group-text text-danger delete_member"><i class="tim-icons icon-trash-simple"></i></span>
                     </div>
-                    @include('alerts.feedback', ['field' => 'cm'])
-                    @include('alerts.feedback', ['field' => 'cm.*'])
                 </div>
-
         `;
-
         $('#append').append(result);
 
     });
