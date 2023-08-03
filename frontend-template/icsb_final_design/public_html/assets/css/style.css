@@ -1268,6 +1268,7 @@ h1,h2,h3,h4,h5,h6{
 	align-items: center;
 }
 .cs-wide-section .cs-wide-slider .owl-item img {
+	width: 100% !important;
 	width: auto;
 	margin-left: auto;
 	margin-right: auto;
@@ -2440,9 +2441,15 @@ h1,h2,h3,h4,h5,h6{
 	width: 31.33%;
 	column-gap: 30px;
 	align-items: flex-start;
+	align-items: center;
+}
+.executive-committee-section .committee-row .committee-items .image-column{
+	width: 200px;
+	height: 180px;
+	border-radius: 50%;
 }
 .executive-committee-section .committee-row .committee-items img{
-	width: 150px;
+	width: 100%;
 	object-fit: cover;
 	border-radius: 50%;
 }
@@ -3152,6 +3159,7 @@ h1,h2,h3,h4,h5,h6{
 	margin-top: 28px;
 	margin-bottom: 30px;
 	transform: translateX(-50%);
+	max-width: 240px;
 }
 .world-wide-section .world-wide-column .cs-items ul{
 	padding: 0;
