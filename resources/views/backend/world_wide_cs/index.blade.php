@@ -40,7 +40,7 @@
                                             src="@if ($wwcs->logo) {{ storage_url($wwcs->logo) }} @else {{ asset('no_img/no_img.jpg') }} @endif"
                                             alt="{{ $wwcs->title }}">
                                         </td>
-                                        <td> {{ $wwcs->url }} </td>
+                                        <td> {{ removeHttpProtocol($wwcs->url) }} </td>
                                         <td> {{ stringLimit(html_entity_decode_table($wwcs->description)) }} </td>
                                         <td>
                                             @include('backend.partials.button', ['routeName' => 'wwcs.status.wwcs_edit','params' => [$wwcs->id], 'className' => $wwcs->getStatusClass(), 'label' => $wwcs->getStatus() ])
