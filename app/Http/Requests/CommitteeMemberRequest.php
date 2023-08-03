@@ -27,7 +27,6 @@ class CommitteeMemberRequest extends FormRequest
         return [
             'cm.*.member_id' => 'required|exists:members,id',
             'cm.*.cmt_id' => 'required|exists:committee_member_types,id',
-            'committee_id'=> 'required|exists:committees,id',
         ];
     }
 
@@ -36,7 +35,6 @@ class CommitteeMemberRequest extends FormRequest
         return [
             'member_id'=> 'required|exists:members,id',
             'cmt_id'=> 'required|exists:committee_member_types,id',
-            'committee_id'=> 'nullable',
         ];
     }
 }
