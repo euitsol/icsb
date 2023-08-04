@@ -1,5 +1,5 @@
 <section class="banner-section">
-    <div id="carouselExampleCaptions" class="carousel slide">
+    {{-- <div id="carouselExampleCaptions" class="carousel slide">
         <div class="carousel-indicators">
             @if(isset($banner->images))
                 @foreach ($banner->images as $key=>$image)
@@ -30,7 +30,12 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
-    </div>
+    </div> --}}
+
+    <video autoplay loop muted id="myVideo" class="video-banner">
+        <source src="{{asset('frontend/video/banner-video.mp4')}}" type="video/mp4">
+      </video>
+
     <aside class="socila-media-sidebar">
         <div class="social-link-wrapper">
             <ul>
