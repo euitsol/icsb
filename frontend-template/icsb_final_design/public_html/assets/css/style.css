@@ -197,8 +197,8 @@ h1,h2,h3,h4,h5,h6{
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%; 
-	z-index: 999;
+    width: 100%;
+    z-index: 99999;
 }
 .header-menu-section{
 	padding: 24px 0 24px 0;
@@ -329,7 +329,7 @@ h1,h2,h3,h4,h5,h6{
 }
 .header-menu-section section .menu-bar ul li > ul {
     display: none;
-} 
+}
 .header-menu-section section .menu-bar ul li > ul li{
 	height: 50px;
 	display: flex;
@@ -389,7 +389,7 @@ h1,h2,h3,h4,h5,h6{
 .header-menu-section .drop-down,
 .header-menu-section .drop-down.active {
 	position: relative;
-	
+
 }
 /* .header-menu-section .drop-down::after, .drop-down.active::after {
 	content: "\f107";
@@ -595,8 +595,8 @@ h1,h2,h3,h4,h5,h6{
 .we-are-section .image-column::before{
 	position: absolute;
 	content: "";
-	width: 97%;
-	height: 97%;
+	width: 98%;
+	height: 98%;
 	border: 10px solid #CCC;
 	top: 50%;
 	left: 50%;
@@ -1256,18 +1256,18 @@ h1,h2,h3,h4,h5,h6{
 	align-items: center;
 }
 .cs-wide-section .cs-wide-slider .owl-item .item{
-	padding: 20px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	min-height: 145px;
-	background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 145px;
+    background-color: #ffffff;
 }
 .cs-wide-section .cs-wide-slider {
 	display: flex;
 	align-items: center;
 }
 .cs-wide-section .cs-wide-slider .owl-item img {
+	width: 100% !important;
 	width: auto;
 	margin-left: auto;
 	margin-right: auto;
@@ -1338,8 +1338,12 @@ h1,h2,h3,h4,h5,h6{
 .national-connection-section .logo-carousel .owl-item:hover h3{
 	opacity: 1;
 }
+.national-connection-section .logo-carousel .owl-item .logo-wrapp{
+	width: 110px;
+	height: 110px;
+}
 .national-connection-section .logo-carousel .owl-item img{
-	width: auto;
+	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
 	margin-right: auto;
@@ -1963,7 +1967,7 @@ h1,h2,h3,h4,h5,h6{
 	width: 2px;
 	height: 140px;
 	top: -140px;
-  
+
   }
 /*================================ CS Handbook Page CSS =========================*/
 .cs-handbook-section{
@@ -2440,11 +2444,18 @@ h1,h2,h3,h4,h5,h6{
 	width: 31.33%;
 	column-gap: 30px;
 	align-items: flex-start;
+	align-items: center;
+}
+.executive-committee-section .committee-row .committee-items .image-column{
+	width: 200px;
+	height: 180px;
+	border-radius: 50%;
 }
 .executive-committee-section .committee-row .committee-items img{
-	width: 150px;
+	width: 100%;
 	object-fit: cover;
 	border-radius: 50%;
+	height: 100%;
 }
 .executive-committee-section .committee-row .committee-items h3{
 	font-size: 21px;
@@ -3152,6 +3163,7 @@ h1,h2,h3,h4,h5,h6{
 	margin-top: 28px;
 	margin-bottom: 30px;
 	transform: translateX(-50%);
+	max-width: 240px;
 }
 .world-wide-section .world-wide-column .cs-items ul{
 	padding: 0;

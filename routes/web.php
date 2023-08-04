@@ -299,6 +299,8 @@ Route::post('/single-page/store', [SinglePagesController::class, 'store'])->name
 Route::get('/single-page/show/{page_slug}', [SinglePagesController::class, 'show'])->name('sp.show');
 Route::post('/single-page/store/{page_slug}', [SinglePagesController::class, 'form_store'])->name('sp.form.store');
 
+Route::post('/single-page/file-upload', [SinglePagesController::class, 'file_upload'])->name('sp.file.upload');
+
 
 
 //Frontend Routes
