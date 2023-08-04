@@ -11,7 +11,7 @@ use App\Models\SiteSetting;
 //This will retun the route prefix of the routes for permission check
 function get_permission_routes()
 {
-  return ['about.faq.','service.','contact.','national_connection.','wwcs.','event.','national_award.', 'blog.', 'settings.','banner.', 'member.','icsb_profile.'];
+  return ['about.faq.','service.','contact.','national_connection.','wwcs.','event.','national_award.', 'blog.', 'settings.','banner.', 'member.','icsb_profile.','committee.'];
 }
 
 //This will check the permission of the given route name. Can be used for buttons
@@ -153,4 +153,23 @@ function getYoutubeVideoIframe($url) {
     }
     $iframe = '<iframe width="100%" height="280" src="https://www.youtube.com/embed/'.$videoId.'" frameborder="0" allowfullscreen></iframe>';
     return $iframe;
+}
+// function getSinglePageLebel($fieldName){
+
+//     $withSpaces = str_replace('_', ' ', $fieldName);
+//     $capitalized = ucwords($withSpaces);
+//     return $capitalized;
+// }
+function getMemberImage($object){
+    if($object->image){
+        return storage_url($object->image);
+    }else{
+        // if($object->gender == 'Male'){
+        //     return 'Male Image';
+        // }else{
+        //     return 'Female Image';
+        // }
+        return asset('no_img/no_img.jpg');
+    }
+
 }

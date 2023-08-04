@@ -1,6 +1,6 @@
 @extends('frontend.master')
 
-@section('title', 'Single Blog')
+@section('title', 'Single Media Room')
 
 @section('content')
 <!----============================= Breadcrumbs Section ========================---->
@@ -11,9 +11,17 @@
     </div>
     <div class="container">
         <div class="breadcrumbs-row flex">
-        <div class="left-column content-column">
-            <div class="inner-column color-white">
-                <h1 class="breadcrumbs-heading blog-breadcrumbs-heading">{{$blog->title}}</h1>
+            <div class="left-column content-column">
+                <div class="inner-column color-white">
+                    <h1 class="breadcrumbs-heading">{{$media_room->title}}</h1>
+                    <ul class="flex">
+                        <li><a href="index">Media Rooms</a></li>
+                        <li><i class="fa-solid fa-angle-right"></i></li>
+                        <li><a href="index">{{$media_room->cat->name}}</a></li>
+                        <li><i class="fa-solid fa-angle-right"></i></li>
+                        <li><a href="#">{{$media_room->title}}</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -23,7 +31,7 @@
 <section class="blog-thumbnail-section">
     <div class="container">
         <div class="heading-content text-align">
-            <img src="{{storage_url($blog->thumbnail_image)}}" alt="{{$blog->title}}">
+            <img src="{{storage_url($media_room->thumbnail_image)}}" alt="{{$media_room->title}}">
         </div>
     </div>
 </section>
@@ -32,14 +40,14 @@
     <div class="container">
         <div class="blog-content">
             <div class="blog-content-column">
-                <h1>{{$blog->title}}</h1>
+                <h1>{{$media_room->title}}</h1>
                 <ul>
                     <li><img src="{{asset('frontend/img/blog-single/user.svg')}}" alt="User Icon"><a href="">{{auth()->user()->name}}</a></li>
-                    <li><img src="{{asset('frontend/img/blog-single/calendar.svg')}}" alt="Calendar Icon"><a href="">{{ date('d M Y', strtotime($blog->created_at))}}</a></li>
+                    <li><img src="{{asset('frontend/img/blog-single/calendar.svg')}}" alt="Calendar Icon"><a href="">{{ date('d M Y', strtotime($media_room->created_at))}}</a></li>
                     <li><img src="{{asset('frontend/img/blog-single/comment.svg')}}" alt="Comment Icon"><a href="">25 Comments</a></li>
                 </ul>
                 <p>
-                    {!! $blog->description !!}
+                    {!! $media_room->description !!}
                 </p>
             </div>
             <div class="blog-sidebar-column">

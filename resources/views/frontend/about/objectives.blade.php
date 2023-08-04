@@ -1,12 +1,14 @@
 @extends('frontend.master')
 
-@section('title', 'FAQ')
+@section('title', 'Objectives')
 
 @section('content')
 <!----============================= Breadcrumbs Section ========================---->
 <section class="breadcrumbs-section">
 	<div class="overly-image">
-		<img src="{{asset('frontend/img/breadcumb/objectives-background.jpg')}}" alt="">
+		@if(!empty(json_decode($single_page->saved_data)) && isset(json_decode($single_page->saved_data)->{"banner-image"}))
+		<img src='{{storage_url(json_decode($single_page->saved_data)->{"banner-image"})}}' alt="Vision & Mission">
+        @endif
 	</div>
 	<div class="container">
 		<div class="breadcrumbs-row flex">
@@ -25,21 +27,20 @@
 	</div>
 	</div>
 </section>
+@if(!empty($single_page) && !empty(json_decode($single_page->saved_data)) && isset(json_decode($single_page->saved_data)->{'image'}) && isset(json_decode($single_page->saved_data)->{'details'}))
 <section class="objectives-section">
 <div class="container">
     <div class="objective-row flex">
         <div class="left-column">
-			<iframe width="97%" height="385" src="https://www.youtube.com/embed/MLpWrANjFbI?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+			<img src="{{storage_url(json_decode($single_page->saved_data)->{'image'})}}" alt="">
         </div>
         <div class="right-column color-white">
-			<h2>Objectives</h2>
-			<p>To develop, promote and regulate the profession of Chartered Secretary in Bangladesh and confer professional degree in Chartered Secretary.</p>
-			<p>To impart requisite training and education and then to offer membership of the Institute to the deserving candidates.</p>
-			<p>To enforce strict discipline for exercising control over the conduct of Members and Students and uphold ethics.</p>
+			{!! (json_decode($single_page->saved_data)->{'details'}) !!}
         </div>
     </div>
 </div>
 </section>
+@endif
 @include('frontend.includes.recent_updates',['blogs'=>$blogs])
 @include('frontend.includes.events',['events'=>$events])
 
