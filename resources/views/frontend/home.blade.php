@@ -143,7 +143,7 @@
 </section>
 
 
-@include('frontend.includes.recent_updates',['blogs'=>$blogs])
+@include('frontend.includes.recent_updates',['media_rooms'=>$media_rooms])
 @include('frontend.includes.endorsement')
 @include('frontend.includes.world_wide_cs',['wwcss'=>$wwcss])
 @include('frontend.includes.events',['events'=>$events])
