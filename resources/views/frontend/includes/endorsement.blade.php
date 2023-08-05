@@ -10,14 +10,14 @@
                             <h3>Register as a Student</h3>
                         </div>
                         <div class="button">
-                            <a href="#" class="text-align"
-                                >Apply</a
-                            >
+
+                            <a href="#" class="text-align">Apply</a>
+
                         </div>
                     </div>
                     <div class="bg-image">
                         <img
-                            src="{{asset('frontend/img/endorsement/Student-enroll.png')}}"
+                            src="{{ asset('frontend/img/endorsement/Student-enroll.png') }}"
                         />
                     </div>
                 </div>
@@ -31,14 +31,14 @@
                             <h3>Register as a Member</h3>
                         </div>
                         <div class="button">
-                            <a href="#" class="text-align"
-                                >Apply</a
-                            >
+
+                            <a href="#" class="text-align">Apply</a>
+
                         </div>
                     </div>
                     <div class="bg-image">
                         <img
-                            src="{{asset('frontend/img/endorsement/register-imgae.png')}}"
+                            src="{{ asset('frontend/img/endorsement/register-imgae.png') }}"
                         />
                     </div>
                 </div>
@@ -54,15 +54,13 @@
                             </h3>
                         </div>
                         <div class="button">
-                            <a href="#" class="text-align"
-                                >Apply</a
-                            >
+                            <a href="#" class="text-align">Apply</a>
                         </div>
                     </div>
                     <div class="bg-image">
                         <img
                             class="object-fit-cover"
-                            src="{{asset('frontend//img/Untitled-1.png')}}"
+                            src="{{ asset('frontend/img/endorsement/Untitled-1.png') }}"
                         />
                     </div>
                 </div>

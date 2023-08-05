@@ -23,7 +23,6 @@ use App\Http\Controllers\Backend\UserManagement\RoleController;
 use App\Http\Controllers\Backend\UserManagement\PermissionController;
 use App\Http\Controllers\Frontend\AboutPagesController;
 use App\Http\Controllers\Frontend\EventPagesController;
-use App\Http\Controllers\Frontend\BlogPagesController;
 use App\Http\Controllers\Frontend\CouncilPagesController;
 use App\Http\Controllers\Frontend\StudentsPagesController;
 use App\Http\Controllers\Frontend\MembersPagesController;
@@ -33,6 +32,7 @@ use App\Http\Controllers\Frontend\ContactPagesController;
 use App\Http\Controllers\Frontend\ArticlesController;
 use App\Http\Controllers\Frontend\ExaminationPagesController;
 use App\Http\Controllers\Frontend\FrontendSinglePagesController;
+use App\Http\Controllers\Frontend\MediaRoomPagesController;
 use App\Http\Controllers\SettingsController;
 
 
@@ -328,9 +328,10 @@ Route::group(['as' => 'event_view.', 'prefix' => 'event'], function () {
     Route::get('/all-events', [EventPagesController::class, 'events'])->name('all');
     Route::get('/view/{slug}', [EventPagesController::class, 'view'])->name('view');
 });
-Route::group(['as' => 'blog_view.', 'prefix' => 'blog'], function () {
-    Route::get('/all-blogs', [BlogPagesController::class, 'blogs'])->name('all');
-    Route::get('/view/{slug}', [BlogPagesController::class, 'view'])->name('view');
+Route::group(['as' => 'media_room.', 'prefix' => 'media-room'], function () {
+    Route::get('/all', [MediaRoomPagesController::class, 'mr_all'])->name('all');
+    Route::get('/{slug}', [MediaRoomPagesController::class, 'cat_all'])->name('cat.all');
+    Route::get('/view/{slug}', [MediaRoomPagesController::class, 'view'])->name('view');
 });
 
 // Route::group(['as' => 'council.', 'prefix' => 'council'], function () {

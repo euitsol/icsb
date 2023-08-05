@@ -208,9 +208,13 @@
                     </li>
                     <li class="drop-down">
                         <a href="#">Media Room <i class="fa-solid fa-angle-down"></i></a>
-                        <ul class="">
-                            <li><a href="#">Categories</a></li>
-                        </ul>
+                        @if(count($mediaRoomCategory))
+                            <ul class="">
+                                @foreach ($mediaRoomCategory as $cat)
+                                    <li><a href="{{route('media_room.cat.all',$cat->slug)}}">{{$cat->name}}</a></li>
+                                @endforeach
+                            </ul>
+                        @endif
                     </li>
                     <li class="drop-down">
                         <a href="#">Contact Us <i class="fa-solid fa-angle-down"></i></a>

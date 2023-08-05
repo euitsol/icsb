@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Contact;
 use App\Models\Banner;
 use App\Models\Blog;
+use App\Models\BlogCategory;
 use App\Models\CommitteeType;
 use App\Models\WWCS;
 use App\Models\Event;
@@ -21,18 +22,19 @@ class HomePageController extends Controller
         $contact = Contact::where('deleted_at', null)->first();
         $memberTypes = MemberType::where('deleted_at', null)->where('status', 1)->get();
         $committeeTypes = CommitteeType::with('committees')->where('deleted_at', null)->where('status', 1)->get();
+        $mediaRoomCategory = BlogCategory::with('blogs')->where('deleted_at', null)->where('status', 1)->get();
         view()->share([
             'contact' => $contact,
             'memberTypes' => $memberTypes,
             'committeeTypes' => $committeeTypes,
+            'mediaRoomCategory' => $mediaRoomCategory,
         ]);
-
     }
 
     public function index(): View
     {
         $s['banner'] = Banner::with('images')->where('deleted_at', null)->where('status',1)->first();
-        $s['blogs'] = Blog::where('deleted_at', null)->where('permission','1')->where('is_featured','1')->latest()->get();
+        $s['media_rooms'] = Blog::where('deleted_at', null)->where('permission','1')->where('is_featured','1')->latest()->get();
         $s['wwcss'] = WWCS::where('deleted_at', null)->where('status',1)->latest()->get();
         $s['events'] = Event::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
         $s['national_awards'] = NationalAward::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
