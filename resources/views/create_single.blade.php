@@ -35,7 +35,7 @@
                         </div>
                         <div class="form-group">
                             <label>Documentation Details</label>
-                            <textarea name="documentation[details]"></textarea>
+                            <textarea class="form-control" name="documentation[details]"></textarea>
                         </div>
                     </div>
 
@@ -89,15 +89,18 @@
                                 <div class="input-group">
                                     <input name="formdata[${count}][field_name]" class="form-control " type="text" value="" required placeholder="{{trans('Field Name')}}">
 
-                                    <select name="formdata[${count}][type]"  class="form-control  ">
+                                    <select name="formdata[${count}][type]"  class="form-control form-data">
                                         <option value="text">{{trans('Input Text')}}</option>
                                         <option value="number">{{trans('Input Number')}}</option>
                                         <option value="url">{{trans('Input URL')}}</option>
+                                        <option value="email">{{trans('Email')}}</option>
+                                        <option value="date">{{trans('Date')}}</option>
+                                        <option value="option">{{trans('Option')}}</option>
                                         <option value="textarea">{{trans('Textarea')}}</option>
                                         <option value="image">{{trans('Image')}}</option>
+                                        <option value="image_multipe">{{trans('Multiple Image')}}</option>
                                         <option value="file_single">{{trans('File Single')}}</option>
                                         <option value="file_multiple">{{trans('File Multiple')}}</option>
-                                        <option value="email">{{trans('Email')}}</option>
                                     </select>
 
                                     <select name="formdata[${count}][required]"  class="form-control  ">
@@ -112,15 +115,29 @@
                                     </span>
                                 </div>
                             </div>
-                        </div> `;
+                            <div class="form-group select_option" style="display:none">
+                                <label>Add select fields option and values (value = option) <small>(Eg. 0 = Off; 1 = On)</small> </label>
+                                <textarea class="form-control" name="formdata[${count}][option_data]"></textarea>
+                            </div>
+                        </div>
+                        `;
 
         // $('.addedField').append(form);
         $(this).closest('.card').find('.addedField').append(form);
     });
 
     $(document).on('click', '.delete_desc', function () {
-			$(this).closest('.input-group').parent().remove();
-		});
+		$(this).closest('.input-group').parent().remove();
+	});
 
-    </script>
+    $(document).on('change', '.form-data', function () {
+        var selectedType = $(this).val();
+        var optionInputs = $(this).closest('.col-md-12').find('.select_option');
+        if (selectedType === 'option') {
+            optionInputs.show();
+        } else {
+            optionInputs.hide();
+        }
+	});
+</script>
 @endpush
