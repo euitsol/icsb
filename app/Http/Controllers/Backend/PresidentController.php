@@ -108,7 +108,11 @@ class PresidentController extends Controller
                 if($check){
                     $check->end_date = $duration['end_date'];
                     $check->save();
-                    if($duration['end_date'] >= Carbon::now()){
+                    if($duration['end_date'] > Carbon::now()){
+                        $p = President::findOrFail($check->president->id);
+                        $p->status = 1;
+                        $p->save();
+                    }else{
                         $p = President::findOrFail($check->president->id);
                         $p->status = 0;
                         $p->save();
