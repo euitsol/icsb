@@ -23,11 +23,13 @@ class PresidentController extends Controller
         $checks= PresidentDuration::where('end_date','<=',Carbon::now())->get();
         foreach($checks as $check){
                 $p = President::findOrFail($check->president->id);
-                if($p->status == 1){
-                    $p->status = 1;
-                    $p->save();
-                }
+                $p->status = 0;
+                $p->save();
         }
+        $check2= PresidentDuration::where('end_date','>',Carbon::now())->first();
+        $p = President::findOrFail($check2->president->id);
+        $p->status = 1;
+        $p->save();
         $s['presidents'] = President::with(['durations','member'])->where('deleted_at', null)->latest()->get();
         return view('backend.council_pages.president.index',$s);
     }
