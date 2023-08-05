@@ -67,3 +67,7 @@ committee_member_list,web
 committee_member_create,web
 committee_member_edit,web
 committee_member_delete,web
+president_list,web
+president_create,web
+president_edit,web
+president_delete,web

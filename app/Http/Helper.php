@@ -11,7 +11,7 @@ use App\Models\SiteSetting;
 //This will retun the route prefix of the routes for permission check
 function get_permission_routes()
 {
-  return ['about.faq.','service.','contact.','national_connection.','wwcs.','event.','national_award.', 'blog.', 'settings.','banner.', 'member.','icsb_profile.','committee.'];
+  return ['about.faq.','service.','contact.','national_connection.','wwcs.','event.','national_award.', 'blog.', 'settings.','banner.', 'member.','icsb_profile.','committee.','president.'];
 }
 
 //This will check the permission of the given route name. Can be used for buttons
@@ -137,6 +137,18 @@ function formatDateTimeRange($start_time, $end_time)
         // If the dates are different, format the time range as "start_time - end_time"
         return $start->format($dateFormat." ".$timeFormat) . ' - ' . $end->format($dateFormat." ".$timeFormat);
     }
+}
+function formatYearRange($start_time, $end_time)
+{
+    $dateFormat = env('DATE_FORMAT', 'Y');
+    if($end_time != null){
+        $start = Carbon::parse($start_time);
+        $end = Carbon::parse($end_time);
+        return $start->format($dateFormat). ' - ' . $end->format($dateFormat);
+    }else{
+        return "Running";
+    }
+
 }
 
 function settings($key){
