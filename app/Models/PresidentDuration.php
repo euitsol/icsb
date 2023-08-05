@@ -12,6 +12,6 @@ class PresidentDuration extends BaseModel
 
     public $guarded = [];
     public function president(){
-        return $this->belongsTo(PresidentDuration::class, 'president_id');
+        return $this->belongsTo(President::class, 'president_id');
     }
 }

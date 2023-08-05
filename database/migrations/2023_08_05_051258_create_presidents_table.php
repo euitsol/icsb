@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('presidents', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('member_id');
+            $table->unsignedBigInteger('member_id')->unique();
             $table->string('slug')->unique();
             $table->longText('bio');
             $table->longText('message');

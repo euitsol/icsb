@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AjaxController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
@@ -76,6 +77,8 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     // Default File Download Route
     Route::get('download/{filename}', [DefaultController::class, 'download'])->name('download');
+    // Ajax Routes
+    Route::get('members/{id}', [AjaxController::class, 'memberInfo'])->name('m.info');
 
     //User Management
     Route::group(['as' => 'um.', 'prefix' => 'user-management'], function () {
@@ -288,7 +291,6 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::post('create', [PresidentController::class, 'store'])->name('president_create');
         Route::get('edit/{id}', [PresidentController::class, 'edit'])->name('president_edit');
         Route::put('edit/{id}', [PresidentController::class, 'update'])->name('president_edit');
-        Route::get('status/{id}', [PresidentController::class, 'status'])->name('status.president_edit');
         Route::get('delete/{id}', [PresidentController::class, 'delete'])->name('president_delete');
     });
 

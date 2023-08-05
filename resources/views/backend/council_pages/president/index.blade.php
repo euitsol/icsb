@@ -45,15 +45,24 @@
                                             @endif
                                             ">
                                         </td>
-                                        <td> {{ $president->member->phone  }} </td>
+                                        <td> {{ $president->member->designation  }} </td>
+                                        <td>
+                                            @foreach (json_decode($president->member->phone) as $key=>$phone)
+                                                {{$phone->number}}<br>
+                                            @endforeach
+                                        </td>
                                         <td> {{ $president->member->email }} </td>
                                         <td>
                                             @foreach ($president->durations as $duration)
-                                                {{ formatYearRange($duration->start_date, $duration->end_date) }}
+                                                {{ formatYearRange($duration->start_date, $duration->end_date) }}<br>
                                             @endforeach
                                          </td>
                                         <td>
-                                            @include('backend.partials.button', ['routeName' => 'president.status.president_edit','params' => [$president->id], 'className' => $president->getStatusClass(), 'label' => $president->getStatus() ])
+                                            @if($president->status == 1)
+                                                <span class="badge badge-primary"> {{_('President')}} </span>
+                                            @else
+                                                <span class="badge badge-info"> {{_('Past President')}} </span>
+                                            @endif
                                         </td>
                                         <td> {{ timeFormate($president->created_at) }} </td>
                                         <td> {{ $president->created_user->name ?? 'system' }} </td>
@@ -62,7 +71,6 @@
                                                 'menuItems' => [
                                                     ['routeName' => '', 'label' => 'View'],
                                                     ['routeName' => 'president.president_edit',     'params' => [$president->id], 'label' => 'Update'],
-                                                    ['routeName' => 'president.status.president_edit',   'params' => [$president->id], 'label' => 'Change Status'],
                                                     ['routeName' => 'president.president_delete',   'params' => [$president->id], 'label' => 'Delete', 'delete' => true],
                                                 ]
                                             ])

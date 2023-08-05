@@ -15,7 +15,7 @@ class President extends BaseModel
         return $this->hasMany(PresidentDuration::class, 'president_id');
     }
     public function member(){
-        return $this->belongsTo(President::class, 'member_id');
+        return $this->belongsTo(Member::class, 'member_id');
     }
 
 }
