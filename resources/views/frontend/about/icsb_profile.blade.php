@@ -6,7 +6,9 @@
 	<!----============================= Breadcrumbs Section ========================---->
 	<section class="breadcrumbs-section">
 		<div class="overly-image">
-			<img src="{{asset('frontend/img/breadcumb/icsb-profile.png')}}" alt="">
+			@if(!empty($single_page) && !empty(json_decode($single_page->saved_data)) && isset(json_decode($single_page->saved_data)->{"banner-image"}))
+            <img src='{{storage_url(json_decode($single_page->saved_data)->{"banner-image"})}}' alt="Vision & Mission">
+            @endif
 		</div>
 		<div class="container">
 			<div class="breadcrumbs-row flex">
@@ -26,13 +28,14 @@
 		</div>
 	</section>
 <!----======================== About Us Section =======================---->
+@if(!empty(json_decode($single_page->saved_data)) && isset(json_decode($single_page->saved_data)->{'back-image'}) && isset(json_decode($single_page->saved_data)->{'front-image'}) && isset(json_decode($single_page->saved_data)->{'details'}))
 	<section class="about-us-section">
 		<div class="container">
 			<div class="about-us-row flex">
 				<div class="image-column">
-					<img class="first-image" src="{{asset('frontend/img/about_image.png')}}" alt="">
+					    <img class="first-image" src="{{storage_url(json_decode($single_page->saved_data)->{'back-image'})}}" alt="">
 					<div class="box-image">
-						<img class="second-image" src="{{asset('frontend/img/about_image.png')}}" alt="">
+						<img class="second-image" src="{{storage_url(json_decode($single_page->saved_data)->{'front-image'})}}" alt="">
 					</div>
 				</div>
 				<div class="content-column">
@@ -44,6 +47,7 @@
 			</div>
 		</div>
 	</section>
+    @endif
     @include('frontend.includes.endorsement')
     @include('frontend.includes.bss')
     @include('frontend.includes.world_wide_cs',['wwcss'=>$wwcss])

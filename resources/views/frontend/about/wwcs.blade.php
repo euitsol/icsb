@@ -31,27 +31,18 @@
 <section class="world-wide-section">
     <div class="container">
         <div class="world-wide-row">
-            <div class="section-heading text-align">
-                <h2>Who We Are</h2>
-            </div>
-            @foreach ($wwcss->chunk(2) as $wwcss)
             <div class="world-wide-column flex text-align">
                 @foreach ($wwcss as $wwcs)
-                    <div class="world-wide-item d-flex flex-wrap justify-content-center">
-                        <div class="chart-sec-logo">
-                            <img src="{{storage_url($wwcs->logo)}}" alt="{{$wwcs->title}}">
-                        </div>
-                        <div class="chart-sec-content">
-                            <h3 class="chart-heading">{{$wwcs->title}}</h3>
-                            <p class="chart-details">{!! $wwcs->description !!}</p>
-                            <div class="chart-link">
-                                <span>Website: <a href="{{$wwcs->url}}" target="_blank">{{removeHttpProtocol($wwcs->url)}}</a></span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="cs-items card">
+                    <h3>{{$wwcs->title}}</h3>
+                    <img src="{{storage_url($wwcs->logo)}}" alt="The Global Institute">
+                    <ul class="flex">
+                        <li><a href="mailto:cgioffice@mci-group.com"><i class="fa-solid fa-envelope"></i> <span>Email</span></a></li>
+                        <li><a href="{{$wwcs->url}}" target="_blank"><i class="fa-solid fa-globe"></i> <span>Visit Website</span></a></li>
+                    </ul>
+                </div>
                 @endforeach
             </div>
-            @endforeach
         </div>
     </div>
 </section>

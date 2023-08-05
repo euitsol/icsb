@@ -22,7 +22,7 @@ class SinglePagesController extends Controller
     }
 
     public function store(Request $request){
-        // dd($request->all());
+        dd($request->all());
         $sp = new SinglePages;
         $sp->title = $request->title;
         $sp->frontend_slug  = $request->frontend_slug;
@@ -30,10 +30,16 @@ class SinglePagesController extends Controller
         $sp->documentation = json_encode($request->documentation);
         $data = [];
         foreach($request->formdata as $key=>$formdata){
-            $data[$key]['field_key'] = Str::slug($formdata['field_name']);
-            $data[$key]['field_name'] = $formdata['field_name'];
-            $data[$key]['type'] = $formdata['type'];
-            $data[$key]['required'] = $formdata['required'];
+            if(isset($formdata['field_name'])){
+                $data[$key]['field_key'] = Str::slug($formdata['field_name']);
+                $data[$key]['field_name'] = $formdata['field_name'];
+                $data[$key]['type'] = $formdata['type'];
+                $data[$key]['required'] = $formdata['required'];
+
+                if($formdata['type'] == 'option'){
+                    $data[$key]['option_data']  = $this->convertOptionDataToArray($formdata['option_data']) ?? [];
+                }
+            }
         }
 
         $sp->form_data = json_encode($data);
@@ -54,7 +60,7 @@ class SinglePagesController extends Controller
 		$rules = [];
         $data = [];
 
-        // dd($request->all());
+        dd($request->all());
 
 		if ($params != null) {
 			foreach ($params as $key => $fd) {
@@ -89,7 +95,7 @@ class SinglePagesController extends Controller
                             $file = $request->file($input_name);
 
                             $customFileName = time().'.' . $file->getClientOriginalExtension();
-                            $path = $file->storeAs('single-page/image', $customFileName,'public');
+                            $path = $file->storeAs('single-page/'.$input_name, $customFileName,'public');
                             $data[$fd->field_key]=$path;
                         }
 
@@ -108,6 +114,10 @@ class SinglePagesController extends Controller
 					array_push($rules[$fd->field_key], 'email');
 
 					$data[$fd->field_key]=$request->$input_name;
+                }elseif ($fd->type == 'option'){
+                    $values = implode(',', array_keys((array)$fd->option_data));
+					array_push($rules[$fd->field_key], 'in:'.$values);
+					$data[$fd->field_key]=$request->$input_name;
                 }
 			}
 		}
@@ -118,4 +128,32 @@ class SinglePagesController extends Controller
         return redirect()->back()->withStatus(__('Data has been saved successfully.'));
 
     }
+
+    private function convertOptionDataToArray($optionData)
+    {
+        $optionsArray = [];
+        $options = explode(';', $optionData);
+
+        foreach ($options as $option) {
+            $parts = explode('=', $option);
+            if (count($parts) === 2) {
+                $key = trim($parts[0]);
+                $value = trim($parts[1]);
+                $optionsArray[$key] = $value;
+            }
+        }
+
+        return $optionsArray;
+    }
+
+    public function file_upload(Request $request){
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $filePath = $file->store('uploads'); // Adjust the storage path as per your requirements.
+            return response()->json(['success' => true, 'file_path' => $filePath]);
+        }
+
+        return response()->json(['success' => false, 'message' => 'File upload failed.']);
+    }
+
 }
