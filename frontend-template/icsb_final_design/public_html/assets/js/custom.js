@@ -2,11 +2,11 @@ $(document).ready(function(){
     var owl = $('.cs-wide-slider');
         owl.owlCarousel({
             // items:6,
-            loop:true,
+            loop:false,
             margin:20,
             nav: true,
             dots: false,
-            autoplay:false,
+            autoplay:true,
             autoplayTimeout:3000,
             autoplayHoverPause:true,
             responsive:{
@@ -231,7 +231,8 @@ owl.owlCarousel({
         // slideWidth: 170,
         slideMargin: 10,
         ticker: true,
-        speed: 20900
+        speed: 20900,
+        tickerHover: true
       });
 
 
