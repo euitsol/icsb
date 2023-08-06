@@ -74,24 +74,26 @@
 </section>
 
 <!----============================ President Section ==========================---->
-<section class="president-section">
-    <div class="container">
-        <div class="president-column flex">
-            <div class="left-column">
-                <img src="{{asset('frontend/img/president-image.png')}}" alt="President Image">
-                <div class="president-info text-align color-white">
-                    <h3>Mohammad Asad Ullah FCS</h3>
-                    <p>ICSB President</p>
+@if(!empty($president))
+    <section class="president-section">
+        <div class="container">
+            <div class="president-column flex">
+                <div class="left-column">
+                    <img src="{{getMemberImage($president->member)}}" alt="{{_('President Image')}}">
+                    <div class="president-info text-align color-white">
+                        <h3>{{$president->member->name}}</h3>
+                        <p>{{_('ICSB President')}}</p>
+                    </div>
+                </div>
+                <div class="right-column">
+                    <h2>{{_('Message of The President')}}</h2>
+                    {!! $president->message !!}
+                    <a href="{{route('council_view.president')}}">Read More</a>
                 </div>
             </div>
-            <div class="right-column">
-                <h2>Message of The President</h2>
-                <p>My dear ICSB Professional Colleagues, Interns, Students, and ICSB officers and staffs! Ralph Waldo Emerson once said, “Nothing great was ever achieved without enthusiasm!” I keep this mantra above my desk as a reminder to be enthusiastic about the works ahead. Those words act as a cheer-leader for me on days when I cannot bear any more bad news. They motivate me when I feel stuck or burned out as we collectively pull through. My hope is that they will set the tone for my presidency with the ICSB, which began this month.</p>
-                <a href="#">Read More</a>
-            </div>
         </div>
-    </div>
-</section>
+    </section>
+@endif
 <!----============================ BSS Secretarial Section ==========================---->
 @include('frontend.includes.bss')
 

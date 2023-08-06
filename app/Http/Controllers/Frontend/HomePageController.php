@@ -14,6 +14,7 @@ use App\Models\Event;
 use App\Models\NationalAward;
 use App\Models\NationalConnection;
 use App\Models\MemberType;
+use App\Models\President;
 use Illuminate\View\View;
 
 class HomePageController extends Controller
@@ -39,6 +40,7 @@ class HomePageController extends Controller
         $s['events'] = Event::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
         $s['national_awards'] = NationalAward::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
         $s['national_connections'] = NationalConnection::where('deleted_at', null)->where('status',1)->latest()->get();
+        $s['president'] = President::with(['durations','member'])->where('status',1)->where('deleted_at',null)->first();
         return view('frontend.home',$s);
     }
 }
