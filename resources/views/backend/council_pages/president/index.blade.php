@@ -39,11 +39,7 @@
                                     <tr>
                                         <td> {{ $president->member->name }} </td>
                                         <td>
-                                            <img class="rounded" width="60" src="
-                                            @if(!empty($president->member))
-                                                {{getMemberImage($president->member) }}
-                                            @endif
-                                            ">
+                                            <img class="rounded" width="60" src=" {{getMemberImage($president->member) }}">
                                         </td>
                                         <td> {{ $president->member->designation  }} </td>
                                         <td>
