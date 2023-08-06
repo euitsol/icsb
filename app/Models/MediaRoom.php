@@ -5,15 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 use Illuminate\Database\Eloquent\Model;
-use PhpParser\Node\Stmt\Catch_;
 
-class Blog extends BaseModel
+class MediaRoom extends BaseModel
 {
     use HasFactory;
 
     public $guarded = [];
     public function cat()
     {
-        return $this->belongsTo(BlogCategory::class, 'category_id');
+        return $this->belongsTo(MediaRoomCategory::class, 'category_id');
     }
 }

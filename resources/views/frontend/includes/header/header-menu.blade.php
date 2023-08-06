@@ -211,7 +211,7 @@
                         @if(count($mediaRoomCategory))
                             <ul class="">
                                 @foreach ($mediaRoomCategory as $cat)
-                                    <li><a href="{{route('media_room.cat.all',$cat->slug)}}">{{$cat->name}}</a></li>
+                                    <li><a href="{{route('media_room_view.cat.all',$cat->slug)}}">{{$cat->name}}</a></li>
                                 @endforeach
                             </ul>
                         @endif

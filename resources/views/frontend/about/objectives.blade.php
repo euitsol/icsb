@@ -41,7 +41,7 @@
 </div>
 </section>
 @endif
-@include('frontend.includes.recent_updates',['blogs'=>$blogs])
+@include('frontend.includes.recent_updates',['media_rooms'=>$media_rooms])
 @include('frontend.includes.events',['events'=>$events])
 
 @endsection

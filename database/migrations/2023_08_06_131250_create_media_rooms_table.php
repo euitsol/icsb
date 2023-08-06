@@ -4,7 +4,6 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Http\Traits\AuditColumnsTrait;
-use Illuminate\Validation\Rules\Unique;
 
 return new class extends Migration
 {
@@ -12,7 +11,7 @@ return new class extends Migration
 
     public function up(): void
     {
-        Schema::create('blogs', function (Blueprint $table) {
+        Schema::create('media_rooms', function (Blueprint $table) {
             $table->id();
             $table->string('title')->unique();
             $table->unsignedBigInteger('category_id');
@@ -27,12 +26,12 @@ return new class extends Migration
             $table->softDeletes();
             $this->addAuditColumns($table);
 
-            $table->foreign('category_id')->references('id')->on('blog_categories')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('category_id')->references('id')->on('media_room_categories')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
     public function down(): void
     {
-         Schema::dropIfExists('blogs');
+         Schema::dropIfExists('media_rooms');
     }
 };

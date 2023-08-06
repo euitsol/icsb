@@ -3,16 +3,16 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\BlogCategoryRequest;
+use App\Http\Requests\MediaRoomCatRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Models\Blog;
-use App\Http\Requests\BlogRequest;
-use App\Models\BlogCategory;
+use App\Models\MediaRoom;
+use App\Http\Requests\MediaRoomRequest;
+use App\Models\MediaRoomCategory;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 
-class BlogController extends Controller
+class MediaRoomController extends Controller
 {
     //
 
@@ -22,18 +22,18 @@ class BlogController extends Controller
 
     public function index(): View
     {
-        $s['media_rooms'] = Blog::where('deleted_at', null)->latest()->get();
-        $s['media_room_cats'] = BlogCategory::where('deleted_at', null)->latest()->get();
+        $s['media_rooms'] = MediaRoom::where('deleted_at', null)->latest()->get();
+        $s['media_room_cats'] = MediaRoomCategory::where('deleted_at', null)->latest()->get();
         return view('backend.media_room.index',$s);
     }
     public function create(): View
     {
-        $s['media_room_cats'] = BlogCategory::where('status',1)->where('deleted_at', null)->latest()->get();
+        $s['media_room_cats'] = MediaRoomCategory::where('status',1)->where('deleted_at', null)->latest()->get();
         return view('backend.media_room.create',$s);
     }
-    public function store(BlogRequest $request): RedirectResponse
+    public function store(MediaRoomRequest $request): RedirectResponse
     {
-        $media_room = new Blog();
+        $media_room = new MediaRoom();
         if ($request->hasFile('thumbnail_image')) {
 
             $thumbnail_image = $request->file('thumbnail_image');
@@ -81,14 +81,14 @@ class BlogController extends Controller
     }
     public function edit($id): View
     {
-        $s['media_room'] = Blog::findOrFail($id);
-        $s['media_room_cats'] = BlogCategory::where('status',1)->where('deleted_at', null)->latest()->get();
+        $s['media_room'] = MediaRoom::findOrFail($id);
+        $s['media_room_cats'] = MediaRoomCategory::where('status',1)->where('deleted_at', null)->latest()->get();
         return view('backend.media_room.edit', $s);
     }
 
     public function singleFileDelete($id, $key): RedirectResponse
     {
-        $media_room = Blog::findOrFail($id);
+        $media_room = MediaRoom::findOrFail($id);
         $files = json_decode($media_room->files, true);
         if (isset($files[$key])) {
             $filePathToDelete = $files[$key]['file_path'];
@@ -100,9 +100,9 @@ class BlogController extends Controller
 
         return redirect()->back();
     }
-    public function update(BlogRequest $request, $id): RedirectResponse
+    public function update(MediaRoomRequest $request, $id): RedirectResponse
     {
-        $media_room = Blog::findOrFail($id);
+        $media_room = MediaRoom::findOrFail($id);
         if ($request->hasFile('thumbnail_image')) {
 
             $thumbnail_image = $request->file('thumbnail_image');
@@ -155,7 +155,7 @@ class BlogController extends Controller
     }
     public function delete($id): RedirectResponse
     {
-        $media_room = Blog::findOrFail($id);
+        $media_room = MediaRoom::findOrFail($id);
         $this->fileDelete($media_room->thumbnail_image);
         if(!empty($media_room->additional_images)){
             foreach(json_decode($media_room->additional_images) as $db_image){
@@ -174,19 +174,19 @@ class BlogController extends Controller
     }
     public function permissionAccept($id): RedirectResponse
     {
-        $media_room = Blog::findOrFail($id);
+        $media_room = MediaRoom::findOrFail($id);
         $this->permissionAcceptFunction($media_room);
         return redirect()->route('media_room.media_room_list')->withStatus(__($media_room->title.' accept successfully.'));
     }
     public function permissionDecline($id): RedirectResponse
     {
-        $media_room = Blog::findOrFail($id);
+        $media_room = MediaRoom::findOrFail($id);
         $this->permissionDeclineFunction($media_room);
         return redirect()->route('media_room.media_room_list')->withStatus(__($media_room->title.' decline successfully.'));
     }
     public function featured($id): RedirectResponse
     {
-        $media_room = Blog::findOrFail($id);
+        $media_room = MediaRoom::findOrFail($id);
         $this->featuredChange($media_room);
         if($media_room->is_featured == 1)
         {
@@ -202,10 +202,10 @@ class BlogController extends Controller
         return view('backend.media_room.cat_create');
     }
 
-    public function cat_store(BlogCategoryRequest $request): RedirectResponse
+    public function cat_store(MediaRoomCatRequest $request): RedirectResponse
     {
 
-        $cat = new BlogCategory;
+        $cat = new MediaRoomCategory;
         $cat->name = $request->name;
         $cat->slug = $request->slug;
         $cat->created_by = auth()->user()->id;
@@ -216,13 +216,13 @@ class BlogController extends Controller
 
     public function cat_edit($id):View
     {
-        $s['cat'] = BlogCategory::findOrFail($id);
+        $s['cat'] = MediaRoomCategory::findOrFail($id);
         return view('backend.media_room.cat_edit',$s);
     }
 
-    public function cat_update(BlogCategoryRequest $request, $id): RedirectResponse
+    public function cat_update(MediaRoomCatRequest $request, $id): RedirectResponse
     {
-        $cat = BlogCategory::findOrFail($id);
+        $cat = MediaRoomCategory::findOrFail($id);
         $cat->name = $request->name;
         $cat->slug = $request->slug;
         $cat->updated_by = auth()->user()->id;
@@ -233,14 +233,14 @@ class BlogController extends Controller
 
     public function cat_status($id): RedirectResponse
     {
-        $cat = BlogCategory::findOrFail($id);
+        $cat = MediaRoomCategory::findOrFail($id);
         $this->statusChange($cat);
         return redirect()->route('media_room.media_room_list')->withStatus(__($cat->name.' status updated successfully.'));
     }
 
     public function cat_delete($id): RedirectResponse
     {
-        $cat = BlogCategory::findOrFail($id);
+        $cat = MediaRoomCategory::findOrFail($id);
         if($cat->media_rooms->count() > 0){
             return redirect()->route('media_room.media_room_list')->withStatus(__($cat->name.' has '.$cat->media_rooms->count().' media_rooms assigned. Can\'t be deleted. Best option is to deactivate it.'));
         }

@@ -22,7 +22,7 @@
                         <ul class="flex">
                             <li>
                                 @if(isset($cat))
-                                <a href="{{route('media_room.all')}}">{{_('Media Room')}}</a>
+                                <a href="{{route('media_room_view.all')}}">{{_('Media Room')}}</a>
                             @else
                                 <a href="{{route('home')}}">{{_('Home')}}</a>
                             @endif
@@ -30,9 +30,9 @@
                             <li><i class="fa-solid fa-angle-right"></i></li>
                             <li>
                                 @if(isset($cat))
-                                <a href="{{route('media_room.cat.all',$cat->slug)}}">{{$cat->name}}</a>
+                                <a href="{{route('media_room_view.cat.all',$cat->slug)}}">{{$cat->name}}</a>
                             @else
-                                <a href="{{route('media_room.all')}}">{{_('Media Room')}}</a>
+                                <a href="{{route('media_room_view.all')}}">{{_('Media Room')}}</a>
                             @endif
                             </li>
                         </ul>
@@ -49,7 +49,7 @@
                 <div class="col-md-6 col-lg-4 col-xl-3">
                     <div class="item">
                         <div class="logo-wrapp">
-                            <a href="{{route('media_room.view',$media_room->slug)}}"><img src="{{storage_url($media_room->thumbnail_image)}}" alt="..." /></a>
+                            <a href="{{route('media_room_view.view',$media_room->slug)}}"><img src="{{storage_url($media_room->thumbnail_image)}}" alt="..." /></a>
                             <div class="post-content">
                                 <ul>
                                     <li>
@@ -59,7 +59,7 @@
                                         <a href="#"><i class="fa-solid fa-calendar-check"></i>{{ date('d M Y', strtotime($media_room->created_at))}}</a>
                                     </li>
                                 </ul>
-                                <h3><a href="{{route('media_room.view',$media_room->slug)}}">{{$media_room->title}}</a></h3>
+                                <h3><a href="{{route('media_room_view.view',$media_room->slug)}}">{{$media_room->title}}</a></h3>
                                 <p>{{ stringLimit(html_entity_decode_table($media_room->description)) }}</p>
                             </div>
                         </div>

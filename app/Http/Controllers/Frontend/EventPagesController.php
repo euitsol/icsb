@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\BlogCategory;
+use App\Models\MediaRoomCategory;
 use App\Models\CommitteeType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -18,7 +18,7 @@ class EventPagesController extends Controller
         $contact = Contact::where('deleted_at', null)->first();
         $memberTypes = MemberType::where('deleted_at', null)->where('status', 1)->get();
         $committeeTypes = CommitteeType::with('committees')->where('deleted_at', null)->where('status', 1)->get();
-        $mediaRoomCategory = BlogCategory::with('blogs')->where('deleted_at', null)->where('status', 1)->get();
+        $mediaRoomCategory = MediaRoomCategory::with('media_rooms')->where('deleted_at', null)->where('status', 1)->get();
         view()->share([
             'contact' => $contact,
             'memberTypes' => $memberTypes,
