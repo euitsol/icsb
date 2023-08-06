@@ -50,7 +50,7 @@
 	</div>
 	<div class="copyright-section text-align">
 		<div class="container">
-			<p>© Copyright 2023 {{date('Y', strtotime(Carbon\Carbon::now()))>2023 ? '-'.date('Y', strtotime(Carbon\Carbon::now())) : '' }}. All rights reserved | Web Design & Development by <a href="https://euitsols.com/" target="_blank">European IT Solutions, Bangladesh.</a></p>
+			<p>© Copyright 2023 {{date('Y', strtotime(Carbon\Carbon::now()))>2023 ? '-'.date('Y', strtotime(Carbon\Carbon::now())) : '' }}. All rights reserved | Web Design & Development by <a href="https://euitsols.com/" target="_blank">European IT Solutions Bangladesh.</a></p>
 		</div>
 	</div>
 </footer>
