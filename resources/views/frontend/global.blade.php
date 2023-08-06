@@ -10,7 +10,7 @@
 
 <!----============================= Breadcrumbs Section ========================---->
     <section class="breadcrumbs-section">
-        @if($saved_data->{'banner-image'})
+        @if(isset($saved_data->{'banner-image'}))
         <div class="overly-image">
             <img src="{{storage_url($saved_data->{'banner-image'})}}" alt="Banner Image">
         </div>
@@ -46,30 +46,43 @@
 
                 </div>
             </div>
+            @if (isset($saved_data->{'single-file'}))
+                <div class="global-table">
+                    <table>
+                        <tr>
+                            <th>Icon</th>
+                            <th>File</th>
+                            <th>Download</th>
+                        </tr>
+                        <tr>
+                            <td><img src="{{ asset('frontend/img/Folder_Icon.svg') }}" alt="" style="height: 1.5rem;"></td>
+                            <td><span> {{file_name_from_url($saved_data->{'single-file'})}} </span></td>
+                            <td><a href="{{ route('sp.file.download', base64_encode($saved_data->{'single-file'})) }}" target="_blank"><i class="fa-solid fa-cloud-arrow-down"></i></a></td>
+                        </tr>
+                    </table>
+                </div>
+            @endif
+            @if (isset($saved_data->{'multiple-file'}) && is_array($saved_data->{'multiple-file'}) && (collect($saved_data->{'multiple-file'})->count() > 0) )
             <div class="global-table">
                 <table>
+                    @if (!isset($saved_data->{'single-file'}))
                     <tr>
                         <th>Icon</th>
-                        <th>Title</th>
+                        <th>File</th>
                         <th>Download</th>
                     </tr>
+                    @endif
+                    @foreach ($saved_data->{'multiple-file'} as $url)
                     <tr>
-                        <td><img src="{{ asset('frontend/img/pdf/pdf-icon.svg') }}" alt=""></td>
-                        <td><span>Mr Ronald Chung, Assistant Manager</span></td>
-                        <td><a href=""><i class="fa-solid fa-cloud-arrow-down"></i></a></td>
+                        <td><img src="{{ asset('frontend/img/Folder_Icon.svg') }}" alt="" style="height: 1.5rem;"></td>
+                        <td><span> {{file_name_from_url($url)}} </span></td>
+                        <td><a href="{{ route('sp.file.download', base64_encode($url)) }}" target="_blank"><i class="fa-solid fa-cloud-arrow-down"></i></a></td>
                     </tr>
-                    <tr>
-                        <td><img src="{{ asset('frontend/img/pdf/pdf-icon.svg') }}" alt=""></td>
-                        <td><span>Mr Ronald Chung, Assistant Manager</span></td>
-                        <td><a href=""><i class="fa-solid fa-cloud-arrow-down"></i></a></td>
-                    </tr>
-                    <tr>
-                        <td><img src="{{ asset('frontend/img/pdf/pdf-icon.svg') }}" alt=""></td>
-                        <td><span>Mr Ronald Chung, Assistant Manager</span></td>
-                        <td><a href=""><i class="fa-solid fa-cloud-arrow-down"></i></a></td>
-                    </tr>
+                    @endforeach
                 </table>
             </div>
+
+            @endif
 <!--=============================== Gallery Section ========================== -->
             <div class="gallery-section global-gallery-section">
                 <div class="gallery-content">

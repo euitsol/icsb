@@ -185,3 +185,19 @@ function getMemberImage($object){
     }
 
 }
+
+
+function file_name_from_url($url = null){
+    if($url){
+        $fileNameWithExtension = basename($url);
+        return $fileNameWithExtension;
+    }
+}
+
+
+function file_title_from_url($url = null){
+    if($url){
+        $fileTitle = pathinfo($url, PATHINFO_FILENAME);
+        return $fileTitle;
+    }
+}
