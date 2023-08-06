@@ -1,6 +1,6 @@
 @extends('backend.layouts.master', ['pageSlug' => 'blog'])
 
-@section('title', 'Add Blog')
+@section('title', 'Create Media Room')
 @push('css')
 <style>
     .form-group .form-control, .input-group .form-control {
@@ -22,7 +22,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="title">{{ _('Add Blog') }}</h5>
+                    <h5 class="title">{{ _('Create Media Room') }}</h5>
                 </div>
                 <form method="POST" action="{{ route('blog.blog_create') }}" autocomplete="off" enctype="multipart/form-data">
                     @csrf
@@ -90,7 +90,7 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{ _('Blog') }}
+                        {{ _('Media Room') }}
                     </p>
                     <div class="card-description">
                         {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}

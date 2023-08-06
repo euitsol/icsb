@@ -9,6 +9,7 @@ use App\Models\CommitteeMember;
 use App\Models\CommitteeType;
 use App\Models\Contact;
 use App\Models\MemberType;
+use App\Models\President;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\View\View;
@@ -41,4 +42,29 @@ class CouncilPagesController extends Controller
                         ->get();
         return view('frontend.council.committee',$s);
     }
+    public function president(): View
+    {
+        $s['president'] = President::with(['durations','member'])
+                        ->where('status',1)
+                        ->where('deleted_at',null)
+                        ->first();
+        return view('frontend.council.president',$s);
+    }
+    public function pastPresidents(): View
+    {
+        $s['p_presidents'] = President::with(['durations','member'])
+                        ->where('status',0)
+                        ->where('deleted_at',null)
+                        ->get();
+        return view('frontend.council.past_presidents',$s);
+    }
+    public function singlePP($slug): View
+    {
+        $s['president'] = President::with(['durations','member'])
+                        ->where('slug',$slug)
+                        ->where('deleted_at',null)
+                        ->first();
+        return view('frontend.council.president',$s);
+    }
+
 }
