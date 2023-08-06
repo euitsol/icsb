@@ -38,13 +38,7 @@
                                     <tr>
                                         <td> {{ $committee_member->member->name }} </td>
                                         <td>
-                                            <img class="rounded" width="60" src="
-                                            @if(!empty($committee_member->member->image))
-                                                {{ storage_url($committee_member->member->image) }}
-                                            @else
-                                                {{ asset('no_img/no_img.jpg') }}
-                                            @endif
-                                            ">
+                                            <img class="rounded" width="60" src="{{getMemberImage($committee_member->member)}}">
                                         </td>
                                         <td> {{ $committee_member->member->type->title  }} </td>
                                         <td> {{ $committee_member->committe->committe_type->title  }} </td>
