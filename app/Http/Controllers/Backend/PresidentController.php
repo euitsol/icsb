@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PresidentRequest;
 use App\Models\Member;
 use App\Models\President;
 use Carbon\Carbon;
@@ -27,9 +28,18 @@ class PresidentController extends Controller
                 $p->save();
         }
         $check2= PresidentDuration::where('end_date','>',Carbon::now())->first();
-        $p = President::findOrFail($check2->president->id);
-        $p->status = 1;
-        $p->save();
+        $check3= PresidentDuration::where('end_date','=',null)->first();
+        if($check2){
+            $p = President::findOrFail($check2->president->id);
+            $p->status = 1;
+            $p->save();
+        }
+        if($check3){
+            $p = President::findOrFail($check3->president->id);
+            $p->status = 1;
+            $p->save();
+        }
+
         $s['presidents'] = President::with(['durations','member'])->where('deleted_at', null)->latest()->get();
         return view('backend.council_pages.president.index',$s);
     }
@@ -38,7 +48,7 @@ class PresidentController extends Controller
         $s['members'] = Member::where('status',1)->where('deleted_at', null)->latest()->get();
         return view('backend.council_pages.president.create',$s);
     }
-    public function store(Request $request): RedirectResponse
+    public function store(PresidentRequest $request): RedirectResponse
     {
         foreach ($request->duration as $key => $duration) {
             if(empty($duration['end_date'])){
@@ -82,17 +92,19 @@ class PresidentController extends Controller
 
         return view('backend.council_pages.president.edit',$s);
     }
-    public function update(Request $request, $id): RedirectResponse
+    public function update(PresidentRequest $request, $id): RedirectResponse
     {
-        foreach ($request->duration as $key => $duration) {
-            if(empty($duration['end_date'])){
-                $check = PresidentDuration::where('end_date',null)->first();
-                if($check){
-                    $check->end_date = Carbon::now();
-                    $check->save();
-                    $p = President::findOrFail($check->president->id);
-                    $p->status = 0;
-                    $p->save();
+        if(!empty($request->duration)){
+            foreach ($request->duration as $key => $duration) {
+                if(empty($duration['end_date'])){
+                    $check = PresidentDuration::where('end_date',null)->first();
+                    if($check){
+                        $check->end_date = Carbon::now();
+                        $check->save();
+                        $p = President::findOrFail($check->president->id);
+                        $p->status = 0;
+                        $p->save();
+                    }
                 }
             }
         }
@@ -104,38 +116,42 @@ class PresidentController extends Controller
         $president->created_by = auth()->user()->id;
         $president->update();
 
-        foreach ($request->duration as $key => $duration) {
-            if($duration['end_date']){
-                $check= PresidentDuration::where('end_date',null)->where('president_id',$id)->first();
-                if($check){
-                    $check->end_date = $duration['end_date'];
-                    $check->save();
-                    if($duration['end_date'] > Carbon::now()){
-                        $p = President::findOrFail($check->president->id);
-                        $p->status = 1;
-                        $p->save();
-                    }else{
-                        $p = President::findOrFail($check->president->id);
-                        $p->status = 0;
-                        $p->save();
-                    }
 
+        if(!empty($request->duration)){
+            foreach ($request->duration as $key => $duration) {
+                if($duration['end_date'] && !isset($duration['start_date'])){
+                    $check= PresidentDuration::where('end_date',null)->where('president_id',$id)->first();
+                    if($check){
+                        $check->end_date = $duration['end_date'];
+                        $check->save();
+                        if($duration['end_date'] > Carbon::now() || empty($duration['end_date'])){
+                            $p = President::findOrFail($check->president->id);
+                            $p->status = 1;
+                            $p->save();
+                        }else{
+                            $p = President::findOrFail($check->president->id);
+                            $p->status = 0;
+                            $p->save();
+                        }
+
+                    }
+                }elseif(isset($duration['start_date'])){
+                        $pd= new PresidentDuration();
+                        $pd->president_id = $id;
+                        $pd->start_date = $duration['start_date'];
+                        if(empty($duration['end_date'])){
+                            $p = President::findOrFail($id);
+                            $p->status = 1;
+                            $p->save();
+                        }
+                        $pd->end_date = $duration['end_date'];
+                        $pd->created_by = auth()->user()->id;
+                        $pd->save();
                 }
-            }else{
-                    $pd= new PresidentDuration();
-                    $pd->president_id = $id;
-                    $pd->start_date = $duration['start_date'];
-                    if(empty($duration['end_date'])){
-                        $p = President::findOrFail($id);
-                        $p->status = 1;
-                        $p->save();
-                    }
-                    $pd->end_date = $duration['end_date'];
-                    $pd->created_by = auth()->user()->id;
-                    $pd->save();
-            }
 
+            }
         }
+
         return redirect()->route('president.president_list')->withStatus(__('President '.$president->member->name.' updated successfully.'));
     }
     public function delete($id): RedirectResponse

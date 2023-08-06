@@ -141,12 +141,12 @@ function formatDateTimeRange($start_time, $end_time)
 function formatYearRange($start_time, $end_time)
 {
     $dateFormat = env('DATE_FORMAT', 'Y');
+    $start = Carbon::parse($start_time);
     if($end_time != null){
-        $start = Carbon::parse($start_time);
         $end = Carbon::parse($end_time);
         return $start->format($dateFormat). ' - ' . $end->format($dateFormat);
     }else{
-        return "Running";
+        return $start->format($dateFormat)." - Running";
     }
 
 }
