@@ -1,6 +1,6 @@
 @extends('backend.layouts.master', ['pageSlug' => 'blog'])
 
-@section('title', 'Blog')
+@section('title', 'Media Room')
 
 @section('content')
     <div class="row">
@@ -10,10 +10,10 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-8">
-                            <h4 class="card-title">{{ _('Blog') }}</h4>
+                            <h4 class="card-title">{{ _('Media Room') }}</h4>
                         </div>
                         <div class="col-4 text-right">
-                            @include('backend.partials.button', ['routeName' => 'blog.blog_create', 'className' => 'btn-primary', 'label' => 'Add Blog'])
+                            @include('backend.partials.button', ['routeName' => 'blog.blog_create', 'className' => 'btn-primary', 'label' => ' Create Media Room'])
                         </div>
                     </div>
                 </div>
@@ -101,10 +101,10 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-8">
-                            <h4 class="card-title">{{ _('Blog Category') }}</h4>
+                            <h4 class="card-title">{{ _('Media Room Category') }}</h4>
                         </div>
                         <div class="col-4 text-right">
-                            @include('backend.partials.button', ['routeName' => 'blog.blog_cat_create', 'className' => 'btn-primary', 'label' => 'Add Blog Category'])
+                            @include('backend.partials.button', ['routeName' => 'blog.blog_cat_create', 'className' => 'btn-primary', 'label' => 'Add Media Room Category'])
                         </div>
                     </div>
                 </div>

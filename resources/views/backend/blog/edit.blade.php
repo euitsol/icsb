@@ -1,6 +1,6 @@
 @extends('backend.layouts.master', ['pageSlug' => 'blog'])
 
-@section('title', 'Edit Blog')
+@section('title', 'Edit Media Room')
 @push('css')
 <style>
     .form-group .form-control, .input-group .form-control {
@@ -21,7 +21,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="title">{{ _('Edit Blog') }}</h5>
+                    <h5 class="title">{{ _('Edit Media Room') }}</h5>
                 </div>
                 <form method="POST" action="{{ route('blog.blog_edit', $blog->id) }}" autocomplete="off" enctype="multipart/form-data">
                     @method('PUT')
@@ -118,7 +118,7 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{ _('Blog') }}
+                        {{ _('Media Room') }}
                     </p>
                     <div class="card-description">
                         {{ _('The faq\'s manages user permissions by assigning different faqs to users. Each faq defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
