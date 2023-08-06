@@ -97,17 +97,11 @@
             {{-- Council --}}
             <li>
                 <a class="@if(
-                        $pageSlug == 'council' ||
                         $pageSlug == 'president' ||
-                        // $pageSlug == 'past_president' ||
-                        $pageSlug == 'committee' ||
-                        $pageSlug == 'sub_committees'
+                        $pageSlug == 'committee'
                     )@else collapsed @endif" data-toggle="collapse" href="#council" @if (
-                        $pageSlug == 'council' ||
                         $pageSlug == 'president' ||
-                        // $pageSlug == 'past_president' ||
-                        $pageSlug == 'committee' ||
-                        $pageSlug == 'sub_committees'
+                        $pageSlug == 'committee'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-brands fa-slack"></i>
                     <span class="nav-link-text" >{{ __('Council') }}</span>
@@ -115,20 +109,14 @@
                 </a>
 
                 <div class="collapse @if (
-                    $pageSlug == 'council' ||
                     $pageSlug == 'president' ||
-                    // $pageSlug == 'past_president' ||
-                    $pageSlug == 'committee' ||
-                    $pageSlug == 'sub_committees'
+                    $pageSlug == 'committee'
                 ) show @endif" id="council">
                     <ul class="nav pl-4">
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
-                                ['pageSlug' => 'council', 'routeName' => '', 'label' => 'Council'],
-                                ['pageSlug' => 'president', 'routeName' => '', 'label' => 'President'],
-
-                                ['pageSlug' => 'past_president', 'routeName' => '', 'label' => 'Past President'],
                                 ['pageSlug' => 'committee', 'routeName' => 'committee.committee_list', 'label' => 'Committee'],
+                                ['pageSlug' => 'president', 'routeName' => 'president.president_list', 'label' => 'President'],
                             ]
                         ])
                     </ul>

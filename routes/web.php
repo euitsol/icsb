@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AjaxController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
@@ -19,6 +20,7 @@ use App\Http\Controllers\Backend\ICSBProfileController;
 use App\Http\Controllers\Backend\MemberController;
 use App\Http\Controllers\Backend\SinglePagesController;
 use App\Http\Controllers\Backend\CommitteeController;
+use App\Http\Controllers\Backend\PresidentController;
 use App\Http\Controllers\Backend\UserManagement\RoleController;
 use App\Http\Controllers\Backend\UserManagement\PermissionController;
 use App\Http\Controllers\Frontend\AboutPagesController;
@@ -75,6 +77,8 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     // Default File Download Route
     Route::get('download/{filename}', [DefaultController::class, 'download'])->name('download');
+    // Ajax Routes
+    Route::get('members/{id}', [AjaxController::class, 'memberInfo'])->name('m.info');
 
     //User Management
     Route::group(['as' => 'um.', 'prefix' => 'user-management'], function () {
@@ -279,6 +283,15 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         // Route::put('edit/{id}',      [ICSBProfileController::class, 'update'])->name('icsb_profile_edit');
         // Route::get('status/{id}',      [ICSBProfileController::class, 'status'])->name('status.icsb_profile_edit');
         // Route::get('delete/{id}', [ICSBProfileController::class, 'delete'])->name('icsb_profile_delete');
+    });
+    // President Module
+    Route::group(['as' => 'president.', 'prefix' => 'president'], function () {
+        Route::get('index', [PresidentController::class, 'index'])->name('president_list');
+        Route::get('create', [PresidentController::class, 'create'])->name('president_create');
+        Route::post('create', [PresidentController::class, 'store'])->name('president_create');
+        Route::get('edit/{id}', [PresidentController::class, 'edit'])->name('president_edit');
+        Route::put('edit/{id}', [PresidentController::class, 'update'])->name('president_edit');
+        Route::get('delete/{id}', [PresidentController::class, 'delete'])->name('president_delete');
     });
 
 });
