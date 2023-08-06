@@ -9,16 +9,13 @@ use Illuminate\Support\Facades\Route;
 
 class AjaxController extends Controller
 {
-    //
 
     public function __construct() {
         return $this->middleware('auth');
     }
     public function memberInfo($id): JsonResponse
     {
-        // dd($id);
         $member = Member::findOrFail($id);
-        // dd($member);
         return response()->json($member);
     }
 }
