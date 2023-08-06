@@ -1,4 +1,4 @@
-@extends('backend.layouts.master', ['pageSlug' => 'blog'])
+@extends('backend.layouts.master', ['pageSlug' => 'media_room'])
 
 @section('title', 'Create Media Room')
 @push('css')
@@ -24,7 +24,7 @@
                 <div class="card-header">
                     <h5 class="title">{{ _('Create Media Room') }}</h5>
                 </div>
-                <form method="POST" action="{{ route('blog.blog_create') }}" autocomplete="off" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('media_room.media_room_create') }}" autocomplete="off" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                             <div class="form-group {{ $errors->has('title') ? ' has-danger' : '' }}">
@@ -42,7 +42,7 @@
                                 <label>{{ _('Category') }}</label>
                                 <select name="category_id" class="form-control {{ $errors->has('category_id') ? ' is-invalid' : '' }}">
                                     <option selected hidden >{{_('Select Category')}}</option>
-                                    @foreach ($blog_cats as $cat)
+                                    @foreach ($media_room_cats as $cat)
                                         <option value="{{ $cat->id }}" @if( old('category_id') == $cat->id) selected @endif> {{ $cat->name }}</option>
                                     @endforeach
                                 </select>
@@ -102,7 +102,7 @@
 @endsection
 
 @push('js_link')
-    <script src="{{ asset('backend/js/blog.js') }}"></script>
+    <script src="{{ asset('backend/js/media_room.js') }}"></script>
     <script>
         function generateSlug(str) {
             return str

@@ -11,7 +11,7 @@ class BlogCategory extends BaseModel
     use HasFactory;
 
     public $guarded = [];
-    public function blogs(){
+    public function media_rooms(){
         return $this->hasMany(Blog::class, 'category_id');
     }
 }

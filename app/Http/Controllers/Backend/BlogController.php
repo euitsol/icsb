@@ -22,33 +22,33 @@ class BlogController extends Controller
 
     public function index(): View
     {
-        $s['blogs'] = Blog::where('deleted_at', null)->latest()->get();
-        $s['blog_cats'] = BlogCategory::where('deleted_at', null)->latest()->get();
-        return view('backend.blog.index',$s);
+        $s['media_rooms'] = Blog::where('deleted_at', null)->latest()->get();
+        $s['media_room_cats'] = BlogCategory::where('deleted_at', null)->latest()->get();
+        return view('backend.media_room.index',$s);
     }
     public function create(): View
     {
-        $s['blog_cats'] = BlogCategory::where('status',1)->where('deleted_at', null)->latest()->get();
-        return view('backend.blog.create',$s);
+        $s['media_room_cats'] = BlogCategory::where('status',1)->where('deleted_at', null)->latest()->get();
+        return view('backend.media_room.create',$s);
     }
     public function store(BlogRequest $request): RedirectResponse
     {
-        $blog = new Blog();
+        $media_room = new Blog();
         if ($request->hasFile('thumbnail_image')) {
 
             $thumbnail_image = $request->file('thumbnail_image');
-            $path = $thumbnail_image->store('blogs/thumbnail_image', 'public');
-            $blog->thumbnail_image = $path;
+            $path = $thumbnail_image->store('media_rooms/thumbnail_image', 'public');
+            $media_room->thumbnail_image = $path;
         }
         if(!empty($request->additional_images)){
             $additional_images = array();
             foreach($request->additional_images as $image){
                 if ($image) {
-                    $path = $image->store('blogs/additional_images', 'public');
+                    $path = $image->store('media_rooms/additional_images', 'public');
                     array_push($additional_images, $path);
                 }
             }
-            $blog->additional_images= json_encode($additional_images);
+            $media_room->additional_images= json_encode($additional_images);
         }
 
         $filteredFiles = array_filter($request->file, function ($entry) {
@@ -62,39 +62,39 @@ class BlogController extends Controller
                     $input_file = $file['file_path'];
                     if (!empty($input_file)) {
                         $customFileName = $file['file_name'] . '.' . $input_file->getClientOriginalExtension();
-                        $path = $input_file->storeAs('blogs', $customFileName, 'public');
+                        $path = $input_file->storeAs('media_rooms', $customFileName, 'public');
 
-                        $data[$key]['file_path'] = 'blogs/' . $customFileName;
+                        $data[$key]['file_path'] = 'media_rooms/' . $customFileName;
                         $data[$key]['file_name'] = $file['file_name'];
                     }
                 }
             }
         }
-        $blog->files = json_encode($data);
-        $blog->title = $request->title;
-        $blog->slug = $request->slug;
-        $blog->category_id = $request->category_id;
-        $blog->description = $request->description;
-        $blog->created_by = auth()->user()->id;
-        $blog->save();
-        return redirect()->route('blog.blog_list')->withStatus(__('Blog '.$request->title.' created successfully.'));
+        $media_room->files = json_encode($data);
+        $media_room->title = $request->title;
+        $media_room->slug = $request->slug;
+        $media_room->category_id = $request->category_id;
+        $media_room->description = $request->description;
+        $media_room->created_by = auth()->user()->id;
+        $media_room->save();
+        return redirect()->route('media_room.media_room_list')->withStatus(__('Media room '.$request->title.' created successfully.'));
     }
     public function edit($id): View
     {
-        $s['blog'] = Blog::findOrFail($id);
-        $s['blog_cats'] = BlogCategory::where('status',1)->where('deleted_at', null)->latest()->get();
-        return view('backend.blog.edit', $s);
+        $s['media_room'] = Blog::findOrFail($id);
+        $s['media_room_cats'] = BlogCategory::where('status',1)->where('deleted_at', null)->latest()->get();
+        return view('backend.media_room.edit', $s);
     }
 
     public function singleFileDelete($id, $key): RedirectResponse
     {
-        $blog = Blog::findOrFail($id);
-        $files = json_decode($blog->files, true);
+        $media_room = Blog::findOrFail($id);
+        $files = json_decode($media_room->files, true);
         if (isset($files[$key])) {
             $filePathToDelete = $files[$key]['file_path'];
             unset($files[$key]);
-            $blog->files = json_encode($files);
-            $blog->save();
+            $media_room->files = json_encode($files);
+            $media_room->save();
             $this->fileDelete($filePathToDelete);
         }
 
@@ -102,27 +102,27 @@ class BlogController extends Controller
     }
     public function update(BlogRequest $request, $id): RedirectResponse
     {
-        $blog = Blog::findOrFail($id);
+        $media_room = Blog::findOrFail($id);
         if ($request->hasFile('thumbnail_image')) {
 
             $thumbnail_image = $request->file('thumbnail_image');
-            $path = $thumbnail_image->store('blogs/thumbnail_image', 'public');
-            $this->fileDelete($blog->thumbnail_image);
-            $blog->thumbnail_image = $path;
+            $path = $thumbnail_image->store('media_rooms/thumbnail_image', 'public');
+            $this->fileDelete($media_room->thumbnail_image);
+            $media_room->thumbnail_image = $path;
         }
         if(!empty($request->additional_images)){
-            foreach(json_decode($blog->additional_images) as $db_image){
+            foreach(json_decode($media_room->additional_images) as $db_image){
                 $this->fileDelete($db_image);
             }
             $additional_images = array();
             foreach($request->additional_images as $image){
                 if ($image) {
-                    $path = $image->store('blogs/additional_images', 'public');
+                    $path = $image->store('media_rooms/additional_images', 'public');
                     array_push($images, $path);
                 }
             }
 
-            $blog->additional_images= json_encode($additional_images);
+            $media_room->additional_images= json_encode($additional_images);
         }
 
         $filteredFiles = array_filter($request->file, function ($entry) {
@@ -131,75 +131,75 @@ class BlogController extends Controller
         });
         if (!empty($filteredFiles)) {
             foreach ($request->file as $file) {
-                $files = json_decode($blog->files, true);
+                $files = json_decode($media_room->files, true);
                 $input_file = $file['file_path'];
                 if (!empty($input_file) && !empty($file['file_name'])) {
                     $customFileName = $file['file_name'] . '.' . $input_file->getClientOriginalExtension();
-                    $path = $input_file->storeAs('blogs', $customFileName, 'public');
+                    $path = $input_file->storeAs('media_rooms', $customFileName, 'public');
                     $newFileName = $file['file_name'];
-                    $newFilePath = 'blogs/'.$customFileName;
+                    $newFilePath = 'media_rooms/'.$customFileName;
                     array_push($files, ["file_path" => $newFilePath, "file_name" => $newFileName]);
                 }
-                $blog->files = json_encode($files);
+                $media_room->files = json_encode($files);
             }
         }
-        if($blog->title != $request->title){
-            $blog->slug = $request->slug;
+        if($media_room->title != $request->title){
+            $media_room->slug = $request->slug;
         }
-        $blog->category_id = $request->category_id;
-        $blog->title = $request->title;
-        $blog->description = $request->description;
-        $blog->updated_by = auth()->user()->id;
-        $blog->save();
-        return redirect()->route('blog.blog_list')->withStatus(__('Blog '.$request->title.' created successfully.'));
+        $media_room->category_id = $request->category_id;
+        $media_room->title = $request->title;
+        $media_room->description = $request->description;
+        $media_room->updated_by = auth()->user()->id;
+        $media_room->save();
+        return redirect()->route('media_room.media_room_list')->withStatus(__('Media room '.$request->title.' created successfully.'));
     }
     public function delete($id): RedirectResponse
     {
-        $blog = Blog::findOrFail($id);
-        $this->fileDelete($blog->thumbnail_image);
-        if(!empty($blog->additional_images)){
-            foreach(json_decode($blog->additional_images) as $db_image){
+        $media_room = Blog::findOrFail($id);
+        $this->fileDelete($media_room->thumbnail_image);
+        if(!empty($media_room->additional_images)){
+            foreach(json_decode($media_room->additional_images) as $db_image){
                 $this->fileDelete($db_image);
             }
         }
-        $files = json_decode($blog->files, true);
+        $files = json_decode($media_room->files, true);
         if(!empty($files)){
             foreach($files as $key=>$file){
                 $filePathToDelete = $files[$key]['file_path'];
                 $this->fileDelete($filePathToDelete);
             }
         }
-        $blog->delete();
-        return redirect()->route('blog.blog_list')->withStatus(__('blog '.$blog->title.' deleted successfully.'));
+        $media_room->delete();
+        return redirect()->route('media_room.media_room_list')->withStatus(__('Media room '.$media_room->title.' deleted successfully.'));
     }
     public function permissionAccept($id): RedirectResponse
     {
-        $blog = Blog::findOrFail($id);
-        $this->permissionAcceptFunction($blog);
-        return redirect()->route('blog.blog_list')->withStatus(__($blog->title.' accept successfully.'));
+        $media_room = Blog::findOrFail($id);
+        $this->permissionAcceptFunction($media_room);
+        return redirect()->route('media_room.media_room_list')->withStatus(__($media_room->title.' accept successfully.'));
     }
     public function permissionDecline($id): RedirectResponse
     {
-        $blog = Blog::findOrFail($id);
-        $this->permissionDeclineFunction($blog);
-        return redirect()->route('blog.blog_list')->withStatus(__($blog->title.' decline successfully.'));
+        $media_room = Blog::findOrFail($id);
+        $this->permissionDeclineFunction($media_room);
+        return redirect()->route('media_room.media_room_list')->withStatus(__($media_room->title.' decline successfully.'));
     }
     public function featured($id): RedirectResponse
     {
-        $blog = Blog::findOrFail($id);
-        $this->featuredChange($blog);
-        if($blog->is_featured == 1)
+        $media_room = Blog::findOrFail($id);
+        $this->featuredChange($media_room);
+        if($media_room->is_featured == 1)
         {
-            return redirect()->back()->withStatus(__($blog->title.' added on featured successfully.'));
+            return redirect()->back()->withStatus(__($media_room->title.' added on featured successfully.'));
         }else{
-            return redirect()->back()->withStatus(__($blog->title.' remove from featured successfully.'));
+            return redirect()->back()->withStatus(__($media_room->title.' remove from featured successfully.'));
         }
     }
 
-    // Blog Category
+    // Media Room Category
     public function cat_create():View
     {
-        return view('backend.blog.cat_create');
+        return view('backend.media_room.cat_create');
     }
 
     public function cat_store(BlogCategoryRequest $request): RedirectResponse
@@ -211,13 +211,13 @@ class BlogController extends Controller
         $cat->created_by = auth()->user()->id;
         $cat->save();
 
-        return redirect()->route('blog.blog_list')->withStatus(__('Blog Category '.$cat->name.' created successfully.'));
+        return redirect()->route('media_room.media_room_list')->withStatus(__('Media Room Category '.$cat->name.' created successfully.'));
     }
 
     public function cat_edit($id):View
     {
         $s['cat'] = BlogCategory::findOrFail($id);
-        return view('backend.blog.cat_edit',$s);
+        return view('backend.media_room.cat_edit',$s);
     }
 
     public function cat_update(BlogCategoryRequest $request, $id): RedirectResponse
@@ -228,24 +228,24 @@ class BlogController extends Controller
         $cat->updated_by = auth()->user()->id;
         $cat->save();
 
-        return redirect()->route('blog.blog_list')->withStatus(__('Blog Category '.$cat->name.' updated successfully.'));
+        return redirect()->route('media_room.media_room_list')->withStatus(__('Media room Category '.$cat->name.' updated successfully.'));
     }
 
     public function cat_status($id): RedirectResponse
     {
         $cat = BlogCategory::findOrFail($id);
         $this->statusChange($cat);
-        return redirect()->route('blog.blog_list')->withStatus(__($cat->name.' status updated successfully.'));
+        return redirect()->route('media_room.media_room_list')->withStatus(__($cat->name.' status updated successfully.'));
     }
 
     public function cat_delete($id): RedirectResponse
     {
         $cat = BlogCategory::findOrFail($id);
-        if($cat->blogs->count() > 0){
-            return redirect()->route('blog.blog_list')->withStatus(__($cat->name.' has '.$cat->blogs->count().' blogs assigned. Can\'t be deleted. Best option is to deactivate it.'));
+        if($cat->media_rooms->count() > 0){
+            return redirect()->route('media_room.media_room_list')->withStatus(__($cat->name.' has '.$cat->media_rooms->count().' media_rooms assigned. Can\'t be deleted. Best option is to deactivate it.'));
         }
         $this->soft_delete($cat);
-        return redirect()->route('blog.blog_list')->withStatus(__('Category '.$cat->name.' deleted successfully.'));
+        return redirect()->route('media_room.media_room_list')->withStatus(__('Category '.$cat->name.' deleted successfully.'));
     }
 
 }

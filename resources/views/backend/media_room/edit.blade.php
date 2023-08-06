@@ -1,4 +1,4 @@
-@extends('backend.layouts.master', ['pageSlug' => 'blog'])
+@extends('backend.layouts.master', ['pageSlug' => 'media_room'])
 
 @section('title', 'Edit Media Room')
 @push('css')
@@ -23,26 +23,26 @@
                 <div class="card-header">
                     <h5 class="title">{{ _('Edit Media Room') }}</h5>
                 </div>
-                <form method="POST" action="{{ route('blog.blog_edit', $blog->id) }}" autocomplete="off" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('media_room.media_room_edit', $media_room->id) }}" autocomplete="off" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     <div class="card-body">
                         <div class="form-group {{ $errors->has('title') ? ' has-danger' : '' }}">
                             <label>{{ _('Title') }}</label>
-                            <input type="text" name="title" id="title" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter Title') }}" value="{{ $blog->title }}">
+                            <input type="text" name="title" id="title" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter Title') }}" value="{{ $media_room->title }}">
                             @include('alerts.feedback', ['field' => 'title'])
                         </div>
 
                         <div class="form-group {{ $errors->has('slug') ? ' has-danger' : '' }}">
                             <label>{{ _('Slug') }}</label>
-                            <input type="text" class="form-control {{ $errors->has('slug') ? ' is-invalid' : '' }}" id="slug" name="slug" placeholder="{{ _('Enter Slug (must be use - on white speace)') }}" value="{{ $blog->slug }}">
+                            <input type="text" class="form-control {{ $errors->has('slug') ? ' is-invalid' : '' }}" id="slug" name="slug" placeholder="{{ _('Enter Slug (must be use - on white speace)') }}" value="{{ $media_room->slug }}">
                             @include('alerts.feedback', ['field' => 'slug'])
                         </div>
                         <div class="form-group {{ $errors->has('category_id') ? ' has-danger' : '' }}">
                             <label>{{ _('Category') }}</label>
                             <select name="category_id" class="form-control {{ $errors->has('category_id') ? ' is-invalid' : '' }}">
-                                @foreach ($blog_cats as $cat)
-                                    <option value="{{ $cat->id }}" @if( $blog->category_id == $cat->id) selected @endif> {{ $cat->name }}</option>
+                                @foreach ($media_room_cats as $cat)
+                                    <option value="{{ $cat->id }}" @if( $media_room->category_id == $cat->id) selected @endif> {{ $cat->name }}</option>
                                 @endforeach
                             </select>
                             @include('alerts.feedback', ['field' => 'category_id'])
@@ -50,7 +50,7 @@
 
                         <div class="form-group  {{ $errors->has('thumbnail_image') ? ' has-danger' : '' }}">
                             <label>{{ _('Thumbnail Image') }}</label>
-                            <input type="file" accept="image/*" name="thumbnail_image" class="form-control  {{ $errors->has('thumbnail_image') ? ' is-invalid' : '' }} image-upload" data-existing-files="{{ storage_url($blog->thumbnail_image) }}">
+                            <input type="file" accept="image/*" name="thumbnail_image" class="form-control  {{ $errors->has('thumbnail_image') ? ' is-invalid' : '' }} image-upload" data-existing-files="{{ storage_url($media_room->thumbnail_image) }}">
                             @include('alerts.feedback', ['field' => 'image'])
                        </div>
                        <div class="form-group  {{ $errors->has('additional_images.*') ? 'is-invalid' : '' }}  {{ $errors->has('additional_images') ? 'is-invalid' : '' }}">
@@ -62,8 +62,8 @@
                         @php
                             $count = 0;
                         @endphp
-                        @if(isset($blog) && !empty(json_decode($blog->files)))
-                            @foreach (json_decode($blog->files) as $key=>$file)
+                        @if(isset($media_room) && !empty(json_decode($media_room->files)))
+                            @foreach (json_decode($media_room->files) as $key=>$file)
                             @php
                                 $count++;
                             @endphp
@@ -72,18 +72,18 @@
                                     <div class="input-group mb-3">
                                         <input type="text" name="file[{{$count}}][file_name]" class="form-control" value="{{$file->file_name}}" disabled>
                                         <input type="text" name="file[{{$count}}][file_path]" class="form-control" value="{{$file->file_path}}" disabled>
-                                        <a href="{{route('blog.single_file.delete.blog_edit',['key'=>$key, 'id'=>$blog->id])}}">
+                                        <a href="{{route('media_room.single_file.delete.media_room_edit',['key'=>$key, 'id'=>$media_room->id])}}">
                                             <span class="input-group-text text-danger h-100"><i class="tim-icons icon-trash-simple"></i></span>
                                         </a>
                                     </div>
                                 </div>
                             @endforeach
                             <div class="form-group">
-                                <label>{{ _('File-'.(count(json_decode($blog->files, true)))+1) }}</label>
+                                <label>{{ _('File-'.(count(json_decode($media_room->files, true)))+1) }}</label>
                                 <div class="input-group mb-3">
-                                    <input type="text" name="file[{{ count(json_decode($blog->files, true))+1 }}][file_name]" class="form-control" placeholder="{{ _('Enter file name') }}" >
-                                    <input type="file" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.odt,.ods,.odp" name="file[{{ count(json_decode($blog->files, true))+1 }}][file_path]" class="form-control" >
-                                    <span class="input-group-text" id="add_file" data-count="{{ count(json_decode($blog->files, true))+1 }}"><i class="tim-icons icon-simple-add"></i></span>
+                                    <input type="text" name="file[{{ count(json_decode($media_room->files, true))+1 }}][file_name]" class="form-control" placeholder="{{ _('Enter file name') }}" >
+                                    <input type="file" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.odt,.ods,.odp" name="file[{{ count(json_decode($media_room->files, true))+1 }}][file_path]" class="form-control" >
+                                    <span class="input-group-text" id="add_file" data-count="{{ count(json_decode($media_room->files, true))+1 }}"><i class="tim-icons icon-simple-add"></i></span>
                                 </div>
                             </div>
                         @else
@@ -102,7 +102,7 @@
                         <div class="form-group {{ $errors->has('description') ? ' has-danger' : '' }}">
                             <label>{{ _('Description') }} </label>
                             <textarea rows="3" name="description" class="form-control {{ $errors->has('description') ? ' is-invalid' : '' }}">
-                                {{ $blog->description }}
+                                {{ $media_room->description }}
                             </textarea>
                             @include('alerts.feedback', ['field' => 'description'])
                         </div>
@@ -130,6 +130,6 @@
 @endsection
 
 @push('js_link')
-<script src="{{ asset('backend/js/blog.js') }}"></script>
+<script src="{{ asset('backend/js/media_room.js') }}"></script>
 @endpush
 

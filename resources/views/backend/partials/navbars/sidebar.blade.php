@@ -323,7 +323,7 @@
             {{-- Media Room, Contact Us, Banner, Event, National Connection,  National Award, Service, Site Settings  --}}
             @include('backend.partials.menu_buttons', [
                 'menuItems' => [
-                    ['pageSlug' => 'blog', 'routeName' => 'blog.blog_list', 'iconClass' => 'fa-solid fa-photo-film', 'label' => 'Media Room'],
+                    ['pageSlug' => 'media_room', 'routeName' => 'media_room.media_room_list', 'iconClass' => 'fa-solid fa-photo-film', 'label' => 'Media Room'],
                     ['pageSlug' => 'contact', 'routeName' => 'contact.contact_create', 'iconClass' => 'fa-solid fa-tty', 'label' => 'Contact Us'],
 
                     ['pageSlug' => 'banner', 'routeName' => 'banner.banner_list', 'iconClass' => 'fa-regular fa-images', 'label' => 'Banner'],

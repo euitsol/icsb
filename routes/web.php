@@ -175,25 +175,25 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::get('delete/{id}', [NationalAwardController::class, 'delete'])->name('national_award_delete');
     });
     // Blog Routes
-    Route::group(['as' => 'blog.', 'prefix' => 'blog'], function () {
-        Route::get('index', [BlogController::class, 'index'])->name('blog_list');
-        Route::get('create', [BlogController::class, 'create'])->name('blog_create');
-        Route::post('create', [BlogController::class, 'store'])->name('blog_create');
-        Route::get('edit/{id}',      [BlogController::class, 'edit'])->name('blog_edit');
-        Route::put('edit/{id}',      [BlogController::class, 'update'])->name('blog_edit');
-        Route::get('single-file/delete/{id}/{key}',      [BlogController::class, 'singleFileDelete'])->name('single_file.delete.blog_edit');
-        Route::get('permission/accept/{id}',      [BlogController::class, 'permissionAccept'])->name('permission.accept.blog_edit');
-        Route::get('permission/decline/{id}',      [BlogController::class, 'permissionDecline'])->name('permission.decline.blog_edit');
-        Route::get('featured/{id}',      [BlogController::class, 'featured'])->name('featured.blog_edit');
-        Route::get('delete/{id}', [BlogController::class, 'delete'])->name('blog_delete');
+    Route::group(['as' => 'media_room.', 'prefix' => 'media_room'], function () {
+        Route::get('index', [BlogController::class, 'index'])->name('media_room_list');
+        Route::get('create', [BlogController::class, 'create'])->name('media_room_create');
+        Route::post('create', [BlogController::class, 'store'])->name('media_room_create');
+        Route::get('edit/{id}',      [BlogController::class, 'edit'])->name('media_room_edit');
+        Route::put('edit/{id}',      [BlogController::class, 'update'])->name('media_room_edit');
+        Route::get('single-file/delete/{id}/{key}',      [BlogController::class, 'singleFileDelete'])->name('single_file.delete.media_room_edit');
+        Route::get('permission/accept/{id}',      [BlogController::class, 'permissionAccept'])->name('permission.accept.media_room_edit');
+        Route::get('permission/decline/{id}',      [BlogController::class, 'permissionDecline'])->name('permission.decline.media_room_edit');
+        Route::get('featured/{id}',      [BlogController::class, 'featured'])->name('featured.media_room_edit');
+        Route::get('delete/{id}', [BlogController::class, 'delete'])->name('media_room_delete');
 
         // Blog Category
-        Route::get('category/create', [BlogController::class, 'cat_create'])->name('blog_cat_create');
-        Route::post('category/create', [BlogController::class, 'cat_store'])->name('blog_cat_create');
-        Route::get('category/edit/{id}', [BlogController::class, 'cat_edit'])->name('blog_cat_edit');
-        Route::put('category/edit/{id}', [BlogController::class, 'cat_update'])->name('blog_cat_edit');
-        Route::get('category/status/{id}', [BlogController::class, 'cat_status'])->name('status.blog_cat_edit');
-        Route::get('category/delete/{id}', [BlogController::class, 'cat_delete'])->name('blog_cat_delete');
+        Route::get('category/create', [BlogController::class, 'cat_create'])->name('media_room_cat_create');
+        Route::post('category/create', [BlogController::class, 'cat_store'])->name('media_room_cat_create');
+        Route::get('category/edit/{id}', [BlogController::class, 'cat_edit'])->name('media_room_cat_edit');
+        Route::put('category/edit/{id}', [BlogController::class, 'cat_update'])->name('media_room_cat_edit');
+        Route::get('category/status/{id}', [BlogController::class, 'cat_status'])->name('status.media_room_cat_edit');
+        Route::get('category/delete/{id}', [BlogController::class, 'cat_delete'])->name('media_room_cat_delete');
     });
 
 
