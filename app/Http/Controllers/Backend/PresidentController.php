@@ -96,7 +96,7 @@ class PresidentController extends Controller
     {
         if(!empty($request->duration)){
             foreach ($request->duration as $key => $duration) {
-                if(empty($duration['end_date'])){
+                if(!empty($duration['end_date'])){
                     $check = PresidentDuration::where('end_date',null)->first();
                     if($check){
                         $check->end_date = Carbon::now();
@@ -119,9 +119,9 @@ class PresidentController extends Controller
 
         if(!empty($request->duration)){
             foreach ($request->duration as $key => $duration) {
-                if($duration['end_date'] && !isset($duration['start_date'])){
+                if((!empty($duration['end_date']) && !isset($duration['start_date'])) || (!empty($duration['end_date']) && isset($duration['start_date']) && empty($duration['start_date']))){
                     $check= PresidentDuration::where('end_date',null)->where('president_id',$id)->first();
-                    if($check){
+                    if($check && !empty($duration['end_date'])){
                         $check->end_date = $duration['end_date'];
                         $check->save();
                         if($duration['end_date'] > Carbon::now() || empty($duration['end_date'])){
@@ -135,7 +135,7 @@ class PresidentController extends Controller
                         }
 
                     }
-                }elseif(isset($duration['start_date'])){
+                }elseif(isset($duration['start_date']) && !empty($duration['start_date'])){
                         $pd= new PresidentDuration();
                         $pd->president_id = $id;
                         $pd->start_date = $duration['start_date'];
