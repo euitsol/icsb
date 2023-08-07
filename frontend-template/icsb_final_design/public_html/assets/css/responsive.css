@@ -1039,6 +1039,14 @@
         padding: 10px 0;
         display: none;
     }
+    .about-us-section .about-us-row .image-column .first-image{
+        width: 300px;
+        height: 300px;
+    }
+    .about-us-section .about-us-row .image-column .second-image{
+        width: 300px;
+        height: 300px;
+    }
 }
 @media only screen and (max-width: 991px){
     .main-header-section {

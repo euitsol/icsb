@@ -1553,11 +1553,15 @@ h1,h2,h3,h4,h5,h6{
 }
 .about-us-section .about-us-row .image-column .first-image{
 	width: 540px;
+	height: 480px;
+	object-fit: cover;
 	outline: 8px solid #182456;
 	border: 8px solid #ffffff;
 }
 .about-us-section .about-us-row .image-column .second-image{
 	width: 535px;
+	height: 477px;
+	object-fit: cover;
 	float: right;
 	margin-top: -350px;
 	z-index: 9999;
