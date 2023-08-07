@@ -29,6 +29,7 @@ class FrontendSinglePagesController extends Controller
             'committeeTypes' => $committeeTypes,
             'mediaRoomCategory' => $mediaRoomCategory,
         ]);
+        return $this->middleware('auth');
     }
     public function frontend($fs): View
     {

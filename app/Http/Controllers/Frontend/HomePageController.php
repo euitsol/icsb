@@ -30,6 +30,7 @@ class HomePageController extends Controller
             'committeeTypes' => $committeeTypes,
             'mediaRoomCategory' => $mediaRoomCategory,
         ]);
+        return $this->middleware('auth');
     }
 
     public function index(): View

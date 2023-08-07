@@ -25,6 +25,7 @@ class EventPagesController extends Controller
             'committeeTypes' => $committeeTypes,
             'mediaRoomCategory' => $mediaRoomCategory,
         ]);
+        return $this->middleware('auth');
     }
     public function events(): View
     {

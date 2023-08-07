@@ -27,6 +27,7 @@ class CouncilPagesController extends Controller
             'committeeTypes' => $committeeTypes,
             'mediaRoomCategory' => $mediaRoomCategory,
         ]);
+        return $this->middleware('auth');
     }
     public function committee($slug): View
     {

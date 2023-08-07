@@ -24,6 +24,7 @@ class ContactPagesController extends Controller
             'committeeTypes' => $committeeTypes,
             'mediaRoomCategory' => $mediaRoomCategory,
         ]);
+        return $this->middleware('auth');
     }
     public function feedback(): View
     {

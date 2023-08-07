@@ -29,6 +29,7 @@ class AboutPagesController extends Controller
             'committeeTypes' => $committeeTypes,
             'mediaRoomCategory' => $mediaRoomCategory,
         ]);
+        return $this->middleware('auth');
     }
     public function faq(): View
     {

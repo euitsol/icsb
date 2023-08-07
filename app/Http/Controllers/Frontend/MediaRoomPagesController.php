@@ -25,6 +25,7 @@ class MediaRoomPagesController extends Controller
             'committeeTypes' => $committeeTypes,
             'mediaRoomCategory' => $mediaRoomCategory,
         ]);
+        return $this->middleware('auth');
     }
     public function mr_all(): View
     {
