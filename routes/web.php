@@ -280,14 +280,10 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
 
     });
     // ICSB Profile
-    Route::group(['as' => 'icsb_profile.', 'prefix' => 'icsb-profile'], function () {
-        Route::get('create', [ICSBProfileController::class, 'index'])->name('icsb_profile_create');
-        Route::post('create', [ICSBProfileController::class, 'store'])->name('icsb_profile_create');
-        // Route::get('edit/{id}',      [ICSBProfileController::class, 'edit'])->name('icsb_profile_edit');
-        // Route::put('edit/{id}',      [ICSBProfileController::class, 'update'])->name('icsb_profile_edit');
-        // Route::get('status/{id}',      [ICSBProfileController::class, 'status'])->name('status.icsb_profile_edit');
-        // Route::get('delete/{id}', [ICSBProfileController::class, 'delete'])->name('icsb_profile_delete');
-    });
+    // Route::group(['as' => 'icsb_profile.', 'prefix' => 'icsb-profile'], function () {
+    //     Route::get('create', [ICSBProfileController::class, 'index'])->name('icsb_profile_create');
+    //     Route::post('create', [ICSBProfileController::class, 'store'])->name('icsb_profile_create');
+    // });
     // President Module
     Route::group(['as' => 'president.', 'prefix' => 'president'], function () {
         Route::get('index', [PresidentController::class, 'index'])->name('president_list');
@@ -332,10 +328,7 @@ Route::get('download/{filename}', [ViewDefaultController::class, 'view_download'
 Route::get('/page/{frontend_slug}', [FrontendSinglePagesController::class, 'frontend'])->name('sp.frontend');
 
 Route::group(['as' => 'about.', 'prefix' => 'about'], function () {
-    Route::get('/icsb-profile', [AboutPagesController::class, 'icsb_profile'])->name('icsb_profile');
-    // Route::get('/vision', [AboutPagesController::class, 'vision'])->name('vision');
-    // Route::get('/mission', [AboutPagesController::class, 'mission'])->name('mission');
-    // Route::get('/objectives', [AboutPagesController::class, 'objectives'])->name('objectives');
+    // Route::get('/icsb-profile', [AboutPagesController::class, 'icsb_profile'])->name('icsb_profile');
     Route::get('/faq', [AboutPagesController::class, 'faq'])->name('faq');
     Route::get('/world-wide-cs', [AboutPagesController::class, 'wwcs'])->name('wwcs');
 });
@@ -361,35 +354,14 @@ Route::group(['as' => 'rules.', 'prefix' => 'rules'], function () {
     Route::get('/secretarial-standards/{slug}', [RulesPagesController::class, 'bss_view'])->name('bss.view');
 });
 
-// Route::group(['as' => 'council.', 'prefix' => 'council'], function () {
-//     Route::get('/', [CouncilPagesController::class, 'council'])->name('council');
-//     Route::get('/committee', [CouncilPagesController::class, 'committee'])->name('committee');
-//     Route::get('/past-presidents', [CouncilPagesController::class, 'pastPresidents'])->name('past_presidents');
-//     Route::get('/president', [CouncilPagesController::class, 'president'])->name('president');
-//     Route::get('/previous-council', [CouncilPagesController::class, 'previousCouncil'])->name('previous_council');
-// });
 // Route::group(['as' => 'students.', 'prefix' => 'students'], function () {
 //     Route::get('/world-wide-chartered-secretaries', [StudentsPagesController::class, 'wwcs'])->name('wwcs');
-//     Route::get('/handbook', [StudentsPagesController::class, 'studentsHandbook'])->name('handbook');
-//     Route::get('/notice-board', [StudentsPagesController::class, 'noticeBoard'])->name('notice_board');
-//     Route::get('/eligibility', [StudentsPagesController::class, 'eligibility'])->name('eligibility');
-//     Route::get('/exam-schedule', [StudentsPagesController::class, 'examSchedule'])->name('exam_schedule');
-//     Route::get('/admission-rules', [StudentsPagesController::class, 'admissionRules'])->name('admission_rules');
-//     Route::get('/admission-form', [StudentsPagesController::class, 'admissionForm'])->name('admission_form');
-
 // });
 Route::group(['as' => 'members.', 'prefix' => 'members'], function () {
-    // Route::get('/council', [MembersPagesController::class, 'council'])->name('council');
-    // Route::get('/fees', [MembersPagesController::class, 'fees'])->name('fees');
-    // Route::get('/code-of-conduct', [MembersPagesController::class, 'codeOfConduct'])->name('code_of_conduct');
-    // Route::get('/cpd-program', [MembersPagesController::class, 'cpdProgram'])->name('cpd_program');
     Route::get('/member-search/{slug}', [MembersPagesController::class, 'memberSearch'])->name('m_search');
-    // Route::get('/job-placement', [MembersPagesController::class, 'jobPlacement'])->name('job_placement');
-
 });
 // Route::group(['as' => 'rules_and_regulations.', 'prefix' => 'rulse-&-regulations'], function () {
 //     Route::get('/the-chartered-secretaries-act-2010', [RulesAndRegulationsPagesController::class, 'tcsa'])->name('tcsa');
-//     Route::get('/the-chartered-secretaries-regulations-2011', [RulesAndRegulationsPagesController::class, 'tcsr'])->name('tcsr');
 // });
 // Route::group(['as' => 'publications.', 'prefix' => 'publications'], function () {
 //     Route::get('/photo-gallery', [PublicationsPagesController::class, 'photoGallery'])->name('photo_gallery');
