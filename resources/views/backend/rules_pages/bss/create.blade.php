@@ -45,14 +45,14 @@
                                 <small>{{_('(image must be png and 50x50)')}}</small>
                                 @include('alerts.feedback', ['field' => 'image'])
                            </div>
-                           <div class="form-group {{ $errors->has('file') ? ' has-danger' : '' }} {{ $errors->has('file.*') ? ' has-danger' : '' }}">
+                           <div class="form-group {{ $errors->has('file.file_name') ? ' has-danger' : '' }} {{ $errors->has('file.file_path') ? ' has-danger' : '' }}">
                                 <label>{{ _('File') }}</label>
                                 <div class="input-group mb-3">
                                     <input type="text" name="file[file_name]" class="form-control" placeholder="{{ _('Enter file name') }}" >
                                     <input type="file" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.odt,.ods,.odp" name="file[file_path]" class="form-control" >
                                 </div>
-                                @include('alerts.feedback', ['field' => 'file'])
-                                @include('alerts.feedback', ['field' => 'file.*'])
+                                @include('alerts.feedback', ['field' => 'file.file_name'])
+                                @include('alerts.feedback', ['field' => 'file.file_path'])
                             </div>
 
 

@@ -29,8 +29,8 @@ class SecretarialStandardRequest extends FormRequest
             'title' => 'required|unique:secretarial_standards,title,NULL,id,deleted_at,NULL',
             'short_title' => 'required|unique:secretarial_standards,short_title,NULL,id,deleted_at,NULL',
             'image' => 'required|image|mimes:png',
-            'file.*.file_path' => 'required|file|mimes:jpg,png,pdf,doc,docx,xls,xlsx,ppt,pptx,odt,ods,odp',
-            'file.*.file_name' => 'required|string',
+            'file.file_path' => 'required|file|mimes:jpg,png,pdf,doc,docx,xls,xlsx,ppt,pptx,odt,ods,odp',
+            'file.file_name' => 'required|string',
         ];
     }
 
@@ -40,8 +40,8 @@ class SecretarialStandardRequest extends FormRequest
             'title' => 'required|unique:secretarial_standards,title,' . $this->route('id') . ',id,deleted_at,NULL',
             'short_title' => 'required|unique:secretarial_standards,short_title,' . $this->route('id') . ',id,deleted_at,NULL',
             'image' => 'nullable|image|mimes:png',
-            'file.*.file_path' => 'nullable|file|mimes:jpg,png,pdf,doc,docx,xls,xlsx,ppt,pptx,odt,ods,odp',
-            'file.*.file_name' => 'nullable|string',
+            'file.file_path' => 'nullable|file|mimes:jpg,png,pdf,doc,docx,xls,xlsx,ppt,pptx,odt,ods,odp',
+            'file.file_name' => 'nullable|string',
         ];
     }
 }

@@ -27,7 +27,7 @@ class SecretarialStandardsController extends Controller
     {
         return view('backend.rules_pages.bss.create');
     }
-    public function store(Request $request): RedirectResponse
+    public function store(SecretarialStandardRequest $request): RedirectResponse
     {
         $bss = new SecretarialStandard;
         if ($request->hasFile('image')) {
@@ -58,7 +58,7 @@ class SecretarialStandardsController extends Controller
         $s['bss'] = SecretarialStandard::findOrFail($id);
         return view('backend.rules_pages.bss.edit', $s);
     }
-    public function update(Request $request, $id): RedirectResponse
+    public function update(SecretarialStandardRequest $request, $id): RedirectResponse
     {
         $bss = SecretarialStandard::findOrFail($id);
         if ($request->hasFile('image')) {
@@ -66,11 +66,10 @@ class SecretarialStandardsController extends Controller
             $path = $image->store('bss', 'public');
             $bss->image = $path;
         }
-        $fileName = $request->file['file_name'];
-        $file = $request->file['file_path'];
         $data = array();
-        if (!empty($fileName) && !empty($file)) {
-
+        if (!empty($request->file['file_name']) && !empty($request->file['file_path'])) {
+                $fileName = $request->file['file_name'];
+                $file = $request->file['file_path'];
                 $oldfile = json_decode($bss->file, true);
                 $filePathToDelete = $oldfile['file_path'];
                 $this->fileDelete($filePathToDelete);
@@ -78,8 +77,8 @@ class SecretarialStandardsController extends Controller
                 $path = $file->storeAs('bss', $customFileName, 'public');
                 $data['file_path'] = 'bss/' . $customFileName;
                 $data['file_name'] = $fileName;
+                $bss->file = json_encode($data);
         }
-        $bss->file = json_encode($data);
         $bss->title = $request->title;
         $bss->short_title = $request->short_title;
         $bss->description = $request->description;
