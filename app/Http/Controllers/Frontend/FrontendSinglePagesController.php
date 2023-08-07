@@ -32,6 +32,7 @@ class FrontendSinglePagesController extends Controller
             'mediaRoomCategory' => $mediaRoomCategory,
             'bsss' => $bsss,
         ]);
+        return $this->middleware('auth');
     }
     public function frontend($fs): View
     {

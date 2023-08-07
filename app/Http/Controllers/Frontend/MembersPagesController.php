@@ -26,6 +26,7 @@ class MembersPagesController extends Controller
             'mediaRoomCategory' => $mediaRoomCategory,
             'bsss' => $bsss,
         ]);
+        return $this->middleware('auth');
     }
 
     public function memberSearch($slug): View

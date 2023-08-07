@@ -31,6 +31,7 @@ class AboutPagesController extends Controller
             'mediaRoomCategory' => $mediaRoomCategory,
             'bsss' => $bsss,
         ]);
+        return $this->middleware('auth');
     }
     public function faq(): View
     {

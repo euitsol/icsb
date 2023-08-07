@@ -28,6 +28,7 @@ class MediaRoomPagesController extends Controller
             'mediaRoomCategory' => $mediaRoomCategory,
             'bsss' => $bsss,
         ]);
+        return $this->middleware('auth');
     }
     public function mr_all(): View
     {

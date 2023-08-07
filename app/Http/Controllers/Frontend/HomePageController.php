@@ -33,6 +33,7 @@ class HomePageController extends Controller
             'mediaRoomCategory' => $mediaRoomCategory,
             'bsss' => $bsss,
         ]);
+        return $this->middleware('auth');
     }
 
     public function index(): View

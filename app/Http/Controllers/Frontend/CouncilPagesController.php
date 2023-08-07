@@ -30,6 +30,7 @@ class CouncilPagesController extends Controller
             'mediaRoomCategory' => $mediaRoomCategory,
             'bsss' => $bsss,
         ]);
+        return $this->middleware('auth');
     }
     public function committee($slug): View
     {
