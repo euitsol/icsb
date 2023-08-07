@@ -38,33 +38,52 @@ class FrontendSinglePagesController extends Controller
     {
 
         $s['single_page'] = SinglePages::where('frontend_slug', $fs)->first();
-        if($s['single_page']->frontend_slug == 'vision')
-        {
-            $s['national_awards'] = NationalAward::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
-            return view('frontend.about.vision',$s);
-        }elseif($s['single_page']->frontend_slug == 'mission')
-        {
-            $s['national_awards'] = NationalAward::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
-            return view('frontend.about.mission',$s);
-        }elseif($s['single_page']->frontend_slug == 'objectives')
-        {
-            $s['media_rooms'] = MediaRoom::where('deleted_at', null)->where('permission','1')->where('is_featured','1')->latest()->get();
-            $s['events'] = Event::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
-            return view('frontend.about.objectives',$s);
-        }elseif($s['single_page']->frontend_slug == 'exam-schedule')
-        {
-            return view('frontend.examination.exam_schedule',$s);
-        }elseif($s['single_page']->frontend_slug == 'job-placement')
-        {
-            return view('frontend.members.job_placement',$s);
-        }elseif($s['single_page']->frontend_slug == 'icsb-profile')
-        {
-            $s['wwcss'] = WWCS::where('status',1)->where('deleted_at', null)->latest()->get();
-            $s['home_bsss'] = SecretarialStandard::where('deleted_at', null)->where('is_featured','1')->where('status', 1)->get();
-            return view('frontend.about.icsb_profile',$s);
-        }else{
-
-            return view('frontend.global', $s);
+        switch($s['single_page']){
+            case($s['single_page']->frontend_slug == 'icsb-profile'):
+                $s['wwcss'] = WWCS::where('status',1)->where('deleted_at', null)->latest()->get();
+                $s['home_bsss'] = SecretarialStandard::where('deleted_at', null)->where('is_featured','1')->where('status', 1)->get();
+                return view('frontend.about.icsb_profile',$s);
+                break;
+            case($s['single_page']->frontend_slug == 'vision'):
+                $s['national_awards'] = NationalAward::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
+                return view('frontend.about.vision',$s);
+                break;
+            case($s['single_page']->frontend_slug == 'objectives'):
+                $s['national_awards'] = NationalAward::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
+                return view('frontend.about.mission',$s);
+                break;
+            case($s['single_page']->frontend_slug == 'exam-schedule'):
+                $s['media_rooms'] = MediaRoom::where('deleted_at', null)->where('permission','1')->where('is_featured','1')->latest()->get();
+                $s['events'] = Event::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
+                return view('frontend.about.objectives',$s);
+                break;
+            default:
+                return view('frontend.global', $s);
         }
+        // if($s['single_page']->frontend_slug == 'vision')
+        // {
+        //     $s['national_awards'] = NationalAward::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
+        //     return view('frontend.about.vision',$s);
+        // }elseif($s['single_page']->frontend_slug == 'mission')
+        // {
+        //     $s['national_awards'] = NationalAward::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
+        //     return view('frontend.about.mission',$s);
+        // }elseif($s['single_page']->frontend_slug == 'objectives')
+        // {
+        //     $s['media_rooms'] = MediaRoom::where('deleted_at', null)->where('permission','1')->where('is_featured','1')->latest()->get();
+        //     $s['events'] = Event::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
+        //     return view('frontend.about.objectives',$s);
+        // }elseif($s['single_page']->frontend_slug == 'exam-schedule')
+        // {
+        //     return view('frontend.examination.exam_schedule',$s);
+        // }elseif($s['single_page']->frontend_slug == 'icsb-profile')
+        // {
+        //     $s['wwcss'] = WWCS::where('status',1)->where('deleted_at', null)->latest()->get();
+        //     $s['home_bsss'] = SecretarialStandard::where('deleted_at', null)->where('is_featured','1')->where('status', 1)->get();
+        //     return view('frontend.about.icsb_profile',$s);
+        // }else{
+
+        //     return view('frontend.global', $s);
+        // }
     }
 }

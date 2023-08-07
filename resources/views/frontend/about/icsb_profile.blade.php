@@ -7,20 +7,20 @@
 	<section class="breadcrumbs-section">
 		<div class="overly-image">
 			@if(!empty($single_page) && !empty(json_decode($single_page->saved_data)) && isset(json_decode($single_page->saved_data)->{"banner-image"}))
-            <img src='{{storage_url(json_decode($single_page->saved_data)->{"banner-image"})}}' alt="Vision & Mission">
+            <img src='{{storage_url(json_decode($single_page->saved_data)->{"banner-image"})}}' alt="{{$single_page->title}}">
             @endif
 		</div>
 		<div class="container">
 			<div class="breadcrumbs-row flex">
 			<div class="left-column content-column">
 				<div class="inner-column color-white">
-					<h1 class="breadcrumbs-heading">ICSB Profile</h1>
+					<h1 class="breadcrumbs-heading">{{$single_page->title}}</h1>
 					<ul class="flex">
-						<li><a href="index">Home</a></li>
+						<li><a href="index">{{_('Home')}}</a></li>
 						<li><i class="fa-solid fa-angle-right"></i></li>
-						<li><a href="#">About ICSB</a></li>
+						<li><a href="#">{{_('About ICSB')}}</a></li>
 						<li><i class="fa-solid fa-angle-right"></i></li>
-						<li><p>ICSB Profile</p></li>
+						<li><p>{{$single_page->title}}</p></li>
 					</ul>
 				</div>
 			</div>
@@ -28,21 +28,19 @@
 		</div>
 	</section>
 <!----======================== About Us Section =======================---->
-@if(!empty(json_decode($single_page->saved_data)) && isset(json_decode($single_page->saved_data)->{'back-image'}) && isset(json_decode($single_page->saved_data)->{'front-image'}) && isset(json_decode($single_page->saved_data)->{'details'}))
+@if(!empty(json_decode($single_page->saved_data)) && isset(json_decode($single_page->saved_data)->{'back-image'}) && isset(json_decode($single_page->saved_data)->{'front-image'}) && isset(json_decode($single_page->saved_data)->{'page-description'}))
 	<section class="about-us-section">
 		<div class="container">
 			<div class="about-us-row flex">
 				<div class="image-column">
-					    <img class="first-image" src="{{storage_url(json_decode($single_page->saved_data)->{'back-image'})}}" alt="">
+					    <img class="first-image" src="{{storage_url(json_decode($single_page->saved_data)->{'back-image'})}}" alt="{{$single_page->title}}">
 					<div class="box-image">
-						<img class="second-image" src="{{storage_url(json_decode($single_page->saved_data)->{'front-image'})}}" alt="">
+						<img class="second-image" src="{{storage_url(json_decode($single_page->saved_data)->{'front-image'})}}" alt="{{$single_page->title}}">
 					</div>
 				</div>
 				<div class="content-column">
-					<h2>About us</h2>
-					<p><strong>Institute of Chartered Secretaries of Bangladesh (ICSB) was established under an Act of Parliament i.e. Chartered Secretaries Act 2010 is the only recognized professional body to develop, promote and regulate the profession of Chartered Secretary in Bangladesh.</strong></p>
-					<p>The affairs of the Institute of Chartered Secretaries of Bangladesh (ICSB) are managed by a Council consist of 13 (thirteen) elected members and 05 (five) nominees from the Government of the People's Republic of Bangladesh.</p>
-					<p>The major contribution of a Chartered Secretary is in the corporate sector. Chartered Secretary is a requisite qualification to become a Company Secretary. Company Secretary is an important professional aiding the efficient management of the corporate sector. Company Secretary is a statutory officer under the Companies Act 1994. According to Bangladesh Securities and Exchange Commission (BSEC) all the listed companies should have a Company Secretary. Company Secretary is the compliance officer of the company, who has to interact, coordinate, integrate and co-operate with various other functional heads in a company.</p>
+					<h2>{{_('About us')}}</h2>
+                    {!! json_decode($single_page->saved_data)->{'page-description'} !!}
 				</div>
 			</div>
 		</div>

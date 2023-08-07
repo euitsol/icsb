@@ -322,7 +322,7 @@ Route::get('/single-page/file-delete/{url}/{id?}/{key?}', [SinglePagesController
 
 Route::get('/', [HomePageController::class, 'index'])->name('home');
 // Default View File Download Route
-Route::get('download/{filename}', [ViewDefaultController::class, 'view_download'])->name('view.download');
+Route::get('front/download/{filename}', [ViewDefaultController::class, 'view_download'])->name('view.download');
 
 // Single Pages Route
 Route::get('/page/{frontend_slug}', [FrontendSinglePagesController::class, 'frontend'])->name('sp.frontend');
