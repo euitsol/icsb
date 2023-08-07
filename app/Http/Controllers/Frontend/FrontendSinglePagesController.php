@@ -60,6 +60,7 @@ class FrontendSinglePagesController extends Controller
         }elseif($s['single_page']->frontend_slug == 'icsb-profile')
         {
             $s['wwcss'] = WWCS::where('status',1)->where('deleted_at', null)->latest()->get();
+            $s['home_bsss'] = SecretarialStandard::where('deleted_at', null)->where('is_featured','1')->where('status', 1)->get();
             return view('frontend.about.icsb_profile',$s);
         }else{
 

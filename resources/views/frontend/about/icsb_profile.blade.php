@@ -49,7 +49,7 @@
 	</section>
     @endif
     @include('frontend.includes.endorsement')
-    @include('frontend.includes.bss')
+    @include('frontend.includes.bss',['home_bsss'=>$home_bsss])
     @include('frontend.includes.world_wide_cs',['wwcss'=>$wwcss])
 
 @endsection
