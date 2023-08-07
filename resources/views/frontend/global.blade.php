@@ -46,7 +46,7 @@
 
                 </div>
             </div>
-            @if (isset($saved_data->{'single-file'}))
+            @if (isset($saved_data->{'upload-file'}))
                 <div class="global-table">
                     <table>
                         <tr>
@@ -56,23 +56,23 @@
                         </tr>
                         <tr>
                             <td><img src="{{ asset('frontend/img/Folder_Icon.svg') }}" alt="" style="height: 1.5rem;"></td>
-                            <td><span> {{file_name_from_url($saved_data->{'single-file'})}} </span></td>
-                            <td><a href="{{ route('sp.file.download', base64_encode($saved_data->{'single-file'})) }}" target="_blank"><i class="fa-solid fa-cloud-arrow-down"></i></a></td>
+                            <td><span> {{file_name_from_url($saved_data->{'upload-file'})}} </span></td>
+                            <td><a href="{{ route('sp.file.download', base64_encode($saved_data->{'upload-file'})) }}" target="_blank"><i class="fa-solid fa-cloud-arrow-down"></i></a></td>
                         </tr>
                     </table>
                 </div>
             @endif
-            @if (isset($saved_data->{'multiple-file'}) && is_array($saved_data->{'multiple-file'}) && (collect($saved_data->{'multiple-file'})->count() > 0) )
+            @if (isset($saved_data->{'upload-files'}) && is_array($saved_data->{'upload-files'}) && (collect($saved_data->{'upload-files'})->count() > 0) )
             <div class="global-table">
                 <table>
-                    @if (!isset($saved_data->{'single-file'}))
+                    @if (!isset($saved_data->{'upload-file'}))
                     <tr>
                         <th>Icon</th>
                         <th>File</th>
                         <th>Download</th>
                     </tr>
                     @endif
-                    @foreach ($saved_data->{'multiple-file'} as $url)
+                    @foreach ($saved_data->{'upload-files'} as $url)
                     <tr>
                         <td><img src="{{ asset('frontend/img/Folder_Icon.svg') }}" alt="" style="height: 1.5rem;"></td>
                         <td><span> {{file_name_from_url($url)}} </span></td>

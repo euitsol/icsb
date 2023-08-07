@@ -23,6 +23,7 @@ use App\Http\Controllers\Backend\MediaRoomController;
 use App\Http\Controllers\Backend\PresidentController;
 use App\Http\Controllers\Backend\UserManagement\RoleController;
 use App\Http\Controllers\Backend\UserManagement\PermissionController;
+use App\Http\Controllers\Frontend\DefaultController as ViewDefaultController;
 use App\Http\Controllers\Frontend\AboutPagesController;
 use App\Http\Controllers\Frontend\EventPagesController;
 use App\Http\Controllers\Frontend\CouncilPagesController;
@@ -35,6 +36,7 @@ use App\Http\Controllers\Frontend\ArticlesController;
 use App\Http\Controllers\Frontend\ExaminationPagesController;
 use App\Http\Controllers\Frontend\FrontendSinglePagesController;
 use App\Http\Controllers\Frontend\MediaRoomPagesController;
+use App\Http\Controllers\Frontend\RulesPagesController;
 use App\Http\Controllers\SettingsController;
 
 
@@ -323,6 +325,8 @@ Route::get('/single-page/file-delete/{url}/{id?}/{key?}', [SinglePagesController
 //Frontend Routes
 
 Route::get('/', [HomePageController::class, 'index'])->name('home');
+// Default View File Download Route
+Route::get('download/{filename}', [ViewDefaultController::class, 'view_download'])->name('view.download');
 
 // Single Pages Route
 Route::get('/page/{frontend_slug}', [FrontendSinglePagesController::class, 'frontend'])->name('sp.frontend');
@@ -352,6 +356,9 @@ Route::group(['as' => 'media_room_view.', 'prefix' => 'media-room'], function ()
     Route::get('/all', [MediaRoomPagesController::class, 'mr_all'])->name('all');
     Route::get('/{slug}', [MediaRoomPagesController::class, 'cat_all'])->name('cat.all');
     Route::get('/view/{slug}', [MediaRoomPagesController::class, 'view'])->name('view');
+});
+Route::group(['as' => 'rules.', 'prefix' => 'rules'], function () {
+    Route::get('/secretarial-standards/{slug}', [RulesPagesController::class, 'bss_view'])->name('bss.view');
 });
 
 // Route::group(['as' => 'council.', 'prefix' => 'council'], function () {

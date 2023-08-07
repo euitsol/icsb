@@ -62,7 +62,7 @@
                                 <a href="{{route('download',base64_encode(json_decode($bss->file)->file_path))}}" class="btn btn-info btn-sm">{{basename(json_decode($bss->file)->file_path)}}<i class="fa-regular fa-circle-down ml-2"></i></a>
                             @endif
                             @include('alerts.feedback', ['field' => 'file.file_name'])
-                                @include('alerts.feedback', ['field' => 'file.file_path'])
+                            @include('alerts.feedback', ['field' => 'file.file_path'])
                         </div>
 
 
