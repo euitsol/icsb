@@ -267,11 +267,36 @@
                     </ul>
                 </div>
             </li>
+            {{-- Examination --}}
+            <li>
+                <a class="@if(
+                        $pageSlug == 'bss'
+                    )@else collapsed @endif" data-toggle="collapse" href="#rules" @if (
+                        $pageSlug == 'bss'
+                    ) aria-expanded="true" @else aria-expanded="false"@endif">
+                    <i class="fa-solid fa-clipboard-check"></i>
+                    <span class="nav-link-text" >{{ __('Rules') }}</span>
+                    <b class="caret mt-1"></b>
+                </a>
 
-            {{-- Rules, Publications --}}
+                <div class="collapse @if (
+                        $pageSlug == 'bss'
+
+
+                ) show @endif" id="rules">
+                    <ul class="nav pl-4">
+                        @include('backend.partials.menu_buttons', [
+                            'menuItems' => [
+                                ['pageSlug' => 'bss', 'routeName' => 'bss.bss_list', 'label' => 'BSS'],
+                            ]
+                        ])
+                    </ul>
+                </div>
+            </li>
+
+            {{-- Publications --}}
             @include('backend.partials.menu_buttons', [
                 'menuItems' => [
-                    ['pageSlug' => 'rules', 'routeName' => '','iconClass' => 'fa-solid fa-gavel', 'label' => 'Rules'],
                     ['pageSlug' => 'publications', 'routeName' => '','iconClass' => 'fa-solid fa-newspaper', 'label' => 'Publications'],
                 ]
             ])
@@ -320,7 +345,7 @@
                 </div>
             </li>
 
-            {{-- Media Room, Contact Us, Banner, Event, National Connection,  National Award, Service, Site Settings  --}}
+            {{-- Media Room, Contact Us, Banner, Event, National Connection,  National Award, Site Settings  --}}
             @include('backend.partials.menu_buttons', [
                 'menuItems' => [
                     ['pageSlug' => 'media_room', 'routeName' => 'media_room.media_room_list', 'iconClass' => 'fa-solid fa-photo-film', 'label' => 'Media Room'],
@@ -330,7 +355,6 @@
                     ['pageSlug' => 'event', 'routeName' => 'event.event_list', 'iconClass' => 'fa-solid fa-bullhorn', 'label' => 'Event'],
                     ['pageSlug' => 'national_connection', 'routeName' => 'national_connection.national_connection_list', 'iconClass' => 'fa-solid fa-rss', 'label' => 'National Connection'],
                     ['pageSlug' => 'national_award', 'routeName' => 'national_award.national_award_list', 'iconClass' => 'fa-solid fa-trophy', 'label' => 'National Award'],
-                    ['pageSlug' => 'service', 'routeName' => 'service.service_list', 'iconClass' => 'fa-solid fa-screwdriver-wrench', 'label' => 'Service'],
                     ['pageSlug' => 'settings', 'routeName' => 'settings.site_settings', 'iconClass' => 'fa-solid fa-gear', 'label' => 'Site Settings'],
                 ]
             ])

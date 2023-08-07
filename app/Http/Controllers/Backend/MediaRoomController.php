@@ -56,7 +56,7 @@ class MediaRoomController extends Controller
                    isset($entry['file_path']) && !is_null($entry['file_path']);
         });
         $data = array();
-        if ($filteredFiles == true) {
+        if ($filteredFiles) {
             foreach ($request->file as $key => $file) {
                 if (isset($file['file_name']) && isset($file['file_path'])) {
                     $input_file = $file['file_path'];

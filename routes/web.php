@@ -8,7 +8,7 @@ use App\Http\Controllers\Frontend\HomePageController;
 use App\Http\Controllers\Backend\DefaultController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\FaqController;
-use App\Http\Controllers\Backend\ServiceController;
+use App\Http\Controllers\Backend\SecretarialStandardsController;
 use App\Http\Controllers\Backend\ContactController;
 use App\Http\Controllers\Backend\NationalConnectionController;
 use App\Http\Controllers\Backend\EventController;
@@ -44,7 +44,7 @@ use App\Http\Controllers\SettingsController;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
+| routes are loaded by the RoutebssProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
 */
@@ -115,14 +115,16 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         });
     });
 
-    // Service Routes
-    Route::group(['as' => 'service.', 'prefix' => 'service'], function () {
-        Route::get('index', [ServiceController::class, 'index'])->name('service_list');
-        Route::get('create', [ServiceController::class, 'create'])->name('service_create');
-        Route::post('create', [ServiceController::class, 'store'])->name('service_create');
-        Route::get('edit/{id}',      [ServiceController::class, 'edit'])->name('service_edit');
-        Route::put('edit/{id}',      [ServiceController::class, 'update'])->name('service_edit');
-        Route::get('delete/{id}', [ServiceController::class, 'delete'])->name('service_delete');
+    // BSS Routes
+    Route::group(['as' => 'bss.', 'prefix' => 'bss'], function () {
+        Route::get('index', [SecretarialStandardsController::class, 'index'])->name('bss_list');
+        Route::get('create', [SecretarialStandardsController::class, 'create'])->name('bss_create');
+        Route::post('create', [SecretarialStandardsController::class, 'store'])->name('bss_create');
+        Route::get('edit/{id}',      [SecretarialStandardsController::class, 'edit'])->name('bss_edit');
+        Route::put('edit/{id}',      [SecretarialStandardsController::class, 'update'])->name('bss_edit');
+        Route::get('status/{id}',      [SecretarialStandardsController::class, 'status'])->name('status.bss_edit');
+        Route::get('featured/{id}',      [SecretarialStandardsController::class, 'featured'])->name('featured.bss_edit');
+        Route::get('delete/{id}', [SecretarialStandardsController::class, 'delete'])->name('bss_delete');
     });
     // Contact Us Routes
     Route::group(['as' => 'contact.', 'prefix' => 'contact'], function () {
