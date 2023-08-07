@@ -171,7 +171,7 @@
                                 @if(count($bsss))
                                     <ul class="sub-menu">
                                         @foreach ($bsss as $bss)
-                                            <li><a href="{{route('rules.bss.view',$bss->slug)}}">{{$bss->short_title}}{{_(': ')}}{{$bss->title}} </a></li>
+                                            <li><a href="{{route('rules_view.bss.view',$bss->slug)}}">{{$bss->short_title}}{{_(': ')}}{{$bss->title}} </a></li>
                                         @endforeach
 
                                     </ul>

@@ -350,7 +350,7 @@ Route::group(['as' => 'media_room_view.', 'prefix' => 'media-room'], function ()
     Route::get('/{slug}', [MediaRoomPagesController::class, 'cat_all'])->name('cat.all');
     Route::get('/view/{slug}', [MediaRoomPagesController::class, 'view'])->name('view');
 });
-Route::group(['as' => 'rules.', 'prefix' => 'rules'], function () {
+Route::group(['as' => 'rules_view.', 'prefix' => 'rules'], function () {
     Route::get('/secretarial-standards/{slug}', [RulesPagesController::class, 'bss_view'])->name('bss.view');
 });
 
