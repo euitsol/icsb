@@ -47,6 +47,7 @@ class SecretarialStandardsController extends Controller
         }
         $bss->file = json_encode($data);
         $bss->title = $request->title;
+        $bss->slug = $request->slug;
         $bss->short_title = $request->short_title;
         $bss->description = $request->description;
         $bss->created_by = auth()->user()->id;
@@ -80,6 +81,7 @@ class SecretarialStandardsController extends Controller
                 $bss->file = json_encode($data);
         }
         $bss->title = $request->title;
+        $bss->slug = $request->slug;
         $bss->short_title = $request->short_title;
         $bss->description = $request->description;
         $bss->updated_by = auth()->user()->id;

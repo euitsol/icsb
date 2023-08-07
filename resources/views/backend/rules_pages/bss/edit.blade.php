@@ -30,8 +30,13 @@
                     <div class="card-body">
                         <div class="form-group {{ $errors->has('title') ? ' has-danger' : '' }}">
                             <label>{{ _('Title') }}</label>
-                            <input type="text" name="title" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ _('Title') }}" value="{{ $bss->title }}">
+                            <input type="text" name="title" id="title" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter Title') }}" value="{{ $bss->title }}">
                             @include('alerts.feedback', ['field' => 'title'])
+                        </div>
+                        <div class="form-group {{ $errors->has('slug') ? ' has-danger' : '' }}">
+                            <label>{{ _('Slug') }}</label>
+                            <input type="text" class="form-control {{ $errors->has('slug') ? ' is-invalid' : '' }}" id="slug" name="slug" placeholder="{{ _('Enter Slug (must be use - on white speace)') }}" value="{{ $bss->slug }}">
+                            @include('alerts.feedback', ['field' => 'slug'])
                         </div>
                         <div class="form-group {{ $errors->has('short_title') ? ' has-danger' : '' }}">
                             <label>{{ _('Short Title') }}</label>
@@ -90,5 +95,22 @@
     </div>
 @endsection
 
-@push('js')
+@push('js_link')
+    <script>
+        function generateSlug(str) {
+            return str
+                .toLowerCase()
+                .replace(/\s+/g, "-")
+                .replace(/[^\w-]+/g, "")
+                .replace(/--+/g, "-")
+                .replace(/^-+|-+$/g, "");
+        }
+    $(document).ready(function () {
+        $("#title").on("keyup mouseleave blur focusout ", function () {
+            const titleValue = $(this).val().trim();
+            const slugValue = generateSlug(titleValue);
+            $("#slug").val(slugValue);
+        });
+    });
+    </script>
 @endpush
