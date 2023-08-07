@@ -168,14 +168,14 @@
                             <li><a href="#">Companies Act 1994</a></li>
                             <li><a href="#">Income Tax Act 2023</a></li>
                             <li class="drop-down"><a href="#">Secretarial Standards <i class="fa-solid fa-angle-down"></i></a>
-                                <ul class="sub-menu">
-                                    <li><a href="#">BSS 1: Board of Directors Meeting </a></li>
-                                    <li><a href="#">BSS 2: General Meeting </a></li>
-                                    <li><a href="#">BSS 3: Minutes </a></li>
-                                    <li><a href="#">BSS 4: Dividend </a></li>
-                                    <li><a href="#">BSS 5: Virtual & Hybrid Meeting </a></li>
-                                    <li><a href="#">BSS 6: Resolution by Circulation </a></li>
-                                </ul>
+                                @if(count($bsss))
+                                    <ul class="sub-menu">
+                                        @foreach ($bsss as $bss)
+                                            <li><a href="#">{{$bss->short_title}}{{_(': ')}}{{$bss->title}} </a></li>
+                                        @endforeach
+
+                                    </ul>
+                                @endif
                             </li>
                         </ul>
                     </li>

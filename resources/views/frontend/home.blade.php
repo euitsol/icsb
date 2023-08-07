@@ -95,7 +95,7 @@
     </section>
 @endif
 <!----============================ BSS Secretarial Section ==========================---->
-@include('frontend.includes.bss')
+@include('frontend.includes.bss',['home_bsss'=>$home_bsss])
 
 <!----============================ Notices Section ==========================---->
 <section class="notice-section">

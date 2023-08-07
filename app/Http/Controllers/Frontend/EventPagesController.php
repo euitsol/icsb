@@ -11,6 +11,7 @@ use App\Models\Contact;
 use App\Models\MemberType;
 use Illuminate\View\View;
 use App\Models\Event;
+use App\Models\SecretarialStandard;
 
 class EventPagesController extends Controller
 {
@@ -19,11 +20,13 @@ class EventPagesController extends Controller
         $memberTypes = MemberType::where('deleted_at', null)->where('status', 1)->get();
         $committeeTypes = CommitteeType::with('committees')->where('deleted_at', null)->where('status', 1)->get();
         $mediaRoomCategory = MediaRoomCategory::with('media_rooms')->where('deleted_at', null)->where('status', 1)->get();
+        $bsss = SecretarialStandard::where('deleted_at', null)->where('status', 1)->get();
         view()->share([
             'contact' => $contact,
             'memberTypes' => $memberTypes,
             'committeeTypes' => $committeeTypes,
             'mediaRoomCategory' => $mediaRoomCategory,
+            'bsss' => $bsss,
         ]);
     }
     public function events(): View

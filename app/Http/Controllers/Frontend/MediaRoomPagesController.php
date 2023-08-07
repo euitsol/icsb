@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\MediaRoom;
 use App\Models\MediaRoomCategory;
 use App\Models\CommitteeType;
+use App\Models\SecretarialStandard;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Route;
 
@@ -19,11 +20,13 @@ class MediaRoomPagesController extends Controller
         $memberTypes = MemberType::where('deleted_at', null)->where('status', 1)->get();
         $committeeTypes = CommitteeType::with('committees')->where('deleted_at', null)->where('status', 1)->get();
         $mediaRoomCategory = MediaRoomCategory::with('media_rooms')->where('deleted_at', null)->where('status', 1)->get();
+        $bsss = SecretarialStandard::where('deleted_at', null)->where('status', 1)->get();
         view()->share([
             'contact' => $contact,
             'memberTypes' => $memberTypes,
             'committeeTypes' => $committeeTypes,
             'mediaRoomCategory' => $mediaRoomCategory,
+            'bsss' => $bsss,
         ]);
     }
     public function mr_all(): View

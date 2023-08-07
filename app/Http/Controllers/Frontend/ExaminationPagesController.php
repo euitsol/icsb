@@ -7,6 +7,7 @@ use App\Models\MediaRoomCategory;
 use App\Models\CommitteeType;
 use App\Models\Contact;
 use App\Models\MemberType;
+use App\Models\SecretarialStandard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\View\View;
@@ -18,11 +19,13 @@ class ExaminationPagesController extends Controller
         $memberTypes = MemberType::where('deleted_at', null)->where('status', 1)->get();
         $committeeTypes = CommitteeType::with('committees')->where('deleted_at', null)->where('status', 1)->get();
         $mediaRoomCategory = MediaRoomCategory::with('media_rooms')->where('deleted_at', null)->where('status', 1)->get();
+        $bsss = SecretarialStandard::where('deleted_at', null)->where('status', 1)->get();
         view()->share([
             'contact' => $contact,
             'memberTypes' => $memberTypes,
             'committeeTypes' => $committeeTypes,
             'mediaRoomCategory' => $mediaRoomCategory,
+            'bsss' => $bsss,
         ]);
     }
     // public function examSchedule(): View

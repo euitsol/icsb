@@ -10,6 +10,7 @@ use App\Models\Contact;
 use App\Models\Event;
 use App\Models\MemberType;
 use App\Models\NationalAward;
+use App\Models\SecretarialStandard;
 use App\Models\SinglePages;
 use App\Models\WWCS;
 use Illuminate\Http\Request;
@@ -23,11 +24,13 @@ class FrontendSinglePagesController extends Controller
         $memberTypes = MemberType::where('deleted_at', null)->where('status', 1)->get();
         $committeeTypes = CommitteeType::with('committees')->where('deleted_at', null)->where('status', 1)->get();
         $mediaRoomCategory = MediaRoomCategory::with('media_rooms')->where('deleted_at', null)->where('status', 1)->get();
+        $bsss = SecretarialStandard::where('deleted_at', null)->where('status', 1)->get();
         view()->share([
             'contact' => $contact,
             'memberTypes' => $memberTypes,
             'committeeTypes' => $committeeTypes,
             'mediaRoomCategory' => $mediaRoomCategory,
+            'bsss' => $bsss,
         ]);
     }
     public function frontend($fs): View

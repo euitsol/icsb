@@ -65,6 +65,7 @@ class SecretarialStandardsController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $path = $image->store('bss', 'public');
+            $this->fileDelete($bss->image);
             $bss->image = $path;
         }
         $data = array();
