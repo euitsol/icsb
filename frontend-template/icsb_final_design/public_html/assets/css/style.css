@@ -735,8 +735,10 @@ h1,h2,h3,h4,h5,h6{
 	flex-wrap: wrap;
 	column-gap: 3.3%;
 }
-.bss-section .bss-row .bss-right-column .bss-item{
+.bss-section .bss-row .bss-right-column > a{
 	width: 31.133%;
+}
+.bss-section .bss-row .bss-right-column .bss-item{
 	background: #fff;
 	position: relative;
 	border-radius: 27px;
@@ -761,10 +763,13 @@ h1,h2,h3,h4,h5,h6{
 .bss-section .bss-row .bss-right-column .bss-item img{
 	width: auto;
 }
+.bss-section .bss-row .bss-right-column .bss-item .title{
+	min-height: 45px;
+	margin-bottom: 13px;
+}
 .bss-section .bss-row .bss-right-column .bss-item h3{
 	font-size: 16px;
 	line-height: 22px;
-	margin-bottom: 13px;
 	font-family: 'Poppins', sans-serif;
 }
 .bss-section .bss-row .bss-right-column .bss-item h4{
