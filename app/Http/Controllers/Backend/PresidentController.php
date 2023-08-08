@@ -21,14 +21,14 @@ class PresidentController extends Controller
     }
     public function index(): View
     {
-        $check1= PresidentDuration::where('deleted_at',null)->where('end_date','<=',Carbon::now())->first();
+        $check1= PresidentDuration::where('deleted_at',null)->where('end_date','<=',Carbon::now()->format('Y-m-d'))->first();
         if($check1){
                 $p = President::findOrFail($check1->president->id);
                 $p->status = 0;
                 $p->designation = 'Past President, ICSB';
                 $p->save();
         }
-        $check2= PresidentDuration::where('deleted_at',null)->where('end_date','>',Carbon::now())->first();
+        $check2= PresidentDuration::where('deleted_at',null)->where('end_date','>',Carbon::now()->format('Y-m-d'))->first();
         if($check2){
             $p = President::findOrFail($check2->president->id);
             $p->status = 1;
@@ -56,17 +56,13 @@ class PresidentController extends Controller
         foreach ($request->duration as $key => $duration) {
             if(empty($duration['end_date'])){
                 $check = PresidentDuration::where('deleted_at',null)->where('end_date',null)->first();
-                $check2 = PresidentDuration::where('deleted_at',null)->where('end_date','>',Carbon::now())->first();
                 if($check){
-                    $check->end_date = Carbon::now();
+                    $check->end_date = Carbon::now()->format('Y-m-d');
                     $check->save();
                     $p = President::findOrFail($check->president->id);
                     $p->status = 0;
                     $p->designation = 'Past President, ICSB';
                     $p->save();
-                }
-                if($check2){
-                    return redirect()->route('president.president_list')->withStatus(__('President '.$check2->member->name.' end date not expire please change running president end date or add this end date.'));
                 }
             }
         }
@@ -106,26 +102,26 @@ class PresidentController extends Controller
     {
         if(!empty($request->duration)){
             foreach ($request->duration as $key => $duration) {
-                if(!empty($duration['end_date'])){
-                    $check = PresidentDuration::where('deleted_at',null)->where('end_date',null)->first();
-                    $check2 = PresidentDuration::where('deleted_at',null)->where('end_date','>',Carbon::now())->first();
-                    if($check){
-                        $check->end_date = Carbon::now();
-                        $check->save();
-                        $p = President::findOrFail($check->president->id);
-                        $p->status = 0;
-                        $p->designation = 'Past President, ICSB';
-                        $p->save();
+                    if(empty($duration['end_date']) || (isset($duration['end_date']) && $duration['end_date'] > Carbon::now()->format('Y-m-d'))){
+                            $check = PresidentDuration::where('deleted_at',null)->where('end_date',null)->where('president_id','!=',$id)->first();
+                            if($check){
+                                $check->end_date = Carbon::now()->format('Y-m-d');
+                                $check->save();
+                                $p = President::findOrFail($check->president->id);
+                                $p->status = 0;
+                                $p->designation = 'Past President, ICSB';
+                                $p->save();
+                        }
+
                     }
-                    if($check2){
-                        return redirect()->route('president.president_list')->withStatus(__('President '.$check2->member->name.' end date not expire please change running president end date or add this end date.'));
-                    }
-                }
-            }
+        }
+
         }
         $president = President::findOrFail($id);
         $president->member_id = $request->member_id;
-        $president->slug = $request->slug.'-'.$request->member_id;
+        if($president->slug != $request->slug){
+            $president->slug = $request->slug.'-'.$request->member_id;
+        }
         $president->bio = $request->bio;
         $president->designation = $request->designation;
         $president->message = $request->message;
@@ -135,25 +131,17 @@ class PresidentController extends Controller
 
         if(!empty($request->duration)){
             foreach ($request->duration as $key => $duration) {
-                if((!empty($duration['end_date']) && !isset($duration['start_date'])) || (!empty($duration['end_date']) && isset($duration['start_date']) && !empty($duration['start_date']))){
-                    $check= PresidentDuration::where('deleted_at',null)->where('end_date',null)->where('president_id',$id)->first();
+                if((!empty($duration['end_date']) && $duration['end_date'] <= Carbon::now()->format('Y-m-d') && (!isset($duration['start_date'])  || empty($duration['start_date'])))){
+                    $check= PresidentDuration::where('deleted_at',null)->where('president_id',$id)->where('id',$duration['id'])->first();
                     if($check){
                         $check->end_date = $duration['end_date'];
                         $check->save();
-                        if($duration['end_date'] > Carbon::now()){
-                            $p = President::findOrFail($check->president->id);
-                            $p->status = 1;
-                            $p->designation = 'President, ICSB';
-                            $p->save();
-                        }else{
-                            $p = President::findOrFail($check->president->id);
-                            $p->status = 0;
-                            $p->designation = 'Past President, ICSB';
-                            $p->save();
-                        }
-
+                        $p = President::findOrFail($check->president->id);
+                        $p->status = 0;
+                        $p->designation = 'Past President, ICSB';
+                        $p->save();
                     }
-                }elseif(isset($duration['start_date']) && !empty($duration['start_date']) && empty($duration['end_date'])){
+                }elseif((isset($duration['start_date']) && !empty($duration['start_date'])) ){
                         $pd= new PresidentDuration();
                         $pd->president_id = $id;
                         $pd->start_date = $duration['start_date'];
@@ -161,7 +149,11 @@ class PresidentController extends Controller
                         $pd->created_by = auth()->user()->id;
                         $pd->save();
                         $p = President::findOrFail($id);
-                        $p->status = 1;
+                        if((empty($duration['end_date'])) || (!empty($duration['end_date']) && $duration['end_date'] > Carbon::now()->format('Y-m-d'))){
+                            $p->status = 1;
+                        }else{
+                            $p->status = 0;
+                        }
                         $p->designation = 'President, ICSB';
                         $p->save();
                 }
