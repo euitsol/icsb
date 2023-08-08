@@ -7,9 +7,11 @@
             <div class="logo-carousel">
                 <div class="cs-wide-slider owl-carousel owl-theme">
                     @forelse ($wwcss as $wwcs)
-                        <div class="item">
-                            <img src="{{storage_url($wwcs->logo)}}" alt="{{$wwcs->title}}">
-                        </div>
+                        <a href="{{$wwcs->url}}">
+                            <div class="item">
+                                <img src="{{storage_url($wwcs->logo)}}" alt="{{$wwcs->title}}">
+                            </div>
+                        </a>
                     @empty
                         <div class="item">
                             <img src="{{ asset('no_img/no_img.jpg') }}" alt=".....">
