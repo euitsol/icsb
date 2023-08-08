@@ -54,8 +54,12 @@ class PresidentController extends Controller
     public function store(PresidentRequest $request): RedirectResponse
     {
         foreach ($request->duration as $key => $duration) {
-            if(empty($duration['end_date'])){
+            if(empty($duration['end_date']) || (!empty($duration['end_date']) && $duration['end_date'] > Carbon::now()->format('Y-m-d'))){
                 $check = PresidentDuration::where('deleted_at',null)->where('end_date',null)->first();
+                $check2 = PresidentDuration::where('deleted_at',null)->where('end_date','>',Carbon::now()->format('Y-m-d'))->first();
+                if($check2){
+                    return redirect()->route('president.president_list')->withStatus(__('President '.$check2->president->member->name.' end date not expire! Fist change ' .$check2->president->member->name.' end date or you can add past president with end date!'));
+                }
                 if($check){
                     $check->end_date = Carbon::now()->format('Y-m-d');
                     $check->save();
@@ -63,8 +67,9 @@ class PresidentController extends Controller
                     $p->status = 0;
                     $p->designation = 'Past President, ICSB';
                     $p->save();
-                }
             }
+
+        }
         }
         $president = new President;
         $president->member_id = $request->member_id;
@@ -79,7 +84,7 @@ class PresidentController extends Controller
             $pd= new PresidentDuration();
             $pd->president_id = $president->id;
             $pd->start_date = $duration['start_date'];
-            if($duration['end_date']){
+            if((!empty($duration['end_date']) && $duration['end_date'] <= Carbon::now()->format('Y-m-d'))){
                 $p = President::findOrFail($president->id);
                 $p->status = 0;
                 $p->designation = 'Past President, ICSB';
@@ -104,6 +109,10 @@ class PresidentController extends Controller
             foreach ($request->duration as $key => $duration) {
                     if(empty($duration['end_date']) || (isset($duration['end_date']) && $duration['end_date'] > Carbon::now()->format('Y-m-d'))){
                             $check = PresidentDuration::where('deleted_at',null)->where('end_date',null)->where('president_id','!=',$id)->first();
+                            $check2 = PresidentDuration::where('deleted_at',null)->where('end_date','>',Carbon::now()->format('Y-m-d'))->where('president_id','!=',$id)->first();
+                            if($check2){
+                                return redirect()->route('president.president_list')->withStatus(__('President '.$check2->president->member->name.' end date not expire! Fist change ' .$check2->president->member->name.' end date or you can add past president with end date!'));
+                            }
                             if($check){
                                 $check->end_date = Carbon::now()->format('Y-m-d');
                                 $check->save();
@@ -111,7 +120,7 @@ class PresidentController extends Controller
                                 $p->status = 0;
                                 $p->designation = 'Past President, ICSB';
                                 $p->save();
-                        }
+                            }
 
                     }
         }
