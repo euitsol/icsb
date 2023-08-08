@@ -44,6 +44,14 @@
                         <div id="memberInfo" class="row align-items-center">
 
                         </div>
+                        <div class="form-group {{ $errors->has('designation') ? ' has-danger' : '' }}">
+                            <label>{{ _('Designation') }}</label>
+                            <select name="designation" class="form-control {{ $errors->has('designation') ? ' is-invalid' : '' }}">
+                                    <option value="President, ICSB" @if( $president->designation == 'President, ICSB') selected @endif>{{_('President')}}</option>
+                                    <option value="Past President, ICSB" @if( $president->designation == 'Past President, ICSB') selected @endif>{{_('Past President')}}</option>
+                            </select>
+                            @include('alerts.feedback', ['field' => 'designation'])
+                        </div>
                         @foreach ($president->durations as $key=>$duration)
                         <div class="form-group {{ $errors->has('duration') ? ' has-danger' : '' }} {{ $errors->has('duration.*') ? ' has-danger' : '' }}">
                             <label>{{ _('President Duration -')}}{{$key+1}}</label>

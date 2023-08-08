@@ -17,6 +17,7 @@ class PresidentRequest extends FormRequest
     {
         return [
             'bio' => 'required',
+            'designation' => 'required',
             'message' => 'required',
             'status' => 'nullable|boolean',
             'duration.*.end_date' => 'nullable|date',

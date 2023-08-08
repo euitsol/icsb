@@ -57,7 +57,7 @@
                     <img src="{{getMemberImage($president->member)}}" alt="{{_('President Image')}}">
                     <div class="president-info text-align color-white">
                         <h3>{{$president->member->name}}</h3>
-                        <p>{{_('ICSB President')}}</p>
+                        <p>{{$president->designation}}</p>
                     </div>
                 </div>
                 <div class="right-column">

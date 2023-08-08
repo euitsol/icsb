@@ -12,26 +12,14 @@
         <div class="breadcrumbs-row flex">
             <div class="left-column content-column">
                 <div class="inner-column color-white">
-                    <h1 class="breadcrumbs-heading">
-                        @if($president->status == 1)
-                            {{_('President')}}
-                        @else
-                            {{_('Past President')}}
-                        @endif
-                    </h1>
+                    <h1 class="breadcrumbs-heading">{{$president->designation}}</h1>
                     <ul class="flex">
-                        <li><a href="index">Home</a></li>
+                        <li><a href="index">{{_('Home')}}</a></li>
                         <li><i class="fa-solid fa-angle-right"></i></li>
-                        <li><a href="#">Council</a></li>
+                        <li><a href="#">{{_('Council')}}</a></li>
                         <li><i class="fa-solid fa-angle-right"></i></li>
                         <li>
-                            <p>
-                                @if($president->status == 1)
-                                    {{_('President')}}
-                                @else
-                                    {{_('Past President')}}
-                                @endif
-                            </p>
+                            <p>{{$president->designation}}</p>
                         </li>
                     </ul>
                 </div>
@@ -47,13 +35,13 @@
              <img src="{{getMemberImage($president->member)}}" alt="{{_('president')}}">
              <div class="name-tittle">
              <h3>{{$president->member->name}}</h3>
-             <p>{{_('President, ICSB')}}</p>
+             <p>{{$president->designation}}</p>
              </div>
              <div class="contact-info">
                 <ul>
                     @if(!empty(json_decode($president->member->phone)))
                         @foreach (json_decode($president->member->phone) as $phone)
-                            <li><a href="tel:88{{$phone->number}}"><i class="fa-solid fa-phone"></i> +88{{$phone->number}}({{stringLimit(ucfirst($phone->type), 3, '..')}})</a></li>
+                            <li><a href="tel:88{{$phone->number}}"><i class="fa-solid fa-phone"></i>+88{{$phone->number}}({{stringLimit(ucfirst($phone->type), 3, '..')}})</a></li>
                         @endforeach
                     @endif
                     @if(!empty($president->member->email))
@@ -77,13 +65,7 @@
             </div>
             <div class="right-column">
 
-             <h2>
-                @if($president->status == 1)
-                    {{_('President')}}
-                @else
-                    {{_('Past President')}}
-                @endif
-            </h2>
+             <h2>{{str_replace(', ICSB', '', $president->designation)}}</h2>
                 {!! $president->bio !!}
             </div>
         </div>
