@@ -48,9 +48,14 @@ class FrontendSinglePagesController extends Controller
                 $s['national_awards'] = NationalAward::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
                 return view('frontend.about.vision',$s);
                 break;
-            case($s['single_page']->frontend_slug == 'objectives'):
+            case($s['single_page']->frontend_slug == 'mission'):
                 $s['national_awards'] = NationalAward::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
                 return view('frontend.about.mission',$s);
+                break;
+            case($s['single_page']->frontend_slug == 'objectives'):
+                $s['media_rooms'] = MediaRoom::where('deleted_at', null)->where('permission','1')->where('is_featured','1')->latest()->get();
+                $s['events'] = Event::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
+                return view('frontend.about.objectives',$s);
                 break;
             case($s['single_page']->frontend_slug == 'exam-schedule'):
                 $s['media_rooms'] = MediaRoom::where('deleted_at', null)->where('permission','1')->where('is_featured','1')->latest()->get();

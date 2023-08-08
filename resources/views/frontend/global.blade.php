@@ -32,16 +32,21 @@
     </section>
     <section class="global-page-section">
         <div class="container">
-            <div class="global-row flex">
-                <div class="left-column">
+            <div class="global-row flex
+            align-items-center
+            @if (isset($saved_data->{'page-description'}) && strlen($saved_data->{'page-description'})>1700) flex-column-reverse @endif
+            ">
+                <div class="left-column @if (isset($saved_data->{'page-description'}) && strlen($saved_data->{'page-description'})>1700) w-100 @endif">
                     @if (isset($saved_data->{'page-description'}))
                         {!! $saved_data->{'page-description'} ?? '' !!}
                     @endif
                 </div>
-                <div class="right-column">
+                <div class="right-column @if (isset($saved_data->{'page-description'}) && strlen($saved_data->{'page-description'})>1700) w-100 mb-5  @endif"
+                    style="max-height:600px !important;"
+                    >
 
                     @if (isset($saved_data->{'page-image'}))
-                        <img src="{{ storage_url($saved_data->{'page-image'}) }}">
+                        <img class="img-fluid object-fit-contain" style="max-height:600px !important;" src="{{ storage_url($saved_data->{'page-image'}) }}">
                     @endif
 
                 </div>
