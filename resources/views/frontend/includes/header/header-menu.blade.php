@@ -80,10 +80,10 @@
                             <li><a href="{{ route('sp.frontend','vision') }}">Vision</a></li>
                             <li><a href="{{ route('sp.frontend','mission') }}">Mission</a></li>
                             <li><a href="{{route('sp.frontend','objectives')}}">Objectives</a></li>
-                            <li><a href="{{ route('sp.frontend','values') }}"">Values</a></li>
+                            <li><a href="{{ route('sp.frontend','values') }}">Values</a></li>
                             <li><a href="{{ route('about.wwcs') }}">World Wide CS</a></li>
-                            <li><a href="#">Corporate Governance</a></li>
-                            <li><a href="#">CS for CG</a></li>
+                            <li><a href="{{ route('sp.frontend','corporate-governance') }}">Corporate Governance</a></li>
+                            <li><a href="{{ route('sp.frontend','cs-for-cg') }}">CS for CG</a></li>
                             <li><a href="{{ route('about.faq') }}">FAQs</a></li>
                         </ul>
                     </li>
