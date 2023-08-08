@@ -11,10 +11,11 @@ return new class extends Migration
 
     public function up(): void
     {
-        Schema::create('icsb_profiles', function (Blueprint $table) {
+        Schema::create('media_room_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->longText('description');
+            $table->string('name')->unique();
+            $table->string('slug')->unique();
+            $table->boolean('status')->default(1);
             $table->timestamps();
             $table->softDeletes();
             $this->addAuditColumns($table);
@@ -23,6 +24,6 @@ return new class extends Migration
 
     public function down(): void
     {
-         Schema::dropIfExists('icsb_profiles');
+         Schema::dropIfExists('media_room_categories');
     }
 };

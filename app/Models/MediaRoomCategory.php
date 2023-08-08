@@ -6,9 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 use Illuminate\Database\Eloquent\Model;
 
-class IcsbProfile extends BaseModel
+class MediaRoomCategory extends BaseModel
 {
     use HasFactory;
 
     public $guarded = [];
+    public function media_rooms(){
+        return $this->hasMany(MediaRoom::class, 'category_id');
+    }
 }
+

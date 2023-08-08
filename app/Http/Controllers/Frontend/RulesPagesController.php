@@ -1,19 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\frontend;
+namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\MediaRoomCategory;
 use App\Models\CommitteeType;
+use App\Models\Contact;
+use App\Models\MediaRoomCategory;
+use App\Models\MemberType;
+use App\Models\SecretarialStandard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Models\Contact;
-use App\Models\MemberType;
 use Illuminate\View\View;
-use App\Models\Event;
-use App\Models\SecretarialStandard;
 
-class EventPagesController extends Controller
+class RulesPagesController extends Controller
 {
     public function __construct() {
         $contact = Contact::where('deleted_at', null)->first();
@@ -28,17 +27,10 @@ class EventPagesController extends Controller
             'mediaRoomCategory' => $mediaRoomCategory,
             'bsss' => $bsss,
         ]);
-        return $this->middleware('auth');
     }
-    public function events(): View
+    public function bss_view($slug): View
     {
-        $s['events'] = Event::where('status',1)->where('deleted_at', null)->latest()->get();
-        return view('frontend.event.events',$s);
+        $s['view_bss'] = SecretarialStandard::where('deleted_at', null)->where('status', 1)->where('slug', $slug)->first();
+        return view('frontend.rules.bss_view',$s);
     }
-    public function view($slug): View
-    {
-        $s['event'] = Event::where('status',1)->where('deleted_at', null)->where('slug',$slug)->first();
-        return view('frontend.event.view',$s);
-    }
-
 }

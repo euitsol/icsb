@@ -11,11 +11,16 @@ return new class extends Migration
 
     public function up(): void
     {
-        Schema::create('blog_categories', function (Blueprint $table) {
+        Schema::create('secretarial_standards', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->string('title')->unique();
             $table->string('slug')->unique();
+            $table->string('short_title')->unique();
+            $table->string('image');
+            $table->json('file');
+            $table->longText('description')->nullable();
             $table->boolean('status')->default(1);
+            $table->enum('is_featured', ["0", "1"])->default("0");
             $table->timestamps();
             $table->softDeletes();
             $this->addAuditColumns($table);
@@ -24,6 +29,6 @@ return new class extends Migration
 
     public function down(): void
     {
-         Schema::dropIfExists('blog_categories');
+         Schema::dropIfExists('secretarial_standards');
     }
 };

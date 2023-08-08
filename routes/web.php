@@ -8,21 +8,22 @@ use App\Http\Controllers\Frontend\HomePageController;
 use App\Http\Controllers\Backend\DefaultController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\FaqController;
-use App\Http\Controllers\Backend\ServiceController;
+use App\Http\Controllers\Backend\SecretarialStandardsController;
 use App\Http\Controllers\Backend\ContactController;
 use App\Http\Controllers\Backend\NationalConnectionController;
 use App\Http\Controllers\Backend\EventController;
 use App\Http\Controllers\Backend\WWCSController;
 use App\Http\Controllers\Backend\NationalAwardController;
-use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\BannerController;
 use App\Http\Controllers\Backend\ICSBProfileController;
 use App\Http\Controllers\Backend\MemberController;
 use App\Http\Controllers\Backend\SinglePagesController;
 use App\Http\Controllers\Backend\CommitteeController;
+use App\Http\Controllers\Backend\MediaRoomController;
 use App\Http\Controllers\Backend\PresidentController;
 use App\Http\Controllers\Backend\UserManagement\RoleController;
 use App\Http\Controllers\Backend\UserManagement\PermissionController;
+use App\Http\Controllers\Frontend\DefaultController as ViewDefaultController;
 use App\Http\Controllers\Frontend\AboutPagesController;
 use App\Http\Controllers\Frontend\EventPagesController;
 use App\Http\Controllers\Frontend\CouncilPagesController;
@@ -35,6 +36,7 @@ use App\Http\Controllers\Frontend\ArticlesController;
 use App\Http\Controllers\Frontend\ExaminationPagesController;
 use App\Http\Controllers\Frontend\FrontendSinglePagesController;
 use App\Http\Controllers\Frontend\MediaRoomPagesController;
+use App\Http\Controllers\Frontend\RulesPagesController;
 use App\Http\Controllers\SettingsController;
 
 
@@ -44,7 +46,7 @@ use App\Http\Controllers\SettingsController;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
+| routes are loaded by the RoutebssProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
 */
@@ -115,14 +117,16 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         });
     });
 
-    // Service Routes
-    Route::group(['as' => 'service.', 'prefix' => 'service'], function () {
-        Route::get('index', [ServiceController::class, 'index'])->name('service_list');
-        Route::get('create', [ServiceController::class, 'create'])->name('service_create');
-        Route::post('create', [ServiceController::class, 'store'])->name('service_create');
-        Route::get('edit/{id}',      [ServiceController::class, 'edit'])->name('service_edit');
-        Route::put('edit/{id}',      [ServiceController::class, 'update'])->name('service_edit');
-        Route::get('delete/{id}', [ServiceController::class, 'delete'])->name('service_delete');
+    // BSS Routes
+    Route::group(['as' => 'bss.', 'prefix' => 'bss'], function () {
+        Route::get('index', [SecretarialStandardsController::class, 'index'])->name('bss_list');
+        Route::get('create', [SecretarialStandardsController::class, 'create'])->name('bss_create');
+        Route::post('create', [SecretarialStandardsController::class, 'store'])->name('bss_create');
+        Route::get('edit/{id}',      [SecretarialStandardsController::class, 'edit'])->name('bss_edit');
+        Route::put('edit/{id}',      [SecretarialStandardsController::class, 'update'])->name('bss_edit');
+        Route::get('status/{id}',      [SecretarialStandardsController::class, 'status'])->name('status.bss_edit');
+        Route::get('featured/{id}',      [SecretarialStandardsController::class, 'featured'])->name('featured.bss_edit');
+        Route::get('delete/{id}', [SecretarialStandardsController::class, 'delete'])->name('bss_delete');
     });
     // Contact Us Routes
     Route::group(['as' => 'contact.', 'prefix' => 'contact'], function () {
@@ -175,25 +179,25 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::get('delete/{id}', [NationalAwardController::class, 'delete'])->name('national_award_delete');
     });
     // Blog Routes
-    Route::group(['as' => 'blog.', 'prefix' => 'blog'], function () {
-        Route::get('index', [BlogController::class, 'index'])->name('blog_list');
-        Route::get('create', [BlogController::class, 'create'])->name('blog_create');
-        Route::post('create', [BlogController::class, 'store'])->name('blog_create');
-        Route::get('edit/{id}',      [BlogController::class, 'edit'])->name('blog_edit');
-        Route::put('edit/{id}',      [BlogController::class, 'update'])->name('blog_edit');
-        Route::get('single-file/delete/{id}/{key}',      [BlogController::class, 'singleFileDelete'])->name('single_file.delete.blog_edit');
-        Route::get('permission/accept/{id}',      [BlogController::class, 'permissionAccept'])->name('permission.accept.blog_edit');
-        Route::get('permission/decline/{id}',      [BlogController::class, 'permissionDecline'])->name('permission.decline.blog_edit');
-        Route::get('featured/{id}',      [BlogController::class, 'featured'])->name('featured.blog_edit');
-        Route::get('delete/{id}', [BlogController::class, 'delete'])->name('blog_delete');
+    Route::group(['as' => 'media_room.', 'prefix' => 'media_room'], function () {
+        Route::get('index', [MediaRoomController::class, 'index'])->name('media_room_list');
+        Route::get('create', [MediaRoomController::class, 'create'])->name('media_room_create');
+        Route::post('create', [MediaRoomController::class, 'store'])->name('media_room_create');
+        Route::get('edit/{id}',      [MediaRoomController::class, 'edit'])->name('media_room_edit');
+        Route::put('edit/{id}',      [MediaRoomController::class, 'update'])->name('media_room_edit');
+        Route::get('single-file/delete/{id}/{key}',      [MediaRoomController::class, 'singleFileDelete'])->name('single_file.delete.media_room_edit');
+        Route::get('permission/accept/{id}',      [MediaRoomController::class, 'permissionAccept'])->name('permission.accept.media_room_edit');
+        Route::get('permission/decline/{id}',      [MediaRoomController::class, 'permissionDecline'])->name('permission.decline.media_room_edit');
+        Route::get('featured/{id}',      [MediaRoomController::class, 'featured'])->name('featured.media_room_edit');
+        Route::get('delete/{id}', [MediaRoomController::class, 'delete'])->name('media_room_delete');
 
         // Blog Category
-        Route::get('category/create', [BlogController::class, 'cat_create'])->name('blog_cat_create');
-        Route::post('category/create', [BlogController::class, 'cat_store'])->name('blog_cat_create');
-        Route::get('category/edit/{id}', [BlogController::class, 'cat_edit'])->name('blog_cat_edit');
-        Route::put('category/edit/{id}', [BlogController::class, 'cat_update'])->name('blog_cat_edit');
-        Route::get('category/status/{id}', [BlogController::class, 'cat_status'])->name('status.blog_cat_edit');
-        Route::get('category/delete/{id}', [BlogController::class, 'cat_delete'])->name('blog_cat_delete');
+        Route::get('category/create', [MediaRoomController::class, 'cat_create'])->name('media_room_cat_create');
+        Route::post('category/create', [MediaRoomController::class, 'cat_store'])->name('media_room_cat_create');
+        Route::get('category/edit/{id}', [MediaRoomController::class, 'cat_edit'])->name('media_room_cat_edit');
+        Route::put('category/edit/{id}', [MediaRoomController::class, 'cat_update'])->name('media_room_cat_edit');
+        Route::get('category/status/{id}', [MediaRoomController::class, 'cat_status'])->name('status.media_room_cat_edit');
+        Route::get('category/delete/{id}', [MediaRoomController::class, 'cat_delete'])->name('media_room_cat_delete');
     });
 
 
@@ -276,14 +280,10 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
 
     });
     // ICSB Profile
-    Route::group(['as' => 'icsb_profile.', 'prefix' => 'icsb-profile'], function () {
-        Route::get('create', [ICSBProfileController::class, 'index'])->name('icsb_profile_create');
-        Route::post('create', [ICSBProfileController::class, 'store'])->name('icsb_profile_create');
-        // Route::get('edit/{id}',      [ICSBProfileController::class, 'edit'])->name('icsb_profile_edit');
-        // Route::put('edit/{id}',      [ICSBProfileController::class, 'update'])->name('icsb_profile_edit');
-        // Route::get('status/{id}',      [ICSBProfileController::class, 'status'])->name('status.icsb_profile_edit');
-        // Route::get('delete/{id}', [ICSBProfileController::class, 'delete'])->name('icsb_profile_delete');
-    });
+    // Route::group(['as' => 'icsb_profile.', 'prefix' => 'icsb-profile'], function () {
+    //     Route::get('create', [ICSBProfileController::class, 'index'])->name('icsb_profile_create');
+    //     Route::post('create', [ICSBProfileController::class, 'store'])->name('icsb_profile_create');
+    // });
     // President Module
     Route::group(['as' => 'president.', 'prefix' => 'president'], function () {
         Route::get('index', [PresidentController::class, 'index'])->name('president_list');
@@ -321,15 +321,14 @@ Route::get('/single-page/file-delete/{url}/{id?}/{key?}', [SinglePagesController
 //Frontend Routes
 
 Route::get('/', [HomePageController::class, 'index'])->name('home');
+// Default View File Download Route
+Route::get('front/download/{filename}', [ViewDefaultController::class, 'view_download'])->name('view.download');
 
 // Single Pages Route
 Route::get('/page/{frontend_slug}', [FrontendSinglePagesController::class, 'frontend'])->name('sp.frontend');
 
 Route::group(['as' => 'about.', 'prefix' => 'about'], function () {
-    Route::get('/icsb-profile', [AboutPagesController::class, 'icsb_profile'])->name('icsb_profile');
-    // Route::get('/vision', [AboutPagesController::class, 'vision'])->name('vision');
-    // Route::get('/mission', [AboutPagesController::class, 'mission'])->name('mission');
-    // Route::get('/objectives', [AboutPagesController::class, 'objectives'])->name('objectives');
+    // Route::get('/icsb-profile', [AboutPagesController::class, 'icsb_profile'])->name('icsb_profile');
     Route::get('/faq', [AboutPagesController::class, 'faq'])->name('faq');
     Route::get('/world-wide-cs', [AboutPagesController::class, 'wwcs'])->name('wwcs');
 });
@@ -346,41 +345,23 @@ Route::group(['as' => 'event_view.', 'prefix' => 'event'], function () {
     Route::get('/all-events', [EventPagesController::class, 'events'])->name('all');
     Route::get('/view/{slug}', [EventPagesController::class, 'view'])->name('view');
 });
-Route::group(['as' => 'media_room.', 'prefix' => 'media-room'], function () {
+Route::group(['as' => 'media_room_view.', 'prefix' => 'media-room'], function () {
     Route::get('/all', [MediaRoomPagesController::class, 'mr_all'])->name('all');
     Route::get('/{slug}', [MediaRoomPagesController::class, 'cat_all'])->name('cat.all');
     Route::get('/view/{slug}', [MediaRoomPagesController::class, 'view'])->name('view');
 });
+Route::group(['as' => 'rules_view.', 'prefix' => 'rules'], function () {
+    Route::get('/secretarial-standards/{slug}', [RulesPagesController::class, 'bss_view'])->name('bss.view');
+});
 
-// Route::group(['as' => 'council.', 'prefix' => 'council'], function () {
-//     Route::get('/', [CouncilPagesController::class, 'council'])->name('council');
-//     Route::get('/committee', [CouncilPagesController::class, 'committee'])->name('committee');
-//     Route::get('/past-presidents', [CouncilPagesController::class, 'pastPresidents'])->name('past_presidents');
-//     Route::get('/president', [CouncilPagesController::class, 'president'])->name('president');
-//     Route::get('/previous-council', [CouncilPagesController::class, 'previousCouncil'])->name('previous_council');
-// });
 // Route::group(['as' => 'students.', 'prefix' => 'students'], function () {
 //     Route::get('/world-wide-chartered-secretaries', [StudentsPagesController::class, 'wwcs'])->name('wwcs');
-//     Route::get('/handbook', [StudentsPagesController::class, 'studentsHandbook'])->name('handbook');
-//     Route::get('/notice-board', [StudentsPagesController::class, 'noticeBoard'])->name('notice_board');
-//     Route::get('/eligibility', [StudentsPagesController::class, 'eligibility'])->name('eligibility');
-//     Route::get('/exam-schedule', [StudentsPagesController::class, 'examSchedule'])->name('exam_schedule');
-//     Route::get('/admission-rules', [StudentsPagesController::class, 'admissionRules'])->name('admission_rules');
-//     Route::get('/admission-form', [StudentsPagesController::class, 'admissionForm'])->name('admission_form');
-
 // });
 Route::group(['as' => 'members.', 'prefix' => 'members'], function () {
-    // Route::get('/council', [MembersPagesController::class, 'council'])->name('council');
-    // Route::get('/fees', [MembersPagesController::class, 'fees'])->name('fees');
-    // Route::get('/code-of-conduct', [MembersPagesController::class, 'codeOfConduct'])->name('code_of_conduct');
-    // Route::get('/cpd-program', [MembersPagesController::class, 'cpdProgram'])->name('cpd_program');
     Route::get('/member-search/{slug}', [MembersPagesController::class, 'memberSearch'])->name('m_search');
-    // Route::get('/job-placement', [MembersPagesController::class, 'jobPlacement'])->name('job_placement');
-
 });
 // Route::group(['as' => 'rules_and_regulations.', 'prefix' => 'rulse-&-regulations'], function () {
 //     Route::get('/the-chartered-secretaries-act-2010', [RulesAndRegulationsPagesController::class, 'tcsa'])->name('tcsa');
-//     Route::get('/the-chartered-secretaries-regulations-2011', [RulesAndRegulationsPagesController::class, 'tcsr'])->name('tcsr');
 // });
 // Route::group(['as' => 'publications.', 'prefix' => 'publications'], function () {
 //     Route::get('/photo-gallery', [PublicationsPagesController::class, 'photoGallery'])->name('photo_gallery');

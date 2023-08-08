@@ -80,10 +80,10 @@
                             <li><a href="{{ route('sp.frontend','vision') }}">Vision</a></li>
                             <li><a href="{{ route('sp.frontend','mission') }}">Mission</a></li>
                             <li><a href="{{route('sp.frontend','objectives')}}">Objectives</a></li>
-                            <li><a href="#">Values</a></li>
+                            <li><a href="{{ route('sp.frontend','values') }}">Values</a></li>
                             <li><a href="{{ route('about.wwcs') }}">World Wide CS</a></li>
-                            <li><a href="#">Corporate Governance</a></li>
-                            <li><a href="#">CS for CG</a></li>
+                            <li><a href="{{ route('sp.frontend','corporate-governance') }}">Corporate Governance</a></li>
+                            <li><a href="{{ route('sp.frontend','cs-for-cg') }}">CS for CG</a></li>
                             <li><a href="{{ route('about.faq') }}">FAQs</a></li>
                         </ul>
                     </li>
@@ -168,14 +168,14 @@
                             <li><a href="#">Companies Act 1994</a></li>
                             <li><a href="#">Income Tax Act 2023</a></li>
                             <li class="drop-down"><a href="#">Secretarial Standards <i class="fa-solid fa-angle-down"></i></a>
-                                <ul class="sub-menu">
-                                    <li><a href="#">BSS 1: Board of Directors Meeting </a></li>
-                                    <li><a href="#">BSS 2: General Meeting </a></li>
-                                    <li><a href="#">BSS 3: Minutes </a></li>
-                                    <li><a href="#">BSS 4: Dividend </a></li>
-                                    <li><a href="#">BSS 5: Virtual & Hybrid Meeting </a></li>
-                                    <li><a href="#">BSS 6: Resolution by Circulation </a></li>
-                                </ul>
+                                @if(count($bsss))
+                                    <ul class="sub-menu">
+                                        @foreach ($bsss as $bss)
+                                            <li><a href="{{route('rules_view.bss.view',$bss->slug)}}">{{$bss->short_title}}{{_(': ')}}{{$bss->title}} </a></li>
+                                        @endforeach
+
+                                    </ul>
+                                @endif
                             </li>
                         </ul>
                     </li>
@@ -211,7 +211,7 @@
                         @if(count($mediaRoomCategory))
                             <ul class="">
                                 @foreach ($mediaRoomCategory as $cat)
-                                    <li><a href="{{route('media_room.cat.all',$cat->slug)}}">{{$cat->name}}</a></li>
+                                    <li><a href="{{route('media_room_view.cat.all',$cat->slug)}}">{{$cat->name}}</a></li>
                                 @endforeach
                             </ul>
                         @endif
