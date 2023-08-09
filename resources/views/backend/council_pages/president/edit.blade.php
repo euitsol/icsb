@@ -61,7 +61,9 @@
                                 @if($key<1)
                                     <span class="input-group-text" id="add_duration" data-count="{{count($president->durations)}}"><i class="tim-icons icon-simple-add"></i></span>
                                 @else
-                                    <span class="input-group-text text-danger delete_duration"><i class="tim-icons icon-trash-simple"></i></span>
+                                <a href="{{route('president.single.president_delete',$duration->id)}}">
+                                    <span class="input-group-text text-danger delete_duration h-100"><i class="tim-icons icon-trash-simple"></i></span>
+                                </a>
                                 @endif
                                 <input type="hidden" name='duration[{{$key+1}}][id]' value='{{$duration->id}}' @if((!empty($duration->end_date)) && (date('Y-m-d', strtotime($duration->end_date)) <= Carbon\Carbon::now()->format('Y-m-d')) ) disabled @endif>
                             </div>

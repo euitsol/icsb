@@ -146,7 +146,7 @@ class PresidentController extends Controller
                         $check->start_date = $duration['start_date'];
                         $check->end_date = $duration['end_date'];
                         $check->save();
-                        $p = President::findOrFail($check->president->id);
+                        $p = President::findOrFail($id);
                         $p->status = 0;
                         $p->designation = 'Past President, ICSB';
                         $p->save();
@@ -184,5 +184,11 @@ class PresidentController extends Controller
             $this->soft_delete($p);
             return redirect()->route('president.president_list')->withStatus(__($p->member->name.' status deleted successfully.'));
         }
+    }
+    public function singleDelete($id): RedirectResponse
+    {
+        $scd = PresidentDuration::findOrFail($id);
+        $scd->delete();
+        return redirect()->back();
     }
 }

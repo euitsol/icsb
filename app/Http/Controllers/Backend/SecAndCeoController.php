@@ -185,4 +185,10 @@ class SecAndCeoController extends Controller
             return redirect()->route('sec_and_ceo.sc_list')->withStatus(__($sc->member->name.' status deleted successfully.'));
         }
     }
+    public function singleDelete($id): RedirectResponse
+    {
+        $scd = SecAndCeoDuration::findOrFail($id);
+        $scd->delete();
+        return redirect()->back();
+    }
 }

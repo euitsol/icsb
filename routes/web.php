@@ -292,6 +292,7 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::post('create', [PresidentController::class, 'store'])->name('president_create');
         Route::get('edit/{id}', [PresidentController::class, 'edit'])->name('president_edit');
         Route::put('edit/{id}', [PresidentController::class, 'update'])->name('president_edit');
+        Route::get('single/delete/{id}', [PresidentController::class, 'singleDelete'])->name('single.president_delete');
         Route::get('delete/{id}', [PresidentController::class, 'delete'])->name('president_delete');
     });
     Route::group(['as' => 'sec_and_ceo.', 'prefix' => 'secretary-and-ceo'], function () {
@@ -300,6 +301,7 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::post('create', [SecAndCeoController::class, 'store'])->name('sc_create');
         Route::get('edit/{id}', [SecAndCeoController::class, 'edit'])->name('sc_edit');
         Route::put('edit/{id}', [SecAndCeoController::class, 'update'])->name('sc_edit');
+        Route::get('single/delete/{id}', [SecAndCeoController::class, 'singleDelete'])->name('single.sc_delete');
         Route::get('delete/{id}', [SecAndCeoController::class, 'delete'])->name('sc_delete');
     });
 
