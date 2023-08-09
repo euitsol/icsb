@@ -74,3 +74,6 @@ sc_list,web
 sc_create,web
 sc_edit,web
 sc_delete,web
+permission_list,web
+permission_add,web
+permission_store,web

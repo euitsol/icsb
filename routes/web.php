@@ -34,6 +34,7 @@ use App\Http\Controllers\Frontend\RulesAndRegulationsPagesController;
 use App\Http\Controllers\Frontend\PublicationsPagesController;
 use App\Http\Controllers\Frontend\ContactPagesController;
 use App\Http\Controllers\Frontend\ArticlesController;
+use App\Http\Controllers\Frontend\EmployeePagesController;
 use App\Http\Controllers\Frontend\ExaminationPagesController;
 use App\Http\Controllers\Frontend\FrontendSinglePagesController;
 use App\Http\Controllers\Frontend\MediaRoomPagesController;
@@ -348,6 +349,11 @@ Route::group(['as' => 'council_view.', 'prefix' => 'council'], function () {
     Route::get('/president', [CouncilPagesController::class, 'president'])->name('president');
     Route::get('/past-presidents', [CouncilPagesController::class, 'pastPresidents'])->name('past_presidents');
     Route::get('/past-president/{slug}', [CouncilPagesController::class, 'singlePP'])->name('single.pp');
+});
+Route::group(['as' => 'employee_view.', 'prefix' => 'employee'], function () {
+    Route::get('/secretary-and-ceo', [EmployeePagesController::class, 'sec_and_ceo'])->name('sec_and_ceo');
+    Route::get('/past-secretary-and-ceos', [EmployeePagesController::class, 'past_sec_and_ceos'])->name('past_sec_and_ceos');
+    Route::get('/past-secretary-and-ceo/{slug}', [EmployeePagesController::class, 'singlePSC'])->name('single.psc');
 });
 Route::group(['as' => 'examination.', 'prefix' => 'examination'], function () {
     // Route::get('/exam-schedule', [ExaminationPagesController::class, 'examSchedule'])->name('exam_schedule');
