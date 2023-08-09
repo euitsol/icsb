@@ -26,7 +26,7 @@
                             'menuItems' => [
                                 ['pageSlug' => 'user', 'routeName' => '', 'iconClass' => 'fa-solid fa-user-group', 'label' => 'Users'],
                                 ['pageSlug' => 'role', 'routeName' => 'um.role.role_list', 'iconClass' => 'fa-solid fa-person-circle-check', 'label' => 'Roles'],
-                                ['pageSlug' => 'permission', 'routeName' => 'um.permission.list', 'iconClass' => 'fa-solid fa-check-double', 'label' => 'Permission'],
+                                ['pageSlug' => 'permission', 'routeName' => 'um.permission.permission_list', 'iconClass' => 'fa-solid fa-check-double', 'label' => 'Permission'],
                             ]
                         ])
                     </ul>
@@ -233,12 +233,12 @@
             {{-- Employees --}}
             <li>
                 <a class="@if(
-                        $pageSlug == 'secretary_and_ceo' ||
+                        $pageSlug == 'sec_and_ceo' ||
                         $pageSlug == 'organogram' ||
                         $pageSlug == 'assigned_officers' ||
                         $pageSlug == 'help-desk'
                     )@else collapsed @endif" data-toggle="collapse" href="#employees" @if (
-                        $pageSlug == 'secretary_and_ceo' ||
+                        $pageSlug == 'sec_and_ceo' ||
                         $pageSlug == 'organogram' ||
                         $pageSlug == 'assigned_officers' ||
                         $pageSlug == 'help-desk'
@@ -249,7 +249,7 @@
                 </a>
 
                 <div class="collapse @if (
-                        $pageSlug == 'secretary_and_ceo' ||
+                        $pageSlug == 'sec_and_ceo' ||
                         $pageSlug == 'organogram' ||
                         $pageSlug == 'assigned_officers' ||
                         $pageSlug == 'help-desk'
@@ -258,7 +258,7 @@
                     <ul class="nav pl-4">
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
-                                ['pageSlug' => 'secretary_and_ceo', 'routeName' => '', 'label' => 'Secretary & CEO'],
+                                ['pageSlug' => 'sec_and_ceo', 'routeName' => 'sec_and_ceo.sc_list', 'label' => 'Secretary & CEO'],
                                 ['pageSlug' => 'organogram', 'routeName' => '', 'label' => 'Organogram'],
                                 ['pageSlug' => 'assigned_officers', 'routeName' => '', 'label' => 'Assigned Officers'],
                                 ['pageSlug' => 'help-desk', 'routeName' => 'sp.show', 'params' => 'help-desk', 'label' => 'Help Desk'],

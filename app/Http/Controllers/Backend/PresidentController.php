@@ -74,7 +74,7 @@ class PresidentController extends Controller
         $president = new President;
         $president->member_id = $request->member_id;
         $president->slug = $request->slug.'-'.$request->member_id;
-        $president->designation = $request->designation;
+        // $president->designation = $request->designation;
         $president->bio = $request->bio;
         $president->message = $request->message;
         $president->created_by = auth()->user()->id;
@@ -132,7 +132,7 @@ class PresidentController extends Controller
             $president->slug = $request->slug.'-'.$request->member_id;
         }
         $president->bio = $request->bio;
-        $president->designation = $request->designation;
+        // $president->designation = $request->designation;
         $president->message = $request->message;
         $president->created_by = auth()->user()->id;
         $president->update();
@@ -161,10 +161,11 @@ class PresidentController extends Controller
                         $p = President::findOrFail($id);
                         if((empty($duration['end_date'])) || (!empty($duration['end_date']) && $duration['end_date'] > Carbon::now()->format('Y-m-d'))){
                             $p->status = 1;
+                            $p->designation = 'President, ICSB';
                         }else{
                             $p->status = 0;
+                            $p->designation = 'Past President, ICSB';
                         }
-                        $p->designation = 'President, ICSB';
                         $p->save();
                 }
 

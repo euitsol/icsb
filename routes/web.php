@@ -21,6 +21,7 @@ use App\Http\Controllers\Backend\SinglePagesController;
 use App\Http\Controllers\Backend\CommitteeController;
 use App\Http\Controllers\Backend\MediaRoomController;
 use App\Http\Controllers\Backend\PresidentController;
+use App\Http\Controllers\Backend\SecAndCeoController;
 use App\Http\Controllers\Backend\UserManagement\RoleController;
 use App\Http\Controllers\Backend\UserManagement\PermissionController;
 use App\Http\Controllers\Frontend\DefaultController as ViewDefaultController;
@@ -97,9 +98,9 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
 
         //Permission Management
         Route::group(['as' => 'permission.','prefix' => 'permission'], function () {
-            Route::get('list',          [PermissionController::class, 'index'])->name('list');
-            Route::get('create',        [PermissionController::class, 'create'])->name('add');
-            Route::post('store',        [PermissionController::class, 'store'])->name('store');
+            Route::get('list',          [PermissionController::class, 'index'])->name('permission_list');
+            Route::get('create',        [PermissionController::class, 'create'])->name('permission_add');
+            Route::post('store',        [PermissionController::class, 'store'])->name('permission_store');
         });
 
     });
@@ -292,6 +293,14 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::get('edit/{id}', [PresidentController::class, 'edit'])->name('president_edit');
         Route::put('edit/{id}', [PresidentController::class, 'update'])->name('president_edit');
         Route::get('delete/{id}', [PresidentController::class, 'delete'])->name('president_delete');
+    });
+    Route::group(['as' => 'sec_and_ceo.', 'prefix' => 'secretary-and-ceo'], function () {
+        Route::get('index', [SecAndCeoController::class, 'index'])->name('sc_list');
+        Route::get('create', [SecAndCeoController::class, 'create'])->name('sc_create');
+        Route::post('create', [SecAndCeoController::class, 'store'])->name('sc_create');
+        Route::get('edit/{id}', [SecAndCeoController::class, 'edit'])->name('sc_edit');
+        Route::put('edit/{id}', [SecAndCeoController::class, 'update'])->name('sc_edit');
+        Route::get('delete/{id}', [SecAndCeoController::class, 'delete'])->name('sc_delete');
     });
 
 });

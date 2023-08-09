@@ -11,7 +11,7 @@ use App\Models\SiteSetting;
 //This will retun the route prefix of the routes for permission check
 function get_permission_routes()
 {
-  return ['about.faq.','service.','contact.','national_connection.','wwcs.','event.','national_award.', 'blog.', 'settings.','banner.', 'member.','icsb_profile.','committee.','president.','um.permission.','um.role.'];
+  return ['about.faq.','service.','contact.','national_connection.','wwcs.','event.','national_award.', 'blog.', 'settings.','banner.', 'member.','icsb_profile.','committee.','president.','sec_and_ceo.'];
 }
 
 //This will check the permission of the given route name. Can be used for buttons
