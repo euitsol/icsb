@@ -44,26 +44,26 @@
                         <div id="memberInfo" class="row align-items-center">
 
                         </div>
-                        <div class="form-group {{ $errors->has('designation') ? ' has-danger' : '' }}">
+                        {{-- <div class="form-group {{ $errors->has('designation') ? ' has-danger' : '' }}">
                             <label>{{ _('Designation') }}</label>
                             <select name="designation" class="form-control {{ $errors->has('designation') ? ' is-invalid' : '' }}">
                                     <option value="President, ICSB" @if( $president->designation == 'President, ICSB') selected @endif>{{_('President')}}</option>
                                     <option value="Past President, ICSB" @if( $president->designation == 'Past President, ICSB') selected @endif>{{_('Past President')}}</option>
                             </select>
                             @include('alerts.feedback', ['field' => 'designation'])
-                        </div>
+                        </div> --}}
                         @foreach ($president->durations as $key=>$duration)
                         <div class="form-group {{ $errors->has('duration') ? ' has-danger' : '' }} {{ $errors->has('duration.*') ? ' has-danger' : '' }}">
                             <label>{{ _('President Duration -')}}{{$key+1}}</label>
                             <div class="input-group mb-3">
-                                <input type="date" name="duration[{{$key+1}}][start_date]" class="form-control" value="{{ date('Y-m-d', strtotime($duration->start_date))}}" {{ $duration->start_date ? 'disabled' : '' }} >
+                                <input type="date" name="duration[{{$key+1}}][start_date]" class="form-control" value="{{ date('Y-m-d', strtotime($duration->start_date))}}" @if((!empty($duration->end_date)) && (date('Y-m-d', strtotime($duration->end_date)) <= Carbon\Carbon::now()->format('Y-m-d')) ) disabled @endif >
                                 <input type="date" name="duration[{{$key+1}}][end_date]" class="form-control" @if((!empty($duration->end_date)) && (date('Y-m-d', strtotime($duration->end_date)) <= Carbon\Carbon::now()->format('Y-m-d')) ) disabled @endif value="{{ $duration->end_date ? date('Y-m-d', strtotime($duration->end_date)) : ''}}">
                                 @if($key<1)
                                     <span class="input-group-text" id="add_duration" data-count="{{count($president->durations)}}"><i class="tim-icons icon-simple-add"></i></span>
                                 @else
                                     <span class="input-group-text text-danger delete_duration"><i class="tim-icons icon-trash-simple"></i></span>
                                 @endif
-                                <input type="hidden" name='duration[{{$key+1}}][id]' value='{{$duration->id}}'@if((!empty($duration->end_date)) && (date('Y-m-d', strtotime($duration->end_date)) <= Carbon\Carbon::now()->format('Y-m-d')) ) disabled @endif>
+                                <input type="hidden" name='duration[{{$key+1}}][id]' value='{{$duration->id}}' @if((!empty($duration->end_date)) && (date('Y-m-d', strtotime($duration->end_date)) <= Carbon\Carbon::now()->format('Y-m-d')) ) disabled @endif>
                             </div>
                         </div>
                         @endforeach

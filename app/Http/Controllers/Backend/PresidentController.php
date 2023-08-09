@@ -107,7 +107,7 @@ class PresidentController extends Controller
     {
         if(!empty($request->duration)){
             foreach ($request->duration as $key => $duration) {
-                    if(empty($duration['end_date']) || (isset($duration['end_date']) && $duration['end_date'] > Carbon::now()->format('Y-m-d'))){
+                    if(empty($duration['end_date']) || (!empty($duration['end_date']) && $duration['end_date'] > Carbon::now()->format('Y-m-d'))){
                             $check = PresidentDuration::where('deleted_at',null)->where('end_date',null)->where('president_id','!=',$id)->first();
                             $check2 = PresidentDuration::where('deleted_at',null)->where('end_date','>',Carbon::now()->format('Y-m-d'))->where('president_id','!=',$id)->first();
                             if($check2){
@@ -140,9 +140,10 @@ class PresidentController extends Controller
 
         if(!empty($request->duration)){
             foreach ($request->duration as $key => $duration) {
-                if((!empty($duration['end_date']) && $duration['end_date'] <= Carbon::now()->format('Y-m-d') && (!isset($duration['start_date'])  || empty($duration['start_date'])))){
+                if((!empty($duration['end_date']) && $duration['end_date'] <= Carbon::now()->format('Y-m-d') &&  !empty($duration['start_date']))){
                     $check= PresidentDuration::where('deleted_at',null)->where('president_id',$id)->where('id',$duration['id'])->first();
                     if($check){
+                        $check->start_date = $duration['start_date'];
                         $check->end_date = $duration['end_date'];
                         $check->save();
                         $p = President::findOrFail($check->president->id);
