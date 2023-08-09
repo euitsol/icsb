@@ -109,8 +109,8 @@
                     <li class="drop-down">
                         <a href="#">Members <i class="fa-solid fa-angle-down"></i></a>
                         <ul class="">
-                            <li><a href="#">Who are CSs</a></li>
-                            <li><a href="#">CS Membership</a></li>
+                            <li><a href="{{ route('sp.frontend','who-are-css') }}">Who are CSs</a></li>
+                            <li><a href="{{ route('sp.frontend','cs-membership') }}">CS Membership</a></li>
                             <li class="drop-down"><a href="#">Members’ Search <i class="fa-solid fa-angle-down"></i></a>
                                 @if(count($memberTypes))
                                     <ul class="sub-menu">
@@ -120,13 +120,12 @@
                                     </ul>
                                 @endif
                             </li>
-
-                            <li><a href="https://icsberp.org/users/login.aspx">Members Portal</a></li>
+                            <li><a href="{{ json_decode($memberPortal->saved_data)->{'portal-url'} ?? '#' }}">Members Portal</a></li>
                             <li><a href="#">CS Firms</a></li>
-                            <li><a href="#">Code of Conducts</a></li>
-                            <li><a href="#">CPD Program</a></li>
-                            <li><a href="#">Training Program</a></li>
-                            <li><a href="#">Members’ Lounge</a></li>
+                            <li><a href="{{ route('sp.frontend','code-of-conducts') }}">Code of Conducts</a></li>
+                            <li><a href="{{ route('sp.frontend','cpd-program') }}">CPD Program</a></li>
+                            <li><a href="{{ route('sp.frontend','training-program') }}">Training Program</a></li>
+                            <li><a href="{{ route('sp.frontend','members-lounge') }}">Members’ Lounge</a></li>
                             <li><a href="#">Members’ Notice Board</a></li>
                             <li><a href="{{ route('sp.frontend','job-placement') }}">Job Placement</a></li>
                         </ul>
@@ -142,12 +141,12 @@
                                     <li><a href="#">Online Admission</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">CS Hand Book</a></li>
-                            <li><a href="https://icsberp.org/users/login.aspx">Students Portal</a></li>
+                            <li><a href="{{route('student_view.cs_hand_book')}}">CS Hand Book</a></li>
+                            <li><a href="{{ json_decode($studentPortal->saved_data)->{'portal-url'} ?? '#' }}">Students Portal</a></li>
                             <li><a href="#">Financial Assistance</a></li>
-                            <li><a href="#">ICSB Library</a></li>
+                            <li><a href="{{ route('sp.frontend','icsb-library') }}">ICSB Library</a></li>
                             <li><a href="#">Student Notice Board</a></li>
-                            <li><a href="#">Faculty Evaluation System</a></li>
+                            <li><a href="{{ json_decode($facultyEvaluationSystem->saved_data)->{'url'} ?? '#' }}">Faculty Evaluation System</a></li>
                         </ul>
                     </li>
                     <li class="drop-down">
@@ -157,7 +156,7 @@
                             <li><a href="{{route('employee_view.past_sec_and_ceos')}}">Past Secretary & CEOs</a></li>
                             <li><a href="#">Organogram</a></li>
                             <li><a href="#">Assigned Officers</a></li>
-                            <li><a href="#">Help Desk</a></li>
+                            <li><a href="{{ route('sp.frontend','help-desk') }}">Help Desk</a></li>
                         </ul>
                     </li>
                     <li class="drop-down">
@@ -165,7 +164,7 @@
                         <ul class="">
                             <li><a href="#">Chartered Secretaries Act, 2010</a></li>
                             <li><a href="#">Chartered Secretaries Regulations, 2011</a></li>
-                            <li><a href="#">CS Practicing Guideline</a></li>
+                            <li><a href="{{ route('sp.frontend','cs-practicing-guideline') }}">CS Practicing Guideline</a></li>
                             <li><a href="#">Companies Act 1994</a></li>
                             <li><a href="#">Income Tax Act 2023</a></li>
                             <li class="drop-down"><a href="#">Secretarial Standards <i class="fa-solid fa-angle-down"></i></a>
@@ -186,13 +185,13 @@
                             <li><a href="#">The Chartered Secretary</a></li>
                             <li><a href="#">ICSB National Award Souvenir</a></li>
                             <li><a href="#">Annual Reports</a></li>
-                            <li><a href="https://www.icsb.edu.bd/wp-content/uploads/2023/07/Request-for-Proposal-RFP-The-Financial-Express.jpg">Others</a></li>
+                            <li><a href="{{ json_decode($publicationOthers->saved_data)->{'url'} ?? '#' }}">Others</a></li>
                         </ul>
                     </li>
                     <li class="drop-down">
                         <a href="#">Examination <i class="fa-solid fa-angle-down"></i></a>
                         <ul class="">
-                            <li><a href="#">Eligibility</a></li>
+                            <li><a href="{{ route('sp.frontend','eligibility') }}">Eligibility</a></li>
                             <li><a href="{{ route('sp.frontend','exam-schedule') }}">Exam Schedule</a></li>
                             <li class="drop-down"><a href="#">Results <i class="fa-solid fa-angle-down"></i></a>
                                 <ul class="sub-menu">

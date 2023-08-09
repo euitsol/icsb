@@ -192,14 +192,18 @@
             <li>
                 <a class="@if(
                         $pageSlug == 'admission' ||
+                        $pageSlug == 'cs-hand-book' ||
+                        $pageSlug == 'student-portal' ||
                         $pageSlug == 'financial_assistance' ||
-                        $pageSlug == 'icsb_library' ||
+                        $pageSlug == 'icsb-library' ||
                         $pageSlug == 'student_notice_board' ||
                         $pageSlug == 'faculty-evaluation-system'
                     )@else collapsed @endif" data-toggle="collapse" href="#student" @if (
                         $pageSlug == 'admission' ||
+                        $pageSlug == 'cs-hand-book' ||
+                        $pageSlug == 'student-portal' ||
                         $pageSlug == 'financial_assistance' ||
-                        $pageSlug == 'icsb_library' ||
+                        $pageSlug == 'icsb-library' ||
                         $pageSlug == 'student_notice_board' ||
                         $pageSlug == 'faculty-evaluation-system'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
@@ -210,8 +214,10 @@
 
                 <div class="collapse @if (
                         $pageSlug == 'admission' ||
+                        $pageSlug == 'cs-hand-book' ||
+                        $pageSlug == 'student-portal' ||
                         $pageSlug == 'financial_assistance' ||
-                        $pageSlug == 'icsb_library' ||
+                        $pageSlug == 'icsb-library' ||
                         $pageSlug == 'student_notice_board' ||
                         $pageSlug == 'faculty-evaluation-system'
                 ) show @endif" id="student">
@@ -219,9 +225,10 @@
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
                                 ['pageSlug' => 'admission', 'routeName' => '', 'label' => 'Admission'],
-                                ['pageSlug' => 'cs_hand_book', 'routeName' => '', 'label' => 'CS Hand Book'],
+                                ['pageSlug' => 'cs-hand-book', 'routeName' => 'sp.show', 'params' => 'cs-hand-book', 'label' => 'CS Hand Book'],
+                                ['pageSlug' => 'student-portal', 'routeName' => 'sp.show', 'params' => 'student-portal', 'label' => 'Student Portal'],
                                 ['pageSlug' => 'financial_assistance', 'routeName' => '', 'label' => 'Financial Assistance'],
-                                ['pageSlug' => 'icsb_library', 'routeName' => '', 'label' => 'ICSB Library'],
+                                ['pageSlug' => 'icsb-library', 'routeName' => 'sp.show', 'params' => 'icsb-library', 'label' => 'ICSB Library'],
                                 ['pageSlug' => 'student_notice_board', 'routeName' => '', 'label' => 'Student Notice Board'],
                                 ['pageSlug' => 'faculty-evaluation-system', 'routeName' => 'sp.show', 'params' => 'faculty-evaluation-system', 'label' => 'Faculty Evaluation System'],
                             ]
@@ -267,12 +274,14 @@
                     </ul>
                 </div>
             </li>
-            {{-- Examination --}}
+            {{-- Rules --}}
             <li>
                 <a class="@if(
-                        $pageSlug == 'bss'
+                        $pageSlug == 'bss' ||
+                        $pageSlug == 'cs-practicing-guideline'
                     )@else collapsed @endif" data-toggle="collapse" href="#rules" @if (
-                        $pageSlug == 'bss'
+                        $pageSlug == 'bss'||
+                        $pageSlug == 'cs-practicing-guideline'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-solid fa-clipboard-check"></i>
                     <span class="nav-link-text" >{{ __('Rules') }}</span>
@@ -280,7 +289,8 @@
                 </a>
 
                 <div class="collapse @if (
-                        $pageSlug == 'bss'
+                        $pageSlug == 'bss'||
+                        $pageSlug == 'cs-practicing-guideline'
 
 
                 ) show @endif" id="rules">
@@ -288,18 +298,39 @@
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
                                 ['pageSlug' => 'bss', 'routeName' => 'bss.bss_list', 'label' => 'BSS'],
+                                ['pageSlug' => 'cs-practicing-guideline', 'routeName' => 'sp.show', 'params' => 'cs-practicing-guideline', 'label' => 'CS Practicing Guideline'],
+                            ]
+                        ])
+                    </ul>
+                </div>
+            </li>
+            {{-- Publications --}}
+            <li>
+                <a class="@if(
+                        $pageSlug == 'other'
+                    )@else collapsed @endif" data-toggle="collapse" href="#publications" @if (
+                        $pageSlug == 'other'
+                    ) aria-expanded="true" @else aria-expanded="false"@endif">
+                    <i class="fa-solid fa-clipboard-check"></i>
+                    <span class="nav-link-text" >{{ __('Publications') }}</span>
+                    <b class="caret mt-1"></b>
+                </a>
+
+                <div class="collapse @if (
+                        $pageSlug == 'other'
+
+
+                ) show @endif" id="publications">
+                    <ul class="nav pl-4">
+                        @include('backend.partials.menu_buttons', [
+                            'menuItems' => [
+                                ['pageSlug' => 'others', 'routeName' => 'sp.show', 'params' => 'others', 'label' => 'Others'],
                             ]
                         ])
                     </ul>
                 </div>
             </li>
 
-            {{-- Publications --}}
-            @include('backend.partials.menu_buttons', [
-                'menuItems' => [
-                    ['pageSlug' => 'publications', 'routeName' => '','iconClass' => 'fa-solid fa-newspaper', 'label' => 'Publications'],
-                ]
-            ])
 
 
             {{-- Examination --}}

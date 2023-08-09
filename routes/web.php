@@ -39,6 +39,7 @@ use App\Http\Controllers\Frontend\ExaminationPagesController;
 use App\Http\Controllers\Frontend\FrontendSinglePagesController;
 use App\Http\Controllers\Frontend\MediaRoomPagesController;
 use App\Http\Controllers\Frontend\RulesPagesController;
+use App\Http\Controllers\Frontend\StudentPagesController;
 use App\Http\Controllers\SettingsController;
 
 
@@ -376,6 +377,9 @@ Route::group(['as' => 'rules_view.', 'prefix' => 'rules'], function () {
 // });
 Route::group(['as' => 'members.', 'prefix' => 'members'], function () {
     Route::get('/member-search/{slug}', [MembersPagesController::class, 'memberSearch'])->name('m_search');
+});
+Route::group(['as' => 'student_view.', 'prefix' => 'student'], function () {
+    Route::get('/cs-hand-book', [StudentPagesController::class, 'csHandBook'])->name('cs_hand_book');
 });
 // Route::group(['as' => 'rules_and_regulations.', 'prefix' => 'rulse-&-regulations'], function () {
 //     Route::get('/the-chartered-secretaries-act-2010', [RulesAndRegulationsPagesController::class, 'tcsa'])->name('tcsa');
