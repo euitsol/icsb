@@ -231,8 +231,9 @@ $('.bxnewsticker').bxSlider({
     // slideWidth: 170,
     slideMargin: 10,
     ticker: true,
-    speed: 20900
-});
+    speed: 20900,
+    tickerHover: true
+  });
 
 
 // Social media link active class

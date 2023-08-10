@@ -35,7 +35,7 @@
             @forelse ($type->members as $member)
             <div class="fellow-items flex">
                 <div class="image-column">
-                    <img src="{{storage_url($member->image)}}" alt="{{$member->name}}">
+                    <img src="{{getMemberImage($member)}}" alt="{{$member->name}}">
                 </div>
                 <div class="content-column">
                     <h4>H-{{member_id($member->id)}}</h4>

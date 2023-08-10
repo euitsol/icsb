@@ -34,7 +34,11 @@
             <div class="world-wide-column flex text-align">
                 @foreach ($wwcss as $wwcs)
                 <div class="cs-items card">
-                    <h3>{{$wwcs->title}}</h3>
+                    <h3>
+                        {{substr($wwcs->title, 0, strrpos($wwcs->title, ' '))}}
+                        <br>
+                        {{ltrim(strrchr($wwcs->title, ' '))}}
+                    </h3>
                     <img src="{{storage_url($wwcs->logo)}}" alt="The Global Institute">
                     <ul class="flex">
                         <li><a href="mailto:cgioffice@mci-group.com"><i class="fa-solid fa-envelope"></i> <span>Email</span></a></li>

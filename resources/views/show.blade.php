@@ -2,7 +2,20 @@
 
 @section('title', $details->title)
 @push('css')
+<style>
+    .form-group .form-control, .input-group .form-control {
+    padding: 8px 0px 10px 18px;
+    }
+    .input-group .form-control:first-child, .input-group-btn:first-child>.dropdown-toggle, .input-group-btn:last-child>.btn:not(:last-child):not(.dropdown-toggle) {
+        border-right: 1px solid rgba(29, 37, 59, 0.5);
+    }
+    .input-group .form-control:not(:first-child):not(:last-child), .input-group-btn:not(:first-child):not(:last-child) {
+        border-radius: 0;
+        border-right: 0;
+    }
+</style>
 @endpush
+
 
 @section('content')
     <div class="row">
@@ -19,6 +32,7 @@
 							@foreach(json_decode($details->form_data) as $k => $fd)
                             @php
                                 $a = $fd->field_key;
+                                $count = 0;
                             @endphp
 
                                 @if($fd->type == "text")
@@ -60,21 +74,83 @@
                                     </div>
 
                                 @elseif($fd->type == "file_single")
+
                                     <div class="form-group {{ $errors->has($fd->field_key) ? ' has-danger' : '' }}">
+                                        <input type="hidden" name="{{$fd->field_key}}[url]" class="file_url">
                                         <label for="{{$fd->field_key}}">{{ $fd->field_name }}</label>
-                                        <input type="file" accept="" name="{{$fd->field_key}}" id="{{$fd->field_key}}" class="form-control fileInput {{ $errors->has($fd->field_key) ? 'is-invalid' : '' }}">
+
+                                        <div class="input-group mb-3">
+                                            <input type="text" name="{{$fd->field_key}}[title]" class="form-control file_title" placeholder="{{ _('Enter file name') }}" >
+                                            <input type="file" accept="" name="{{$fd->field_key}}[file]" id="{{$fd->field_key}}" class="form-control fileInput {{ $errors->has($fd->field_key) ? 'is-invalid' : '' }}">
+                                        </div>
+
 
                                         <div class="d-flex">
-                                            <input type="hidden" name="{{$fd->field_key}}" class="file_url">
                                             <div class="progressBar bg-success" style="width: 0%; background: #ddd; height: 20px;"></div>
                                             <span class="cancelBtn"  style="margin-left: 1rem; margin-right: 1rem; cursor: pointer; display:none;"><i class="fa-solid fa-xmark"></i></span>
+                                        </div>
+
+                                        <div class="show_file">
+                                            @if(!empty(json_decode($details->saved_data)) && isset(json_decode($details->saved_data)->$a))
+                                            <div class="form-group">
+                                                <label>{{ _('Uploded file') }}</label>
+                                                <div class="input-group mb-3">
+                                                    <input type="text" class="form-control" value="{{file_title_from_url(json_decode($details->saved_data)->$a)}}" disabled>
+                                                    <input type="text" class="form-control" value="{{file_name_from_url(json_decode($details->saved_data)->$a)}}" disabled>
+                                                    <a href="{{route('sp.file.delete', [base64_encode(json_decode($details->saved_data)->$a), $details->id, $a])}}">
+                                                        <span class="input-group-text text-danger h-100"><i class="tim-icons icon-trash-simple"></i></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            @endif
+                                        </div>
+
+                                        @include('alerts.feedback', ['field' => $fd->field_key])
+                                    </div>
+
+                                @elseif($fd->type == "file_multiple")
+
+                                    <div class="form-group {{ $errors->has($fd->field_key) ? ' has-danger' : '' }}">
+                                        <label for="{{$fd->field_key}}">{{ $fd->field_name }}</label>
+
+                                        <div class="input-group mb-3">
+                                            <input type="text" name="" class="form-control file_title" placeholder="{{ _('Enter file name') }}" >
+                                            <input type="file" name="" id="{{$fd->field_key}}" class="form-control fileInput {{ $errors->has($fd->field_key) ? 'is-invalid' : '' }}" multiple @if(isset(json_decode($details->saved_data)->$a) && !empty(json_decode($details->saved_data)) ) data-count="{{collect(json_decode($details->saved_data)->$a)->count()}}" @else data-count="1" @endif>
+                                        </div>
+
+
+                                        <div class="d-flex">
+                                            <div class="progressBar bg-success" style="width: 0%; background: #ddd; height: 20px;"></div>
+                                            <span class="cancelBtn"  style="margin-left: 1rem; margin-right: 1rem; cursor: pointer; display:none;"><i class="fa-solid fa-xmark"></i></span>
+                                        </div>
+
+                                        <div class="show_file">
+                                            @if(isset(json_decode($details->saved_data)->$a) && !empty(json_decode($details->saved_data)))
+                                            @foreach(json_decode($details->saved_data)->$a as $url)
+                                                @php
+                                                    $count += 1
+                                                @endphp
+                                                <div class="form-group">
+                                                    <label>{{ _('Uploded file - '.$count) }}</label>
+                                                    <div class="input-group mb-3">
+                                                        <input type="text" class="form-control"   value="{{ file_title_from_url($url) }}" disabled>
+                                                        <input type="text" class="form-control"  value="{{ file_name_from_url($url) }}" disabled>
+                                                        <input type="hidden" class="d-none" name="{{$fd->field_key}}[{{$count}}][url]" value="{{ file_name_from_url($url) }}">
+                                                        <input type="hidden" class="d-none" name="{{$fd->field_key}}[{{$count}}][title]" value="{{ file_title_from_url($url) }}">
+                                                        <a href="{{route('sp.file.delete', [base64_encode($url), $details->id, $a])}}">
+                                                            <span class="input-group-text text-danger h-100"><i class="tim-icons icon-trash-simple"></i></span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                            @endif
                                         </div>
                                         @include('alerts.feedback', ['field' => $fd->field_key])
                                     </div>
                                 @elseif($fd->type == "email")
                                     <div class="form-group {{ $errors->has($fd->field_key) ? ' has-danger' : '' }}">
                                         <label for="{{$fd->field_key}}">{{ $fd->field_name }}</label>
-                                        <input type="email" name="{{$fd->field_key}}" id="{{$fd->field_key}}" class="form-control  {{ $errors->has($fd->field_key) ? 'is-invalid' : '' }}" value="{{ json_decode($details->saved_data)->$a ?? old($fd->field_key) }}">
+                                        <input type="email" name="{{$fd->field_key}}" id="{{$fd->field_key}}" class="form-control  {{ $errors->has($fd->field_key) ? 'is-invalid' : '' }}" value="{{ json_decode($details->saved_data)->$a ?? old($fd->field_key) }}" >
                                         @include('alerts.feedback', ['field' => $fd->field_key])
                                     </div>
 
@@ -121,63 +197,119 @@
         $(document).ready(function () {
         let xhr;
 
-        $(document).on("change", ".fileInput", function () {
-            const progressBar = $(this).siblings(".d-flex").find(".progressBar");
-            const cancelBtn = $(this).siblings(".d-flex").find(".cancelBtn");
-            const fileUrl = $(this).siblings(".d-flex").find(".file_url");
+            $(document).on("change", ".fileInput", function () {
+                const progressBar = $(this).parent().siblings(".d-flex").find(".progressBar");
+                const cancelBtn = $(this).parent().siblings(".d-flex").find(".cancelBtn");
+                const fileUrl = $(this).parent().parent().find(".file_url");
+                const fileTitle = $(this).parent().find(".file_title");
+                const showFile = $(this).parent().siblings(".show_file");
+                const isMultiple = $(this).attr('multiple');
+                if(isMultiple){
+                    var count = $(this).data('count');
+                    var key = $(this).attr('id');
+                    count = count + 1;
+                    $(this).data('count', count)
+                }
 
-            const formData = new FormData();
-            formData.append('file', this.files[0]);
+                const formData = new FormData();
+                formData.append('file', this.files[0]);
 
-            xhr = $.ajax({
-                url: "{{ route('sp.file.upload') }}",
-                type: "POST",
-                data: formData,
-                dataType: "json",
-                contentType: false,
-                processData: false,
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                xhr: function () {
-                    const xhr = new window.XMLHttpRequest();
-                    xhr.upload.addEventListener("progress", function (evt) {
-                        if (evt.lengthComputable) {
-                            const percentComplete = (evt.loaded / evt.total) * 100;
-                            progressBar.css("width", percentComplete + "%");
-                            cancelBtn.css("display", "block");
+                xhr = $.ajax({
+                    url: "{{ route('sp.file.upload') }}",
+                    type: "POST",
+                    data: formData,
+                    dataType: "json",
+                    contentType: false,
+                    processData: false,
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    xhr: function () {
+                        const xhr = new window.XMLHttpRequest();
+                        xhr.upload.addEventListener("progress", function (evt) {
+                            if (evt.lengthComputable) {
+                                const percentComplete = (evt.loaded / evt.total) * 100;
+                                progressBar.css("width", percentComplete + "%");
+                                cancelBtn.css("display", "block");
+                            }
+                        }, false);
+                        return xhr;
+                    },
+                    success: function (response) {
+                        console.log(response);
+                        if (response.success) {
+
+                            alert("File uploaded successfully.");
+
+                            let url = ("{{ route('sp.file.delete', ['url']) }}");
+                            let _url = url.replace('url', response.url);
+                            if(isMultiple){
+                                var file = `<div class="form-group">
+                                                <label>{{ _('Uploded file - ${count}') }}</label>
+                                                <div class="input-group mb-3">
+                                                    <input type="text" class="form-control"   value="${set_title(fileTitle.val(),'',response.title)}" disabled>
+                                                    <input type="text" class="form-control"  value="${set_title(fileTitle.val(), response.extension, response.title)}" disabled>
+                                                    <input type="hidden" class="d-none" name="${key}[${count}][url]" value="${response.file_path}">
+                                                    <input type="hidden" class="d-none" name="${key}[${count}][title]" value="${set_title(fileTitle.val(),'',response.title)}">
+                                                    <a href="${_url}">
+                                                        <span class="input-group-text text-danger h-100 delete_file"><i class="tim-icons icon-trash-simple"></i></span>
+                                                    </a>
+                                                </div>
+                                            </div>`;
+                                showFile.append(file);
+
+                            }else{
+                                fileUrl.val(response.file_path);
+                                var file = `<div class="form-group">
+                                                <label>{{ _('Uploded file') }}</label>
+                                                <div class="input-group mb-3">
+                                                    <input type="text" class="form-control" value="${set_title(fileTitle.val(),'',response.title)}" disabled>
+                                                    <input type="text" class="form-control" value="${set_title(fileTitle.val(), response.extension,response.title)}" disabled>
+                                                    <a href="${_url}">
+                                                        <span class="input-group-text text-danger h-100 delete_file"><i class="tim-icons icon-trash-simple"></i></span>
+                                                    </a>
+                                                </div>
+                                            </div>`;
+                            showFile.html(file);
+
+                            }
+
+                        } else {
+                            alert("Failed to upload file. Please try again.");
                         }
-                    }, false);
-                    return xhr;
-                },
-                success: function (response) {
-                    console.log(response);
-                    if (response.success) {
-                        alert("File uploaded successfully.");
-                        fileUrl.val(response.file_path);
-                    } else {
-                        alert("Failed to upload file. Please try again.");
+                        progressBar.css("width", "0%");
+                        cancelBtn.css("display", "none");
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert("Failed to upload file: " + textStatus);
+                        progressBar.css("width", "0%");
+                        cancelBtn.css("display", "none");
                     }
-                    progressBar.css("width", "0%");
-                    cancelBtn.css("display", "none");
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    alert("Failed to upload file: " + textStatus);
-                    progressBar.css("width", "0%");
-                    cancelBtn.css("display", "none");
+                });
+            });
+
+            $(document).on("click", ".cancelBtn", function () {
+                if (xhr && xhr.readyState !== 4) {
+                    xhr.abort();
+                    alert("File upload canceled.");
+                    $(this).siblings(".progressBar").css("width", "0%");
+                    $(this).siblings(".cancelBtn").css("display", "none");
                 }
             });
-        });
 
-        $(document).on("click", ".cancelBtn", function () {
-            if (xhr && xhr.readyState !== 4) {
-                xhr.abort();
-                alert("File upload canceled.");
-                $(this).siblings(".progressBar").css("width", "0%");
-                $(this).siblings(".cancelBtn").css("display", "none");
-            }
+
+            $(document).on("click", ".delete_file", function (e) {
+                e.preventDefault();
+            });
         });
     });
-    });
+
+    function set_title(input_val, extension = '', prev_val = $('.title').html()){
+        if(input_val != null && input_val != ''){
+            return input_val + ((extension === '') ? '' : '.' + extension);
+        }else{
+            return prev_val + ((extension === '') ? '' : '.' + extension);
+        }
+    }
 </script>
 @endpush
