@@ -1,6 +1,6 @@
 @extends('frontend.master')
 
-@section('title', 'Exam Schedule')
+@section('title', 'Job Placement')
 
 @section('content')
 <!----============================= Breadcrumbs Section ========================---->
@@ -12,13 +12,13 @@
       <div class="breadcrumbs-row flex">
         <div class="left-column content-column">
           <div class="inner-column color-white">
-            <h1 class="breadcrumbs-heading">Job Placement</h1>
+            <h1 class="breadcrumbs-heading">{{_('Job Placement')}}</h1>
             <ul class="flex">
-              <li><a href="index">Home</a></li>
+              <li><a href="index">{{_('Home')}}</a></li>
               <li><i class="fa-solid fa-angle-right"></i></li>
-              <li><a href="#">Members</a></li>
+              <li><a href="#">{{_('Members')}}</a></li>
               <li><i class="fa-solid fa-angle-right"></i></li>
-              <li><p>Job Placement</p></li>
+              <li><p>{{_('Job Placement')}}</p></li>
             </ul>
           </div>
         </div>
@@ -31,11 +31,11 @@
   <div class="job-placement-section">
     <div class="container">
       <div class="title">
-        <h1>Job Placement</h1>
+        <h1>{{_('Job Placement')}}</h1>
       </div>
       <div class="job-table">
         <div class="table-serch">
-          <p>Showing results <span> 10</span> in <span>200</span> jobs list</p>
+          <p>Showing results <span> 10</span> in <span>{{count($job_placements)}}</span> jobs list</p>
           <p class="sort">
             <label for="cars">Sort By</label>
             <select id="">
@@ -46,210 +46,31 @@
             </select>
           </p>
         </div>
-        <div class="single-job">
-          <div class="left-col">
-            <div class="img-col">
-              <img src="{{asset('frontend/img/job-placement/job-img.png')}}" alt="" />
-            </div>
-            <div class="details-col">
-              <h2>Senior PHP Developer</h2>
-              <h3>Medico.co Ltd</h3>
-              <span class="day"><i class="fa-solid fa-clock"></i>1 day ago</span>
-              <span><i class="fa-solid fa-briefcase"></i>Full time</span>
-              <span><i class="fa-solid fa-briefcase"></i>Part time</span>
-            </div>
-          </div>
-          <div class="right-col">
-            <ul>
-              <li><strong>Salary:</strong> TK. <span>30000-40000</span> / Per Month</li>
-              <li><strong>Deadline:</strong> TK. <span>30 July, 2023</span></li>
-            </ul>
+        @foreach ($job_placements as $jp)
+            <div class="single-job">
+            <div class="left-col">
+                <div class="details-col">
+                <h2>{{$jp->title}}</h2>
+                <h3>{{$jp->company_name}}</h3>
+                <span class="day"><i class="fa-solid fa-clock"></i>1 day ago</span>
+                @foreach (json_decode($jp->job_type) as $type)
+                    <span><i class="fa-solid fa-briefcase"></i>{{$type}}</span>
+                @endforeach
 
-            <div class="btn">
-              <a href="#">Apply Now</a>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="single-job">
-          <div class="left-col">
-            <div class="img-col">
-              <img src="{{asset('frontend/img/job-placement/job-img.png')}}" alt="" />
-            </div>
-            <div class="details-col">
-              <h2>Senior PHP Developer</h2>
-              <h3>Medico.co Ltd</h3>
-              <span class="day"><i class="fa-solid fa-clock"></i>1 day ago</span>
-              <span><i class="fa-solid fa-briefcase"></i>Full time</span>
-              <span><i class="fa-solid fa-briefcase"></i>Part time</span>
-            </div>
-          </div>
-          <div class="right-col">
-            <ul>
-              <li><strong>Salary:</strong> TK. <span>30000-40000</span> / Per Month</li>
-              <li><strong>Deadline:</strong> TK. <span>30 July, 2023</span></li>
-            </ul>
+            <div class="right-col">
+                <ul>
+                <li><strong>Salary:</strong> TK. <span>{{json_decode($jp->salary)->from}}-{{json_decode($jp->salary)->to}}</span> / {{$jp->salary_type}}</li>
+                <li><strong>Deadline: </strong><span>{{ date('d M, Y', strtotime($jp->deadline))}} ({{ date('H:i A', strtotime($jp->deadline))}})</span></li>
+                </ul>
 
-            <div class="btn">
-              <a href="#">Apply Now</a>
+                <div class="btn">
+                <a href="{{$jp->company_url}}">Apply Now</a>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="single-job">
-          <div class="left-col">
-            <div class="img-col">
-              <img src="{{asset('frontend/img/job-placement/job-img.png')}}" alt="" />
             </div>
-            <div class="details-col">
-              <h2>Senior PHP Developer</h2>
-              <h3>Medico.co Ltd</h3>
-              <span class="day"><i class="fa-solid fa-clock"></i>1 day ago</span>
-              <span><i class="fa-solid fa-briefcase"></i>Full time</span>
-              <span><i class="fa-solid fa-briefcase"></i>Part time</span>
-            </div>
-          </div>
-          <div class="right-col">
-            <ul>
-              <li><strong>Salary:</strong> TK. <span>30000-40000</span> / Per Month</li>
-              <li><strong>Deadline:</strong> TK. <span>30 July, 2023</span></li>
-            </ul>
-
-            <div class="btn">
-              <a href="#">Apply Now</a>
-            </div>
-          </div>
-        </div>
-        <div class="single-job">
-          <div class="left-col">
-            <div class="img-col">
-              <img src="{{asset('frontend/img/job-placement/job-img.png')}}" alt="" />
-            </div>
-            <div class="details-col">
-              <h2>Senior PHP Developer</h2>
-              <h3>Medico.co Ltd</h3>
-              <span class="day"><i class="fa-solid fa-clock"></i>1 day ago</span>
-              <span><i class="fa-solid fa-briefcase"></i>Full time</span>
-              <span><i class="fa-solid fa-briefcase"></i>Part time</span>
-            </div>
-          </div>
-          <div class="right-col">
-            <ul>
-              <li><strong>Salary:</strong> TK. <span>30000-40000</span> / Per Month</li>
-              <li><strong>Deadline:</strong> TK. <span>30 July, 2023</span></li>
-            </ul>
-
-            <div class="btn">
-              <a href="#">Apply Now</a>
-            </div>
-          </div>
-        </div>
-        <div class="single-job">
-          <div class="left-col">
-            <div class="img-col">
-              <img src="{{asset('frontend/img/job-placement/job-img.png')}}" alt="" />
-            </div>
-            <div class="details-col">
-              <h2>Senior PHP Developer</h2>
-              <h3>Medico.co Ltd</h3>
-              <span class="day"><i class="fa-solid fa-clock"></i>1 day ago</span>
-              <span><i class="fa-solid fa-briefcase"></i>Full time</span>
-              <span><i class="fa-solid fa-briefcase"></i>Part time</span>
-            </div>
-          </div>
-          <div class="right-col">
-            <ul>
-              <li><strong>Salary:</strong> TK. <span>30000-40000</span> / Per Month</li>
-              <li><strong>Deadline:</strong> TK. <span>30 July, 2023</span></li>
-            </ul>
-
-            <div class="btn">
-              <a href="#">Apply Now</a>
-            </div>
-          </div>
-        </div>
-        <div class="single-job">
-          <div class="left-col">
-            <div class="img-col">
-              <img src="{{asset('frontend/img/job-placement/job-img.png')}}" alt="" />
-            </div>
-            <div class="details-col">
-              <h2>Senior PHP Developer</h2>
-              <h3>Medico.co Ltd</h3>
-              <span class="day"><i class="fa-solid fa-clock"></i>1 day ago</span>
-              <span><i class="fa-solid fa-briefcase"></i>Full time</span>
-              <span><i class="fa-solid fa-briefcase"></i>Part time</span>
-            </div>
-          </div>
-          <div class="right-col">
-            <ul>
-              <li><strong>Salary:</strong> TK. <span>30000-40000</span> / Per Month</li>
-              <li><strong>Deadline:</strong> TK. <span>30 July, 2023</span></li>
-            </ul>
-
-            <div class="btn">
-              <a href="#">Apply Now</a>
-            </div>
-          </div>
-        </div>
-        <div class="single-job">
-          <div class="left-col">
-            <div class="img-col">
-              <img src="{{asset('frontend/img/job-placement/job-img.png')}}" alt="" />
-            </div>
-            <div class="details-col">
-              <h2>Senior PHP Developer</h2>
-              <h3>Medico.co Ltd</h3>
-              <span class="day"><i class="fa-solid fa-clock"></i>1 day ago</span>
-              <span><i class="fa-solid fa-briefcase"></i>Full time</span>
-              <span><i class="fa-solid fa-briefcase"></i>Part time</span>
-            </div>
-          </div>
-          <div class="right-col">
-            <ul>
-              <li><strong>Salary:</strong> TK. <span>30000-40000</span> / Per Month</li>
-              <li><strong>Deadline:</strong> TK. <span>30 July, 2023</span></li>
-            </ul>
-
-            <div class="btn">
-              <a href="#">Apply Now</a>
-            </div>
-          </div>
-        </div>
-        <div class="single-job">
-          <div class="left-col">
-            <div class="img-col">
-              <img src="{{asset('frontend/img/job-placement/job-img.png')}}" alt="" />
-            </div>
-            <div class="details-col">
-              <h2>Senior PHP Developer</h2>
-              <h3>Medico.co Ltd</h3>
-              <span class="day"><i class="fa-solid fa-clock"></i>1 day ago</span>
-              <span><i class="fa-solid fa-briefcase"></i>Full time</span>
-              <span><i class="fa-solid fa-briefcase"></i>Part time</span>
-            </div>
-          </div>
-          <div class="right-col">
-            <ul>
-              <li><strong>Salary:</strong> TK. <span>30000-40000</span> / Per Month</li>
-              <li><strong>Deadline:</strong> TK. <span>30 July, 2023</span></li>
-            </ul>
-
-            <div class="btn">
-              <a href="#">Apply Now</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="pagination">
-          <nav aria-label="Page navigation example">
-            <ul class="pagination">
-              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item"><a class="page-link" href="#">Next</a></li>
-            </ul>
-          </nav>
-        </div>
+        @endforeach
       </div>
     </div>
   </div>

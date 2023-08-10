@@ -20,8 +20,8 @@ class FaqController extends Controller
     }
     public function index(): View
     {
-        $n['faqs'] = Faq::where('deleted_at', null)->latest()->get();
-        return view('backend.about_pages.faq.index',$n);
+        $s['faqs'] = Faq::where('deleted_at', null)->latest()->get();
+        return view('backend.about_pages.faq.index',$s);
     }
     public function create(): View
     {
@@ -38,8 +38,8 @@ class FaqController extends Controller
     }
     public function edit($id): View
     {
-        $n['faq'] = Faq::findOrFail($id);
-        return view('backend.about_pages.faq.edit', $n);
+        $s['faq'] = Faq::findOrFail($id);
+        return view('backend.about_pages.faq.edit', $s);
     }
     public function update(FaqRequest $request, $id): RedirectResponse
     {

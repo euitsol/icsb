@@ -12,7 +12,7 @@
                             <h4 class="card-title">{{ _('Permission') }}</h4>
                         </div>
                         <div class="col-4 text-right">
-                            <a href="{{ route('um.permission.add') }}" class="btn btn-sm btn-primary">{{ _('Add Permission') }}</a>
+                            <a href="{{ route('um.permission.permission_add') }}" class="btn btn-sm btn-primary">{{ _('Add Permission') }}</a>
                         </div>
                     </div>
                 </div>

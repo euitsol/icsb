@@ -9,7 +9,7 @@
                 <div class="card-header">
                     <h5 class="title">{{ _('Add Role') }}</h5>
                 </div>
-                <form method="POST" action="{{ route('um.permission.store') }}" autocomplete="off">
+                <form method="POST" action="{{ route('um.permission.permission_store') }}" autocomplete="off">
                     @csrf
                     <div class="card-body">
                             <div class="form-group {{ $errors->has('name') ? ' has-danger' : '' }}">

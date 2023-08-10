@@ -34,14 +34,15 @@
         <div class="container">
             <div class="global-row flex
             align-items-center
-            @if (isset($saved_data->{'page-description'}) && strlen($saved_data->{'page-description'})>1700) flex-column-reverse @endif
+            @if (isset($saved_data->{'page-description'}) && strlen($saved_data->{'page-description'})>1700 ) flex-column-reverse @endif
+            @if (isset($saved_data->{'page-description'}) && strlen($saved_data->{'page-description'})<500) flex-column @endif
             ">
-                <div class="left-column @if (isset($saved_data->{'page-description'}) && strlen($saved_data->{'page-description'})>1700) w-100 @endif">
+                <div class="left-column @if (isset($saved_data->{'page-description'}) && strlen($saved_data->{'page-description'})>1700 || strlen($saved_data->{'page-description'})<500) w-100 @endif">
                     @if (isset($saved_data->{'page-description'}))
                         {!! $saved_data->{'page-description'} ?? '' !!}
                     @endif
                 </div>
-                <div class="right-column @if (isset($saved_data->{'page-description'}) && strlen($saved_data->{'page-description'})>1700) w-100 mb-5  @endif"
+                <div class="right-column @if (isset($saved_data->{'page-description'}) && (strlen($saved_data->{'page-description'})>1700) || strlen($saved_data->{'page-description'})<500)  w-100 mb-5  @endif"
                     style="max-height:600px !important;"
                     >
 

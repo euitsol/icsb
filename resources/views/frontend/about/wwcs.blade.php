@@ -12,14 +12,14 @@
         <div class="breadcrumbs-row flex">
             <div class="left-column content-column">
                 <div class="inner-column color-white">
-                    <h1 class="breadcrumbs-heading">World Wide CS</h1>
+                    <h1 class="breadcrumbs-heading">{{_('World Wide CS')}}</h1>
                     <ul class="flex">
-                        <li><a href="index">Home</a></li>
+                        <li><a href="index">{{_('Home')}}</a></li>
                         <li><i class="fa-solid fa-angle-right"></i></li>
-                        <li><a href="#">About ICSB</a></li>
+                        <li><a href="#">{{_('About ICSB')}}</a></li>
                         <li><i class="fa-solid fa-angle-right"></i></li>
                         <li>
-                            <p>World Wide CS</p>
+                            <p>{{_('World Wide CS')}}</p>
                         </li>
                     </ul>
                 </div>
@@ -41,8 +41,8 @@
                     </h3>
                     <img src="{{storage_url($wwcs->logo)}}" alt="The Global Institute">
                     <ul class="flex">
-                        <li><a href="mailto:cgioffice@mci-group.com"><i class="fa-solid fa-envelope"></i> <span>Email</span></a></li>
-                        <li><a href="{{$wwcs->url}}" target="_blank"><i class="fa-solid fa-globe"></i> <span>Visit Website</span></a></li>
+                        <li><a href="mailto:{{$wwcs->email}}"><i class="fa-solid fa-envelope"></i> <span>{{_('Email')}}</span></a></li>
+                        <li><a href="{{$wwcs->url}}" target="_blank"><i class="fa-solid fa-globe"></i> <span>{{_('Visit Website')}}</span></a></li>
                     </ul>
                 </div>
                 @endforeach

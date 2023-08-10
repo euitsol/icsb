@@ -312,7 +312,6 @@
         height: 40px;
         padding: 0;
         border: 0;
-        margin-top: 6px;
         background: transparent;
     }
     .header-menu-section .navbar-toggler:focus{
@@ -1032,6 +1031,23 @@
         bottom: -31px;
       }
 }
+@media only screen and (max-width: 1024px){
+    .top-header-section{
+        display: none;
+    }
+    .main-header-section {
+        padding: 10px 0;
+        display: none;
+    }
+    .about-us-section .about-us-row .image-column .first-image{
+        width: 300px;
+        height: 300px;
+    }
+    .about-us-section .about-us-row .image-column .second-image{
+        width: 300px;
+        height: 300px;
+    }
+}
 @media only screen and (max-width: 991px){
     .main-header-section {
         padding: 30px 0 10px 0;
@@ -1052,13 +1068,6 @@
     }
     .main {
         margin-top: 70px;
-    }
-    .top-header-section{
-        display: none;
-    }
-    .main-header-section {
-        padding: 10px 0;
-        display: none;
     }
 
     .banner-section img{
@@ -1601,6 +1610,10 @@
         display: none;
     }
     .main-footer-section::after {
+        display: none;
+    }
+/*================slider css============*/
+    .owl-nav{
         display: none;
     }
 }

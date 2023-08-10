@@ -53,6 +53,15 @@
                         <div id="memberInfo" class="row align-items-center">
 
                         </div>
+                        {{-- <div class="form-group {{ $errors->has('designation') ? ' has-danger' : '' }}">
+                            <label>{{ _('Designation') }}</label>
+                            <select name="designation" class="form-control {{ $errors->has('designation') ? ' is-invalid' : '' }}">
+                                <option selected hidden>{{_('Select Designation')}}</option>
+                                    <option value="President, ICSB" @if( old('designation') == 'President, ICSB') selected @endif>{{_('President')}}</option>
+                                    <option value="Past President, ICSB" @if( old('designation') == 'Past President, ICSB') selected @endif>{{_('Past President')}}</option>
+                            </select>
+                            @include('alerts.feedback', ['field' => 'designation'])
+                        </div> --}}
 
 
                         <div class="form-group {{ $errors->has('duration') ? ' has-danger' : '' }} {{ $errors->has('duration.*') ? ' has-danger' : '' }}">

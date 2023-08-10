@@ -36,6 +36,7 @@ class WWCSController extends Controller
         }
 
         $wwcs->title = $request->title;
+        $wwcs->email = $request->email;
         $wwcs->url = $request->url;
         $wwcs->description = $request->description;
         $wwcs->created_by = auth()->user()->id;
@@ -59,6 +60,7 @@ class WWCSController extends Controller
         }
 
         $wwcs->title = $request->title;
+        $wwcs->email = $request->email;
         $wwcs->url = $request->url;
         $wwcs->description = $request->description;
         $wwcs->updated_by = auth()->user()->id;

@@ -25,12 +25,21 @@ class FrontendSinglePagesController extends Controller
         $committeeTypes = CommitteeType::with('committees')->where('deleted_at', null)->where('status', 1)->get();
         $mediaRoomCategory = MediaRoomCategory::with('media_rooms')->where('deleted_at', null)->where('status', 1)->get();
         $bsss = SecretarialStandard::where('deleted_at', null)->where('status', 1)->get();
+        $memberPortal = SinglePages::where('frontend_slug', 'member-portal')->first();
+        $studentPortal = SinglePages::where('frontend_slug', 'student-portal')->first();
+        $studentPortal = SinglePages::where('frontend_slug', 'student-portal')->first();
+        $facultyEvaluationSystem = SinglePages::where('frontend_slug', 'faculty-evaluation-system')->first();
+        $publicationOthers = SinglePages::where('frontend_slug', 'others')->first();
         view()->share([
             'contact' => $contact,
             'memberTypes' => $memberTypes,
             'committeeTypes' => $committeeTypes,
             'mediaRoomCategory' => $mediaRoomCategory,
             'bsss' => $bsss,
+            'memberPortal' => $memberPortal,
+            'studentPortal' => $studentPortal,
+            'facultyEvaluationSystem' => $facultyEvaluationSystem,
+            'publicationOthers' => $publicationOthers,
         ]);
         return $this->middleware('auth');
     }
@@ -57,10 +66,8 @@ class FrontendSinglePagesController extends Controller
                 $s['events'] = Event::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
                 return view('frontend.about.objectives',$s);
                 break;
-            case($s['single_page']->frontend_slug == 'exam-schedule'):
-                $s['media_rooms'] = MediaRoom::where('deleted_at', null)->where('permission','1')->where('is_featured','1')->latest()->get();
-                $s['events'] = Event::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
-                return view('frontend.about.objectives',$s);
+            case($s['single_page']->frontend_slug == 'help-desk'):
+                return view('frontend.employee.help_desk',$s);
                 break;
             default:
                 return view('frontend.global', $s);

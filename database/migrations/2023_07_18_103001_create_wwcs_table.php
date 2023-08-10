@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title')->unique();
             $table->string('logo');
             $table->longText('description')->nullable();
+            $table->string('email')->unique();
             $table->string('url');
             $table->boolean('status')->default(1);
             $table->timestamps();
