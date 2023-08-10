@@ -19,6 +19,7 @@ use App\Http\Controllers\Backend\ICSBProfileController;
 use App\Http\Controllers\Backend\MemberController;
 use App\Http\Controllers\Backend\SinglePagesController;
 use App\Http\Controllers\Backend\CommitteeController;
+use App\Http\Controllers\Backend\JobPlacementController;
 use App\Http\Controllers\Backend\MediaRoomController;
 use App\Http\Controllers\Backend\PresidentController;
 use App\Http\Controllers\Backend\SecAndCeoController;
@@ -306,6 +307,15 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::get('single/delete/{id}', [SecAndCeoController::class, 'singleDelete'])->name('single.sc_delete');
         Route::get('delete/{id}', [SecAndCeoController::class, 'delete'])->name('sc_delete');
     });
+    Route::group(['as' => 'job_placement.', 'prefix' => 'job-placement'], function () {
+        Route::get('index', [JobPlacementController::class, 'index'])->name('jp_list');
+        Route::get('create', [JobPlacementController::class, 'create'])->name('jp_create');
+        Route::post('create', [JobPlacementController::class, 'store'])->name('jp_create');
+        Route::get('edit/{id}', [JobPlacementController::class, 'edit'])->name('jp_edit');
+        Route::put('edit/{id}', [JobPlacementController::class, 'update'])->name('jp_edit');
+        Route::get('status/{id}', [JobPlacementController::class, 'status'])->name('status.jp_edit');
+        Route::get('delete/{id}', [JobPlacementController::class, 'delete'])->name('jp_delete');
+    });
 
 });
 
@@ -377,6 +387,7 @@ Route::group(['as' => 'rules_view.', 'prefix' => 'rules'], function () {
 // });
 Route::group(['as' => 'members.', 'prefix' => 'members'], function () {
     Route::get('/member-search/{slug}', [MembersPagesController::class, 'memberSearch'])->name('m_search');
+    Route::get('/job-placements', [MembersPagesController::class, 'jobPlacement'])->name('job_placement_view');
 });
 Route::group(['as' => 'student_view.', 'prefix' => 'student'], function () {
     Route::get('/cs-hand-book', [StudentPagesController::class, 'csHandBook'])->name('cs_hand_book');

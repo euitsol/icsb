@@ -1,6 +1,6 @@
 @extends('frontend.master')
 
-@section('title', 'Exam Schedule')
+@section('title', 'Job Placement')
 
 @section('content')
 <!----============================= Breadcrumbs Section ========================---->

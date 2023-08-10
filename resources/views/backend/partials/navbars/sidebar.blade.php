@@ -136,7 +136,7 @@
                         $pageSlug == 'training-program' ||
                         $pageSlug == 'members-lounge' ||
                         $pageSlug == 'members_notice_board' ||
-                        $pageSlug == 'job-placement'
+                        $pageSlug == 'job_placement'
                     )@else collapsed @endif" data-toggle="collapse" href="#member" @if (
                         $pageSlug == 'member' ||
                         $pageSlug == 'who-are-css' ||
@@ -148,7 +148,7 @@
                         $pageSlug == 'training-program' ||
                         $pageSlug == 'members-lounge' ||
                         $pageSlug == 'members_notice_board' ||
-                        $pageSlug == 'job-placement'
+                        $pageSlug == 'job_placement'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-solid fa-people-group"></i>
                     <span class="nav-link-text" >{{ __('Members') }}</span>
@@ -166,7 +166,7 @@
                         $pageSlug == 'training-program' ||
                         $pageSlug == 'members-lounge' ||
                         $pageSlug == 'members_notice_board' ||
-                        $pageSlug == 'job-placement'
+                        $pageSlug == 'job_placement'
                 ) show @endif" id="member">
                     <ul class="nav pl-4">
                         @include('backend.partials.menu_buttons', [
@@ -181,7 +181,7 @@
                                 ['pageSlug' => 'training-program', 'routeName' => 'sp.show', 'params' => 'training-program', 'label' => 'Training Program'],
                                 ['pageSlug' => 'members-lounge', 'routeName' => 'sp.show', 'params' => 'members-lounge', 'label' => 'Members’ Lounge'],
                                 ['pageSlug' => 'members_notice_board', 'routeName' => '', 'label' => 'Members’ Notice Board'],
-                                ['pageSlug' => 'job-placement', 'routeName' => 'sp.show', 'params' => 'job-placement', 'label' => 'Job Placement'],
+                                ['pageSlug' => 'job_placement', 'routeName' => 'job_placement.jp_list', 'label' => 'Job Placement'],
                             ]
                         ])
                     </ul>

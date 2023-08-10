@@ -49,6 +49,7 @@
                                             @include('backend.partials.action_buttons', [
                                                 'menuItems' => [
                                                     ['routeName' => '', 'label' => 'View'],
+                                                    ['routeName' => 'national_connection.status.national_connection_edit',   'params' => [$connection->id], 'label' => 'Change Status'],
                                                     ['routeName' => 'national_connection.national_connection_edit',   'params' => [$connection->id], 'label' => 'Update'],
                                                     ['routeName' => 'national_connection.national_connection_delete', 'params' => [$connection->id], 'label' => 'Delete', 'delete' => true],
                                                 ]

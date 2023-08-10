@@ -127,7 +127,7 @@
                             <li><a href="{{ route('sp.frontend','training-program') }}">Training Program</a></li>
                             <li><a href="{{ route('sp.frontend','members-lounge') }}">Members’ Lounge</a></li>
                             <li><a href="#">Members’ Notice Board</a></li>
-                            <li><a href="{{ route('sp.frontend','job-placement') }}">Job Placement</a></li>
+                            <li><a href="{{ route('members.job_placement_view') }}">Job Placement</a></li>
                         </ul>
                     </li>
                     <li class="drop-down">

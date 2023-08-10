@@ -7,6 +7,7 @@ use App\Models\MediaRoomCategory;
 use App\Models\CommitteeType;
 use Illuminate\Http\Request;
 use App\Models\Contact;
+use App\Models\JobPlacement;
 use App\Models\MemberType;
 use App\Models\SecretarialStandard;
 use App\Models\SinglePages;
@@ -45,9 +46,11 @@ class MembersPagesController extends Controller
         return view('frontend.members.member_view',$s);
 
     }
-    // public function jobPlacement(): View
-    // {
-    //     return view('frontend.members.job_placement');
+    public function jobPlacement(): View
+    {
 
-    // }
+        $s['job_placements'] = JobPlacement::where('status',1)->where('deleted_at',null)->latest()->get();
+        return view('frontend.members.job_placement',$s);
+
+    }
 }
