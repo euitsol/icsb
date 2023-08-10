@@ -19,6 +19,7 @@ use App\Http\Controllers\Backend\ICSBProfileController;
 use App\Http\Controllers\Backend\MemberController;
 use App\Http\Controllers\Backend\SinglePagesController;
 use App\Http\Controllers\Backend\CommitteeController;
+use App\Http\Controllers\Backend\CsFirmsController;
 use App\Http\Controllers\Backend\JobPlacementController;
 use App\Http\Controllers\Backend\MediaRoomController;
 use App\Http\Controllers\Backend\PresidentController;
@@ -315,6 +316,15 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::put('edit/{id}', [JobPlacementController::class, 'update'])->name('jp_edit');
         Route::get('status/{id}', [JobPlacementController::class, 'status'])->name('status.jp_edit');
         Route::get('delete/{id}', [JobPlacementController::class, 'delete'])->name('jp_delete');
+    });
+    Route::group(['as' => 'cs_firm.', 'prefix' => 'cs-firms'], function () {
+        Route::get('index', [CsFirmsController::class, 'index'])->name('cs_firm_list');
+        Route::get('create', [CsFirmsController::class, 'create'])->name('cs_firm_create');
+        Route::post('create', [CsFirmsController::class, 'store'])->name('cs_firm_create');
+        Route::get('edit/{id}', [CsFirmsController::class, 'edit'])->name('cs_firm_edit');
+        Route::put('edit/{id}', [CsFirmsController::class, 'update'])->name('cs_firm_edit');
+        Route::get('status/{id}', [CsFirmsController::class, 'status'])->name('status.cs_firm_edit');
+        Route::get('delete/{id}', [CsFirmsController::class, 'delete'])->name('cs_firm_delete');
     });
 
 });

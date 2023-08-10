@@ -130,7 +130,7 @@
                         $pageSlug == 'who-are-css' ||
                         $pageSlug == 'cs-membership' ||
                         $pageSlug == 'member-portal' ||
-                        $pageSlug == 'cs_firms' ||
+                        $pageSlug == 'cs_firm' ||
                         $pageSlug == 'code-of-conducts' ||
                         $pageSlug == 'cpd-program' ||
                         $pageSlug == 'training-program' ||
@@ -142,7 +142,7 @@
                         $pageSlug == 'who-are-css' ||
                         $pageSlug == 'cs-membership' ||
                         $pageSlug == 'member-portal' ||
-                        $pageSlug == 'cs_firms' ||
+                        $pageSlug == 'cs_firm' ||
                         $pageSlug == 'code-of-conducts' ||
                         $pageSlug == 'cpd-program' ||
                         $pageSlug == 'training-program' ||
@@ -160,7 +160,7 @@
                         $pageSlug == 'who-are-css' ||
                         $pageSlug == 'cs-membership' ||
                         $pageSlug == 'member-portal' ||
-                        $pageSlug == 'cs_firms' ||
+                        $pageSlug == 'cs_firm' ||
                         $pageSlug == 'code-of-conducts' ||
                         $pageSlug == 'cpd-program' ||
                         $pageSlug == 'training-program' ||
@@ -175,7 +175,7 @@
                                 ['pageSlug' => 'cs-membership', 'routeName' => 'sp.show', 'params' => 'cs-membership', 'label' => 'CS Membership'],
                                 ['pageSlug' => 'member', 'routeName' => 'member.member_list', 'label' => 'Member Search'],
                                 ['pageSlug' => 'member-portal', 'routeName' => 'sp.show', 'params' => 'member-portal', 'label' => 'Member Portal'],
-                                ['pageSlug' => 'cs_firms', 'routeName' => '', 'label' => 'CS Firms'],
+                                ['pageSlug' => 'cs_firm', 'routeName' => 'cs_firm.cs_firm_list', 'label' => 'CS Firms'],
                                 ['pageSlug' => 'code-of-conducts', 'routeName' => 'sp.show', 'params' => 'code-of-conducts', 'label' => 'Code of Conducts'],
                                 ['pageSlug' => 'cpd-program', 'routeName' => 'sp.show', 'params' => 'cpd-program', 'label' => 'CPD Program'],
                                 ['pageSlug' => 'training-program', 'routeName' => 'sp.show', 'params' => 'training-program', 'label' => 'Training Program'],
