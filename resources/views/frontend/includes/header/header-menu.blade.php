@@ -120,7 +120,9 @@
                                     </ul>
                                 @endif
                             </li>
-                            @if(isset($memberPortal->saved_data) && !empty(json_decode($memberPortal->saved_data)->{'portal-url'})<li><a href="{{ json_decode($memberPortal->saved_data)->{'portal-url'}}}">Members Portal</a></li>@endif
+                            @if(isset($memberPortal->saved_data) && !empty(json_decode($memberPortal->saved_data)->{'portal-url'}))
+                                <li><a href="{{ json_decode($memberPortal->saved_data)->{'portal-url'}}}">Members Portal</a></li>
+                            @endif
                             <li><a href="#">CS Firms</a></li>
                             <li><a href="{{ route('sp.frontend','code-of-conducts') }}">Code of Conducts</a></li>
                             <li><a href="{{ route('sp.frontend','cpd-program') }}">CPD Program</a></li>
