@@ -115,7 +115,7 @@
                                 @if(count($memberTypes))
                                     <ul class="sub-menu">
                                         @foreach ($memberTypes as $mType)
-                                            <li><a href="{{route('members.m_search',$mType->slug)}}">{{ $mType->title }}</a></li>
+                                            <li><a href="{{route('member_view.m_search',$mType->slug)}}">{{ $mType->title }}</a></li>
                                         @endforeach
                                     </ul>
                                 @endif
@@ -127,7 +127,7 @@
                             <li><a href="{{ route('sp.frontend','training-program') }}">Training Program</a></li>
                             <li><a href="{{ route('sp.frontend','members-lounge') }}">Members’ Lounge</a></li>
                             <li><a href="#">Members’ Notice Board</a></li>
-                            <li><a href="{{ route('members.job_placement_view') }}">Job Placement</a></li>
+                            <li><a href="{{ route('member_view.jps') }}">Job Placement</a></li>
                         </ul>
                     </li>
                     <li class="drop-down">
