@@ -142,11 +142,11 @@
                                 </ul>
                             </li>
                             <li><a href="{{route('student_view.cs_hand_book')}}">CS Hand Book</a></li>
-                            <li><a href="{{ json_decode($studentPortal->saved_data)->{'portal-url'} ?? '#' }}">Students Portal</a></li>
+                            <li><a href="@if(isset(json_decode($studentPortal->saved_data))){{ json_decode($studentPortal->saved_data)->{'portal-url'} ?? '#' }} @endif">Students Portal</a></li>
                             <li><a href="#">Financial Assistance</a></li>
                             <li><a href="{{ route('sp.frontend','icsb-library') }}">ICSB Library</a></li>
                             <li><a href="#">Student Notice Board</a></li>
-                            <li><a href="{{ json_decode($facultyEvaluationSystem->saved_data)->{'url'} ?? '#' }}">Faculty Evaluation System</a></li>
+                            <li><a href="@if(isset(json_decode($facultyEvaluationSystem->saved_data))){{ json_decode($facultyEvaluationSystem->saved_data)->{'url'} ?? '#' }} @endif">Faculty Evaluation System</a></li>
                         </ul>
                     </li>
                     <li class="drop-down">
