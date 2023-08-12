@@ -2,15 +2,16 @@
 
 @section('title', 'Add President')
 @push('css')
-<style>
-    .input-group .form-control:first-child{
-        border-right: 1px solid rgba(29, 37, 59, 0.5);
-    }
-    .input-group .form-control:not(:first-child):not(:last-child) {
-        border-radius: 0;
-        border-right: 0;
-    }
-</style>
+    <style>
+        .input-group .form-control:first-child {
+            border-right: 1px solid rgba(29, 37, 59, 0.5);
+        }
+
+        .input-group .form-control:not(:first-child):not(:last-child) {
+            border-radius: 0;
+            border-right: 0;
+        }
+    </style>
 @endpush
 
 @section('content')
@@ -18,41 +19,38 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="title float-left">{{ _('Add President') }}</h5>
-                    <span class="btn btn-sm btn-primary float-right" id="add_csf_member" data-count="1">{{_('+ Add New')}}</i></span>
+                    <h5 class="title">{{ _('Add President') }}</h5>
                 </div>
-                <form method="POST" action="{{ route('president.president_create') }}" autocomplete="off" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('president.president_create') }}" autocomplete="off"
+                    enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <div class="delete_div border p-4">
-                            <div class="form-group {{ $errors->has('csf_member.member_id') ? ' has-danger' : '' }} {{ $errors->has('csf_member.ppcn') ? ' has-danger' : '' }}">
+                            <div
+                                class="form-group {{ $errors->has('csf_member') ? ' has-danger' : '' }} {{ $errors->has('csf_member.*') ? ' has-danger' : '' }}">
                                 <label>{{ _('CS Firm Member - 1') }}</label>
                                 <div class="input-group mb-3">
-                                    <select name="csf_member[member_id]" class="form-control memberSelect">
-                                        <option selected hidden>{{_('Select Member')}}</option>
+                                    <select name="csf_member[1][member_id]" class="form-control memberSelect"
+                                        data-count="1">
+                                        <option selected hidden>{{ _('Select Member') }}</option>
                                         @foreach ($members as $member)
-                                            <option value="{{ $member->id }}" @if( old('csf_member.member_id') == $member->id) selected @endif> {{ $member->name }}</option>
+                                            <option value="{{ $member->id }}"
+                                                @if (old('csf_member.1.member_id') == $member->id) selected @endif> {{ $member->name }}
+                                            </option>
                                         @endforeach
                                     </select>
-                                    <input type="text" name="csf_member[ppcn]" value='{{member_id($member->id)}}' class="form-control ppcn">
+                                    <input type="text" name="csf_member[1][ppcn]" value='' class="form-control ppcn" placeholder="Enter private practice certificate no..">
+                                    <span class="input-group-text" id="add_csf_member" data-count="1"><i class="tim-icons icon-simple-add"></i></span>
                                 </div>
+                                @include('alerts.feedback', ['field' => 'csf_member.1.member_id'])
+                                @include('alerts.feedback', ['field' => 'csf_member.1.ppcn'])
                             </div>
-                            @include('alerts.feedback', ['field' => 'csf_member.member_id'])
-                            @include('alerts.feedback', ['field' => 'csf_member.ppcn'])
                             <div class="row align-items-center memberInfo">
 
                             </div>
-                            <div class="form-group {{ $errors->has('csf_member.slug') ? ' has-danger' : '' }}">
-                                <label>{{ _('Slug') }}</label>
-                                <input type="text" class="form-control {{ $errors->has('csf_member.slug') ? ' is-invalid' : '' }}" id="slug" name="csf_member[slug]" placeholder="{{ _('Enter Slug') }}" value="{{ old('csf_member.slug') }}">
-                                @include('alerts.feedback', ['field' => 'csf_member.slug'])
-                            </div>
                         </div>
 
-
-
                         <div id="append">
-
                         </div>
                     </div>
                     <div class="card-footer">
@@ -77,90 +75,84 @@
 @endsection
 
 @push('js')
-<script>
-    function generateSlug(str) {
-        return str
-            .toLowerCase()
-            .replace(/\s+/g, "-")
-            .replace(/[^\w-]+/g, "")
-            .replace(/--+/g, "-")
-            .replace(/^-+|-+$/g, "");
-    }
-    $(document).ready(function () {
-        $('#memberSelect').on('change', function () {
-            const selectedMemberId = $(this).val();
+    <script>
+        function fetchMemberData(selectedMemberId, container) {
             $.ajax({
                 url: `/members/${selectedMemberId}`,
                 method: 'GET',
                 dataType: 'json',
-                success: function (data) {
+                success: function(data) {
                     console.log(data);
-                    const slugValue = generateSlug(data.name);
-                    $("#slug").val(slugValue);
-                    $('#memberInfo').html(`
-                    <div class='col-md-2 text-center'>
-                        <img class="rounded" width="100" src="{{ storage_url('${data.image}')}}">
-                    </div>
-                    <div class='col-md-10'>
-                        <div class="form-group">
-                            <label>{{ _('Designation') }}</label>
-                            <input type="text" class="form-control" value="${data.designation}" disabled>
+                    container.find('.ppcn').val(data.member_id);
+                    container.find('.memberInfo').html(`
+                        <div class='col-md-2 text-center'>
+                            <img class="rounded" width="100" src="{{ storage_url('${data.member.image}') }}">
                         </div>
-                        <div class="form-group">
-                            <label>{{ _('Email') }}</label>
-                            <input type="text" class="form-control" value="${data.email}" disabled>
+                        <div class='col-md-10'>
+                            <div class="form-group">
+                                <label>Designation</label>
+                                <input type="text" class="form-control" value="${data.member.designation}" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="text" class="form-control" value="${data.member.email}" disabled>
+                            </div>
                         </div>
-                    </div>
-
                     `);
                 },
-                error: function (xhr, status, error) {
+                error: function(xhr, status, error) {
                     console.error('Error fetching member data:', error);
                 }
             });
-        });
-    });
+        }
 
+        function bindChangeEvents() {
+            $('.memberSelect').off('change').on('change', function() {
+                const selectedMemberId = $(this).val();
+                const container = $(this).closest('.delete_div');
+                fetchMemberData(selectedMemberId, container);
+            });
+        }
 
-    $(function() {
-    $('#add_csf_member').click(function() {
-        count = $(this).data('count') + 1;
-        $(this).data('count', count);
+        $(document).ready(function() {
+            bindChangeEvents();
 
-        result = `
-                        <div class="delete_div border p-4">
-                            <div class="form-group {{ $errors->has('csf_member.member_id') ? ' has-danger' : '' }} {{ $errors->has('csf_member.ppcn') ? ' has-danger' : '' }}">
-                                <label>{{ _('CS Firm Member - ${count}') }}</label>
-                                <div class="input-group mb-3">
-                                    <select name="csf_member[member_id]" class="form-control memberSelect">
-                                        <option selected hidden>{{_('Select Member')}}</option>
-                                        @foreach ($members as $member)
-                                            <option value="{{ $member->id }}" @if( old('csf_member.member_id') == $member->id) selected @endif> {{ $member->name }}</option>
-                                        @endforeach
-                                    </select>
-                                    <input type="text" name="csf_member[ppcn]" value='{{member_id($member->id)}}' class="form-control ppcn">
-                                    <span class="input-group-text text-danger delete_csfirm"><i class="tim-icons icon-trash-simple"></i></span>
-                                </div>
-                            </div>
-                            @include('alerts.feedback', ['field' => 'csf_member.member_id'])
-                            @include('alerts.feedback', ['field' => 'csf_member.ppcn'])
-                            <div class="row align-items-center memberInfo">
+            $('#add_csf_member').click(function() {
+                const count = $(this).data('count') + 1;
+                $(this).data('count', count);
 
-                            </div>
-                            <div class="form-group {{ $errors->has('csf_member.slug') ? ' has-danger' : '' }}">
-                                <label>{{ _('Slug') }}</label>
-                                <input type="text" class="form-control {{ $errors->has('csf_member.slug') ? ' is-invalid' : '' }}" id="slug" name="csf_member[slug]" placeholder="{{ _('Enter Slug') }}" value="{{ old('csf_member.slug') }}">
-                                @include('alerts.feedback', ['field' => 'csf_member.slug'])
-                            </div>
+                const result = `
+                <div class="delete_div border p-4">
+                    <div class="form-group {{ $errors->has('csf_member.${count}.member_id') ? ' has-danger' : '' }} {{ $errors->has('csf_member.${count}.ppcn') ? ' has-danger' : '' }}">
+                        <label>{{ _('CS Firm Member - ${count}') }}</label>
+                        <div class="input-group mb-3">
+                            <select name="csf_member[${count}][member_id]" class="form-control memberSelect">
+                                <option selected hidden>{{ _('Select Member') }}</option>
+                                @foreach ($members as $member)
+                                    <option value="{{ $member->id }}"
+                                        @if (old('csf_member.${count}.member_id') == $member->id) selected @endif> {{ $member->name }}
+                                    </option>
+                                @endforeach
+                                </select>
+                                <input type="text" name="csf_member[${count}][ppcn]" value='' class="form-control ppcn" placeholder="Enter private practice certificate no..">
+                                <span class="input-group-text text-danger delete_csfirm"><i class="tim-icons icon-trash-simple"></i></span>
                         </div>
-                    `;
-                        $('#append').append(result);
-                    });
-                    $(document).on('click', '.delete_csfirm', function() {
-                        $(this).closest('.delete_div').remove();
-                    });
-                });
-                </script>
+                        @include('alerts.feedback', ['field' => 'csf_member.${count}.member_id'])
+                        @include('alerts.feedback', ['field' => 'csf_member.${count}.ppcn'])
+                    </div>
+                    <div class="row align-items-center memberInfo">
+
+                    </div>
+                </div>
+                `;
+
+                $('#append').append(result);
+                bindChangeEvents(); // Rebind change events for new elements
+            });
+
+            $(document).on('click', '.delete_csfirm', function() {
+                $(this).closest('.delete_div').remove();
+            });
+        });
+    </script>
 @endpush
-
-

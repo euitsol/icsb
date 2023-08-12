@@ -9,7 +9,7 @@
     if (isset($saved_data->{'page-description'}) ){
         $count = strlen(strip_tags($saved_data->{'page-description'}));
     }
-    
+
 @endphp
 
 <!----============================= Breadcrumbs Section ========================---->
