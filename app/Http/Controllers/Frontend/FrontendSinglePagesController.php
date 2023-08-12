@@ -46,7 +46,7 @@ class FrontendSinglePagesController extends Controller
     public function frontend($fs): View
     {
 
-        $s['single_page'] = SinglePages::where('frontend_slug', $fs)->first();
+        $s['single_page'] = SinglePages::where('frontend_slug', $fs)->firstOrFail();
         switch($s['single_page']){
             case($s['single_page']->frontend_slug == 'icsb-profile'):
                 $s['wwcss'] = WWCS::where('status',1)->where('deleted_at', null)->latest()->get();

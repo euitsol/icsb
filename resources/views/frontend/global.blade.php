@@ -9,12 +9,12 @@
     if (isset($saved_data->{'page-description'}) ){
         $count = strlen(strip_tags($saved_data->{'page-description'}));
     }
-    
+
 @endphp
 
 <!----============================= Breadcrumbs Section ========================---->
     <section class="breadcrumbs-section">
-        @if(isset($saved_data->{'banner-image'}))
+        @if(isset($saved_data->{'banner-image'}) && !empty($saved_data->{'banner-image'}))
         <div class="overly-image">
             <img src="{{storage_url($saved_data->{'banner-image'})}}" alt="Banner Image">
         </div>
@@ -23,11 +23,11 @@
             <div class="breadcrumbs-row flex">
                 <div class="left-column content-column">
                     <div class="inner-column color-white">
-                        <h1 class="breadcrumbs-heading">{{ _($single_page->title)}}</h1>
+                        <h1 class="breadcrumbs-heading">{{ $single_page->title }}</h1>
                         <ul class="flex">
-                            <li><a href="{{route('home')}}">Home</a></li>
+                            <li><a href="{{route('home')}}">{{_('Home')}}</a></li>
                             <li><i class="fa-solid fa-angle-right"></i></li>
-                            <li><a href="#">{{ _($single_page->title)}}</a></li>
+                            <li><a href="#">{{ $single_page->title }}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -39,19 +39,18 @@
             <div class="global-row flex
             align-items-center
             @if (isset($saved_data->{'page-description'}) && $count>1700 ) flex-column-reverse @endif
-            @if (isset($saved_data->{'page-description'}) && $count<500) flex-column @endif
             ">
-                <div class="left-column @if (isset($saved_data->{'page-description'}) && $count>1700 || $count<500) w-100 @endif">
+                <div class="left-column @if (isset($saved_data->{'page-description'}) && $count>1700) w-100 @endif">
                     @if (isset($saved_data->{'page-description'}))
                         {!! $saved_data->{'page-description'} ?? '' !!}
                     @endif
                 </div>
-                <div class="right-column @if (isset($saved_data->{'page-description'}) && ($count>1700) || $count<500)  w-100 mb-5  @endif"
+                <div class="right-column @if (isset($saved_data->{'page-description'}) && $count>1700)  w-100 mb-5  @endif"
                     style="max-height:600px !important;"
                     >
 
                     @if (isset($saved_data->{'page-image'}))
-                        <img class="img-fluid object-fit-contain" style="max-height:600px !important;" src="{{ storage_url($saved_data->{'page-image'}) }}">
+                        <img class="img-fluid object-fit-contain" style="max-height:600px !important; @if (isset($saved_data->{'page-description'}) && $count>1700 ) border:0; outline:none; @endif" src="{{ storage_url($saved_data->{'page-image'}) }}">
                     @endif
 
                 </div>
