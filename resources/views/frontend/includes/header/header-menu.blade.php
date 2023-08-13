@@ -4,13 +4,13 @@
 <!--===================================== Mobile Menu ================================-->
         <nav class="navbar bg-body-tertiary fixed-top mobile-header">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html"><img src="assets/img/icsb-logo.svg"></a>
+                <a class="navbar-brand" href="index.html"><img src="{{asset('frontend/img/icsb-logo.svg')}}"></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"><i class="fa-solid fa-bars-staggered"></i></span>
               </button>
               <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
-                    <a class="navbar-brand" href="index.html"><img src="assets/img/logo.svg"></a>
+                    <a class="navbar-brand" href="index.html"><img src="{{asset('frontend/img/logo.svg')}}"></a>
                   <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
@@ -32,7 +32,7 @@
                                 </ul>
                             </li>
                             <li class="">
-                                <a href="#">Council</a>
+                                <a href="#">Council </a>
                                 <ul class="">
                                     <li><a href="#">ICSB Profile</a></li>
                                     <li><a href="#">Vision</a></li>
@@ -42,7 +42,7 @@
                                     <li><a href="#">World Wide CS</a></li>
                                     <li><a href="#">Corporate Governance</a></li>
                                     <li><a href="#">CS for CG</a></li>
-                                    <li><a href="#">FAQs</a>
+                                    <li><a href="#">FAQs </a>
                                         <ul class="">
                                             <li><a href="#">Values</a></li>
                                             <li><a href="#">World Wide CS</a></li>
@@ -61,8 +61,20 @@
                     <button class="btn btn-outline-success" type="submit">Search</button>
                   </form>
                   <div class="mobile-menu-button flex">
-                    <a href="tel:8801708030804"><i class="fa-solid fa-phone"></i> +880-1708030804</a>
-                    <a href="mailto:icsb@icsb.edu.bd"><i class="fa-solid fa-envelope"></i> ICSB@ICSB.EDU.BD</a>
+                    @if(!empty($contact->phone))
+                        @foreach (json_decode($contact->phone) as $phone)
+                            @if($phone->type == 'Phone')
+                                <a href="tel:88{{$phone->number}}"><i class="fa-solid fa-phone"></i>+88{{$phone->number}}</a>
+                                @break
+                            @endif
+                        @endforeach
+                    @endif
+                    @if(!empty($contact->email))
+                        @foreach (json_decode($contact->email) as $email)
+                            <a href="mailto:{{$email}}"><i class="fa-solid fa-envelope"></i> {{ $email }}</a>
+                            @break
+                        @endforeach
+                    @endif
                   </div>
                 </div>
               </div>
