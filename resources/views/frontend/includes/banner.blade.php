@@ -32,9 +32,14 @@
         </button>
     </div> --}}
 
-    <video autoplay loop muted id="myVideo" class="video-banner">
-        <source src="{{asset('frontend/video/banner-video.mp4')}}" type="video/mp4">
-      </video>
+    <div class="video-container">
+        <video autoplay loop muted id="myVideo" class="video-banner">
+            <source src="{{asset('frontend/video/banner-video.mp4')}}" type="video/mp4">
+        </video>
+        <progress id="videoProgress" value="0" max="100"></progress>
+        {{-- <input type='range' id="videoProgress" value="0" max="100"> --}}
+        <button id="volumeButton" class="volume-icon"><i class="fas fa-volume-xmark" id="icon"></i></button>
+    </div>
 
     <aside class="socila-media-sidebar">
         <div class="social-link-wrapper">
