@@ -5,6 +5,15 @@
 <style>
 .video-container {
     position: relative;
+    width: 100%;
+    height: 85vh;/* Set the height to 100% of the viewport height */
+    overflow: hidden;
+}
+
+.video-banner {
+    width: 100%;
+    height: 100%; /* Set the video height to 100% of its container */
+    object-fit: cover; /* Maintain video aspect ratio and cover the container */
 }
 
 .volume-icon {
@@ -24,6 +33,7 @@
     background-color: #ddd;
     position: absolute;
     bottom: 0;
+    display: block;
 }
 
 /* Style the filled part of the progress bar */
