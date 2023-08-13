@@ -125,10 +125,13 @@ owl.owlCarousel({
         if ($(window).scrollTop() >= 300) {
             $('.header-menu-section').addClass('fixed-header');
             $('.banner-section .video-container').css('margin-top','112px');
+            $('.header-menu-section .stiky-logo').css('display','block');
+
             // $('nav div').addClass('visible-title');
         }
         else {
             $('.header-menu-section').removeClass('fixed-header');
+            $('.header-menu-section .stiky-logo').css('display','none');
             $('.banner-section .video-container').css('margin-top','0');
             // $('nav div').removeClass('visible-title');
         }

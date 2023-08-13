@@ -148,6 +148,10 @@ h1,h2,h3,h4,h5,h6{
 .main-header-section{
 	padding: 15px 0 12px 0;
 }
+
+.main-header-section .stiky-logo{
+    height: 100%;
+}
 .header-menu-section .mobile-header{
 	display: none;
 }
@@ -200,6 +204,17 @@ h1,h2,h3,h4,h5,h6{
 }
 .header-menu-section{
 	background: #182456;
+    /* position: relative; */
+}
+.header-menu-section .stiky-logo {
+    position: absolute;
+    top: 50%;
+    left: 50px;
+    transform: translateY(-40%);
+    height: 100%;
+    display: block;
+    width: 150px;
+    display: none;
 }
 .header-menu-section .navbar-brand{
 	display: none;
