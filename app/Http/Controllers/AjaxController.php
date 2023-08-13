@@ -15,7 +15,9 @@ class AjaxController extends Controller
     }
     public function memberInfo($id): JsonResponse
     {
+
         $member = Member::findOrFail($id);
-        return response()->json($member);
+        $member_id = member_id($member->id);
+        return response()->json(['member'=>$member,'member_id'=>$member_id]);
     }
 }

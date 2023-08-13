@@ -5,7 +5,7 @@
 @section('content')
 <section class="breadcrumbs-section">
 	<div class="overly-image">
-		@if(!empty(json_decode($single_page->saved_data)) && isset(json_decode($single_page->saved_data)->{"banner-image"}))
+		@if(isset(json_decode($single_page->saved_data)->{"banner-image"}) && !empty(json_decode($single_page->saved_data)->{"banner-image"}))
 		<img src='{{storage_url(json_decode($single_page->saved_data)->{"banner-image"})}}' alt="{{$single_page->title}}">
         @endif
 	</div>
@@ -26,7 +26,7 @@
 	</div>
 	</div>
 </section>
-@if(!empty($single_page) && !empty(json_decode($single_page->saved_data)) && isset(json_decode($single_page->saved_data)->{'page-image'}) && isset(json_decode($single_page->saved_data)->{'page-description'}))
+@if(!empty($single_page) && !empty(json_decode($single_page->saved_data)))
 <section class="vision-mission-section">
     <div class="container">
         <div class="mission-row flex">

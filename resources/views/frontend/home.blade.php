@@ -1,7 +1,37 @@
 @extends('frontend.master')
 
 @section('title', 'Home')
+@push('css')
+<style>
+.video-container {
+    position: relative;
+}
 
+.volume-icon {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+    color: #fff;
+}
+#videoProgress {
+    width: 100%;
+    height: 10px;
+    border: none;
+    background-color: #ddd;
+    position: absolute;
+    bottom: 0;
+}
+
+/* Style the filled part of the progress bar */
+#videoProgress::-webkit-progress-value {
+    background-color: #3498db; /* Color of the filled part */
+}
+</style>
+@endpush
 @section('content')
 {{-- Banner Section --}}
 @include('frontend.includes.banner',['contact'=>$contact, 'banner'=>$banner])
@@ -160,3 +190,43 @@
 @include('frontend.includes.recent_videos')
 @include('frontend.includes.national_connection',['national_connections'=>$national_connections])
 @endsection
+@push('js')
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const video = document.getElementById("myVideo");
+    const volumeButton = document.getElementById("volumeButton");
+    const icon = document.getElementById("icon");
+    const videoProgress = document.getElementById("videoProgress");
+
+    // Initial state: muted
+    let isMuted = true;
+    video.muted = isMuted;
+
+    video.addEventListener("timeupdate", function() {
+        const currentTime = video.currentTime;
+        const duration = video.duration;
+
+        const progress = (currentTime / duration) * 100;
+        videoProgress.value = progress;
+    });
+
+    videoProgress.addEventListener("click", function(event) {
+        const clickedPosition = (event.offsetX / videoProgress.offsetWidth) * video.duration;
+        video.currentTime = clickedPosition;
+    });
+
+    volumeButton.addEventListener("click", function() {
+        isMuted = !isMuted;
+        video.muted = isMuted;
+
+        if (isMuted) {
+            icon.classList.add("fa-volume-xmark");
+            icon.classList.remove("fa-volume-high");
+        } else {
+            icon.classList.remove("fa-volume-xmark");
+            icon.classList.add("fa-volume-high");
+        }
+    });
+});
+</script>
+@endpush

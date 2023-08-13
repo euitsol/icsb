@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('member_id')->unique();
             $table->integer('private_practice_certificate_no')->unique();
-            $table->string('slug')->unique();
+            $table->boolean('status')->default(1);
             $table->timestamps();
             $table->softDeletes();
             $this->addAuditColumns($table);
