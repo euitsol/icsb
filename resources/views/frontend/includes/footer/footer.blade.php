@@ -12,20 +12,22 @@
                             @endforeach
                         @endif
 
-                        @if (!empty($contact->phone))
+                        <div class="d-flex justify-content-evenly">
+                            @if (!empty($contact->phone))
                             @foreach (json_decode($contact->phone) as $phone)
                                 @if ($phone->type == 'Phone')
                                     <li><a href="tel:88{{ $phone->number }}"><i class="fa-solid fa-phone"></i>
                                             +88{{ $phone->number }}</a></li>
                                 @endif
                             @endforeach
-                        @endif
-                        @if (!empty($contact->email))
-                            @foreach (json_decode($contact->email) as $email)
-                                <li><a href="mailto:{{ $email }}"><i class="fa-solid fa-envelope"></i>
-                                        {{ strtoupper($email) }}</a></li>
-                            @endforeach
-                        @endif
+                            @endif
+                            @if (!empty($contact->email))
+                                @foreach (json_decode($contact->email) as $email)
+                                    <li><a href="mailto:{{ $email }}"><i class="fa-solid fa-envelope"></i>
+                                            {{ strtoupper($email) }}</a></li>
+                                @endforeach
+                            @endif
+                        </div>
                     </ul>
                 </div>
             </div>
