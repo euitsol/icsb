@@ -8,6 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\View\View;
+use App\Http\Requests\RecentVideoRequest;
 
 class RecentVideoController extends Controller
 {
@@ -24,7 +25,7 @@ class RecentVideoController extends Controller
     {
         return view('backend.recent_video.create');
     }
-    public function store(Request $request): RedirectResponse
+    public function store(RecentVideoRequest $request): RedirectResponse
     {
         $recent_video = new RecentVideo();
         $recent_video->title = $request->title;
@@ -38,7 +39,7 @@ class RecentVideoController extends Controller
         $s['recent_video'] = RecentVideo::findOrFail($id);
         return view('backend.recent_video.edit',$s);
     }
-    public function update(Request $request, $id): RedirectResponse
+    public function update(RecentVideoRequest $request, $id): RedirectResponse
     {
         $recent_video = RecentVideo::findOrFail($id);
         $recent_video->title = $request->title;

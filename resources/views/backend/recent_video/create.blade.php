@@ -14,7 +14,6 @@
                     <div class="card-body">
                             <div class="form-group {{ $errors->has('title') ? ' has-danger' : '' }}">
                                 <label>{{ _('Video Title') }}</label>
-                                {{-- <input type="text" name="title" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter Video Title') }}" value="{{ old('title') }}"> --}}
                                 <textarea rows="1" name="title" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}">
                                     {{ old('title')}}
                                 </textarea>

@@ -6,16 +6,11 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class RecentVideoRequest extends FormRequest
 {
-    public function authorize(): bool
-    {
-        return true;
-    }
-    /**
-     * @return array<string, mixed>
-     */
     public function rules(): array
     {
         return [
+            'url' => 'required|url',
+            'status' => 'nullable|boolean',
 
         ]
         +
@@ -25,14 +20,14 @@ class RecentVideoRequest extends FormRequest
     protected function store(): array
     {
         return [
-
+            'title' => 'required|unique:recent_videos,title,NULL,id,deleted_at,NULL',
         ];
     }
 
     protected function update(): array
     {
         return [
-
+            'title' => 'required|unique:recent_videos,title,' . $this->route('id') . ',id,deleted_at,NULL',
         ];
     }
 }
