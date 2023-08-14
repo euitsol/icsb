@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('cs_firms', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('member_id')->unique();
-            $table->integer('private_practice_certificate_no')->unique();
+            $table->string('private_practice_certificate_no')->unique();
             $table->boolean('status')->default(1);
             $table->timestamps();
             $table->softDeletes();

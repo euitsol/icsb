@@ -1,16 +1,12 @@
-@extends('backend.layouts.master', ['pageSlug' => 'president'])
+@extends('backend.layouts.master', ['pageSlug' => 'cs_firm'])
 
-@section('title', 'Edit President')
+@section('title', 'Edit CS Firms Member')
 @push('css')
-<style>
-    .input-group .form-control:first-child{
-        border-right: 1px solid rgba(29, 37, 59, 0.5);
-    }
-    .input-group .form-control:not(:first-child):not(:last-child) {
-        border-radius: 0;
-        border-right: 0;
-    }
-</style>
+    <style>
+        .input-group .form-control:first-child {
+            border-right: 1px solid rgba(29, 37, 59, 0.5);
+        }
+    </style>
 @endpush
 
 @section('content')
@@ -18,80 +14,43 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="title">{{ _('Edit President') }}</h5>
+                    <h5 class="title">{{ _('Edit CS Firms Member') }}</h5>
                 </div>
-                <form method="POST" action="{{ route('president.president_edit',$president->id) }}" autocomplete="off" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('cs_firm.cs_firm_edit',$csf_member->id) }}" autocomplete="off"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="card-body">
-                        <div class="row">
-                            <div class="form-group col-md-6 {{ $errors->has('member_id') ? ' has-danger' : '' }}">
-                                <label>{{ _('Member-1') }}</label>
-                                <select id="memberSelect" name="member_id" class="form-control {{ $errors->has('member_id') ? ' is-invalid' : '' }}">
-                                    @foreach ($members as $member)
-                                        <option value="{{ $member->id }}" @if( $president->member_id == $member->id) selected @endif> {{ $member->name }}</option>
-                                    @endforeach
-                                </select>
-                                @include('alerts.feedback', ['field' => 'member_id'])
+                        <div class="delete_div border p-4">
+                            <div
+                                class="form-group {{ $errors->has('csf_member.member_id') ? ' has-danger' : '' }} {{ $errors->has('sf_member.ppcn') ? ' has-danger' : '' }}">
+                                <label>{{ _('CS Firm Member - 1') }}</label>
+                                <div class="input-group mb-3">
+                                    <select name="csf_member[member_id]" class="form-control memberSelect"
+                                        data-count="1">
+                                        @foreach ($members as $member)
+                                            @php
+                                                $check = App\Models\CsFirms::where('member_id',$member->id)->where('member_id','!=',$csf_member->member_id)->first();
+                                            @endphp
+                                            @if(!$check)
+                                                <option value="{{ $member->id }}"
+                                                    @if ($csf_member->member_id == $member->id) selected @endif> {{ $member->name }}
+                                                </option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                    <input type="text" name="csf_member[ppcn]" value='{{$csf_member->private_practice_certificate_no}}' class="form-control ppcn" placeholder="Enter private practice certificate no..">
+                                </div>
+                                @include('alerts.feedback', ['field' => 'csf_member.member_id'])
+                                @include('alerts.feedback', ['field' => 'csf_member.ppcn'])
                             </div>
-                            <div class="form-group col-md-6 {{ $errors->has('slug') ? ' has-danger' : '' }}">
-                                <label>{{ _('Slug') }}</label>
-                                <input type="text" class="form-control {{ $errors->has('slug') ? ' is-invalid' : '' }}" id="slug" name="slug" placeholder="{{ _('Enter Slug') }}" value="{{ $president->slug }}">
-                                @include('alerts.feedback', ['field' => 'slug'])
+                            <div class="row align-items-center memberInfo">
+
                             </div>
-                        </div>
-
-                        <div id="memberInfo" class="row align-items-center">
-
-                        </div>
-                        {{-- <div class="form-group {{ $errors->has('designation') ? ' has-danger' : '' }}">
-                            <label>{{ _('Designation') }}</label>
-                            <select name="designation" class="form-control {{ $errors->has('designation') ? ' is-invalid' : '' }}">
-                                    <option value="President, ICSB" @if( $president->designation == 'President, ICSB') selected @endif>{{_('President')}}</option>
-                                    <option value="Past President, ICSB" @if( $president->designation == 'Past President, ICSB') selected @endif>{{_('Past President')}}</option>
-                            </select>
-                            @include('alerts.feedback', ['field' => 'designation'])
-                        </div> --}}
-                        @foreach ($president->durations as $key=>$duration)
-                        <div class="form-group {{ $errors->has('duration') ? ' has-danger' : '' }} {{ $errors->has('duration.*') ? ' has-danger' : '' }}">
-                            <label>{{ _('President Duration -')}}{{$key+1}}</label>
-                            <div class="input-group mb-3">
-                                <input type="date" name="duration[{{$key+1}}][start_date]" class="form-control" value="{{ date('Y-m-d', strtotime($duration->start_date))}}" @if((!empty($duration->end_date)) && (date('Y-m-d', strtotime($duration->end_date)) <= Carbon\Carbon::now()->format('Y-m-d')) ) disabled @endif >
-                                <input type="date" name="duration[{{$key+1}}][end_date]" class="form-control" @if((!empty($duration->end_date)) && (date('Y-m-d', strtotime($duration->end_date)) <= Carbon\Carbon::now()->format('Y-m-d')) ) disabled @endif value="{{ $duration->end_date ? date('Y-m-d', strtotime($duration->end_date)) : ''}}">
-                                @if($key<1)
-                                    <span class="input-group-text" id="add_duration" data-count="{{count($president->durations)}}"><i class="tim-icons icon-simple-add"></i></span>
-                                @else
-                                <a href="{{route('president.single.president_delete',$duration->id)}}">
-                                    <span class="input-group-text text-danger delete_duration h-100"><i class="tim-icons icon-trash-simple"></i></span>
-                                </a>
-                                @endif
-                                <input type="hidden" name='duration[{{$key+1}}][id]' value='{{$duration->id}}' @if((!empty($duration->end_date)) && (date('Y-m-d', strtotime($duration->end_date)) <= Carbon\Carbon::now()->format('Y-m-d')) ) disabled @endif>
-                            </div>
-                        </div>
-                        @endforeach
-                        @include('alerts.feedback', ['field' => 'duration'])
-                        @include('alerts.feedback', ['field' => 'duration.*'])
-                        <div id="append">
-
-                        </div>
-
-                        <div class="form-group {{ $errors->has('bio') ? ' has-danger' : '' }}">
-                            <label>{{ _('President Bio') }} </label>
-                            <textarea rows="3" name="bio" class="form-control {{ $errors->has('bio') ? ' is-invalid' : '' }}">
-                                {{ $president->bio }}
-                            </textarea>
-                            @include('alerts.feedback', ['field' => 'bio'])
-                        </div>
-                        <div class="form-group {{ $errors->has('message') ? ' has-danger' : '' }}">
-                            <label>{{ _('President Message') }} </label>
-                            <textarea rows="3" name="message" class="form-control {{ $errors->has('message') ? ' is-invalid' : '' }}">
-                                {{ $president->message }}
-                            </textarea>
-                            @include('alerts.feedback', ['field' => 'message'])
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-fill btn-primary">{{ _('Update') }}</button>
+                        <button type="submit" class="btn btn-fill btn-primary">{{ _('Save') }}</button>
                     </div>
                 </form>
             </div>
@@ -100,7 +59,7 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{ _('President') }}
+                        {{ _('CS Firms Member') }}
                     </p>
                     <div class="card-description">
                         {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
@@ -112,71 +71,41 @@
 @endsection
 
 @push('js')
-<script>
-    function generateSlug(str) {
-        return str
-            .toLowerCase()
-            .replace(/\s+/g, "-")
-            .replace(/[^\w-]+/g, "")
-            .replace(/--+/g, "-")
-            .replace(/^-+|-+$/g, "");
-    }
-    $(document).ready(function () {
-        $('#memberSelect').on('change', function () {
+    <script>
+    $(document).ready(function() {
+        function handleMemberSelection() {
             const selectedMemberId = $(this).val();
+            const container = $(this).closest('.delete_div');
             $.ajax({
                 url: `/members/${selectedMemberId}`,
                 method: 'GET',
                 dataType: 'json',
-                success: function (data) {
+                success: function(data) {
                     console.log(data);
-                    const slugValue = generateSlug(data.name);
-                    $("#slug").val(slugValue);
-                    $('#memberInfo').html(`
-                    <div class='col-md-2 text-center'>
-                        <img class="rounded" width="100" src="{{ storage_url('${data.image}')}}">
-                    </div>
-                    <div class='col-md-10'>
-                        <div class="form-group">
-                            <label>{{ _('Designation') }}</label>
-                            <input type="text" class="form-control" value="${data.designation}" disabled>
+                    container.find('.ppcn').val(data.member_id);
+                    container.find('.memberInfo').html(`
+                        <div class='col-md-2 text-center'>
+                            <img class="rounded" width="100" src="{{ storage_url('${data.member.image}') }}">
                         </div>
-                        <div class="form-group">
-                            <label>{{ _('Email') }}</label>
-                            <input type="text" class="form-control" value="${data.email}" disabled>
+                        <div class='col-md-10'>
+                            <div class="form-group">
+                                <label>Designation</label>
+                                <input type="text" class="form-control" value="${data.member.designation}" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="text" class="form-control" value="${data.member.email}" disabled>
+                            </div>
                         </div>
-                    </div>
-
                     `);
                 },
-                error: function (xhr, status, error) {
+                error: function(xhr, status, error) {
                     console.error('Error fetching member data:', error);
                 }
             });
-        });
+        };
+        $('.memberSelect').on('change', handleMemberSelection);
+        $('.memberSelect').each(handleMemberSelection);
     });
-
-
-    $(function() {
-    $('#add_duration').click(function() {
-        count = $(this).data('count') + 1;
-        $(this).data('count', count);
-
-        result = `
-                <div class="form-group {{ $errors->has('duration') ? ' has-danger' : '' }} {{ $errors->has('duration.*') ? ' has-danger' : '' }}">
-                    <label>{{ _('President Duration - ${count}') }}</label>
-                    <div class="input-group mb-3">
-                        <input type="date" name="duration[${count}][start_date]" class="form-control">
-                        <input type="date" name="duration[${count}][end_date]" class="form-control">
-                        <span class="input-group-text text-danger delete_duration"><i class="tim-icons icon-trash-simple"></i></span>
-                    </div>
-                </div>
-                `;
-        $('#append').append(result);
-    });
-    $(document).on('click', '.delete_duration', function() {
-        $(this).closest('.form-group').remove();
-    });
-});
-</script>
+    </script>
 @endpush
