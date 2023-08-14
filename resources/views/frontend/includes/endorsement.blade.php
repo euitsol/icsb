@@ -50,7 +50,7 @@
                     <div class="content">
                         <div class="heading">
                             <h3>
-                                Obtain Practitioner's Endorsement
+                                Obtain Practicing License
                             </h3>
                         </div>
                         <div class="button">

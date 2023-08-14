@@ -1126,7 +1126,7 @@ h1,h2,h3,h4,h5,h6{
 	width: 100%;
 }
 .endorsement-section .endorsement-column .button a{
-	color: #182456;
+	color: #fff;
 	font-size: 18px;
 	line-height: 38px;
 	height: 40px;
@@ -1134,14 +1134,14 @@ h1,h2,h3,h4,h5,h6{
 	max-width: 169px;
 	border-radius: 50px;
 	transition: 0.4s;
-	border: 1.5px solid #182456;
+	border: 1.5px solid #fff;
 }
 .endorsement-section .endorsement-column .button a:hover{
 	color: #fff;
 	background: #182456;
 }
 .endorsement-section .endorsement-column h3{
-	color: #111;
+	color: #fff;
 	font-size: 22px;
 	line-height: 28px;
 	font-weight: 500;
@@ -1150,10 +1150,10 @@ h1,h2,h3,h4,h5,h6{
 	font-family: 'Poppins', sans-serif;
 }
 .endorsement-section .endorsement-student-column{
-	background-color: #f2f2f2;
+	background-color: rgba(24, 37, 86, 0.75);
 }
 .endorsement-section .endorsement-member-column{
-	background-color: #182456;
+	background-color: rgba(24, 37, 86);
 }
 .endorsement-section .endorsement-member-column h3{
 	color: #fff;
@@ -1168,7 +1168,7 @@ h1,h2,h3,h4,h5,h6{
 	background: #fff;
 }
 .endorsement-section .endorsement-endor-column{
-	background-color: #f2f2f2;
+	background-color: rgba(24, 37, 86, 0.50);
 }
 .events-section{
 	position: relative;
