@@ -1137,8 +1137,8 @@ h1,h2,h3,h4,h5,h6{
 	border: 1.5px solid #fff;
 }
 .endorsement-section .endorsement-column .button a:hover{
-	color: #fff;
-	background: #182456;
+	color: #182456;
+	background: #fff;
 }
 .endorsement-section .endorsement-column h3{
 	color: #fff;
@@ -1150,25 +1150,20 @@ h1,h2,h3,h4,h5,h6{
 	font-family: 'Poppins', sans-serif;
 }
 .endorsement-section .endorsement-student-column{
-	background-color: rgba(24, 37, 86, 0.75);
+	background-color: rgba(24, 37, 86);
 }
 .endorsement-section .endorsement-member-column{
-	background-color: rgba(24, 37, 86);
+	background-color: rgba(24, 37, 86, 0.50);
 }
 .endorsement-section .endorsement-member-column h3{
 	color: #fff;
 }
 .endorsement-section .endorsement-row .endorsement-member-column .button  a{
-	color: #fff;
 	font-size: 18px;
 	border: 1.5px solid #fff;
 }
-.endorsement-section .endorsement-row .endorsement-member-column .button  a:hover{
-	color: #182456;
-	background: #fff;
-}
 .endorsement-section .endorsement-endor-column{
-	background-color: rgba(24, 37, 86, 0.50);
+	background-color: rgba(24, 37, 86, 0.75);
 }
 .events-section{
 	position: relative;
