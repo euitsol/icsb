@@ -36,11 +36,11 @@
         <div class="right-col"></div>
         <div class="container">
             <div class="we-are-coulmn flex">
-                <div class="content-column">
+                <div class="content-column text-right">
                     <div class="section-heading">
                         <h2>{{_('Who We Are')}}</h2>
                     </div>
-                    {!! json_decode($single_page->saved_data)->{'page-description'} !!}
+                    <p>{{ stringLimit(html_entity_decode_table(json_decode($single_page->saved_data)->{'page-description'}),'800') }}</p>
                     <a href="{{route('sp.frontend',$single_page->frontend_slug)}}">{{_('Read More')}}</a>
                 </div>
                 <div class="image-column">
@@ -66,7 +66,7 @@
                 </div>
                 <div class="right-column">
                     <h2>{{_('Message of The President')}}</h2>
-                   <p class="text-justify"> {{ stringLimit(html_entity_decode_table($president->message),'520') }}</p>
+                   <p> {{ stringLimit(html_entity_decode_table($president->message),'520') }}</p>
                     <a href="{{route('council_view.president')}}">{{_('Read More')}}</a>
                 </div>
             </div>
