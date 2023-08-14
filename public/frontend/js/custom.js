@@ -2,7 +2,7 @@ $(document).ready(function(){
     var owl = $('.cs-wide-slider');
         owl.owlCarousel({
             // items:6,
-            loop:false,
+            loop:true,
             margin:20,
             nav: true,
             dots: false,

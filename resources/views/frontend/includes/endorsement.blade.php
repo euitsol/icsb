@@ -1,4 +1,4 @@
-<div class="endorsement-section">
+<div class="endorsement-section small-sec-height d-flex align-items-center">
     <div class="container">
         <div class="endorsement-row flex">
             <div

@@ -1,4 +1,4 @@
-<section class="recent-video-section">
+<section class="recent-video-section big-sec-height d-flex align-items-center">
 	<div class="container">
 		<div class="row">
 			<div class="section-heading text-align">
