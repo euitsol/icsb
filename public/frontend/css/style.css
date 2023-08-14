@@ -498,10 +498,13 @@ h1,h2,h3,h4,h5,h6{
     top: 30px;
     right: 40px;
     background-color: transparent;
-    border: none;
     cursor: pointer;
     z-index: 1;
     color: #fff;
+    border: 1px solid #fff;
+    height: 1.7rem;
+    width: 1.7rem;
+    border-radius: 50%;
 }
 .banner-section #videoProgress {
     width: 100%;

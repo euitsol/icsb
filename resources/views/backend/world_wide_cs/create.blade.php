@@ -1,6 +1,13 @@
 @extends('backend.layouts.master', ['pageSlug' => 'wwcs'])
 
 @section('title', 'World Wide CS')
+@push('css')
+<style>
+    .ck-rounded-corners .ck.ck-editor__main>.ck-editor__editable, .ck.ck-editor__main>.ck-editor__editable.ck-rounded-corners {
+        height: 10vh !important;
+    }
+</style>
+@endpush
 
 @section('content')
     <div class="row">
@@ -14,7 +21,9 @@
                     <div class="card-body">
                             <div class="form-group {{ $errors->has('title') ? ' has-danger' : '' }}">
                                 <label>{{ _('Title') }}</label>
-                                <input type="text" name="title" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter Title') }}" value="{{ old('title') }}">
+                                <textarea rows="1" name="title" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}">
+                                    {{ old('title')}}
+                                </textarea>
                                 @include('alerts.feedback', ['field' => 'title'])
                             </div>
 

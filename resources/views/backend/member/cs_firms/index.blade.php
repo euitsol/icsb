@@ -26,7 +26,6 @@
                                     <th>{{ _('Image') }}</th>
                                     <th>{{ _('Designation') }}</th>
                                     <th>{{ _('Phone') }}</th>
-                                    <th>{{ _('Email') }}</th>
                                     <th class="text-center">{{ _('Private Practice Certificate No') }}</th>
                                     <th>{{ _('Status') }}</th>
                                     <th>{{ _('Created at') }}</th>
@@ -47,7 +46,6 @@
                                                 {{$phone->number}}<br>
                                             @endforeach
                                         </td>
-                                        <td> {{ $cs_firm->member->email }} </td>
                                         <td class="text-center"> {{ $cs_firm->private_practice_certificate_no }} </td>
                                         <td>
                                             @include('backend.partials.button', ['routeName' => 'cs_firm.status.cs_firm_edit','params' => [$cs_firm->id], 'className' => $cs_firm->getStatusClass(), 'label' => $cs_firm->getStatus() ])

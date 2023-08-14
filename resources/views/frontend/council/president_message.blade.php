@@ -12,14 +12,12 @@
         <div class="breadcrumbs-row flex">
             <div class="left-column content-column">
                 <div class="inner-column color-white">
-                    <h1 class="breadcrumbs-heading">{{$president->designation ?? 'President'}}</h1>
+                    <h1 class="breadcrumbs-heading">{{_('Message of The President')}}</h1>
                     <ul class="flex">
                         <li><a href="index">{{_('Home')}}</a></li>
                         <li><i class="fa-solid fa-angle-right"></i></li>
-                        <li><a href="#">{{_('Council')}}</a></li>
-                        <li><i class="fa-solid fa-angle-right"></i></li>
                         <li>
-                            <p>{{$president->designation ?? 'President'}}</p>
+                            <p>{{_('Message of The President')}}</p>
                         </li>
                     </ul>
                 </div>
@@ -34,7 +32,7 @@
             <div class="left-column">
              <img src="{{getMemberImage($president->member)}}" alt="{{_('president')}}">
              <div class="name-tittle">
-             <h3>{{$president->member->name}}</h3>
+             <a href="{{route('council_view.president')}}"><h3>{{$president->member->name}}</h3></a>
              <p>{{$president->designation}}</p>
              </div>
              <div class="contact-info">
@@ -57,7 +55,9 @@
              </div>
             </div>
             <div class="right-column">
-                {!! $president->bio !!}
+
+             <h2 style="font-size: 4.2rem;">{{_('Message of The President')}}</h2>
+                {!! $president->message !!}
             </div>
         </div>
     </div>

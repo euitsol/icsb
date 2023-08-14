@@ -60,14 +60,14 @@
                 <div class="left-column">
                     <img src="{{getMemberImage($president->member)}}" alt="{{_('President Image')}}">
                     <div class="president-info text-align color-white">
-                        <h3>{{$president->member->name}}</h3>
+                        <a href="{{route('council_view.president')}}" class="text-white"><h3>{{$president->member->name}}</h3></a>
                         <p>{{$president->designation}}</p>
                     </div>
                 </div>
                 <div class="right-column">
                     <h2>{{_('Message of The President')}}</h2>
                    <p> {{ stringLimit(html_entity_decode_table($president->message),'520') }}</p>
-                    <a href="{{route('council_view.president')}}">{{_('Read More')}}</a>
+                    <a href="{{route('council_view.president.message')}}">{{_('Read More')}}</a>
                 </div>
             </div>
         </div>
@@ -161,7 +161,7 @@
 @include('frontend.includes.world_wide_cs',['wwcss'=>$wwcss])
 @include('frontend.includes.events',['events'=>$events])
 @include('frontend.includes.national_awards',['national_awards'=>$national_awards])
-@include('frontend.includes.recent_videos')
+@include('frontend.includes.recent_videos',['recent_videos'=>$recent_videos])
 @include('frontend.includes.national_connection',['national_connections'=>$national_connections])
 @endsection
 @push('js')

@@ -7,7 +7,7 @@
             <div class="award-column flex">
                 @forelse ($national_awards as $award)
                     <div class="award-inner">
-                        <a href="{{$award->url}}"><img src="{{storage_url($award->image)}}" align="{{ $award->title }}"></a>
+                        <a href="{{ $award->file ? route('sp.file.download', base64_encode($award->file)) : route('sp.file.download', base64_encode($award->image)) }}"><img src="{{storage_url($award->image)}}" align="{{ $award->title }}"></a>
                     </div>
                 @empty
                 <div class="award-inner">

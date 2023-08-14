@@ -7,7 +7,7 @@
             <div class="logo-carousel">
                 <div class="cs-wide-slider owl-carousel owl-theme">
                     @forelse ($wwcss as $wwcs)
-                        <a href="{{$wwcs->url}}">
+                        <a href="{{$wwcs->url}}" target="_blank">
                             <div class="item">
                                 <img src="{{storage_url($wwcs->logo)}}" alt="{{$wwcs->title}}">
                             </div>
