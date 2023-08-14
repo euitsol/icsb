@@ -6,6 +6,9 @@
 .big-sec-height{
     height: 50rem;
 }
+.big-sec-min-height{
+    min-height: 50rem;
+}
 .small-sec-height{
     height: 32rem;
 }
@@ -1648,9 +1651,6 @@ h1,h2,h3,h4,h5,h6{
 }
 
 /*==================== Our Events Page Style ==================*/
-.our-events-section{
-	padding: 100px 0;
-}
 .our-events-section .events-row{
 	column-gap: 2%;
 	flex-wrap: wrap;
