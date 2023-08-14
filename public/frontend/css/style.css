@@ -3,6 +3,19 @@
 	padding: 0;
 	outline: 0;
 }
+.big-sec-height{
+    height: 50rem;
+}
+.big-sec-min-height{
+    min-height: 50rem;
+}
+.small-sec-height{
+    height: 32rem;
+}
+.both-sec-height{
+    max-height: 50rem;
+    min-height: 32rem;
+}
 img{
 	width: 100%;
 }
@@ -467,7 +480,43 @@ h1,h2,h3,h4,h5,h6{
 .header-menu-section nav ul li:hover::after {
 	color: #fff ;
 } */
+.banner-section .video-container {
+    position: relative;
+    width: 100%;
+    height: 85vh;/* Set the height to 100% of the viewport height */
+    overflow: hidden;
+}
 
+.banner-section .video-banner {
+    width: 100%;
+    height: 100%; /* Set the video height to 100% of its container */
+    object-fit: cover; /* Maintain video aspect ratio and cover the container */
+}
+
+.banner-section .volume-icon {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+    color: #fff;
+}
+.banner-section #videoProgress {
+    width: 100%;
+    height: 10px;
+    border: none;
+    background-color: #ddd;
+    position: absolute;
+    bottom: 0;
+    display: block;
+}
+
+/* Style the filled part of the progress bar */
+.banner-section #videoProgress::-webkit-progress-value {
+    background-color: #3498db; /* Color of the filled part */
+}
 .banner-section .carousel-inner{
 	position: relative;
 }
@@ -629,7 +678,6 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .we-are-section{
-	padding: 95px 0 155px 0;
 	position: relative;
 	/* padding: 100px 0 163px 0;
 	background-position: center;
@@ -689,7 +737,6 @@ h1,h2,h3,h4,h5,h6{
 
 .president-section{
 	position: relative;
-	padding: 40px 0 170px 0;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -756,7 +803,7 @@ h1,h2,h3,h4,h5,h6{
 	background: #162B75;
 }
 .bss-section{
-	padding: 123px 0 72px 0;
+	padding: 127px 0 76px 0;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -833,7 +880,6 @@ h1,h2,h3,h4,h5,h6{
 
 
 .notice-section{
-	padding: 70px 0 70px 0;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -953,11 +999,15 @@ h1,h2,h3,h4,h5,h6{
 
 /* ================= End Notice Section ============ */
 .recent-update-section{
-	padding: 102px 0 160px 0;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-image: url("../img/background/recent-update-bg.png");
+}
+.recent-update-section .owl-carousel .owl-item img{
+    height: 15rem;
+    /* object-fit: contain; */
+    border-radius: 29px 29px 0 0;
 }
 .recent-update-section h2{
 	color: #fff;
@@ -1031,7 +1081,6 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .endorsement-section{
-	padding: 98px 0;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -1221,7 +1270,6 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .national-award-section{
-	padding: 102px 0 114px 0;
 	position: relative;
 	background-image: url("../img/background/national-award.jpg");
 }
@@ -1240,9 +1288,10 @@ h1,h2,h3,h4,h5,h6{
 	width: 23.725%;
 }
 .recent-video-section{
-	padding: 100px 0;
 	position: relative;
 	background-image: url("../img/recent_video_bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .recent-video-section:after{
 	content: '';
@@ -1298,12 +1347,7 @@ h1,h2,h3,h4,h5,h6{
 	line-height: 76px;
 	margin-bottom: 50px;
 }
-.cs-wide-section .content {
-	padding-top: 100px;
-	padding-bottom: 90px;
-}
 .cs-wide-section {
-	padding: 5px 0 10px 0;
 	background-color: #D1E3FB;
 }
 .cs-wide-section .cs-wide-slider .owl-stage {
@@ -1367,9 +1411,6 @@ h1,h2,h3,h4,h5,h6{
 }
 .cs-wide-section .owl-dot{
 	display: none;
-}
-.national-connection-section{
-	padding: 105px 0;
 }
 .national-connection-section .logo-carousel .owl-item{
 	text-align: center;
@@ -1625,9 +1666,6 @@ h1,h2,h3,h4,h5,h6{
 }
 
 /*==================== Our Events Page Style ==================*/
-.our-events-section{
-	padding: 100px 0;
-}
 .our-events-section .events-row{
 	column-gap: 2%;
 	flex-wrap: wrap;

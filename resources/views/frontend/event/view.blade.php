@@ -12,13 +12,13 @@
         <div class="breadcrumbs-row flex">
             <div class="left-column content-column">
                 <div class="inner-column color-white">
-                    <h1 class="breadcrumbs-heading">Events Details</h1>
+                    <h1 class="breadcrumbs-heading">{{_('Events Details')}}</h1>
                     <ul class="flex">
-                        <li><a href="index">Home</a></li>
+                        <li><a href="index">{{_('Home')}}</a></li>
                         <li><i class="fa-solid fa-angle-right"></i></li>
-                        <li><a href="#">All Event</a></li>
+                        <li><a href="#">{{_('All Event')}}</a></li>
                         <li><i class="fa-solid fa-angle-right"></i></li>
-                        <li><p>Events Details</p></li>
+                        <li><p>{{_('Events Details')}}</p></li>
                     </ul>
                 </div>
             </div>
@@ -51,10 +51,8 @@
             <div class="summary-column" id="event-summary">
                 <div class="job-summery">
                     {!! getYoutubeVideoIframe($event->video_url) !!}
-                    <ul class="text-align">
-                        <li><span>Total Participants:</span> {{$event->total_participant}} People</li>
-                        <li><span>Registration Status:</span> Open</li>
-                        <a href="">Enrol Now</a>
+                    <ul>
+                        <li><span>Total Participants:</span> {{$event->total_participant}} {{_('People')}}</li>
                     </ul>
                 </div>
                 <h3>Get Location</h3>

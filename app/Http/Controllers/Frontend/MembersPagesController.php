@@ -7,6 +7,7 @@ use App\Models\MediaRoomCategory;
 use App\Models\CommitteeType;
 use Illuminate\Http\Request;
 use App\Models\Contact;
+use App\Models\CsFirms;
 use App\Models\JobPlacement;
 use App\Models\MemberType;
 use App\Models\SecretarialStandard;
@@ -50,6 +51,12 @@ class MembersPagesController extends Controller
     {
         $s['job_placements'] = JobPlacement::where('status',1)->where('deleted_at',null)->latest()->get();
         return view('frontend.members.job_placement',$s);
+
+    }
+    public function cs_firm(): View
+    {
+        $s['csf_members'] = CsFirms::where('status',1)->where('deleted_at',null)->latest()->get();
+        return view('frontend.members.cs_firms',$s);
 
     }
 }

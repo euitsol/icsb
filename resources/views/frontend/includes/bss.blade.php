@@ -1,5 +1,5 @@
 <!----============================ BSS Secretarial Section ==========================---->
-<section class="bss-section">
+<section class="bss-section both-sec-height">
     <div class="container">
         <div class="bss-row flex">
             <div class="bss-left-column">

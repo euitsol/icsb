@@ -1,4 +1,4 @@
-<section class="national-award-section">
+<section class="national-award-section big-sec-height d-flex align-items-center">
     <div class="container">
         <div class="award-row">
             <div class="section-heading text-align">

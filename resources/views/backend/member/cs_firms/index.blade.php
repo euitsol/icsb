@@ -27,7 +27,7 @@
                                     <th>{{ _('Designation') }}</th>
                                     <th>{{ _('Phone') }}</th>
                                     <th>{{ _('Email') }}</th>
-                                    <th>{{ _('Private Practice Certificate No') }}</th>
+                                    <th class="text-center">{{ _('Private Practice Certificate No') }}</th>
                                     <th>{{ _('Status') }}</th>
                                     <th>{{ _('Created at') }}</th>
                                     <th>{{ _('Created by') }}</th>
@@ -48,17 +48,9 @@
                                             @endforeach
                                         </td>
                                         <td> {{ $cs_firm->member->email }} </td>
+                                        <td class="text-center"> {{ $cs_firm->private_practice_certificate_no }} </td>
                                         <td>
-                                            @foreach ($cs_firm->durations as $duration)
-                                                {{ formatYearRange($duration->start_date, $duration->end_date) }}<br>
-                                            @endforeach
-                                         </td>
-                                        <td>
-                                            @if($cs_firm->status == 1)
-                                                <span class="badge badge-primary"> {{_('cs_firm')}} </span>
-                                            @else
-                                                <span class="badge badge-info"> {{_('Past cs_firm')}} </span>
-                                            @endif
+                                            @include('backend.partials.button', ['routeName' => 'cs_firm.status.cs_firm_edit','params' => [$cs_firm->id], 'className' => $cs_firm->getStatusClass(), 'label' => $cs_firm->getStatus() ])
                                         </td>
                                         <td> {{ timeFormate($cs_firm->created_at) }} </td>
                                         <td> {{ $cs_firm->created_user->name ?? 'system' }} </td>
@@ -66,6 +58,7 @@
                                             @include('backend.partials.action_buttons', [
                                                 'menuItems' => [
                                                     ['routeName' => '', 'label' => 'View'],
+                                                    ['routeName' => 'cs_firm.status.cs_firm_edit',     'params' => [$cs_firm->id], 'label' => 'Change Status'],
                                                     ['routeName' => 'cs_firm.cs_firm_edit',     'params' => [$cs_firm->id], 'label' => 'Update'],
                                                     ['routeName' => 'cs_firm.cs_firm_delete',   'params' => [$cs_firm->id], 'label' => 'Delete', 'delete' => true],
                                                 ]

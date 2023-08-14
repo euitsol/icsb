@@ -398,6 +398,7 @@ Route::group(['as' => 'rules_view.', 'prefix' => 'rules'], function () {
 Route::group(['as' => 'member_view.', 'prefix' => 'member'], function () {
     Route::get('/member-search/{slug}', [MembersPagesController::class, 'memberSearch'])->name('m_search');
     Route::get('/job-placements', [MembersPagesController::class, 'job_placement'])->name('jps');
+    Route::get('/cs-firms', [MembersPagesController::class, 'cs_firm'])->name('cs_firm');
 });
 Route::group(['as' => 'student_view.', 'prefix' => 'student'], function () {
     Route::get('/cs-hand-book', [StudentPagesController::class, 'csHandBook'])->name('cs_hand_book');

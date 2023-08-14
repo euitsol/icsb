@@ -1,6 +1,6 @@
-@extends('backend.layouts.master', ['pageSlug' => 'president'])
+@extends('backend.layouts.master', ['pageSlug' => 'cs_firm'])
 
-@section('title', 'Add President')
+@section('title', 'Add CS Firms Member')
 @push('css')
     <style>
         .input-group .form-control:first-child {
@@ -19,9 +19,9 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="title">{{ _('Add President') }}</h5>
+                    <h5 class="title">{{ _('Add CS Firms Member') }}</h5>
                 </div>
-                <form method="POST" action="{{ route('president.president_create') }}" autocomplete="off"
+                <form method="POST" action="{{ route('cs_firm.cs_firm_create') }}" autocomplete="off"
                     enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
@@ -34,9 +34,14 @@
                                         data-count="1">
                                         <option selected hidden>{{ _('Select Member') }}</option>
                                         @foreach ($members as $member)
-                                            <option value="{{ $member->id }}"
-                                                @if (old('csf_member.1.member_id') == $member->id) selected @endif> {{ $member->name }}
-                                            </option>
+                                            @php
+                                                $check = App\Models\CsFirms::where('member_id',$member->id)->first();
+                                            @endphp
+                                            @if(!$check)
+                                                <option value="{{ $member->id }}"
+                                                    @if (old('csf_member.1.member_id') == $member->id) selected @endif> {{ $member->name }}
+                                                </option>
+                                            @endif
                                         @endforeach
                                     </select>
                                     <input type="text" name="csf_member[1][ppcn]" value='' class="form-control ppcn" placeholder="Enter private practice certificate no..">
@@ -63,7 +68,7 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{ _('President') }}
+                        {{ _('CS Firms Member') }}
                     </p>
                     <div class="card-description">
                         {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}

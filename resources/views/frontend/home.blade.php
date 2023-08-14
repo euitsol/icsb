@@ -3,43 +3,7 @@
 @section('title', 'Home')
 @push('css')
 <style>
-.video-container {
-    position: relative;
-    width: 100%;
-    height: 85vh;/* Set the height to 100% of the viewport height */
-    overflow: hidden;
-}
 
-.video-banner {
-    width: 100%;
-    height: 100%; /* Set the video height to 100% of its container */
-    object-fit: cover; /* Maintain video aspect ratio and cover the container */
-}
-
-.volume-icon {
-    position: absolute;
-    top: 30px;
-    right: 40px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    z-index: 1;
-    color: #fff;
-}
-#videoProgress {
-    width: 100%;
-    height: 10px;
-    border: none;
-    background-color: #ddd;
-    position: absolute;
-    bottom: 0;
-    display: block;
-}
-
-/* Style the filled part of the progress bar */
-#videoProgress::-webkit-progress-value {
-    background-color: #3498db; /* Color of the filled part */
-}
 </style>
 @endpush
 @section('content')
@@ -65,7 +29,7 @@
 
 <!----============================ Who We are Section ==========================---->
 @if(!empty(json_decode($single_page->saved_data)) && isset(json_decode($single_page->saved_data)->{'front-image'}) && isset(json_decode($single_page->saved_data)->{'page-description'}))
-    <section class="we-are-section">
+    <section class="we-are-section big-sec-height d-flex align-items-center">
         <div class="left-col">
             <img src="{{asset('frontend/img/we-are/Image-3.png')}}" />
         </div>
@@ -90,7 +54,7 @@
 
 <!----============================ President Section ==========================---->
 @if(!empty($president))
-    <section class="president-section">
+    <section class="president-section big-sec-height">
         <div class="container">
             <div class="president-column flex">
                 <div class="left-column">
@@ -102,7 +66,7 @@
                 </div>
                 <div class="right-column">
                     <h2>{{_('Message of The President')}}</h2>
-                    {!! $president->message !!}
+                   <p class="text-justify"> {{ stringLimit(html_entity_decode_table($president->message),'520') }}</p>
                     <a href="{{route('council_view.president')}}">{{_('Read More')}}</a>
                 </div>
             </div>
@@ -113,7 +77,7 @@
 @include('frontend.includes.bss',['home_bsss'=>$home_bsss])
 
 <!----============================ Notices Section ==========================---->
-<section class="notice-section">
+<section class="notice-section big-sec-height d-flex align-items-center">
     <div class="container">
         <div class="notice-row">
             <div class="section-heading text-align">
