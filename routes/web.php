@@ -378,6 +378,7 @@ Route::group(['as' => 'about.', 'prefix' => 'about'], function () {
 Route::group(['as' => 'council_view.', 'prefix' => 'council'], function () {
     Route::get('/{slug}/members', [CouncilPagesController::class, 'committee'])->name('committee.members');
     Route::get('/president', [CouncilPagesController::class, 'president'])->name('president');
+    Route::get('/president/message', [CouncilPagesController::class, 'presidentM'])->name('president.message');
     Route::get('/past-presidents', [CouncilPagesController::class, 'pastPresidents'])->name('past_presidents');
     Route::get('/past-president/{slug}', [CouncilPagesController::class, 'singlePP'])->name('single.pp');
 });

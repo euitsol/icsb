@@ -64,6 +64,14 @@ class CouncilPagesController extends Controller
                         ->first();
         return view('frontend.council.president',$s);
     }
+    public function presidentM(): View
+    {
+        $s['president'] = President::with(['durations','member'])
+                        ->where('status',1)
+                        ->where('deleted_at',null)
+                        ->first();
+        return view('frontend.council.president_message',$s);
+    }
     public function pastPresidents(): View
     {
         $s['p_presidents'] = President::with(['durations','member'])
