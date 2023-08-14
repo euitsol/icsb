@@ -23,6 +23,7 @@ use App\Http\Controllers\Backend\CsFirmsController;
 use App\Http\Controllers\Backend\JobPlacementController;
 use App\Http\Controllers\Backend\MediaRoomController;
 use App\Http\Controllers\Backend\PresidentController;
+use App\Http\Controllers\Backend\RecentVideoController;
 use App\Http\Controllers\Backend\SecAndCeoController;
 use App\Http\Controllers\Backend\UserManagement\RoleController;
 use App\Http\Controllers\Backend\UserManagement\PermissionController;
@@ -325,6 +326,15 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::put('edit/{id}', [CsFirmsController::class, 'update'])->name('cs_firm_edit');
         Route::get('status/{id}', [CsFirmsController::class, 'status'])->name('status.cs_firm_edit');
         Route::get('delete/{id}', [CsFirmsController::class, 'delete'])->name('cs_firm_delete');
+    });
+    Route::group(['as' => 'recent_video.', 'prefix' => 'recent-video'], function () {
+        Route::get('index', [RecentVideoController::class, 'index'])->name('recent_video_list');
+        Route::get('create', [RecentVideoController::class, 'create'])->name('recent_video_create');
+        Route::post('create', [RecentVideoController::class, 'store'])->name('recent_video_create');
+        Route::get('edit/{id}', [RecentVideoController::class, 'edit'])->name('recent_video_edit');
+        Route::put('edit/{id}', [RecentVideoController::class, 'update'])->name('recent_video_edit');
+        Route::get('status/{id}', [RecentVideoController::class, 'status'])->name('status.recent_video_edit');
+        Route::get('delete/{id}', [RecentVideoController::class, 'delete'])->name('recent_video_delete');
     });
 
 });

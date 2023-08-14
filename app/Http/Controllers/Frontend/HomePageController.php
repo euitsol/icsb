@@ -15,6 +15,7 @@ use App\Models\NationalAward;
 use App\Models\NationalConnection;
 use App\Models\MemberType;
 use App\Models\President;
+use App\Models\RecentVideo;
 use App\Models\SecretarialStandard;
 use App\Models\SinglePages;
 use Illuminate\View\View;
@@ -57,6 +58,7 @@ class HomePageController extends Controller
         $s['president'] = President::with(['durations','member'])->where('status',1)->where('deleted_at',null)->first();
         $s['home_bsss'] = SecretarialStandard::where('deleted_at', null)->where('is_featured','1')->where('status', 1)->get();
         $s['single_page'] = SinglePages::where('frontend_slug', 'icsb-profile')->first();
+        $s['recent_videos'] = RecentVideo::where('status',1)->where('deleted_at',null)->latest()->get();
         return view('frontend.home',$s);
     }
 }

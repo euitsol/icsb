@@ -161,7 +161,7 @@
 @include('frontend.includes.world_wide_cs',['wwcss'=>$wwcss])
 @include('frontend.includes.events',['events'=>$events])
 @include('frontend.includes.national_awards',['national_awards'=>$national_awards])
-@include('frontend.includes.recent_videos')
+@include('frontend.includes.recent_videos',['recent_videos'=>$recent_videos])
 @include('frontend.includes.national_connection',['national_connections'=>$national_connections])
 @endsection
 @push('js')

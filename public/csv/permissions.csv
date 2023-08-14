@@ -81,3 +81,11 @@ jp_list,web
 jp_create,web
 jp_edit,web
 jp_delete,web
+cs_firm_list,web
+cs_firm_create,web
+cs_firm_edit,web
+cs_firm_delete,web
+recent_video_list,web
+recent_video_create,web
+recent_video_edit,web
+recent_video_delete,web
