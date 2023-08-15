@@ -3373,19 +3373,18 @@ h1,h2,h3,h4,h5,h6{
 	padding-left: 3%;
 }
 .president-content-section .president-content-row .left-column img {
-	border: 10px solid #FF8601;
+	border: 10px solid var(--bc-2);
 }
 .president-content-section .president-content-row .left-column .name-tittle {
 	background: #F2F2F2;
-	padding: 54px 0px 54px 38px;
+	padding: 54px 38px;
 	border-bottom: 1px solid #111111;
 }
 .president-content-section .president-content-row .left-column  .name-tittle h3 {
-	font-size: 32px;
-	line-height: 22px;
+	font-size: 29px;
 	font-weight: 500;
 	color: #111111;
-	margin-bottom: 25px;
+	margin-bottom: 15px;
 }
 .president-content-section .president-content-row .left-column  .name-tittle p {
 	font-size: 25px;
@@ -3413,7 +3412,7 @@ h1,h2,h3,h4,h5,h6{
 	padding-right: 8px;
 }
 .president-content-section .president-content-row .left-column .social-media {
-	background: #182456;
+	background: var(--bc-2);
 	padding: 26px 0;
 }
 .president-content-section .president-content-row .left-column .social-media ul {
