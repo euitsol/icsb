@@ -1922,7 +1922,6 @@ h1,h2,h3,h4,h5,h6{
 	width: 65%;
 	padding: 35px 55px 55px 50px;
 	margin: 0 auto;
-	display: flex;
 	flex-wrap: wrap;
 	row-gap: 15px;
 	background: #182456;

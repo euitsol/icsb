@@ -3,30 +3,25 @@
 @section('title', 'CS Hand Book')
 
 @section('content')
-<!----============================= Breadcrumbs Section ========================---->
-    <section class="breadcrumbs-section">
-        <div class="overly-image">
-            @if(!empty($csHandBook) && !empty(json_decode($csHandBook->saved_data)) && isset(json_decode($csHandBook->saved_data)->{"banner-image"}))
-            <img src='{{storage_url(json_decode($csHandBook->saved_data)->{"banner-image"})}}' alt="{{$csHandBook->title}}">
-            @endif
-        </div>
-        <div class="container">
-            <div class="breadcrumbs-row flex">
-            <div class="left-column content-column">
-                <div class="inner-column color-white">
-                    <h1 class="breadcrumbs-heading">{{$csHandBook->title}}</h1>
-                    <ul class="flex">
-                        <li><a href="index">{{_('Home')}}</a></li>
-                        <li><i class="fa-solid fa-angle-right"></i></li>
-                        <li><a href="#">{{_('Students')}}</a></li>
-                        <li><i class="fa-solid fa-angle-right"></i></li>
-                        <li><p>{{$csHandBook->title}}</p></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        </div>
-    </section>
+
+    <!-- =============================== Breadcrumb Section ======================================-->
+    @php
+        $banner_image = '';
+        $title = $csHandBook->title;
+        if(isset(json_decode($csHandBook->saved_data)->{"banner-image"})){
+            $banner_image = storage_url(json_decode($csHandBook->saved_data)->{"banner-image"});
+        }
+        $datas = [
+                    'image'=>$banner_image,
+                    'title'=>$title,
+                    'paths'=>[
+                                'home'=>'Home',
+                                'javascript:void(0)'=>'Students',
+                            ]
+                ];
+    @endphp
+    @include('frontend.includes.breadcrumb',['datas'=>$datas])
+<!-- =============================== Breadcrumb Section ======================================-->
     <!--============================= Handbok Section ==================-->
     <section class="cs-handbook-section section-padding">
         <div class="container">

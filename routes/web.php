@@ -384,8 +384,8 @@ Route::group(['as' => 'council_view.', 'prefix' => 'council'], function () {
 });
 Route::group(['as' => 'employee_view.', 'prefix' => 'employee'], function () {
     Route::get('/secretary-and-ceo', [EmployeePagesController::class, 'sec_and_ceo'])->name('sec_and_ceo');
-    Route::get('/past-secretary-and-ceos', [EmployeePagesController::class, 'past_sec_and_ceos'])->name('past_sec_and_ceos');
-    Route::get('/past-secretary-and-ceo/{slug}', [EmployeePagesController::class, 'singlePSC'])->name('single.psc');
+    // Route::get('/past-secretary-and-ceos', [EmployeePagesController::class, 'past_sec_and_ceos'])->name('past_sec_and_ceos');
+    // Route::get('/past-secretary-and-ceo/{slug}', [EmployeePagesController::class, 'singlePSC'])->name('single.psc');
 });
 Route::group(['as' => 'examination.', 'prefix' => 'examination'], function () {
     // Route::get('/exam-schedule', [ExaminationPagesController::class, 'examSchedule'])->name('exam_schedule');

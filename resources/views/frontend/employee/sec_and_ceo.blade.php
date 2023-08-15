@@ -3,31 +3,21 @@
 @section('title', 'Secretary & CEO')
 
 @section('content')
-<!----============================= Breadcrumbs Section ========================---->
-
-<section class="breadcrumbs-section">
-    <div class="overly-image">
-        <img src="{{asset('frontend/img/breadcumb/faqs-background.jpg')}}" alt="">
-    </div>
-    <div class="container">
-        <div class="breadcrumbs-row flex">
-            <div class="left-column content-column">
-                <div class="inner-column color-white">
-                    <h1 class="breadcrumbs-heading">{{$sec_and_ceo->designation ?? 'Secretary & CEO'}}</h1>
-                    <ul class="flex">
-                        <li><a href="index">{{_('Home')}}</a></li>
-                        <li><i class="fa-solid fa-angle-right"></i></li>
-                        <li><a href="#">{{_('Council')}}</a></li>
-                        <li><i class="fa-solid fa-angle-right"></i></li>
-                        <li>
-                            <p>{{$sec_and_ceo->designation ?? 'Secretary & CEO'}}</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- =============================== Breadcrumb Section ======================================-->
+@php
+$banner_image = '';
+$title = ($sec_and_ceo->designation ?? 'Secretary & CEO');
+$datas = [
+            'image'=>$banner_image,
+            'title'=>$title,
+            'paths'=>[
+                        'home'=>'Home',
+                        'javascript:void(0)'=>'Employees',
+                    ]
+        ];
+@endphp
+@include('frontend.includes.breadcrumb',['datas'=>$datas])
+<!-- =============================== Breadcrumb Section ======================================-->
 
 @if(!empty($sec_and_ceo))
 <section class="president-content-section">
@@ -56,18 +46,9 @@
                 </ul>
              </div>
              <div class="social-media">
-                <ul>
-                    <li><a href="#" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
-                    <li><a href="#" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
-                    <li><a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
-                    <li><a href="#" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                    <li><a href="#" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
-                </ul>
              </div>
             </div>
             <div class="right-column">
-
-             <h2>{{str_replace(', ICSB', '', $sec_and_ceo->designation)}}</h2>
                 {!! $sec_and_ceo->bio !!}
             </div>
         </div>

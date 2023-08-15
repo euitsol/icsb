@@ -3,30 +3,22 @@
 @section('title', 'Single Media Room')
 
 @section('content')
-<!----============================= Breadcrumbs Section ========================---->
-<!----============================= Breadcrumbs Section ========================---->
-<section class="breadcrumbs-section">
-    <div class="overly-image">
-        <img src="{{asset('frontend/img/breadcumb/icsb-profile.png')}}" alt="">
-    </div>
-    <div class="container">
-        <div class="breadcrumbs-row flex">
-            <div class="left-column content-column">
-                <div class="inner-column color-white">
-                    <h1 class="breadcrumbs-heading">{{$media_room->title}}</h1>
-                    <ul class="flex">
-                        <li><a href="index">Media Rooms</a></li>
-                        <li><i class="fa-solid fa-angle-right"></i></li>
-                        <li><a href="index">{{$media_room->cat->name}}</a></li>
-                        <li><i class="fa-solid fa-angle-right"></i></li>
-                        <li><a href="#">{{$media_room->title}}</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-</section>
+<!-- =============================== Breadcrumb Section ======================================-->
+@php
+$banner_image = '';
+$title = $media_room->title;
+$datas = [
+            'image'=>$banner_image,
+            'title'=>$title,
+            'paths'=>[
+                        'home'=>'Home',
+                        'media_room_view.all'=>'Media Rooms',
+                        'javascript:void(0)'=>$media_room->cat->name,
+                    ]
+        ];
+@endphp
+@include('frontend.includes.breadcrumb',['datas'=>$datas])
+<!-- =============================== Breadcrumb Section ======================================-->
 <!--============================= Blog Thumbnail Section ========================-->
 <section class="blog-thumbnail-section">
     <div class="container">

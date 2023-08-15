@@ -3,28 +3,21 @@
 @section('title', 'Media Rooms')
 
 @section('content')
-<!----============================= Breadcrumbs Section ========================---->
-    <section class="breadcrumbs-section">
-        <div class="overly-image">
-            <img src="{{asset('frontend/img/breadcumb/Board-Meeting.jp')}}" alt="Board of Directors Meeting">
-        </div>
-        <div class="container">
-            <div class="breadcrumbs-row flex">
-                <div class="left-column content-column">
-                    <div class="inner-column color-white">
-                        <h1 class="breadcrumbs-heading">{{$view_bss->short_title}}{{_(': ')}}{{$view_bss->title}}</h1>
-                        <ul class="flex">
-                            <li><a href="index">{{_('Home')}}</a></li>
-                            <li><i class="fa-solid fa-angle-right"></i></li>
-                            <li><a href="#">{{_('Rules')}}</a></li>
-                            <li><i class="fa-solid fa-angle-right"></i></li>
-                            <li><p>{{$view_bss->short_title}}{{_(': ')}}{{$view_bss->title}}</p></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- =============================== Breadcrumb Section ======================================-->
+@php
+$banner_image = '';
+$title = $view_bss->short_title.': '.$view_bss->title;
+$datas = [
+            'image'=>$banner_image,
+            'title'=>$title,
+            'paths'=>[
+                        'home'=>'Home',
+                        'javascript:void(0)'=>'Rules',
+                    ]
+        ];
+@endphp
+@include('frontend.includes.breadcrumb',['datas'=>$datas])
+<!-- =============================== Breadcrumb Section ======================================-->
     <section class="director-metting-section">
         <div class="container">
             <div class="director-row text-align">
