@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('faqs', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->bigInteger('order_key');
+            $table->string('title')->unique();
+            $table->bigInteger('order_key')->unique();
             $table->longText('description');
             $table->timestamps();
             $table->softDeletes();
