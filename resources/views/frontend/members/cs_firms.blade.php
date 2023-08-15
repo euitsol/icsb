@@ -3,31 +3,27 @@
 @section('title', 'CS Firms')
 
 @section('content')
-<!----============================= Breadcrumbs Section ========================---->
-<section class="breadcrumbs-section">
-    <div class="overly-image">
-        <img src="{{asset('frontend/img/breadcumb/objectives-background.jpg')}}" alt="">
-    </div>
-    <div class="container">
-        <div class="breadcrumbs-row flex">
-        <div class="left-column content-column">
-            <div class="inner-column color-white">
-                <h1 class="breadcrumbs-heading">{{_('CS Firms')}}</h1>
-                <ul class="flex">
-                    <li><a href="index">{{_('Home')}}</a></li>
-                    <li><i class="fa-solid fa-angle-right"></i></li>
-                    <li><a href="#">{{_('Members')}}</a></li>
-                    <li><i class="fa-solid fa-angle-right"></i></li>
-                    <li><p>{{_('CS Firms')}}</p></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    </div>
-</section>
+<!-- =============================== Breadcrumb Section ======================================-->
+@php
+$banner_image = '';
+$title = 'CS Firms';
+$datas = [
+            'image'=>$banner_image,
+            'title'=>$title,
+            'paths'=>[
+                        'home'=>'Home',
+                        'javascript:void(0)'=>'Members',
+                    ]
+        ];
+@endphp
+@include('frontend.includes.breadcrumb',['datas'=>$datas])
+<!-- =============================== Breadcrumb Section ======================================-->
 
-<section class="fellow-member-section">
+<section class="fellow-member-section big-sec-min-height">
     <div class="container">
+        <div class="heading-content text-align">
+            <h2 class="common-heading">{{'CS Firm Members'}}</h2>
+        </div>
         <div class="fellow-row flex">
             @forelse ($csf_members as $csf_m)
             <div class="fellow-items flex">

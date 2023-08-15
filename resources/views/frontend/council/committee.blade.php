@@ -3,33 +3,25 @@
 @section('title', 'Committee')
 
 @section('content')
-<section class="breadcrumbs-section">
-    <div class="overly-image">
-        <img src="{{asset('frontend/img/breadcumb/objectives-background.jpg')}}" alt="">
-    </div>
-    <div class="container">
-        <div class="breadcrumbs-row flex">
-        <div class="left-column content-column">
-            <div class="inner-column color-white">
-                <h1 class="breadcrumbs-heading">{{$committee->title}}</h1>
-                <ul class="flex">
-                    <li><a href="index">Home</a></li>
-                    <li><i class="fa-solid fa-angle-right"></i></li>
-                    <li><a href="#">Council</a></li>
-                    <li><i class="fa-solid fa-angle-right"></i></li>
-                    <li><p>{{$committee->committe_type->title}}</p></li>
-                    <li><i class="fa-solid fa-angle-right"></i></li>
-                    <li><p>{{$committee->title}}</p></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    </div>
-</section>
+<!-- =============================== Breadcrumb Section ======================================-->
+@php
+$banner_image = '';
+$title = $committee->title;
+$datas = [
+            'image'=>$banner_image,
+            'title'=>$title,
+            'paths'=>[
+                        'home'=>'Home',
+                        'javascript:void(0)'=>$committee->committe_type->title,
+                    ]
+        ];
+@endphp
+@include('frontend.includes.breadcrumb',['datas'=>$datas])
+<!-- =============================== Breadcrumb Section ======================================-->
 <section class="executive-committee-section">
     <div class="container">
         <div class="heading-content text-align">
-            <h2 class="common-heading">{{$committee->title}}</h2>
+            <h2 class="common-heading">{{$committee->title}}{{_(' Members')}}</h2>
         </div>
         <div class="committee-row flex">
             @foreach ($c_members as $key=>$member)

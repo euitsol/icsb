@@ -21,9 +21,9 @@ $datas = [
 
 <section class="past-president-layout">
     <div class="container">
-        <div class="heading-content text-align">
+        {{-- <div class="heading-content text-align">
             <h2 class="common-heading">{{_('Past Presidents')}}</h2>
-        </div>
+        </div> --}}
         <div class="president-row flex">
             @foreach ($p_presidents as $pp)
                 <div class="items text-align">

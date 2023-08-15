@@ -65,6 +65,12 @@ class FrontendSinglePagesController extends Controller
             case($s['single_page']->frontend_slug == 'values'):
                 return view('frontend.about.values',$s);
                 break;
+            case($s['single_page']->frontend_slug == 'cpd-program'):
+                return view('frontend.members.cpd_program',$s);
+                break;
+            case($s['single_page']->frontend_slug == 'training-program'):
+                return view('frontend.members.training_program',$s);
+                break;
             case($s['single_page']->frontend_slug == 'help-desk'):
                 return view('frontend.employee.help_desk',$s);
                 break;
