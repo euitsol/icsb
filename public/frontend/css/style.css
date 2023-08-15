@@ -2738,7 +2738,9 @@ h1,h2,h3,h4,h5,h6{
 .objectives-section .objective-row .left-column{
 	width: 48%;
 	position: relative;
-	/* background-image: url("../img/objective-shape.png"); */
+}
+.objectives-section .objective-row .left-column img{
+    max-height: 26rem;
 }
 .objectives-section .objective-row .left-column iframe{
 	border: 10px double #fff;
@@ -2752,7 +2754,14 @@ h1,h2,h3,h4,h5,h6{
 }
 
 
-.mision-vision-section{
+.mision-vision-section .image-column,.vision-mission-section .image-column{
+    min-width: 700px;
+    outline: 2px solid var(--bc-2);
+}
+.mision-vision-section .image-column img,.vision-mission-section .image-column img{
+    height: 100%;
+}
+.mision-vision-section, .vision-mission-section{
 	padding: 100px 0;
 }
 .mision-vision-section .mission-row{
