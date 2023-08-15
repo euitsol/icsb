@@ -41,13 +41,7 @@
                                         <td> {{ $jp->company_name }} </td>
                                         <td> {{ removeHttpProtocol($jp->company_url) }} </td>
 
-                                        <td>
-                                            @if(!empty(json_decode($jp->job_type)))
-                                                @foreach (json_decode($jp->job_type) as $jp_type )
-                                                    {{$jp_type}}<br>
-                                                @endforeach
-                                            @endif
-                                        </td>
+                                        <td>{{ $jp->job_type }}</td>
                                         <td>
                                             @if(!empty(json_decode($jp->salary)))
                                                 {{ json_decode($jp->salary)->from .'-'. json_decode($jp->salary)->to .' ('. $jp->salary_type .')' }}

@@ -48,42 +48,21 @@
                                 <input type="url" name="company_url" class="form-control {{ $errors->has('company_url') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter job company_url') }}" value="{{ old('company_url') }}">
                                 @include('alerts.feedback', ['field' => 'company_url'])
                             </div>
-                            <div class="form-group {{ $errors->has('job_type') ? ' has-danger' : '' }} {{ $errors->has('job_type.*') ? ' has-danger' : '' }}">
+                            <div class="form-group {{ $errors->has('job_type') ? ' has-danger' : '' }}">
                                 <label>Job Type</label>
                                 <div class="form-check">
-                                    <label class="form-check-label mr-3">{{_('Full-Time')}}
-                                        <input class="form-check-input" name=job_type[] type="checkbox" value="Full-Time">
-                                        <span class="form-check-sign">
-                                            <span class="check"></span>
-                                        </span>
-                                    </label>
-                                    <label class="form-check-label mr-3">{{_('Part-Time')}}
-                                        <input class="form-check-input" name=job_type[] type="checkbox" value="Part-Time">
-                                        <span class="form-check-sign">
-                                            <span class="check"></span>
-                                        </span>
-                                    </label>
-                                    <label class="form-check-label mr-3">{{_('Work From Home')}}
-                                        <input class="form-check-input" name=job_type[] type="checkbox" value="Work From Home">
-                                        <span class="form-check-sign">
-                                            <span class="check"></span>
-                                        </span>
-                                    </label>
-                                    <label class="form-check-label mr-3">{{_('Contractual')}}
-                                        <input class="form-check-input" name=job_type[] type="checkbox" value="Contractual">
-                                        <span class="form-check-sign">
-                                            <span class="check"></span>
-                                        </span>
-                                    </label>
-                                    <label class="form-check-label mr-3">{{_('Intern')}}
-                                        <input class="form-check-input" name=job_type[] type="checkbox" value="Intern">
-                                        <span class="form-check-sign">
-                                            <span class="check"></span>
-                                        </span>
-                                    </label>
+                                    <input class="form-check-input ml-2" name='job_type' type="radio" value="Full-Time">
+                                    <label class="form-check-label mr-2">{{_('Full-Time')}}</label>
+                                    <input class="form-check-input ml-2" name='job_type' type="radio" value="Part-Time">
+                                    <label class="form-check-label mr-2">{{_('Part-Time')}}</label>
+                                    <input class="form-check-input ml-2" name='job_type' type="radio" value="Work From Home">
+                                    <label class="form-check-label mr-2">{{_('Work From Home')}}</label>
+                                    <input class="form-check-input ml-2" name='job_type' type="radio" value="Contractual">
+                                    <label class="form-check-label mr-2">{{_('Contractual')}}</label>
+                                    <input class="form-check-input ml-2" name='job_type' type="radio" value="Intern">
+                                    <label class="form-check-label mr-2">{{_('Intern')}}</label>
                                 </div>
                                 @include('alerts.feedback', ['field' => 'job_type'])
-                                @include('alerts.feedback', ['field' => 'job_type.*'])
                             </div>
 
                             <div class="form-group row {{ $errors->has('salary') ? ' has-danger' : '' }} {{ $errors->has('salary.*') ? ' has-danger' : '' }} {{ $errors->has('salary_type') ? ' has-danger' : '' }}">

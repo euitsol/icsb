@@ -30,7 +30,7 @@ class JobPlacementController extends Controller
         $jp->title = $request->title;
         $jp->company_name = $request->company_name;
         $jp->company_url = $request->company_url;
-        $jp->job_type = json_encode($request->job_type);
+        $jp->job_type = $request->job_type;
         $jp->salary = json_encode($request->salary);
         $jp->salary_type = $request->salary_type;
         $jp->deadline = $request->deadline;
@@ -49,7 +49,7 @@ class JobPlacementController extends Controller
         $jp->title = $request->title;
         $jp->company_name = $request->company_name;
         $jp->company_url = $request->company_url;
-        $jp->job_type = json_encode($request->job_type);
+        $jp->job_type = $request->job_type;
         $jp->salary = json_encode($request->salary);
         $jp->salary_type = $request->salary_type;
         $jp->deadline = $request->deadline;
