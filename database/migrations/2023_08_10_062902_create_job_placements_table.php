@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('company_name');
             $table->string('company_url');
-            $table->json('job_type');
+            $table->enum('job_type',["Full-Time", "Part-Time","Work From Home", "Contractual","Intern"]);
             $table->json('salary');
             $table->enum('salary_type',["Per Month", "Per Year"]);
             $table->dateTime('deadline');

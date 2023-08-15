@@ -52,36 +52,16 @@
                             <div class="form-group {{ $errors->has('job_type') ? ' has-danger' : '' }}">
                                 <label>Job Type</label>
                                 <div class="form-check">
-                                    <label class="form-check-label mr-3">{{_('Full-Time')}}
-                                        <input class="form-check-input" name=job_type[] type="checkbox" value="Full-Time" {{in_array('Full-Time',json_decode($jp->job_type)) ? 'checked' : ''}}>
-                                        <span class="form-check-sign">
-                                            <span class="check"></span>
-                                        </span>
-                                    </label>
-                                    <label class="form-check-label mr-3">{{_('Part-Time')}}
-                                        <input class="form-check-input" name=job_type[] type="checkbox" value="Part-Time" {{in_array('Part-Time',json_decode($jp->job_type)) ? 'checked' : ''}}>
-                                        <span class="form-check-sign">
-                                            <span class="check"></span>
-                                        </span>
-                                    </label>
-                                    <label class="form-check-label mr-3">{{_('Work From Home')}}
-                                        <input class="form-check-input" name=job_type[] type="checkbox" value="Work From Home" {{in_array('Work From Home',json_decode($jp->job_type)) ? 'checked' : ''}}>
-                                        <span class="form-check-sign">
-                                            <span class="check"></span>
-                                        </span>
-                                    </label>
-                                    <label class="form-check-label mr-3">{{_('Contractual')}}
-                                        <input class="form-check-input" name=job_type[] type="checkbox" value="Contractual" {{in_array('Contractual',json_decode($jp->job_type)) ? 'checked' : ''}}>
-                                        <span class="form-check-sign">
-                                            <span class="check"></span>
-                                        </span>
-                                    </label>
-                                    <label class="form-check-label mr-3">{{_('Intern')}}
-                                        <input class="form-check-input" name=job_type[] type="checkbox" value="Intern" {{in_array('Intern',json_decode($jp->job_type)) ? 'checked' : ''}}>
-                                        <span class="form-check-sign">
-                                            <span class="check"></span>
-                                        </span>
-                                    </label>
+                                    <input class="form-check-input ml-2" name='job_type' type="radio" value="Full-Time" {{($job->job_type =='Full-Time') ? 'checked': '' }}>
+                                    <label class="form-check-label mr-2">{{_('Full-Time')}}</label>
+                                    <input class="form-check-input ml-2" name='job_type' type="radio" value="Part-Time" {{($job->job_type =='Part-Time') ? 'checked': '' }}>
+                                    <label class="form-check-label mr-2">{{_('Part-Time')}}</label>
+                                    <input class="form-check-input ml-2" name='job_type' type="radio" value="Work From Home" {{($job->job_type =='Work From Home') ? 'checked': '' }}>
+                                    <label class="form-check-label mr-2">{{_('Work From Home')}}</label>
+                                    <input class="form-check-input ml-2" name='job_type' type="radio" value="Contractual" {{($job->job_type =='Contractual') ? 'checked': '' }}>
+                                    <label class="form-check-label mr-2">{{_('Contractual')}}</label>
+                                    <input class="form-check-input ml-2" name='job_type' type="radio" value="Intern" {{($job->job_type =='Intern') ? 'checked': '' }}>
+                                    <label class="form-check-label mr-2">{{_('Intern')}}</label>
                                 </div>
                                 @include('alerts.feedback', ['field' => 'job_type'])
                             </div>

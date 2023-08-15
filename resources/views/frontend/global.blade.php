@@ -11,30 +11,24 @@
     }
 
 @endphp
-
-<!----============================= Breadcrumbs Section ========================---->
-    <section class="breadcrumbs-section">
-        @if(isset($saved_data->{'banner-image'}) && !empty($saved_data->{'banner-image'}))
-        <div class="overly-image">
-            <img src="{{storage_url($saved_data->{'banner-image'})}}" alt="Banner Image">
-        </div>
-        @endif
-        <div class="container">
-            <div class="breadcrumbs-row flex">
-                <div class="left-column content-column">
-                    <div class="inner-column color-white">
-                        <h1 class="breadcrumbs-heading">{{ $single_page->title }}</h1>
-                        <ul class="flex">
-                            <li><a href="{{route('home')}}">{{_('Home')}}</a></li>
-                            <li><i class="fa-solid fa-angle-right"></i></li>
-                            <li><a href="#">{{ $single_page->title }}</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="global-page-section">
+<!-- =============================== Breadcrumb Section ======================================-->
+@php
+$banner_image = '';
+if(isset($saved_data->{'banner-image'}) && !empty($saved_data->{'banner-image'})){
+    $banner_image = storage_url($saved_data->{'banner-image'});
+}
+$title = $single_page->title;
+$datas = [
+            'image'=>$banner_image,
+            'title'=>$title,
+            'paths'=>[
+                        'home'=>'Home',
+                    ]
+        ];
+@endphp
+@include('frontend.includes.breadcrumb',['datas'=>$datas])
+<!-- =============================== Breadcrumb Section ======================================-->
+    <section class="global-page-section big-sec-min-height">
         <div class="container">
             <div class="global-row flex
             @if (isset($saved_data->{'page-description'}) && $count>1700 ) flex-column-reverse @endif

@@ -3,30 +3,21 @@
 @section('title', 'President')
 
 @section('content')
-<!----============================= Breadcrumbs Section ========================---->
-<section class="breadcrumbs-section">
-    <div class="overly-image">
-        <img src="{{asset('frontend/img/breadcumb/faqs-background.jpg')}}" alt="">
-    </div>
-    <div class="container">
-        <div class="breadcrumbs-row flex">
-            <div class="left-column content-column">
-                <div class="inner-column color-white">
-                    <h1 class="breadcrumbs-heading">{{$president->designation ?? 'President'}}</h1>
-                    <ul class="flex">
-                        <li><a href="index">{{_('Home')}}</a></li>
-                        <li><i class="fa-solid fa-angle-right"></i></li>
-                        <li><a href="#">{{_('Council')}}</a></li>
-                        <li><i class="fa-solid fa-angle-right"></i></li>
-                        <li>
-                            <p>{{$president->designation ?? 'President'}}</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- =============================== Breadcrumb Section ======================================-->
+@php
+$banner_image = '';
+$title = ($president->designation ?? 'President');
+$datas = [
+            'image'=>$banner_image,
+            'title'=>$title,
+            'paths'=>[
+                        'home'=>'Home',
+                        'javascript:void(0)'=>'Council',
+                    ]
+        ];
+@endphp
+@include('frontend.includes.breadcrumb',['datas'=>$datas])
+<!-- =============================== Breadcrumb Section ======================================-->
 @if(!empty($president))
 <section class="president-content-section">
     <div class="container">

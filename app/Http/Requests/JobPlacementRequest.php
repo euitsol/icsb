@@ -20,8 +20,10 @@ class JobPlacementRequest extends FormRequest
             'title' => 'required',
             'company_name' => 'required',
             'company_url' => 'required|url',
-            'job_type' => 'required|array',
-            'job_type.*' => 'integer|min:0',
+            'job_type' => [
+                'required',
+                Rule::in(["Full-Time", "Part-Time","Work From Home", "Contractual","Intern"]),
+            ],
             'salary' => 'required|array',
             // 'salary.from' => 'required|numeric|min:0',
             // 'salary.to' => 'required|numeric|min:0',
