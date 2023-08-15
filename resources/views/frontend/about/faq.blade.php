@@ -3,27 +3,21 @@
 @section('title', 'FAQ')
 
 @section('content')
-<section class="breadcrumbs-section">
-	<div class="overly-image">
-		<img src="{{asset('frontend/img/breadcumb/faqs-background.jpg')}}" alt="">
-	</div>
-	<div class="container">
-		<div class="breadcrumbs-row flex">
-		<div class="left-column content-column">
-			<div class="inner-column color-white">
-				<h1 class="breadcrumbs-heading">FAQs</h1>
-				<ul class="flex">
-					<li><a href="index">Home</a></li>
-					<li><i class="fa-solid fa-angle-right"></i></li>
-					<li><a href="#">About ICSB</a></li>
-					<li><i class="fa-solid fa-angle-right"></i></li>
-					<li><p>Faqs</p></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	</div>
-</section>
+<!-- =============================== Breadcrumb Section ======================================-->
+@php
+$banner_image = '';
+$title = 'FAQs';
+$datas = [
+            'image'=>$banner_image,
+            'title'=>$title,
+            'paths'=>[
+                        'home'=>'Home',
+                        'javascript:void(0)'=>'About CS',
+                    ]
+        ];
+@endphp
+@include('frontend.includes.breadcrumb',['datas'=>$datas])
+<!-- =============================== Breadcrumb Section ======================================-->
 
 <!----============================= FAQ Section ========================---->
 	<section class="faq-section">

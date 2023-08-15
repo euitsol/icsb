@@ -3,31 +3,26 @@
 @section('title', 'Mission')
 
 @section('content')
-<section class="breadcrumbs-section">
-	<div class="overly-image">
-		@if(isset(json_decode($single_page->saved_data)->{"banner-image"}) && !empty(json_decode($single_page->saved_data)->{"banner-image"}))
-		<img src='{{storage_url(json_decode($single_page->saved_data)->{"banner-image"})}}' alt="{{$single_page->title}}">
-        @endif
-	</div>
-	<div class="container">
-		<div class="breadcrumbs-row flex">
-		<div class="left-column content-column">
-			<div class="inner-column color-white">
-				<h1 class="breadcrumbs-heading">{{$single_page->title}}</h1>
-				<ul class="flex">
-					<li><a href="index">{{_('Home')}}</a></li>
-					<li><i class="fa-solid fa-angle-right"></i></li>
-					<li><a href="#">{{_('About ICSB')}}</a></li>
-					<li><i class="fa-solid fa-angle-right"></i></li>
-					<li><p>{{$single_page->title}}</p></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	</div>
-</section>
+<!-- =============================== Breadcrumb Section ======================================-->
+    @php
+        $banner_image = '';
+        $title = $single_page->title;
+        if(isset(json_decode($single_page->saved_data)->{"banner-image"})){
+            $banner_image = storage_url(json_decode($single_page->saved_data)->{"banner-image"});
+        }
+        $datas = [
+                    'image'=>$banner_image,
+                    'title'=>$title,
+                    'paths'=>[
+                                'home'=>'Home',
+                                'javascript:void(0)'=>'About CS',
+                            ]
+                ];
+    @endphp
+    @include('frontend.includes.breadcrumb',['datas'=>$datas])
+<!-- =============================== Breadcrumb Section ======================================-->
 @if(!empty($single_page) && !empty(json_decode($single_page->saved_data)))
-<section class="vision-mission-section">
+<section class="vision-mission-section big-sec-height">
     <div class="container">
         <div class="mission-row flex">
             <div class="content-column color-white">
@@ -41,6 +36,5 @@
     </div>
 </section>
 @endif
-@include('frontend.includes.national_awards',['national_awards'=>$national_awards])
 
 @endsection

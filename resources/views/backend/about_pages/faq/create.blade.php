@@ -7,15 +7,32 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="title">{{ _('Add Faq') }}</h5>
+                    <h5 class="title">{{ _('Add FAQ') }}</h5>
                 </div>
                 <form method="POST" action="{{ route('about.faq.faq_create') }}" autocomplete="off">
                     @csrf
                     <div class="card-body">
-                            <div class="form-group {{ $errors->has('title') ? ' has-danger' : '' }}">
-                                <label>{{ _('Faq Title') }}</label>
-                                <input type="text" name="title" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ _('Faq Title') }}" value="{{ old('title') }}">
-                                @include('alerts.feedback', ['field' => 'title'])
+                            <div class="row">
+                                <div class="col-md-8 form-group {{ $errors->has('title') ? ' has-danger' : '' }}">
+                                    <label>{{ _('FAQ Title') }}</label>
+                                    <input type="text" name="title" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ _('Faq Title') }}" value="{{ old('title') }}">
+                                    @include('alerts.feedback', ['field' => 'title'])
+                                </div>
+                                <div class="col-md-4 form-group {{ $errors->has('order_key') ? ' has-danger' : '' }}">
+                                    <label>{{ _('FAQ Order') }}</label>
+                                    <select class="form-control {{ $errors->has('order_key') ? ' is-invalid' : '' }}" name="order_key">
+                                        <option value="" selected hidden>{{ _('Select FAQ Order') }}</option>
+                                        @for ($x=1; $x<=100; $x++)
+                                            @php
+                                                $check = App\Models\Faq::where('order_key',$x)->first();
+                                            @endphp
+                                            @if(!$check)
+                                                <option value="{{$x}}">{{ $x }}</option>
+                                            @endif
+                                        @endfor
+                                    </select>
+                                    @include('alerts.feedback', ['field' => 'order_key'])
+                                </div>
                             </div>
 
                             <div class="form-group {{ $errors->has('description') ? ' has-danger' : '' }}">

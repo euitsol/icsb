@@ -1,6 +1,6 @@
 @extends('frontend.master')
 
-@section('title', 'Vision')
+@section('title', 'Values')
 
 @section('content')
 <!-- =============================== Breadcrumb Section ======================================-->
@@ -29,7 +29,7 @@ $datas = [
                 <img src="{{storage_url(json_decode($single_page->saved_data)->{'page-image'})}}" alt="">
             </div>
             <div class="content-column color-white">
-                <h2>{{_('Our Vision')}}</h2>
+                <h2>{{_('Values')}}</h2>
                 {!! (json_decode($single_page->saved_data)->{'page-description'}) !!}
             </div>
         </div>
