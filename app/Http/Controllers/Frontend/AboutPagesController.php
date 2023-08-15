@@ -45,7 +45,7 @@ class AboutPagesController extends Controller
     }
     public function faq(): View
     {
-        $s['faqs']= Faq::where('deleted_at', null)->latest()->orderBy('order_key')->get();
+        $s['faqs']= Faq::where('deleted_at', null)->orderBy('order_key','ASC')->get();
         return view('frontend.about.faq',$s);
     }
     public function wwcs(): View

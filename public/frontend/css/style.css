@@ -2758,7 +2758,9 @@ h1,h2,h3,h4,h5,h6{
 .objectives-section .objective-row .left-column{
 	width: 48%;
 	position: relative;
-	/* background-image: url("../img/objective-shape.png"); */
+}
+.objectives-section .objective-row .left-column img{
+    max-height: 26rem;
 }
 .objectives-section .objective-row .left-column iframe{
 	border: 10px double #fff;
