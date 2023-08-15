@@ -52,10 +52,16 @@
                 <div class="details-col">
                 <h2>{{$jp->title}}</h2>
                 <h3>{{$jp->company_name}}</h3>
-                <span class="day"><i class="fa-solid fa-clock"></i>1 day ago</span>
-                @foreach (json_decode($jp->job_type) as $type)
-                    <span><i class="fa-solid fa-briefcase"></i>{{$type}}</span>
-                @endforeach
+                <span class="day"><i class="fa-solid fa-clock"></i>
+                    @if(($today->diff(date('Y-m-d', strtotime($jp->deadline))))->days == 0 )
+                        {{_('Today')}}
+                    @elseif(($today->diff(date('Y-m-d', strtotime($jp->deadline))))->days == 1 )
+                        {{($today->diff(date('Y-m-d', strtotime($jp->deadline))))->days}}{{_(' day ago')}}
+                    @else
+                        {{($today->diff(date('Y-m-d', strtotime($jp->deadline))))->days}}{{_(' days ago')}}
+                    @endif
+                </span>
+                <span><i class="fa-solid fa-briefcase"></i>{{$jp->job_type}}</span>
 
                 </div>
             </div>

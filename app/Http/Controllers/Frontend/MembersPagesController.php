@@ -12,6 +12,7 @@ use App\Models\JobPlacement;
 use App\Models\MemberType;
 use App\Models\SecretarialStandard;
 use App\Models\SinglePages;
+use Carbon\Carbon;
 use Illuminate\View\View;
 
 class MembersPagesController extends Controller
@@ -49,6 +50,7 @@ class MembersPagesController extends Controller
     }
     public function job_placement(): View
     {
+        $s['today'] = Carbon::now();
         $s['job_placements'] = JobPlacement::where('status',1)->where('deleted_at',null)->latest()->get();
         return view('frontend.members.job_placement',$s);
 

@@ -52,15 +52,15 @@
                             <div class="form-group {{ $errors->has('job_type') ? ' has-danger' : '' }}">
                                 <label>Job Type</label>
                                 <div class="form-radio">
-                                    <input class="form-check-input ml-2" name='job_type' type="radio" value="Full-Time" {{($job->job_type =='Full-Time') ? 'checked': '' }}>
+                                    <input class="form-check-input ml-2" name='job_type' type="radio" value="Full-Time" {{($jp->job_type =='Full-Time') ? 'checked': '' }}>
                                     <label class="form-check-label mr-3 ml-4">{{_('Full-Time')}}</label>
-                                    <input class="form-check-input ml-2" name='job_type' type="radio" value="Part-Time" {{($job->job_type =='Part-Time') ? 'checked': '' }}>
+                                    <input class="form-check-input ml-2" name='job_type' type="radio" value="Part-Time" {{($jp->job_type =='Part-Time') ? 'checked': '' }}>
                                     <label class="form-check-label mr-3 ml-4">{{_('Part-Time')}}</label>
-                                    <input class="form-check-input ml-2" name='job_type' type="radio" value="Work From Home" {{($job->job_type =='Work From Home') ? 'checked': '' }}>
+                                    <input class="form-check-input ml-2" name='job_type' type="radio" value="Work From Home" {{($jp->job_type =='Work From Home') ? 'checked': '' }}>
                                     <label class="form-check-label mr-3 ml-4">{{_('Work From Home')}}</label>
-                                    <input class="form-check-input ml-2" name='job_type' type="radio" value="Contractual" {{($job->job_type =='Contractual') ? 'checked': '' }}>
+                                    <input class="form-check-input ml-2" name='job_type' type="radio" value="Contractual" {{($jp->job_type =='Contractual') ? 'checked': '' }}>
                                     <label class="form-check-label mr-3 ml-4">{{_('Contractual')}}</label>
-                                    <input class="form-check-input ml-2" name='job_type' type="radio" value="Intern" {{($job->job_type =='Intern') ? 'checked': '' }}>
+                                    <input class="form-check-input ml-2" name='job_type' type="radio" value="Intern" {{($jp->job_type =='Intern') ? 'checked': '' }}>
                                     <label class="form-check-label mr-3 ml-4">{{_('Intern')}}</label>
                                 </div>
                                 @include('alerts.feedback', ['field' => 'job_type'])
