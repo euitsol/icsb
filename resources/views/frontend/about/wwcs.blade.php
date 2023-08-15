@@ -3,30 +3,21 @@
 @section('title', 'World Wide CS')
 
 @section('content')
-<!----============================= Breadcrumbs Section ========================---->
-<section class="breadcrumbs-section">
-    <div class="overly-image">
-        <img src="{{asset('frontend/img/breadcumb/wide-wise-cs.jpg')}}" alt="world wide cs">
-    </div>
-    <div class="container">
-        <div class="breadcrumbs-row flex">
-            <div class="left-column content-column">
-                <div class="inner-column color-white">
-                    <h1 class="breadcrumbs-heading">{{_('World Wide CS')}}</h1>
-                    <ul class="flex">
-                        <li><a href="index">{{_('Home')}}</a></li>
-                        <li><i class="fa-solid fa-angle-right"></i></li>
-                        <li><a href="#">{{_('About ICSB')}}</a></li>
-                        <li><i class="fa-solid fa-angle-right"></i></li>
-                        <li>
-                            <p>{{_('World Wide CS')}}</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- =============================== Breadcrumb Section ======================================-->
+@php
+$banner_image = '';
+$title = 'World Wide CS';
+$datas = [
+            'image'=>$banner_image,
+            'title'=>$title,
+            'paths'=>[
+                        'home'=>'Home',
+                        'javascript:void(0)'=>'About CS',
+                    ]
+        ];
+@endphp
+@include('frontend.includes.breadcrumb',['datas'=>$datas])
+<!-- =============================== Breadcrumb Section ======================================-->
 <!--=============================== End World Wide Chartered Secretaries Section ========================== -->
 <section class="world-wide-section">
     <div class="container">
@@ -35,9 +26,7 @@
                 @foreach ($wwcss as $wwcs)
                 <div class="cs-items card">
                     <h3>
-                        {{substr($wwcs->title, 0, strrpos($wwcs->title, ' '))}}
-                        <br>
-                        {{ltrim(strrchr($wwcs->title, ' '))}}
+                        {!! $wwcs->title !!}
                     </h3>
                     <img src="{{storage_url($wwcs->logo)}}" alt="The Global Institute">
                     <ul class="flex">

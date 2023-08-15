@@ -13,19 +13,35 @@
                     @method('PUT')
                     @csrf
                     <div class="card-body">
-                            <div class="form-group {{ $errors->has('title') ? ' has-danger' : '' }}">
+                        <div class="row">
+                            <div class="col-md-8 form-group {{ $errors->has('title') ? ' has-danger' : '' }}">
                                 <label>{{ _('Title') }}</label>
                                 <input type="text" name="title" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ _('Title') }}" value="{{ $faq->title }}">
                                 @include('alerts.feedback', ['field' => 'title'])
                             </div>
-
-                            <div class="form-group {{ $errors->has('description') ? ' has-danger' : '' }}">
-                                <label>{{ _('Description') }} </label>
-                                <textarea rows="3" name="description" class="form-control {{ $errors->has('description') ? ' is-invalid' : '' }}">
-                                    {{ $faq->description }}
-                                </textarea>
-                                @include('alerts.feedback', ['field' => 'description'])
+                            <div class="col-md-4 form-group {{ $errors->has('order_key') ? ' has-danger' : '' }}">
+                                <label>{{ _('FAQ Order') }}</label>
+                                <select class="form-control {{ $errors->has('order_key') ? ' is-invalid' : '' }}" name="order_key">
+                                    @for ($x=1; $x<=100; $x++)
+                                        @php
+                                            $check = App\Models\Faq::where('order_key',$x)->first();
+                                        @endphp
+                                        <option value="" selected hidden>{{ _('Select FAQ Order') }}</option>
+                                        @if(!$check)
+                                            <option value="{{$x}}"{{($faq->order_key == $x) ? 'selected' :''}}>{{ $x }}</option>
+                                        @endif
+                                    @endfor
+                                </select>
+                                @include('alerts.feedback', ['field' => 'order_key'])
                             </div>
+                        </div>
+                        <div class="form-group {{ $errors->has('description') ? ' has-danger' : '' }}">
+                            <label>{{ _('Description') }} </label>
+                            <textarea rows="3" name="description" class="form-control {{ $errors->has('description') ? ' is-invalid' : '' }}">
+                                {{ $faq->description }}
+                            </textarea>
+                            @include('alerts.feedback', ['field' => 'description'])
+                        </div>
                     </div>
                     <div class="card-footer">
                         <button type="submit" class="btn btn-fill btn-primary">{{ _('Update') }}</button>

@@ -5,6 +5,8 @@
 }
 .big-sec-height{
     height: 50rem;
+    display: flex;
+    align-items: center;
 }
 .big-sec-min-height{
     min-height: 50rem;
@@ -16,6 +18,12 @@
     max-height: 50rem;
     min-height: 32rem;
 }
+:root {
+    --bc-1: #CCC;
+    --bc-2: #707070;
+    --bc-3: #7c8ccd;
+    --bc-4: #182456;
+  }
 img{
 	width: 100%;
 }
@@ -351,6 +359,7 @@ h1,h2,h3,h4,h5,h6{
 	line-height: 22px;
 	text-transform: uppercase;
     width: 100%;
+    display: inline-block;
 }
 .header-menu-section section .menu-bar ul li a i{
 	margin-left: 5px;
@@ -1495,28 +1504,38 @@ h1,h2,h3,h4,h5,h6{
 	background: #182456;
 }
 
+.common-heading{
+	font-size: 50px;
+	line-height: 56px;
+}
+.breadcrumbs-heading{
+	font-size: 35px;
+	max-width: 540px;
+}
 
 .breadcrumbs-section{
 	position: relative;
 	overflow: hidden;
-	max-height: 350px;
+	height: 230px;
 	background: #122F98;
+    display: flex;
+    align-items: center;
 }
 .breadcrumbs-section .overly-image{
 	top: 0;
 	right: 0;
 	width: 50%;
-	height: 350px;
+	height: 100%;
 	position: absolute;
 }
 .breadcrumbs-section .overly-image img{
-	height: 350px;
+	height: 100%;
 	object-fit: cover;
 }
 .breadcrumbs-section .breadcrumbs-row .left-column{
-	width: 50%;
+	width: 40%;
 	position: relative;
-	height: 350px;
+	height: 230px;
 	display: flex;
 	align-items: center;
 }
@@ -1535,10 +1554,11 @@ h1,h2,h3,h4,h5,h6{
 	align-items: center;
 	margin-top: 12px;
 	font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
 }
 .breadcrumbs-section .breadcrumbs-row .left-column ul li a{
 	color: #fff;
-	font-size: 17px;
 	line-height: 25px;
 	transition: 0.4s;
 	text-transform: uppercase;
@@ -1647,7 +1667,7 @@ h1,h2,h3,h4,h5,h6{
 	width: 540px;
 	height: 480px;
 	object-fit: cover;
-	outline: 8px solid #182456;
+	outline: 8px solid var(--bc-2);
 	border: 8px solid #ffffff;
 }
 .about-us-section .about-us-row .image-column .second-image{
@@ -1658,7 +1678,7 @@ h1,h2,h3,h4,h5,h6{
 	margin-top: -350px;
 	z-index: 9999;
 	position: relative;
-	outline: 8px solid #FF8601;
+	outline: 8px solid var(--bc-1);
 	border: 8px solid #ffffff;
 }
 .about-us-section .about-us-row .content-column{
@@ -2730,7 +2750,7 @@ h1,h2,h3,h4,h5,h6{
 	padding: 100px;
 	column-gap: 4%;
 	align-items: center;
-	background: #182456;
+	background: rgba(24, 37, 86, 0.8);
 }
 .objectives-section .objective-row .right-column{
 	width: 48%;
@@ -2751,8 +2771,14 @@ h1,h2,h3,h4,h5,h6{
 	margin-bottom: 20px;
 }
 
-
-.mision-vision-section{
+.mision-vision-section .image-column,.vision-mission-section .image-column{
+    min-width: 700px;
+    outline: 2px solid var(--bc-2);
+}
+.mision-vision-section .image-column img,.vision-mission-section .image-column img{
+    height: 100%;
+}
+.mision-vision-section, .vision-mission-section{
 	padding: 100px 0;
 }
 .mision-vision-section .mission-row{
@@ -2767,14 +2793,12 @@ h1,h2,h3,h4,h5,h6{
 	max-width: 500px;
 	background: #182456;
 	border: 8px double #fff;
-	outline: 8px solid #FF8601;
+	outline: 8px solid var(--bc-1);
 }
 .mision-vision-section .mission-row .content-column h2, .vision-mission-section .mission-row .content-column h2{
 	margin-bottom: 25px;
 }
-.vision-mission-section{
-	padding-bottom: 100px;
-}
+
 .vision-mission-section .mission-row{
 	max-width: 1115px;
 	margin: 0 auto;
@@ -3232,15 +3256,7 @@ h1,h2,h3,h4,h5,h6{
 	content: url('../img/faq/faq-icon.png');
 }
 /* ===================================================== */
-.common-heading{
-	font-size: 50px;
-	line-height: 56px;
-}
-.breadcrumbs-heading{
-	font-size: 50px;
-	line-height: 56px;
-	max-width: 540px;
-}
+
 /*====================== World Wide CS ===============*/
 .world-wide-section{
 	padding: 100px 0;
