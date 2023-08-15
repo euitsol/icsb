@@ -20,7 +20,7 @@ class FaqController extends Controller
     }
     public function index(): View
     {
-        $s['faqs'] = Faq::where('deleted_at', null)->latest()->orderBy('order_key')->get();
+        $s['faqs'] = Faq::where('deleted_at', null)->orderBy('order_key','ASC')->get();
         return view('backend.about_pages.faq.index',$s);
     }
     public function create(): View

@@ -28,8 +28,11 @@ $datas = [
 			<div class="faq-content">
 				<div class="left-column">
 					<div class="accordion" id="accordionExample">
+                        @php
+                            $check = count($faqs)/2;
+                        @endphp
                         @foreach ($faqs as $key=>$faq)
-                            @if ($key % 2 == 0)
+                            @if ($key+1<$check)
 
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingOne{{$key}}">
@@ -50,7 +53,7 @@ $datas = [
 				<div class="right-column">
 					<div class="accordion accordion-flush" id="accordionFlushExample">
                         @foreach ($faqs as $key=>$faq)
-                            @if ($key % 2 != 0)
+                            @if ($key+1>=$check)
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="flush-headingOne{{$key}}">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
