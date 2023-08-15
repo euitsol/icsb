@@ -24,6 +24,7 @@
                                 <tr>
                                     <th>{{ _('Title') }}</th>
                                     <th>{{ _('Description') }}</th>
+                                    <th>{{ _('Order') }}</th>
                                     <th>{{ _('Creation date') }}</th>
                                     <th>{{ _('Created by') }}</th>
                                     <th>{{ _('Action') }}</th>
@@ -34,6 +35,7 @@
                                     <tr>
                                         <td> {{ $faq->title }} </td>
                                         <td> {{ stringLimit(html_entity_decode_table($faq->description)) }} </td>
+                                        <td> {{ $faq->order_key }} </td>
                                         <td> {{ timeFormate($faq->created_at)}} </td>
                                         <td> {{ $faq->created_user->name ?? 'system' }} </td>
                                         <td>

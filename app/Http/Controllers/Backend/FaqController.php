@@ -20,7 +20,7 @@ class FaqController extends Controller
     }
     public function index(): View
     {
-        $s['faqs'] = Faq::where('deleted_at', null)->latest()->get();
+        $s['faqs'] = Faq::where('deleted_at', null)->latest()->orderBy('order_key')->get();
         return view('backend.about_pages.faq.index',$s);
     }
     public function create(): View
@@ -31,6 +31,7 @@ class FaqController extends Controller
     {
         $faq = new Faq();
         $faq->title = $request->title;
+        $faq->order_key = $request->order_key;
         $faq->description = $request->description;
         $faq->created_by = auth()->user()->id;
         $faq->save();
@@ -45,6 +46,7 @@ class FaqController extends Controller
     {
         $faq = Faq::findOrFail($id);
         $faq->title = $request->title;
+        $faq->order_key = $request->order_key;
         $faq->description = $request->description;
         $faq->updated_by = auth()->user()->id;
         $faq->save();

@@ -41,7 +41,7 @@ class WWCSController extends Controller
         $wwcs->description = $request->description;
         $wwcs->created_by = auth()->user()->id;
         $wwcs->save();
-        return redirect()->route('wwcs.wwcs_list')->withStatus(__('World Wide CS '.$request->title.' created successfully.'));
+        return redirect()->route('wwcs.wwcs_list')->withStatus(__('World Wide CS '.stringLimit(html_entity_decode_table($wwcs->title)).' created successfully.'));
     }
     public function edit($id): View
     {
@@ -66,7 +66,7 @@ class WWCSController extends Controller
         $wwcs->updated_by = auth()->user()->id;
         $wwcs->save();
 
-        return redirect()->route('wwcs.wwcs_list')->withStatus(__('World Wide CS '.$wwcs->title.' updated successfully.'));
+        return redirect()->route('wwcs.wwcs_list')->withStatus(__('World Wide CS '.stringLimit(html_entity_decode_table($wwcs->title)).' updated successfully.'));
     }
     public function delete($id): RedirectResponse
     {
@@ -74,12 +74,12 @@ class WWCSController extends Controller
         $this->fileDelete($wwcs->logo);
         $wwcs->delete();
 
-        return redirect()->route('wwcs.wwcs_list')->withStatus(__('World Wide CS '.$wwcs->title.' deleted successfully.'));
+        return redirect()->route('wwcs.wwcs_list')->withStatus(__('World Wide CS '.stringLimit(html_entity_decode_table($wwcs->title)).' deleted successfully.'));
     }
     public function status($id): RedirectResponse
     {
         $wwcs = WWCS::findOrFail($id);
         $this->statusChange($wwcs);
-        return redirect()->route('wwcs.wwcs_list')->withStatus(__($wwcs->title.' status updated successfully.'));
+        return redirect()->route('wwcs.wwcs_list')->withStatus(__(stringLimit(html_entity_decode_table($wwcs->title)).' status updated successfully.'));
     }
 }

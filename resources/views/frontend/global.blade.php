@@ -37,7 +37,6 @@
     <section class="global-page-section">
         <div class="container">
             <div class="global-row flex
-            align-items-center
             @if (isset($saved_data->{'page-description'}) && $count>1700 ) flex-column-reverse @endif
             ">
                 <div class="left-column @if (isset($saved_data->{'page-description'}) && $count>1700) w-100 @endif">
@@ -93,7 +92,7 @@
 
             @endif
 <!--=============================== Gallery Section ========================== -->
-            <div class="gallery-section global-gallery-section">
+            {{-- <div class="gallery-section global-gallery-section">
                 <div class="gallery-content">
                     <div class="gallery-items">
                         <a href=""><img src="assets/img/gallery/gallery-one.png"></a>
@@ -114,7 +113,7 @@
                         <a href=""><img src="assets/img/gallery/gallery-six.png"></a>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </section>
 @endsection
