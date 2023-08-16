@@ -114,7 +114,7 @@
                                                 <div class="input-group mb-3">
                                                     <input type="text" class="form-control" value="{{file_title_from_url(json_decode($details->saved_data)->$a)}}" disabled>
                                                     <input type="text" class="form-control" value="{{file_name_from_url(json_decode($details->saved_data)->$a)}}" disabled>
-                                                    <a href="{{route('sp.file.delete', [base64_encode(json_decode($details->saved_data)->$a), $details->id, $a])}}">
+                                                    <a href="{{route('sp.file.delete', ['null',$details->id, $a])}}">
                                                         <span class="input-group-text text-danger h-100"><i class="tim-icons icon-trash-simple"></i></span>
                                                     </a>
                                                 </div>
