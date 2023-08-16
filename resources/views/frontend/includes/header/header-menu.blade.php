@@ -111,7 +111,7 @@
                             @foreach ($committeeTypes as $type)
                                 <li class="drop-down"><a href="#">{{$type->title}} <i class="fa-solid fa-angle-down"></i></a>
                                     @if(count($type->committees))
-                                        <ul class="sub-menu">www.
+                                        <ul class="sub-menu">
                                             @foreach ($type->committees as $committee)
                                                 <li><a href="{{route('council_view.committee.members',$committee->slug)}}">{{$committee->title}}</a></li>
                                             @endforeach

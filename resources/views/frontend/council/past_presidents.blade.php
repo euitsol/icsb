@@ -18,7 +18,7 @@ $datas = [
 @endphp
 @include('frontend.includes.breadcrumb',['datas'=>$datas])
 <!-- =============================== Breadcrumb Section ======================================-->
-
+@if(!empty($p_presidents))
 <section class="past-president-layout">
     <div class="container">
         {{-- <div class="heading-content text-align">
@@ -47,4 +47,7 @@ $datas = [
         </div>
     </div>
 </section>
+@else
+<h3 class="my-5 text-center">{{_('Past Presidents Not Found')}}</h3>
+@endif
 @endsection
