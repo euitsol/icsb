@@ -32,7 +32,7 @@ $datas = [
                     <img src="{{getMemberImage($member)}}" alt="{{$member->name}}">
                 </div>
                 <div class="content-column">
-                    <h4>H-{{member_id($member->id)}}</h4>
+                    <h4>{{$member->membership_id}}</h4>
                     <h3 class="mb-0">{{$member->name}}</h3>
                     <p><strong>{{$member->designation}}</strong></p>
                     @if(!empty($member->address))

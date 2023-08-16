@@ -40,6 +40,7 @@ class MemberController extends Controller
     public function store(MemberRequest $request): RedirectResponse
     {
         $member = new Member;
+        $member->membership_id = $request->membership_id;
         $member->name = $request->name;
         $member->designation = $request->designation;
         $member->member_type = $request->member_type;
@@ -75,6 +76,7 @@ class MemberController extends Controller
     {
         $member = Member::findOrFail($id);
         $member->name = $request->name;
+        $member->membership_id = $request->membership_id;
         $member->designation = $request->designation;
         $member->member_type = $request->member_type;
         $member->email = $request->member_email;

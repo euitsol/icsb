@@ -33,14 +33,19 @@ class MemberRequest extends FormRequest
     protected function store(): array
     {
         return [
-            'member_email' => 'required|unique:member_types,title,NULL,id,deleted_at,NULL',
+            'member_email' => 'required|unique:members,email,NULL,id,deleted_at,NULL',
+            'membership_id' => 'required|unique:members,membership_id,NULL,id,deleted_at,NULL',
+
+
         ];
     }
 
     protected function update(): array
     {
         return [
-            'member_email' => 'required|unique:member_types,title,' . $this->route('id') . ',id,deleted_at,NULL',
+            'member_email' => 'required|unique:members,email,' . $this->route('id') . ',id,deleted_at,NULL',
+            'membership_id' => 'required|unique:members,membership_id,' . $this->route('id') . ',id,deleted_at,NULL',
+
         ];
     }
 }

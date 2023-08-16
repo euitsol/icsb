@@ -22,6 +22,7 @@
                         <table class="table tablesorter datatable">
                             <thead class=" text-primary">
                                 <tr>
+                                    <th>{{ _('Membership ID') }}</th>
                                     <th>{{ _('Name') }}</th>
                                     <th>{{ _('Image') }}</th>
                                     <th>{{ _('Type') }}</th>
@@ -35,6 +36,7 @@
                             <tbody>
                                 @foreach ($members as $member)
                                     <tr>
+                                        <td> {{ $member->membership_id }} </td>
                                         <td> {{ $member->name }} </td>
                                         <td>
                                             <img class="rounded" width="60" src="

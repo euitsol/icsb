@@ -31,7 +31,7 @@ $datas = [
                     </div>
                     <div class="content-column">
                         <h3>{{ $member->member->name }}</h3>
-                        <li><i class="fa-solid fa-window-restore"></i> <h4>(F-{{member_id($member->member->id)}})</h4></li>
+                        <li><i class="fa-solid fa-window-restore"></i> <h4>{{$member->member->membership_id}}</h4></li>
                         <li><i class="fa-solid fa-user-tie"></i> <p>{{ $member->committe_member_type->title }}</p></li>
                     </div>
                 </div>
