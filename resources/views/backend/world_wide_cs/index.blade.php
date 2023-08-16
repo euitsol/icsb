@@ -35,7 +35,7 @@
                             <tbody>
                                 @foreach ($wwcss as $wwcs)
                                     <tr>
-                                        <td> {{ $wwcs->title }} </td>
+                                        <td> {{ stringLimit(html_entity_decode_table($wwcs->title)) }} </td>
                                         <td><img class="rounded" width="60"
                                             src="@if ($wwcs->logo) {{ storage_url($wwcs->logo) }} @else {{ asset('no_img/no_img.jpg') }} @endif"
                                             alt="{{ $wwcs->title }}">

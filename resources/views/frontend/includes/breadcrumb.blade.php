@@ -1,6 +1,7 @@
 <section class="breadcrumbs-section">
 	<div class="overly-image">
-		<img src="{{ $datas['image'] ?? (asset('frontend/img/breadcumb/faqs-background.jpg'))}}" alt="">
+		<img src="@if($datas['image']){{ $datas['image'] }}@else{{asset('breadcumb_img/breadcumbs.jpg')}}@endif"
+        alt="">
 	</div>
 	<div class="container">
 		<div class="breadcrumbs-row flex">

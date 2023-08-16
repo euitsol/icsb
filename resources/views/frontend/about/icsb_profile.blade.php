@@ -33,7 +33,6 @@
 					</div>
 				</div>
 				<div class="content-column">
-					<h2>{{_('About us')}}</h2>
                     {!! json_decode($single_page->saved_data)->{'page-description'} !!}
 				</div>
 			</div>
