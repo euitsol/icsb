@@ -111,7 +111,7 @@
                             @foreach ($committeeTypes as $type)
                                 <li class="drop-down"><a href="#">{{$type->title}} <i class="fa-solid fa-angle-down"></i></a>
                                     @if(count($type->committees))
-                                        <ul class="sub-menu">
+                                        <ul class="sub-menu">www.
                                             @foreach ($type->committees as $committee)
                                                 <li><a href="{{route('council_view.committee.members',$committee->slug)}}">{{$committee->title}}</a></li>
                                             @endforeach
@@ -136,7 +136,7 @@
                                 @endif
                             </li>
                             @if(isset($memberPortal->saved_data) && !empty(json_decode($memberPortal->saved_data)->{'portal-url'}))
-                                <li><a href="{{ json_decode($memberPortal->saved_data)->{'portal-url'} }}">Members Portal</a></li>
+                                <li><a target="_blank" href="{{ json_decode($memberPortal->saved_data)->{'portal-url'} }}">Members Portal</a></li>
                             @endif
                             <li><a href="{{route('member_view.cs_firm')}}">CS Firms</a></li>
                             <li><a href="{{ route('sp.frontend','code-of-conducts') }}">Code of Conducts</a></li>
@@ -160,13 +160,13 @@
                             </li>
                             <li><a href="{{route('student_view.cs_hand_book')}}">CS Hand Book</a></li>
                             @if(isset($studentPortal->saved_data) && !empty(json_decode($studentPortal->saved_data)->{'portal-url'}))
-                                <li><a href="{{ json_decode($studentPortal->saved_data)->{'portal-url'} }}">Students Portal</a></li>
+                                <li><a target="_blank" href="{{ json_decode($studentPortal->saved_data)->{'portal-url'} }}">Students Portal</a></li>
                             @endif
                             <li><a href="#">Financial Assistance</a></li>
                             <li><a href="{{ route('sp.frontend','icsb-library') }}">ICSB Library</a></li>
                             <li><a href="#">Student Notice Board</a></li>
                             @if(isset($facultyEvaluationSystem->saved_data) && !empty(json_decode($facultyEvaluationSystem->saved_data)->{'url'}))
-                                <li><a href="{{ json_decode($facultyEvaluationSystem->saved_data)->{'url'} }}">Faculty Evaluation System</a></li>
+                                <li><a target="_blank" href="{{ json_decode($facultyEvaluationSystem->saved_data)->{'url'} }}">Faculty Evaluation System</a></li>
                             @endif
                         </ul>
                     </li>
@@ -207,7 +207,7 @@
                             <li><a href="#">ICSB National Award Souvenir</a></li>
                             <li><a href="#">Annual Reports</a></li>
                             @if(isset($publicationOthers->saved_data) && !empty(json_decode($publicationOthers->saved_data)->{'url'}))
-                                <li><a href="{{ json_decode($publicationOthers->saved_data)->{'url'} }}">Others</a></li>
+                                <li><a target="_blank" href="{{ json_decode($publicationOthers->saved_data)->{'url'} }}">Others</a></li>
                             @endif
                         </ul>
                     </li>
