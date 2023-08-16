@@ -1,6 +1,6 @@
 @extends('frontend.master')
 
-@section('title', 'Media Rooms')
+@section('title', 'Bangladesh Secretarial Standard')
 
 @section('content')
 <!-- =============================== Breadcrumb Section ======================================-->
