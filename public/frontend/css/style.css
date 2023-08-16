@@ -185,15 +185,16 @@ h1,h2,h3,h4,h5,h6{
 .main-header-section .header-content .logo-column{
 	display: block;
 }
-.main-header-section .header-content h1{
-	color: #162B75;
-	font-size: 40px;
-	line-height: 46px;
-	position: relative;
-	margin-top: 10px;
-	margin-bottom: 5px;
-	display: inline-block;
-	font-family: 'Teko', sans-serif;
+.main-header-section .header-content h1 {
+    color: #162B75;
+    font-size: 40px;
+    line-height: 46px;
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    display: inline-block;
+    font-family: 'Teko', sans-serif;
+    font-weight: 600;
 }
 .main-header-section .header-content h1:after{
 	content: '';
@@ -214,7 +215,7 @@ h1,h2,h3,h4,h5,h6{
 }
 .main-header-section .header-content p {
     color: #162B75;
-    font-size: 0.89rem;
+    font-size: 0.99rem;
 }
 /*====================== Header Menu Section =====================*/
 .fixed-header {

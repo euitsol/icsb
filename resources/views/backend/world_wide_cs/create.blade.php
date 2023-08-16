@@ -34,11 +34,6 @@
                                 <input type="file" accept="image/*" name="logo" class="form-control  {{ $errors->has('logo') ? ' is-invalid' : '' }} image-upload">
                                 @include('alerts.feedback', ['field' => 'logo'])
                            </div>
-                            <div class="form-group {{ $errors->has('email') ? ' has-danger' : '' }}">
-                                <label>{{ _('Email') }}</label>
-                                <input type="email" name="email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter email') }}" value="{{ old('email') }}">
-                                @include('alerts.feedback', ['field' => 'email'])
-                            </div>
                             <div class="form-group {{ $errors->has('url') ? ' has-danger' : '' }}">
                                 <label>{{ _('URL') }}</label>
                                 <input type="url" name="url" class="form-control {{ $errors->has('url') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter URL') }}" value="{{ old('url') }}">

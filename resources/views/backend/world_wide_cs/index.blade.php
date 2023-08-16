@@ -24,7 +24,6 @@
                                 <tr>
                                     <th>{{ _('Title') }}</th>
                                     <th>{{ _('Logo') }}</th>
-                                    <th>{{ _('Email') }}</th>
                                     <th>{{ _('URL') }}</th>
                                     <th>{{ _('Status') }}</th>
                                     <th>{{ _('Creation date') }}</th>
@@ -41,7 +40,6 @@
                                             alt="{{ $wwcs->title }}">
                                         </td>
                                         <td> {{ removeHttpProtocol($wwcs->url) }} </td>
-                                        <td> {{ $wwcs->email }} </td>
                                         <td>
                                             @include('backend.partials.button', ['routeName' => 'wwcs.status.wwcs_edit','params' => [$wwcs->id], 'className' => $wwcs->getStatusClass(), 'label' => $wwcs->getStatus() ])
                                         </td>

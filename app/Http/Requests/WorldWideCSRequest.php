@@ -29,7 +29,6 @@ class WorldWideCSRequest extends FormRequest
     {
         return [
             'title' => 'required|unique:wwcs,title,NULL,id,deleted_at,NULL',
-            'email' => 'required|unique:wwcs,email,NULL,id,deleted_at,NULL',
             'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
@@ -38,7 +37,6 @@ class WorldWideCSRequest extends FormRequest
     {
         return [
             'title' => 'required|unique:wwcs,title,' . $this->route('id') . ',id,deleted_at,NULL',
-            'email' => 'required|unique:wwcs,email,' . $this->route('id') . ',id,deleted_at,NULL',
             'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }

@@ -33,11 +33,6 @@
                                 <input type="file" accept="image/*" name="logo"
                                     class="form-control image-upload  {{ $errors->has('logo') ? ' is-invalid' : '' }}" data-existing-files="{{ storage_url($wwcs->logo) }}">
                             </div>
-                            <div class="form-group {{ $errors->has('email') ? ' has-danger' : '' }}">
-                                <label>{{ _('Email') }}</label>
-                                <input type="text" name="email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ $wwcs->email }}">
-                                @include('alerts.feedback', ['field' => 'email'])
-                            </div>
                             <div class="form-group {{ $errors->has('url') ? ' has-danger' : '' }}">
                                 <label>{{ _('URL') }}</label>
                                 <input type="text" name="url" class="form-control {{ $errors->has('url') ? ' is-invalid' : '' }}" value="{{ $wwcs->url }}">

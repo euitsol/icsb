@@ -30,7 +30,6 @@ $datas = [
                     </h3>
                     <img src="{{storage_url($wwcs->logo)}}" alt="The Global Institute">
                     <ul class="flex">
-                        <li><a href="mailto:{{$wwcs->email}}"><i class="fa-solid fa-envelope"></i> <span>{{_('Email')}}</span></a></li>
                         <li><a href="{{$wwcs->url}}" target="_blank"><i class="fa-solid fa-globe"></i> <span>{{_('Visit Website')}}</span></a></li>
                     </ul>
                 </div>
