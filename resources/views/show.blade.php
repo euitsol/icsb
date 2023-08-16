@@ -13,6 +13,19 @@
         border-radius: 0;
         border-right: 0;
     }
+    .single_page_image{
+        position: relative;
+    }
+    .single_page_image .image_delete{
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+    .single_page_image .image_delete span{
+        font-size: 20px;
+        padding: 5px 10px;
+        width: auto;
+    }
 </style>
 @endpush
 
@@ -67,10 +80,14 @@
                                         <input type="file" accept="image/*" name="{{$fd->field_key}}" id="{{$fd->field_key}}" class="form-control  {{ $errors->has($fd->field_key) ? 'is-invalid' : '' }} image-upload">
                                         @include('alerts.feedback', ['field' => $fd->field_key])
                                     </div>
-                                    <div class="mb-4">
+                                    <div class="mb-4 single_page_image" >
                                         @if(!empty(json_decode($details->saved_data)) && isset(json_decode($details->saved_data)->$a))
                                         <img src="{{ storage_url(json_decode($details->saved_data)->$a) }}" alt="">
+                                        <a href="{{route('sp.file.delete', ['null',$details->id, $a])}}" class="image_delete">
+                                            <span class="input-group-text text-danger h-100"><i class="fa-solid fa-xmark"></i></span>
+                                        </a>
                                         @endif
+
                                     </div>
 
                                 @elseif($fd->type == "file_single")

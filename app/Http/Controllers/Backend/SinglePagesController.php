@@ -234,7 +234,7 @@ class SinglePagesController extends Controller
             $file_path = 'public/' . $acc_file_path;
         }
 
-        if(Storage::exists($file_path)){
+        if(Storage::exists($file_path) && $file_path != 'null'){
             Storage::delete($file_path);
             if($id != null && $key != null){
                 $sp = SinglePages::findOrFail($id);
@@ -252,6 +252,18 @@ class SinglePagesController extends Controller
                     $sp->saved_data = json_encode($saved_data);
                     $sp->save();
                 }
+            }
+        }else{
+            $singlePage = SinglePages::where('id', $id)->firstOrFail();
+            $saved_data = json_decode($singlePage->saved_data, true);
+            if(isset($saved_data[$key])){
+                $data = json_decode($singlePage->saved_data);
+                $imgPath = $saved_data[$key];
+                $imageArray = $saved_data;
+                $this->fileDelete($saved_data[$key]);
+                unset($imageArray[$key]);
+                $singlePage->saved_data = json_encode($imageArray);
+                $singlePage->save();
             }
         }
         return redirect()->back()->withInput()->withStatus(__('File deleted successfully.'));
