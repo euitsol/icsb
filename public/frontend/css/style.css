@@ -3424,7 +3424,7 @@ h1,h2,h3,h4,h5,h6{
 }
 .president-content-section .president-content-row .left-column .social-media {
 	background: var(--bc-2);
-	padding: 26px 0;
+	padding: 10px 0;
 }
 .president-content-section .president-content-row .left-column .social-media ul {
 	display: flex;

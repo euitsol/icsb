@@ -39,7 +39,7 @@
                                             @endif
                                         @endforeach
                                     </select>
-                                    <input type="text" name="csf_member[ppcn]" value='{{$csf_member->private_practice_certificate_no}}' class="form-control ppcn" placeholder="Enter private practice certificate no..">
+                                    <input type="text" name="csf_member[ppcn]" value='{{$csf_member->private_practice_certificate_no}}' class="form-control" placeholder="Enter private practice certificate no..">
                                 </div>
                                 @include('alerts.feedback', ['field' => 'csf_member.member_id'])
                                 @include('alerts.feedback', ['field' => 'csf_member.ppcn'])
