@@ -325,7 +325,7 @@
                         $pageSlug == 'bss'||
                         $pageSlug == 'cs-practicing-guideline'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
-                    <i class="fa-solid fa-clipboard-check"></i>
+                    <i class="fa-solid fa-gavel"></i>
                     <span class="nav-link-text" >{{ __('Rules') }}</span>
                     <b class="caret mt-1"></b>
                 </a>
@@ -353,7 +353,7 @@
                     )@else collapsed @endif" data-toggle="collapse" href="#publications" @if (
                         $pageSlug == 'other'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
-                    <i class="fa-solid fa-clipboard-check"></i>
+                    <i class="fa-regular fa-newspaper"></i>
                     <span class="nav-link-text" >{{ __('Publications') }}</span>
                     <b class="caret mt-1"></b>
                 </a>
@@ -390,7 +390,7 @@
                         $pageSlug == 'sample_question_papers' ||
                         $pageSlug == 'exam_faqs'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
-                    <i class="fa-solid fa-clipboard-check"></i>
+                    <i class="fa-solid fa-file-pen"></i>
                     <span class="nav-link-text" >{{ __('Eamination') }}</span>
                     <b class="caret mt-1"></b>
                 </a>
