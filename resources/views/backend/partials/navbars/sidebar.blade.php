@@ -33,6 +33,48 @@
                 </div>
             </li>
 
+            {{-- Home --}}
+            <li>
+                <a class="@if(
+                        $pageSlug == 'banner' ||
+                        $pageSlug == 'event' ||
+                        $pageSlug == 'national_connection' ||
+                        $pageSlug == 'national_award' ||
+                        $pageSlug == 'recent_video'
+                    )@else collapsed @endif" data-toggle="collapse" href="#home" @if (
+                        // $pageSlug == 'icsb_profile' ||
+                        $pageSlug == 'banner' ||
+                        $pageSlug == 'event' ||
+                        $pageSlug == 'national_connection' ||
+                        $pageSlug == 'national_award' ||
+                        $pageSlug == 'recent_video'
+                    ) aria-expanded="true" @else aria-expanded="false"@endif">
+                    <i class="fa-solid fa-house-chimney"></i>
+                    <span class="nav-link-text" >{{ __('Home') }}</span>
+                    <b class="caret mt-1"></b>
+                </a>
+
+                <div class="collapse @if (
+                    // $pageSlug == 'icsb_profile' ||
+                    $pageSlug == 'banner' ||
+                    $pageSlug == 'event' ||
+                    $pageSlug == 'national_connection' ||
+                    $pageSlug == 'national_award' ||
+                    $pageSlug == 'recent_video'
+                ) show @endif" id="home">
+                    <ul class="nav pl-4">
+                        @include('backend.partials.menu_buttons', [
+                            'menuItems' => [
+                                ['pageSlug' => 'banner', 'routeName' => 'banner.banner_list', 'label' => 'Banner'],
+                                ['pageSlug' => 'event', 'routeName' => 'event.event_list', 'label' => 'Event'],
+                                ['pageSlug' => 'national_connection', 'routeName' => 'national_connection.national_connection_list', 'label' => 'National Connection'],
+                                ['pageSlug' => 'national_award', 'routeName' => 'national_award.national_award_list',  'label' => 'National Award'],
+                                ['pageSlug' => 'recent_video', 'routeName' => 'recent_video.recent_video_list', 'label' => 'Recent Video'],
+                            ]
+                        ])
+                    </ul>
+                </div>
+            </li>
             {{-- About CS --}}
             <li>
                 <a class="@if(
@@ -376,17 +418,11 @@
                 </div>
             </li>
 
-            {{-- Media Room, Contact Us, Banner, Event, National Connection,  National Award, Site Settings  --}}
+            {{-- Media Room, Contact Us, Site Settings  --}}
             @include('backend.partials.menu_buttons', [
                 'menuItems' => [
                     ['pageSlug' => 'media_room', 'routeName' => 'media_room.media_room_list', 'iconClass' => 'fa-solid fa-photo-film', 'label' => 'Media Room'],
                     ['pageSlug' => 'contact', 'routeName' => 'contact.contact_create', 'iconClass' => 'fa-solid fa-tty', 'label' => 'Contact Us'],
-
-                    ['pageSlug' => 'banner', 'routeName' => 'banner.banner_list', 'iconClass' => 'fa-regular fa-images', 'label' => 'Banner'],
-                    ['pageSlug' => 'event', 'routeName' => 'event.event_list', 'iconClass' => 'fa-solid fa-bullhorn', 'label' => 'Event'],
-                    ['pageSlug' => 'national_connection', 'routeName' => 'national_connection.national_connection_list', 'iconClass' => 'fa-solid fa-rss', 'label' => 'National Connection'],
-                    ['pageSlug' => 'national_award', 'routeName' => 'national_award.national_award_list', 'iconClass' => 'fa-solid fa-trophy', 'label' => 'National Award'],
-                    ['pageSlug' => 'recent_video', 'routeName' => 'recent_video.recent_video_list', 'iconClass' => 'fa-solid fa-video', 'label' => 'Recent Video'],
                     ['pageSlug' => 'settings', 'routeName' => 'settings.site_settings', 'iconClass' => 'fa-solid fa-gear', 'label' => 'Site Settings'],
                 ]
             ])
