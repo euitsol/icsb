@@ -35,9 +35,9 @@ $datas = [
                         <h4>
                             @foreach ($pp->durations as $key=>$duration)
                                 @if($key<1)
-                                    <span>{{formatYearRange($duration->start_date, $duration->start_date)}}</span>
+                                    <span>{{formatYearRange($duration->start_date, $duration->end_date)}}</span>
                                 @else
-                                    <span>{{_(', ')}}{{formatYearRange($duration->start_date, $duration->start_date)}}</span>
+                                    <span>{{_(', ')}}{{formatYearRange($duration->start_date, $duration->end_date)}}</span>
                                 @endif
 
                             @endforeach
