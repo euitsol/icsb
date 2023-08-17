@@ -75,7 +75,6 @@ class CouncilPagesController extends Controller
     public function pastPresidents(): View
     {
         $s['p_presidents'] = President::with(['durations','member'])
-                        ->where('status',0)
                         ->where('deleted_at',null)
                         ->get();
         return view('frontend.council.past_presidents',$s);

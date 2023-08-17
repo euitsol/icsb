@@ -26,22 +26,26 @@ $datas = [
         </div> --}}
         <div class="president-row flex">
             @foreach ($p_presidents as $pp)
-                <div class="items text-align">
-                    <img src="{{getMemberImage($pp->member)}}" alt="">
-                    <h3>{{$pp->member->name}}</h3>
-                    <h4>
-                        @foreach ($pp->durations as $key=>$duration)
-                            @if($key<1)
-                                <span>{{formatYearRange($duration->start_date, $duration->start_date)}}</span>
-                            @else
-                                <span>{{_(', ')}}{{formatYearRange($duration->start_date, $duration->start_date)}}</span>
-                            @endif
+                @if($pp->status == 1 && count($pp->durations)<=1)
+                    @continue
+                @else
+                    <div class="items text-align">
+                        <img src="{{getMemberImage($pp->member)}}" alt="">
+                        <h3>{{$pp->member->name}}</h3>
+                        <h4>
+                            @foreach ($pp->durations as $key=>$duration)
+                                @if($key<1)
+                                    <span>{{formatYearRange($duration->start_date, $duration->start_date)}}</span>
+                                @else
+                                    <span>{{_(', ')}}{{formatYearRange($duration->start_date, $duration->start_date)}}</span>
+                                @endif
 
-                        @endforeach
-                    </h4>
-                    <p class="text-justify">{{ stringLimit(html_entity_decode_table($pp->bio), '300') }}</p>
-                    <a href="{{route('council_view.single.pp',$pp->slug)}}">Read More</a>
-                </div>
+                            @endforeach
+                        </h4>
+                        <p class="text-justify">{{ stringLimit(html_entity_decode_table($pp->bio), '300') }}</p>
+                        <a href="{{route('council_view.single.pp',$pp->slug)}}">Read More</a>
+                    </div>
+                @endif
             @endforeach
 
         </div>

@@ -274,6 +274,7 @@
 	width: 100%;
 	border-radius: 25px;
 	transition: 0.4s;
+    height: 350px;
   }
   .past-president-layout .president-row .items img:hover {
 	transform: scale(0.9);
