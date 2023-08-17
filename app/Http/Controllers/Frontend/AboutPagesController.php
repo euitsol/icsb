@@ -50,13 +50,13 @@ class AboutPagesController extends Controller
     }
     public function wwcs(): View
     {
-        $s['wwcss'] = WWCS::where('status',1)->where('deleted_at', null)->latest()->get();
+        $s['wwcss'] = WWCS::where('status',1)->where('deleted_at', null)->orderBy('order_key','ASC')->get();
         return view('frontend.about.wwcs',$s);
     }
-    public function icsb_profile(): View
-    {
-        $s['wwcss'] = WWCS::where('status',1)->where('deleted_at', null)->latest()->get();
-        return view('frontend.about.icsb_profile',$s);
-    }
+    // public function icsb_profile(): View
+    // {
+    //     $s['wwcss'] = WWCS::where('status',1)->where('deleted_at', null)->latest()->get();
+    //     return view('frontend.about.icsb_profile',$s);
+    // }
 
 }

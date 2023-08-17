@@ -19,7 +19,7 @@ class WWCSController extends Controller
     }
     public function index(): View
     {
-        $n['wwcss']= WWCS::where('deleted_at', null)->latest()->get();
+        $n['wwcss']= WWCS::where('deleted_at', null)->orderBy('order_key','ASC')->get();
         return view('backend.world_wide_cs.index',$n);
     }
     public function create(): View

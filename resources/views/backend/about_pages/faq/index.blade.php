@@ -22,9 +22,9 @@
                         <table class="table tablesorter datatable">
                             <thead class=" text-primary">
                                 <tr>
+                                    <th>{{ _('Order') }}</th>
                                     <th>{{ _('Title') }}</th>
                                     <th>{{ _('Description') }}</th>
-                                    <th>{{ _('Order') }}</th>
                                     <th>{{ _('Creation date') }}</th>
                                     <th>{{ _('Created by') }}</th>
                                     <th>{{ _('Action') }}</th>
@@ -33,9 +33,9 @@
                             <tbody>
                                 @foreach ($faqs as $faq)
                                     <tr>
+                                        <td> {{ $faq->order_key }} </td>
                                         <td> {{ $faq->title }} </td>
                                         <td> {{ stringLimit(html_entity_decode_table($faq->description)) }} </td>
-                                        <td> {{ $faq->order_key }} </td>
                                         <td> {{ timeFormate($faq->created_at)}} </td>
                                         <td> {{ $faq->created_user->name ?? 'system' }} </td>
                                         <td>
