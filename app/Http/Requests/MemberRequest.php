@@ -22,8 +22,8 @@ class MemberRequest extends FormRequest
             'phone' => 'required|array|min:1',
             'phone.*.number' => 'required|string|max:20',
             'phone.*.type' => 'required|string|in:residential,office',
-            'address' => 'required|string|max:255',
-            'description' => 'nullable|max:10000',
+            'address' => 'nullable',
+            'description' => 'nullable',
             'image' => 'nullable|image|mimes:mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]
         +
