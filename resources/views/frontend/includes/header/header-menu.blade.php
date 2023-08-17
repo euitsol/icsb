@@ -1,7 +1,9 @@
 <!--======================= Header Menu Section =======================-->
 <div class="header-menu-section">
 <div class="stiky-logo">
-    <img src="{{asset('frontend/img/icsb-logo.svg')}}" alt="{{_('ICSB Logo')}}">
+    <a href="{{route('home')}}">
+        <img src="{{asset('frontend/img/icsb-logo.svg')}}" alt="{{_('ICSB Logo')}}">
+    </a>
 </div>
     <div class="container">
 <!--===================================== Mobile Menu ================================-->
