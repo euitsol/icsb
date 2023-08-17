@@ -5,7 +5,7 @@
 @section('content')
 <!-- =============================== Breadcrumb Section ======================================-->
 @php
-$banner_image = '';
+$banner_image = asset('breadcumb_img/rules.jpg');
 $title = $view_bss->short_title.': '.$view_bss->title;
 $datas = [
             'image'=>$banner_image,

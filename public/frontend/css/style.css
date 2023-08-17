@@ -1534,7 +1534,7 @@ h1,h2,h3,h4,h5,h6{
 }
 .breadcrumbs-section .overly-image img{
 	height: 100%;
-	object-fit: cover;
+	object-fit: fill;
 }
 .breadcrumbs-section .breadcrumbs-row .left-column{
 	width: 40%;

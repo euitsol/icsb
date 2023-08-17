@@ -6,7 +6,7 @@
     <!----============================= Breadcrumbs Section ========================---->
     <section class="breadcrumbs-section">
         <div class="overly-image">
-            <img src="{{ asset('frontend/img/breadcumb/Event-Management-Proposal.jpg') }}" alt="All Events">
+            <img src="{{ asset('breadcumb_img/media_room.webp') }}" alt="All Events">
         </div>
         <div class="container">
             <div class="breadcrumbs-row flex">

@@ -6,7 +6,7 @@
 
     <!-- =============================== Breadcrumb Section ======================================-->
     @php
-        $banner_image = '';
+        $banner_image = asset('breadcumb_img/students.webp');
         $title = $csHandBook->title;
         if(isset(json_decode($csHandBook->saved_data)->{"banner-image"})){
             $banner_image = storage_url(json_decode($csHandBook->saved_data)->{"banner-image"});

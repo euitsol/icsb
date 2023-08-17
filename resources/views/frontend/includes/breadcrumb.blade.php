@@ -1,6 +1,6 @@
 <section class="breadcrumbs-section">
 	<div class="overly-image">
-		<img src="@if($datas['image']){{ $datas['image'] }}@else{{asset('breadcumb_img/breadcumbs.jpg')}}@endif"
+		<img src="@if($datas['image']){{ $datas['image'] }}@else{{asset('breadcumb_img/about_cs.jpg')}}@endif"
         alt="">
 	</div>
 	<div class="container">

@@ -5,13 +5,14 @@
 @section('content')
 <!-- =============================== Breadcrumb Section ======================================-->
 @php
-$banner_image = '';
+$banner_image = asset('breadcumb_img/members.jpg');
 $title = $type->title;
 $datas = [
             'image'=>$banner_image,
             'title'=>$title,
             'paths'=>[
                         'home'=>'Home',
+                        'javascript:void(0)'=>'Members',
                         'javascript:void(0)'=>'Member’s Search',
                     ]
         ];

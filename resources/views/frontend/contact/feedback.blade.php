@@ -5,7 +5,7 @@
 @section('content')
 <!-- =============================== Breadcrumb Section ======================================-->
 @php
-$banner_image = '';
+$banner_image = asset('breadcumb_img/contact_us.jpg');
 $title = 'Feedback';
 $datas = [
             'image'=>$banner_image,

@@ -5,7 +5,7 @@
 @section('content')
 <!-- =============================== Breadcrumb Section ======================================-->
 @php
-$banner_image = '';
+$banner_image = asset('breadcumb_img/employees.jpg');
 $title = ($sec_and_ceo->designation ?? 'Secretary & CEO');
 $datas = [
             'image'=>$banner_image,

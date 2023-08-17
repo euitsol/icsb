@@ -5,7 +5,7 @@
 @section('content')
 <!-- =============================== Breadcrumb Section ======================================-->
 @php
-$banner_image = '';
+$banner_image = asset('breadcumb_img/media_room.webp');
 $title = $media_room->title;
 $datas = [
             'image'=>$banner_image,

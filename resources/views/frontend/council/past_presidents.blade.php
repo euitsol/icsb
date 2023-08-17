@@ -5,7 +5,7 @@
 @section('content')
 <!-- =============================== Breadcrumb Section ======================================-->
 @php
-$banner_image = '';
+$banner_image = asset('breadcumb_img/council.jpg');
 $title = 'Past Presidents';
 $datas = [
             'image'=>$banner_image,
