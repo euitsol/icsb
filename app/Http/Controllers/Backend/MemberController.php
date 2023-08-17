@@ -25,7 +25,7 @@ class MemberController extends Controller
     public function index():View
     {
         $members = Member::with(['user', 'type'])->where('deleted_at', null)->latest()->get();
-        $types = MemberType::with(['members'])->where('deleted_at', null)->latest()->get();
+        $types = MemberType::with(['members'])->where('deleted_at', null)->orderBy('order_key','ASC')->get();
 
         return view('backend.member.index',['members' => $members, 'types' => $types]);
     }
@@ -134,6 +134,7 @@ class MemberController extends Controller
     public function mt_store(MemberTypeRequest $request): RedirectResponse
     {
         $type = new MemberType;
+        $type->order_key = $request->order_key;
         $type->title = $request->title;
         $type->slug = $request->slug;
         $type->description = $request->description;
@@ -152,6 +153,7 @@ class MemberController extends Controller
     public function mt_update(MemberTypeRequest $request, $id): RedirectResponse
     {
         $type = MemberType::findOrFail($id);
+        $type->order_key = $request->order_key;
         $type->title = $request->title;
         $type->slug = $request->slug;
         $type->description = $request->description;
