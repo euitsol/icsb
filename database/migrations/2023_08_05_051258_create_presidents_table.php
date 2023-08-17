@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->enum('designation', ["President, ICSB", "Past President, ICSB"])->default("President, ICSB");
             $table->longText('bio');
-            $table->longText('message');
+            $table->longText('message')->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();
             $table->softDeletes();
