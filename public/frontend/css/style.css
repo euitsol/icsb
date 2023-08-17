@@ -450,7 +450,7 @@ h1,h2,h3,h4,h5,h6{
     transition: .4s;
 }
 .header-menu-section section .menu-bar ul li ul li:hover > ul {
-	height: auto;
+	max-height: 60vh;
     visibility: visible;
     opacity: 1;
     overflow-y: scroll;
