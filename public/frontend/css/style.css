@@ -2568,10 +2568,13 @@ h1,h2,h3,h4,h5,h6{
 	margin-top: 60px;
 }
 .executive-committee-section .committee-row .committee-items{
-	width: 31.33%;
+    width: 31.33%;
 	column-gap: 30px;
 	align-items: flex-start;
 	align-items: center;
+}
+.executive-committee-section .committee-row .committee-items .content-column{
+    text-align: left;
 }
 .executive-committee-section .committee-row .committee-items .image-column{
 	width: 200px;
@@ -2723,7 +2726,7 @@ h1,h2,h3,h4,h5,h6{
 .past-president-layout .president-row .items img{
 	width: 180px;
 	border-radius: 50%;
-    
+
 }
 .past-president-layout .president-row .items a{
 	color: #182456;
