@@ -13,7 +13,7 @@ $datas = [
             'paths'=>[
                         'home'=>'Home',
                         'media_room_view.all'=>'Media Rooms',
-                        'javascript:void(0)'=>$media_room->cat->name,
+                        // 'javascript:void(0)'=>$media_room->cat->name,
                     ]
         ];
 @endphp
