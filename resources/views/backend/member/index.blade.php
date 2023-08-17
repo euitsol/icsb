@@ -89,6 +89,7 @@
                         <table class="table tablesorter datatable">
                             <thead class=" text-primary">
                                 <tr>
+                                    <th>{{ _('Order') }}</th>
                                     <th>{{ _('Type Name') }}</th>
                                     <th>{{ _('Total Member') }}</th>
                                     <th>{{ _('Status') }}</th>
@@ -100,6 +101,7 @@
                             <tbody>
                                 @foreach ($types as $type)
                                     <tr>
+                                        <td> {{ $type->order_key }} </td>
                                         <td> {{ $type->title  }} </td>
                                         <td> {{ number_format($type->members->count()) }} </td>
                                         <td>
