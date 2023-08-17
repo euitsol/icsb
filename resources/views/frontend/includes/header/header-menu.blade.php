@@ -99,6 +99,7 @@
                             <li><a href="{{ route('about.wwcs') }}">World Wide CS</a></li>
                             <li><a href="{{ route('sp.frontend','corporate-governance') }}">Corporate Governance</a></li>
                             <li><a href="{{ route('sp.frontend','cs-for-cg') }}">CS for CG</a></li>
+                            <li><a href="#">CSR Initiatives</a></li>
                             <li><a href="{{ route('about.faq') }}">FAQs</a></li>
                         </ul>
                     </li>
@@ -126,6 +127,7 @@
                         <ul class="">
                             <li><a href="{{ route('sp.frontend','who-are-css') }}">Who are CSs</a></li>
                             <li><a href="{{ route('sp.frontend','cs-membership') }}">CS Membership</a></li>
+                            <li><a href="#">Membership Benefits</a></li>
                             <li class="drop-down"><a href="#">Members’ Search <i class="fa-solid fa-angle-down"></i></a>
                                 @if(count($memberTypes))
                                     <ul class="sub-menu">
