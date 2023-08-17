@@ -1541,6 +1541,7 @@ h1,h2,h3,h4,h5,h6{
 	height: 230px;
 	display: flex;
 	align-items: center;
+    text-align: left;
 }
 .breadcrumbs-section .breadcrumbs-row .left-column::after{
 	content: url("../img/breadcumb/shape.png");
