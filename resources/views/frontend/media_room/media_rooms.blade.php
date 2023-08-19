@@ -3,7 +3,7 @@
 @section('title', 'Media Rooms')
 
 @section('content')
-    <!----============================= Breadcrumbs Section ========================---->
+    {{-- <!----============================= Breadcrumbs Section ========================---->
     <section class="breadcrumbs-section">
         <div class="overly-image">
             <img src="{{ asset('breadcumb_img/media_room.webp') }}" alt="All Events">
@@ -21,7 +21,7 @@
                         </h1>
                         <ul class="flex">
                             <li>
-                                @if(isset($cat))
+                            @if(isset($cat))
                                 <a href="{{route('media_room_view.all')}}">{{_('Media Room')}}</a>
                             @else
                                 <a href="{{route('home')}}">{{_('Home')}}</a>
@@ -40,7 +40,26 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
+<!-- =============================== Breadcrumb Section ======================================-->
+@php
+$banner_image = asset('breadcumb_img/media_room.webp');
+$title = 'All Media Rooms';
+if(isset($cat)){
+    $title = $cat->name;
+}
+
+$datas = [
+            'image'=>$banner_image,
+            'title'=>$title,
+            'paths'=>[
+                        'home'=>'Home',
+                        'media_room_view.all'=>'Media Room',
+                    ]
+        ];
+@endphp
+@include('frontend.includes.breadcrumb',['datas'=>$datas])
+<!-- =============================== Breadcrumb Section ======================================-->
 
     <div class="blog-section">
         <div class="container">

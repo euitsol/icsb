@@ -3,28 +3,20 @@
 @section('title', 'Members')
 
 @section('content')
-<!----============================= Breadcrumbs Section ========================---->
-<section class="breadcrumbs-section">
-    <div class="overly-image">
-        <img src="{{asset('frontend/img/breadcumb/job-single-image.png')}}" alt="Job Details">
-    </div>
-    <div class="container">
-        <div class="breadcrumbs-row flex">
-            <div class="left-column content-column">
-                <div class="inner-column color-white">
-                    <h1 class="breadcrumbs-heading">{{_('Events Details')}}</h1>
-                    <ul class="flex">
-                        <li><a href="index">{{_('Home')}}</a></li>
-                        <li><i class="fa-solid fa-angle-right"></i></li>
-                        <li><a href="#">{{_('All Event')}}</a></li>
-                        <li><i class="fa-solid fa-angle-right"></i></li>
-                        <li><p>{{_('Events Details')}}</p></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+@php
+$banner_image = asset('breadcumb_img/event.jpg');
+$title = 'Events Details';
+$datas = [
+            'image'=>$banner_image,
+            'title'=>$title,
+            'paths'=>[
+                        'home'=>'Home',
+                        'event_view.all'=>'Our Events',
+                    ]
+        ];
+@endphp
+@include('frontend.includes.breadcrumb',['datas'=>$datas])
+<!-- =============================== Breadcrumb Section ======================================-->
 <section class="jobsingle-content-section" id="event-detiles-section">
     <div class="container">
         <div class="content-row flex">
