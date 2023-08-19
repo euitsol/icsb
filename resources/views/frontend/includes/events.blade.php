@@ -5,7 +5,7 @@
         <div class="container">
             <div class="events-row">
                 <div class="section-heading text-align">
-                    <h2>Our Events</h2>
+                    <h2>Upcomming Events</h2>
                 </div>
                 <div class="logo-carousel">
                     <div class="events-slider owl-carousel owl-theme">

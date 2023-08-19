@@ -6,14 +6,14 @@
 <!-- =============================== Breadcrumb Section ======================================-->
 @php
 $banner_image = asset('breadcumb_img/media_room.webp');
-$title = $media_room->title;
+$title = stringLimit($media_room->title,20,'...');
 $datas = [
             'image'=>$banner_image,
             'title'=>$title,
             'paths'=>[
                         'home'=>'Home',
                         'media_room_view.all'=>'Media Rooms',
-                        'javascript:void(0)'=>$media_room->cat->name,
+                        'javascript:void(0)'=>stringLimit($media_room->cat->name,20,'...'),
                     ]
         ];
 @endphp
