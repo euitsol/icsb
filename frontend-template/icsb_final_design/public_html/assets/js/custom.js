@@ -73,7 +73,7 @@ owl.owlCarousel({
             margin:23,
             nav: false,
             dots: true,
-            autoplay:true,
+            autoplay:false,
             autoplayTimeout:3000,
             autoplayHoverPause:true,
             responsive:{

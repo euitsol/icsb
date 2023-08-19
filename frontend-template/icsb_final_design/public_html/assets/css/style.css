@@ -3471,3 +3471,17 @@ h1,h2,h3,h4,h5,h6{
 .copyright-section p a:hover{
 	color: #FF8601;
 }
+/*=================== Library Page ====================*/
+.library-section p{
+	text-align: justify;
+}
+.library-section .library-imges img{
+	height: 400px;
+}
+#lightbox .lb-outerContainer{
+	transform: translateY(50%);
+}
+#lightbox .lb-outerContainer img{
+	width: 600px !important;
+	height: auto !important;
+}

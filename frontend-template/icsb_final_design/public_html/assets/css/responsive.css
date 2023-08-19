@@ -1125,8 +1125,14 @@
         margin-top: 80px;
         column-gap: 5%;
     }
-    .bss-section .bss-row .bss-right-column .bss-item {
+    .bss-section .bss-row .bss-right-column > a {
         width: 47.5%;
+    }
+    .bss-section .bss-row .bss-right-column .bss-item .bss-icon{
+        width: 60px;
+        height: 60px;
+    }
+    .bss-section .bss-row .bss-right-column .bss-item {
         background: #fff;
         position: relative;
         border-radius: 27px;
