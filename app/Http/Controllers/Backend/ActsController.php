@@ -35,12 +35,12 @@ class ActsController extends Controller
         });
         $data = array();
         if ($filteredFiles) {
-            foreach ($request->file as $key => $file) {
+            foreach ($request->files as $key => $file) {
                 if (isset($file['file_name']) && isset($file['file_path'])) {
                     $input_file = $file['file_path'];
                     if (!empty($input_file)) {
                         $customFileName = $file['file_name'] . '.' . $input_file->getClientOriginalExtension();
-                        $path = $input_file->storeAs('acts', $customFileName, 'public');
+                        $input_file->storeAs('acts', $customFileName, 'public');
 
                         $data[$key]['file_path'] = 'acts/' . $customFileName;
                         $data[$key]['file_name'] = $file['file_name'];
