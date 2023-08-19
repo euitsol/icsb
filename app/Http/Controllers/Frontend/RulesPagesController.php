@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Act;
 use App\Models\CommitteeType;
 use App\Models\Contact;
 use App\Models\MediaRoomCategory;
@@ -26,6 +27,7 @@ class RulesPagesController extends Controller
         $studentPortal = SinglePages::where('frontend_slug', 'student-portal')->first();
         $facultyEvaluationSystem = SinglePages::where('frontend_slug', 'faculty-evaluation-system')->first();
         $publicationOthers = SinglePages::where('frontend_slug', 'others')->first();
+        $menu_acts = Act::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
         view()->share([
             'contact' => $contact,
             'memberTypes' => $memberTypes,
@@ -36,6 +38,7 @@ class RulesPagesController extends Controller
             'studentPortal' => $studentPortal,
             'facultyEvaluationSystem' => $facultyEvaluationSystem,
             'publicationOthers' => $publicationOthers,
+            'menu_acts' => $menu_acts,
         ]);
         return $this->middleware('auth');
     }
@@ -43,5 +46,10 @@ class RulesPagesController extends Controller
     {
         $s['view_bss'] = SecretarialStandard::where('deleted_at', null)->where('status', 1)->where('slug', $slug)->first();
         return view('frontend.rules.bss_view',$s);
+    }
+    public function view_act($slug): View
+    {
+        $s['view_act'] = Act::where('deleted_at', null)->where('status', 1)->where('slug', $slug)->first();
+        return view('frontend.rules.act_view',$s);
     }
 }

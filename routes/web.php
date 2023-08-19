@@ -414,6 +414,7 @@ Route::group(['as' => 'media_room_view.', 'prefix' => 'media-room'], function ()
 });
 Route::group(['as' => 'rules_view.', 'prefix' => 'rules'], function () {
     Route::get('/secretarial-standards/{slug}', [RulesPagesController::class, 'bss_view'])->name('bss.view');
+    Route::get('/{slug}', [RulesPagesController::class, 'view_act'])->name('act.view');
 });
 
 // Route::group(['as' => 'students.', 'prefix' => 'students'], function () {
