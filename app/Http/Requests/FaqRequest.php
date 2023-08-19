@@ -25,7 +25,8 @@ class FaqRequest extends FormRequest
     protected function store(): array
     {
         return [
-            'title' => 'required|unique:faqs,title,NULL,id,deleted_at,NULL'
+            'title' => 'required|unique:faqs,title,NULL,id,deleted_at,NULL',
+            'order_key' => 'required|integer|unique:faqs,order_key,NULL,id,deleted_at,NULL'
 
         ];
     }
@@ -33,7 +34,8 @@ class FaqRequest extends FormRequest
     protected function update(): array
     {
         return [
-            'title' => 'required|unique:faqs,title,' . $this->route('id') . ',id,deleted_at,NULL'
+            'title' => 'required|unique:faqs,title,' . $this->route('id') . ',id,deleted_at,NULL',
+            'order_key' => 'required|integer|unique:faqs,order_key,' . $this->route('id') . ',id,deleted_at,NULL'
         ];
     }
 }

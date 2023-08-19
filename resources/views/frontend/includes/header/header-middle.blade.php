@@ -7,7 +7,7 @@
                 </div>
                 <a href="{{route('home')}}"><h1>{{settings('site_name')}}</h1></a>
                 <h2>A Statutory Body under an Act of Parliament</h2>
-                <p>Administrative Ministry: Ministry of Commerce, Government of the people's Republic of Bangladesh</p>
+                <p><small>Administrative Ministry: Ministry of Commerce, Government of the people's Republic of Bangladesh</small></p>
             </div>
         </div>
     </div>

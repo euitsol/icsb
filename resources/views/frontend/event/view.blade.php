@@ -3,28 +3,20 @@
 @section('title', 'Members')
 
 @section('content')
-<!----============================= Breadcrumbs Section ========================---->
-<section class="breadcrumbs-section">
-    <div class="overly-image">
-        <img src="{{asset('frontend/img/breadcumb/job-single-image.png')}}" alt="Job Details">
-    </div>
-    <div class="container">
-        <div class="breadcrumbs-row flex">
-            <div class="left-column content-column">
-                <div class="inner-column color-white">
-                    <h1 class="breadcrumbs-heading">Events Details</h1>
-                    <ul class="flex">
-                        <li><a href="index">Home</a></li>
-                        <li><i class="fa-solid fa-angle-right"></i></li>
-                        <li><a href="#">All Event</a></li>
-                        <li><i class="fa-solid fa-angle-right"></i></li>
-                        <li><p>Events Details</p></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+@php
+$banner_image = asset('breadcumb_img/event.jpg');
+$title = 'Events Details';
+$datas = [
+            'image'=>$banner_image,
+            'title'=>$title,
+            'paths'=>[
+                        'home'=>'Home',
+                        'event_view.all'=>'Our Events',
+                    ]
+        ];
+@endphp
+@include('frontend.includes.breadcrumb',['datas'=>$datas])
+<!-- =============================== Breadcrumb Section ======================================-->
 <section class="jobsingle-content-section" id="event-detiles-section">
     <div class="container">
         <div class="content-row flex">
@@ -51,10 +43,8 @@
             <div class="summary-column" id="event-summary">
                 <div class="job-summery">
                     {!! getYoutubeVideoIframe($event->video_url) !!}
-                    <ul class="text-align">
-                        <li><span>Total Participants:</span> {{$event->total_participant}} People</li>
-                        <li><span>Registration Status:</span> Open</li>
-                        <a href="">Enrol Now</a>
+                    <ul>
+                        <li><span>Total Participants:</span> {{$event->total_participant}} {{_('People')}}</li>
                     </ul>
                 </div>
                 <h3>Get Location</h3>

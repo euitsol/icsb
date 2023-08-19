@@ -22,6 +22,7 @@
                         <table class="table tablesorter datatable">
                             <thead class=" text-primary">
                                 <tr>
+                                    <th>{{ _('Order') }}</th>
                                     <th>{{ _('Title') }}</th>
                                     <th>{{ _('Logo') }}</th>
                                     <th>{{ _('URL') }}</th>
@@ -34,7 +35,8 @@
                             <tbody>
                                 @foreach ($wwcss as $wwcs)
                                     <tr>
-                                        <td> {{ $wwcs->title }} </td>
+                                        <td> {{ $wwcs->order_key }} </td>
+                                        <td> {{ stringLimit(html_entity_decode_table($wwcs->title)) }} </td>
                                         <td><img class="rounded" width="60"
                                             src="@if ($wwcs->logo) {{ storage_url($wwcs->logo) }} @else {{ asset('no_img/no_img.jpg') }} @endif"
                                             alt="{{ $wwcs->title }}">
@@ -65,5 +67,5 @@
     </div>
 @endsection
 
-@include('backend.partials.datatable', ['columns_to_show' => [0,1,2]])
+@include('backend.partials.datatable', ['columns_to_show' => [0,1,2,3,4,5,6]])
 

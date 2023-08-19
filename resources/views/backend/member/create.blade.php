@@ -12,6 +12,11 @@
                 <form method="POST" action="{{ route('member.member_create') }}" autocomplete="off" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
+                        <div class="form-group {{ $errors->has('membership_id') ? ' has-danger' : '' }}">
+                            <label>{{ _('Membership ID') }}</label>
+                            <input type="text" name="membership_id" class="form-control {{ $errors->has('membership_id') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter membership ID') }}" value="{{ old('membership_id') }}">
+                            @include('alerts.feedback', ['field' => 'membership_id'])
+                        </div>
                         <div class="form-group {{ $errors->has('name') ? ' has-danger' : '' }}">
                             <label>{{ _('Name') }}</label>
                             <input type="text" name="name" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter Member\'s Name') }}" value="{{ old('name') }}">

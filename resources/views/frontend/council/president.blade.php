@@ -3,43 +3,22 @@
 @section('title', 'President')
 
 @section('content')
-<!----============================= Breadcrumbs Section ========================---->
-<section class="breadcrumbs-section">
-    <div class="overly-image">
-        <img src="{{asset('frontend/img/breadcumb/faqs-background.jpg')}}" alt="">
-    </div>
-    <div class="container">
-        <div class="breadcrumbs-row flex">
-            <div class="left-column content-column">
-                <div class="inner-column color-white">
-                    <h1 class="breadcrumbs-heading">
-                        @if($president->status == 1)
-                            {{_('President')}}
-                        @else
-                            {{_('Past President')}}
-                        @endif
-                    </h1>
-                    <ul class="flex">
-                        <li><a href="index">Home</a></li>
-                        <li><i class="fa-solid fa-angle-right"></i></li>
-                        <li><a href="#">Council</a></li>
-                        <li><i class="fa-solid fa-angle-right"></i></li>
-                        <li>
-                            <p>
-                                @if($president->status == 1)
-                                    {{_('President')}}
-                                @else
-                                    {{_('Past President')}}
-                                @endif
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
+<!-- =============================== Breadcrumb Section ======================================-->
+@php
+$banner_image = asset('breadcumb_img/council.jpg');
+$title = ($president->designation ?? 'President');
+$datas = [
+            'image'=>$banner_image,
+            'title'=>$title,
+            'paths'=>[
+                        'home'=>'Home',
+                        'javascript:void(0)'=>'Council',
+                    ]
+        ];
+@endphp
+@include('frontend.includes.breadcrumb',['datas'=>$datas])
+<!-- =============================== Breadcrumb Section ======================================-->
+@if(!empty($president))
 <section class="president-content-section">
     <div class="container">
         <div class="president-content-row">
@@ -47,13 +26,13 @@
              <img src="{{getMemberImage($president->member)}}" alt="{{_('president')}}">
              <div class="name-tittle">
              <h3>{{$president->member->name}}</h3>
-             <p>{{_('President, ICSB')}}</p>
+             <p>{{$president->designation}}</p>
              </div>
              <div class="contact-info">
                 <ul>
                     @if(!empty(json_decode($president->member->phone)))
                         @foreach (json_decode($president->member->phone) as $phone)
-                            <li><a href="tel:88{{$phone->number}}"><i class="fa-solid fa-phone"></i> +88{{$phone->number}}({{stringLimit(ucfirst($phone->type), 3, '..')}})</a></li>
+                            <li><a href="tel:88{{$phone->number}}"><i class="fa-solid fa-phone"></i>+88{{$phone->number}}({{stringLimit(ucfirst($phone->type), 3, '..')}})</a></li>
                         @endforeach
                     @endif
                     @if(!empty($president->member->email))
@@ -66,28 +45,16 @@
                 </ul>
              </div>
              <div class="social-media">
-                <ul>
-                    <li><a href="#" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
-                    <li><a href="#" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
-                    <li><a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
-                    <li><a href="#" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                    <li><a href="#" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
-                </ul>
              </div>
             </div>
             <div class="right-column">
-
-             <h2>
-                @if($president->status == 1)
-                    {{_('President')}}
-                @else
-                    {{_('Past President')}}
-                @endif
-            </h2>
                 {!! $president->bio !!}
             </div>
         </div>
     </div>
 </section>
+@else
+<h3 class="my-5 text-center">{{_('President Not Found')}}</h3>
+@endif
 
 @endsection

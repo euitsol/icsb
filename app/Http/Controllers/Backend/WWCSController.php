@@ -19,7 +19,7 @@ class WWCSController extends Controller
     }
     public function index(): View
     {
-        $n['wwcss']= WWCS::where('deleted_at', null)->latest()->get();
+        $n['wwcss']= WWCS::where('deleted_at', null)->orderBy('order_key','ASC')->get();
         return view('backend.world_wide_cs.index',$n);
     }
     public function create(): View
@@ -36,11 +36,12 @@ class WWCSController extends Controller
         }
 
         $wwcs->title = $request->title;
+        $wwcs->order_key = $request->order_key;
         $wwcs->url = $request->url;
         $wwcs->description = $request->description;
         $wwcs->created_by = auth()->user()->id;
         $wwcs->save();
-        return redirect()->route('wwcs.wwcs_list')->withStatus(__('World Wide CS '.$request->title.' created successfully.'));
+        return redirect()->route('wwcs.wwcs_list')->withStatus(__('World Wide CS '.stringLimit(html_entity_decode_table($wwcs->title)).' created successfully.'));
     }
     public function edit($id): View
     {
@@ -59,12 +60,13 @@ class WWCSController extends Controller
         }
 
         $wwcs->title = $request->title;
+        $wwcs->order_key = $request->order_key;
         $wwcs->url = $request->url;
         $wwcs->description = $request->description;
         $wwcs->updated_by = auth()->user()->id;
         $wwcs->save();
 
-        return redirect()->route('wwcs.wwcs_list')->withStatus(__('World Wide CS '.$wwcs->title.' updated successfully.'));
+        return redirect()->route('wwcs.wwcs_list')->withStatus(__('World Wide CS '.stringLimit(html_entity_decode_table($wwcs->title)).' updated successfully.'));
     }
     public function delete($id): RedirectResponse
     {
@@ -72,12 +74,12 @@ class WWCSController extends Controller
         $this->fileDelete($wwcs->logo);
         $wwcs->delete();
 
-        return redirect()->route('wwcs.wwcs_list')->withStatus(__('World Wide CS '.$wwcs->title.' deleted successfully.'));
+        return redirect()->route('wwcs.wwcs_list')->withStatus(__('World Wide CS '.stringLimit(html_entity_decode_table($wwcs->title)).' deleted successfully.'));
     }
     public function status($id): RedirectResponse
     {
         $wwcs = WWCS::findOrFail($id);
         $this->statusChange($wwcs);
-        return redirect()->route('wwcs.wwcs_list')->withStatus(__($wwcs->title.' status updated successfully.'));
+        return redirect()->route('wwcs.wwcs_list')->withStatus(__(stringLimit(html_entity_decode_table($wwcs->title)).' status updated successfully.'));
     }
 }

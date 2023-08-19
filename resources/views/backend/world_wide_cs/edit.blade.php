@@ -1,6 +1,13 @@
 @extends('backend.layouts.master', ['pageSlug' => 'wwcs'])
 
 @section('title', 'Edit World Wide CS')
+@push('css')
+<style>
+    .ck-rounded-corners .ck.ck-editor__main>.ck-editor__editable, .ck.ck-editor__main>.ck-editor__editable.ck-rounded-corners:first-of-type {
+        height: 10vh !important;
+    }
+</style>
+@endpush
 
 @section('content')
     <div class="row">
@@ -13,14 +20,31 @@
                     @method('PUT')
                     @csrf
                     <div class="card-body">
-                            <div class="form-group {{ $errors->has('title') ? ' has-danger' : '' }}">
-                                <label>{{ _('Title') }}</label>
-                                <input type="text" name="title" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" value="{{ $wwcs->title }}">
-                                @include('alerts.feedback', ['field' => 'title'])
-                            </div>
+                        <div class="form-group  {{ $errors->has('title') ? ' has-danger' : '' }}" >
+                            <label>{{ _('Title') }}</label>
+                            <textarea rows="1" name="title" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}">
+                                {{ $wwcs->title }}
+                            </textarea>
+                            @include('alerts.feedback', ['field' => 'title'])
+                        </div>
+                        <div class="form-group {{ $errors->has('order_key') ? ' has-danger' : '' }}">
+                            <label>{{ _('Order') }}</label>
+                            <select class="form-control {{ $errors->has('order_key') ? ' is-invalid' : '' }}" name="order_key">
+                                @for ($x=1; $x<=100; $x++)
+                                    @php
+                                        $check = App\Models\WWCS::where('order_key',$x)->first();
+                                    @endphp
+                                    <option value="" selected hidden>{{ _('Select WWCS Order') }}</option>
+                                    @if(!$check)
+                                        <option value="{{$x}}"{{($wwcs->order_key == $x) ? 'selected' :''}}>{{ $x }}</option>
+                                    @endif
+                                @endfor
+                            </select>
+                            @include('alerts.feedback', ['field' => 'order_key'])
+                        </div>
 
                             <div class="form-group {{ $errors->has('logo') ? ' has-danger' : '' }}">
-                                <label class="form-label">Logo</label>
+                                <label >{{ _('Logo') }}</label>
                                 <input type="file" accept="image/*" name="logo"
                                     class="form-control image-upload  {{ $errors->has('logo') ? ' is-invalid' : '' }}" data-existing-files="{{ storage_url($wwcs->logo) }}">
                             </div>

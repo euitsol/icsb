@@ -26,13 +26,55 @@
                             'menuItems' => [
                                 ['pageSlug' => 'user', 'routeName' => '', 'iconClass' => 'fa-solid fa-user-group', 'label' => 'Users'],
                                 ['pageSlug' => 'role', 'routeName' => 'um.role.role_list', 'iconClass' => 'fa-solid fa-person-circle-check', 'label' => 'Roles'],
-                                ['pageSlug' => 'permission', 'routeName' => 'um.permission.list', 'iconClass' => 'fa-solid fa-check-double', 'label' => 'Permission'],
+                                ['pageSlug' => 'permission', 'routeName' => 'um.permission.permission_list', 'iconClass' => 'fa-solid fa-check-double', 'label' => 'Permission'],
                             ]
                         ])
                     </ul>
                 </div>
             </li>
 
+            {{-- Home --}}
+            <li>
+                <a class="@if(
+                        $pageSlug == 'banner' ||
+                        $pageSlug == 'event' ||
+                        $pageSlug == 'national_connection' ||
+                        $pageSlug == 'national_award' ||
+                        $pageSlug == 'recent_video'
+                    )@else collapsed @endif" data-toggle="collapse" href="#home" @if (
+                        // $pageSlug == 'icsb_profile' ||
+                        $pageSlug == 'banner' ||
+                        $pageSlug == 'event' ||
+                        $pageSlug == 'national_connection' ||
+                        $pageSlug == 'national_award' ||
+                        $pageSlug == 'recent_video'
+                    ) aria-expanded="true" @else aria-expanded="false"@endif">
+                    <i class="fa-solid fa-house-chimney"></i>
+                    <span class="nav-link-text" >{{ __('Home') }}</span>
+                    <b class="caret mt-1"></b>
+                </a>
+
+                <div class="collapse @if (
+                    // $pageSlug == 'icsb_profile' ||
+                    $pageSlug == 'banner' ||
+                    $pageSlug == 'event' ||
+                    $pageSlug == 'national_connection' ||
+                    $pageSlug == 'national_award' ||
+                    $pageSlug == 'recent_video'
+                ) show @endif" id="home">
+                    <ul class="nav pl-4">
+                        @include('backend.partials.menu_buttons', [
+                            'menuItems' => [
+                                ['pageSlug' => 'banner', 'routeName' => 'banner.banner_list', 'label' => 'Banner'],
+                                ['pageSlug' => 'event', 'routeName' => 'event.event_list', 'label' => 'Event'],
+                                ['pageSlug' => 'national_connection', 'routeName' => 'national_connection.national_connection_list', 'label' => 'National Connection'],
+                                ['pageSlug' => 'national_award', 'routeName' => 'national_award.national_award_list',  'label' => 'National Award'],
+                                ['pageSlug' => 'recent_video', 'routeName' => 'recent_video.recent_video_list', 'label' => 'Recent Video'],
+                            ]
+                        ])
+                    </ul>
+                </div>
+            </li>
             {{-- About CS --}}
             <li>
                 <a class="@if(
@@ -130,25 +172,25 @@
                         $pageSlug == 'who-are-css' ||
                         $pageSlug == 'cs-membership' ||
                         $pageSlug == 'member-portal' ||
-                        $pageSlug == 'cs_firms' ||
+                        $pageSlug == 'cs_firm' ||
                         $pageSlug == 'code-of-conducts' ||
                         $pageSlug == 'cpd-program' ||
                         $pageSlug == 'training-program' ||
                         $pageSlug == 'members-lounge' ||
                         $pageSlug == 'members_notice_board' ||
-                        $pageSlug == 'job-placement'
+                        $pageSlug == 'job_placement'
                     )@else collapsed @endif" data-toggle="collapse" href="#member" @if (
                         $pageSlug == 'member' ||
                         $pageSlug == 'who-are-css' ||
                         $pageSlug == 'cs-membership' ||
                         $pageSlug == 'member-portal' ||
-                        $pageSlug == 'cs_firms' ||
+                        $pageSlug == 'cs_firm' ||
                         $pageSlug == 'code-of-conducts' ||
                         $pageSlug == 'cpd-program' ||
                         $pageSlug == 'training-program' ||
                         $pageSlug == 'members-lounge' ||
                         $pageSlug == 'members_notice_board' ||
-                        $pageSlug == 'job-placement'
+                        $pageSlug == 'job_placement'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-solid fa-people-group"></i>
                     <span class="nav-link-text" >{{ __('Members') }}</span>
@@ -160,13 +202,13 @@
                         $pageSlug == 'who-are-css' ||
                         $pageSlug == 'cs-membership' ||
                         $pageSlug == 'member-portal' ||
-                        $pageSlug == 'cs_firms' ||
+                        $pageSlug == 'cs_firm' ||
                         $pageSlug == 'code-of-conducts' ||
                         $pageSlug == 'cpd-program' ||
                         $pageSlug == 'training-program' ||
                         $pageSlug == 'members-lounge' ||
                         $pageSlug == 'members_notice_board' ||
-                        $pageSlug == 'job-placement'
+                        $pageSlug == 'job_placement'
                 ) show @endif" id="member">
                     <ul class="nav pl-4">
                         @include('backend.partials.menu_buttons', [
@@ -175,13 +217,13 @@
                                 ['pageSlug' => 'cs-membership', 'routeName' => 'sp.show', 'params' => 'cs-membership', 'label' => 'CS Membership'],
                                 ['pageSlug' => 'member', 'routeName' => 'member.member_list', 'label' => 'Member Search'],
                                 ['pageSlug' => 'member-portal', 'routeName' => 'sp.show', 'params' => 'member-portal', 'label' => 'Member Portal'],
-                                ['pageSlug' => 'cs_firms', 'routeName' => '', 'label' => 'CS Firms'],
+                                ['pageSlug' => 'cs_firm', 'routeName' => 'cs_firm.cs_firm_list', 'label' => 'CS Firms'],
                                 ['pageSlug' => 'code-of-conducts', 'routeName' => 'sp.show', 'params' => 'code-of-conducts', 'label' => 'Code of Conducts'],
                                 ['pageSlug' => 'cpd-program', 'routeName' => 'sp.show', 'params' => 'cpd-program', 'label' => 'CPD Program'],
                                 ['pageSlug' => 'training-program', 'routeName' => 'sp.show', 'params' => 'training-program', 'label' => 'Training Program'],
                                 ['pageSlug' => 'members-lounge', 'routeName' => 'sp.show', 'params' => 'members-lounge', 'label' => 'Members’ Lounge'],
                                 ['pageSlug' => 'members_notice_board', 'routeName' => '', 'label' => 'Members’ Notice Board'],
-                                ['pageSlug' => 'job-placement', 'routeName' => 'sp.show', 'params' => 'job-placement', 'label' => 'Job Placement'],
+                                ['pageSlug' => 'job_placement', 'routeName' => 'job_placement.jp_list', 'label' => 'Job Placement'],
                             ]
                         ])
                     </ul>
@@ -192,14 +234,18 @@
             <li>
                 <a class="@if(
                         $pageSlug == 'admission' ||
+                        $pageSlug == 'cs-hand-book' ||
+                        $pageSlug == 'student-portal' ||
                         $pageSlug == 'financial_assistance' ||
-                        $pageSlug == 'icsb_library' ||
+                        $pageSlug == 'icsb-library' ||
                         $pageSlug == 'student_notice_board' ||
                         $pageSlug == 'faculty-evaluation-system'
                     )@else collapsed @endif" data-toggle="collapse" href="#student" @if (
                         $pageSlug == 'admission' ||
+                        $pageSlug == 'cs-hand-book' ||
+                        $pageSlug == 'student-portal' ||
                         $pageSlug == 'financial_assistance' ||
-                        $pageSlug == 'icsb_library' ||
+                        $pageSlug == 'icsb-library' ||
                         $pageSlug == 'student_notice_board' ||
                         $pageSlug == 'faculty-evaluation-system'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
@@ -210,8 +256,10 @@
 
                 <div class="collapse @if (
                         $pageSlug == 'admission' ||
+                        $pageSlug == 'cs-hand-book' ||
+                        $pageSlug == 'student-portal' ||
                         $pageSlug == 'financial_assistance' ||
-                        $pageSlug == 'icsb_library' ||
+                        $pageSlug == 'icsb-library' ||
                         $pageSlug == 'student_notice_board' ||
                         $pageSlug == 'faculty-evaluation-system'
                 ) show @endif" id="student">
@@ -219,9 +267,10 @@
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
                                 ['pageSlug' => 'admission', 'routeName' => '', 'label' => 'Admission'],
-                                ['pageSlug' => 'cs_hand_book', 'routeName' => '', 'label' => 'CS Hand Book'],
+                                ['pageSlug' => 'cs-hand-book', 'routeName' => 'sp.show', 'params' => 'cs-hand-book', 'label' => 'CS Hand Book'],
+                                ['pageSlug' => 'student-portal', 'routeName' => 'sp.show', 'params' => 'student-portal', 'label' => 'Student Portal'],
                                 ['pageSlug' => 'financial_assistance', 'routeName' => '', 'label' => 'Financial Assistance'],
-                                ['pageSlug' => 'icsb_library', 'routeName' => '', 'label' => 'ICSB Library'],
+                                ['pageSlug' => 'icsb-library', 'routeName' => 'sp.show', 'params' => 'icsb-library', 'label' => 'ICSB Library'],
                                 ['pageSlug' => 'student_notice_board', 'routeName' => '', 'label' => 'Student Notice Board'],
                                 ['pageSlug' => 'faculty-evaluation-system', 'routeName' => 'sp.show', 'params' => 'faculty-evaluation-system', 'label' => 'Faculty Evaluation System'],
                             ]
@@ -233,12 +282,12 @@
             {{-- Employees --}}
             <li>
                 <a class="@if(
-                        $pageSlug == 'secretary_and_ceo' ||
+                        $pageSlug == 'sec_and_ceo' ||
                         $pageSlug == 'organogram' ||
                         $pageSlug == 'assigned_officers' ||
                         $pageSlug == 'help-desk'
                     )@else collapsed @endif" data-toggle="collapse" href="#employees" @if (
-                        $pageSlug == 'secretary_and_ceo' ||
+                        $pageSlug == 'sec_and_ceo' ||
                         $pageSlug == 'organogram' ||
                         $pageSlug == 'assigned_officers' ||
                         $pageSlug == 'help-desk'
@@ -249,7 +298,7 @@
                 </a>
 
                 <div class="collapse @if (
-                        $pageSlug == 'secretary_and_ceo' ||
+                        $pageSlug == 'sec_and_ceo' ||
                         $pageSlug == 'organogram' ||
                         $pageSlug == 'assigned_officers' ||
                         $pageSlug == 'help-desk'
@@ -258,7 +307,7 @@
                     <ul class="nav pl-4">
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
-                                ['pageSlug' => 'secretary_and_ceo', 'routeName' => '', 'label' => 'Secretary & CEO'],
+                                ['pageSlug' => 'sec_and_ceo', 'routeName' => 'sec_and_ceo.sc_list', 'label' => 'Secretary & CEO'],
                                 ['pageSlug' => 'organogram', 'routeName' => '', 'label' => 'Organogram'],
                                 ['pageSlug' => 'assigned_officers', 'routeName' => '', 'label' => 'Assigned Officers'],
                                 ['pageSlug' => 'help-desk', 'routeName' => 'sp.show', 'params' => 'help-desk', 'label' => 'Help Desk'],
@@ -267,20 +316,23 @@
                     </ul>
                 </div>
             </li>
-            {{-- Examination --}}
+            {{-- Rules --}}
             <li>
                 <a class="@if(
-                        $pageSlug == 'bss'
+                        $pageSlug == 'bss' ||
+                        $pageSlug == 'cs-practicing-guideline'
                     )@else collapsed @endif" data-toggle="collapse" href="#rules" @if (
-                        $pageSlug == 'bss'
+                        $pageSlug == 'bss'||
+                        $pageSlug == 'cs-practicing-guideline'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
-                    <i class="fa-solid fa-clipboard-check"></i>
+                    <i class="fa-solid fa-gavel"></i>
                     <span class="nav-link-text" >{{ __('Rules') }}</span>
                     <b class="caret mt-1"></b>
                 </a>
 
                 <div class="collapse @if (
-                        $pageSlug == 'bss'
+                        $pageSlug == 'bss'||
+                        $pageSlug == 'cs-practicing-guideline'
 
 
                 ) show @endif" id="rules">
@@ -288,18 +340,39 @@
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
                                 ['pageSlug' => 'bss', 'routeName' => 'bss.bss_list', 'label' => 'BSS'],
+                                ['pageSlug' => 'cs-practicing-guideline', 'routeName' => 'sp.show', 'params' => 'cs-practicing-guideline', 'label' => 'CS Practicing Guideline'],
+                            ]
+                        ])
+                    </ul>
+                </div>
+            </li>
+            {{-- Publications --}}
+            <li>
+                <a class="@if(
+                        $pageSlug == 'other'
+                    )@else collapsed @endif" data-toggle="collapse" href="#publications" @if (
+                        $pageSlug == 'other'
+                    ) aria-expanded="true" @else aria-expanded="false"@endif">
+                    <i class="fa-regular fa-newspaper"></i>
+                    <span class="nav-link-text" >{{ __('Publications') }}</span>
+                    <b class="caret mt-1"></b>
+                </a>
+
+                <div class="collapse @if (
+                        $pageSlug == 'other'
+
+
+                ) show @endif" id="publications">
+                    <ul class="nav pl-4">
+                        @include('backend.partials.menu_buttons', [
+                            'menuItems' => [
+                                ['pageSlug' => 'others', 'routeName' => 'sp.show', 'params' => 'others', 'label' => 'Others'],
                             ]
                         ])
                     </ul>
                 </div>
             </li>
 
-            {{-- Publications --}}
-            @include('backend.partials.menu_buttons', [
-                'menuItems' => [
-                    ['pageSlug' => 'publications', 'routeName' => '','iconClass' => 'fa-solid fa-newspaper', 'label' => 'Publications'],
-                ]
-            ])
 
 
             {{-- Examination --}}
@@ -317,7 +390,7 @@
                         $pageSlug == 'sample_question_papers' ||
                         $pageSlug == 'exam_faqs'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
-                    <i class="fa-solid fa-clipboard-check"></i>
+                    <i class="fa-solid fa-file-pen"></i>
                     <span class="nav-link-text" >{{ __('Eamination') }}</span>
                     <b class="caret mt-1"></b>
                 </a>
@@ -345,16 +418,11 @@
                 </div>
             </li>
 
-            {{-- Media Room, Contact Us, Banner, Event, National Connection,  National Award, Site Settings  --}}
+            {{-- Media Room, Contact Us, Site Settings  --}}
             @include('backend.partials.menu_buttons', [
                 'menuItems' => [
                     ['pageSlug' => 'media_room', 'routeName' => 'media_room.media_room_list', 'iconClass' => 'fa-solid fa-photo-film', 'label' => 'Media Room'],
                     ['pageSlug' => 'contact', 'routeName' => 'contact.contact_create', 'iconClass' => 'fa-solid fa-tty', 'label' => 'Contact Us'],
-
-                    ['pageSlug' => 'banner', 'routeName' => 'banner.banner_list', 'iconClass' => 'fa-regular fa-images', 'label' => 'Banner'],
-                    ['pageSlug' => 'event', 'routeName' => 'event.event_list', 'iconClass' => 'fa-solid fa-bullhorn', 'label' => 'Event'],
-                    ['pageSlug' => 'national_connection', 'routeName' => 'national_connection.national_connection_list', 'iconClass' => 'fa-solid fa-rss', 'label' => 'National Connection'],
-                    ['pageSlug' => 'national_award', 'routeName' => 'national_award.national_award_list', 'iconClass' => 'fa-solid fa-trophy', 'label' => 'National Award'],
                     ['pageSlug' => 'settings', 'routeName' => 'settings.site_settings', 'iconClass' => 'fa-solid fa-gear', 'label' => 'Site Settings'],
                 ]
             ])

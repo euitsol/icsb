@@ -31,7 +31,7 @@
                             <label>{{ _('Member-1') }}</label>
                             <div class="input-group mb-3">
                                 <select name="cm[1][member_id]" class="form-control ">
-                                    <option selected hidden>{{_('Select Committee')}}</option>
+                                    <option selected hidden>{{_('Select Committee Member')}}</option>
                                     @foreach ($members as $member)
                                         <option value="{{ $member->id }}" @if( old('cm[1][member_id]') == $member->id) selected @endif> {{ $member->name }}</option>
                                     @endforeach

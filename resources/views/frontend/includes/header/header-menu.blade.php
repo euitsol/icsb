@@ -1,16 +1,21 @@
 <!--======================= Header Menu Section =======================-->
 <div class="header-menu-section">
+<div class="stiky-logo">
+    <a href="{{route('home')}}">
+        <img src="{{asset('frontend/img/icsb-logo.svg')}}" alt="{{_('ICSB Logo')}}">
+    </a>
+</div>
     <div class="container">
 <!--===================================== Mobile Menu ================================-->
         <nav class="navbar bg-body-tertiary fixed-top mobile-header">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html"><img src="assets/img/icsb-logo.svg"></a>
+                <a class="navbar-brand" href="index.html"><img src="{{asset('frontend/img/icsb-logo.svg')}}"></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"><i class="fa-solid fa-bars-staggered"></i></span>
               </button>
               <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
-                    <a class="navbar-brand" href="index.html"><img src="assets/img/logo.svg"></a>
+                    <a class="navbar-brand" href="index.html"><img src="{{asset('frontend/img/logo.svg')}}"></a>
                   <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
@@ -32,7 +37,7 @@
                                 </ul>
                             </li>
                             <li class="">
-                                <a href="#">Council</a>
+                                <a href="#">Council </a>
                                 <ul class="">
                                     <li><a href="#">ICSB Profile</a></li>
                                     <li><a href="#">Vision</a></li>
@@ -42,7 +47,7 @@
                                     <li><a href="#">World Wide CS</a></li>
                                     <li><a href="#">Corporate Governance</a></li>
                                     <li><a href="#">CS for CG</a></li>
-                                    <li><a href="#">FAQs</a>
+                                    <li><a href="#">FAQs </a>
                                         <ul class="">
                                             <li><a href="#">Values</a></li>
                                             <li><a href="#">World Wide CS</a></li>
@@ -61,8 +66,20 @@
                     <button class="btn btn-outline-success" type="submit">Search</button>
                   </form>
                   <div class="mobile-menu-button flex">
-                    <a href="tel:8801708030804"><i class="fa-solid fa-phone"></i> +880-1708030804</a>
-                    <a href="mailto:icsb@icsb.edu.bd"><i class="fa-solid fa-envelope"></i> ICSB@ICSB.EDU.BD</a>
+                    @if(!empty($contact->phone))
+                        @foreach (json_decode($contact->phone) as $phone)
+                            @if($phone->type == 'Phone')
+                                <a href="tel:88{{$phone->number}}"><i class="fa-solid fa-phone"></i>+88{{$phone->number}}</a>
+                                @break
+                            @endif
+                        @endforeach
+                    @endif
+                    @if(!empty($contact->email))
+                        @foreach (json_decode($contact->email) as $email)
+                            <a href="mailto:{{$email}}"><i class="fa-solid fa-envelope"></i> {{ $email }}</a>
+                            @break
+                        @endforeach
+                    @endif
                   </div>
                 </div>
               </div>
@@ -84,6 +101,7 @@
                             <li><a href="{{ route('about.wwcs') }}">World Wide CS</a></li>
                             <li><a href="{{ route('sp.frontend','corporate-governance') }}">Corporate Governance</a></li>
                             <li><a href="{{ route('sp.frontend','cs-for-cg') }}">CS for CG</a></li>
+                            <li><a href="#">CSR Initiatives</a></li>
                             <li><a href="{{ route('about.faq') }}">FAQs</a></li>
                         </ul>
                     </li>
@@ -109,26 +127,28 @@
                     <li class="drop-down">
                         <a href="#">Members <i class="fa-solid fa-angle-down"></i></a>
                         <ul class="">
-                            <li><a href="#">Who are CSs</a></li>
-                            <li><a href="#">CS Membership</a></li>
+                            <li><a href="{{ route('sp.frontend','who-are-css') }}">Who are CSs</a></li>
+                            <li><a href="{{ route('sp.frontend','cs-membership') }}">CS Membership</a></li>
+                            <li><a href="#">Membership Benefits</a></li>
                             <li class="drop-down"><a href="#">Members’ Search <i class="fa-solid fa-angle-down"></i></a>
                                 @if(count($memberTypes))
                                     <ul class="sub-menu">
                                         @foreach ($memberTypes as $mType)
-                                            <li><a href="{{route('members.m_search',$mType->slug)}}">{{ $mType->title }}</a></li>
+                                            <li><a href="{{route('member_view.m_search',$mType->slug)}}">{{ $mType->title }}</a></li>
                                         @endforeach
                                     </ul>
                                 @endif
                             </li>
-
-                            <li><a href="https://icsberp.org/users/login.aspx">Members Portal</a></li>
-                            <li><a href="#">CS Firms</a></li>
-                            <li><a href="#">Code of Conducts</a></li>
-                            <li><a href="#">CPD Program</a></li>
-                            <li><a href="#">Training Program</a></li>
-                            <li><a href="#">Members’ Lounge</a></li>
+                            @if(isset($memberPortal->saved_data) && !empty(json_decode($memberPortal->saved_data)->{'portal-url'}))
+                                <li><a target="_blank" href="{{ json_decode($memberPortal->saved_data)->{'portal-url'} }}">Members Portal</a></li>
+                            @endif
+                            <li><a href="{{route('member_view.cs_firm')}}">CS Firms</a></li>
+                            <li><a href="{{ route('sp.frontend','code-of-conducts') }}">Code of Conducts</a></li>
+                            <li><a href="{{ route('sp.frontend','cpd-program') }}">CPD Program</a></li>
+                            <li><a href="{{ route('sp.frontend','training-program') }}">Training Program</a></li>
+                            <li><a href="{{ route('sp.frontend','members-lounge') }}">Members’ Lounge</a></li>
                             <li><a href="#">Members’ Notice Board</a></li>
-                            <li><a href="{{ route('sp.frontend','job-placement') }}">Job Placement</a></li>
+                            <li><a href="{{ route('member_view.jps') }}">Job Placement</a></li>
                         </ul>
                     </li>
                     <li class="drop-down">
@@ -142,21 +162,26 @@
                                     <li><a href="#">Online Admission</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">CS Hand Book</a></li>
-                            <li><a href="https://icsberp.org/users/login.aspx">Students Portal</a></li>
+                            <li><a href="{{route('student_view.cs_hand_book')}}">CS Hand Book</a></li>
+                            @if(isset($studentPortal->saved_data) && !empty(json_decode($studentPortal->saved_data)->{'portal-url'}))
+                                <li><a target="_blank" href="{{ json_decode($studentPortal->saved_data)->{'portal-url'} }}">Students Portal</a></li>
+                            @endif
                             <li><a href="#">Financial Assistance</a></li>
-                            <li><a href="#">ICSB Library</a></li>
+                            <li><a href="{{ route('sp.frontend','icsb-library') }}">ICSB Library</a></li>
                             <li><a href="#">Student Notice Board</a></li>
-                            <li><a href="#">Faculty Evaluation System</a></li>
+                            @if(isset($facultyEvaluationSystem->saved_data) && !empty(json_decode($facultyEvaluationSystem->saved_data)->{'url'}))
+                                <li><a target="_blank" href="{{ json_decode($facultyEvaluationSystem->saved_data)->{'url'} }}">Faculty Evaluation System</a></li>
+                            @endif
                         </ul>
                     </li>
                     <li class="drop-down">
                         <a href="#">Employees <i class="fa-solid fa-angle-down"></i></a>
                         <ul class="">
-                            <li><a href="#">Secretary & CEO</a></li>
+                            <li><a href="{{route('employee_view.sec_and_ceo')}}">Secretary & CEO</a></li>
+                            {{-- <li><a href="{{route('employee_view.past_sec_and_ceos')}}">Past Secretary & CEOs</a></li> --}}
                             <li><a href="#">Organogram</a></li>
                             <li><a href="#">Assigned Officers</a></li>
-                            <li><a href="#">Help Desk</a></li>
+                            <li><a href="{{ route('sp.frontend','help-desk') }}">Help Desk</a></li>
                         </ul>
                     </li>
                     <li class="drop-down">
@@ -164,7 +189,7 @@
                         <ul class="">
                             <li><a href="#">Chartered Secretaries Act, 2010</a></li>
                             <li><a href="#">Chartered Secretaries Regulations, 2011</a></li>
-                            <li><a href="#">CS Practicing Guideline</a></li>
+                            <li><a href="{{ route('sp.frontend','cs-practicing-guideline') }}">CS Practicing Guideline</a></li>
                             <li><a href="#">Companies Act 1994</a></li>
                             <li><a href="#">Income Tax Act 2023</a></li>
                             <li class="drop-down"><a href="#">Secretarial Standards <i class="fa-solid fa-angle-down"></i></a>
@@ -185,13 +210,15 @@
                             <li><a href="#">The Chartered Secretary</a></li>
                             <li><a href="#">ICSB National Award Souvenir</a></li>
                             <li><a href="#">Annual Reports</a></li>
-                            <li><a href="https://www.icsb.edu.bd/wp-content/uploads/2023/07/Request-for-Proposal-RFP-The-Financial-Express.jpg">Others</a></li>
+                            @if(isset($publicationOthers->saved_data) && !empty(json_decode($publicationOthers->saved_data)->{'url'}))
+                                <li><a target="_blank" href="{{ json_decode($publicationOthers->saved_data)->{'url'} }}">Others</a></li>
+                            @endif
                         </ul>
                     </li>
                     <li class="drop-down">
                         <a href="#">Examination <i class="fa-solid fa-angle-down"></i></a>
                         <ul class="">
-                            <li><a href="#">Eligibility</a></li>
+                            <li><a href="{{ route('sp.frontend','eligibility') }}">Eligibility</a></li>
                             <li><a href="{{ route('sp.frontend','exam-schedule') }}">Exam Schedule</a></li>
                             <li class="drop-down"><a href="#">Results <i class="fa-solid fa-angle-down"></i></a>
                                 <ul class="sub-menu">

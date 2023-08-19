@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('wwcs', function (Blueprint $table) {
             $table->id();
             $table->string('title')->unique();
+            $table->bigInteger('order_key')->unique();
             $table->string('logo');
             $table->longText('description')->nullable();
             $table->string('url');

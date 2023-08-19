@@ -12,10 +12,27 @@
                 <form method="POST" action="{{ route('member.member_type_create') }}" autocomplete="off">
                     @csrf
                     <div class="card-body">
-                        <div class="form-group {{ $errors->has('title') ? ' has-danger' : '' }}">
-                            <label>{{ _('Title') }}</label>
-                            <input type="text" id="title" name="title" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter Title') }}" value="{{ old('title') }}">
-                            @include('alerts.feedback', ['field' => 'title'])
+                        <div class="row">
+                            <div class="col-md-8 form-group {{ $errors->has('title') ? ' has-danger' : '' }}">
+                                <label>{{ _('Title') }}</label>
+                                <input type="text" id="title" name="title" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter Title') }}" value="{{ old('title') }}">
+                                @include('alerts.feedback', ['field' => 'title'])
+                            </div>
+                            <div class="col-md-4 form-group {{ $errors->has('order_key') ? ' has-danger' : '' }}">
+                                <label>{{ _('Type Order') }}</label>
+                                <select class="form-control {{ $errors->has('order_key') ? ' is-invalid' : '' }}" name="order_key">
+                                    <option value="" selected hidden>{{ _('Select Type Order') }}</option>
+                                    @for ($x=1; $x<=100; $x++)
+                                        @php
+                                            $check = App\Models\MemberType::where('order_key',$x)->first();
+                                        @endphp
+                                        @if(!$check)
+                                            <option value="{{$x}}">{{ $x }}</option>
+                                        @endif
+                                    @endfor
+                                </select>
+                                @include('alerts.feedback', ['field' => 'order_key'])
+                            </div>
                         </div>
 
                         <div class="form-group {{ $errors->has('slug') ? ' has-danger' : '' }}">

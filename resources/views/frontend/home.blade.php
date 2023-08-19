@@ -1,7 +1,10 @@
 @extends('frontend.master')
 
 @section('title', 'Home')
-
+@push('css')
+<style>
+</style>
+@endpush
 @section('content')
 {{-- Banner Section --}}
 @include('frontend.includes.banner',['contact'=>$contact, 'banner'=>$banner])
@@ -24,71 +27,46 @@
 </section>
 
 <!----============================ Who We are Section ==========================---->
-<section class="we-are-section">
-    <div class="left-col">
-        <img src="{{asset('frontend/img/we-are/Image-3.png')}}" />
-    </div>
-    <div class="right-col"></div>
-    <div class="container">
-        <div class="we-are-coulmn flex">
-            <div class="content-column">
-                <div class="section-heading">
-                    <h2>Who We Are</h2>
+@if(!empty(json_decode($single_page->saved_data)) && isset(json_decode($single_page->saved_data)->{'front-image'}) && isset(json_decode($single_page->saved_data)->{'page-description'}))
+    <section class="we-are-section big-sec-height d-flex align-items-center">
+        <div class="left-col">
+            <img src="{{asset('frontend/img/we-are/Image-3.png')}}" />
+        </div>
+        <div class="right-col"></div>
+        <div class="container">
+            <div class="we-are-coulmn flex">
+                <div class="content-column text-right">
+                    <div class="section-heading">
+                        <h2>{{_('Who We Are')}}</h2>
+                    </div>
+                    <p>{{ stringLimit(html_entity_decode_table(json_decode($single_page->saved_data)->{'page-description'}),'800') }}</p>
+                    <a href="{{route('sp.frontend',$single_page->frontend_slug)}}">{{_('Read More')}}</a>
                 </div>
-                <p>
-                    Institute of Chartered Secretaries of Bangladesh
-                    (ICSB) was established under an Act of
-                    Parliament i.e. Chartered Secretaries Act 2010
-                    is the only recognized professional body to
-                    develop, promote and regulate the profession of
-                    Chartered Secretary in Bangladesh.
-                </p>
-                <p>
-                    The affairs of the Institute of Chartered
-                    Secretaries of Bangladesh (ICSB) are managed by
-                    a Council consist of 13 (thirteen) elected
-                    members and 05 (five) nominees from the
-                    Government of the People's Republic of
-                    Bangladesh.
-                </p>
-                <p>
-                    The major contribution of a Chartered Secretary
-                    is in the corporate sector. Chartered Secretary
-                    is a requisite qualification to become a Company
-                    Secretary. Company Secretary is an important
-                    professional aiding the efficient management of
-                    the corporate sector. Company Secretary is a
-                    statutory officer under the Companies Act 1994.
-                    According to Bangladesh Securities and Exchange
-                    Commission (BSEC) all the listed companies
-                    should have a Company Secretary.
-                </p>
-                <a href="#">Read More</a>
-            </div>
-            <div class="image-column">
-                <div class="border"></div>
-                <img src="{{asset('frontend/img/about_image.png')}}" />
+                <div class="image-column">
+                    <div class="border"></div>
+                    <img src="{{storage_url(json_decode($single_page->saved_data)->{'front-image'})}}" alt="{{$single_page->title}}" />
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+@endif
 
 <!----============================ President Section ==========================---->
 @if(!empty($president))
-    <section class="president-section">
+    <section class="president-section big-sec-height">
         <div class="container">
             <div class="president-column flex">
                 <div class="left-column">
                     <img src="{{getMemberImage($president->member)}}" alt="{{_('President Image')}}">
                     <div class="president-info text-align color-white">
-                        <h3>{{$president->member->name}}</h3>
-                        <p>{{_('ICSB President')}}</p>
+                        <a href="{{route('council_view.president')}}" class="text-white"><h3>{{$president->member->name}}</h3></a>
+                        <p>{{$president->designation}}</p>
                     </div>
                 </div>
                 <div class="right-column">
                     <h2>{{_('Message of The President')}}</h2>
-                    {!! $president->message !!}
-                    <a href="{{route('council_view.president')}}">Read More</a>
+                   <p> {{ stringLimit(html_entity_decode_table($president->message),'520') }}</p>
+                    <a href="{{route('council_view.president.message')}}">{{_('Read More')}}</a>
                 </div>
             </div>
         </div>
@@ -98,7 +76,7 @@
 @include('frontend.includes.bss',['home_bsss'=>$home_bsss])
 
 <!----============================ Notices Section ==========================---->
-<section class="notice-section">
+<section class="notice-section big-sec-height d-flex align-items-center">
     <div class="container">
         <div class="notice-row">
             <div class="section-heading text-align">
@@ -182,6 +160,46 @@
 @include('frontend.includes.world_wide_cs',['wwcss'=>$wwcss])
 @include('frontend.includes.events',['events'=>$events])
 @include('frontend.includes.national_awards',['national_awards'=>$national_awards])
-@include('frontend.includes.recent_videos')
+@include('frontend.includes.recent_videos',['recent_videos'=>$recent_videos])
 @include('frontend.includes.national_connection',['national_connections'=>$national_connections])
 @endsection
+@push('js')
+<script>
+    // Banner Video Control JS
+    $(document).ready(function() {
+        const video = $("#myVideo")[0];
+        const volumeButton = $("#volumeButton");
+        const icon = $("#icon");
+        const videoProgress = $("#videoProgress");
+
+        // Initial state: muted
+        let isMuted = true;
+        video.muted = isMuted;
+
+        video.addEventListener("timeupdate", function() {
+            const currentTime = video.currentTime;
+            const duration = video.duration;
+
+            const progress = (currentTime / duration) * 100;
+            videoProgress.val(progress);
+        });
+
+        videoProgress.on("click", function(event) {
+            const clickedPosition = (event.offsetX / videoProgress.width()) * video.duration;
+            video.currentTime = clickedPosition;
+        });
+
+        volumeButton.on("click", function() {
+            isMuted = !isMuted;
+            video.muted = isMuted;
+
+            if (isMuted) {
+                icon.addClass("fa-volume-xmark").removeClass("fa-volume-high");
+            } else {
+                icon.removeClass("fa-volume-xmark").addClass("fa-volume-high");
+            }
+        });
+    });
+</script>
+
+@endpush

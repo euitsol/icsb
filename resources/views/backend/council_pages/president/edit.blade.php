@@ -44,17 +44,28 @@
                         <div id="memberInfo" class="row align-items-center">
 
                         </div>
+                        {{-- <div class="form-group {{ $errors->has('designation') ? ' has-danger' : '' }}">
+                            <label>{{ _('Designation') }}</label>
+                            <select name="designation" class="form-control {{ $errors->has('designation') ? ' is-invalid' : '' }}">
+                                    <option value="President, ICSB" @if( $president->designation == 'President, ICSB') selected @endif>{{_('President')}}</option>
+                                    <option value="Past President, ICSB" @if( $president->designation == 'Past President, ICSB') selected @endif>{{_('Past President')}}</option>
+                            </select>
+                            @include('alerts.feedback', ['field' => 'designation'])
+                        </div> --}}
                         @foreach ($president->durations as $key=>$duration)
                         <div class="form-group {{ $errors->has('duration') ? ' has-danger' : '' }} {{ $errors->has('duration.*') ? ' has-danger' : '' }}">
                             <label>{{ _('President Duration -')}}{{$key+1}}</label>
                             <div class="input-group mb-3">
-                                <input type="{{$duration->start_date?'text':'date' }}" name="duration[{{$key+1}}][start_date]" class="form-control" value="@if(!empty($duration->start_date)) {{ date('m-d-Y', strtotime($duration->start_date))}}" disabled @endif>
-                                <input type="{{$duration->end_date?'text':'date' }}" name="duration[{{$key+1}}][end_date]" class="form-control" @if(!empty($duration->end_date)) value="{{date('m-d-Y', strtotime($duration->end_date))}}" disabled @endif>
+                                <input type="date" name="duration[{{$key+1}}][start_date]" class="form-control" value="{{ date('Y-m-d', strtotime($duration->start_date))}}" @if((!empty($duration->end_date)) && (date('Y-m-d', strtotime($duration->end_date)) <= Carbon\Carbon::now()->format('Y-m-d')) ) disabled @endif >
+                                <input type="date" name="duration[{{$key+1}}][end_date]" class="form-control" @if((!empty($duration->end_date)) && (date('Y-m-d', strtotime($duration->end_date)) <= Carbon\Carbon::now()->format('Y-m-d')) ) disabled @endif value="{{ $duration->end_date ? date('Y-m-d', strtotime($duration->end_date)) : ''}}">
                                 @if($key<1)
                                     <span class="input-group-text" id="add_duration" data-count="{{count($president->durations)}}"><i class="tim-icons icon-simple-add"></i></span>
                                 @else
-                                    <span class="input-group-text text-danger delete_duration"><i class="tim-icons icon-trash-simple"></i></span>
+                                <a href="{{route('president.single.president_delete',$duration->id)}}">
+                                    <span class="input-group-text text-danger delete_duration h-100"><i class="tim-icons icon-trash-simple"></i></span>
+                                </a>
                                 @endif
+                                <input type="hidden" name='duration[{{$key+1}}][id]' value='{{$duration->id}}' @if((!empty($duration->end_date)) && (date('Y-m-d', strtotime($duration->end_date)) <= Carbon\Carbon::now()->format('Y-m-d')) ) disabled @endif>
                             </div>
                         </div>
                         @endforeach
@@ -119,20 +130,20 @@
                 dataType: 'json',
                 success: function (data) {
                     console.log(data);
-                    const slugValue = generateSlug(data.name);
+                    const slugValue = generateSlug(data.member.name);
                     $("#slug").val(slugValue);
                     $('#memberInfo').html(`
                     <div class='col-md-2 text-center'>
-                        <img class="rounded" width="100" src="{{ storage_url('${data.image}')}}">
+                        <img class="rounded" width="100" src="{{ storage_url('${data.member.image}')}}">
                     </div>
                     <div class='col-md-10'>
                         <div class="form-group">
                             <label>{{ _('Designation') }}</label>
-                            <input type="text" class="form-control" value="${data.designation}" disabled>
+                            <input type="text" class="form-control" value="${data.member.designation}" disabled>
                         </div>
                         <div class="form-group">
                             <label>{{ _('Email') }}</label>
-                            <input type="text" class="form-control" value="${data.email}" disabled>
+                            <input type="text" class="form-control" value="${data.member.email}" disabled>
                         </div>
                     </div>
 

@@ -3,30 +3,25 @@
 @section('title', 'Members')
 
 @section('content')
-<!----============================= Breadcrumbs Section ========================---->
-<section class="breadcrumbs-section">
-    <div class="overly-image">
-        <img src="{{asset('frontend/img/breadcumb/objectives-background.jpg')}}" alt="">
-    </div>
-    <div class="container">
-        <div class="breadcrumbs-row flex">
-        <div class="left-column content-column">
-            <div class="inner-column color-white">
-                <h1 class="breadcrumbs-heading">{{$type->title}}</h1>
-                <ul class="flex">
-                    <li><a href="index">Home</a></li>
-                    <li><i class="fa-solid fa-angle-right"></i></li>
-                    <li><a href="#">Member’s Search</a></li>
-                    <li><i class="fa-solid fa-angle-right"></i></li>
-                    <li><p>{{$type->title}}</p></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    </div>
-</section>
+<!-- =============================== Breadcrumb Section ======================================-->
+@php
+$banner_image = asset('breadcumb_img/members.jpg');
+$title = $type->title;
+$datas = [
+            'image'=>$banner_image,
+            'title'=>$title,
+            'paths'=>[
+                        'home'=>'Home',
+                        'javascript:void(0)'=>'Members',
+                        'javascript:void(0)'=>'Member’s Search',
+                    ]
+        ];
+@endphp
+@include('frontend.includes.breadcrumb',['datas'=>$datas])
+<!-- =============================== Breadcrumb Section ======================================-->
 
-<section class="fellow-member-section">
+
+<section class="fellow-member-section big-sec-min-height">
     <div class="container">
         <div class="heading-content text-align">
             <h2 class="common-heading">{{$type->title}}</h2>
@@ -38,7 +33,7 @@
                     <img src="{{getMemberImage($member)}}" alt="{{$member->name}}">
                 </div>
                 <div class="content-column">
-                    <h4>H-{{member_id($member->id)}}</h4>
+                    <h4>{{$member->membership_id}}</h4>
                     <h3 class="mb-0">{{$member->name}}</h3>
                     <p><strong>{{$member->designation}}</strong></p>
                     @if(!empty($member->address))

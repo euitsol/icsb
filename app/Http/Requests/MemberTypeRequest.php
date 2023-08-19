@@ -27,6 +27,7 @@ class MemberTypeRequest extends FormRequest
         return [
             'title' => 'required|unique:member_types,title,NULL,id,deleted_at,NULL',
             'slug' => 'required|unique:member_types,slug,NULL,id,deleted_at,NULL',
+            'order_key' => 'required|unique:member_types,order_key,NULL,id,deleted_at,NULL',
         ];
     }
 
@@ -35,6 +36,7 @@ class MemberTypeRequest extends FormRequest
         return [
             'title' => 'required|unique:member_types,title,' . $this->route('id') . ',id,deleted_at,NULL',
             'slug' => 'required|unique:member_types,slug,' . $this->route('id') . ',id,deleted_at,NULL',
+            'order_key' => 'required|unique:member_types,order_key,' . $this->route('id') . ',id,deleted_at,NULL',
         ];
     }
 }

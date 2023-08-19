@@ -22,8 +22,8 @@ class MemberRequest extends FormRequest
             'phone' => 'required|array|min:1',
             'phone.*.number' => 'required|string|max:20',
             'phone.*.type' => 'required|string|in:residential,office',
-            'address' => 'required|string|max:255',
-            'description' => 'nullable|max:10000',
+            'address' => 'nullable',
+            'description' => 'nullable',
             'image' => 'nullable|image|mimes:mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]
         +
@@ -33,14 +33,19 @@ class MemberRequest extends FormRequest
     protected function store(): array
     {
         return [
-            'member_email' => 'required|unique:member_types,title,NULL,id,deleted_at,NULL',
+            'member_email' => 'required|unique:members,email,NULL,id,deleted_at,NULL',
+            'membership_id' => 'required|unique:members,membership_id,NULL,id,deleted_at,NULL',
+
+
         ];
     }
 
     protected function update(): array
     {
         return [
-            'member_email' => 'required|unique:member_types,title,' . $this->route('id') . ',id,deleted_at,NULL',
+            'member_email' => 'required|unique:members,email,' . $this->route('id') . ',id,deleted_at,NULL',
+            'membership_id' => 'required|unique:members,membership_id,' . $this->route('id') . ',id,deleted_at,NULL',
+
         ];
     }
 }

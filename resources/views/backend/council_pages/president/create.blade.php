@@ -53,6 +53,15 @@
                         <div id="memberInfo" class="row align-items-center">
 
                         </div>
+                        {{-- <div class="form-group {{ $errors->has('designation') ? ' has-danger' : '' }}">
+                            <label>{{ _('Designation') }}</label>
+                            <select name="designation" class="form-control {{ $errors->has('designation') ? ' is-invalid' : '' }}">
+                                <option selected hidden>{{_('Select Designation')}}</option>
+                                    <option value="President, ICSB" @if( old('designation') == 'President, ICSB') selected @endif>{{_('President')}}</option>
+                                    <option value="Past President, ICSB" @if( old('designation') == 'Past President, ICSB') selected @endif>{{_('Past President')}}</option>
+                            </select>
+                            @include('alerts.feedback', ['field' => 'designation'])
+                        </div> --}}
 
 
                         <div class="form-group {{ $errors->has('duration') ? ' has-danger' : '' }} {{ $errors->has('duration.*') ? ' has-danger' : '' }}">
@@ -124,20 +133,20 @@
                 dataType: 'json',
                 success: function (data) {
                     console.log(data);
-                    const slugValue = generateSlug(data.name);
+                    const slugValue = generateSlug(data.member.name);
                     $("#slug").val(slugValue);
                     $('#memberInfo').html(`
                     <div class='col-md-2 text-center'>
-                        <img class="rounded" width="100" src="{{ storage_url('${data.image}')}}">
+                        <img class="rounded" width="100" src="{{ storage_url('${data.member.image}')}}">
                     </div>
                     <div class='col-md-10'>
                         <div class="form-group">
                             <label>{{ _('Designation') }}</label>
-                            <input type="text" class="form-control" value="${data.designation}" disabled>
+                            <input type="text" class="form-control" value="${data.member.designation}" disabled>
                         </div>
                         <div class="form-group">
                             <label>{{ _('Email') }}</label>
-                            <input type="text" class="form-control" value="${data.email}" disabled>
+                            <input type="text" class="form-control" value="${data.member.email}" disabled>
                         </div>
                     </div>
 

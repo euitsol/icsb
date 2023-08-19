@@ -1,36 +1,28 @@
 @extends('frontend.master')
 
-@section('title', 'Media Rooms')
+@section('title', 'Bangladesh Secretarial Standard')
 
 @section('content')
-<!----============================= Breadcrumbs Section ========================---->
-    <section class="breadcrumbs-section">
-        <div class="overly-image">
-            <img src="{{asset('frontend/img/breadcumb/Board-Meeting.jp')}}" alt="Board of Directors Meeting">
-        </div>
-        <div class="container">
-            <div class="breadcrumbs-row flex">
-                <div class="left-column content-column">
-                    <div class="inner-column color-white">
-                        <h1 class="breadcrumbs-heading">{{$view_bss->short_title}}{{_(': ')}}{{$view_bss->title}}</h1>
-                        <ul class="flex">
-                            <li><a href="index">{{_('Home')}}</a></li>
-                            <li><i class="fa-solid fa-angle-right"></i></li>
-                            <li><a href="#">{{_('Rules')}}</a></li>
-                            <li><i class="fa-solid fa-angle-right"></i></li>
-                            <li><p>{{$view_bss->short_title}}{{_(': ')}}{{$view_bss->title}}</p></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- =============================== Breadcrumb Section ======================================-->
+@php
+$banner_image = asset('breadcumb_img/rules.jpg');
+$title = $view_bss->short_title.': '.$view_bss->title;
+$datas = [
+            'image'=>$banner_image,
+            'title'=>$title,
+            'paths'=>[
+                        'home'=>'Home',
+                        'javascript:void(0)'=>'Rules',
+                    ]
+        ];
+@endphp
+@include('frontend.includes.breadcrumb',['datas'=>$datas])
+<!-- =============================== Breadcrumb Section ======================================-->
     <section class="director-metting-section">
         <div class="container">
             <div class="director-row text-align">
-                {{-- <img src="{{asset('frontend/img/director/board-of-director.png')}}" alt="Board Of Director"> --}}
                 <div>
-                    <iframe src="{{ storage_url(json_decode($view_bss->file)->file_path) }}" width="100%" height="500px"></iframe>
+                    <iframe src="{{ storage_url(json_decode($view_bss->file)->file_path) }}" width="100%" height="700px"></iframe>
                 </div>
                 <div class="button">
                     @if(!empty(json_decode($view_bss->file)))

@@ -1,4 +1,4 @@
-<div class="endorsement-section">
+<div class="endorsement-section small-sec-height d-flex align-items-center">
     <div class="container">
         <div class="endorsement-row flex">
             <div
@@ -7,7 +7,7 @@
                 <div class="reg-field-wrapp">
                     <div class="content">
                         <div class="heading">
-                            <h3>Register as a Student</h3>
+                            <h3>Admit as a Student</h3>
                         </div>
                         <div class="button">
 
@@ -50,7 +50,7 @@
                     <div class="content">
                         <div class="heading">
                             <h3>
-                                Obtain Practitioner's Endorsement
+                                Obtain Practicing License
                             </h3>
                         </div>
                         <div class="button">

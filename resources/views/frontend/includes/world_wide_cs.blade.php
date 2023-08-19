@@ -1,4 +1,4 @@
-<section class="cs-wide-section">
+<section class="cs-wide-section small-sec-height d-flex align-items-center">
     <div class="container">
         <div class="content">
             <div class="heading-element text-align">
@@ -7,9 +7,11 @@
             <div class="logo-carousel">
                 <div class="cs-wide-slider owl-carousel owl-theme">
                     @forelse ($wwcss as $wwcs)
-                        <div class="item">
-                            <img src="{{storage_url($wwcs->logo)}}" alt="{{$wwcs->title}}">
-                        </div>
+                        <a href="{{$wwcs->url}}" target="_blank">
+                            <div class="item">
+                                <img src="{{storage_url($wwcs->logo)}}" alt="{{$wwcs->title}}">
+                            </div>
+                        </a>
                     @empty
                         <div class="item">
                             <img src="{{ asset('no_img/no_img.jpg') }}" alt=".....">

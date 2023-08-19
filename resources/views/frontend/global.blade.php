@@ -6,47 +6,44 @@
 @php
     $saved_data = json_decode($single_page->saved_data);
     $form_data = json_decode($single_page->form_data);
-@endphp
+    if (isset($saved_data->{'page-description'}) ){
+        $count = strlen(strip_tags($saved_data->{'page-description'}));
+    }
 
-<!----============================= Breadcrumbs Section ========================---->
-    <section class="breadcrumbs-section">
-        @if(isset($saved_data->{'banner-image'}))
-        <div class="overly-image">
-            <img src="{{storage_url($saved_data->{'banner-image'})}}" alt="Banner Image">
-        </div>
-        @endif
-        <div class="container">
-            <div class="breadcrumbs-row flex">
-                <div class="left-column content-column">
-                    <div class="inner-column color-white">
-                        <h1 class="breadcrumbs-heading">{{ _($single_page->title)}}</h1>
-                        <ul class="flex">
-                            <li><a href="{{route('home')}}">Home</a></li>
-                            <li><i class="fa-solid fa-angle-right"></i></li>
-                            <li><a href="#">{{ _($single_page->title)}}</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="global-page-section">
+@endphp
+<!-- =============================== Breadcrumb Section ======================================-->
+@php
+$banner_image = '';
+if(isset($saved_data->{'banner-image'}) && !empty($saved_data->{'banner-image'})){
+    $banner_image = storage_url($saved_data->{'banner-image'});
+}
+$title = $single_page->title;
+$datas = [
+            'image'=>$banner_image,
+            'title'=>$title,
+            'paths'=>[
+                        'home'=>'Home',
+                    ]
+        ];
+@endphp
+@include('frontend.includes.breadcrumb',['datas'=>$datas])
+<!-- =============================== Breadcrumb Section ======================================-->
+    <section class="global-page-section big-sec-min-height">
         <div class="container">
             <div class="global-row flex
-            align-items-center
-            @if (isset($saved_data->{'page-description'}) && strlen($saved_data->{'page-description'})>1700) flex-column-reverse @endif
+            @if (isset($saved_data->{'page-description'}) && $count>1700 ) flex-column-reverse @endif
             ">
-                <div class="left-column @if (isset($saved_data->{'page-description'}) && strlen($saved_data->{'page-description'})>1700) w-100 @endif">
+                <div class="left-column @if (isset($saved_data->{'page-description'}) && $count>1700) w-100 @endif">
                     @if (isset($saved_data->{'page-description'}))
                         {!! $saved_data->{'page-description'} ?? '' !!}
                     @endif
                 </div>
-                <div class="right-column @if (isset($saved_data->{'page-description'}) && strlen($saved_data->{'page-description'})>1700) w-100 mb-5  @endif"
+                <div class="right-column @if (isset($saved_data->{'page-description'}) && $count>1700)  w-100 mb-5  @endif"
                     style="max-height:600px !important;"
                     >
 
                     @if (isset($saved_data->{'page-image'}))
-                        <img class="img-fluid object-fit-contain" style="max-height:600px !important;" src="{{ storage_url($saved_data->{'page-image'}) }}">
+                        <img class="img-fluid object-fit-contain" style="max-height:600px !important; @if (isset($saved_data->{'page-description'}) && $count>1700 ) border:0; outline:none; @endif" src="{{ storage_url($saved_data->{'page-image'}) }}">
                     @endif
 
                 </div>
@@ -89,7 +86,7 @@
 
             @endif
 <!--=============================== Gallery Section ========================== -->
-            <div class="gallery-section global-gallery-section">
+            {{-- <div class="gallery-section global-gallery-section">
                 <div class="gallery-content">
                     <div class="gallery-items">
                         <a href=""><img src="assets/img/gallery/gallery-one.png"></a>
@@ -110,7 +107,7 @@
                         <a href=""><img src="assets/img/gallery/gallery-six.png"></a>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </section>
 @endsection

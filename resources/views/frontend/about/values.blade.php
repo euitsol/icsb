@@ -1,0 +1,42 @@
+@extends('frontend.master')
+
+@section('title', 'Values')
+
+@section('content')
+<!-- =============================== Breadcrumb Section ======================================-->
+@php
+$banner_image = asset('breadcumb_img/about_cs.jpg');
+$title = $single_page->title;
+if(isset(json_decode($single_page->saved_data)->{"banner-image"})){
+    $banner_image = storage_url(json_decode($single_page->saved_data)->{"banner-image"});
+}
+$datas = [
+            'image'=>$banner_image,
+            'title'=>$title,
+            'paths'=>[
+                        'home'=>'Home',
+                        'javascript:void(0)'=>'About CS',
+                    ]
+        ];
+@endphp
+@include('frontend.includes.breadcrumb',['datas'=>$datas])
+<!-- =============================== Breadcrumb Section ======================================-->
+<section class="mision-vision-section big-sec-height">
+    <div class="container">
+        <div class="mission-row flex">
+            <div class="image-column">
+                @if (isset(json_decode($single_page->saved_data)->{'page-image'}))
+                    <img src="{{storage_url(json_decode($single_page->saved_data)->{'page-image'})}}" alt="">
+                @endif
+            </div>
+            <div class="content-column color-white">
+                <h2>{{_('Values')}}</h2>
+                @if (isset(json_decode($single_page->saved_data)->{'page-description'}))
+                    {!! (json_decode($single_page->saved_data)->{'page-description'}) !!}
+                @endif
+            </div>
+        </div>
+    </div>
+</section>
+
+@endsection

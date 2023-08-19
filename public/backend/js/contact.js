@@ -36,7 +36,7 @@ $(document).ready(function() {
                         <div class="div">
                             <select class="input-group-text form-select" name="social[${count}][icon]">
                                 <option value="fa-brands fa-facebook-f" title="Facebook"><i>&#xf09a</i></option>
-                                <option value="fa-brands fa-twitter" title="Twitter"><i>&#xf099</i></option>
+                                <option value="fa-brands fa-square-x-twitter" title="Twitter"><i>&#xe61a</i></option>
                                 <option value="fa-brands fa-linkedin-in" title="Linkedin"><i>&#xf0e1</i></option>
                                 <option value="fa-brands fa-instagram" title="Instagram"><i>&#xf16d</i></option>
                                 <option value="fa-brands fa-youtube" title="Youtube"><i>&#xf167</i></option>

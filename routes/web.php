@@ -19,8 +19,12 @@ use App\Http\Controllers\Backend\ICSBProfileController;
 use App\Http\Controllers\Backend\MemberController;
 use App\Http\Controllers\Backend\SinglePagesController;
 use App\Http\Controllers\Backend\CommitteeController;
+use App\Http\Controllers\Backend\CsFirmsController;
+use App\Http\Controllers\Backend\JobPlacementController;
 use App\Http\Controllers\Backend\MediaRoomController;
 use App\Http\Controllers\Backend\PresidentController;
+use App\Http\Controllers\Backend\RecentVideoController;
+use App\Http\Controllers\Backend\SecAndCeoController;
 use App\Http\Controllers\Backend\UserManagement\RoleController;
 use App\Http\Controllers\Backend\UserManagement\PermissionController;
 use App\Http\Controllers\Frontend\DefaultController as ViewDefaultController;
@@ -33,10 +37,12 @@ use App\Http\Controllers\Frontend\RulesAndRegulationsPagesController;
 use App\Http\Controllers\Frontend\PublicationsPagesController;
 use App\Http\Controllers\Frontend\ContactPagesController;
 use App\Http\Controllers\Frontend\ArticlesController;
+use App\Http\Controllers\Frontend\EmployeePagesController;
 use App\Http\Controllers\Frontend\ExaminationPagesController;
 use App\Http\Controllers\Frontend\FrontendSinglePagesController;
 use App\Http\Controllers\Frontend\MediaRoomPagesController;
 use App\Http\Controllers\Frontend\RulesPagesController;
+use App\Http\Controllers\Frontend\StudentPagesController;
 use App\Http\Controllers\SettingsController;
 
 
@@ -97,9 +103,9 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
 
         //Permission Management
         Route::group(['as' => 'permission.','prefix' => 'permission'], function () {
-            Route::get('list',          [PermissionController::class, 'index'])->name('list');
-            Route::get('create',        [PermissionController::class, 'create'])->name('add');
-            Route::post('store',        [PermissionController::class, 'store'])->name('store');
+            Route::get('list',          [PermissionController::class, 'index'])->name('permission_list');
+            Route::get('create',        [PermissionController::class, 'create'])->name('permission_add');
+            Route::post('store',        [PermissionController::class, 'store'])->name('permission_store');
         });
 
     });
@@ -291,7 +297,44 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::post('create', [PresidentController::class, 'store'])->name('president_create');
         Route::get('edit/{id}', [PresidentController::class, 'edit'])->name('president_edit');
         Route::put('edit/{id}', [PresidentController::class, 'update'])->name('president_edit');
+        Route::get('single/delete/{id}', [PresidentController::class, 'singleDelete'])->name('single.president_delete');
         Route::get('delete/{id}', [PresidentController::class, 'delete'])->name('president_delete');
+    });
+    Route::group(['as' => 'sec_and_ceo.', 'prefix' => 'secretary-and-ceo'], function () {
+        Route::get('index', [SecAndCeoController::class, 'index'])->name('sc_list');
+        Route::get('create', [SecAndCeoController::class, 'create'])->name('sc_create');
+        Route::post('create', [SecAndCeoController::class, 'store'])->name('sc_create');
+        Route::get('edit/{id}', [SecAndCeoController::class, 'edit'])->name('sc_edit');
+        Route::put('edit/{id}', [SecAndCeoController::class, 'update'])->name('sc_edit');
+        Route::get('single/delete/{id}', [SecAndCeoController::class, 'singleDelete'])->name('single.sc_delete');
+        Route::get('delete/{id}', [SecAndCeoController::class, 'delete'])->name('sc_delete');
+    });
+    Route::group(['as' => 'job_placement.', 'prefix' => 'job-placement'], function () {
+        Route::get('index', [JobPlacementController::class, 'index'])->name('jp_list');
+        Route::get('create', [JobPlacementController::class, 'create'])->name('jp_create');
+        Route::post('create', [JobPlacementController::class, 'store'])->name('jp_create');
+        Route::get('edit/{id}', [JobPlacementController::class, 'edit'])->name('jp_edit');
+        Route::put('edit/{id}', [JobPlacementController::class, 'update'])->name('jp_edit');
+        Route::get('status/{id}', [JobPlacementController::class, 'status'])->name('status.jp_edit');
+        Route::get('delete/{id}', [JobPlacementController::class, 'delete'])->name('jp_delete');
+    });
+    Route::group(['as' => 'cs_firm.', 'prefix' => 'cs-firms'], function () {
+        Route::get('index', [CsFirmsController::class, 'index'])->name('cs_firm_list');
+        Route::get('create', [CsFirmsController::class, 'create'])->name('cs_firm_create');
+        Route::post('create', [CsFirmsController::class, 'store'])->name('cs_firm_create');
+        Route::get('edit/{id}', [CsFirmsController::class, 'edit'])->name('cs_firm_edit');
+        Route::put('edit/{id}', [CsFirmsController::class, 'update'])->name('cs_firm_edit');
+        Route::get('status/{id}', [CsFirmsController::class, 'status'])->name('status.cs_firm_edit');
+        Route::get('delete/{id}', [CsFirmsController::class, 'delete'])->name('cs_firm_delete');
+    });
+    Route::group(['as' => 'recent_video.', 'prefix' => 'recent-video'], function () {
+        Route::get('index', [RecentVideoController::class, 'index'])->name('recent_video_list');
+        Route::get('create', [RecentVideoController::class, 'create'])->name('recent_video_create');
+        Route::post('create', [RecentVideoController::class, 'store'])->name('recent_video_create');
+        Route::get('edit/{id}', [RecentVideoController::class, 'edit'])->name('recent_video_edit');
+        Route::put('edit/{id}', [RecentVideoController::class, 'update'])->name('recent_video_edit');
+        Route::get('status/{id}', [RecentVideoController::class, 'status'])->name('status.recent_video_edit');
+        Route::get('delete/{id}', [RecentVideoController::class, 'delete'])->name('recent_video_delete');
     });
 
 });
@@ -335,8 +378,14 @@ Route::group(['as' => 'about.', 'prefix' => 'about'], function () {
 Route::group(['as' => 'council_view.', 'prefix' => 'council'], function () {
     Route::get('/{slug}/members', [CouncilPagesController::class, 'committee'])->name('committee.members');
     Route::get('/president', [CouncilPagesController::class, 'president'])->name('president');
+    Route::get('/president/message', [CouncilPagesController::class, 'presidentM'])->name('president.message');
     Route::get('/past-presidents', [CouncilPagesController::class, 'pastPresidents'])->name('past_presidents');
     Route::get('/past-president/{slug}', [CouncilPagesController::class, 'singlePP'])->name('single.pp');
+});
+Route::group(['as' => 'employee_view.', 'prefix' => 'employee'], function () {
+    Route::get('/secretary-and-ceo', [EmployeePagesController::class, 'sec_and_ceo'])->name('sec_and_ceo');
+    // Route::get('/past-secretary-and-ceos', [EmployeePagesController::class, 'past_sec_and_ceos'])->name('past_sec_and_ceos');
+    // Route::get('/past-secretary-and-ceo/{slug}', [EmployeePagesController::class, 'singlePSC'])->name('single.psc');
 });
 Route::group(['as' => 'examination.', 'prefix' => 'examination'], function () {
     // Route::get('/exam-schedule', [ExaminationPagesController::class, 'examSchedule'])->name('exam_schedule');
@@ -357,8 +406,13 @@ Route::group(['as' => 'rules_view.', 'prefix' => 'rules'], function () {
 // Route::group(['as' => 'students.', 'prefix' => 'students'], function () {
 //     Route::get('/world-wide-chartered-secretaries', [StudentsPagesController::class, 'wwcs'])->name('wwcs');
 // });
-Route::group(['as' => 'members.', 'prefix' => 'members'], function () {
+Route::group(['as' => 'member_view.', 'prefix' => 'member'], function () {
     Route::get('/member-search/{slug}', [MembersPagesController::class, 'memberSearch'])->name('m_search');
+    Route::get('/job-placements', [MembersPagesController::class, 'job_placement'])->name('jps');
+    Route::get('/cs-firms', [MembersPagesController::class, 'cs_firm'])->name('cs_firm');
+});
+Route::group(['as' => 'student_view.', 'prefix' => 'student'], function () {
+    Route::get('/cs-hand-book', [StudentPagesController::class, 'csHandBook'])->name('cs_hand_book');
 });
 // Route::group(['as' => 'rules_and_regulations.', 'prefix' => 'rulse-&-regulations'], function () {
 //     Route::get('/the-chartered-secretaries-act-2010', [RulesAndRegulationsPagesController::class, 'tcsa'])->name('tcsa');

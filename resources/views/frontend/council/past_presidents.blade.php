@@ -3,55 +3,55 @@
 @section('title', 'Past Presidents')
 
 @section('content')
-<!----============================= Breadcrumbs Section ========================---->
-<section class="breadcrumbs-section">
-    <div class="overly-image">
-        <img src="{{asset('frontend/img/breadcumb/past-presidents-background.jpg')}}" alt="">
-    </div>
-    <div class="container">
-        <div class="breadcrumbs-row flex">
-        <div class="left-column content-column">
-            <div class="inner-column color-white">
-                <h1 class="breadcrumbs-heading">Past Presidents</h1>
-                <ul class="flex">
-                    <li><a href="index">Home</a></li>
-                    <li><i class="fa-solid fa-angle-right"></i></li>
-                    <li><a href="#">Council</a></li>
-                    <li><i class="fa-solid fa-angle-right"></i></li>
-                    <li><p>Past Presidents</p></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    </div>
-</section>
-
+<!-- =============================== Breadcrumb Section ======================================-->
+@php
+$banner_image = asset('breadcumb_img/council.jpg');
+$title = 'Past Presidents';
+$datas = [
+            'image'=>$banner_image,
+            'title'=>$title,
+            'paths'=>[
+                        'home'=>'Home',
+                        'javascript:void(0)'=>'Council',
+                    ]
+        ];
+@endphp
+@include('frontend.includes.breadcrumb',['datas'=>$datas])
+<!-- =============================== Breadcrumb Section ======================================-->
+@if(!empty($p_presidents))
 <section class="past-president-layout">
     <div class="container">
-        <div class="heading-content text-align">
+        {{-- <div class="heading-content text-align">
             <h2 class="common-heading">{{_('Past Presidents')}}</h2>
-        </div>
+        </div> --}}
         <div class="president-row flex">
             @foreach ($p_presidents as $pp)
-                <div class="items text-align">
-                    <img src="{{getMemberImage($pp->member)}}" alt="">
-                    <h3>{{$pp->member->name}}</h3>
-                    <h4>
-                        @foreach ($pp->durations as $key=>$duration)
-                            @if($key<1)
-                                <span>{{formatYearRange($duration->start_date, $duration->start_date)}}</span>
-                            @else
-                                <span>{{_(', ')}}{{formatYearRange($duration->start_date, $duration->start_date)}}</span>
-                            @endif
+                @if($pp->status == 1 && count($pp->durations)<=1)
+                    @continue
+                @else
+                    <div class="items text-align">
+                        <img src="{{getMemberImage($pp->member)}}" alt="">
+                        <h3>{{$pp->member->name}}</h3>
+                        <h4>
+                            @foreach ($pp->durations as $key=>$duration)
+                                @if($key<1)
+                                    <span>{{formatYearRange($duration->start_date, $duration->end_date)}}</span>
+                                @else
+                                    <span>{{_(', ')}}{{formatYearRange($duration->start_date, $duration->end_date)}}</span>
+                                @endif
 
-                        @endforeach
-                    </h4>
-                    <p class="text-justify">{{ stringLimit(html_entity_decode_table($pp->bio), '300') }}</p>
-                    <a href="{{route('council_view.single.pp',$pp->slug)}}">Read More</a>
-                </div>
+                            @endforeach
+                        </h4>
+                        <p class="text-justify">{{ stringLimit(html_entity_decode_table($pp->bio), '300') }}</p>
+                        <a href="{{route('council_view.single.pp',$pp->slug)}}">Read More</a>
+                    </div>
+                @endif
             @endforeach
 
         </div>
     </div>
 </section>
+@else
+<h3 class="my-5 text-center">{{_('Past Presidents Not Found')}}</h3>
+@endif
 @endsection

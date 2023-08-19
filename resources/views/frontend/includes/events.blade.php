@@ -1,11 +1,11 @@
 
 @if(count($events)>0)
 
-    <section class="events-section">
+    <section class="events-section big-sec-height d-flex align-items-center">
         <div class="container">
             <div class="events-row">
                 <div class="section-heading text-align">
-                    <h2>Our Events</h2>
+                    <h2>Upcomming Events</h2>
                 </div>
                 <div class="logo-carousel">
                     <div class="events-slider owl-carousel owl-theme">
@@ -19,7 +19,6 @@
                                         <li><i class="fa-solid fa-clock"></i> {{ $event->type == 1 ? "Online" : "Offline" }}</li>
                                     </ul>
                                     <div class="button">
-                                        <a href="#">Enrol</a>
                                         <a href="{{route('event_view.view',$event->slug)}}" class="fill-button">Details</a>
                                     </div>
                                 </div>

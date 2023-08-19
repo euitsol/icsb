@@ -3,29 +3,22 @@
 @section('title', 'Members')
 
 @section('content')
-<!----============================= Breadcrumbs Section ========================---->
-<section class="breadcrumbs-section">
-    <div class="overly-image">
-        <img src="{{asset('frontend/img/breadcumb/Event-Management-Proposal.jpg')}}" alt="All Events">
-    </div>
-    <div class="container">
-        <div class="breadcrumbs-row flex">
-            <div class="left-column content-column">
-                <div class="inner-column color-white">
-                    <h1 class="breadcrumbs-heading">Our All Events</h1>
-                    <ul class="flex">
-                        <li><a href="index">Home</a></li>
-                        <li><i class="fa-solid fa-angle-right"></i></li>
-                        <li><a href="#">Event</a></li>
-                        <li><i class="fa-solid fa-angle-right"></i></li>
-                        <li><p>Our Events</p></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="our-events-section">
+<!-- =============================== Breadcrumb Section ======================================-->
+@php
+$banner_image = asset('breadcumb_img/event.jpg');
+$title = 'Our Events';
+$datas = [
+            'image'=>$banner_image,
+            'title'=>$title,
+            'paths'=>[
+                        'home'=>'Home',
+                        'javascript:void(0)'=>'Our Events',
+                    ]
+        ];
+@endphp
+@include('frontend.includes.breadcrumb',['datas'=>$datas])
+<!-- =============================== Breadcrumb Section ======================================-->
+<section class="our-events-section big-sec-min-height d-flex align-items-center">
     <div class="container">
         <div class="events-row flex">
             @foreach ($events as $event)
@@ -33,17 +26,12 @@
                     <div class="logo-wrapp">
                         <h3><a href="#">{{$event->title}}</a></h3>
                         <ul class="flex">
-                            <li><i class="fa-solid fa-clock"></i> {{ formatDateTimeRange($event->event_start_time, $event->event_end_time)}}</li>
-
+                            <li><i class="fa-solid fa-calendar-check"></i> {{ date('d-M-Y', strtotime($event->event_start_time))}}</li>
+                            <li><i class="fa-solid fa-clock"></i> {{ date('H:i A', strtotime($event->event_start_time))}}</li>
                             <li><i class="fa-solid fa-clock"></i> {{ $event->type == 1 ? "Online" : "Offline" }}</li>
                         </ul>
-                        <div class="button flex">
-                            <div class="enrol-button">
-                                <a href="#">Enrol</a>
-                            </div>
-                            <div class="fill-button flex">
-                                <a href="{{route('event_view.view',$event->slug)}}">Details</a>
-                            </div>
+                        <div class="button">
+                            <a href="{{route('event_view.view',$event->slug)}}" class="fill-button">Details</a>
                         </div>
                     </div>
                 </div>

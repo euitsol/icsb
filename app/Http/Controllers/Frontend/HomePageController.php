@@ -15,23 +15,34 @@ use App\Models\NationalAward;
 use App\Models\NationalConnection;
 use App\Models\MemberType;
 use App\Models\President;
+use App\Models\RecentVideo;
 use App\Models\SecretarialStandard;
+use App\Models\SinglePages;
 use Illuminate\View\View;
 
 class HomePageController extends Controller
 {
     public function __construct() {
         $contact = Contact::where('deleted_at', null)->first();
-        $memberTypes = MemberType::where('deleted_at', null)->where('status', 1)->get();
+        $memberTypes = MemberType::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
         $committeeTypes = CommitteeType::with('committees')->where('deleted_at', null)->where('status', 1)->get();
         $mediaRoomCategory = MediaRoomCategory::with('media_rooms')->where('deleted_at', null)->where('status', 1)->get();
         $bsss = SecretarialStandard::where('deleted_at', null)->where('status', 1)->get();
+        $memberPortal = SinglePages::where('frontend_slug', 'member-portal')->first();
+        $studentPortal = SinglePages::where('frontend_slug', 'student-portal')->first();
+        $studentPortal = SinglePages::where('frontend_slug', 'student-portal')->first();
+        $facultyEvaluationSystem = SinglePages::where('frontend_slug', 'faculty-evaluation-system')->first();
+        $publicationOthers = SinglePages::where('frontend_slug', 'others')->first();
         view()->share([
             'contact' => $contact,
             'memberTypes' => $memberTypes,
             'committeeTypes' => $committeeTypes,
             'mediaRoomCategory' => $mediaRoomCategory,
             'bsss' => $bsss,
+            'memberPortal' => $memberPortal,
+            'studentPortal' => $studentPortal,
+            'facultyEvaluationSystem' => $facultyEvaluationSystem,
+            'publicationOthers' => $publicationOthers,
         ]);
         return $this->middleware('auth');
     }
@@ -40,12 +51,14 @@ class HomePageController extends Controller
     {
         $s['banner'] = Banner::with('images')->where('deleted_at', null)->where('status',1)->first();
         $s['media_rooms'] = MediaRoom::where('deleted_at', null)->where('permission','1')->where('is_featured','1')->latest()->get();
-        $s['wwcss'] = WWCS::where('deleted_at', null)->where('status',1)->latest()->get();
+        $s['wwcss'] = WWCS::where('deleted_at', null)->where('status',1)->orderBy('order_key','ASC')->get();
         $s['events'] = Event::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
         $s['national_awards'] = NationalAward::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
         $s['national_connections'] = NationalConnection::where('deleted_at', null)->where('status',1)->latest()->get();
         $s['president'] = President::with(['durations','member'])->where('status',1)->where('deleted_at',null)->first();
         $s['home_bsss'] = SecretarialStandard::where('deleted_at', null)->where('is_featured','1')->where('status', 1)->get();
+        $s['single_page'] = SinglePages::where('frontend_slug', 'icsb-profile')->first();
+        $s['recent_videos'] = RecentVideo::where('status',1)->where('deleted_at',null)->latest()->get();
         return view('frontend.home',$s);
     }
 }

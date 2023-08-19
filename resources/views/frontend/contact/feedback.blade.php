@@ -3,28 +3,20 @@
 @section('title', 'Feedback')
 
 @section('content')
-<!----============================= Breadcrumbs Section ========================---->
-<section class="breadcrumbs-section">
-    <div class="overly-image">
-        <img src="{{asset('frontend/img/breadcumb/contact-us-page-image.avif')}}" alt="Vision & Mission">
-    </div>
-    <div class="container">
-        <div class="breadcrumbs-row flex">
-        <div class="left-column content-column">
-            <div class="inner-column color-white">
-                <h1 class="breadcrumbs-heading">Feedback</h1>
-                <ul class="flex">
-                    <li><a href="index">Home</a></li>
-                    <li><i class="fa-solid fa-angle-right"></i></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><i class="fa-solid fa-angle-right"></i></li>
-                    <li><p>Feedback</p></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    </div>
-</section>
+<!-- =============================== Breadcrumb Section ======================================-->
+@php
+$banner_image = asset('breadcumb_img/contact_us.jpg');
+$title = 'Feedback';
+$datas = [
+            'image'=>$banner_image,
+            'title'=>$title,
+            'paths'=>[
+                        'home'=>'Home',
+                        'javascript:void(0)'=>'Contact Us',
+                    ]
+        ];
+@endphp
+@include('frontend.includes.breadcrumb',['datas'=>$datas])
 <!--=========================== Contact Form Section ==========================-->
 <section class="form-section">
     <div class="container">

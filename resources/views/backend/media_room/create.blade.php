@@ -52,7 +52,7 @@
                             <div class="form-group  {{ $errors->has('thumbnail_image') ? ' has-danger' : '' }}">
                                 <label>{{ _('Thumbnail Image') }}</label>
                                 <input type="file" accept="image/*" name="thumbnail_image" class="form-control  {{ $errors->has('thumbnail_image') ? ' is-invalid' : '' }} image-upload">
-                                @include('alerts.feedback', ['field' => 'image'])
+                                @include('alerts.feedback', ['field' => 'thumbnail_image'])
                            </div>
                            <div class="form-group  {{ $errors->has('additional_images.*') ? 'is-invalid' : '' }}  {{ $errors->has('additional_images') ? 'is-invalid' : '' }}">
                                 <label>{{ _('Additional Images') }}</label>

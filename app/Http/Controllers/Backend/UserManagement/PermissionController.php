@@ -35,6 +35,6 @@ class PermissionController extends Controller
         $permission->prefix = $request->prefix;
         $permission->save();
 
-        return redirect()->route('um.permission.list')->withStatus(__('New permission created successfully.'));
+        return redirect()->route('um.permission.permission_list')->withStatus(__('New permission created successfully.'));
     }
 }

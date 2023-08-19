@@ -11,7 +11,7 @@ use App\Models\SiteSetting;
 //This will retun the route prefix of the routes for permission check
 function get_permission_routes()
 {
-  return ['about.faq.','service.','contact.','national_connection.','wwcs.','event.','national_award.', 'blog.', 'settings.','banner.', 'member.','icsb_profile.','committee.','president.','um.permission.','um.role.'];
+  return ['about.faq.','service.','contact.','national_connection.','wwcs.','event.','national_award.', 'blog.', 'settings.','banner.', 'member.','icsb_profile.','committee.','president.','sec_and_ceo.','job_placement.','cs_firm.','recent_video.'];
 }
 
 //This will check the permission of the given route name. Can be used for buttons
@@ -111,7 +111,7 @@ function stringLimit($description, $limit = '50', $end = '...'){
     return $shortSrting;
 }
 function member_id($id){
-    $member_id = str_pad($id, 4, '0', STR_PAD_LEFT);
+    $member_id = str_pad($id, 3, '0', STR_PAD_LEFT);
     return $member_id;
 }
 function removeHttpProtocol($url)
