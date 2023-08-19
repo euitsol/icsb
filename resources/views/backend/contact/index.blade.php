@@ -119,7 +119,7 @@
                                                     <div class="div">
                                                         <select class="input-group-text form-select" name="social[{{$count}}][icon]">
                                                             <option value="fa-brands fa-facebook-f" @if( $social->icon == "fa-brands fa-facebook-f" ) selected @endif title="Facebook" ><i>&#xf09a</i></option>
-                                                            <option value="fa-brands fa-twitter"    @if( $social->icon == "fa-brands fa-twitter" ) selected @endif title="Twitter" ><i>&#xf099</i></option>
+                                                            <option value="fa-brands fa-square-x-twitter"    @if( $social->icon == "fa-brands fa-square-x-twitter" ) selected @endif title="Twitter" ><i>&#xe61a</i></option>
                                                             <option value="fa-brands fa-linkedin-in"@if( $social->icon == "fa-brands fa-linkedin-in" ) selected @endif title="Linkedin" ><i>&#xf0e1</i></option>
                                                             <option value="fa-brands fa-instagram"  @if( $social->icon == "fa-brands fa-instagram" ) selected @endif title="Instagram" ><i>&#xf16d</i></option>
                                                             <option value="fa-brands fa-youtube"    @if( $social->icon == "fa-brands fa-youtube" ) selected @endif title="Youtube" ><i>&#xf167</i></option>
@@ -147,7 +147,7 @@
                                                 <div class="div">
                                                     <select class="input-group-text form-select" name="social[1][icon]">
                                                         <option value="fa-brands fa-facebook-f" title="Facebook"><i>&#xf09a</i></option>
-                                                        <option value="fa-brands fa-twitter" title="Twitter"><i>&#xf099</i></option>
+                                                        <option value="fa-brands fa-square-x-twitter" title="Twitter"><i>&#xe61a</i></option>
                                                         <option value="fa-brands fa-linkedin-in" title="Linkedin"><i>&#xf0e1</i></option>
                                                         <option value="fa-brands fa-instagram" title="Instagram"><i>&#xf16d</i></option>
                                                         <option value="fa-brands fa-youtube" title="Youtube"><i>&#xf167</i></option>

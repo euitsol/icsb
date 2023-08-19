@@ -3,7 +3,6 @@
 @section('title', 'Home')
 @push('css')
 <style>
-
 </style>
 @endpush
 @section('content')
@@ -166,41 +165,41 @@
 @endsection
 @push('js')
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-    const video = document.getElementById("myVideo");
-    const volumeButton = document.getElementById("volumeButton");
-    const icon = document.getElementById("icon");
-    const videoProgress = document.getElementById("videoProgress");
+    // Banner Video Control JS
+    $(document).ready(function() {
+        const video = $("#myVideo")[0];
+        const volumeButton = $("#volumeButton");
+        const icon = $("#icon");
+        const videoProgress = $("#videoProgress");
 
-    // Initial state: muted
-    let isMuted = true;
-    video.muted = isMuted;
-
-    video.addEventListener("timeupdate", function() {
-        const currentTime = video.currentTime;
-        const duration = video.duration;
-
-        const progress = (currentTime / duration) * 100;
-        videoProgress.value = progress;
-    });
-
-    videoProgress.addEventListener("click", function(event) {
-        const clickedPosition = (event.offsetX / videoProgress.offsetWidth) * video.duration;
-        video.currentTime = clickedPosition;
-    });
-
-    volumeButton.addEventListener("click", function() {
-        isMuted = !isMuted;
+        // Initial state: muted
+        let isMuted = true;
         video.muted = isMuted;
 
-        if (isMuted) {
-            icon.classList.add("fa-volume-xmark");
-            icon.classList.remove("fa-volume-high");
-        } else {
-            icon.classList.remove("fa-volume-xmark");
-            icon.classList.add("fa-volume-high");
-        }
+        video.addEventListener("timeupdate", function() {
+            const currentTime = video.currentTime;
+            const duration = video.duration;
+
+            const progress = (currentTime / duration) * 100;
+            videoProgress.val(progress);
+        });
+
+        videoProgress.on("click", function(event) {
+            const clickedPosition = (event.offsetX / videoProgress.width()) * video.duration;
+            video.currentTime = clickedPosition;
+        });
+
+        volumeButton.on("click", function() {
+            isMuted = !isMuted;
+            video.muted = isMuted;
+
+            if (isMuted) {
+                icon.addClass("fa-volume-xmark").removeClass("fa-volume-high");
+            } else {
+                icon.removeClass("fa-volume-xmark").addClass("fa-volume-high");
+            }
+        });
     });
-});
 </script>
+
 @endpush

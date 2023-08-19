@@ -1,4 +1,4 @@
-@extends('backend.layouts.master', ['pageSlug' => 'cs_firms'])
+@extends('backend.layouts.master', ['pageSlug' => 'cs_firm'])
 
 @section('title', 'CS Firms')
 

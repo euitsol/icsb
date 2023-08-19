@@ -7,7 +7,7 @@
                 <div class="reg-field-wrapp">
                     <div class="content">
                         <div class="heading">
-                            <h3>Register as a Student</h3>
+                            <h3>Admit as a Student</h3>
                         </div>
                         <div class="button">
 
