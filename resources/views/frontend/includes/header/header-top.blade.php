@@ -2,8 +2,8 @@
     <div class="container">
         <div class="header-content-column flex">
             <div class="header-column text-center  flex ">
-                <a href="#">Member's Login</a>
-                <a href="#">Students Login</a>
+                <a href="https://icsberp.org/users/login.aspx">Member's Login</a>
+                <a href="https://icsberp.org/users/login.aspx">Students Login</a>
             </div>
             <div class="header-column text-center justify-content-center flex ">
                 <p>{{ date( 'l, M d, Y', strtotime(Carbon\Carbon::now()) ) }}</p>
