@@ -2,7 +2,7 @@ $(document).ready(function(){
     var owl = $('.cs-wide-slider');
         owl.owlCarousel({
             // items:6,
-            loop:false,
+            loop:true,
             margin:20,
             nav: true,
             dots: false,
@@ -73,7 +73,7 @@ owl.owlCarousel({
             margin:23,
             nav: false,
             dots: true,
-            autoplay:false,
+            autoplay:true,
             autoplayTimeout:3000,
             autoplayHoverPause:true,
             responsive:{
@@ -124,10 +124,15 @@ owl.owlCarousel({
     $(window).scroll(function(){
         if ($(window).scrollTop() >= 300) {
             $('.header-menu-section').addClass('fixed-header');
+            $('.banner-section .video-container').css('margin-top','112px');
+            $('.header-menu-section .stiky-logo').css('display','block');
+
             // $('nav div').addClass('visible-title');
         }
         else {
             $('.header-menu-section').removeClass('fixed-header');
+            $('.header-menu-section .stiky-logo').css('display','none');
+            $('.banner-section .video-container').css('margin-top','0');
             // $('nav div').removeClass('visible-title');
         }
     });
@@ -155,37 +160,37 @@ owl.owlCarousel({
     });
 
 
-    
+
 
     $(document).ready(function(){
 
-    $("section .menu-bar ul li").on('click', function(){
-            // Check if the clicked item already has the "active" class
-            if ($(this).hasClass("active")) {
-                // If it has the "active" class, remove it to hide the active state
-                $(this).removeClass("active");
-            } else {
-                // If it doesn't have the "active" class, proceed as before to remove the "active" class from other items and add it to the clicked item
-                $("section .menu-bar ul li").removeClass("active");
-                $(this).addClass("active");
-            }
-        });
+        // $("section .menu-bar ul li").on('click', function(){
+        //     // Check if the clicked item already has the "active" class
+        //     if ($(this).hasClass("active")) {
+        //         // If it has the "active" class, remove it to hide the active state
+        //         $(this).removeClass("active");
+        //     } else {
+        //         // If it doesn't have the "active" class, proceed as before to remove the "active" class from other items and add it to the clicked item
+        //         $("section .menu-bar ul li").removeClass("active");
+        //         $(this).addClass("active");
+        //     }
+        // });
 
 
-        $("section .menu-bar ul li ul li").on('click', function(){
-            // Check if the clicked item already has the "active" class
-            if ($(this).hasClass("activea")) {
-                // If it has the "active" class, remove it to hide the active state
-                $(this).removeClass("activea");
-            } else {
-                // If it doesn't have the "active" class, proceed as before to remove the "active" class from other items and add it to the clicked item
-                $("section .menu-bar ul li ul li").removeClass("activea");
-                $(this).addClass("activea");
-            }
-        });
- 
-        
-        
+        // $("section .menu-bar ul li ul li").on('click', function(){
+        //     // Check if the clicked item already has the "active" class
+        //     if ($(this).hasClass("activea")) {
+        //         // If it has the "active" class, remove it to hide the active state
+        //         $(this).removeClass("activea");
+        //     } else {
+        //         // If it doesn't have the "active" class, proceed as before to remove the "active" class from other items and add it to the clicked item
+        //         $("section .menu-bar ul li ul li").removeClass("activea");
+        //         $(this).addClass("activea");
+        //     }
+        // });
+
+
+
     //     $("section .menu-bar ul li ").on('click',function(){
     //         $("section .menu-bar ul li").removeClass("active");
     //         $(this).toggleClass("active");

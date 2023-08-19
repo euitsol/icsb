@@ -42,7 +42,7 @@
         width: 48.5%;
         align-items: center;
         display: flex;
-    }  
+    }
 }
 @media only screen and (max-width: 1300px){
     .top-header-section .header-column {
@@ -131,10 +131,10 @@
     }
     .fellow-member-section .fellow-row .fellow-items .image-column {
         width: 100%;
-    }   
+    }
     .fellow-member-section .fellow-row .fellow-items .content-column {
         width: 100%;
-    } 
+    }
     .fellow-member-section .fellow-row .fellow-items li {
         font-size: 15px;
         line-height: 21px;
@@ -156,14 +156,14 @@
 /*========================= Gallery Page ====================*/
     .gallery-section {
         padding: 70px 0 89px 0;
-    }    
+    }
     .gallery-section .gallery-button-section a {
         line-height: 48px;
         height: 50px;
         max-width: 230px;
     }
 
-/*========================= Gajet Page =====================*/   
+/*========================= Gajet Page =====================*/
     .gajet-section {
         padding: 90px 0;
     }
@@ -176,10 +176,10 @@
         font-size: 60px;
         line-height: 64px;
         padding-bottom: 15px;
-    }   
+    }
     .president-content-section .president-content-row .left-column .name-tittle {
         padding: 35px 20px 35px 20px;;
-    } 
+    }
     .president-content-section .president-content-row .left-column .name-tittle h3 {
         font-size: 24px;
         line-height: 30px;
@@ -217,7 +217,7 @@
         column-gap: 13px;
     }
 
-/*==================== Event & Blog Single Page =====================*/  
+/*==================== Event & Blog Single Page =====================*/
     #event-detiles-section .event-info-section .info-row ul {
         column-gap: 20px;
     }
@@ -426,7 +426,7 @@
         margin-top: 25px;
     }
     .header-menu-section .offcanvas-body form{
-        margin-top: 40px !important; 
+        margin-top: 40px !important;
         margin-bottom: 45px;
     }
     .header-menu-section .offcanvas-body form input{
@@ -489,6 +489,9 @@
         color: #111;
         font-size: 19px;
         line-height: 25px;
+        width: 100%;
+        border-bottom: 1px solid #18245640;
+        padding-bottom: 4px;
     }
     .header-menu-section .offcanvas-body nav ul li > ul {
         display: none;
@@ -562,7 +565,7 @@
     }
     .form-section .form-content {
         flex-wrap: wrap;
-    }   
+    }
 
 /*======================== CPD Program Page =========================*/
     .cpd-section {
@@ -573,21 +576,21 @@
     }
     .cpd-section .cpd-row .cpd-items {
         width: 49%;
-    }    
+    }
     .cpd-section .cpd-row .cpd-items .cpd-content h2 {
         font-size: 18px;
         line-height: 25px;
         margin-bottom: 10px;
     }
 
-/*=========================== Code of Conduct Page =======================*/ 
+/*=========================== Code of Conduct Page =======================*/
     .codeof-conduct-section {
         padding: 80px 0;
-    }   
+    }
     .codeof-conduct-section .codeof-conduct-row .image-column {
         width: 100%;
         margin-bottom: 35px;
-    }    
+    }
     .codeof-conduct-section .codeof-conduct-row .content-column {
         width: 100%;
     }
@@ -609,14 +612,14 @@
     }
     .handbook-section .handbook-column .old-handbook {
         width: 100%;
-    }    
+    }
     .handbook-section {
         padding: 80px 0 44px 0;
     }
     .handbook-section .handbook-column p {
         margin-bottom: 25px;
         max-width: 100%;
-    }  
+    }
 
     .our-events-section {
         padding: 64px 0;
@@ -625,14 +628,14 @@
 /*=================== Founding Members Page ===========================*/
     .founding-member-section{
         padding: 63px 0;
-    }    
+    }
 
     .global-page-section {
         padding: 80px 0;
     }
     .global-page-section .global-row{
         flex-direction: column-reverse;
-    }   
+    }
     .global-page-section .global-row .left-column {
         width: 100%;
         margin-top: 45px;
@@ -797,13 +800,13 @@
     }
     .gallery-section .gallery-content {
         column-gap: 3%;
-    }  
+    }
     .gallery-section .gallery-items {
         width: 48.5%;
     }
     .gallery-section .gallery-items a{
         display: block;
-    }    
+    }
     .gallery-section .gallery-button-section a {
         line-height: 49px;
         height: 50px;
@@ -812,7 +815,7 @@
 /*========================== Gajet Page ========================*/
     .gajet-section {
         padding: 80px 0;
-    }    
+    }
 /*======================= President Page ============================*/
     .president-content-section .president-content-row {
         padding: 78px 0 60px 0;
@@ -824,12 +827,12 @@
         width: 100%;
         padding-left: 0;
         margin-top: 40px;
-    }    
+    }
     .president-content-section .president-content-row .right-column h2 {
         font-size: 50px;
         line-height: 56px;
         padding-bottom: 15px;
-    } 
+    }
     .president-content-section .president-content-row .left-column .social-media {
         padding: 18px 0;
     }
@@ -848,7 +851,7 @@
         font-size: 21px;
         line-height: 25px;
     }
-/*==================== Event & Blog Single Page =====================*/  
+/*==================== Event & Blog Single Page =====================*/
     #event-detiles-section {
         padding: 80px 0;
     }
@@ -861,7 +864,7 @@
     .jobsingle-content-section .content-row .summary-column {
         width: 100%;
         margin-top: 40px;
-    }  
+    }
 /*============================= Objective Page ===========================*/
     .objectives-section {
         padding: 80px 0;
@@ -871,18 +874,18 @@
     }
     .objectives-section .objective-row .left-column {
         width: 100%;
-    }    
+    }
     .objectives-section .objective-row .left-column iframe{
         width: 100%;
     }
     .objectives-section .objective-row .right-column {
         width: 100%;
         margin-top: 35px;
-    }   
+    }
     .objectives-section .objective-row .right-column h2 {
         margin-bottom: 20px;
-    } 
-/*====================== Mission & Vision Page =======================*/     
+    }
+/*====================== Mission & Vision Page =======================*/
     .mision-vision-section {
         padding: 63px 0;
     }
@@ -892,7 +895,7 @@
     .vision-mission-section .mission-row {
         max-width: 100%;
         flex-direction: column-reverse;
-    } 
+    }
     .mision-vision-section .mission-row .content-column, .vision-mission-section .mission-row .content-column {
         left: 0;
         padding: 45px 25px;
@@ -903,7 +906,7 @@
     .mision-vision-section .mission-row .content-column h2, .vision-mission-section .mission-row .content-column h2 {
         margin-bottom: 15px;
     }
-    .mision-vision-section .content-column, .mision-vision-section .image-column, 
+    .mision-vision-section .content-column, .mision-vision-section .image-column,
     .vision-mission-section .mission-row .content-column, .vision-mission-section .mission-row .image-column{
         width: 100%;
     }
@@ -935,7 +938,7 @@
         font-size: 17px;
         line-height: 25px;
         margin-bottom: 18px;
-    }    
+    }
 
     .job-detailes-section {
         padding: 80px 0 30px 0;
@@ -947,14 +950,14 @@
         padding: 0;
         margin: 0;
     }
-/*======================= World Wide CS =======================*/   
+/*======================= World Wide CS =======================*/
     .world-wide-section {
         padding: 80px 0;
     }
     .world-wide-section .world-wide-column {
         column-gap: 3%;
         row-gap: 25px;
-    } 
+    }
     .world-wide-section .world-wide-column .cs-items {
         width: 48.5%;
     }
@@ -981,7 +984,7 @@
         align-content: center;
         row-gap: 20px;
       }
-      .level-3 {  
+      .level-3 {
         flex-direction: column;
         align-content: center;
         row-gap: 20px;
@@ -1021,7 +1024,7 @@
         height: 52px;
         top: -26px;
       }
-    
+
       .level-1 .box:after{
         content: "";
         position: absolute;
@@ -1125,14 +1128,8 @@
         margin-top: 80px;
         column-gap: 5%;
     }
-    .bss-section .bss-row .bss-right-column > a {
-        width: 47.5%;
-    }
-    .bss-section .bss-row .bss-right-column .bss-item .bss-icon{
-        width: 60px;
-        height: 60px;
-    }
     .bss-section .bss-row .bss-right-column .bss-item {
+        width: 47.5%;
         background: #fff;
         position: relative;
         border-radius: 27px;
@@ -1278,7 +1275,7 @@
     }
     .cpd-section .cpd-row .cpd-items {
         width: 100%;
-    }    
+    }
 /*====================== President Page ======================*/
     .president-content-section .president-content-row {
         padding: 63px 0 45px 0;
@@ -1322,7 +1319,7 @@
         font-size: 16px;
         line-height: 22px;
     }
-/*======================== Gallery Page ================*/  
+/*======================== Gallery Page ================*/
     .gallery-section {
         padding: 43px 0 63px 0;
     }
@@ -1381,10 +1378,10 @@
         /* margin-top: 33px; */
     }
 
-/*============================ Event & Blog Single Page =======================*/  
+/*============================ Event & Blog Single Page =======================*/
     #event-detiles-section {
         padding: 64px 0;
-    }  
+    }
     .event-info-section {
         padding: 25px;
     }
@@ -1396,7 +1393,7 @@
     #event-detiles-section .content-row .summary-column .job-summery {
         padding: 25px 20px;
     }
-/*=========================== Breascrumb Section ====================*/    
+/*=========================== Breascrumb Section ====================*/
     .breadcrumbs-heading {
         font-size: 30px;
         line-height: 37px;
@@ -1423,7 +1420,7 @@
     .breadcrumbs-section .breadcrumbs-row .left-column::after {
         right: -573px;
     }
-/*============================== Event Page ========================*/    
+/*============================== Event Page ========================*/
     .our-events-section {
         padding: 60px 0;
     }
@@ -1492,7 +1489,7 @@
     .objectives-section .objective-row .left-column iframe{
         width: 100%;
     }
-/*================================ Mission & Vision Page ===============================*/   
+/*================================ Mission & Vision Page ===============================*/
     .mision-vision-section {
         padding: 63px 0;
     }
@@ -1502,7 +1499,7 @@
     .vision-mission-section .mission-row {
         max-width: 100%;
         flex-direction: column-reverse;
-    } 
+    }
     .mision-vision-section .mission-row .content-column, .vision-mission-section .mission-row .content-column {
         left: 0;
         padding: 45px 25px;
@@ -1513,17 +1510,17 @@
     .mision-vision-section .mission-row .content-column h2, .vision-mission-section .mission-row .content-column h2 {
         margin-bottom: 15px;
     }
-    .mision-vision-section .content-column, .mision-vision-section .image-column, 
+    .mision-vision-section .content-column, .mision-vision-section .image-column,
     .vision-mission-section .mission-row .content-column, .vision-mission-section .mission-row .image-column{
         width: 100%;
     }
-/*================================= Executive Member Page =============================*/   
+/*================================= Executive Member Page =============================*/
     .executive-committee-section {
         padding: 63px 0;
     }
     .executive-committee-section .committee-row {
         column-gap: 2%;
-    } 
+    }
     .executive-committee-section .committee-row .committee-items {
         width: 49%;
         justify-content: center;
@@ -1591,7 +1588,7 @@
     }
     .world-wide-section .world-wide-column .cs-items {
         width: 100%;
-    }    
+    }
     .world-wide-section .world-wide-column .cs-items h3 {
         font-size: 20px;
         line-height: 26px;
@@ -1599,7 +1596,7 @@
 /*=================== Global Table CSS ========================*/
     .global-page-section {
         padding: 63px 0;
-    } 
+    }
     .global-page-section .global-row .left-column h2 {
         font-size: 30px;
         line-height: 36px;
@@ -1649,7 +1646,7 @@
         max-width: 100%;
     }
 
-/*======================== Fellow Member Page ===========================*/    
+/*======================== Fellow Member Page ===========================*/
     .fellow-row .fellow-items .image-column {
         width: 100%;
     }
@@ -1694,12 +1691,12 @@
         font-size: 18px;
         line-height: 25px;
         margin-bottom: 10px;
-    }    
+    }
 
 /*======================== gallery Page =========================*/
     .gallery-section .gallery-items {
         width: 100%;
-    }    
+    }
 
 /*====================== Gajet Page Style ======================*/
     .gajet-section {
