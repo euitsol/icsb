@@ -130,6 +130,6 @@
 @endsection
 
 @push('js_link')
-<script src="{{ asset('backend/js/media_room.js') }}"></script>
+    <script src="{{asset('backend/js/multi_file_and_slug.js')}}"></script>
 @endpush
 

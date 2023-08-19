@@ -26,9 +26,10 @@
                                         @php
                                             $check = App\Models\MemberType::where('order_key',$x)->first();
                                         @endphp
-                                        <option value="" selected hidden>{{ _('Select Type Order') }}</option>
-                                        @if(!$check)
-                                            <option value="{{$x}}"{{($type->order_key == $x) ? 'selected' :''}}>{{ $x }}</option>
+                                        @if($type->order_key == $x)
+                                            <option value="{{$x}}" selected>{{ $x }}</option>
+                                        @elseif(!$check)
+                                            <option value="{{$x}}">{{ $x }}</option>
                                         @endif
                                     @endfor
                                 </select>
