@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\RedirectResponse;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class DefaultController extends Controller
 {
@@ -14,7 +15,7 @@ class DefaultController extends Controller
     public function __construct() {
         return $this->middleware('auth');
     }
-    public function download($fileName): RedirectResponse
+    public function download($fileName): BinaryFileResponse
     {
         $fileName = base64_decode($fileName);
         $folderName = strstr($fileName, '/', true);

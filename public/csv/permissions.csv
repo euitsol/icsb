@@ -33,10 +33,6 @@ national_award_list,web
 national_award_create,web
 national_award_edit,web
 national_award_delete,web
-blog_list,web
-blog_create,web
-blog_edit,web
-blog_delete,web
 banner_list,web
 banner_create,web
 banner_edit,web
@@ -49,10 +45,6 @@ member_type_create,web
 member_type_edit,web
 member_type_delete,web
 icsb_profile_create,web
-blog_cat_list,web
-blog_cat_create,web
-blog_cat_edit,web
-blog_cat_delete,web
 committee_list,web
 committee_create,web
 committee_edit,web
@@ -67,3 +59,14 @@ committee_member_list,web
 committee_member_create,web
 committee_member_edit,web
 committee_member_delete,web
+president_list,web
+president_create,web
+president_edit,web
+president_delete,web
+media_room_list,web
+media_room_create,web
+media_room_edit,web
+media_room_delete,web
+media_room_cat_create,web
+media_room_cat_edit,web
+media_room_cat_delete,web

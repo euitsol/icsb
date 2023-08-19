@@ -11,7 +11,7 @@ use App\Models\SiteSetting;
 //This will retun the route prefix of the routes for permission check
 function get_permission_routes()
 {
-  return ['about.faq.','service.','contact.','national_connection.','wwcs.','event.','national_award.', 'blog.', 'settings.','banner.', 'member.','icsb_profile.','committee.'];
+  return ['about.faq.','service.','contact.','national_connection.','wwcs.','event.','national_award.', 'blog.', 'settings.','banner.', 'member.','icsb_profile.','committee.','president.','um.permission.','um.role.'];
 }
 
 //This will check the permission of the given route name. Can be used for buttons
@@ -138,6 +138,18 @@ function formatDateTimeRange($start_time, $end_time)
         return $start->format($dateFormat." ".$timeFormat) . ' - ' . $end->format($dateFormat." ".$timeFormat);
     }
 }
+function formatYearRange($start_time, $end_time)
+{
+    $dateFormat = env('DATE_FORMAT', 'Y');
+    $start = Carbon::parse($start_time);
+    if($end_time != null){
+        $end = Carbon::parse($end_time);
+        return $start->format($dateFormat). ' - ' . $end->format($dateFormat);
+    }else{
+        return $start->format($dateFormat)." - Running";
+    }
+
+}
 
 function settings($key){
     $setting = SiteSetting::where('key',$key)->where('deleted_at', null)->first();
@@ -172,4 +184,20 @@ function getMemberImage($object){
         return asset('no_img/no_img.jpg');
     }
 
+}
+
+
+function file_name_from_url($url = null){
+    if($url){
+        $fileNameWithExtension = basename($url);
+        return $fileNameWithExtension;
+    }
+}
+
+
+function file_title_from_url($url = null){
+    if($url){
+        $fileTitle = pathinfo($url, PATHINFO_FILENAME);
+        return $fileTitle;
+    }
 }
