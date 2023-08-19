@@ -187,12 +187,10 @@
                     <li class="drop-down">
                         <a href="#">Rules <i class="fa-solid fa-angle-down"></i></a>
                         <ul class="">
-                            <li><a href="#">Chartered Secretaries Act, 2010</a></li>
-                            <li><a href="#">Chartered Secretaries Regulations, 2011</a></li>
-                            <li><a href="{{ route('sp.frontend','cs-practicing-guideline') }}">CS Practicing Guideline</a></li>
-                            <li><a href="#">Companies Act 1994</a></li>
-                            <li><a href="#">Income Tax Act 2023</a></li>
-                            <li class="drop-down"><a href="#">Secretarial Standards <i class="fa-solid fa-angle-down"></i></a>
+                            @foreach ($menu_acts as $act)
+                                <li><a href="{{route('rules_view.act.view',$act->slug)}}">{{$act->title}}</a></li>
+                            @endforeach
+                            <li class="drop-down"><a href="javascript:void(0)">Secretarial Standards <i class="fa-solid fa-angle-down"></i></a>
                                 @if(count($bsss))
                                     <ul class="sub-menu">
                                         @foreach ($bsss as $bss)

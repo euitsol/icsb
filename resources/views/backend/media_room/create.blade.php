@@ -102,22 +102,5 @@
 @endsection
 
 @push('js_link')
-    <script src="{{ asset('backend/js/media_room.js') }}"></script>
-    <script>
-        function generateSlug(str) {
-            return str
-                .toLowerCase()
-                .replace(/\s+/g, "-")
-                .replace(/[^\w-]+/g, "")
-                .replace(/--+/g, "-")
-                .replace(/^-+|-+$/g, "");
-        }
-    $(document).ready(function () {
-        $("#title").on("keyup mouseleave blur focusout ", function () {
-            const titleValue = $(this).val().trim();
-            const slugValue = generateSlug(titleValue);
-            $("#slug").val(slugValue);
-        });
-    });
-    </script>
+    <script src="{{asset('backend/js/multi_file_and_slug.js')}}"></script>
 @endpush

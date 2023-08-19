@@ -34,9 +34,10 @@
                                     @php
                                         $check = App\Models\WWCS::where('order_key',$x)->first();
                                     @endphp
-                                    <option value="" selected hidden>{{ _('Select WWCS Order') }}</option>
-                                    @if(!$check)
-                                        <option value="{{$x}}"{{($wwcs->order_key == $x) ? 'selected' :''}}>{{ $x }}</option>
+                                    @if($wwcs->order_key == $x)
+                                        <option value="{{$x}}" selected>{{ $x }}</option>
+                                    @elseif(!$check)
+                                        <option value="{{$x}}">{{ $x }}</option>
                                     @endif
                                 @endfor
                             </select>

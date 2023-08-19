@@ -24,11 +24,12 @@
                                 <select class="form-control {{ $errors->has('order_key') ? ' is-invalid' : '' }}" name="order_key">
                                     @for ($x=1; $x<=100; $x++)
                                         @php
-                                            $check = App\Models\Faq::where('order_key',$x)->first();
+                                            $check = App\Models\Faq::where('order_key',$x)->where('order_key',$x)->first();
                                         @endphp
-                                        <option value="" selected hidden>{{ _('Select FAQ Order') }}</option>
-                                        @if(!$check)
-                                            <option value="{{$x}}"{{($faq->order_key == $x) ? 'selected' :''}}>{{ $x }}</option>
+                                        @if($faq->order_key == $x)
+                                            <option value="{{$x}}" selected>{{ $x }}</option>
+                                        @elseif(!$check)
+                                            <option value="{{$x}}">{{ $x }}</option>
                                         @endif
                                     @endfor
                                 </select>

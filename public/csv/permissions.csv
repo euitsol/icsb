@@ -89,3 +89,7 @@ recent_video_list,web
 recent_video_create,web
 recent_video_edit,web
 recent_video_delete,web
+acts_create,web
+acts_edit,web
+acts_list,web
+acts_delete,web

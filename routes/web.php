@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AjaxController;
+use App\Http\Controllers\Backend\ActsController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
@@ -134,6 +135,17 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::get('featured/{id}',      [SecretarialStandardsController::class, 'featured'])->name('featured.bss_edit');
         Route::get('delete/{id}', [SecretarialStandardsController::class, 'delete'])->name('bss_delete');
     });
+    // Acts
+    Route::group(['as' => 'acts.', 'prefix' => 'acts'], function () {
+        Route::get('index', [ActsController::class, 'index'])->name('acts_list');
+        Route::get('create', [ActsController::class, 'create'])->name('acts_create');
+        Route::post('create', [ActsController::class, 'store'])->name('acts_create');
+        Route::get('edit/{id}', [ActsController::class, 'edit'])->name('acts_edit');
+        Route::get('single-file/delete/{id}/{key}',      [ActsController::class, 'singleFileDelete'])->name('single_file.delete.acts_edit');
+        Route::put('edit/{id}', [ActsController::class, 'update'])->name('acts_edit');
+        Route::get('status/{id}', [ActsController::class, 'status'])->name('status.acts_edit');
+        Route::get('delete/{id}', [ActsController::class, 'delete'])->name('acts_delete');
+    });
     // Contact Us Routes
     Route::group(['as' => 'contact.', 'prefix' => 'contact'], function () {
         Route::get('index', [ContactController::class, 'index'])->name('contact_create');
@@ -184,7 +196,7 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::get('featured/{id}',      [NationalAwardController::class, 'featured'])->name('featured.national_award_edit');
         Route::get('delete/{id}', [NationalAwardController::class, 'delete'])->name('national_award_delete');
     });
-    // Blog Routes
+    // Media Room Routes
     Route::group(['as' => 'media_room.', 'prefix' => 'media_room'], function () {
         Route::get('index', [MediaRoomController::class, 'index'])->name('media_room_list');
         Route::get('create', [MediaRoomController::class, 'create'])->name('media_room_create');
@@ -197,7 +209,7 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::get('featured/{id}',      [MediaRoomController::class, 'featured'])->name('featured.media_room_edit');
         Route::get('delete/{id}', [MediaRoomController::class, 'delete'])->name('media_room_delete');
 
-        // Blog Category
+        // Media Room Category
         Route::get('category/create', [MediaRoomController::class, 'cat_create'])->name('media_room_cat_create');
         Route::post('category/create', [MediaRoomController::class, 'cat_store'])->name('media_room_cat_create');
         Route::get('category/edit/{id}', [MediaRoomController::class, 'cat_edit'])->name('media_room_cat_edit');
@@ -337,6 +349,7 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::get('delete/{id}', [RecentVideoController::class, 'delete'])->name('recent_video_delete');
     });
 
+
 });
 
 
@@ -401,6 +414,7 @@ Route::group(['as' => 'media_room_view.', 'prefix' => 'media-room'], function ()
 });
 Route::group(['as' => 'rules_view.', 'prefix' => 'rules'], function () {
     Route::get('/secretarial-standards/{slug}', [RulesPagesController::class, 'bss_view'])->name('bss.view');
+    Route::get('/{slug}', [RulesPagesController::class, 'view_act'])->name('act.view');
 });
 
 // Route::group(['as' => 'students.', 'prefix' => 'students'], function () {

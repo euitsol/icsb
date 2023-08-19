@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Act;
 use App\Models\MediaRoomCategory;
 use App\Models\CommitteeType;
 use Illuminate\Http\Request;
@@ -28,6 +29,7 @@ class MembersPagesController extends Controller
         $studentPortal = SinglePages::where('frontend_slug', 'student-portal')->first();
         $facultyEvaluationSystem = SinglePages::where('frontend_slug', 'faculty-evaluation-system')->first();
         $publicationOthers = SinglePages::where('frontend_slug', 'others')->first();
+        $menu_acts = Act::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
         view()->share([
             'contact' => $contact,
             'memberTypes' => $memberTypes,
@@ -38,10 +40,10 @@ class MembersPagesController extends Controller
             'studentPortal' => $studentPortal,
             'facultyEvaluationSystem' => $facultyEvaluationSystem,
             'publicationOthers' => $publicationOthers,
+            'menu_acts' => $menu_acts,
         ]);
         return $this->middleware('auth');
     }
-
     public function memberSearch($slug): View
     {
         $s['type'] = MemberType::with('members')->where('status', 1)->where('slug', $slug)->first();
