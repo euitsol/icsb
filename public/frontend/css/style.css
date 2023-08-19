@@ -664,11 +664,12 @@ h1,h2,h3,h4,h5,h6{
 	font-size: 18px;
 	line-height: 25px;
 	font-weight: 500;
-	color: #111111;
+	color: #182456;
+    font-weight: bold;
 }
 .news-ticker-section .ticker-desc .bx-wrapper li:hover,
 .news-ticker-section .ticker-desc .bx-wrapper li a:hover {
-    color: #182456;
+    color: #111111;
 }
 /* ================== End Ticker Section ==============*/
 .we-are-section .left-col{
