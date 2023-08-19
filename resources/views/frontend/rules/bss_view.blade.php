@@ -21,9 +21,8 @@ $datas = [
     <section class="director-metting-section">
         <div class="container">
             <div class="director-row text-align">
-                {{-- <img src="{{asset('frontend/img/director/board-of-director.png')}}" alt="Board Of Director"> --}}
                 <div>
-                    <iframe src="{{ storage_url(json_decode($view_bss->file)->file_path) }}" width="100%" height="500px"></iframe>
+                    <iframe src="{{ storage_url(json_decode($view_bss->file)->file_path) }}" width="100%" height="700px"></iframe>
                 </div>
                 <div class="button">
                     @if(!empty(json_decode($view_bss->file)))

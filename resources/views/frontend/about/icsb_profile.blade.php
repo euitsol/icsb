@@ -20,25 +20,30 @@
                 ];
     @endphp
     @include('frontend.includes.breadcrumb',['datas'=>$datas])
-    <!-- =============================== Breadcrumb Section ======================================-->
+<!-- =============================== Breadcrumb Section ======================================-->
+
 <!----======================== About Us Section =======================---->
-@if(!empty(json_decode($single_page->saved_data)) && isset(json_decode($single_page->saved_data)->{'back-image'}) && isset(json_decode($single_page->saved_data)->{'front-image'}) && isset(json_decode($single_page->saved_data)->{'page-description'}))
 	<section class="about-us-section big-sec-height">
 		<div class="container">
 			<div class="about-us-row flex">
 				<div class="image-column">
-					    <img class="first-image" src="{{storage_url(json_decode($single_page->saved_data)->{'back-image'})}}" alt="{{$single_page->title}}">
+                    @if (isset(json_decode($single_page->saved_data)->{'back-image'}))
+                        <img class="first-image" src="{{storage_url(json_decode($single_page->saved_data)->{'back-image'})}}" alt="{{$single_page->title}}">
+                    @endif
 					<div class="box-image">
-						<img class="second-image" src="{{storage_url(json_decode($single_page->saved_data)->{'front-image'})}}" alt="{{$single_page->title}}">
+                        @if (isset(json_decode($single_page->saved_data)->{'front-image'}))
+						    <img class="second-image" src="{{storage_url(json_decode($single_page->saved_data)->{'front-image'})}}" alt="{{$single_page->title}}">
+                        @endif
 					</div>
 				</div>
 				<div class="content-column">
-                    {!! json_decode($single_page->saved_data)->{'page-description'} !!}
+                    @if (isset(json_decode($single_page->saved_data)->{'page-description'}))
+                        {!! json_decode($single_page->saved_data)->{'page-description'} !!}
+                    @endif
 				</div>
 			</div>
 		</div>
 	</section>
-    @endif
     {{-- @include('frontend.includes.endorsement')
     @include('frontend.includes.bss',['home_bsss'=>$home_bsss])
     @include('frontend.includes.world_wide_cs',['wwcss'=>$wwcss]) --}}

@@ -21,20 +21,22 @@ $datas = [
 @endphp
 @include('frontend.includes.breadcrumb',['datas'=>$datas])
 <!-- =============================== Breadcrumb Section ======================================-->
-@if(!empty(json_decode($single_page->saved_data)) && isset(json_decode($single_page->saved_data)->{'page-image'}) && isset(json_decode($single_page->saved_data)->{'page-description'}))
 <section class="mision-vision-section big-sec-height">
     <div class="container">
         <div class="mission-row flex">
             <div class="image-column">
-                <img src="{{storage_url(json_decode($single_page->saved_data)->{'page-image'})}}" alt="">
+                @if (isset(json_decode($single_page->saved_data)->{'page-image'}))
+                    <img src="{{storage_url(json_decode($single_page->saved_data)->{'page-image'})}}" alt="">
+                @endif
             </div>
             <div class="content-column color-white">
                 <h2>{{_('Our Vision')}}</h2>
-                {!! (json_decode($single_page->saved_data)->{'page-description'}) !!}
+                @if (isset(json_decode($single_page->saved_data)->{'page-description'}))
+                    {!! (json_decode($single_page->saved_data)->{'page-description'}) !!}
+                @endif
             </div>
         </div>
     </div>
 </section>
-@endif
 
 @endsection

@@ -22,18 +22,20 @@ $datas = [
 @include('frontend.includes.breadcrumb',['datas'=>$datas])
 <!-- =============================== Breadcrumb Section ======================================-->
 <!--============================= Exam Schedul Section ==================-->
-@if(!empty($single_page) && !empty(json_decode($single_page->saved_data)) && isset(json_decode($single_page->saved_data)->{'image'}) && isset(json_decode($single_page->saved_data)->{'details'}))
 <section class="handbook-section exam-section section-padding">
     <div class="container">
         <div class="handbook-column flex">
             <div class="new-handbook content-column exam-content-column">
-                {!! (json_decode($single_page->saved_data)->{'details'}) !!}
+                @if (isset(json_decode($single_page->saved_data)->{'page-description'}))
+                    {!! (json_decode($single_page->saved_data)->{'page-description'}) !!}
+                @endif
             </div>
             <div class="old-handbook text-align">
-                <img src="{{storage_url(json_decode($single_page->saved_data)->{'image'})}}" alt="{{$single_page->page_key}}">
+                @if (isset(json_decode($single_page->saved_data)->{'page-image'}))
+                    <img src="{{storage_url(json_decode($single_page->saved_data)->{'page-image'})}}" alt="{{$single_page->title}}">
+                @endif
             </div>
         </div>
     </div>
 </section>
-@endif
 @endsection
