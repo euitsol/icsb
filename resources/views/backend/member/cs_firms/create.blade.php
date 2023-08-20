@@ -27,7 +27,7 @@
                     <div class="card-body">
                         <div class="delete_div border p-4">
                             <div
-                                class="form-group {{ $errors->has('csf_member') ? ' has-danger' : '' }} {{ $errors->has('csf_member.*') ? ' has-danger' : '' }}">
+                                class="form-group {{ $errors->has('csf_member.1.member_id') ? ' has-danger' : '' }} {{ $errors->has('csf_member.1.ppcn') ? ' has-danger' : '' }}">
                                 <label>{{ _('CS Firm Member - 1') }}</label>
                                 <div class="input-group mb-3">
                                     <select name="csf_member[1][member_id]" class="form-control memberSelect"

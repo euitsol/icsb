@@ -9,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\View\View;
+use App\Http\Requests\CsFirmsRequest;
 
 class CsFirmsController extends Controller
 {
@@ -27,7 +28,7 @@ class CsFirmsController extends Controller
         $s['members'] = Member::where('deleted_at', null)->where('status',1)->latest()->get();
         return view('backend.member.cs_firms.create',$s);
     }
-    public function store(Request $request): RedirectResponse
+    public function store(CsFirmsRequest $request): RedirectResponse
     {
         $filteredInput = array_filter($request->csf_member, function ($entry) {
             return isset($entry['member_id']) && !is_null($entry['member_id']) &&
@@ -55,21 +56,16 @@ class CsFirmsController extends Controller
         $s['members'] = Member::where('deleted_at', null)->where('status',1)->latest()->get();
         return view('backend.member.cs_firms.edit',$s);
     }
-    public function update(Request $request, $id): RedirectResponse
+    public function update(CsFirmsRequest $request, $id): RedirectResponse
     {
 
 
 
-        $check = CsFirms::where('member_id',$request->csf_member['member_id'])->first();
         $cs_fm = CsFirms::findOrFail($id);
-        if($check){
-            return redirect()->route('cs_firm.cs_firm_list')->withStatus(__('CS Firm Member'.$check->member->name.' already exit can\'t update this.'));
-        }else{
-            $cs_fm->member_id = $request->csf_member['member_id'];
-            $cs_fm->private_practice_certificate_no = $request->csf_member['ppcn'];
-            $cs_fm->created_by = auth()->user()->id;
-            $cs_fm->save();
-        }
+        $cs_fm->member_id = $request->csf_member['member_id'];
+        $cs_fm->private_practice_certificate_no = $request->csf_member['ppcn'];
+        $cs_fm->created_by = auth()->user()->id;
+        $cs_fm->save();
 
 
         return redirect()->route('cs_firm.cs_firm_list')->withStatus(__('CS Firm Member'.$cs_fm->member->id.'created successfully.'));
