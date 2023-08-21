@@ -309,13 +309,6 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::get('status/{id}', [CouncilController::class, 'status'])->name('status.council_edit');
         Route::get('delete/{id}', [CouncilController::class, 'delete'])->name('council_delete');
 
-        // Route::get('committee-type/create', [CouncilController::class, 'ct_create'])->name('council_type_create');
-        // Route::post('committee-type/create', [CouncilController::class, 'ct_store'])->name('council_type_create');
-        // Route::get('committee-type/edit/{id}', [CouncilController::class, 'ct_edit'])->name('council_type_edit');
-        // Route::put('committee-type/edit/{id}', [CouncilController::class, 'ct_update'])->name('council_type_edit');
-        // Route::get('committee-type/status/{id}', [CouncilController::class, 'ct_status'])->name('status.council_type_edit');
-        // Route::get('committee-type/delete/{id}', [CouncilController::class, 'ct_delete'])->name('council_type_delete');
-
         Route::get('council-member-type/create', [CouncilController::class, 'cmt_create'])->name('cm_type_create');
         Route::post('council-member-type/create', [CouncilController::class, 'cmt_store'])->name('cm_type_create');
         Route::get('council-member-type/edit/{id}', [CouncilController::class, 'cmt_edit'])->name('cm_type_edit');

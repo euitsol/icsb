@@ -36,8 +36,9 @@ class CouncilController extends Controller
     public function store(CouncilRequest $request): RedirectResponse
     {
         $council = new Council();
-        $council->order_key = $request->order_key;
+        $council->order_key = 1;
         $council->title = $request->title;
+        $council->duration = json_encode($request->duration);
         $council->slug = $request->slug;
         $council->description = $request->description;
         $council->created_by = auth()->user()->id;
@@ -54,6 +55,7 @@ class CouncilController extends Controller
         $council = Council::findOrFail($id);
         $council->order_key = $request->order_key;
         $council->title = $request->title;
+        $council->duration = json_encode($request->duration);
         $council->slug = $request->slug;
         $council->description = $request->description;
         $council->updated_by = auth()->user()->id;

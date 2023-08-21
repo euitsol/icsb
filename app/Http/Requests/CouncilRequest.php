@@ -18,6 +18,8 @@ class CouncilRequest extends FormRequest
         return [
             'description' => 'nullable',
             'status' => 'nullable|boolean',
+            'duration.start_date' => 'required|date',
+            'duration.end_date' => 'required|date',
         ]
         +
         ($this->isMethod('POST') ? $this->store() : $this->update());
@@ -26,18 +28,18 @@ class CouncilRequest extends FormRequest
     protected function store(): array
     {
         return [
-            'title' => 'required|unique:committees,title,NULL,id,deleted_at,NULL',
-            'slug' => 'required|unique:committees,slug,NULL,id,deleted_at,NULL',
-            'order_key' => 'required|unique:committees,order_key,NULL,id,deleted_at,NULL',
+            'title' => 'required|unique:councils,title,NULL,id,deleted_at,NULL',
+            'slug' => 'required|unique:councils,slug,NULL,id,deleted_at,NULL',
+            'order_key' => 'required|unique:councils,order_key,NULL,id,deleted_at,NULL',
         ];
     }
 
     protected function update(): array
     {
         return [
-            'title' => 'required|unique:committees,title,' . $this->route('id') . ',id,deleted_at,NULL',
-            'slug' => 'required|unique:committees,slug,' . $this->route('id') . ',id,deleted_at,NULL',
-            'order_key' => 'required|unique:committees,order_key,' . $this->route('id') . ',id,deleted_at,NULL',
+            'title' => 'required|unique:councils,title,' . $this->route('id') . ',id,deleted_at,NULL',
+            'slug' => 'required|unique:councils,slug,' . $this->route('id') . ',id,deleted_at,NULL',
+            'order_key' => 'required|unique:councils,order_key,' . $this->route('id') . ',id,deleted_at,NULL',
         ];
     }
 }

@@ -1,6 +1,29 @@
 @extends('backend.layouts.master', ['pageSlug' => 'council'])
 
 @section('title', 'Edit Council')
+@push('css')
+
+<style>
+    .input-group-append .input-group-text {
+        border-left: none;
+        padding: 0 !important;
+        border: 0;
+        color: #ddd;
+        justify-content: center;
+    }
+    .input-group-append{
+        border-radius: 0 !important;
+        border-color: rgba(29, 37, 59, 0.5);
+    }
+    .input-group .form-control:not(:first-child):not(:last-child){
+        border-radius: 0 !important;
+    }
+    .form-control:focus+.input-group-append .input-group-text, .form-control:focus~.input-group-append .input-group-text{
+        border-color: transparent;
+    }
+</style>
+
+@endpush
 @section('content')
     <div class="row">
         <div class="col-md-8">
@@ -23,7 +46,7 @@
                                 <select class="form-control {{ $errors->has('order_key') ? ' is-invalid' : '' }}" name="order_key">
                                     @for ($x=1; $x<=100; $x++)
                                         @php
-                                            $check = App\Models\Council::where('order_key',$x)->where('order_key',$x)->first();
+                                            $check = App\Models\Council::where('order_key',$x)->first();
                                         @endphp
                                         @if($council->order_key == $x)
                                             <option value="{{$x}}" selected>{{ $x }}</option>
@@ -34,6 +57,20 @@
                                 </select>
                                 @include('alerts.feedback', ['field' => 'order_key'])
                             </div>
+                        </div>
+                        <div class="form-group row {{ $errors->has('duration.start_date') ? ' has-danger' : '' }} {{ $errors->has('duration.end_date') ? ' has-danger' : '' }}">
+                            <label class="col-md-12">{{_('Duration')}}</label>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <input type="date" class="form-control" name="duration[start_date]" value="{{ json_decode($council->duration)->start_date }}">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">{{ _('to') }}</div>
+                                    </div>
+                                    <input type="date" class="form-control" name="duration[end_date]" value="{{ json_decode($council->duration)->end_date }}">
+                                </div>
+                            </div>
+                            @include('alerts.feedback', ['field' => 'duration.start_date'])
+                            @include('alerts.feedback', ['field' => 'duration.end_date'])
                         </div>
                         <div class="form-group {{ $errors->has('slug') ? ' has-danger' : '' }}">
                             <label>{{ _('Slug') }}</label>

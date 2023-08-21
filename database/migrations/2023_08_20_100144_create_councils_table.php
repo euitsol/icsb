@@ -16,6 +16,7 @@ return new class extends Migration
             $table->bigInteger('order_key')->unique();
             $table->string('title')->unique();
             $table->string('slug')->unique();
+            $table->json('duration');
             $table->longText('description')->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();

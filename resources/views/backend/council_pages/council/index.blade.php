@@ -24,6 +24,7 @@
                                 <tr>
                                     <th>{{ _('Order') }}</th>
                                     <th>{{ _('Title') }}</th>
+                                    <th>{{ _('Duration') }}</th>
                                     <th>{{ _('Total Member') }}</th>
                                     <th>{{ _('Status') }}</th>
                                     <th>{{ _('Created at') }}</th>
@@ -36,6 +37,7 @@
                                     <tr>
                                         <td> {{ $council->order_key  }} </td>
                                         <td> {{ $council->title  }} </td>
+                                        <td> {{ date('Y', strtotime(json_decode($council->duration)->start_date)) . ' - ' . date('Y', strtotime(json_decode($council->duration)->start_date))}} </td>
                                         <td> {{ number_format($council->council_members->count()) }} </td>
                                         <td>
                                             @include('backend.partials.button', ['routeName' => 'council.status.council_edit','params' => [$council->id], 'className' => $council->getStatusClass(), 'label' => $council->getStatus() ])

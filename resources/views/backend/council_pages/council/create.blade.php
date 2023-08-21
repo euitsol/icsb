@@ -1,6 +1,28 @@
 @extends('backend.layouts.master', ['pageSlug' => 'council'])
 
 @section('title', 'Create Council')
+@push('css')
+<style>
+    .input-group-append .input-group-text {
+        border-left: none;
+        padding: 0 !important;
+        border: 0;
+        color: #ddd;
+        justify-content: center;
+    }
+    .input-group-append{
+        border-radius: 0 !important;
+        border-color: rgba(29, 37, 59, 0.5);
+    }
+    .input-group .form-control:not(:first-child):not(:last-child){
+        border-radius: 0 !important;
+    }
+    .form-control:focus+.input-group-append .input-group-text, .form-control:focus~.input-group-append .input-group-text{
+        border-color: transparent;
+    }
+</style>
+
+@endpush
 @section('content')
     <div class="row">
         <div class="col-md-8">
@@ -32,6 +54,20 @@
                                 </select>
                                 @include('alerts.feedback', ['field' => 'order_key'])
                             </div>
+                        </div>
+                        <div class="form-group row {{ $errors->has('duration.start_date') ? ' has-danger' : '' }} {{ $errors->has('duration.end_date') ? ' has-danger' : '' }}">
+                            <label class="col-md-12">{{_('Duration')}}</label>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <input type="date" class="form-control" name="duration[start_date]" value="{{ old('duration.start_date') }}">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">{{ _('to') }}</div>
+                                    </div>
+                                    <input type="date" class="form-control" name="duration[end_date]" value="{{ old('duration.end_date') }}">
+                                </div>
+                            </div>
+                            @include('alerts.feedback', ['field' => 'duration.start_date'])
+                            @include('alerts.feedback', ['field' => 'duration.end_date'])
                         </div>
                         <div class="form-group {{ $errors->has('slug') ? ' has-danger' : '' }}">
                             <label>{{ _('Slug') }}</label>
