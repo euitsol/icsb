@@ -139,9 +139,11 @@
             {{-- Council --}}
             <li>
                 <a class="@if(
+                        $pageSlug == 'council' ||
                         $pageSlug == 'president' ||
                         $pageSlug == 'committee'
                     )@else collapsed @endif" data-toggle="collapse" href="#council" @if (
+                        $pageSlug == 'council' ||
                         $pageSlug == 'president' ||
                         $pageSlug == 'committee'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
@@ -151,12 +153,14 @@
                 </a>
 
                 <div class="collapse @if (
+                    $pageSlug == 'council' ||
                     $pageSlug == 'president' ||
                     $pageSlug == 'committee'
                 ) show @endif" id="council">
                     <ul class="nav pl-4">
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
+                                ['pageSlug' => 'council', 'routeName' => 'council.council_list', 'label' => 'Council'],
                                 ['pageSlug' => 'committee', 'routeName' => 'committee.committee_list', 'label' => 'Committee'],
                                 ['pageSlug' => 'president', 'routeName' => 'president.president_list', 'label' => 'President'],
                             ]

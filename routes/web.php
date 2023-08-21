@@ -20,6 +20,7 @@ use App\Http\Controllers\Backend\ICSBProfileController;
 use App\Http\Controllers\Backend\MemberController;
 use App\Http\Controllers\Backend\SinglePagesController;
 use App\Http\Controllers\Backend\CommitteeController;
+use App\Http\Controllers\Backend\CouncilController;
 use App\Http\Controllers\Backend\CsFirmsController;
 use App\Http\Controllers\Backend\JobPlacementController;
 use App\Http\Controllers\Backend\MediaRoomController;
@@ -295,6 +296,40 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::put('committee-member/edit/{id}', [CommitteeController::class, 'cm_update'])->name('committee_member_edit');
         Route::get('committee-member/status/{id}', [CommitteeController::class, 'cm_status'])->name('status.committee_member_edit');
         Route::get('committee-member/delete/{id}', [CommitteeController::class, 'cm_delete'])->name('committee_member_delete');
+
+    });
+    // Council Routes
+    Route::group(['as' => 'council.', 'prefix' => 'council'], function () {
+        Route::get('index', [CouncilController::class, 'index'])->name('council_list');
+
+        Route::get('create', [CouncilController::class, 'create'])->name('council_create');
+        Route::post('create', [CouncilController::class, 'store'])->name('council_create');
+        Route::get('edit/{id}', [CouncilController::class, 'edit'])->name('council_edit');
+        Route::put('edit/{id}', [CouncilController::class, 'update'])->name('council_edit');
+        Route::get('status/{id}', [CouncilController::class, 'status'])->name('status.council_edit');
+        Route::get('delete/{id}', [CouncilController::class, 'delete'])->name('council_delete');
+
+        // Route::get('committee-type/create', [CouncilController::class, 'ct_create'])->name('council_type_create');
+        // Route::post('committee-type/create', [CouncilController::class, 'ct_store'])->name('council_type_create');
+        // Route::get('committee-type/edit/{id}', [CouncilController::class, 'ct_edit'])->name('council_type_edit');
+        // Route::put('committee-type/edit/{id}', [CouncilController::class, 'ct_update'])->name('council_type_edit');
+        // Route::get('committee-type/status/{id}', [CouncilController::class, 'ct_status'])->name('status.council_type_edit');
+        // Route::get('committee-type/delete/{id}', [CouncilController::class, 'ct_delete'])->name('council_type_delete');
+
+        Route::get('council-member-type/create', [CouncilController::class, 'cmt_create'])->name('cm_type_create');
+        Route::post('council-member-type/create', [CouncilController::class, 'cmt_store'])->name('cm_type_create');
+        Route::get('council-member-type/edit/{id}', [CouncilController::class, 'cmt_edit'])->name('cm_type_edit');
+        Route::put('council-member-type/edit/{id}', [CouncilController::class, 'cmt_update'])->name('cm_type_edit');
+        Route::get('council-member-type/status/{id}', [CouncilController::class, 'cmt_status'])->name('status.cm_type_edit');
+        Route::get('council-member-type/delete/{id}', [CouncilController::class, 'cmt_delete'])->name('cm_type_delete');
+
+        Route::get('council-member/index/{id}', [CouncilController::class, 'cm_index'])->name('council_member_list');
+        Route::get('council-member/create/{id}', [CouncilController::class, 'cm_create'])->name('council_member_create');
+        Route::post('council-member/create/{id}', [CouncilController::class, 'cm_store'])->name('council_member_create');
+        Route::get('council-member/edit/{id}', [CouncilController::class, 'cm_edit'])->name('council_member_edit');
+        Route::put('council-member/edit/{id}', [CouncilController::class, 'cm_update'])->name('council_member_edit');
+        Route::get('council-member/status/{id}', [CouncilController::class, 'cm_status'])->name('status.council_member_edit');
+        Route::get('council-member/delete/{id}', [CouncilController::class, 'cm_delete'])->name('council_member_delete');
 
     });
     // ICSB Profile

@@ -16,7 +16,8 @@ class CouncilMemberTypeRequest extends FormRequest
     public function rules(): array
     {
         return [
-
+            'description' => 'nullable',
+            'status' => 'nullable|boolean',
         ]
         +
         ($this->isMethod('POST') ? $this->store() : $this->update());
@@ -25,14 +26,18 @@ class CouncilMemberTypeRequest extends FormRequest
     protected function store(): array
     {
         return [
-
+            'title' => 'required|unique:council_member_types,title,NULL,id,deleted_at,NULL',
+            'slug' => 'required|unique:council_member_types,slug,NULL,id,deleted_at,NULL',
+            'order_key' => 'required|unique:council_member_types,order_key,NULL,id,deleted_at,NULL',
         ];
     }
 
     protected function update(): array
     {
         return [
-
+            'title' => 'required|unique:council_member_types,title,' . $this->route('id') . ',id,deleted_at,NULL',
+            'slug' => 'required|unique:council_member_types,slug,' . $this->route('id') . ',id,deleted_at,NULL',
+            'order_key' => 'required|unique:council_member_types,order_key,' . $this->route('id') . ',id,deleted_at,NULL',
         ];
     }
 }
