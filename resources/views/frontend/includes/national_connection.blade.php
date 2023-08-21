@@ -1,4 +1,4 @@
-<section class="national-connection-section small-sec-height d-flex align-items-center">
+<section class="national-connection-section small-sec-height">
     <div class="container">
         <div class="content">
             <div class="heading-element text-align">

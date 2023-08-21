@@ -15,6 +15,8 @@
 }
 .small-sec-height{
     height: 32rem;
+    display: flex;
+    align-items: center;
 }
 .both-sec-height{
     max-height: 50rem;

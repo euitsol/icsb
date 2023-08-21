@@ -1,5 +1,5 @@
 @if(count($recent_videos))
-<section class="recent-video-section big-sec-height d-flex align-items-center">
+<section class="recent-video-section big-sec-height">
 	<div class="container">
 		<div class="row">
 			<div class="section-heading text-align">

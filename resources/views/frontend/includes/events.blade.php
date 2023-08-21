@@ -1,7 +1,7 @@
 
 @if(count($events)>0)
 
-    <section class="events-section big-sec-height d-flex align-items-center">
+    <section class="events-section big-sec-height">
         <div class="container">
             <div class="events-row">
                 <div class="section-heading text-align">

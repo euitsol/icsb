@@ -1,5 +1,5 @@
 @if(count($media_rooms)>0)
-<section class="recent-update-section big-sec-height d-flex align-items-center">
+<section class="recent-update-section big-sec-height">
     <div class="container">
         <div class="recent-update-row">
             <div class="section-heading text-align">
