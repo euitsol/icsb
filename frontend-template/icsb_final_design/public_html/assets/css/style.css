@@ -3400,6 +3400,10 @@ td {
 	padding: 50px 40px;
 }
 
+/*=========================== Council Page Style ============================*/
+.council-section .column {
+	width: 14.2857%;
+}
 /*=========================== Library Page Style ============================*/
 .search-row {
 	max-width: 1225px;
