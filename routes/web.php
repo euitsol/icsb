@@ -22,6 +22,7 @@ use App\Http\Controllers\Backend\SinglePagesController;
 use App\Http\Controllers\Backend\CommitteeController;
 use App\Http\Controllers\Backend\CouncilController;
 use App\Http\Controllers\Backend\CsFirmsController;
+use App\Http\Controllers\Backend\ExamFaqController;
 use App\Http\Controllers\Backend\JobPlacementController;
 use App\Http\Controllers\Backend\MediaRoomController;
 use App\Http\Controllers\Backend\PresidentController;
@@ -376,6 +377,15 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::get('status/{id}', [RecentVideoController::class, 'status'])->name('status.recent_video_edit');
         Route::get('delete/{id}', [RecentVideoController::class, 'delete'])->name('recent_video_delete');
     });
+    // FAQ Routes
+    Route::group(['as' => 'exam_faq.', 'prefix' => 'exam-faqs'], function () {
+        Route::get('index', [ExamFaqController::class, 'index'])->name('exam_faq_list');
+        Route::get('create', [ExamFaqController::class, 'create'])->name('exam_faq_create');
+        Route::post('create', [ExamFaqController::class, 'store'])->name('exam_faq_create');
+        Route::get('edit/{id}',      [ExamFaqController::class, 'edit'])->name('exam_faq_edit');
+        Route::put('edit/{id}',      [ExamFaqController::class, 'update'])->name('exam_faq_edit');
+        Route::get('delete/{id}', [ExamFaqController::class, 'delete'])->name('exam_faq_delete');
+    });
 
 
 });
@@ -429,6 +439,7 @@ Route::group(['as' => 'employee_view.', 'prefix' => 'employee'], function () {
     // Route::get('/past-secretary-and-ceo/{slug}', [EmployeePagesController::class, 'singlePSC'])->name('single.psc');
 });
 Route::group(['as' => 'examination.', 'prefix' => 'examination'], function () {
+    Route::get('/exam-faq', [ExaminationPagesController::class, 'exam_faq'])->name('exam_faq');
     // Route::get('/exam-schedule', [ExaminationPagesController::class, 'examSchedule'])->name('exam_schedule');
 });
 Route::group(['as' => 'event_view.', 'prefix' => 'event'], function () {

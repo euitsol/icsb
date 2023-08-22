@@ -7,6 +7,7 @@ use App\Models\Act;
 use App\Models\MediaRoomCategory;
 use App\Models\CommitteeType;
 use App\Models\Contact;
+use App\Models\ExamFaq;
 use App\Models\MemberType;
 use App\Models\SecretarialStandard;
 use App\Models\SinglePages;
@@ -46,4 +47,9 @@ class ExaminationPagesController extends Controller
     // {
     //     return view('frontend.examination.exam_schedule');
     // }
+    public function exam_faq(): View
+    {
+        $s['faqs']= ExamFaq::where('deleted_at', null)->orderBy('order_key','ASC')->get();
+        return view('frontend.examination.exam_faq',$s);
+    }
 }
