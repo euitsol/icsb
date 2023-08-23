@@ -34,7 +34,12 @@
                                 <select name="cm[1][member_id]" class="form-control ">
                                     <option selected hidden>{{_('Select Council Member')}}</option>
                                     @foreach ($members as $member)
-                                        <option value="{{ $member->id }}" @if( old('cm[1][member_id]') == $member->id) selected @endif> {{ $member->name }}</option>
+                                        @php
+                                            $check = App\Models\CouncilMember::where('member_id',$member->id)->first();
+                                        @endphp
+                                        @if(!$check)
+                                            <option value="{{ $member->id }}" @if( old('cm[1][member_id]') == $member->id) selected @endif> {{ $member->name }}</option>
+                                        @endif
                                     @endforeach
                                 </select>
                                 <select name="cm[1][cmt_id]" class="form-control ">

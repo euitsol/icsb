@@ -17,7 +17,14 @@
                                 <label>{{ _('Member') }}</label>
                                 <select name="member_id" class="form-control {{ $errors->has('member_id') ? ' is-invalid' : '' }}">
                                     @foreach ($members as $member)
-                                        <option value="{{ $member->id }}" @if( $cm->member_id == $member->id) selected @endif> {{ $member->name }}</option>
+                                        @php
+                                            $check = App\Models\CouncilMember::where('member_id',$member->id)->first();
+                                        @endphp
+                                        @if($cm->member_id == $member->id)
+                                            <option value="{{$member->id}}" selected>{{ $member->name }}</option>
+                                        @elseif(!$check)
+                                            <option value="{{$member->id}}">{{ $member->name }}</option>
+                                        @endif
                                     @endforeach
                                 </select>
                                 @include('alerts.feedback', ['field' => 'member_id'])
