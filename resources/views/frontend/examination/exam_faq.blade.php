@@ -5,7 +5,7 @@
 @section('content')
 <!-- =============================== Breadcrumb Section ======================================-->
 @php
-$banner_image = asset('breadcumb_img/examination.jpg');
+$banner_image = asset('breadcumb_img/examination.png');
 $title = 'Exam FAQs';
 $datas = [
             'image'=>$banner_image,
