@@ -941,10 +941,11 @@ li {
 }
 
 .president-section .president-column .right-column {
-	width: 65%;
-	top: -100px;
-	position: relative;
-	text-align: justify;
+    width: 65%;
+    top: 50%;
+    position: relative;
+    text-align: justify;
+    transform: translateY(-50%);
 }
 
 .president-section .president-column .right-column h2 {
@@ -3864,7 +3865,7 @@ td {
 	font-size: 16px;
 	line-height: 26px;
 	font-weight: 600;
-	height: 60px;
+	min-height: 60px;
 	border-radius: 0;
 	outline: none;
 	font-family: 'Poppins', sans-serif;
@@ -3877,7 +3878,7 @@ td {
 	font-size: 16px;
 	line-height: 26px;
 	font-weight: 600;
-	height: 60px;
+	min-height: 60px;
 	border-radius: 0;
 	background: #D5DEFE;
 	outline: none;
