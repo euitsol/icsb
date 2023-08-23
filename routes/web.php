@@ -427,7 +427,7 @@ Route::group(['as' => 'about.', 'prefix' => 'about'], function () {
     Route::get('/world-wide-cs', [AboutPagesController::class, 'wwcs'])->name('wwcs');
 });
 Route::group(['as' => 'council_view.', 'prefix' => 'council'], function () {
-    Route::get('/{slug}', [CouncilPagesController::class, 'council_m'])->name('council.members');
+    Route::get('/members/{slug}', [CouncilPagesController::class, 'council_m'])->name('council.members');
     Route::get('/{slug}/members', [CouncilPagesController::class, 'committee'])->name('committee.members');
     Route::get('/president', [CouncilPagesController::class, 'president'])->name('president');
     Route::get('/president/message', [CouncilPagesController::class, 'presidentM'])->name('president.message');
