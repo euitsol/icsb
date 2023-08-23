@@ -3,7 +3,7 @@
     <div class="container">
         <div class="recent-update-row">
             <div class="section-heading text-align">
-                <h2>Most Recent Updates</h2>
+                <h2 class="title-shap">Most Recent Updates</h2>
             </div>
             <div class="logo-carousel">
                 <div class="recent-update-slider owl-carousel owl-theme">

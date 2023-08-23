@@ -9,6 +9,8 @@ use App\Models\Committee;
 use App\Models\CommitteeMember;
 use App\Models\CommitteeType;
 use App\Models\Contact;
+use App\Models\Council;
+use App\Models\CouncilMember;
 use App\Models\MemberType;
 use App\Models\President;
 use App\Models\SecretarialStandard;
@@ -31,6 +33,7 @@ class CouncilPagesController extends Controller
         $facultyEvaluationSystem = SinglePages::where('frontend_slug', 'faculty-evaluation-system')->first();
         $publicationOthers = SinglePages::where('frontend_slug', 'others')->first();
         $menu_acts = Act::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
+        $councils = Council::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
         view()->share([
             'contact' => $contact,
             'memberTypes' => $memberTypes,
@@ -42,6 +45,7 @@ class CouncilPagesController extends Controller
             'facultyEvaluationSystem' => $facultyEvaluationSystem,
             'publicationOthers' => $publicationOthers,
             'menu_acts' => $menu_acts,
+            'councils' => $councils,
         ]);
         return $this->middleware('auth');
     }
@@ -89,6 +93,17 @@ class CouncilPagesController extends Controller
                         ->where('deleted_at',null)
                         ->first();
         return view('frontend.council.president',$s);
+    }
+    public function council_m($slug): View
+    {
+        $s['council'] = Council::where('deleted_at', null)->where('status',1)->where('slug',$slug)->first();
+        $s['c_members'] = CouncilMember::with('member','council_member_type')
+                        ->where('council_id',$s['council']->id)
+                        ->where('status',1)
+                        ->where('deleted_at',null)
+                        ->orderBy('order_key','ASC')
+                        ->get();
+        return view('frontend.council.council',$s);
     }
 
 }

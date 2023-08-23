@@ -1,20 +1,34 @@
-<section class="national-award-section big-sec-height">
+<!----============================ National Award Section ==========================---->
+@if(count($national_awards))
+<section class="national-award-section z-index big-sec-height">
     <div class="container">
         <div class="award-row">
             <div class="section-heading text-align">
-                <h2>ICSB National Award</h2>
+                <h2 class="title-shap">{{_('ICSB National Award')}}</h2>
             </div>
-            <div class="award-column flex">
-                @forelse ($national_awards as $award)
-                    <div class="award-inner">
-                        <a href="{{ $award->file ? route('sp.file.download', base64_encode($award->file)) : route('sp.file.download', base64_encode($award->image)) }}"><img src="{{storage_url($award->image)}}" align="{{ $award->title }}"></a>
-                    </div>
-                @empty
-                <div class="award-inner">
-                    <a href=""><img src="{{ asset('no_img/no_img.jpg')}}" align="...."></a>
+
+            <div class="national-award-carousel">
+                <div class="national-award-slider owl-carousel owl-theme">
+                    @foreach ($national_awards as $award)
+                        <div class="item">
+
+
+                            <a
+                            class="demo col-12"
+                            href="{{ $award->file ? (route('sp.file.download', base64_encode($award->file))) : (storage_url($award->image)) }}"
+                            @if(empty($award->file)) data-lightbox="gallery" @else target="_blank" @endif
+                        >
+                            <img
+                                class="example-image"
+                                src="{{storage_url($award->image)}}"
+                                alt="{{ $award->title }}"
+                            />
+                        </a>
+                        </div>
+                    @endforeach
                 </div>
-                @endforelse
             </div>
         </div>
     </div>
 </section>
+@endif

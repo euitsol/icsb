@@ -9,6 +9,7 @@ use App\Models\CommitteeType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Contact;
+use App\Models\Council;
 use App\Models\MemberType;
 use App\Models\SecretarialStandard;
 use App\Models\SinglePages;
@@ -28,6 +29,7 @@ class ContactPagesController extends Controller
         $facultyEvaluationSystem = SinglePages::where('frontend_slug', 'faculty-evaluation-system')->first();
         $publicationOthers = SinglePages::where('frontend_slug', 'others')->first();
         $menu_acts = Act::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
+        $councils = Council::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
         view()->share([
             'contact' => $contact,
             'memberTypes' => $memberTypes,
@@ -39,6 +41,7 @@ class ContactPagesController extends Controller
             'facultyEvaluationSystem' => $facultyEvaluationSystem,
             'publicationOthers' => $publicationOthers,
             'menu_acts' => $menu_acts,
+            'councils' => $councils,
         ]);
         return $this->middleware('auth');
     }

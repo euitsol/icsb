@@ -101,14 +101,16 @@
                             <li><a href="{{ route('about.wwcs') }}">World Wide CS</a></li>
                             <li><a href="{{ route('sp.frontend','corporate-governance') }}">Corporate Governance</a></li>
                             <li><a href="{{ route('sp.frontend','cs-for-cg') }}">CS for CG</a></li>
-                            <li><a href="#">CSR Initiatives</a></li>
+                            <li><a href="{{ route('sp.frontend','csr-initiatives') }}">CSR Initiatives</a></li>
                             <li><a href="{{ route('about.faq') }}">FAQs</a></li>
                         </ul>
                     </li>
                     <li class="drop-down">
                         <a href="#">Council <i class="fa-solid fa-angle-down"></i></a>
                         <ul class="">
-                            <li><a href="#">The Council</a></li>
+                            @foreach ($councils as $council)
+                                <li><a href="{{route('council_view.council.members',$council->slug)}}">{{$council->title}}</a></li>
+                            @endforeach
                             <li><a href="{{route('council_view.president')}}">The President</a></li>
                             <li><a href="{{route('council_view.past_presidents')}}">Past Presidents</a></li>
                             @foreach ($committeeTypes as $type)
@@ -129,7 +131,7 @@
                         <ul class="">
                             <li><a href="{{ route('sp.frontend','who-are-css') }}">Who are CSs</a></li>
                             <li><a href="{{ route('sp.frontend','cs-membership') }}">CS Membership</a></li>
-                            <li><a href="#">Membership Benefits</a></li>
+                            <li><a href="{{ route('sp.frontend','membership-benefits') }}">Membership Benefits</a></li>
                             <li class="drop-down"><a href="#">Members’ Search <i class="fa-solid fa-angle-down"></i></a>
                                 @if(count($memberTypes))
                                     <ul class="sub-menu">
@@ -146,7 +148,7 @@
                             <li><a href="{{ route('sp.frontend','code-of-conducts') }}">Code of Conducts</a></li>
                             <li><a href="{{ route('sp.frontend','cpd-program') }}">CPD Program</a></li>
                             <li><a href="{{ route('sp.frontend','training-program') }}">Training Program</a></li>
-                            <li><a href="{{ route('sp.frontend','members-lounge') }}">Members’ Lounge</a></li>
+                            <li><a href="{{ route('member_view.members_lounge') }}">Members’ Lounge</a></li>
                             <li><a href="#">Members’ Notice Board</a></li>
                             <li><a href="{{ route('member_view.jps') }}">Job Placement</a></li>
                         </ul>
@@ -167,7 +169,7 @@
                                 <li><a target="_blank" href="{{ json_decode($studentPortal->saved_data)->{'portal-url'} }}">Students Portal</a></li>
                             @endif
                             <li><a href="#">Financial Assistance</a></li>
-                            <li><a href="{{ route('sp.frontend','icsb-library') }}">ICSB Library</a></li>
+                            <li><a href="{{ route('student_view.library') }}">ICSB Library</a></li>
                             <li><a href="#">Student Notice Board</a></li>
                             @if(isset($facultyEvaluationSystem->saved_data) && !empty(json_decode($facultyEvaluationSystem->saved_data)->{'url'}))
                                 <li><a target="_blank" href="{{ json_decode($facultyEvaluationSystem->saved_data)->{'url'} }}">Faculty Evaluation System</a></li>

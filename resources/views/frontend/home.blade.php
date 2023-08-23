@@ -37,7 +37,7 @@
             <div class="we-are-coulmn flex">
                 <div class="content-column text-right">
                     <div class="section-heading">
-                        <h2>{{_('Who We Are')}}</h2>
+                        <h2 class="title-shap">{{_('Who We Are')}}</h2>
                     </div>
                     <p>{{ stringLimit(html_entity_decode_table(json_decode($single_page->saved_data)->{'page-description'}),'800') }}</p>
                     <a href="{{route('sp.frontend',$single_page->frontend_slug)}}">{{_('Read More')}}</a>
@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <div class="right-column">
-                    <h2>{{_('Message of The President')}}</h2>
+                    <h2 class="title-shap">{{_('Message of The President')}}</h2>
                    <p> {{ stringLimit(html_entity_decode_table($president->message),'520') }}</p>
                     <a href="{{route('council_view.president.message')}}">{{_('Read More')}}</a>
                 </div>
@@ -80,7 +80,7 @@
     <div class="container">
         <div class="notice-row">
             <div class="section-heading text-align">
-                <h2>Notice Board</h2>
+                <h2 class="title-shap">Notice Board</h2>
             </div>
             <div class="notice-board-wrapper">
                 <div class="left-column notice-details-col">
