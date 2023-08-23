@@ -8,6 +8,7 @@ use App\Models\MediaRoom;
 use App\Models\MediaRoomCategory;
 use App\Models\CommitteeType;
 use App\Models\Contact;
+use App\Models\Council;
 use App\Models\Event;
 use App\Models\MemberType;
 use App\Models\NationalAward;
@@ -32,6 +33,7 @@ class FrontendSinglePagesController extends Controller
         $facultyEvaluationSystem = SinglePages::where('frontend_slug', 'faculty-evaluation-system')->first();
         $publicationOthers = SinglePages::where('frontend_slug', 'others')->first();
         $menu_acts = Act::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
+        $councils = Council::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
         view()->share([
             'contact' => $contact,
             'memberTypes' => $memberTypes,
@@ -43,6 +45,7 @@ class FrontendSinglePagesController extends Controller
             'facultyEvaluationSystem' => $facultyEvaluationSystem,
             'publicationOthers' => $publicationOthers,
             'menu_acts' => $menu_acts,
+            'councils' => $councils,
         ]);
         return $this->middleware('auth');
     }

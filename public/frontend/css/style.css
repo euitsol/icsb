@@ -3396,6 +3396,11 @@ td {
 .council-section .column {
 	width: 14.2857%;
 }
+.council-section .column img{
+    max-width: 100%;
+    height: 12rem;
+    object-fit: cover;
+}
 /*=========================== Library Page Style ============================*/
 .search-row {
 	max-width: 1225px;

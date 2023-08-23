@@ -108,7 +108,9 @@
                     <li class="drop-down">
                         <a href="#">Council <i class="fa-solid fa-angle-down"></i></a>
                         <ul class="">
-                            <li><a href="#">The Council</a></li>
+                            @foreach ($councils as $council)
+                                <li><a href="{{route('council_view.council.members',$council->slug)}}">{{$council->title}}</a></li>
+                            @endforeach
                             <li><a href="{{route('council_view.president')}}">The President</a></li>
                             <li><a href="{{route('council_view.past_presidents')}}">Past Presidents</a></li>
                             @foreach ($committeeTypes as $type)

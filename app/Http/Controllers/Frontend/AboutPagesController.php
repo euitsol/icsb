@@ -10,6 +10,7 @@ use App\Models\CommitteeType;
 use Illuminate\Http\Request;
 use App\Models\Faq;
 use App\Models\Contact;
+use App\Models\Council;
 use App\Models\Event;
 use Illuminate\View\View;
 use App\Models\MemberType;
@@ -32,6 +33,7 @@ class AboutPagesController extends Controller
         $facultyEvaluationSystem = SinglePages::where('frontend_slug', 'faculty-evaluation-system')->first();
         $publicationOthers = SinglePages::where('frontend_slug', 'others')->first();
         $menu_acts = Act::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
+        $councils = Council::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
         view()->share([
             'contact' => $contact,
             'memberTypes' => $memberTypes,
@@ -43,6 +45,7 @@ class AboutPagesController extends Controller
             'facultyEvaluationSystem' => $facultyEvaluationSystem,
             'publicationOthers' => $publicationOthers,
             'menu_acts' => $menu_acts,
+            'councils' => $councils,
         ]);
         return $this->middleware('auth');
     }

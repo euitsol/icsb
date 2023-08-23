@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Act;
 use App\Models\CommitteeType;
 use App\Models\Contact;
+use App\Models\Council;
 use App\Models\MediaRoomCategory;
 use App\Models\MemberType;
 use App\Models\SecretarialStandard;
@@ -28,6 +29,7 @@ class DefaultController extends Controller
         $facultyEvaluationSystem = SinglePages::where('frontend_slug', 'faculty-evaluation-system')->first();
         $publicationOthers = SinglePages::where('frontend_slug', 'others')->first();
         $menu_acts = Act::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
+        $councils = Council::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
         view()->share([
             'contact' => $contact,
             'memberTypes' => $memberTypes,
@@ -39,10 +41,10 @@ class DefaultController extends Controller
             'facultyEvaluationSystem' => $facultyEvaluationSystem,
             'publicationOthers' => $publicationOthers,
             'menu_acts' => $menu_acts,
+            'councils' => $councils,
         ]);
         return $this->middleware('auth');
     }
-
     public function view_download($fileName): BinaryFileResponse
     {
         $fileName = base64_decode($fileName);
