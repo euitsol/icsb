@@ -47,4 +47,10 @@ class StudentPagesController extends Controller
         $s['csHandBook'] = SinglePages::where('frontend_slug', 'cs-hand-book')->first();
         return view('frontend.student.cs_hand_book',$s);
     }
+    public function library(): View
+    {
+        return view('frontend.student.icsb_library');
+    }
 }
+
+

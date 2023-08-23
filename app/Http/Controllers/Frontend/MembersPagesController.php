@@ -63,4 +63,9 @@ class MembersPagesController extends Controller
         return view('frontend.members.cs_firms',$s);
 
     }
+    public function members_lounge(): View
+    {
+        return view('frontend.members.member_lounge');
+
+    }
 }

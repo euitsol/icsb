@@ -29,6 +29,7 @@
 	<!----------------------- Owal Carousel ------------------------>
 	<link rel="stylesheet" href="{{asset('frontend/css/owl.carousel.min.css')}}">
 	<link rel="stylesheet" href="{{asset('frontend/css/owl.theme.default.min.css')}}">
+    @stack('css_link')
 	<!----------------------- Style Sheet -------------------------->
     <link rel="icon" href="{{storage_url(settings('site_favicon'))}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/css/style.css')}}">
@@ -58,6 +59,7 @@
     <script src="{{asset('frontend/js/owl.carousel.min.js')}}"></script>
     <!-- BXSlider -->
     <script src="{{asset('frontend/js/jquery.bxslider.min.js')}}"></script>
+    @stack('js_link')
     <!-- Custom js -->
     <script src="{{asset('frontend/js/custom.js')}}"></script>
 

@@ -2,7 +2,7 @@
     <div class="container">
         <div class="content">
             <div class="heading-element text-align">
-                <h2 class="colo-black">National Connections</h2>
+                <h2 class="colo-black title-shap">{{_('National Connections')}}</h2>
             </div>
             <div class="logo-carousel">
                 <div class="nation-slider owl-carousel owl-theme">

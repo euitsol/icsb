@@ -463,9 +463,11 @@ Route::group(['as' => 'member_view.', 'prefix' => 'member'], function () {
     Route::get('/member-search/{slug}', [MembersPagesController::class, 'memberSearch'])->name('m_search');
     Route::get('/job-placements', [MembersPagesController::class, 'job_placement'])->name('jps');
     Route::get('/cs-firms', [MembersPagesController::class, 'cs_firm'])->name('cs_firm');
+    Route::get('/members-lounge', [MembersPagesController::class, 'members_lounge'])->name('members_lounge');
 });
 Route::group(['as' => 'student_view.', 'prefix' => 'student'], function () {
     Route::get('/cs-hand-book', [StudentPagesController::class, 'csHandBook'])->name('cs_hand_book');
+    Route::get('/icsb-library', [StudentPagesController::class, 'library'])->name('library');
 });
 // Route::group(['as' => 'rules_and_regulations.', 'prefix' => 'rulse-&-regulations'], function () {
 //     Route::get('/the-chartered-secretaries-act-2010', [RulesAndRegulationsPagesController::class, 'tcsa'])->name('tcsa');

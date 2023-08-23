@@ -2,7 +2,7 @@
     <div class="container">
         <div class="content">
             <div class="heading-element text-align">
-                <h2 class="colo-black">World Wide CS</h2>
+                <h2 class="colo-black title-shap">{{_('World Wide CS')}}</h2>
             </div>
             <div class="logo-carousel">
                 <div class="cs-wide-slider owl-carousel owl-theme">
