@@ -1309,7 +1309,7 @@ li {
 }
 
 .endorsement-section .endorsement-column {
-	width: 33.33%;
+	width: 25%;
 	/*	height: 360px;*/
 	display: flex;
 	flex-wrap: wrap;
@@ -1382,6 +1382,9 @@ li {
 
 .endorsement-section .endorsement-student-column {
 	background-color: rgba(24, 37, 86);
+}
+.endorsement-section .new {
+	background-color: rgba(24, 37, 86, 0.25) !important;
 }
 
 .endorsement-section .endorsement-member-column {
@@ -1779,7 +1782,6 @@ li {
 	height: 126px;
 	width: 126px;
 	border: 2px solid #7c8ccd;
-    overflow: hidden;
 }
 
 .national-connection-section .logo-carousel .owl-item img {
