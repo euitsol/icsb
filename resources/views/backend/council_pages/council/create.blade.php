@@ -36,7 +36,7 @@
                         <div class="row">
                             <div class="col-md-8 form-group {{ $errors->has('title') ? ' has-danger' : '' }}">
                                 <label>{{ _('Council Title') }}</label>
-                                <input type="text" name="title" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ _('Council Title') }}" value="{{ old('title') }}">
+                                <input type="text" name="title" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ _('Council Title') }}" value="{{ old('title') }}" id="title">
                                 @include('alerts.feedback', ['field' => 'title'])
                             </div>
                             <div class="col-md-4 form-group {{ $errors->has('order_key') ? ' has-danger' : '' }}">
