@@ -4217,19 +4217,22 @@ td {
 }
 
 .main-footer-section h2 {
-	font-size: 24px;
+	font-size: 40px;
 	line-height: 30px;
-	font-family: 'Poppins', sans-serif;
+
+	/* font-family: 'Poppins', sans-serif; */
 }
 
 .main-footer-section h2 a {
 	color: #fff;
+    font-family: 'Teko', sans-serif !important;
 }
 
 .main-footer-section ul {
 	margin: 0;
 	padding: 0;
 	margin-top: 13px;
+    text-align: center;
 }
 
 .main-footer-section ul li {
