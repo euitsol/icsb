@@ -476,6 +476,7 @@ li {
 	opacity: 0;
 	transition: .4s;
 	padding: 0;
+    z-index: 999999999;
 }
 
 .header-menu-section section .menu-bar ul>li:hover>ul {
@@ -4163,14 +4164,23 @@ td {
 	height: 400px;
 }
 
-#lightbox .lb-outerContainer {
+/* #lightbox .lb-outerContainer {
 	transform: translateY(50%);
+} */
+#lightbox .lb-outerContainer {
+    transform: translateY(7%) !important;
+    height: 70vh !important;
+}
+#lightbox .lb-outerContainer img {
+    width: 600px !important;
+    height: 70vh !important;
 }
 
-#lightbox .lb-outerContainer img {
+
+/* #lightbox .lb-outerContainer img {
 	width: 600px !important;
 	height: auto !important;
-}
+} */
 
 /*=================== Footer Section ====================*/
 .main-footer-section {

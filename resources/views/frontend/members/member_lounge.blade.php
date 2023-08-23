@@ -1,9 +1,9 @@
 @extends('frontend.master')
 
 @section('title', 'Member Lounge')
-@push('css_link')
+{{-- @push('css_link')
 <link rel="stylesheet" href="{{asset('frontend/css/lightbox.min.css')}}" />
-@endpush
+@endpush --}}
 
 @section('content')
 <!-- =============================== Breadcrumb Section ======================================-->
@@ -104,6 +104,6 @@ $datas = [
     </div>
 </section>
 @endsection
-@push('js_link')
+{{-- @push('js_link')
 <script src="{{asset('frontend/js/lightbox-plus-jquery.min.js')}}"></script>
-@endpush
+@endpush --}}

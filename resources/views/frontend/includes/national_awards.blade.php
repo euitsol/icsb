@@ -11,7 +11,19 @@
                 <div class="national-award-slider owl-carousel owl-theme">
                     @foreach ($national_awards as $award)
                         <div class="item">
-                            <a href="{{ $award->file ? route('sp.file.download', base64_encode($award->file)) : route('sp.file.download', base64_encode($award->image)) }}"><img src="{{storage_url($award->image)}}" align="{{ $award->title }}"></a>
+
+
+                            <a
+                            class="demo col-12"
+                            href="{{ $award->file ? (route('sp.file.download', base64_encode($award->file))) : (storage_url($award->image)) }}"
+                            @if(empty($award->file)) data-lightbox="gallery" @else target="_blank" @endif
+                        >
+                            <img
+                                class="example-image"
+                                src="{{storage_url($award->image)}}"
+                                alt="{{ $award->title }}"
+                            />
+                        </a>
                         </div>
                     @endforeach
                 </div>
