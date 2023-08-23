@@ -139,9 +139,11 @@
             {{-- Council --}}
             <li>
                 <a class="@if(
+                        $pageSlug == 'council' ||
                         $pageSlug == 'president' ||
                         $pageSlug == 'committee'
                     )@else collapsed @endif" data-toggle="collapse" href="#council" @if (
+                        $pageSlug == 'council' ||
                         $pageSlug == 'president' ||
                         $pageSlug == 'committee'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
@@ -151,12 +153,14 @@
                 </a>
 
                 <div class="collapse @if (
+                    $pageSlug == 'council' ||
                     $pageSlug == 'president' ||
                     $pageSlug == 'committee'
                 ) show @endif" id="council">
                     <ul class="nav pl-4">
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
+                                ['pageSlug' => 'council', 'routeName' => 'council.council_list', 'label' => 'Council'],
                                 ['pageSlug' => 'committee', 'routeName' => 'committee.committee_list', 'label' => 'Committee'],
                                 ['pageSlug' => 'president', 'routeName' => 'president.president_list', 'label' => 'President'],
                             ]
@@ -386,13 +390,13 @@
                         $pageSlug == 'exam-schedule' ||
                         $pageSlug == 'results' ||
                         $pageSlug == 'sample_question_papers' ||
-                        $pageSlug == 'exam_faqs'
+                        $pageSlug == 'exam_faq'
                     )@else collapsed @endif" data-toggle="collapse" href="#examination" @if (
                         $pageSlug == 'eligibility' ||
                         $pageSlug == 'exam-schedule' ||
                         $pageSlug == 'results' ||
                         $pageSlug == 'sample_question_papers' ||
-                        $pageSlug == 'exam_faqs'
+                        $pageSlug == 'exam_faq'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-solid fa-file-pen"></i>
                     <span class="nav-link-text" >{{ __('Eamination') }}</span>
@@ -404,7 +408,7 @@
                         $pageSlug == 'exam-schedule' ||
                         $pageSlug == 'results' ||
                         $pageSlug == 'sample_question_papers' ||
-                        $pageSlug == 'exam_faqs'
+                        $pageSlug == 'exam_faq'
 
 
                 ) show @endif" id="examination">
@@ -415,7 +419,7 @@
                                 ['pageSlug' => 'exam-schedule', 'routeName' => 'sp.show', 'params' => 'exam-schedule', 'label' => 'Exam Schedule'],
                                 ['pageSlug' => 'results', 'routeName' => '', 'label' => 'Results'],
                                 ['pageSlug' => 'sample_question_papers', 'routeName' => '', 'label' => 'Sample Question Papers'],
-                                ['pageSlug' => 'exam_faqs', 'routeName' => '', 'label' => 'Exam FAQs'],
+                                ['pageSlug' => 'exam_faq', 'routeName' => 'exam_faq.exam_faq_list', 'label' => 'Exam FAQs'],
                             ]
                         ])
                     </ul>

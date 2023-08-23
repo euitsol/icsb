@@ -28,7 +28,7 @@
 
 <!----============================ Who We are Section ==========================---->
 @if(!empty(json_decode($single_page->saved_data)) && isset(json_decode($single_page->saved_data)->{'front-image'}) && isset(json_decode($single_page->saved_data)->{'page-description'}))
-    <section class="we-are-section big-sec-height d-flex align-items-center">
+    <section class="we-are-section big-sec-height">
         <div class="left-col">
             <img src="{{asset('frontend/img/we-are/Image-3.png')}}" />
         </div>
@@ -76,7 +76,7 @@
 @include('frontend.includes.bss',['home_bsss'=>$home_bsss])
 
 <!----============================ Notices Section ==========================---->
-<section class="notice-section big-sec-height d-flex align-items-center">
+<section class="notice-section big-sec-height">
     <div class="container">
         <div class="notice-row">
             <div class="section-heading text-align">

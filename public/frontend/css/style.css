@@ -15,6 +15,8 @@
 }
 .small-sec-height{
     height: 32rem;
+    display: flex;
+    align-items: center;
 }
 .both-sec-height{
     max-height: 50rem;
@@ -1454,6 +1456,7 @@ h1,h2,h3,h4,h5,h6{
 	height: 126px;
     width: 126px;
     border: 2px solid #7c8ccd;
+    overflow: hidden;
 }
 .national-connection-section .logo-carousel .owl-item img{
 	width: 120px;
@@ -1462,7 +1465,7 @@ h1,h2,h3,h4,h5,h6{
 	margin-right: auto;
 	position: absolute;
 	top: 50%;
-	transform: translate(-50%, -50%);
+	transform: translate(-50%, -18%);
     object-fit: scale-down;
 }
 .national-connection-section .owl-carousel .owl-nav.disabled {

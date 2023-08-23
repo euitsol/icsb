@@ -1,4 +1,4 @@
-<section class="national-connection-section small-sec-height d-flex align-items-center">
+<section class="national-connection-section small-sec-height">
     <div class="container">
         <div class="content">
             <div class="heading-element text-align">
@@ -9,14 +9,14 @@
                     @forelse ($national_connections as $connection)
                     <div class="item">
                         <div class="logo-wrapp">
-                            <a href="{{$connection->url}}"><img src="{{ storage_url($connection->logo) }}"></a>
+                            <a class='fa-beat-fade' href="{{$connection->url}}"><img src="{{ storage_url($connection->logo) }}"></a>
                             <h3>{{$connection->title}}</h3>
                         </div>
                     </div>
                     @empty
                     <div class="item">
                         <div class="logo-wrapp">
-                            <a href=""><img src="{{ asset('no_img/no_img.jpg') }}"></a>
+                            <a class='fa-beat-fade' href=""><img src="{{ asset('no_img/no_img.jpg') }}"></a>
                             <h3>National Connection</h3>
                         </div>
                     </div>
