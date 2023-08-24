@@ -365,8 +365,10 @@
             {{-- Publications --}}
             <li>
                 <a class="@if(
+                        $pageSlug == 'the-chartered-secretary'||
                         $pageSlug == 'other'
                     )@else collapsed @endif" data-toggle="collapse" href="#publications" @if (
+                        $pageSlug == 'the-chartered-secretary'||
                         $pageSlug == 'other'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-regular fa-newspaper"></i>
@@ -375,6 +377,7 @@
                 </a>
 
                 <div class="collapse @if (
+                        $pageSlug == 'the-chartered-secretary'||
                         $pageSlug == 'other'
 
 
@@ -382,6 +385,7 @@
                     <ul class="nav pl-4">
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
+                                ['pageSlug' => 'the-chartered-secretary', 'routeName' => 'sp.show', 'params' => 'the-chartered-secretary', 'label' => 'The Chartered Secretary'],
                                 ['pageSlug' => 'others', 'routeName' => 'sp.show', 'params' => 'others', 'label' => 'Others'],
                             ]
                         ])

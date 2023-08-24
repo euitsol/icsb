@@ -49,7 +49,7 @@
                                     @endforeach
                                 </select>
                                 <select class="form-control " name="cm[1][order_key]">
-                                    <option value="" selected hidden>{{ _('Select Council Order') }}</option>
+                                    <option value="" selected hidden>{{ _('Select Council Member Order') }}</option>
                                     @for ($x=1; $x<=100; $x++)
                                         @php
                                             $check = App\Models\CouncilMember::where('order_key',$x)->first();
@@ -118,7 +118,7 @@ $(function() {
                             @endforeach
                         </select>
                         <select class="form-control " name="cm[${count}][order_key]">
-                            <option value="" selected hidden>{{ _('Select Council Order') }}</option>
+                            <option value="" selected hidden>{{ _('Select Council Member Order') }}</option>
                             @for ($x=1; $x<=100; $x++)
                                 @php
                                     $check = App\Models\CouncilMember::where('order_key',$x)->first();

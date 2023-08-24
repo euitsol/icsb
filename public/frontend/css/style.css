@@ -2544,6 +2544,20 @@ td {
 	top: -140px;
 
 }
+.the_cs > .new-handbook{
+    
+    width: 100% !important;
+}
+.new-handbook h3 {
+        color: #fff;
+        padding: 15px;
+        font-size: 25px;
+        line-height: 31px;
+        margin-bottom: 10px;
+        background: #182456;
+        outline: 3px solid #FF8601;
+        border: 2px solid #fff;
+}
 
 /*================================ CS Handbook Page CSS =========================*/
 .cs-handbook-section {

@@ -80,6 +80,9 @@ class FrontendSinglePagesController extends Controller
             case($s['single_page']->frontend_slug == 'help-desk'):
                 return view('frontend.employee.help_desk',$s);
                 break;
+            case($s['single_page']->frontend_slug == 'the-chartered-secretary'):
+                return view('frontend.publication.the_cs',$s);
+                break;
             default:
                 return view('frontend.global', $s);
         }

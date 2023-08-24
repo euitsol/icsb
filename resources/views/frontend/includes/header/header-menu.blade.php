@@ -207,7 +207,7 @@
                     <li class="drop-down">
                         <a href="#">Publications<i class="fa-solid fa-angle-down"></i></a>
                         <ul class="">
-                            <li><a href="#">The Chartered Secretary</a></li>
+                            <li><a href="{{ route('sp.frontend','the-chartered-secretary') }}">The Chartered Secretary</a></li>
                             <li><a href="#">ICSB National Award Souvenir</a></li>
                             <li><a href="#">Annual Reports</a></li>
                             @if(isset($publicationOthers->saved_data) && !empty(json_decode($publicationOthers->saved_data)->{'url'}))
