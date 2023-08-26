@@ -22,6 +22,7 @@
                         <table class="table tablesorter datatable">
                             <thead class=" text-primary">
                                 <tr>
+                                    <th>{{ _('Order') }}</th>
                                     <th>{{ _('Title') }}</th>
                                     <th>{{ _('Logo') }}</th>
                                     <th>{{ _('URL') }}</th>
@@ -34,6 +35,7 @@
                             <tbody>
                                 @foreach ($national_connections as $connection)
                                     <tr>
+                                        <td> {{ $connection->order_key }} </td>
                                         <td> {{ $connection->title }} </td>
                                         <td><img class="rounded" width="60"
                                             src="@if ($connection->logo) {{ storage_url($connection->logo) }} @else {{ asset('no_img/no_img.jpg') }} @endif"

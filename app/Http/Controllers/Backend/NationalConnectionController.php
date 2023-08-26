@@ -18,7 +18,7 @@ class NationalConnectionController extends Controller
     }
     public function index(): View
     {
-        $n['national_connections']= NationalConnection::where('deleted_at', null)->latest()->get();
+        $n['national_connections']= NationalConnection::where('deleted_at', null)->orderBy('order_key','ASC')->get();
         return view('backend.national_connection.index',$n);
     }
     public function create(): View
@@ -34,6 +34,7 @@ class NationalConnectionController extends Controller
             $nationalConnection->logo = $path;
         }
 
+        $nationalConnection->order_key = $request->order_key;
         $nationalConnection->title = $request->title;
         $nationalConnection->url = $request->url;
         $nationalConnection->created_by = auth()->user()->id;
@@ -56,6 +57,7 @@ class NationalConnectionController extends Controller
             $nationalConnection->logo = $path;
         }
 
+        $nationalConnection->order_key = $request->order_key;
         $nationalConnection->title = $request->title;
         $nationalConnection->url = $request->url;
         $nationalConnection->updated_by = auth()->user()->id;
