@@ -7,7 +7,7 @@
                 <div class="reg-field-wrapp">
                     <div class="content">
                         <div class="heading">
-                            <h3>Admit as a <br> Student</h3>
+                            <h3>Admit as <br> Student</h3>
                         </div>
                         <div class="button">
 
@@ -29,7 +29,7 @@
                 <div class="reg-field-wrapp">
                     <div class="content">
                         <div class="heading">
-                            <h3>Register as a Member</h3>
+                            <h3>Register as <br> Member</h3>
                         </div>
                         <div class="button">
 
@@ -53,7 +53,7 @@
                     <div class="content">
                         <div class="heading">
                             <h3>
-                                Obtain Practicing License
+                                Obtain cs Practicing License
                             </h3>
                         </div>
                         <div class="button">
@@ -75,7 +75,7 @@
                     <div class="content">
                         <div class="heading">
                             <h3>
-                                Find a corporate leader
+                                Find a cs corporate leader
                             </h3>
                         </div>
                         <div class="button">

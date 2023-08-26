@@ -402,9 +402,11 @@
             <li>
                 <a class="@if(
                         $pageSlug == 'the-chartered-secretary'||
+                        $pageSlug == 'icsb-national-award-souvenir'||
                         $pageSlug == 'other'
                     )@else collapsed @endif" data-toggle="collapse" href="#publications" @if (
                         $pageSlug == 'the-chartered-secretary'||
+                        $pageSlug == 'icsb-national-award-souvenir'||
                         $pageSlug == 'other'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-regular fa-newspaper"></i>
@@ -414,6 +416,7 @@
 
                 <div class="collapse @if (
                         $pageSlug == 'the-chartered-secretary'||
+                        $pageSlug == 'icsb-national-award-souvenir'||
                         $pageSlug == 'other'
 
 
@@ -422,6 +425,7 @@
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
                                 ['pageSlug' => 'the-chartered-secretary', 'routeName' => 'sp.show', 'params' => 'the-chartered-secretary', 'label' => 'The Chartered Secretary'],
+                                ['pageSlug' => 'icsb-national-award-souvenir', 'routeName' => 'sp.show', 'params' => 'icsb-national-award-souvenir', 'label' => 'ICSB National Award Souvenir'],
                                 ['pageSlug' => 'others', 'routeName' => 'sp.show', 'params' => 'others', 'label' => 'Others'],
                             ]
                         ])

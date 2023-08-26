@@ -33,16 +33,17 @@
             <img src="{{asset('frontend/img/we-are/Image-3.png')}}" />
         </div>
         <div class="right-col"></div>
-        <div class="container">
+        <div class="container wrap">
             <div class="we-are-coulmn flex">
                 <div class="content-column text-right">
                     <div class="section-heading">
                         <h2 class="title-shap">{{_('Who We Are')}}</h2>
                     </div>
-                    <p>{{ stringLimit(html_entity_decode_table(json_decode($single_page->saved_data)->{'page-description'}),'800') }}</p>
-                    <a href="{{route('sp.frontend',$single_page->frontend_slug)}}">{{_('Read More')}}</a>
+                    {{-- <p>{{ stringLimit(html_entity_decode_table(json_decode($single_page->saved_data)->{'page-description'}),'800') }}</p> --}}
+                    <p>{!! json_decode($single_page->saved_data)->{'page-description'} !!}</p>
+                    {{-- <a href="{{route('sp.frontend',$single_page->frontend_slug)}}">{{_('Read More')}}</a> --}}
                 </div>
-                <div class="image-column">
+                <div class="image-column d-flex align-items-center">
                     <div class="border"></div>
                     <img src="{{storage_url(json_decode($single_page->saved_data)->{'front-image'})}}" alt="{{$single_page->title}}" />
                 </div>
