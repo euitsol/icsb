@@ -31,17 +31,16 @@ $datas = [
     <section class="global-page-section big-sec-min-height">
         <div class="container">
             <div class="global-row flex
-            @if (isset($saved_data->{'page-description'}) && $count>1700 ) flex-column-reverse @endif
+            @if (isset($saved_data->{'page-description'}) && $count>1700 || empty($saved_data->{'page-image'})) flex-column-reverse @endif
             ">
-                <div class="left-column @if (isset($saved_data->{'page-description'}) && $count>1700) w-100 @endif">
+                <div class="left-column @if (isset($saved_data->{'page-description'}) && $count>1700 || empty($saved_data->{'page-image'})) w-100 @endif">
                     @if (isset($saved_data->{'page-description'}))
                         {!! $saved_data->{'page-description'} ?? '' !!}
                     @endif
                 </div>
-                <div class="right-column @if (isset($saved_data->{'page-description'}) && $count>1700)  w-100 mb-5  @endif"
+                <div class="right-column @if (isset($saved_data->{'page-description'}) && $count>1700 || empty($saved_data->{'page-image'}))  w-100 mb-5  @endif"
                     style="max-height:600px !important;"
                     >
-
                     @if (isset($saved_data->{'page-image'}))
                         <img class="img-fluid object-fit-contain" style="max-height:600px !important; @if (isset($saved_data->{'page-description'}) && $count>1700 ) border:0; outline:none; @endif" src="{{ storage_url($saved_data->{'page-image'}) }}">
                     @endif

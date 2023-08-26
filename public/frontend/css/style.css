@@ -38,14 +38,16 @@ p {
 }
 .big-sec-height {
 	height: 50rem;
-	display: flex;
-	align-items: center;
+	/* display: flex;
+	align-items: center; */
+    /* padding-top: 100px; */
 }
 
 .big-sec-min-height {
 	min-height: 50rem;
-	display: flex;
-	align-items: center;
+	/* display: flex;
+	align-items: center; */
+    padding-top: 150px;
 }
 
 .small-sec-height {
@@ -57,6 +59,7 @@ p {
 .both-sec-height {
 	max-height: 50rem;
 	min-height: 32rem;
+    padding-top: 150px;
 }
 
 :root {
@@ -253,6 +256,7 @@ li {
 	margin-bottom: 5px;
 	display: inline-block;
 	font-family: 'Teko', sans-serif;
+    font-weight: 600;
 }
 
 .main-header-section .header-content h1:after {
@@ -271,12 +275,11 @@ li {
 	line-height: 24px;
 	font-weight: 500;
 	letter-spacing: 1.25px;
-	font-family: 'Poppins', sans-serif;
 }
 
 .main-header-section .header-content p {
 	color: #162B75;
-	font-size: 1.14rem;
+	font-size: 1.25rem;
 }
 
 /*====================== Header Menu Section =====================*/
@@ -298,6 +301,16 @@ li {
 	position: absolute;
 	top: 50%;
 	left: 50px;
+	transform: translateY(-40%);
+	height: 100%;
+	display: block;
+	width: 150px;
+	display: none;
+}
+.header-menu-section .stiky-logo-right {
+	position: absolute;
+	top: 50%;
+	right:50px;
 	transform: translateY(-40%);
 	height: 100%;
 	display: block;
@@ -840,13 +853,17 @@ li {
 	background-image: url("../img/about_us_bg.png"); */
 }
 
+.we-are-section .wrap {
+    height:100%;
+}
 .we-are-section .image-column {
 	position: relative;
+    align-items: center;
 	/* outline: 8px solid #B8C0C3;
 	border: 8px solid #ffffff; */
 }
 
-.we-are-section .image-column::before {
+/* .we-are-section .image-column::before {
 	position: absolute;
 	content: "";
 	width: 105%;
@@ -855,6 +872,11 @@ li {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+} */
+
+.image-column img{
+    border: 10px solid #CCC;
+    padding: 5px;
 }
 
 .we-are-section h2 {
@@ -862,9 +884,14 @@ li {
 }
 
 .we-are-section .we-are-coulmn {
-	align-items: center;
+	align-items: top;
 	column-gap: 20px;
 	justify-content: space-between;
+    height: 100%;
+}
+
+.we-are-section .we-are-coulmn .content-column{
+    padding-top:100px;
 }
 
 .we-are-section .we-are-coulmn .content-column h2 {
@@ -2544,6 +2571,20 @@ td {
 	top: -140px;
 
 }
+.the_cs > .new-handbook{
+
+    width: 100% !important;
+}
+.new-handbook h3 {
+        color: #fff;
+        padding: 15px;
+        font-size: 25px;
+        line-height: 31px;
+        margin-bottom: 10px;
+        background: #182456;
+        outline: 3px solid #FF8601;
+        border: 2px solid #fff;
+}
 
 /*================================ CS Handbook Page CSS =========================*/
 .cs-handbook-section {
@@ -3418,7 +3459,7 @@ td {
 
 .search-row .search-button {
 	color: #fff;
-	height: 38px;
+	height: 40px;
 	width: 45px;
 	margin-left: -4px;
 	border: 1px solid #152360;

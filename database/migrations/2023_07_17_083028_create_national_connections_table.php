@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('national_connections', function (Blueprint $table) {
             $table->id();
             $table->string('title')->unique();
+            $table->bigInteger('order_key')->unique();
             $table->string('logo');
             $table->string('url');
             $table->boolean('status')->default(1);

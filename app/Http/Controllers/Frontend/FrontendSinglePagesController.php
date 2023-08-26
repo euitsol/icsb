@@ -80,6 +80,18 @@ class FrontendSinglePagesController extends Controller
             case($s['single_page']->frontend_slug == 'help-desk'):
                 return view('frontend.employee.help_desk',$s);
                 break;
+            case($s['single_page']->frontend_slug == 'the-chartered-secretary'):
+                return view('frontend.publication.the_cs',$s);
+                break;
+            case($s['single_page']->frontend_slug == 'admission-form'):
+                return view('frontend.student.admission.admission_forms',$s);
+                break;
+            case($s['single_page']->frontend_slug == 'entry-criteria'):
+                return view('frontend.student.admission.entry_criteria',$s);
+                break;
+            case($s['single_page']->frontend_slug == 'icsb-national-award-souvenir'):
+                return view('frontend.publication.common_page',$s);
+                break;
             default:
                 return view('frontend.global', $s);
         }

@@ -245,18 +245,22 @@
             {{-- Students --}}
             <li>
                 <a class="@if(
-                        $pageSlug == 'admission' ||
+                        $pageSlug == 'admission-form' ||
+                        $pageSlug == 'entry-criteria' ||
+                        $pageSlug == 'examination-policy' ||
                         $pageSlug == 'cs-hand-book' ||
                         $pageSlug == 'student-portal' ||
-                        $pageSlug == 'financial_assistance' ||
+                        $pageSlug == 'financial-assistance' ||
                         $pageSlug == 'icsb-library' ||
                         $pageSlug == 'student_notice_board' ||
                         $pageSlug == 'faculty-evaluation-system'
                     )@else collapsed @endif" data-toggle="collapse" href="#student" @if (
-                        $pageSlug == 'admission' ||
+                        $pageSlug == 'admission-form' ||
+                        $pageSlug == 'entry-criteria' ||
+                        $pageSlug == 'examination-policy' ||
                         $pageSlug == 'cs-hand-book' ||
                         $pageSlug == 'student-portal' ||
-                        $pageSlug == 'financial_assistance' ||
+                        $pageSlug == 'financial-assistance' ||
                         $pageSlug == 'icsb-library' ||
                         $pageSlug == 'student_notice_board' ||
                         $pageSlug == 'faculty-evaluation-system'
@@ -267,21 +271,53 @@
                 </a>
 
                 <div class="collapse @if (
-                        $pageSlug == 'admission' ||
+                        $pageSlug == 'admission-form' ||
+                        $pageSlug == 'entry-criteria' ||
+                        $pageSlug == 'examination-policy' ||
                         $pageSlug == 'cs-hand-book' ||
                         $pageSlug == 'student-portal' ||
-                        $pageSlug == 'financial_assistance' ||
+                        $pageSlug == 'financial-assistance' ||
                         $pageSlug == 'icsb-library' ||
                         $pageSlug == 'student_notice_board' ||
                         $pageSlug == 'faculty-evaluation-system'
                 ) show @endif" id="student">
                     <ul class="nav pl-4">
+                        <li>
+                            <a class="@if(
+                                    $pageSlug == 'entry-criteria' ||
+                                    $pageSlug == 'examination-policy' ||
+                                    $pageSlug == 'admission-form'
+                                )@else collapsed @endif" data-toggle="collapse" href="#admission" @if (
+                                    $pageSlug == 'entry-criteria' ||
+                                    $pageSlug == 'examination-policy' ||
+                                    $pageSlug == 'admission-form'
+                                ) aria-expanded="true" @else aria-expanded="false"@endif">
+                                <i class="fa-solid fa-people-group"></i>
+                                <span class="nav-link-text" >{{ __('Admission') }}</span>
+                                <b class="caret mt-1"></b>
+                            </a>
+
+                            <div class="collapse @if (
+                                    $pageSlug == 'entry-criteria' ||
+                                    $pageSlug == 'examination-policy' ||
+                                    $pageSlug == 'admission-form'
+                            ) show @endif" id="admission">
+                            <ul class="nav pl-4">
+                                @include('backend.partials.menu_buttons', [
+                                    'menuItems' => [
+                                        ['pageSlug' => 'entry-criteria', 'routeName' => 'sp.show', 'params' => 'entry-criteria', 'label' => 'Entry Criteria'],
+                                        ['pageSlug' => 'examination-policy', 'routeName' => 'sp.show', 'params' => 'examination-policy', 'label' => 'Examination Policy'],
+                                        ['pageSlug' => 'admission-form', 'routeName' => 'sp.show', 'params' => 'admission-form', 'label' => 'Admission Form'],
+                                    ]
+                                ])
+                            </ul>
+
+                        </li>
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
-                                ['pageSlug' => 'admission', 'routeName' => '', 'label' => 'Admission'],
                                 ['pageSlug' => 'cs-hand-book', 'routeName' => 'sp.show', 'params' => 'cs-hand-book', 'label' => 'CS Hand Book'],
                                 ['pageSlug' => 'student-portal', 'routeName' => 'sp.show', 'params' => 'student-portal', 'label' => 'Student Portal'],
-                                ['pageSlug' => 'financial_assistance', 'routeName' => '', 'label' => 'Financial Assistance'],
+                                ['pageSlug' => 'financial-assistance', 'routeName' => 'sp.show', 'params' => 'financial-assistance', 'label' => 'Financial Assistance'],
                                 ['pageSlug' => 'icsb-library', 'routeName' => 'sp.show', 'params' => 'icsb-library', 'label' => 'ICSB Library'],
                                 ['pageSlug' => 'student_notice_board', 'routeName' => '', 'label' => 'Student Notice Board'],
                                 ['pageSlug' => 'faculty-evaluation-system', 'routeName' => 'sp.show', 'params' => 'faculty-evaluation-system', 'label' => 'Faculty Evaluation System'],
@@ -365,8 +401,12 @@
             {{-- Publications --}}
             <li>
                 <a class="@if(
+                        $pageSlug == 'the-chartered-secretary'||
+                        $pageSlug == 'icsb-national-award-souvenir'||
                         $pageSlug == 'other'
                     )@else collapsed @endif" data-toggle="collapse" href="#publications" @if (
+                        $pageSlug == 'the-chartered-secretary'||
+                        $pageSlug == 'icsb-national-award-souvenir'||
                         $pageSlug == 'other'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-regular fa-newspaper"></i>
@@ -375,6 +415,8 @@
                 </a>
 
                 <div class="collapse @if (
+                        $pageSlug == 'the-chartered-secretary'||
+                        $pageSlug == 'icsb-national-award-souvenir'||
                         $pageSlug == 'other'
 
 
@@ -382,6 +424,8 @@
                     <ul class="nav pl-4">
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
+                                ['pageSlug' => 'the-chartered-secretary', 'routeName' => 'sp.show', 'params' => 'the-chartered-secretary', 'label' => 'The Chartered Secretary'],
+                                ['pageSlug' => 'icsb-national-award-souvenir', 'routeName' => 'sp.show', 'params' => 'icsb-national-award-souvenir', 'label' => 'ICSB National Award Souvenir'],
                                 ['pageSlug' => 'others', 'routeName' => 'sp.show', 'params' => 'others', 'label' => 'Others'],
                             ]
                         ])

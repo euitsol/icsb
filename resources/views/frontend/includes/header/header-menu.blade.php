@@ -158,17 +158,17 @@
                         <ul class="">
                             <li class="drop-down"><a href="#">Admission <i class="fa-solid fa-angle-down"></i></a>
                                 <ul class="sub-menu">
-                                    <li><a href="#">Entry Criteria </a></li>
-                                    <li><a href="#">Exemption Policy </a></li>
-                                    <li><a href="#">Admission Forms </a></li>
-                                    <li><a href="#">Online Admission</a></li>
+                                    <li><a href="{{ route('sp.frontend','entry-criteria') }}">Entry Criteria </a></li>
+                                    <li><a href="{{ route('sp.frontend','examination-policy') }}">Exemption Policy </a></li>
+                                    <li><a href="{{ route('sp.frontend','admission-form') }}">Admission Forms </a></li>
+                                    <li><a href="{{ json_decode($studentPortal->saved_data)->{'portal-url'} }}">Online Admission</a></li>
                                 </ul>
                             </li>
                             <li><a href="{{route('student_view.cs_hand_book')}}">CS Hand Book</a></li>
                             @if(isset($studentPortal->saved_data) && !empty(json_decode($studentPortal->saved_data)->{'portal-url'}))
                                 <li><a target="_blank" href="{{ json_decode($studentPortal->saved_data)->{'portal-url'} }}">Students Portal</a></li>
                             @endif
-                            <li><a href="#">Financial Assistance</a></li>
+                            <li><a href="{{ route('sp.frontend','financial-assistance') }}">Financial Assistance</a></li>
                             <li><a href="{{ route('student_view.library') }}">ICSB Library</a></li>
                             <li><a href="#">Student Notice Board</a></li>
                             @if(isset($facultyEvaluationSystem->saved_data) && !empty(json_decode($facultyEvaluationSystem->saved_data)->{'url'}))
@@ -207,8 +207,8 @@
                     <li class="drop-down">
                         <a href="#">Publications<i class="fa-solid fa-angle-down"></i></a>
                         <ul class="">
-                            <li><a href="#">The Chartered Secretary</a></li>
-                            <li><a href="#">ICSB National Award Souvenir</a></li>
+                            <li><a href="{{ route('sp.frontend','the-chartered-secretary') }}">The Chartered Secretary</a></li>
+                            <li><a href="{{ route('sp.frontend','icsb-national-award-souvenir') }}">ICSB National Award Souvenir</a></li>
                             <li><a href="#">Annual Reports</a></li>
                             @if(isset($publicationOthers->saved_data) && !empty(json_decode($publicationOthers->saved_data)->{'url'}))
                                 <li><a target="_blank" href="{{ json_decode($publicationOthers->saved_data)->{'url'} }}">Others</a></li>
@@ -254,5 +254,10 @@
                 </ul>
             </div>
           </section>
+    </div>
+    <div class="stiky-logo-right">
+        <a href="{{route('home')}}">
+            <img src="{{asset('frontend/img/stiky-logo-right.jpg')}}" alt="{{_('ICSB Logo')}}">
+        </a>
     </div>
 </div>

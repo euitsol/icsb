@@ -3,7 +3,7 @@
         <div class="container">
             <div class="footer-row flex">
                 <div class="footer-column first-column">
-                    <h2><a href="{{ route('home') }}">{{ settings('site_name') }} ({{ settings('site_short_name') }})</a>
+                    <h2><a href="{{ route('home') }}">{{ settings('site_name') }} </a>
                     </h2>
                     <ul>
                         @if (!empty($contact->location))
@@ -63,8 +63,8 @@
         <div class="container">
             <p>© Copyright 2023
                 {{ date('Y', strtotime(Carbon\Carbon::now())) > 2023 ? '-' . date('Y', strtotime(Carbon\Carbon::now())) : '' }}.
-                All rights reserved | Web Design & Development by <a href="https://euitsols.com/"
-                    target="_blank">European IT Solutions Bangladesh.</a></p>
+                All Rights Reserved | Web Design & Development by <a href="https://euitsols.com/"
+                    target="_blank">European IT Solutions.</a></p>
         </div>
     </div>
 </footer>
