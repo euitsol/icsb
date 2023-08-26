@@ -36,7 +36,7 @@ class CouncilController extends Controller
     public function store(CouncilRequest $request): RedirectResponse
     {
         $council = new Council();
-        $council->order_key = 1;
+        $council->order_key = $request->order_key;
         $council->title = $request->title;
         $council->duration = json_encode($request->duration);
         $council->slug = $request->slug;
