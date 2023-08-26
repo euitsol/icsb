@@ -1,12 +1,12 @@
 @extends('frontend.master')
 
-@section('title', 'The Chartered Secretary')
+@section('title', 'Entry Criteria')
 
 @section('content')
 
     <!-- =============================== Breadcrumb Section ======================================-->
     @php
-        $banner_image = asset('breadcumb_img/publications.jpg');
+        $banner_image = asset('breadcumb_img/students.webp');
         $title = $single_page->title;
         if(isset(json_decode($single_page->saved_data)->{"banner-image"})){
             $banner_image = storage_url(json_decode($single_page->saved_data)->{"banner-image"});
@@ -16,7 +16,8 @@
                     'title'=>$title,
                     'paths'=>[
                                 'home'=>'Home',
-                                'javascript:void(0)'=>'Publications',
+                                'javascript:void(0)'=>'Students',
+                                'javascript:void(0)'=>'Admission',
                             ]
                 ];
     @endphp
@@ -25,7 +26,7 @@
     <!--============================= Handbok Section ==================-->
     <section class="cs-handbook-section section-padding">
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 @if (isset(json_decode($single_page->saved_data)->{'upload-files'}))
                     @foreach (json_decode($single_page->saved_data)->{'upload-files'} as $file)
                         <div class="col-md-6 the_cs mb-5">

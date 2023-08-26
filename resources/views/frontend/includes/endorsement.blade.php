@@ -11,8 +11,9 @@
                         </div>
                         <div class="button">
 
-                            <a href="#" class="text-align">Apply</a>
-
+                            @if(isset($studentPortal->saved_data) && !empty(json_decode($studentPortal->saved_data)->{'portal-url'}))
+                                <a href="{{ json_decode($studentPortal->saved_data)->{'portal-url'} }}"  target="_blank" class="text-align">Apply</a>
+                            @endif
                         </div>
                     </div>
                     <div class="bg-image">
@@ -32,7 +33,9 @@
                         </div>
                         <div class="button">
 
-                            <a href="#" class="text-align">Apply</a>
+                            @if(isset($memberPortal->saved_data) && !empty(json_decode($memberPortal->saved_data)->{'portal-url'}))
+                                <a href="{{ json_decode($memberPortal->saved_data)->{'portal-url'} }}"  target="_blank" class="text-align">Apply</a>
+                            @endif
 
                         </div>
                     </div>

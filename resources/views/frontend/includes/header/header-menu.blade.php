@@ -158,17 +158,17 @@
                         <ul class="">
                             <li class="drop-down"><a href="#">Admission <i class="fa-solid fa-angle-down"></i></a>
                                 <ul class="sub-menu">
-                                    <li><a href="#">Entry Criteria </a></li>
-                                    <li><a href="#">Exemption Policy </a></li>
-                                    <li><a href="#">Admission Forms </a></li>
-                                    <li><a href="#">Online Admission</a></li>
+                                    <li><a href="{{ route('sp.frontend','entry-criteria') }}">Entry Criteria </a></li>
+                                    <li><a href="{{ route('sp.frontend','examination-policy') }}">Exemption Policy </a></li>
+                                    <li><a href="{{ route('sp.frontend','admission-form') }}">Admission Forms </a></li>
+                                    <li><a href="{{ json_decode($studentPortal->saved_data)->{'portal-url'} }}">Online Admission</a></li>
                                 </ul>
                             </li>
                             <li><a href="{{route('student_view.cs_hand_book')}}">CS Hand Book</a></li>
                             @if(isset($studentPortal->saved_data) && !empty(json_decode($studentPortal->saved_data)->{'portal-url'}))
                                 <li><a target="_blank" href="{{ json_decode($studentPortal->saved_data)->{'portal-url'} }}">Students Portal</a></li>
                             @endif
-                            <li><a href="#">Financial Assistance</a></li>
+                            <li><a href="{{ route('sp.frontend','financial-assistance') }}">Financial Assistance</a></li>
                             <li><a href="{{ route('student_view.library') }}">ICSB Library</a></li>
                             <li><a href="#">Student Notice Board</a></li>
                             @if(isset($facultyEvaluationSystem->saved_data) && !empty(json_decode($facultyEvaluationSystem->saved_data)->{'url'}))
