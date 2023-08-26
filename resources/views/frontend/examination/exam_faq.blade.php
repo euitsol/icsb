@@ -40,7 +40,7 @@ $datas = [
                                             {{$faq->title}}
                                         </button>
                                     </h2>
-                                <div id="collapseOne{{$key}}" class="accordion-collapse collapse @if($key == 0)show @endif" aria-labelledby="headingOne{{$key}}" data-bs-parent="#accordionExample">
+                                <div id="collapseOne{{$key}}" class="accordion-collapse collapse" aria-labelledby="headingOne{{$key}}" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
                                         {!! $faq->description !!}
                                     </div>

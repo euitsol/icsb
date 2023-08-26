@@ -512,7 +512,7 @@ li {
 }
 
 .header-menu-section section .menu-bar ul>li:hover>ul>li {
-	padding: 14px 0;
+	padding: 8px 0;
 	visibility: visible;
 	opacity: 1;
 }
@@ -4134,6 +4134,7 @@ td {
 	line-height: 20px;
 	font-weight: 500;
 	color: #111111;
+    font-family: 'Teko', sans-serif ;
 }
 
 .president-content-section .president-content-row .left-column .contact-info {
@@ -4233,11 +4234,10 @@ td {
 
 /*=================== Footer Section ====================*/
 .main-footer-section {
-	position: relative;
-	padding: 65px 0 41px 0;
-	background: #182456;
+    position: relative;
+    padding: 28px 0 14px 0;
+    background: #182456;
 }
-
 .main-footer-section::after {
 	position: absolute;
 	bottom: 50px;
@@ -4261,6 +4261,7 @@ td {
 .main-footer-section h2 {
 	font-size: 40px;
 	line-height: 30px;
+    color: #fff;
 
 	/* font-family: 'Poppins', sans-serif; */
 }
@@ -4331,6 +4332,7 @@ td {
 	line-height: 28px;
 	text-transform: uppercase;
 	font-family: 'Poppins', sans-serif;
+    margin-bottom: 0;
 }
 
 .main-footer-section .visitor-column p {
@@ -4343,7 +4345,7 @@ td {
 .main-footer-section .footer-social-column ul {
 	display: flex;
 	column-gap: 15px;
-	margin-top: 38px;
+	margin-top: 20px;
 	justify-content: center;
 }
 
@@ -4372,14 +4374,14 @@ td {
 }
 
 .copyright-section {
-	padding: 19px 0;
+	padding: 7px 0;
 	background: #122F98;
 }
 
 .copyright-section p,
 .copyright-section p a {
 	color: #fff;
-	font-size: 16px;
+	font-size: 14px;
 	line-height: 22px;
 	transition: 0.4s;
 }

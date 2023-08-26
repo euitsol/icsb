@@ -31,7 +31,7 @@ $datas = [
                     <img src="{{getMemberImage($csf_m->member)}}" alt="{{$csf_m->member->name}}">
                 </div>
                 <div class="content-column">
-                    <h4>{{('Member ID: ')}}{{$csf_m->private_practice_certificate_no}}</h4>
+                    <h4>{{('CS Practicing Licence No: ')}}{{$csf_m->private_practice_certificate_no}}</h4>
                     <h3 class="mb-0">{{$csf_m->member->name}}</h3>
                     <p><strong>{{$csf_m->member->designation}}</strong></p>
                     @if(!empty($csf_m->member->address))
