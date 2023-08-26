@@ -3,7 +3,7 @@
         <div class="container">
             <div class="footer-row flex">
                 <div class="footer-column first-column">
-                    <h2><a href="{{ route('home') }}">{{ settings('site_name') }} </a>
+                    <h2>{{ settings('site_name') }}
                     </h2>
                     <ul>
                         @if (!empty($contact->location))

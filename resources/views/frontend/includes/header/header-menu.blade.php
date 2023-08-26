@@ -209,6 +209,7 @@
                         <ul class="">
                             <li><a href="{{ route('sp.frontend','the-chartered-secretary') }}">The Chartered Secretary</a></li>
                             <li><a href="{{ route('sp.frontend','icsb-national-award-souvenir') }}">ICSB National Award Souvenir</a></li>
+                            <li><a href="">ICSB Convocation Souvenir</a></li>
                             <li><a href="#">Annual Reports</a></li>
                             @if(isset($publicationOthers->saved_data) && !empty(json_decode($publicationOthers->saved_data)->{'url'}))
                                 <li><a target="_blank" href="{{ json_decode($publicationOthers->saved_data)->{'url'} }}">Others</a></li>
@@ -224,9 +225,9 @@
                                 <ul class="sub-menu">
                                     <li><a href="#">Foundation Level </a></li>
                                     <li><a href="#">Certificate Level </a></li>
-                                    <li><a href="#">Professional Level </a></li>
-                                    <li><a href="#">Executive Level (Old Syllabus) </a></li>
-                                    <li><a href="#">Professional Level (Old Syllabus) </a></li>
+                                    <li><a href="#">Professional Level <br>(New Syllabus)</a></li>
+                                    <li><a href="#">Executive Level <br>(Old Syllabus) </a></li>
+                                    <li><a href="#">Professional Level <br>(Old Syllabus) </a></li>
                                 </ul>
                             </li>
                             <li><a href="#">Sample Question Papers</a></li>
@@ -257,7 +258,7 @@
     </div>
     <div class="stiky-logo-right">
         <a href="{{route('home')}}">
-            <img src="{{asset('frontend/img/stiky-logo-right.jpg')}}" alt="{{_('ICSB Logo')}}">
+            <img src="{{asset('frontend/img/stiky-logo-right.png')}}" alt="{{_('ICSB Logo')}}">
         </a>
     </div>
 </div>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>
-        CS Bangladesh - @yield('title', 'ICSB')
+        CS Bangladesh
     </title>
 	<!------------- Teko Font Family ----------------->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
