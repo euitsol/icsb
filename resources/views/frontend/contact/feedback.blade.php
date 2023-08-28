@@ -22,7 +22,6 @@ $datas = [
     <div class="container">
         <div class="form-content">
             <div class="detailes-column">
-                <h3>Contact Info.</h3>
                 @if(isset($contact->email) && !empty(json_decode($contact->email)))
                 <div class="deatiles-items">
                     <div class="icon">
