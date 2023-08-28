@@ -172,10 +172,14 @@
         const volumeButton = $("#volumeButton");
         const icon = $("#icon");
         const videoProgress = $("#videoProgress");
+        const playPauseButton = $("#playPauseButton"); // New play/pause button
 
         // Initial state: muted
-        let isMuted = true;
+        let isMuted = false;
         video.muted = isMuted;
+
+        // Initial state: video is paused
+        let isPaused = true;
 
         video.addEventListener("timeupdate", function() {
             const currentTime = video.currentTime;
@@ -199,6 +203,18 @@
             } else {
                 icon.removeClass("fa-volume-xmark").addClass("fa-volume-high");
             }
+        });
+
+        // Play/Pause button functionality
+        playPauseButton.on("click", function() {
+            if (isPaused) {
+                video.play();
+                playPauseButton.html('<i class="fas fa-pause"></i>');
+            } else {
+                video.pause();
+                playPauseButton.html('<i class="fas fa-play"></i>');
+            }
+            isPaused = !isPaused;
         });
     });
 </script>

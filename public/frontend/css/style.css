@@ -631,7 +631,20 @@ li {
 .banner-section .volume-icon {
 	position: absolute;
 	top: 30px;
-	right: 40px;
+	left: 40px;
+	background-color: transparent;
+	cursor: pointer;
+	z-index: 1;
+	color: #fff;
+	border: 1px solid #fff;
+	height: 1.7rem;
+	width: 1.7rem;
+	border-radius: 50%;
+}
+.banner-section .play-pause-icon {
+	position: absolute;
+	top: 30px;
+	left: 80px;
 	background-color: transparent;
 	cursor: pointer;
 	z-index: 1;
