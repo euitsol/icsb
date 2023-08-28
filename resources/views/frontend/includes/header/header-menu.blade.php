@@ -136,7 +136,9 @@
                                 @if(count($memberTypes))
                                     <ul class="sub-menu">
                                         @foreach ($memberTypes as $mType)
-                                            <li><a href="{{route('member_view.m_search',$mType->slug)}}">{{ $mType->title }}</a></li>
+                                            @if($mType->id != 5)
+                                                <li><a href="{{route('member_view.m_search',$mType->slug)}}">{{ $mType->title }}</a></li>
+                                            @endif
                                         @endforeach
                                     </ul>
                                 @endif

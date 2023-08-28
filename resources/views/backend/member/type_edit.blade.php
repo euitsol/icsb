@@ -16,7 +16,7 @@
                         <div class="row">
                             <div class="col-md-8 form-group {{ $errors->has('title') ? ' has-danger' : '' }}">
                                 <label>{{ _('Title') }}</label>
-                                <input type="text" name="title" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter Title') }}" value="{{ $type->title }}">
+                                <input type="text" id="title" name="title" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter Title') }}" value="{{ $type->title }}">
                                 @include('alerts.feedback', ['field' => 'title'])
                             </div>
                             <div class="col-md-4 form-group {{ $errors->has('order_key') ? ' has-danger' : '' }}">
