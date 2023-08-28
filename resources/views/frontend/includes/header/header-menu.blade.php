@@ -136,7 +136,9 @@
                                 @if(count($memberTypes))
                                     <ul class="sub-menu">
                                         @foreach ($memberTypes as $mType)
-                                            <li><a href="{{route('member_view.m_search',$mType->slug)}}">{{ $mType->title }}</a></li>
+                                            @if($mType->id != 5)
+                                                <li><a href="{{route('member_view.m_search',$mType->slug)}}">{{ $mType->title }}</a></li>
+                                            @endif
                                         @endforeach
                                     </ul>
                                 @endif
@@ -181,7 +183,7 @@
                         <ul class="">
                             <li><a href="{{route('employee_view.sec_and_ceo')}}">Secretary & CEO</a></li>
                             {{-- <li><a href="{{route('employee_view.past_sec_and_ceos')}}">Past Secretary & CEOs</a></li> --}}
-                            <li><a href="#">Organogram</a></li>
+                            <li><a href="{{route('employee_view.organogram')}}">Organogram</a></li>
                             <li><a href="#">Assigned Officers</a></li>
                             <li><a href="{{ route('sp.frontend','help-desk') }}">Help Desk</a></li>
                         </ul>

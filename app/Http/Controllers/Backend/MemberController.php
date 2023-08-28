@@ -174,7 +174,12 @@ class MemberController extends Controller
     {
         $type = MemberType::findOrFail($id);
         if($type->members->count() > 0){
-            return redirect()->route('member.member_list')->withStatus(__($type->title.' has '.$type->members->count().' members assigned. Can\'t be deleted. Best option is to deactivate it.'));
+            // if($type->id == 5){
+            //     return redirect()->route('member.member_list')->withStatus(__($type->title.' member type can\'t be deleted because this member type is created by the system!'));
+            // }else{
+                return redirect()->route('member.member_list')->withStatus(__($type->title.' has '.$type->members->count().' members assigned. Can\'t be deleted. Best option is to deactivate it.'));
+            // }
+
         }
         $this->soft_delete($type);
         return redirect()->route('member.member_list')->withStatus(__($type->title.' status deleted successfully.'));

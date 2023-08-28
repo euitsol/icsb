@@ -25,7 +25,6 @@ $datas = [
 <div class="container">
     <div class="objective-row flex">
         <div class="right-column color-white">
-            <h2>{{_('CPD Program')}}</h2>
             @if (isset(json_decode($single_page->saved_data)->{'page-description'}))
                 {!! (json_decode($single_page->saved_data)->{'page-description'}) !!}
             @endif

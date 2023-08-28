@@ -47,7 +47,12 @@ $datas = [
                 @endfor
             </div>
             @php
-                $step+=2;
+                if($index == 1){
+                    $step+=2;
+                }elseif($index >= 3 && $index <=12){
+                    $step++;
+                }
+
             @endphp
         @endwhile
 

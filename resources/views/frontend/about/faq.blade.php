@@ -32,7 +32,7 @@ $datas = [
                             $check = count($faqs)/2;
                         @endphp
                         @foreach ($faqs as $key=>$faq)
-                            @if ($key+1<$check)
+                            @if ($key+1<=$check+0.5)
 
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingOne{{$key}}">
@@ -53,7 +53,7 @@ $datas = [
 				<div class="right-column">
 					<div class="accordion accordion-flush" id="accordionFlushExample">
                         @foreach ($faqs as $key=>$faq)
-                            @if ($key+1>=$check)
+                            @if ($key+1>$check+0.5)
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="flush-headingOne{{$key}}">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"

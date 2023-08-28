@@ -70,4 +70,9 @@ class EmployeePagesController extends Controller
                         ->first();
         return view('frontend.employee.sec_and_ceo',$s);
     }
+    public function organogram(): View
+    {
+        return view('frontend.employee.organogram');
+
+    }
 }

@@ -31,7 +31,6 @@ $datas = [
             @endif
         </div>
         <div class="right-column color-white">
-            <h2>{{$single_page->title}}</h2>
             @if (isset(json_decode($single_page->saved_data)->{'page-description'}))
                 {!! (json_decode($single_page->saved_data)->{'page-description'}) !!}
             @endif

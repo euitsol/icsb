@@ -35,18 +35,20 @@ $datas = [
                 <div class="content-column">
                     <h4>{{$member->membership_id}}</h4>
                     <h3 class="mb-0">{{$member->name}}</h3>
-                    <p><strong>{{$member->designation}}</strong></p>
-                    @if(!empty($member->address))
-                        <li><i class="fa-solid fa-house-circle-exclamation"></i>{{$member->address}}</li>
-                    @endif
-                    @if(!empty(json_decode($member->phone)))
-                        @foreach (json_decode($member->phone) as $phone)
-                            <li><i class="fa-solid fa-phone"></i>Phone: <a href="tel:+88{{$phone->number}}">+88 {{$phone->number}}({{stringLimit(ucfirst($phone->type), 3, '')}})</a></li>
-                        @endforeach
+                    @if($type->id != 4)
+                        <p><strong>{{$member->designation}}</strong></p>
+                        @if(!empty($member->address))
+                            <li><i class="fa-solid fa-house-circle-exclamation"></i>{{$member->address}}</li>
+                        @endif
+                        {{-- @if(!empty(json_decode($member->phone)))
+                            @foreach (json_decode($member->phone) as $phone)
+                                <li><i class="fa-solid fa-phone"></i>Phone: <a href="tel:+88{{$phone->number}}">+88 {{$phone->number}}({{stringLimit(ucfirst($phone->type), 3, '')}})</a></li>
+                            @endforeach
 
-                    @endif
-                    @if(!empty($member->email))
-                        <li><i class="fa-solid fa-envelope-open-text"></i>Email: <a href="mailto:{{$member->email}}">{{$member->email}}</a></li>
+                        @endif --}}
+                        @if(!empty($member->email))
+                            <li><i class="fa-solid fa-envelope-open-text"></i>Email: <a href="mailto:{{$member->email}}">{{$member->email}}</a></li>
+                        @endif
                     @endif
                 </div>
             </div>

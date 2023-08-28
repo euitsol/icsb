@@ -48,7 +48,7 @@ class SecAndCeoController extends Controller
     }
     public function create(): View
     {
-        $s['members'] = Member::where('status',1)->where('deleted_at', null)->latest()->get();
+        $s['members'] = Member::where('status',1)->where('deleted_at', null)->where('member_type',5)->latest()->get();
         return view('backend.employee_pages.secretary_and_ceo.create',$s);
     }
     public function store(SecAndCeoRequest $request): RedirectResponse
@@ -98,7 +98,7 @@ class SecAndCeoController extends Controller
     }
     public function edit($id):View
     {
-        $s['members'] = Member::where('status',1)->where('deleted_at', null)->latest()->get();
+        $s['members'] = Member::where('status',1)->where('member_type',5)->where('deleted_at', null)->latest()->get();
         $s['sec_and_ceo'] = SecAndCeo::with(['durations','member'])->findOrFail($id);
 
         return view('backend.employee_pages.secretary_and_ceo.edit',$s);

@@ -558,18 +558,14 @@ li {
 	opacity: 0;
 	position: absolute;
 	background: #fff;
-	width: 250px;
+	width: 280px;
 	left: 50%;
 	transition: .4s;
 }
 
 .header-menu-section section .menu-bar ul li ul li:hover>ul {
-	max-height: 60vh;
 	visibility: visible;
 	opacity: 1;
-	overflow-y: scroll;
-	overscroll-behavior-y: auto;
-	width: 295px;
 
 }
 
@@ -631,7 +627,20 @@ li {
 .banner-section .volume-icon {
 	position: absolute;
 	top: 30px;
-	right: 40px;
+	left: 40px;
+	background-color: transparent;
+	cursor: pointer;
+	z-index: 1;
+	color: #fff;
+	border: 1px solid #fff;
+	height: 1.7rem;
+	width: 1.7rem;
+	border-radius: 50%;
+}
+.banner-section .play-pause-icon {
+	position: absolute;
+	top: 30px;
+	left: 80px;
 	background-color: transparent;
 	cursor: pointer;
 	z-index: 1;
@@ -2529,20 +2538,21 @@ td {
 }
 
 .level-2::after {
-	content: "";
-	position: absolute;
-	background: #000;
-	width: 100%;
-	height: 2px;
-	top: -25px;
+    content: "";
+    position: absolute;
+    background: #000;
+    width: 79%;
+    height: 2px;
+    top: -25px;
+    left: 7%;
 }
 
 .level-3 {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: end;
-	column-gap: 8%;
-	padding-right: 3%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    column-gap: 9%;
+    padding-right: 7%;
 }
 
 .level-2 .box {
@@ -2556,6 +2566,7 @@ td {
 	width: 2px;
 	height: 25px;
 	top: -26px;
+    left:50%;
 }
 
 .level-3 .box {
@@ -2563,13 +2574,13 @@ td {
 }
 
 .level-3 .box::after {
-	content: "";
-	position: absolute;
-	background: #000;
-	width: 2px;
-	height: 140px;
-	top: -140px;
-
+    content: "";
+    position: absolute;
+    background: #000;
+    width: 2px;
+    height: 153px;
+    bottom: 100%;
+    left: 50%;
 }
 .the_cs > .new-handbook{
 
