@@ -38,9 +38,11 @@
                                                 $check = App\Models\CsFirms::where('member_id',$member->id)->first();
                                             @endphp
                                             @if(!$check)
-                                                <option value="{{ $member->id }}"
-                                                    @if (old('csf_member.1.member_id') == $member->id) selected @endif> {{ $member->name }}
-                                                </option>
+                                                @if($member->member_type != 5)
+                                                    <option value="{{ $member->id }}"
+                                                        @if (old('csf_member.1.member_id') == $member->id) selected @endif> {{ $member->name }}
+                                                    </option>
+                                                @endif
                                             @endif
                                         @endforeach
                                     </select>
@@ -134,9 +136,11 @@
                             <select name="csf_member[${count}][member_id]" class="form-control memberSelect">
                                 <option selected hidden>{{ _('Select Member') }}</option>
                                 @foreach ($members as $member)
-                                    <option value="{{ $member->id }}"
-                                        @if (old('csf_member.${count}.member_id') == $member->id) selected @endif> {{ $member->name }}
-                                    </option>
+                                    @if($member->member_type != 5)
+                                        <option value="{{ $member->id }}"
+                                            @if (old('csf_member.${count}.member_id') == $member->id) selected @endif> {{ $member->name }}
+                                        </option>
+                                    @endif
                                 @endforeach
                                 </select>
                                 <input type="text" name="csf_member[${count}][ppcn]" value='' class="form-control ppcn" placeholder="Enter private practice certificate no..">

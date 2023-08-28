@@ -33,7 +33,9 @@
                                 <select name="cm[1][member_id]" class="form-control ">
                                     <option selected hidden>{{_('Select Committee Member')}}</option>
                                     @foreach ($members as $member)
-                                        <option value="{{ $member->id }}" @if( old('cm[1][member_id]') == $member->id) selected @endif> {{ $member->name }}</option>
+                                        @if($member->member_type != 5)
+                                            <option value="{{ $member->id }}" @if( old('cm[1][member_id]') == $member->id) selected @endif> {{ $member->name }}</option>
+                                        @endif
                                     @endforeach
                                 </select>
                                 <select name="cm[1][cmt_id]" class="form-control ">
@@ -85,7 +87,9 @@ $(function() {
                         <select name="cm[${count}][member_id]" class="form-control ">
                             <option selected hidden>{{_('Select Committee')}}</option>
                             @foreach ($members as $member)
-                                <option value="{{ $member->id }}" @if( old('cm[${count}][member_id]') == $member->id) selected @endif> {{ $member->name }}</option>
+                                @if($member->member_type != 5)
+                                    <option value="{{ $member->id }}" @if( old('cm[${count}][member_id]') == $member->id) selected @endif> {{ $member->name }}</option>
+                                @endif
                             @endforeach
                         </select>
                         <select name="cm[${count}][cmt_id]" class="form-control ">

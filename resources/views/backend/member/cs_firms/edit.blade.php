@@ -33,9 +33,11 @@
                                                 $check = App\Models\CsFirms::where('member_id',$member->id)->where('member_id','!=',$csf_member->member_id)->first();
                                             @endphp
                                             @if(!$check)
-                                                <option value="{{ $member->id }}"
-                                                    @if ($csf_member->member_id == $member->id) selected @endif> {{ $member->name }}
-                                                </option>
+                                                @if($member->member_type != 5)
+                                                    <option value="{{ $member->id }}"
+                                                        @if ($csf_member->member_id == $member->id) selected @endif> {{ $member->name }}
+                                                    </option>
+                                                @endif
                                             @endif
                                         @endforeach
                                     </select>
