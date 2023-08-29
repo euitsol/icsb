@@ -6,7 +6,7 @@
 
     <!-- =============================== Breadcrumb Section ======================================-->
     @php
-        $banner_image = asset('breadcumb_img/students.webp');
+        $banner_image = asset('breadcumb_img/students.jpg');
         $title = $single_page->title;
         if(isset(json_decode($single_page->saved_data)->{"banner-image"})){
             $banner_image = storage_url(json_decode($single_page->saved_data)->{"banner-image"});

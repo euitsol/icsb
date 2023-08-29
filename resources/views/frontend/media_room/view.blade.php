@@ -5,7 +5,7 @@
 @section('content')
 <!-- =============================== Breadcrumb Section ======================================-->
 @php
-$banner_image = asset('breadcumb_img/media_room.webp');
+$banner_image = asset('breadcumb_img/media_room.jpg');
 $title = stringLimit($media_room->title,20,'...');
 $datas = [
             'image'=>$banner_image,

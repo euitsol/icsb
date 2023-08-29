@@ -43,7 +43,7 @@
     </section> --}}
 <!-- =============================== Breadcrumb Section ======================================-->
 @php
-$banner_image = asset('breadcumb_img/media_room.webp');
+$banner_image = asset('breadcumb_img/media_room.jpg');
 $title = 'All Media Rooms';
 if(isset($cat)){
     $title = $cat->name;

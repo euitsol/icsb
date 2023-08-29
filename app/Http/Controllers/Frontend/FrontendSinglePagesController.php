@@ -92,6 +92,9 @@ class FrontendSinglePagesController extends Controller
             case($s['single_page']->frontend_slug == 'icsb-national-award-souvenir'):
                 return view('frontend.publication.common_page',$s);
                 break;
+            case($s['single_page']->frontend_slug == 'eligibility'):
+                return view('frontend.examination.eligibility',$s);
+                break;
             default:
                 return view('frontend.global', $s);
         }
