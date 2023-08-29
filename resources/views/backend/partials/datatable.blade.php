@@ -15,6 +15,7 @@
         var columnsToShow =  {!! json_encode($columns_to_show ?? []) !!};
         $(this).DataTable({
             dom: 'Bfrtip',
+            iDisplayLength: 50,
             buttons: [{
                     extend: 'pdfHtml5',
                     download: 'open',
