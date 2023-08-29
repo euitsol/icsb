@@ -34,7 +34,7 @@
             <img class="image-loop" src="{{asset('frontend/img/we-are/Image-2.png')}}" data-bg-color="#C78282"/>
             <img class="image-loop" src="{{asset('frontend/img/we-are/Image-3.png')}}" data-bg-color="#B1B9BD"/>
             <img class="image-loop" src="{{asset('frontend/img/we-are/Image-4.png')}}" data-bg-color="#CFC6BD"/>
-            <img class="image-loop" src="{{asset('frontend/img/we-are/Image-5.png')}}" data-bg-color="#8A9FB0"/>
+            <img class="image-loop" src="{{asset('frontend/img/we-are/Image50.png')}}" data-bg-color="#8A9FB0"/>
         </div>
         <div class="right-col"></div>
         <div class="container wrap">
