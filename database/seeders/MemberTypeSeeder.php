@@ -14,35 +14,35 @@ class MemberTypeSeeder extends Seeder
             'order_key' => 1,
             'title' => 'Fellow Members',
             'slug' => 'fellow-members',
-            'documentation' => '',
+            'description' => '',
         ]);
         MemberType::create([
             'id' => 2,
             'order_key' => 2,
             'title' => 'Associate Members',
             'slug' => 'associate-members',
-            'documentation' => '',
+            'description' => '',
         ]);
         MemberType::create([
             'id' => 3,
             'order_key' => 3,
             'title' => 'Honorary Members',
             'slug' => 'honorary-members',
-            'documentation' => '',
+            'description' => '',
         ]);
         MemberType::create([
             'id' => 4,
             'order_key' => 4,
             'title' => 'Deceased Members',
             'slug' => 'deceased',
-            'documentation' => '',
+            'description' => '',
         ]);
         MemberType::create([
             'id' => 5,
             'order_key' => 5,
             'title' => 'Non Members',
             'slug' => 'non-members',
-            'documentation' => 'These people are not members of ICSB. Adding here is for adding as a member of the Council only.',
+            'description' => 'These people are not members of ICSB. Adding here is for adding as a member of the Council only.',
         ]);
     }
 }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\Backend\ActsController;
+use App\Http\Controllers\Backend\AssinedOfficerController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
@@ -166,6 +167,18 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::get('status/{id}',      [NationalConnectionController::class, 'status'])->name('status.national_connection_edit');
         Route::get('delete/{id}', [NationalConnectionController::class, 'delete'])->name('national_connection_delete');
     });
+
+    // National Connection Routes
+    Route::group(['as' => 'assined_officer.', 'prefix' => 'assined_officer'], function () {
+        Route::get('index', [AssinedOfficerController::class, 'index'])->name('assined_officer_list');
+        Route::get('create', [AssinedOfficerController::class, 'create'])->name('assined_officer_create');
+        Route::post('create', [AssinedOfficerController::class, 'store'])->name('assined_officer_create');
+        Route::get('edit/{id}',      [AssinedOfficerController::class, 'edit'])->name('assined_officer_edit');
+        Route::put('edit/{id}',      [AssinedOfficerController::class, 'update'])->name('assined_officer_edit');
+        Route::get('status/{id}',      [AssinedOfficerController::class, 'status'])->name('status.assined_officer_edit');
+        Route::get('delete/{id}', [AssinedOfficerController::class, 'delete'])->name('assined_officer_delete');
+    });
+
     // Event Routes
     Route::group(['as' => 'event.', 'prefix' => 'event'], function () {
         Route::get('index', [EventController::class, 'index'])->name('event_list');

@@ -332,12 +332,12 @@
                 <a class="@if(
                         $pageSlug == 'sec_and_ceo' ||
                         $pageSlug == 'organogram' ||
-                        $pageSlug == 'assigned_officers' ||
+                        $pageSlug == 'assined_officer' ||
                         $pageSlug == 'help-desk'
                     )@else collapsed @endif" data-toggle="collapse" href="#employees" @if (
                         $pageSlug == 'sec_and_ceo' ||
                         $pageSlug == 'organogram' ||
-                        $pageSlug == 'assigned_officers' ||
+                        $pageSlug == 'assined_officer' ||
                         $pageSlug == 'help-desk'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-solid fa-people-roof"></i>
@@ -348,7 +348,7 @@
                 <div class="collapse @if (
                         $pageSlug == 'sec_and_ceo' ||
                         $pageSlug == 'organogram' ||
-                        $pageSlug == 'assigned_officers' ||
+                        $pageSlug == 'assined_officer' ||
                         $pageSlug == 'help-desk'
 
                 ) show @endif" id="employees">
@@ -357,7 +357,7 @@
                             'menuItems' => [
                                 ['pageSlug' => 'sec_and_ceo', 'routeName' => 'sec_and_ceo.sc_list', 'label' => 'Secretary & CEO'],
                                 ['pageSlug' => 'organogram', 'routeName' => '', 'label' => 'Organogram'],
-                                ['pageSlug' => 'assigned_officers', 'routeName' => '', 'label' => 'Assigned Officers'],
+                                ['pageSlug' => 'assined_officer', 'routeName' => 'assined_officer.assined_officer_list', 'label' => 'Assigned Officers'],
                                 ['pageSlug' => 'help-desk', 'routeName' => 'sp.show', 'params' => 'help-desk', 'label' => 'Help Desk'],
                             ]
                         ])
