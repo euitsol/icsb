@@ -33,7 +33,7 @@ $datas = [
             <div class="global-row flex
             @if (isset($saved_data->{'page-description'}) && $count>1700 || empty($saved_data->{'page-image'})) flex-column-reverse @endif
             ">
-                <div class="left-column @if (isset($saved_data->{'page-description'}) && $count>1700 || empty($saved_data->{'page-image'})) w-100 @endif">
+                <div class="left-column content-description @if (isset($saved_data->{'page-description'}) && $count>1700 || empty($saved_data->{'page-image'})) w-100 @endif">
                     @if (isset($saved_data->{'page-description'}))
                         {!! $saved_data->{'page-description'} ?? '' !!}
                     @endif

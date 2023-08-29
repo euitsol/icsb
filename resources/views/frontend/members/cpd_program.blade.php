@@ -24,7 +24,7 @@ $datas = [
 <section class="objectives-section big-sec-height">
 <div class="container">
     <div class="objective-row flex">
-        <div class="right-column color-white">
+        <div class="right-column color-white content-description">
             @if (isset(json_decode($single_page->saved_data)->{'page-description'}))
                 {!! (json_decode($single_page->saved_data)->{'page-description'}) !!}
             @endif

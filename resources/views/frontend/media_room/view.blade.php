@@ -38,9 +38,9 @@ $datas = [
                     <li><img src="{{asset('frontend/img/blog-single/calendar.svg')}}" alt="Calendar Icon"><a href="">{{ date('d M Y', strtotime($media_room->created_at))}}</a></li>
                     <li><img src="{{asset('frontend/img/blog-single/comment.svg')}}" alt="Comment Icon"><a href="">25 Comments</a></li>
                 </ul>
-                <p>
+                <div class="content-description content-description">
                     {!! $media_room->description !!}
-                </p>
+                </div>
             </div>
             <div class="blog-sidebar-column">
                 <div class="recent-post-section">

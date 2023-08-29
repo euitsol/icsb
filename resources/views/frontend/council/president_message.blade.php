@@ -46,7 +46,7 @@ $datas = [
              <div class="social-media">
              </div>
             </div>
-            <div class="right-column">
+            <div class="right-column content-description">
 
              <h2 style="font-size: 4.2rem;">{{_('Message of The President')}}</h2>
                 {!! $president->message !!}
