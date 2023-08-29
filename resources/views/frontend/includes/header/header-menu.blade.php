@@ -163,7 +163,7 @@
                                     <li><a href="{{ route('sp.frontend','entry-criteria') }}">Entry Criteria </a></li>
                                     <li><a href="{{ route('sp.frontend','examination-policy') }}">Exemption Policy </a></li>
                                     <li><a href="{{ route('sp.frontend','admission-form') }}">Admission Forms </a></li>
-                                    <li><a href="{{ json_decode($studentPortal->saved_data)->{'portal-url'} }}">Online Admission</a></li>
+                                    <li><a target="_blank" href="{{ json_decode($studentPortal->saved_data)->{'portal-url'} }}">Online Admission</a></li>
                                 </ul>
                             </li>
                             <li><a href="{{route('student_view.cs_hand_book')}}">CS Hand Book</a></li>

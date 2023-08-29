@@ -1,14 +1,10 @@
 @extends('frontend.master')
 
 @section('title', 'ICSB Library')
-{{-- @push('css_link')
-<link rel="stylesheet" href="{{asset('frontend/css/lightbox.min.css')}}" />
-@endpush --}}
-
 @section('content')
 <!-- =============================== Breadcrumb Section ======================================-->
 @php
-$banner_image = asset('breadcumb_img/students.webp');
+$banner_image = asset('breadcumb_img/students.jpg');
 $title = 'ICSB Library';
 $datas = [
             'image'=>$banner_image,
@@ -104,6 +100,3 @@ $datas = [
     </div>
 </section>
 @endsection
-{{-- @push('js_link')
-<script src="{{asset('frontend/js/lightbox-plus-jquery.min.js')}}"></script>
-@endpush --}}

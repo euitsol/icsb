@@ -3360,7 +3360,7 @@ td {
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	background-image: url("../img/events-bg.png");
+	/* background-image: url("../img/events-bg.png"); */
 }
 
 .objectives-section .objective-row {

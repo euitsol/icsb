@@ -23,7 +23,9 @@ $datas = [
         <div class="form-content">
             <div class="detailes-column">
                 @if(isset($contact->email) && !empty(json_decode($contact->email)))
+                {{-- <h2 class="text-white">Contact Info</h2> --}}
                 <div class="deatiles-items">
+
                     <div class="icon">
                         <img src="{{asset('frontend/img/contact/contact-email.png')}}" alt="Contact Email">
                     </div>
