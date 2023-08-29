@@ -441,13 +441,13 @@
                         $pageSlug == 'eligibility' ||
                         $pageSlug == 'exam-schedule' ||
                         $pageSlug == 'results' ||
-                        $pageSlug == 'sample_question_papers' ||
+                        $pageSlug == 'sample_question_paper' ||
                         $pageSlug == 'exam_faq'
                     )@else collapsed @endif" data-toggle="collapse" href="#examination" @if (
                         $pageSlug == 'eligibility' ||
                         $pageSlug == 'exam-schedule' ||
                         $pageSlug == 'results' ||
-                        $pageSlug == 'sample_question_papers' ||
+                        $pageSlug == 'sample_question_paper' ||
                         $pageSlug == 'exam_faq'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-solid fa-file-pen"></i>
@@ -459,7 +459,7 @@
                         $pageSlug == 'eligibility' ||
                         $pageSlug == 'exam-schedule' ||
                         $pageSlug == 'results' ||
-                        $pageSlug == 'sample_question_papers' ||
+                        $pageSlug == 'sample_question_paper' ||
                         $pageSlug == 'exam_faq'
 
 
@@ -470,7 +470,7 @@
                                 ['pageSlug' => 'eligibility', 'routeName' => 'sp.show', 'params' => 'eligibility', 'label' => 'Eligibility'],
                                 ['pageSlug' => 'exam-schedule', 'routeName' => 'sp.show', 'params' => 'exam-schedule', 'label' => 'Exam Schedule'],
                                 ['pageSlug' => 'results', 'routeName' => '', 'label' => 'Results'],
-                                ['pageSlug' => 'sample_question_papers', 'routeName' => '', 'label' => 'Sample Question Papers'],
+                                ['pageSlug' => 'sample_question_paper', 'routeName' => 'sample_question_paper.sqp_list', 'label' => 'Sample Question Papers'],
                                 ['pageSlug' => 'exam_faq', 'routeName' => 'exam_faq.exam_faq_list', 'label' => 'Exam FAQs'],
                             ]
                         ])

@@ -28,6 +28,7 @@ use App\Http\Controllers\Backend\JobPlacementController;
 use App\Http\Controllers\Backend\MediaRoomController;
 use App\Http\Controllers\Backend\PresidentController;
 use App\Http\Controllers\Backend\RecentVideoController;
+use App\Http\Controllers\Backend\SampleQuestionPaperController;
 use App\Http\Controllers\Backend\SecAndCeoController;
 use App\Http\Controllers\Backend\UserManagement\RoleController;
 use App\Http\Controllers\Backend\UserManagement\PermissionController;
@@ -148,6 +149,17 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::put('edit/{id}', [ActsController::class, 'update'])->name('acts_edit');
         Route::get('status/{id}', [ActsController::class, 'status'])->name('status.acts_edit');
         Route::get('delete/{id}', [ActsController::class, 'delete'])->name('acts_delete');
+    });
+    // Sample Question Papers
+    Route::group(['as' => 'sample_question_paper.', 'prefix' => 'sample-question-paper'], function () {
+        Route::get('index', [SampleQuestionPaperController::class, 'index'])->name('sqp_list');
+        Route::get('create', [SampleQuestionPaperController::class, 'create'])->name('sqp_create');
+        Route::post('create', [SampleQuestionPaperController::class, 'store'])->name('sqp_create');
+        Route::get('edit/{id}', [SampleQuestionPaperController::class, 'edit'])->name('sqp_edit');
+        Route::get('single-file/delete/{id}/{key}',      [SampleQuestionPaperController::class, 'singleFileDelete'])->name('single_file.delete.sqp_edit');
+        Route::put('edit/{id}', [SampleQuestionPaperController::class, 'update'])->name('sqp_edit');
+        Route::get('status/{id}', [SampleQuestionPaperController::class, 'status'])->name('status.sqp_edit');
+        Route::get('delete/{id}', [SampleQuestionPaperController::class, 'delete'])->name('sqp_delete');
     });
     // Contact Us Routes
     Route::group(['as' => 'contact.', 'prefix' => 'contact'], function () {
