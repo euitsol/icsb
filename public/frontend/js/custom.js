@@ -342,7 +342,24 @@ $(document).ready(function () {
 
 
 
+$(document).ready(function () {
+    var images = $(".image-loop");
+    var borderDiv = $(".image-border");
+    var currentImageIndex = 0;
+    var intervalTime = 6000;
 
+    function changeImage() {
+
+        var bgColor = $(images[currentImageIndex]).data("bg-color");
+        borderDiv.css("border-color", bgColor);
+
+        images.hide();
+        $(images[currentImageIndex]).fadeIn(500);
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+    }
+    changeImage();
+    setInterval(changeImage, intervalTime);
+});
 
 
 

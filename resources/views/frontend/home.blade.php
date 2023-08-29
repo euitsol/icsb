@@ -30,7 +30,11 @@
 @if(!empty(json_decode($single_page->saved_data)) && isset(json_decode($single_page->saved_data)->{'front-image'}) && isset(json_decode($single_page->saved_data)->{'page-description'}))
     <section class="we-are-section big-sec-height">
         <div class="left-col">
-            <img src="{{asset('frontend/img/we-are/Image-3.png')}}" />
+            <img class="image-loop" src="{{asset('frontend/img/we-are/Image-1.png')}}" data-bg-color="#88BF85"/>
+            <img class="image-loop" src="{{asset('frontend/img/we-are/Image-2.png')}}" data-bg-color="#C78282"/>
+            <img class="image-loop" src="{{asset('frontend/img/we-are/Image-3.png')}}" data-bg-color="#B1B9BD"/>
+            <img class="image-loop" src="{{asset('frontend/img/we-are/Image-4.png')}}" data-bg-color="#CFC6BD"/>
+            <img class="image-loop" src="{{asset('frontend/img/we-are/Image-5.png')}}" data-bg-color="#8A9FB0"/>
         </div>
         <div class="right-col"></div>
         <div class="container wrap">
@@ -43,9 +47,9 @@
                     <p>{!! json_decode($single_page->saved_data)->{'page-description'} !!}</p>
                     {{-- <a href="{{route('sp.frontend',$single_page->frontend_slug)}}">{{_('Read More')}}</a> --}}
                 </div>
-                <div class="image-column d-flex align-items-center">
+                <div class="image-column d-flex align-items-center ">
                     <div class="border"></div>
-                    <img src="{{storage_url(json_decode($single_page->saved_data)->{'front-image'})}}" alt="{{$single_page->title}}" />
+                    <img src="{{storage_url(json_decode($single_page->saved_data)->{'front-image'})}}" class="image-border" alt="{{$single_page->title}}" />
                 </div>
             </div>
         </div>
