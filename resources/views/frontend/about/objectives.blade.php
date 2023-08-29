@@ -29,7 +29,7 @@ $datas = [
 			    <img src="{{storage_url(json_decode($single_page->saved_data)->{'page-image'})}}" alt="">
             @endif
         </div>
-        <div class="right-column color-white">
+        <div class="right-column color-white content-description">
             @if (isset(json_decode($single_page->saved_data)->{'page-description'}))
                 {!! (json_decode($single_page->saved_data)->{'page-description'}) !!}
             @endif

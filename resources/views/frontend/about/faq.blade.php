@@ -41,7 +41,7 @@ $datas = [
                                         </button>
                                     </h2>
                                 <div id="collapseOne{{$key}}" class="accordion-collapse collapse" aria-labelledby="headingOne{{$key}}" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
+                                    <div class="accordion-body content-description">
                                         {!! $faq->description !!}
                                     </div>
                                 </div>
@@ -64,7 +64,7 @@ $datas = [
                                     </h2>
                                     <div id="flush-collapseOne{{$key}}" class="accordion-collapse collapse"
                                         aria-labelledby="flush-headingOne{{$key}}" data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body">{!! $faq->description !!}</div>
+                                        <div class="accordion-body content-description">{!! $faq->description !!}</div>
                                     </div>
                                 </div>
                             @endif

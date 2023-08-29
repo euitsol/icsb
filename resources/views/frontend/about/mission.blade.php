@@ -24,7 +24,7 @@
 <section class="vision-mission-section big-sec-height">
     <div class="container">
         <div class="mission-row flex">
-            <div class="content-column color-white">
+            <div class="content-column color-white content-description">
                 @if (isset(json_decode($single_page->saved_data)->{'page-description'}))
                     {!! (json_decode($single_page->saved_data)->{'page-description'}) !!}
                 @endif

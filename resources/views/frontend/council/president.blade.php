@@ -47,7 +47,7 @@ $datas = [
              <div class="social-media">
              </div>
             </div>
-            <div class="right-column">
+            <div class="right-column content-description">
                 {!! $president->bio !!}
             </div>
         </div>

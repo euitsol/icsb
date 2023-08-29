@@ -44,7 +44,7 @@
                         <h2 class="title-shap">{{_('Who We Are')}}</h2>
                     </div>
                     {{-- <p>{{ stringLimit(html_entity_decode_table(json_decode($single_page->saved_data)->{'page-description'}),'800') }}</p> --}}
-                    <p>{!! json_decode($single_page->saved_data)->{'page-description'} !!}</p>
+                    <div class="content-description">{!! json_decode($single_page->saved_data)->{'page-description'} !!}</div>
                     {{-- <a href="{{route('sp.frontend',$single_page->frontend_slug)}}">{{_('Read More')}}</a> --}}
                 </div>
                 <div class="image-column d-flex align-items-center ">

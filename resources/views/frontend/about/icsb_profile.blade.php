@@ -36,7 +36,7 @@
                         @endif
 					</div>
 				</div>
-				<div class="content-column">
+				<div class="content-column content-description">
                     @if (isset(json_decode($single_page->saved_data)->{'page-description'}))
                         {!! json_decode($single_page->saved_data)->{'page-description'} !!}
                     @endif

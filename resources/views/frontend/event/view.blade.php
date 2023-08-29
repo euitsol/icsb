@@ -35,8 +35,8 @@ $datas = [
                     </div>
                 </div>
                 <div class="speaker-info">
-                    <div class="event-description">
-                        <p>{!! $event->description !!}</p>
+                    <div class="event-description content-description">
+                        {!! $event->description !!}
                     </div>
                 </div>
             </div>
