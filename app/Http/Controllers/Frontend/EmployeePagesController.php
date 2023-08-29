@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Act;
+use App\Models\AssinedOfficer;
 use App\Models\CommitteeType;
 use App\Models\Contact;
 use App\Models\Council;
@@ -73,6 +74,12 @@ class EmployeePagesController extends Controller
     public function organogram(): View
     {
         return view('frontend.employee.organogram');
+
+    }
+    public function assinedOfficer(): View
+    {
+        $s['assined_officers'] = AssinedOfficer::where('deleted_at',null)->where('status',1)->orderBy('order_key','ASC')->get();
+        return view('frontend.employee.assined_officer',$s);
 
     }
 }
