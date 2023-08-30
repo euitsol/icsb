@@ -234,7 +234,7 @@
                                     <li><a href="#">Professional Level <br>(Old Syllabus) </a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Sample Question Papers</a></li>
+                            <li><a href="{{route('examination.sqp')}}">Sample Question Papers</a></li>
                             <li><a href="{{route('examination.exam_faq')}}">Exam FAQs</a></li>
                         </ul>
                     </li>

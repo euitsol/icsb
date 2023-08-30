@@ -1,22 +1,20 @@
 @extends('frontend.master')
 
-@section('title', 'Annual Report')
+@section('title', 'Sample Question Papers')
 
 @section('content')
 
     <!-- =============================== Breadcrumb Section ======================================-->
     @php
-        $banner_image = asset('breadcumb_img/publications.jpg');
-        $title = $single_page->title;
-        if(isset(json_decode($single_page->saved_data)->{"banner-image"})){
-            $banner_image = storage_url(json_decode($single_page->saved_data)->{"banner-image"});
-        }
+        $banner_image = asset('breadcumb_img/examination.jpg');
+        $title = stringLimit($sqp->title,24,'...');
         $datas = [
                     'image'=>$banner_image,
                     'title'=>$title,
                     'paths'=>[
                                 'home'=>'Home',
-                                'javascript:void(0)'=>'Publications',
+                                'javascript:void(0)'=>'Examination',
+                                'examination.sqp' => 'Sample Question Papers',
                             ]
                 ];
     @endphp
@@ -32,25 +30,24 @@
                       </form>
                 </div>
             </div> --}}
-            @if (isset(json_decode($single_page->saved_data)->{'upload-files'}))
-            @foreach (json_decode($single_page->saved_data)->{'upload-files'} as $key=>$file)
                 <div class="library-row">
+                    @foreach (json_decode($sqp->files) as $key=>$file)
                     <div class="library-item flex">
                         <div class="left-column">
                             <ul class="flex">
                                 <li>{{str_pad(($key+1), 2, '0', STR_PAD_LEFT)}}</li>
-                                <li><a target="_blank" href="{{ route('sp.file.download', base64_encode($file)) }}">
-                                    {{ucfirst(str_replace('-', ' ', Str::before(basename($file), '.pdf')))}}
+                                <li><a target="_blank" href="{{route('sp.file.download', base64_encode($file->file_path))}}">
+                                    {{$file->file_name}}
                                 </a></li>
                             </ul>
                         </div>
                         <div class="right-column">
-                            <li><a target="_blank" href="{{ route('sp.file.download', base64_encode($file)) }}"><i class="fa-solid fa-cloud-arrow-down"></i></a></li>
+                            <li><a href="{{route('view.download',base64_encode($file->file_path))}}"><i class="fa-solid fa-cloud-arrow-down"></i></a></li>
                         </div>
                     </div>
+                    @endforeach
+
                 </div>
-            @endforeach
-            @endif
         </div>
     </section>
 @endsection

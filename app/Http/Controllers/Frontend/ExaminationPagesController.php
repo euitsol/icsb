@@ -10,6 +10,7 @@ use App\Models\Contact;
 use App\Models\Council;
 use App\Models\ExamFaq;
 use App\Models\MemberType;
+use App\Models\SampleQuestionPaper;
 use App\Models\SecretarialStandard;
 use App\Models\SinglePages;
 use Illuminate\Http\Request;
@@ -54,5 +55,15 @@ class ExaminationPagesController extends Controller
     {
         $s['faqs']= ExamFaq::where('deleted_at', null)->orderBy('order_key','ASC')->get();
         return view('frontend.examination.exam_faq',$s);
+    }
+    public function sampleQP(): View
+    {
+        $s['sqps'] = SampleQuestionPaper::where('deleted_at', null)->where('status',1)->orderBy('order_key','ASC')->get();
+        return view('frontend.examination.sample_question_papers',$s);
+    }
+    public function sampleQPView($slug): View
+    {
+        $s['sqp'] = SampleQuestionPaper::where('deleted_at',null)->where('status',1)->where('slug',$slug)->first();
+        return view('frontend.examination.sample_qp_view',$s);
     }
 }
