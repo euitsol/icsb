@@ -21,6 +21,7 @@ use App\Http\Controllers\Backend\ICSBProfileController;
 use App\Http\Controllers\Backend\MemberController;
 use App\Http\Controllers\Backend\SinglePagesController;
 use App\Http\Controllers\Backend\CommitteeController;
+use App\Http\Controllers\Backend\ConvocationController;
 use App\Http\Controllers\Backend\CouncilController;
 use App\Http\Controllers\Backend\CsFirmsController;
 use App\Http\Controllers\Backend\ExamFaqController;
@@ -223,6 +224,16 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::get('status/{id}',      [NationalAwardController::class, 'status'])->name('status.national_award_edit');
         Route::get('featured/{id}',      [NationalAwardController::class, 'featured'])->name('featured.national_award_edit');
         Route::get('delete/{id}', [NationalAwardController::class, 'delete'])->name('national_award_delete');
+    });
+    // Convocation Routes
+    Route::group(['as' => 'convocation.', 'prefix' => 'convocation'], function () {
+        Route::get('index', [ConvocationController::class, 'index'])->name('convocation_list');
+        Route::get('create', [ConvocationController::class, 'create'])->name('convocation_create');
+        Route::post('create', [ConvocationController::class, 'store'])->name('convocation_create');
+        Route::get('edit/{id}',      [ConvocationController::class, 'edit'])->name('convocation_edit');
+        Route::put('edit/{id}',      [ConvocationController::class, 'update'])->name('convocation_edit');
+        Route::get('status/{id}',      [ConvocationController::class, 'status'])->name('status.convocation_edit');
+        Route::get('delete/{id}', [ConvocationController::class, 'delete'])->name('convocation_delete');
     });
     // Media Room Routes
     Route::group(['as' => 'media_room.', 'prefix' => 'media_room'], function () {
@@ -473,6 +484,7 @@ Route::group(['as' => 'examination.', 'prefix' => 'examination'], function () {
 });
 Route::group(['as' => 'publication_view.', 'prefix' => 'publication'], function () {
     Route::get('/icsb-national-award-souvenir', [PublicationPagesController::class, 'nationalAward'])->name('national_award');
+    Route::get('/icsb-convocation-souvenir', [PublicationPagesController::class, 'convocation'])->name('convocation');
     // Route::get('/exam-schedule', [ExaminationPagesController::class, 'examSchedule'])->name('exam_schedule');
 });
 Route::group(['as' => 'event_view.', 'prefix' => 'event'], function () {

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Act;
 use App\Models\CommitteeType;
 use App\Models\Contact;
+use App\Models\Convocation;
 use App\Models\Council;
 use App\Models\MediaRoomCategory;
 use App\Models\MemberType;
@@ -50,6 +51,11 @@ class PublicationPagesController extends Controller
     public function nationalAward(): View
     {
         $s['national_awards'] = NationalAward::where('deleted_at', null)->where('status',1)->latest()->get();
-        return view('frontend.publication.souvenir',$s);
+        return view('frontend.publication.national_award',$s);
+    }
+    public function convocation(): View
+    {
+        $s['convocations'] = Convocation::where('deleted_at', null)->where('status',1)->latest()->get();
+        return view('frontend.publication.convocation',$s);
     }
 }

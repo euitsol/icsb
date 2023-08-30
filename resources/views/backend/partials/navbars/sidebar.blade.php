@@ -39,14 +39,12 @@
                         $pageSlug == 'banner' ||
                         $pageSlug == 'event' ||
                         $pageSlug == 'national_connection' ||
-                        $pageSlug == 'national_award' ||
                         $pageSlug == 'recent_video'
                     )@else collapsed @endif" data-toggle="collapse" href="#home" @if (
                         // $pageSlug == 'icsb_profile' ||
                         $pageSlug == 'banner' ||
                         $pageSlug == 'event' ||
                         $pageSlug == 'national_connection' ||
-                        $pageSlug == 'national_award' ||
                         $pageSlug == 'recent_video'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-solid fa-house-chimney"></i>
@@ -59,7 +57,6 @@
                     $pageSlug == 'banner' ||
                     $pageSlug == 'event' ||
                     $pageSlug == 'national_connection' ||
-                    $pageSlug == 'national_award' ||
                     $pageSlug == 'recent_video'
                 ) show @endif" id="home">
                     <ul class="nav pl-4">
@@ -68,7 +65,6 @@
                                 ['pageSlug' => 'banner', 'routeName' => 'banner.banner_list', 'label' => 'Banner'],
                                 ['pageSlug' => 'event', 'routeName' => 'event.event_list', 'label' => 'Event'],
                                 ['pageSlug' => 'national_connection', 'routeName' => 'national_connection.national_connection_list', 'label' => 'National Connection'],
-                                ['pageSlug' => 'national_award', 'routeName' => 'national_award.national_award_list',  'label' => 'National Award'],
                                 ['pageSlug' => 'recent_video', 'routeName' => 'recent_video.recent_video_list', 'label' => 'Recent Video'],
                             ]
                         ])
@@ -402,13 +398,13 @@
             <li>
                 <a class="@if(
                         $pageSlug == 'the-chartered-secretary'||
-                        $pageSlug == 'icsb-national-award-souvenir'||
-                        $pageSlug == 'icsb-convocation-souvenir'||
+                        $pageSlug == 'national_award' ||
+                        $pageSlug == 'convocation' ||
                         $pageSlug == 'other'
                     )@else collapsed @endif" data-toggle="collapse" href="#publications" @if (
                         $pageSlug == 'the-chartered-secretary'||
-                        $pageSlug == 'icsb-national-award-souvenir'||
-                        $pageSlug == 'icsb-convocation-souvenir'||
+                        $pageSlug == 'national_award' ||
+                        $pageSlug == 'convocation' ||
                         $pageSlug == 'other'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-regular fa-newspaper"></i>
@@ -418,8 +414,8 @@
 
                 <div class="collapse @if (
                         $pageSlug == 'the-chartered-secretary'||
-                        $pageSlug == 'icsb-national-award-souvenir'||
-                        $pageSlug == 'icsb-convocation-souvenir'||
+                        $pageSlug == 'national_award' ||
+                        $pageSlug == 'convocation' ||
                         $pageSlug == 'other'
 
 
@@ -428,8 +424,8 @@
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
                                 ['pageSlug' => 'the-chartered-secretary', 'routeName' => 'sp.show', 'params' => 'the-chartered-secretary', 'label' => 'The Chartered Secretary'],
-                                ['pageSlug' => 'icsb-national-award-souvenir', 'routeName' => 'sp.show', 'params' => 'icsb-national-award-souvenir', 'label' => 'ICSB National Award Souvenir'],
-                                ['pageSlug' => 'icsb-convocation-souvenir', 'routeName' => 'sp.show', 'params' => 'icsb-convocation-souvenir', 'label' => 'ICSB Convocation Souvenir'],
+                                ['pageSlug' => 'national_award', 'routeName' => 'national_award.national_award_list',  'label' => 'National Award'],
+                                ['pageSlug' => 'convocation', 'routeName' => 'convocation.convocation_list',  'label' => 'ICSB Convocation'],
                                 ['pageSlug' => 'annual-report', 'routeName' => 'sp.show', 'params' => 'annual-report', 'label' => 'Annual Report'],
                                 ['pageSlug' => 'others', 'routeName' => 'sp.show', 'params' => 'others', 'label' => 'Others'],
                             ]

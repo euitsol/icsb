@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class NationalAwardRequest extends FormRequest
+class ConvocationRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -28,7 +28,7 @@ class NationalAwardRequest extends FormRequest
     protected function store(): array
     {
         return [
-            'title' => 'required|unique:national_awards,title,NULL,id,deleted_at,NULL',
+            'title' => 'required|unique:convocations,title,NULL,id,deleted_at,NULL',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
@@ -36,7 +36,7 @@ class NationalAwardRequest extends FormRequest
     protected function update(): array
     {
         return [
-            'title' => 'required|unique:national_awards,title,' . $this->route('id') . ',id,deleted_at,NULL',
+            'title' => 'required|unique:convocations,title,' . $this->route('id') . ',id,deleted_at,NULL',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
