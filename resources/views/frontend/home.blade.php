@@ -59,7 +59,7 @@
 <!----============================ President Section ==========================---->
 @if(!empty($president))
     <section class="president-section big-sec-height">
-        <div class="container">
+        <div class="container wrap">
             <div class="president-column flex">
                 <div class="left-column">
                     <img src="{{getMemberImage($president->member)}}" alt="{{_('President Image')}}">
@@ -70,7 +70,7 @@
                 </div>
                 <div class="right-column">
                     <h2 class="title-shap">{{_('Message of The President')}}</h2>
-                   <p> {{ stringLimit(html_entity_decode_table($president->message),'520') }}</p>
+                   <p> {{ stringLimit(html_entity_decode_table($president->message),'2000') }}</p>
                     <a href="{{route('council_view.president.message')}}">{{_('Read More')}}</a>
                 </div>
             </div>
