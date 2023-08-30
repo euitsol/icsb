@@ -863,7 +863,9 @@ li {
 	background-image: url("../img/about_us_bg.png"); */
 }
 
-.we-are-section .wrap {
+.we-are-section .wrap,
+.president-section .wrap
+{
     height:100%;
 }
 .we-are-section .image-column {
@@ -940,14 +942,10 @@ li {
 
 .president-section .president-column {
 	column-gap: 7%;
-	align-items: flex-end;
-	margin-bottom: -60px;
 }
 
 .president-section .president-column .left-column {
 	width: 28%;
-	top: -100px;
-	position: relative;
 }
 
 .president-section .president-column .left-column h3 {
@@ -975,10 +973,7 @@ li {
 
 .president-section .president-column .right-column {
     width: 65%;
-    top: 50%;
-    position: relative;
     text-align: justify;
-    transform: translateY(-50%);
 }
 
 .president-section .president-column .right-column h2 {

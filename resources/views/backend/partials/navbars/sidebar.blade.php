@@ -288,7 +288,7 @@
                                     $pageSlug == 'examination-policy' ||
                                     $pageSlug == 'admission-form'
                                 ) aria-expanded="true" @else aria-expanded="false"@endif">
-                                <i class="fa-solid fa-people-group"></i>
+                                <i class="fa-solid fa-ticket"></i>
                                 <span class="nav-link-text" >{{ __('Admission') }}</span>
                                 <b class="caret mt-1"></b>
                             </a>
