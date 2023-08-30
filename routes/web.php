@@ -480,6 +480,8 @@ Route::group(['as' => 'employee_view.', 'prefix' => 'employee'], function () {
 });
 Route::group(['as' => 'examination.', 'prefix' => 'examination'], function () {
     Route::get('/exam-faq', [ExaminationPagesController::class, 'exam_faq'])->name('exam_faq');
+    Route::get('/sample-question-papers', [ExaminationPagesController::class, 'sampleQP'])->name('sqp');
+    Route::get('/sample-question-paper/{slug}', [ExaminationPagesController::class, 'sampleQPView'])->name('sqp_view');
     // Route::get('/exam-schedule', [ExaminationPagesController::class, 'examSchedule'])->name('exam_schedule');
 });
 Route::group(['as' => 'publication_view.', 'prefix' => 'publication'], function () {
