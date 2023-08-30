@@ -22,7 +22,7 @@
     @endphp
     @include('frontend.includes.breadcrumb',['datas'=>$datas])
 <!-- =============================== Breadcrumb Section ======================================-->
-    <section class="library-section">
+    <section class="library-section big-sec-min-height">
         <div class="container">
             <div class="search-row flex">
                 <div class="search-form">
