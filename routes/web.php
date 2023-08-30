@@ -182,7 +182,7 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::get('delete/{id}', [NationalConnectionController::class, 'delete'])->name('national_connection_delete');
     });
 
-    // National Connection Routes
+    // Assined Officer Routes
     Route::group(['as' => 'assined_officer.', 'prefix' => 'assined_officer'], function () {
         Route::get('index', [AssinedOfficerController::class, 'index'])->name('assined_officer_list');
         Route::get('create', [AssinedOfficerController::class, 'create'])->name('assined_officer_create');

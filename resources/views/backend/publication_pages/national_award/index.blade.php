@@ -1,6 +1,6 @@
-@extends('backend.layouts.master', ['pageSlug' => 'convocation'])
+@extends('backend.layouts.master', ['pageSlug' => 'national_award'])
 
-@section('title', 'Convocation')
+@section('title', 'National Award')
 
 @section('content')
     <div class="row">
@@ -9,10 +9,10 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-8">
-                            <h4 class="card-title">{{ _('Convocation') }}</h4>
+                            <h4 class="card-title">{{ _('National Award') }}</h4>
                         </div>
                         <div class="col-4 text-right">
-                            @include('backend.partials.button', ['routeName' => 'convocation.convocation_create', 'className' => 'btn-primary', 'label' => 'Add Convocation'])
+                            @include('backend.partials.button', ['routeName' => 'national_award.national_award_create', 'className' => 'btn-primary', 'label' => 'Add National Award'])
                         </div>
                     </div>
                 </div>
@@ -25,6 +25,7 @@
                                     <th>{{ _('Title') }}</th>
                                     <th>{{ _('Image') }}</th>
                                     <th>{{ _('File') }}</th>
+                                    <th>{{ _('Featured') }}</th>
                                     <th>{{ _('Status') }}</th>
                                     <th>{{ _('Creation date') }}</th>
                                     <th>{{ _('Created by') }}</th>
@@ -32,28 +33,30 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($convocations as $convocation)
+                                @foreach ($national_awards as $national_award)
                                     <tr>
-                                        <td> {{ $convocation->title }} </td>
+                                        <td> {{ $national_award->title }} </td>
                                         <td><img class="rounded" width="60"
-                                            src="@if ($convocation->image) {{ storage_url($convocation->image) }} @else {{ asset('no_img/no_img.jpg') }} @endif"
-                                            alt="{{ $convocation->title }}">
+                                            src="@if ($national_award->image) {{ storage_url($national_award->image) }} @else {{ asset('no_img/no_img.jpg') }} @endif"
+                                            alt="{{ $national_award->title }}">
                                         </td>
                                         <td>
-                                            <a href="{{route('download',base64_encode($convocation->file))}}" class="btn btn-info btn-sm {{$convocation->file ?  : 'd-none'}}"><i class="fa-regular fa-circle-down"></i></a>
+                                            <a href="{{route('download',base64_encode($national_award->file))}}" class="btn btn-info btn-sm {{$national_award->file ?  : 'd-none'}}"><i class="fa-regular fa-circle-down"></i></a>
                                         </td>
+                                        <td><span class='{{ $national_award->getFeaturedStatusClass() }}'>{{ $national_award->getFeaturedStatus() }}</span></td>
                                         <td>
-                                            @include('backend.partials.button', ['routeName' => 'convocation.status.convocation_edit','params' => [$convocation->id], 'className' => $convocation->getStatusClass(), 'label' => $convocation->getStatus() ])
+                                            @include('backend.partials.button', ['routeName' => 'national_award.status.national_award_edit','params' => [$national_award->id], 'className' => $national_award->getStatusClass(), 'label' => $national_award->getStatus() ])
                                         </td>
-                                        <td> {{ timeFormate($convocation->created_at) }} </td>
-                                        <td> {{ $convocation->created_user->name ?? 'system' }} </td>
+                                        <td> {{ timeFormate($national_award->created_at) }} </td>
+                                        <td> {{ $national_award->created_user->name ?? 'system' }} </td>
                                         <td>
                                             @include('backend.partials.action_buttons', [
                                                 'menuItems' => [
                                                     ['routeName' => '', 'label' => 'View'],
-                                                    ['routeName' => 'convocation.status.convocation_edit',   'params' => [$convocation->id], 'label' => 'Change Status'],
-                                                    ['routeName' => 'convocation.convocation_edit',   'params' => [$convocation->id], 'label' => 'Update'],
-                                                    ['routeName' => 'convocation.convocation_delete', 'params' => [$convocation->id], 'label' => 'Delete', 'delete' => true],
+                                                    ['routeName' => 'national_award.status.national_award_edit',   'params' => [$national_award->id], 'label' => 'Change Status'],
+                                                    ['routeName' => 'national_award.featured.national_award_edit',   'params' => [$national_award->id], 'label' => $national_award->getFeatured() ],
+                                                    ['routeName' => 'national_award.national_award_edit',   'params' => [$national_award->id], 'label' => 'Update'],
+                                                    ['routeName' => 'national_award.national_award_delete', 'params' => [$national_award->id], 'label' => 'Delete', 'delete' => true],
                                                 ]
                                             ])
                                         </td>
@@ -68,5 +71,5 @@
     </div>
 @endsection
 
-@include('backend.partials.datatable', ['columns_to_show' => [0,1,2,3,4,5]])
+@include('backend.partials.datatable', ['columns_to_show' => [0,1,2]])
 
