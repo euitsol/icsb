@@ -19,7 +19,7 @@ $datas = [
 @include('frontend.includes.breadcrumb',['datas'=>$datas])
 <!-- =============================== Breadcrumb Section ======================================-->
 <!----============================= council Section ========================---->
-<div class="council-section py-5">
+<div class="council-section big-sec-min-height">
     <div class="container">
         @php
             $index = 0;
@@ -55,6 +55,9 @@ $datas = [
 
             @endphp
         @endwhile
+        @if(count($c_members)<0)
+            <h3 class="my-5 text-center w-100">{{_('Council Member Not Found')}}</h3>
+        @endif
 
 
 

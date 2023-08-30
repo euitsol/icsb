@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\Backend\ActsController;
+use App\Http\Controllers\Backend\AssinedOfficerController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
@@ -20,6 +21,7 @@ use App\Http\Controllers\Backend\ICSBProfileController;
 use App\Http\Controllers\Backend\MemberController;
 use App\Http\Controllers\Backend\SinglePagesController;
 use App\Http\Controllers\Backend\CommitteeController;
+use App\Http\Controllers\Backend\ConvocationController;
 use App\Http\Controllers\Backend\CouncilController;
 use App\Http\Controllers\Backend\CsFirmsController;
 use App\Http\Controllers\Backend\ExamFaqController;
@@ -27,6 +29,7 @@ use App\Http\Controllers\Backend\JobPlacementController;
 use App\Http\Controllers\Backend\MediaRoomController;
 use App\Http\Controllers\Backend\PresidentController;
 use App\Http\Controllers\Backend\RecentVideoController;
+use App\Http\Controllers\Backend\SampleQuestionPaperController;
 use App\Http\Controllers\Backend\SecAndCeoController;
 use App\Http\Controllers\Backend\UserManagement\RoleController;
 use App\Http\Controllers\Backend\UserManagement\PermissionController;
@@ -44,6 +47,7 @@ use App\Http\Controllers\Frontend\EmployeePagesController;
 use App\Http\Controllers\Frontend\ExaminationPagesController;
 use App\Http\Controllers\Frontend\FrontendSinglePagesController;
 use App\Http\Controllers\Frontend\MediaRoomPagesController;
+use App\Http\Controllers\Frontend\PublicationPagesController;
 use App\Http\Controllers\Frontend\RulesPagesController;
 use App\Http\Controllers\Frontend\StudentPagesController;
 use App\Http\Controllers\SettingsController;
@@ -148,6 +152,17 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::get('status/{id}', [ActsController::class, 'status'])->name('status.acts_edit');
         Route::get('delete/{id}', [ActsController::class, 'delete'])->name('acts_delete');
     });
+    // Sample Question Papers
+    Route::group(['as' => 'sample_question_paper.', 'prefix' => 'sample-question-paper'], function () {
+        Route::get('index', [SampleQuestionPaperController::class, 'index'])->name('sqp_list');
+        Route::get('create', [SampleQuestionPaperController::class, 'create'])->name('sqp_create');
+        Route::post('create', [SampleQuestionPaperController::class, 'store'])->name('sqp_create');
+        Route::get('edit/{id}', [SampleQuestionPaperController::class, 'edit'])->name('sqp_edit');
+        Route::get('single-file/delete/{id}/{key}',      [SampleQuestionPaperController::class, 'singleFileDelete'])->name('single_file.delete.sqp_edit');
+        Route::put('edit/{id}', [SampleQuestionPaperController::class, 'update'])->name('sqp_edit');
+        Route::get('status/{id}', [SampleQuestionPaperController::class, 'status'])->name('status.sqp_edit');
+        Route::get('delete/{id}', [SampleQuestionPaperController::class, 'delete'])->name('sqp_delete');
+    });
     // Contact Us Routes
     Route::group(['as' => 'contact.', 'prefix' => 'contact'], function () {
         Route::get('index', [ContactController::class, 'index'])->name('contact_create');
@@ -166,6 +181,18 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::get('status/{id}',      [NationalConnectionController::class, 'status'])->name('status.national_connection_edit');
         Route::get('delete/{id}', [NationalConnectionController::class, 'delete'])->name('national_connection_delete');
     });
+
+    // National Connection Routes
+    Route::group(['as' => 'assined_officer.', 'prefix' => 'assined_officer'], function () {
+        Route::get('index', [AssinedOfficerController::class, 'index'])->name('assined_officer_list');
+        Route::get('create', [AssinedOfficerController::class, 'create'])->name('assined_officer_create');
+        Route::post('create', [AssinedOfficerController::class, 'store'])->name('assined_officer_create');
+        Route::get('edit/{id}',      [AssinedOfficerController::class, 'edit'])->name('assined_officer_edit');
+        Route::put('edit/{id}',      [AssinedOfficerController::class, 'update'])->name('assined_officer_edit');
+        Route::get('status/{id}',      [AssinedOfficerController::class, 'status'])->name('status.assined_officer_edit');
+        Route::get('delete/{id}', [AssinedOfficerController::class, 'delete'])->name('assined_officer_delete');
+    });
+
     // Event Routes
     Route::group(['as' => 'event.', 'prefix' => 'event'], function () {
         Route::get('index', [EventController::class, 'index'])->name('event_list');
@@ -197,6 +224,16 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::get('status/{id}',      [NationalAwardController::class, 'status'])->name('status.national_award_edit');
         Route::get('featured/{id}',      [NationalAwardController::class, 'featured'])->name('featured.national_award_edit');
         Route::get('delete/{id}', [NationalAwardController::class, 'delete'])->name('national_award_delete');
+    });
+    // Convocation Routes
+    Route::group(['as' => 'convocation.', 'prefix' => 'convocation'], function () {
+        Route::get('index', [ConvocationController::class, 'index'])->name('convocation_list');
+        Route::get('create', [ConvocationController::class, 'create'])->name('convocation_create');
+        Route::post('create', [ConvocationController::class, 'store'])->name('convocation_create');
+        Route::get('edit/{id}',      [ConvocationController::class, 'edit'])->name('convocation_edit');
+        Route::put('edit/{id}',      [ConvocationController::class, 'update'])->name('convocation_edit');
+        Route::get('status/{id}',      [ConvocationController::class, 'status'])->name('status.convocation_edit');
+        Route::get('delete/{id}', [ConvocationController::class, 'delete'])->name('convocation_delete');
     });
     // Media Room Routes
     Route::group(['as' => 'media_room.', 'prefix' => 'media_room'], function () {
@@ -437,11 +474,17 @@ Route::group(['as' => 'council_view.', 'prefix' => 'council'], function () {
 Route::group(['as' => 'employee_view.', 'prefix' => 'employee'], function () {
     Route::get('/secretary-and-ceo', [EmployeePagesController::class, 'sec_and_ceo'])->name('sec_and_ceo');
     Route::get('/organogram', [EmployeePagesController::class, 'organogram'])->name('organogram');
+    Route::get('/assined-officers', [EmployeePagesController::class, 'assinedOfficer'])->name('assined_officer');
     // Route::get('/past-secretary-and-ceos', [EmployeePagesController::class, 'past_sec_and_ceos'])->name('past_sec_and_ceos');
     // Route::get('/past-secretary-and-ceo/{slug}', [EmployeePagesController::class, 'singlePSC'])->name('single.psc');
 });
 Route::group(['as' => 'examination.', 'prefix' => 'examination'], function () {
     Route::get('/exam-faq', [ExaminationPagesController::class, 'exam_faq'])->name('exam_faq');
+    // Route::get('/exam-schedule', [ExaminationPagesController::class, 'examSchedule'])->name('exam_schedule');
+});
+Route::group(['as' => 'publication_view.', 'prefix' => 'publication'], function () {
+    Route::get('/icsb-national-award-souvenir', [PublicationPagesController::class, 'nationalAward'])->name('national_award');
+    Route::get('/icsb-convocation-souvenir', [PublicationPagesController::class, 'convocation'])->name('convocation');
     // Route::get('/exam-schedule', [ExaminationPagesController::class, 'examSchedule'])->name('exam_schedule');
 });
 Route::group(['as' => 'event_view.', 'prefix' => 'event'], function () {

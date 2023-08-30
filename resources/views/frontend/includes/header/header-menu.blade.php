@@ -186,7 +186,7 @@
                             <li><a href="{{route('employee_view.sec_and_ceo')}}">Secretary & CEO</a></li>
                             {{-- <li><a href="{{route('employee_view.past_sec_and_ceos')}}">Past Secretary & CEOs</a></li> --}}
                             <li><a href="{{route('employee_view.organogram')}}">Organogram</a></li>
-                            <li><a href="#">Assigned Officers</a></li>
+                            <li><a href="{{route('employee_view.assined_officer')}}">Assigned Officers</a></li>
                             <li><a href="{{ route('sp.frontend','help-desk') }}">Help Desk</a></li>
                         </ul>
                     </li>
@@ -212,9 +212,9 @@
                         <a href="#">Publications<i class="fa-solid fa-angle-down"></i></a>
                         <ul class="">
                             <li><a href="{{ route('sp.frontend','the-chartered-secretary') }}">The Chartered Secretary</a></li>
-                            <li><a href="{{ route('sp.frontend','icsb-national-award-souvenir') }}">ICSB National Award Souvenir</a></li>
-                            <li><a href="">ICSB Convocation Souvenir</a></li>
-                            <li><a href="#">Annual Reports</a></li>
+                            <li><a href="{{route('publication_view.national_award')}}">ICSB National Award Souvenir</a></li>
+                            <li><a href="{{route('publication_view.convocation')}}">ICSB Convocation Souvenir</a></li>
+                            <li><a href="{{ route('sp.frontend','annual-report') }}">Annual Reports</a></li>
                             @if(isset($publicationOthers->saved_data) && !empty(json_decode($publicationOthers->saved_data)->{'url'}))
                                 <li><a target="_blank" href="{{ json_decode($publicationOthers->saved_data)->{'url'} }}">Others</a></li>
                             @endif

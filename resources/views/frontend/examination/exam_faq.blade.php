@@ -20,7 +20,7 @@ $datas = [
 <!-- =============================== Breadcrumb Section ======================================-->
 
 <!----============================= FAQ Section ========================---->
-	<section class="faq-section">
+	<section class="faq-section big-sec-min-height">
 		<div class="container">
 			<div class="heading-content text-align">
 				<h1 class="common-heading">{{_('Exam Frequently Asked Questions')}}</h1>

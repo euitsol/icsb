@@ -18,13 +18,13 @@ $datas = [
 @endphp
 @include('frontend.includes.breadcrumb',['datas'=>$datas])
 <!-- =============================== Breadcrumb Section ======================================-->
-<section class="executive-committee-section">
+<section class="executive-committee-section big-sec-min-height">
     <div class="container">
         <div class="heading-content text-align">
             <h2 class="common-heading">{{$committee->title}}{{_(' Members')}}</h2>
         </div>
         <div class="committee-row flex">
-            @foreach ($c_members as $key=>$member)
+            @forelse ($c_members as $key=>$member)
                 <div class="committee-items flex">
                     <div class="image-column">
                         <img src="{{ getMemberImage($member->member) }}" alt="">
@@ -35,7 +35,9 @@ $datas = [
                         <li><i class="fa-solid fa-user-tie"></i> <p>{{ $member->committe_member_type->title }}</p></li>
                     </div>
                 </div>
-            @endforeach
+            @empty
+                <h3 class="my-5 text-center w-100">{{_('Committee Member Not Found')}}</h3>
+            @endforelse
         </div>
     </div>
 </section>

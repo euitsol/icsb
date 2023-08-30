@@ -39,14 +39,12 @@
                         $pageSlug == 'banner' ||
                         $pageSlug == 'event' ||
                         $pageSlug == 'national_connection' ||
-                        $pageSlug == 'national_award' ||
                         $pageSlug == 'recent_video'
                     )@else collapsed @endif" data-toggle="collapse" href="#home" @if (
                         // $pageSlug == 'icsb_profile' ||
                         $pageSlug == 'banner' ||
                         $pageSlug == 'event' ||
                         $pageSlug == 'national_connection' ||
-                        $pageSlug == 'national_award' ||
                         $pageSlug == 'recent_video'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-solid fa-house-chimney"></i>
@@ -59,7 +57,6 @@
                     $pageSlug == 'banner' ||
                     $pageSlug == 'event' ||
                     $pageSlug == 'national_connection' ||
-                    $pageSlug == 'national_award' ||
                     $pageSlug == 'recent_video'
                 ) show @endif" id="home">
                     <ul class="nav pl-4">
@@ -68,7 +65,6 @@
                                 ['pageSlug' => 'banner', 'routeName' => 'banner.banner_list', 'label' => 'Banner'],
                                 ['pageSlug' => 'event', 'routeName' => 'event.event_list', 'label' => 'Event'],
                                 ['pageSlug' => 'national_connection', 'routeName' => 'national_connection.national_connection_list', 'label' => 'National Connection'],
-                                ['pageSlug' => 'national_award', 'routeName' => 'national_award.national_award_list',  'label' => 'National Award'],
                                 ['pageSlug' => 'recent_video', 'routeName' => 'recent_video.recent_video_list', 'label' => 'Recent Video'],
                             ]
                         ])
@@ -332,12 +328,12 @@
                 <a class="@if(
                         $pageSlug == 'sec_and_ceo' ||
                         $pageSlug == 'organogram' ||
-                        $pageSlug == 'assigned_officers' ||
+                        $pageSlug == 'assined_officer' ||
                         $pageSlug == 'help-desk'
                     )@else collapsed @endif" data-toggle="collapse" href="#employees" @if (
                         $pageSlug == 'sec_and_ceo' ||
                         $pageSlug == 'organogram' ||
-                        $pageSlug == 'assigned_officers' ||
+                        $pageSlug == 'assined_officer' ||
                         $pageSlug == 'help-desk'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-solid fa-people-roof"></i>
@@ -348,7 +344,7 @@
                 <div class="collapse @if (
                         $pageSlug == 'sec_and_ceo' ||
                         $pageSlug == 'organogram' ||
-                        $pageSlug == 'assigned_officers' ||
+                        $pageSlug == 'assined_officer' ||
                         $pageSlug == 'help-desk'
 
                 ) show @endif" id="employees">
@@ -357,7 +353,7 @@
                             'menuItems' => [
                                 ['pageSlug' => 'sec_and_ceo', 'routeName' => 'sec_and_ceo.sc_list', 'label' => 'Secretary & CEO'],
                                 ['pageSlug' => 'organogram', 'routeName' => '', 'label' => 'Organogram'],
-                                ['pageSlug' => 'assigned_officers', 'routeName' => '', 'label' => 'Assigned Officers'],
+                                ['pageSlug' => 'assined_officer', 'routeName' => 'assined_officer.assined_officer_list', 'label' => 'Assigned Officers'],
                                 ['pageSlug' => 'help-desk', 'routeName' => 'sp.show', 'params' => 'help-desk', 'label' => 'Help Desk'],
                             ]
                         ])
@@ -402,11 +398,13 @@
             <li>
                 <a class="@if(
                         $pageSlug == 'the-chartered-secretary'||
-                        $pageSlug == 'icsb-national-award-souvenir'||
+                        $pageSlug == 'national_award' ||
+                        $pageSlug == 'convocation' ||
                         $pageSlug == 'other'
                     )@else collapsed @endif" data-toggle="collapse" href="#publications" @if (
                         $pageSlug == 'the-chartered-secretary'||
-                        $pageSlug == 'icsb-national-award-souvenir'||
+                        $pageSlug == 'national_award' ||
+                        $pageSlug == 'convocation' ||
                         $pageSlug == 'other'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-regular fa-newspaper"></i>
@@ -416,7 +414,8 @@
 
                 <div class="collapse @if (
                         $pageSlug == 'the-chartered-secretary'||
-                        $pageSlug == 'icsb-national-award-souvenir'||
+                        $pageSlug == 'national_award' ||
+                        $pageSlug == 'convocation' ||
                         $pageSlug == 'other'
 
 
@@ -425,7 +424,9 @@
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
                                 ['pageSlug' => 'the-chartered-secretary', 'routeName' => 'sp.show', 'params' => 'the-chartered-secretary', 'label' => 'The Chartered Secretary'],
-                                ['pageSlug' => 'icsb-national-award-souvenir', 'routeName' => 'sp.show', 'params' => 'icsb-national-award-souvenir', 'label' => 'ICSB National Award Souvenir'],
+                                ['pageSlug' => 'national_award', 'routeName' => 'national_award.national_award_list',  'label' => 'National Award'],
+                                ['pageSlug' => 'convocation', 'routeName' => 'convocation.convocation_list',  'label' => 'ICSB Convocation'],
+                                ['pageSlug' => 'annual-report', 'routeName' => 'sp.show', 'params' => 'annual-report', 'label' => 'Annual Report'],
                                 ['pageSlug' => 'others', 'routeName' => 'sp.show', 'params' => 'others', 'label' => 'Others'],
                             ]
                         ])
@@ -441,13 +442,13 @@
                         $pageSlug == 'eligibility' ||
                         $pageSlug == 'exam-schedule' ||
                         $pageSlug == 'results' ||
-                        $pageSlug == 'sample_question_papers' ||
+                        $pageSlug == 'sample_question_paper' ||
                         $pageSlug == 'exam_faq'
                     )@else collapsed @endif" data-toggle="collapse" href="#examination" @if (
                         $pageSlug == 'eligibility' ||
                         $pageSlug == 'exam-schedule' ||
                         $pageSlug == 'results' ||
-                        $pageSlug == 'sample_question_papers' ||
+                        $pageSlug == 'sample_question_paper' ||
                         $pageSlug == 'exam_faq'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-solid fa-file-pen"></i>
@@ -459,7 +460,7 @@
                         $pageSlug == 'eligibility' ||
                         $pageSlug == 'exam-schedule' ||
                         $pageSlug == 'results' ||
-                        $pageSlug == 'sample_question_papers' ||
+                        $pageSlug == 'sample_question_paper' ||
                         $pageSlug == 'exam_faq'
 
 
@@ -470,7 +471,7 @@
                                 ['pageSlug' => 'eligibility', 'routeName' => 'sp.show', 'params' => 'eligibility', 'label' => 'Eligibility'],
                                 ['pageSlug' => 'exam-schedule', 'routeName' => 'sp.show', 'params' => 'exam-schedule', 'label' => 'Exam Schedule'],
                                 ['pageSlug' => 'results', 'routeName' => '', 'label' => 'Results'],
-                                ['pageSlug' => 'sample_question_papers', 'routeName' => '', 'label' => 'Sample Question Papers'],
+                                ['pageSlug' => 'sample_question_paper', 'routeName' => 'sample_question_paper.sqp_list', 'label' => 'Sample Question Papers'],
                                 ['pageSlug' => 'exam_faq', 'routeName' => 'exam_faq.exam_faq_list', 'label' => 'Exam FAQs'],
                             ]
                         ])

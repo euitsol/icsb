@@ -18,7 +18,7 @@ $datas = [
 @endphp
 @include('frontend.includes.breadcrumb',['datas'=>$datas])
 <!-- =============================== Breadcrumb Section ======================================-->
-    <section class="organogram-section big-sec-height d-flex align-items-center">
+    <section class="organogram-section big-sec-height">
         <div class="container">
             <div class="chart-main">
             <div class="level-1">

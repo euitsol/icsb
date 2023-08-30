@@ -22,11 +22,11 @@ class NationalAwardController extends Controller
     public function index(): View
     {
         $n['national_awards'] = NationalAward::where('deleted_at', null)->latest()->get();
-        return view('backend.national_award.index',$n);
+        return view('backend.publication_pages.national_award.index',$n);
     }
     public function create(): View
     {
-        return view('backend.national_award.create');
+        return view('backend.publication_pages.national_award.create');
     }
     public function store(NationalAwardRequest $request): RedirectResponse
     {
@@ -52,7 +52,7 @@ class NationalAwardController extends Controller
     public function edit($id): View
     {
         $n['national_award'] = NationalAward::findOrFail($id);
-        return view('backend.national_award.edit', $n);
+        return view('backend.publication_pages.national_award.edit', $n);
     }
     public function update(NationalAwardRequest $request, $id): RedirectResponse
     {

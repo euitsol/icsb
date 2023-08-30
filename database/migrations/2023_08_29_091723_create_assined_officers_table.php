@@ -11,14 +11,15 @@ return new class extends Migration
 
     public function up(): void
     {
-        Schema::create('national_awards', function (Blueprint $table) {
+        Schema::create('assined_officers', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->unique();
+            $table->string('order_key');
+            $table->string('name');
             $table->string('image');
-            $table->string('file')->nullable();
-            $table->longText('description')->nullable();
+            $table->string('designation');
+            $table->string('phone')->unique();
+            $table->string('email')->unique();
             $table->boolean('status')->default(1);
-            $table->enum('is_featured', ["0", "1"])->default("0");
             $table->timestamps();
             $table->softDeletes();
             $this->addAuditColumns($table);
@@ -27,6 +28,6 @@ return new class extends Migration
 
     public function down(): void
     {
-         Schema::dropIfExists('national_awards');
+         Schema::dropIfExists('assined_officers');
     }
 };

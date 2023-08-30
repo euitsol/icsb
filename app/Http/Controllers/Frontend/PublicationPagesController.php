@@ -4,20 +4,20 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Act;
-use App\Models\AssinedOfficer;
 use App\Models\CommitteeType;
 use App\Models\Contact;
+use App\Models\Convocation;
 use App\Models\Council;
 use App\Models\MediaRoomCategory;
 use App\Models\MemberType;
-use App\Models\SecAndCeo;
+use App\Models\NationalAward;
 use App\Models\SecretarialStandard;
 use App\Models\SinglePages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\View\View;
 
-class EmployeePagesController extends Controller
+class PublicationPagesController extends Controller
 {
     public function __construct() {
         $contact = Contact::where('deleted_at', null)->first();
@@ -47,39 +47,15 @@ class EmployeePagesController extends Controller
         ]);
         return $this->middleware('auth');
     }
-    public function sec_and_ceo(): View
-    {
-        $s['sec_and_ceo'] = SecAndCeo::with(['durations','member'])
-                        ->where('status',1)
-                        ->where('deleted_at',null)
-                        ->first();
-        return view('frontend.employee.sec_and_ceo',$s);
-    }
-    public function past_sec_and_ceos(): View
-    {
-        $s['p_sec_and_ceos'] = SecAndCeo::with(['durations','member'])
-                        ->where('status',0)
-                        ->where('deleted_at',null)
-                        ->get();
-        return view('frontend.employee.past_sec_and_ceos',$s);
-    }
-    public function singlePSC($slug): View
-    {
-        $s['sec_and_ceo'] = SecAndCeo::with(['durations','member'])
-                        ->where('slug',$slug)
-                        ->where('deleted_at',null)
-                        ->first();
-        return view('frontend.employee.sec_and_ceo',$s);
-    }
-    public function organogram(): View
-    {
-        return view('frontend.employee.organogram');
 
-    }
-    public function assinedOfficer(): View
+    public function nationalAward(): View
     {
-        $s['assined_officers'] = AssinedOfficer::where('deleted_at',null)->where('status',1)->orderBy('order_key','ASC')->get();
-        return view('frontend.employee.assined_officer',$s);
-
+        $s['national_awards'] = NationalAward::where('deleted_at', null)->where('status',1)->latest()->get();
+        return view('frontend.publication.national_award',$s);
+    }
+    public function convocation(): View
+    {
+        $s['convocations'] = Convocation::where('deleted_at', null)->where('status',1)->latest()->get();
+        return view('frontend.publication.convocation',$s);
     }
 }
