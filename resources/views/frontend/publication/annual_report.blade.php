@@ -39,7 +39,9 @@
                         <div class="left-column">
                             <ul class="flex">
                                 <li>{{str_pad(($key+1), 2, '0', STR_PAD_LEFT)}}</li>
-                                <li><a target="_blank" href="{{ route('sp.file.download', base64_encode($file)) }}">{{basename($file)}}</a></li>
+                                <li><a target="_blank" href="{{ route('sp.file.download', base64_encode($file)) }}">
+                                    {{ucfirst(str_replace('-', ' ', Str::before(basename($file), '.pdf')))}}
+                                </a></li>
                             </ul>
                         </div>
                         <div class="right-column">
