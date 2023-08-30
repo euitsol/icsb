@@ -20,12 +20,13 @@ $datas = [
 <!-- =============================== Breadcrumb Section ======================================-->
 
 
-<section class="officers-section">
+<section class="officers-section big-sec-min-height">
     <div class="container">
         <table>
             <tr>
                 <th>{{_('SL')}}</th>
-                <th colspan="2">{{_('Name and Designation')}}</th>
+                <th>{{_('Image')}}</th>
+                <th>{{_('Name and Designation')}}</th>
                 <th>{{_('Contact Details')}}</th>
             </tr>
             @forelse ($assined_officers as $key=>$officer)
@@ -44,7 +45,7 @@ $datas = [
                     </td>
                 </tr>
             @empty
-                <h3 class="my-5 text-center">{{_('Officer Not Found')}}</h3>
+                <h3 class="my-5 text-center w-100">{{_('Officers Not Found')}}</h3>
             @endforelse
 
         </table>
