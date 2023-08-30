@@ -212,9 +212,9 @@
                         <a href="#">Publications<i class="fa-solid fa-angle-down"></i></a>
                         <ul class="">
                             <li><a href="{{ route('sp.frontend','the-chartered-secretary') }}">The Chartered Secretary</a></li>
-                            <li><a href="{{ route('sp.frontend','icsb-national-award-souvenir') }}">ICSB National Award Souvenir</a></li>
+                            <li><a href="{{route('publication_view.national_award')}}">ICSB National Award Souvenir</a></li>
                             <li><a href="">ICSB Convocation Souvenir</a></li>
-                            <li><a href="#">Annual Reports</a></li>
+                            <li><a href="{{ route('sp.frontend','annual-report') }}">Annual Reports</a></li>
                             @if(isset($publicationOthers->saved_data) && !empty(json_decode($publicationOthers->saved_data)->{'url'}))
                                 <li><a target="_blank" href="{{ json_decode($publicationOthers->saved_data)->{'url'} }}">Others</a></li>
                             @endif

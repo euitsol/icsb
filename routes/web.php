@@ -46,6 +46,7 @@ use App\Http\Controllers\Frontend\EmployeePagesController;
 use App\Http\Controllers\Frontend\ExaminationPagesController;
 use App\Http\Controllers\Frontend\FrontendSinglePagesController;
 use App\Http\Controllers\Frontend\MediaRoomPagesController;
+use App\Http\Controllers\Frontend\PublicationPagesController;
 use App\Http\Controllers\Frontend\RulesPagesController;
 use App\Http\Controllers\Frontend\StudentPagesController;
 use App\Http\Controllers\SettingsController;
@@ -468,6 +469,10 @@ Route::group(['as' => 'employee_view.', 'prefix' => 'employee'], function () {
 });
 Route::group(['as' => 'examination.', 'prefix' => 'examination'], function () {
     Route::get('/exam-faq', [ExaminationPagesController::class, 'exam_faq'])->name('exam_faq');
+    // Route::get('/exam-schedule', [ExaminationPagesController::class, 'examSchedule'])->name('exam_schedule');
+});
+Route::group(['as' => 'publication_view.', 'prefix' => 'publication'], function () {
+    Route::get('/icsb-national-award-souvenir', [PublicationPagesController::class, 'nationalAward'])->name('national_award');
     // Route::get('/exam-schedule', [ExaminationPagesController::class, 'examSchedule'])->name('exam_schedule');
 });
 Route::group(['as' => 'event_view.', 'prefix' => 'event'], function () {

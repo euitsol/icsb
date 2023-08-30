@@ -3449,7 +3449,7 @@ td {
 .search-row {
 	max-width: 1225px;
 	margin: 0 auto;
-	justify-content: space-between;
+	justify-content: right;
 }
 
 .search-row .search-input {

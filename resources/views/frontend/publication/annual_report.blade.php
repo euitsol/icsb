@@ -1,6 +1,6 @@
 @extends('frontend.master')
 
-@section('title', 'The Chartered Secretary')
+@section('title', 'Annual Report')
 
 @section('content')
 
@@ -22,26 +22,6 @@
     @endphp
     @include('frontend.includes.breadcrumb',['datas'=>$datas])
 <!-- =============================== Breadcrumb Section ======================================-->
-    <!--============================= Handbok Section ==================-->
-    {{-- <section class="cs-handbook-section section-padding">
-        <div class="container">
-            <div class="row">
-                @if (isset(json_decode($single_page->saved_data)->{'upload-files'}))
-                    @foreach (json_decode($single_page->saved_data)->{'upload-files'} as $file)
-                        <div class="col-md-6 the_cs mb-5">
-                            <div class="new-handbook text-align">
-                                    <iframe src="{{ storage_url($file) }}" width="100%" height="500px"></iframe>
-                            </div>
-                        </div>
-                    @endforeach
-                @endif
-
-
-            </div>
-        </div>
-    </section> --}}
-
-
     <section class="library-section">
         <div class="container">
             <div class="search-row flex">
@@ -51,9 +31,6 @@
                         <button class="search-button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                       </form>
                 </div>
-                {{-- <div class="download-button">
-                    <a href="#">Download</a>
-                </div> --}}
             </div>
             @if (isset(json_decode($single_page->saved_data)->{'upload-files'}))
             @foreach (json_decode($single_page->saved_data)->{'upload-files'} as $key=>$file)
@@ -62,11 +39,11 @@
                         <div class="left-column">
                             <ul class="flex">
                                 <li>{{str_pad(($key+1), 2, '0', STR_PAD_LEFT)}}</li>
-                                <li><a href="#">{{$file}}</a></li>
+                                <li><a target="_blank" href="{{ route('sp.file.download', base64_encode($file)) }}">{{basename($file)}}</a></li>
                             </ul>
                         </div>
                         <div class="right-column">
-                            <li><a href="#"><i class="fa-solid fa-cloud-arrow-down"></i></a></li>
+                            <li><a target="_blank" href="{{ route('sp.file.download', base64_encode($file)) }}"><i class="fa-solid fa-cloud-arrow-down"></i></a></li>
                         </div>
                     </div>
                 </div>

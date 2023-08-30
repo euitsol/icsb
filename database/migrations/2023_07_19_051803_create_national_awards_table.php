@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title')->unique();
             $table->string('image');
             $table->string('file')->nullable();
-            $table->longText('description');
+            $table->longText('description')->nullable();
             $table->boolean('status')->default(1);
             $table->enum('is_featured', ["0", "1"])->default("0");
             $table->timestamps();
