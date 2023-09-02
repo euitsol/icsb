@@ -45,7 +45,7 @@ class NoticeBoardController extends Controller
 
     public function create(): View
     {
-        $s['notice_cats'] = NoticeCategory::where('deleted_at', null)->where('status',1)->latest()->get();
+        $s['notice_cats'] = NoticeCategory::where('deleted_at', null)->where('status',1)->get();
         return view('backend.notice_board.create',$s);
     }
     public function store(NoticeRequest $request): RedirectResponse
@@ -83,7 +83,7 @@ class NoticeBoardController extends Controller
     public function edit($id): View
     {
         $s['notice'] = Notice::findOrFail($id);
-        $s['notice_cats'] = NoticeCategory::where('deleted_at', null)->where('status',1)->latest()->get();
+        $s['notice_cats'] = NoticeCategory::where('deleted_at', null)->where('status',1)->get();
         return view('backend.notice_board.edit',$s);
     }
     public function singleFileDelete($id, $key): RedirectResponse
