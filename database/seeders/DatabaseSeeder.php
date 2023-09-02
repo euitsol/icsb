@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             UsersSeeder::class,
             SiteSettingsSeeder::class,
             SinglePagesSeeder::class,
-            MemberTypeSeeder::class
+            MemberTypeSeeder::class,
+            NoticeCategorySeeder::class
         ]);
     }
 }

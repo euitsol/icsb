@@ -27,6 +27,7 @@ use App\Http\Controllers\Backend\CsFirmsController;
 use App\Http\Controllers\Backend\ExamFaqController;
 use App\Http\Controllers\Backend\JobPlacementController;
 use App\Http\Controllers\Backend\MediaRoomController;
+use App\Http\Controllers\Backend\NoticeBoardController;
 use App\Http\Controllers\Backend\PresidentController;
 use App\Http\Controllers\Backend\RecentVideoController;
 use App\Http\Controllers\Backend\SampleQuestionPaperController;
@@ -336,6 +337,35 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::get('committee-member/delete/{id}', [CommitteeController::class, 'cm_delete'])->name('committee_member_delete');
 
     });
+
+
+    // Notice Board
+    Route::group(['as' => 'notice_board.', 'prefix' => 'notice-board'], function () {
+        Route::get('index', [NoticeBoardController::class, 'index'])->name('notice_list');
+
+        Route::get('create', [NoticeBoardController::class, 'create'])->name('notice_create');
+        Route::post('create', [NoticeBoardController::class, 'store'])->name('notice_create');
+        Route::get('edit/{id}', [NoticeBoardController::class, 'edit'])->name('notice_edit');
+        Route::get('single-file/delete/{id}/{key}',      [NoticeBoardController::class, 'singleFileDelete'])->name('single_file.delete.notice_edit');
+        Route::put('edit/{id}', [NoticeBoardController::class, 'update'])->name('notice_edit');
+        Route::get('status/{id}', [NoticeBoardController::class, 'status'])->name('status.notice_edit');
+        Route::get('delete/{id}', [NoticeBoardController::class, 'delete'])->name('notice_delete');
+
+        Route::get('committee-type/create', [NoticeBoardController::class, 'nc_create'])->name('notice_cat_create');
+        Route::post('committee-type/create', [NoticeBoardController::class, 'nc_store'])->name('notice_cat_create');
+        Route::get('committee-type/edit/{id}', [NoticeBoardController::class, 'nc_edit'])->name('notice_cat_edit');
+        Route::put('committee-type/edit/{id}', [NoticeBoardController::class, 'nc_update'])->name('notice_cat_edit');
+        Route::get('committee-type/status/{id}', [NoticeBoardController::class, 'nc_status'])->name('status.notice_cat_edit');
+        Route::get('committee-type/delete/{id}', [NoticeBoardController::class, 'nc_delete'])->name('notice_cat_delete');
+
+        Route::get('student-notice', [NoticeBoardController::class, 'studentNotice'])->name('student_notice_list');
+        Route::get('member-notice', [NoticeBoardController::class, 'memberNotice'])->name('member_notice_list');
+
+    });
+
+
+
+
     // Council Routes
     Route::group(['as' => 'council.', 'prefix' => 'council'], function () {
         Route::get('index', [CouncilController::class, 'index'])->name('council_list');
