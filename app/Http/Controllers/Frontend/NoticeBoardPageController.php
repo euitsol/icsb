@@ -10,6 +10,7 @@ use App\Models\Council;
 use App\Models\MediaRoomCategory;
 use App\Models\MemberType;
 use App\Models\Notice;
+use App\Models\NoticeCategory;
 use App\Models\SecretarialStandard;
 use App\Models\SinglePages;
 use Illuminate\Http\Request;
@@ -51,9 +52,10 @@ class NoticeBoardPageController extends Controller
     {
         $s=[];
         if($slug != false){
-            $s['notices'] = Notice::with('category')->where('slug',$slug)->where('deleted_at',null)->where('status',1)->latest()->get();
+            $s['notice_cat'] = NoticeCategory::where('slug',$slug)->where('deleted_at',null)->where('status',1)->latest()->first();
+            $s['notices'] = Notice::where('cat_id',$s['notice_cat']->id)->where('deleted_at',null)->where('status',1)->latest()->paginate(10);
         }else{
-            $s['notices'] = Notice::with('category')->where('deleted_at',null)->where('status',1)->latest()->get();
+            $s['notices'] = Notice::where('deleted_at',null)->where('status',1)->latest()->paginate(10);
         }
         return view('frontend.notice_board.notice',$s);
 

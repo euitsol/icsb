@@ -48,6 +48,7 @@ use App\Http\Controllers\Frontend\EmployeePagesController;
 use App\Http\Controllers\Frontend\ExaminationPagesController;
 use App\Http\Controllers\Frontend\FrontendSinglePagesController;
 use App\Http\Controllers\Frontend\MediaRoomPagesController;
+use App\Http\Controllers\Frontend\NoticeBoardPageController;
 use App\Http\Controllers\Frontend\PublicationPagesController;
 use App\Http\Controllers\Frontend\RulesPagesController;
 use App\Http\Controllers\Frontend\StudentPagesController;
@@ -545,6 +546,9 @@ Route::group(['as' => 'member_view.', 'prefix' => 'member'], function () {
 Route::group(['as' => 'student_view.', 'prefix' => 'student'], function () {
     Route::get('/cs-hand-book', [StudentPagesController::class, 'csHandBook'])->name('cs_hand_book');
     Route::get('/icsb-library', [StudentPagesController::class, 'library'])->name('library');
+});
+Route::group(['as' => 'notice_view.', 'prefix' => 'notices'], function () {
+    Route::get('/{slug?}', [NoticeBoardPageController::class, 'notice'])->name('notice');
 });
 // Route::group(['as' => 'rules_and_regulations.', 'prefix' => 'rulse-&-regulations'], function () {
 //     Route::get('/the-chartered-secretaries-act-2010', [RulesAndRegulationsPagesController::class, 'tcsa'])->name('tcsa');
