@@ -79,85 +79,10 @@
 @endif
 <!----============================ BSS Secretarial Section ==========================---->
 @include('frontend.includes.bss',['home_bsss'=>$home_bsss])
-
 <!----============================ Notices Section ==========================---->
-<section class="notice-section big-sec-height">
-    <div class="container">
-        <div class="notice-row">
-            <div class="section-heading text-align">
-                <h2 class="title-shap">Notice Board</h2>
-            </div>
-            <div class="notice-board-wrapper">
-                <div class="left-column notice-details-col">
-                    <div class="notice-content flex">
-                        <div class="date-col">
-                            <h4> Jan 9, 2023</h4>
-                        </div>
-                        <div class="content-col">
-                            <h3><a href="#">Mohammad Asad Ullah FCS Elected as President of ICSB for the Fifth Term 2022-25</a></h3>
-                            <ul>
-                                <li><i class="fa-solid fa-clock"></i>09.00 am</li>
-                                <li><i class="fa-solid fa-user-large"></i>Member</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="notice-content flex">
-                        <div class="date-col">
-                            <h4> Jan 9, 2023</h4>
-                        </div>
-                        <div class="content-col">
-                            <h3><a href="#">Mohammad Asad Ullah FCS Elected as President of ICSB for the Fifth Term 2022-25</a></h3>
-                            <ul>
-                                <li><i class="fa-solid fa-clock"></i>09.00 am</li>
-                                <li><i class="fa-solid fa-user-large"></i>Member</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="notice-content flex">
-                        <div class="date-col">
-                            <h4> Jan 9, 2023</h4>
-                        </div>
-                        <div class="content-col">
-                            <h3><a href="#">Mohammad Asad Ullah FCS Elected as President of ICSB for the Fifth Term 2022-25</a></h3>
-                            <ul>
-                                <li><i class="fa-solid fa-clock"></i>09.00 am</li>
-                                <li><i class="fa-solid fa-user-large"></i>Member</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="notice-content flex">
-                        <div class="date-col">
-                            <h4> Jan 9, 2023</h4>
-                        </div>
-                        <div class="content-col">
-                            <h3><a href="#">Mohammad Asad Ullah FCS Elected as President of ICSB for the Fifth Term 2022-25</a></h3>
-                            <ul>
-                                <li><i class="fa-solid fa-clock"></i>09.00 am</li>
-                                <li><i class="fa-solid fa-user-large"></i>Member</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="right-column notice-title-col">
-                    <div class="notice-wrapper">
-                        <div class="title-box">
-                            <h4>Categories</h4>
-                            <ul>
-                                <li class="active"><a href="#">All</a></li>
-                                <li><a href="#">Member</a></li>
-                                <li><a href="#">Student</a></li>
-                                <li><a href="#">Others</a></li>
-                            </ul>
-                            <div class="button-wrapper">
-                                <a class="transparent-button" href="#">View All</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+@include('frontend.includes.notice_board',['notice_cats'=>$notice_cats])
+
+
 
 
 @include('frontend.includes.recent_updates',['media_rooms'=>$media_rooms])

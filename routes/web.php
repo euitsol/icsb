@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\AjaxController;
+use App\Http\Controllers\Backend\AjaxController;
 use App\Http\Controllers\Backend\ActsController;
 use App\Http\Controllers\Backend\AssinedOfficerController;
 use Illuminate\Support\Facades\Route;
@@ -36,6 +36,7 @@ use App\Http\Controllers\Backend\UserManagement\RoleController;
 use App\Http\Controllers\Backend\UserManagement\PermissionController;
 use App\Http\Controllers\Frontend\DefaultController as ViewDefaultController;
 use App\Http\Controllers\Frontend\AboutPagesController;
+use App\Http\Controllers\Frontend\AjaxController as FrontendAjaxController;
 use App\Http\Controllers\Frontend\EventPagesController;
 use App\Http\Controllers\Frontend\CouncilPagesController;
 use App\Http\Controllers\Frontend\StudentsPagesController;
@@ -485,6 +486,9 @@ Route::get('/single-page/file-delete/{url}/{id?}/{key?}', [SinglePagesController
 Route::get('/', [HomePageController::class, 'index'])->name('home');
 // Default View File Download Route
 Route::get('front/download/{filename}', [ViewDefaultController::class, 'view_download'])->name('view.download');
+
+// Ajax
+Route::get('home/notice/{cat_id}', [FrontendAjaxController::class, 'noticeHome'])->name('home.notice');
 
 // Single Pages Route
 Route::get('/page/{frontend_slug}', [FrontendSinglePagesController::class, 'frontend'])->name('sp.frontend');

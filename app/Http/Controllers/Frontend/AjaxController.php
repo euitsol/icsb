@@ -4,27 +4,20 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Act;
-use Illuminate\Http\Request;
-use App\Models\Contact;
-use App\Models\Banner;
-use App\Models\MediaRoom;
-use App\Models\MediaRoomCategory;
 use App\Models\CommitteeType;
+use App\Models\Contact;
 use App\Models\Council;
-use App\Models\WWCS;
-use App\Models\Event;
-use App\Models\NationalAward;
-use App\Models\NationalConnection;
+use App\Models\MediaRoomCategory;
 use App\Models\MemberType;
 use App\Models\Notice;
 use App\Models\NoticeCategory;
-use App\Models\President;
-use App\Models\RecentVideo;
 use App\Models\SecretarialStandard;
 use App\Models\SinglePages;
-use Illuminate\View\View;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
-class HomePageController extends Controller
+class AjaxController extends Controller
 {
     public function __construct() {
         $contact = Contact::where('deleted_at', null)->first();
@@ -54,21 +47,15 @@ class HomePageController extends Controller
         ]);
         return $this->middleware('auth');
     }
-
-    public function index(): View
+    public function noticeHome($id): JsonResponse
     {
-        $s['banner'] = Banner::with('images')->where('deleted_at', null)->where('status',1)->first();
-        $s['media_rooms'] = MediaRoom::where('deleted_at', null)->where('permission','1')->where('is_featured','1')->latest()->get();
-        $s['wwcss'] = WWCS::where('deleted_at', null)->where('status',1)->orderBy('order_key','ASC')->get();
-        $s['events'] = Event::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
-        $s['national_awards'] = NationalAward::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
-        $s['national_connections'] = NationalConnection::where('deleted_at', null)->where('status',1)->orderBy('order_key','ASC')->get();
-        $s['president'] = President::with(['durations','member'])->where('status',1)->where('deleted_at',null)->first();
-        $s['home_bsss'] = SecretarialStandard::where('deleted_at', null)->where('is_featured','1')->where('status', 1)->get();
-        $s['single_page'] = SinglePages::where('frontend_slug', 'icsb-profile')->first();
-        $s['recent_videos'] = RecentVideo::where('status',1)->where('deleted_at',null)->latest()->get();
-        $s['notice_cats'] = NoticeCategory::with('notices')->where('deleted_at',null)->where('status',1)->get();
-        $s['notices'] = Notice::with('category')->where('deleted_at',null)->where('status',1)->latest()->limit(4)->get();
-        return view('frontend.home',$s);
+        if($id != 0){
+            $notice_cat=  NoticeCategory::findOrFail($id);
+            $notices = Notice::with('category')->where('cat_id',$notice_cat->id)->where('deleted_at',null)->where('status',1)->latest()->limit(4)->get();
+        }else{
+            $notices = Notice::with('category')->where('deleted_at',null)->where('status',1)->latest()->limit(4)->get();
+        }
+
+        return response()->json(['notices'=>$notices]);
     }
 }
