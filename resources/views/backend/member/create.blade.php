@@ -45,7 +45,7 @@
                         </div>
                         <div class="form-group  {{ $errors->has('image') ? ' has-danger' : '' }}">
                             <label>{{ _('Image') }}</label>
-                            <input type="file" accept="image/*" name="image" class="form-control  {{ $errors->has('image') ? ' is-invalid' : '' }}">
+                            <input type="file" accept="image/*" name="image" class="form-control  image-upload  {{ $errors->has('image') ? ' is-invalid' : '' }}">
                             @include('alerts.feedback', ['field' => 'image'])
                         </div>
                         <div class="form-group">
@@ -136,3 +136,4 @@ $(function() {
 });
 </script>
 @endpush
+

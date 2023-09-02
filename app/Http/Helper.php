@@ -11,7 +11,31 @@ use App\Models\SiteSetting;
 //This will retun the route prefix of the routes for permission check
 function get_permission_routes()
 {
-  return ['about.faq.','service.','contact.','national_connection.','wwcs.','event.','national_award.','convocation.', 'blog.', 'settings.','banner.', 'member.','icsb_profile.','committee.','president.','sec_and_ceo.','job_placement.','cs_firm.','recent_video.','acts.','exam_faq.','assined_officer.','sample_question_paper.'];
+  return [
+            'about.faq.',
+            'service.',
+            'contact.',
+            'national_connection.',
+            'wwcs.',
+            'event.',
+            'national_award.',
+            'convocation.',
+            'blog.',
+            'settings.',
+            'banner.',
+            'member.',
+            'icsb_profile.',
+            'committee.',
+            'president.',
+            'sec_and_ceo.',
+            'job_placement.',
+            'cs_firm.',
+            'recent_video.',
+            'acts.',
+            'exam_faq.',
+            'assined_officer.',
+            'sample_question_paper.'
+        ];
 }
 
 //This will check the permission of the given route name. Can be used for buttons
@@ -66,9 +90,27 @@ function createCSV($filename = 'permissions.csv'): string
     return public_path('csv/' . $filename);
 }
 
-function storage_url($url){
-    return asset('storage/'.$url);
+function storage_url($urlOrArray){
+    if (is_array($urlOrArray) || is_object($urlOrArray)) {
+        $result = '';
+        $itemCount = count($urlOrArray);
+        foreach ($urlOrArray as $index => $url) {
+            $result .= asset('storage/'.$url);
+
+            if($index === $itemCount - 1) {
+                $result .= '';
+            }else{
+                $result .= ', ';
+            }
+        }
+        return $result;
+    } else {
+        return asset('storage/'.$urlOrArray);
+    }
 }
+
+
+
 function timeFormate($time){
     $dateFormat = env('DATE_FORMAT', 'd-M-Y');
     $timeFormat = env('TIME_FORMAT', 'H:i A');
@@ -201,3 +243,23 @@ function file_title_from_url($url = null){
         return $fileTitle;
     }
 }
+
+
+// function delete_url($urlOrArray){
+//     if (is_array($urlOrArray) || is_object($urlOrArray)) {
+//         $result = '';
+//         $itemCount = count($urlOrArray);
+//         foreach ($urlOrArray as $index => $url) {
+//             $result .= asset('storage/'.$url);
+
+//             if($index === $itemCount - 1) {
+//                 $result .= '';
+//             }else{
+//                 $result .= ', ';
+//             }
+//         }
+//         return $result;
+//     } else {
+//         return asset('storage/'.$urlOrArray);
+//     }
+// }

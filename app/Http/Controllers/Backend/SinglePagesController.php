@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\UploadedFile;
 use App\Models\SinglePages;
 
 class SinglePagesController extends Controller
@@ -97,7 +98,7 @@ class SinglePagesController extends Controller
                             $file = $request->file($input_name);
 
                             $customFileName = time().'.' . $file->getClientOriginalExtension();
-                            $path = $file->storeAs('single-page/'.$input_name, $customFileName,'public');
+                            $path = $file->storeAs('single-page/image-single/'.$input_name, $customFileName,'public');
                             $data[$fd->field_key]=$path;
                         }else{
                             if(isset($saved_data->$input_name) && !empty($saved_data->$input_name)){
@@ -107,6 +108,27 @@ class SinglePagesController extends Controller
 
                     }catch (\Exception $exp) {
                         session()->flash('error', 'Could not upload your ' . $fd->field_name);
+                        return back()->withInput();
+                    }
+				}elseif ($fd->type == 'image_multiple') {
+                    $paths=[];
+                    if(isset($saved_data->$input_name) && !empty($saved_data->$input_name)){
+                        $paths = $saved_data->$input_name;
+                    }
+
+                    try{
+                        if (is_array($request->$input_name)) {
+                            foreach($request->$input_name as $key=>$file){
+                                if ($file instanceof UploadedFile && $file->isFile()) {
+                                    $customFileName = time().'.' . $file->getClientOriginalExtension();
+                                    $path = $file->storeAs('single-page/image-multiple/'.$input_name, $customFileName,'public');
+                                    array_push($paths, $path);
+                                }
+                            }
+                        }
+                        $data[$fd->field_key]=$paths;
+                    }catch (\Exception $exp) {
+                        session()->flash('status', 'Could not upload ' . $fd->field_name);
                         return back()->withInput();
                     }
 				}elseif ($fd->type == 'file_single') {
@@ -173,7 +195,9 @@ class SinglePagesController extends Controller
                         }
                         $data[$fd->field_key]=$paths;
                     }else{
-                        $data[$fd->field_key]=$saved_data->$input_name;
+                        if(isset($saved_data->$input_name)){
+                            $data[$fd->field_key]=$saved_data->$input_name;
+                        }
                     }
 
 
@@ -189,7 +213,6 @@ class SinglePagesController extends Controller
 			}
 		}
 		$this->validate($request, $rules);
-
         $single_page->saved_data = json_encode($data);
         $single_page->save();
         return redirect()->back()->withStatus(__('Data has been saved successfully.'));
@@ -235,6 +258,7 @@ class SinglePagesController extends Controller
         }
 
         if(Storage::exists($file_path) && $file_path != 'null'){
+            dd('here');
             Storage::delete($file_path);
             if($id != null && $key != null){
                 $sp = SinglePages::findOrFail($id);
@@ -254,16 +278,23 @@ class SinglePagesController extends Controller
                 }
             }
         }else{
-            $singlePage = SinglePages::where('id', $id)->firstOrFail();
-            $saved_data = json_decode($singlePage->saved_data, true);
-            if(isset($saved_data[$key])){
-                $data = json_decode($singlePage->saved_data);
-                $imgPath = $saved_data[$key];
-                $imageArray = $saved_data;
-                $this->fileDelete($saved_data[$key]);
-                unset($imageArray[$key]);
-                $singlePage->saved_data = json_encode($imageArray);
-                $singlePage->save();
+
+            if($id != null && $key != null){
+                $singlePage = SinglePages::where('id', $id)->firstOrFail();
+                $saved_data = json_decode($singlePage->saved_data, true);
+                if (isset($saved_data[$key])) {
+                    if(is_array($saved_data)){
+                        $array = $saved_data[$key];
+                        $index = array_search($acc_file_path, $array);
+                        unset($array[$index]);
+                        $saved_data[$key] = $array;
+
+                    }else{
+                        unset($saved_data[$key]);
+                    }
+                    $singlePage->saved_data = json_encode($saved_data);
+                    $singlePage->save();
+                }
             }
         }
         return redirect()->back()->withInput()->withStatus(__('File deleted successfully.'));
