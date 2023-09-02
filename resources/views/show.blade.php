@@ -51,24 +51,36 @@
                                 @if($fd->type == "text")
                                     <div class="form-group {{ $errors->has($fd->field_key) ? ' has-danger' : '' }}">
                                         <label for="{{$fd->field_key}}">{{ $fd->field_name }}</label>
+                                        @if (isset($fd->required) && $fd->required == 'required')
+                                            <span class="text-danger">*</span>
+                                        @endif
                                         <input type="text" name="{{$fd->field_key}}" id="{{$fd->field_key}}" class="form-control title {{ $errors->has($fd->field_key) ? ' is-invalid' : '' }}" value="{{ json_decode($details->saved_data)->$a ?? old($fd->field_key) }}">
                                         @include('alerts.feedback', ['field' => $fd->field_key])
                                     </div>
                                 @elseif($fd->type == "number")
                                     <div class="form-group {{ $errors->has($fd->field_key) ? ' has-danger' : '' }}">
                                         <label for="{{$fd->field_key}}">{{ $fd->field_name }}</label>
+                                        @if (isset($fd->required) && $fd->required == 'required')
+                                            <span class="text-danger">*</span>
+                                        @endif
                                         <input type="number" name="{{$fd->field_key}}" id="{{$fd->field_key}}" class="form-control title {{ $errors->has($fd->field_key) ? ' is-invalid' : '' }}" value="{{ json_decode($details->saved_data)->$a ?? old($fd->field_key) }}">
                                         @include('alerts.feedback', ['field' => $fd->field_key])
                                     </div>
                                 @elseif($fd->type == "url")
                                     <div class="form-group {{ $errors->has($fd->field_key) ? ' has-danger' : '' }}">
                                         <label for="{{$fd->field_key}}">{{ $fd->field_name }}</label>
+                                        @if (isset($fd->required) && $fd->required == 'required')
+                                            <span class="text-danger">*</span>
+                                        @endif
                                         <input type="url" name="{{$fd->field_key}}" id="{{$fd->field_key}}" class="form-control title {{ $errors->has($fd->field_key) ? ' is-invalid' : '' }}" value="{{ json_decode($details->saved_data)->$a ?? old($fd->field_key) }}">
                                         @include('alerts.feedback', ['field' => $fd->field_key])
                                     </div>
                                 @elseif($fd->type == "textarea")
                                     <div class="form-group {{ $errors->has($fd->field_key) ? ' has-danger' : '' }}">
                                         <label for="{{$fd->field_key}}">{{ $fd->field_name }}</label>
+                                        @if (isset($fd->required) && $fd->required == 'required')
+                                            <span class="text-danger">*</span>
+                                        @endif
                                         <textarea name="{{$fd->field_key}}" id="{{$fd->field_key}}" class="form-control title {{ $errors->has($fd->field_key) ? ' is-invalid' : '' }}">
                                             {{ json_decode($details->saved_data)->$a ?? old($fd->field_key) }}
                                         </textarea>
@@ -77,24 +89,60 @@
                                 @elseif($fd->type == "image")
                                     <div class="form-group {{ $errors->has($fd->field_key) ? ' has-danger' : '' }}">
                                         <label for="{{$fd->field_key}}">{{ $fd->field_name }}</label>
-                                        <input type="file" accept="image/*" name="{{$fd->field_key}}" id="{{$fd->field_key}}" class="form-control  {{ $errors->has($fd->field_key) ? 'is-invalid' : '' }} image-upload">
+                                        @if (isset($fd->required) && $fd->required == 'required')
+                                            <span class="text-danger">*</span>
+                                        @endif
+                                        <input type="file" accept="image/*" name="{{$fd->field_key}}" id="{{$fd->field_key}}"
+                                        class="form-control  {{ $errors->has($fd->field_key) ? 'is-invalid' : '' }} image-upload"
+                                        @if(!empty(json_decode($details->saved_data)) && isset(json_decode($details->saved_data)->$a))
+                                        data-existing-files="{{ storage_url(json_decode($details->saved_data)->$a) }}"
+                                        data-delete-url="{{route('sp.file.delete', ['null',$details->id, $a])}}"
+                                        @endif
+                                        >
                                         @include('alerts.feedback', ['field' => $fd->field_key])
                                     </div>
-                                    <div class="mb-4 single_page_image" >
-                                        @if(!empty(json_decode($details->saved_data)) && isset(json_decode($details->saved_data)->$a))
-                                        <img src="{{ storage_url(json_decode($details->saved_data)->$a) }}" alt="">
-                                        <a href="{{route('sp.file.delete', ['null',$details->id, $a])}}" class="image_delete">
-                                            <span class="input-group-text text-danger h-100"><i class="fa-solid fa-xmark"></i></span>
-                                        </a>
+                                @elseif($fd->type == "image_multiple")
+                                    @php
+                                        $data = collect(json_decode($details->saved_data)->$a);
+                                        $result = '';
+                                        $itemCount = count($data);
+                                        foreach ($data as $index => $url) {
+                                            $result .= route('sp.file.delete', [base64_encode($url), $details->id, $a]);
+                                            if($index === $itemCount - 1) {
+                                                $result .= '';
+                                            }else{
+                                                $result .= ', ';
+                                            }
+                                        }
+                                    @endphp
+                                    <div class="form-group {{ $errors->has($fd->field_key) ? ' has-danger' : '' }}">
+                                        <label for="{{$fd->field_key}}">{{ $fd->field_name }}</label>
+                                        @if (isset($fd->required) && $fd->required == 'required')
+                                            <span class="text-danger">*</span>
                                         @endif
+                                        <input type="file" accept="image/*" name="{{$fd->field_key}}[]" id="{{$fd->field_key}}"
+                                        class="form-control  {{ $errors->has($fd->field_key) ? 'is-invalid' : '' }} image-upload"
+                                        multiple
+                                            @if(!empty(json_decode($details->saved_data)) && isset(json_decode($details->saved_data)->$a))
+                                                data-existing-files="{{ storage_url($data) }}"
+                                                data-delete-url="{{ $result }}"
+
+                                            @endif
+                                        >
+                                        @include('alerts.feedback', ['field' => $fd->field_key])
+
+
+
 
                                     </div>
-
                                 @elseif($fd->type == "file_single")
 
                                     <div class="form-group {{ $errors->has($fd->field_key) ? ' has-danger' : '' }}">
                                         <input type="hidden" name="{{$fd->field_key}}[url]" class="file_url">
                                         <label for="{{$fd->field_key}}">{{ $fd->field_name }}</label>
+                                        @if (isset($fd->required) && $fd->required == 'required')
+                                            <span class="text-danger">*</span>
+                                        @endif
 
                                         <div class="input-group mb-3">
                                             <input type="text" name="{{$fd->field_key}}[title]" class="form-control file_title" placeholder="{{ _('Enter file name') }}" >
@@ -129,6 +177,9 @@
 
                                     <div class="form-group {{ $errors->has($fd->field_key) ? ' has-danger' : '' }}">
                                         <label for="{{$fd->field_key}}">{{ $fd->field_name }}</label>
+                                        @if (isset($fd->required) && $fd->required == 'required')
+                                            <span class="text-danger">*</span>
+                                        @endif
 
                                         <div class="input-group mb-3">
                                             <input type="text" name="" class="form-control file_title" placeholder="{{ _('Enter file name') }}" >
@@ -167,6 +218,9 @@
                                 @elseif($fd->type == "email")
                                     <div class="form-group {{ $errors->has($fd->field_key) ? ' has-danger' : '' }}">
                                         <label for="{{$fd->field_key}}">{{ $fd->field_name }}</label>
+                                        @if (isset($fd->required) && $fd->required == 'required')
+                                            <span class="text-danger">*</span>
+                                        @endif
                                         <input type="email" name="{{$fd->field_key}}" id="{{$fd->field_key}}" class="form-control  {{ $errors->has($fd->field_key) ? 'is-invalid' : '' }}" value="{{ json_decode($details->saved_data)->$a ?? old($fd->field_key) }}" >
                                         @include('alerts.feedback', ['field' => $fd->field_key])
                                     </div>
@@ -174,6 +228,9 @@
                                 @elseif($fd->type == "option")
                                     <div class="form-group {{ $errors->has($fd->field_key) ? ' has-danger' : '' }}">
                                         <label for="{{$fd->field_key}}">{{ $fd->field_name }}</label>
+                                        @if (isset($fd->required) && $fd->required == 'required')
+                                            <span class="text-danger">*</span>
+                                        @endif
                                         <select  name="{{$fd->field_key}}" id="{{$fd->field_key}}" class="form-control  {{ $errors->has($fd->field_key) ? 'is-invalid' : '' }}" >
                                             @foreach ($fd->option_data as $value=>$label)
 
@@ -200,7 +257,7 @@
                     <p class="card-text">
                         {{ _(json_decode($details->documentation)->title ?? '') }}
                     </p>
-                    <div class="card-description">
+                    <div class="card-description content-description">
                         {!! _(json_decode($details->documentation)->details ?? '') !!}</div>
                 </div>
             </div>
@@ -209,6 +266,145 @@
 @endsection
 
 @push('js_link')
+
+<script>
+    const imageUploadInputs = document.querySelectorAll('.image-upload');
+    const existingFilesArray = [];
+    const deleteUrlArray = [];
+
+    // Add event listener for each file input change
+    imageUploadInputs.forEach(function (imageUploadInput, index) {
+
+
+        // Check if data-existing-files attribute is present
+        if (imageUploadInput.hasAttribute('data-existing-files')) {
+
+            const mainDiv = document.createElement('div');
+            mainDiv.classList.add('imagePreviewMainDiv');
+            imageUploadInput.parentNode.append(mainDiv);
+
+            const existingFilesValue = imageUploadInput.getAttribute('data-existing-files');
+            const deleteUrlValue     = imageUploadInput.getAttribute('data-delete-url');
+            if (existingFilesValue) {
+                let existingFiles;
+                let deleteUrl;
+                try {
+                    existingFiles = existingFilesValue;
+                    deleteUrl = deleteUrlValue;
+                } catch (error) {
+                    existingFiles = [existingFilesValue];
+                    deleteUrl = [deleteUrlValue];
+                }
+
+                var dataArray = existingFiles.split(",");
+                var dltArray = deleteUrl.split(",");
+                if (Array.isArray(dataArray)) {
+                    dataArray.forEach(function(item, index) {
+                        populateImagePreview(item, dltArray[index], mainDiv);
+                    });
+                } else {
+                    console.log(dataArray);
+                    populateImagePreview(dataArray, dltArray[index], mainDiv);
+                }
+            }
+        }
+    });
+
+    $(document).on('change', '.image-upload', function () {
+
+        const imageUploadContainer = this.parentNode;
+        let mainDiv = imageUploadContainer.querySelector('.imagePreviewMainDiv');
+        if (!mainDiv) {
+            mainDiv = document.createElement('div');
+            mainDiv.classList.add('imagePreviewMainDiv');
+            imageUploadContainer.appendChild(mainDiv);
+        }
+        const files = Array.from(this.files);
+
+        // Remove previous images if not multiple
+        if (!this.hasAttribute('multiple')) {
+            const previousImages = mainDiv.querySelectorAll('.imagePreview');
+            previousImages.forEach(function (image) {
+                image.parentNode.remove();
+            });
+        }
+
+        files.forEach(function(file) {
+            const imagePreviewDiv = document.createElement('div');
+            imagePreviewDiv.classList.add('imagePreviewDiv');
+
+            // Create the image element
+            const previewImage = document.createElement('img');
+            previewImage.classList.add('imagePreview', 'rounded', 'me-50', 'border');
+            previewImage.setAttribute('src', '#');
+            previewImage.setAttribute('alt', 'Uploaded Image');
+
+            // Create the remove button
+            const removeButton = document.createElement('i');
+            removeButton.classList.add('fa', 'fa-trash', 'removeImage', 'text-danger');
+            removeButton.addEventListener('click', function () {
+                const imageContainer = this.parentNode;
+                const imagePreview = imageContainer.querySelector('.imagePreview');
+
+                imageContainer.remove();
+            });
+
+            imagePreviewDiv.appendChild(previewImage);
+            imagePreviewDiv.appendChild(removeButton);
+
+            // Append the preview div to the container
+            mainDiv.appendChild(imagePreviewDiv);
+
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                previewImage.setAttribute('src', e.target.result);
+            };
+            reader.readAsDataURL(file);
+        });
+
+    });
+
+
+
+
+
+function populateImagePreview(file, deleteUrl, container) {
+    // files.forEach(function (file) {
+        const imagePreviewDiv = document.createElement('div');
+        imagePreviewDiv.classList.add('imagePreviewDiv');
+
+        // Create the image element
+        const previewImage = document.createElement('img');
+        previewImage.classList.add('imagePreview', 'rounded', 'me-50', 'border');
+        previewImage.setAttribute('src', file);
+        previewImage.setAttribute('alt', 'Uploaded Image');
+
+        //Create a Tag
+        const anchorLink = document.createElement('a');
+        anchorLink.setAttribute('href', deleteUrl);
+
+        // Create the remove button
+        const removeButton = document.createElement('i');
+        removeButton.classList.add('fa-solid', 'fa-trash', 'removeImage', 'text-danger');
+
+        // Add event listener for remove button click
+        removeButton.addEventListener('click', function () {
+            const imageContainer = this.parentNode;
+            const imagePreview = imageContainer.querySelector('.imagePreview');
+
+            imageContainer.remove();
+        });
+
+        imagePreviewDiv.appendChild(previewImage);
+        anchorLink.appendChild(removeButton)
+        imagePreviewDiv.appendChild(anchorLink);
+
+        container.appendChild(imagePreviewDiv);
+    // });
+}
+
+</script>
+
 <script>
     $(document).ready(function () {
         $(document).ready(function () {

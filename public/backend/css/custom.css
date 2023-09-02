@@ -141,6 +141,7 @@
     position: absolute;
     left: 88%;
     top: 10%;
+    cursor: pointer;
 }
 
 /* CKEDITOR css */

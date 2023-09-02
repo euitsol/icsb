@@ -98,7 +98,7 @@
                                         <option value="option">{{trans('Option')}}</option>
                                         <option value="textarea">{{trans('Textarea')}}</option>
                                         <option value="image">{{trans('Image')}}</option>
-                                        <option value="image_multipe">{{trans('Multiple Image')}}</option>
+                                        <option value="image_multiple">{{trans('Multiple Image')}}</option>
                                         <option value="file_single">{{trans('File Single')}}</option>
                                         <option value="file_multiple">{{trans('File Multiple')}}</option>
                                     </select>
