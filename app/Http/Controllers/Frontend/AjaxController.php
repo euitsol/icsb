@@ -49,6 +49,7 @@ class AjaxController extends Controller
     }
     public function noticeHome($id): JsonResponse
     {
+        $notice_cat = '';
         if($id != 0){
             $notice_cat=  NoticeCategory::findOrFail($id);
             $notices = Notice::with('category')->where('cat_id',$notice_cat->id)->where('deleted_at',null)->where('status',1)->latest()->limit(4)->get();
@@ -56,6 +57,6 @@ class AjaxController extends Controller
             $notices = Notice::with('category')->where('deleted_at',null)->where('status',1)->latest()->limit(4)->get();
         }
 
-        return response()->json(['notices'=>$notices]);
+        return response()->json(['notices'=>$notices, 'notice_cat'=>$notice_cat]);
     }
 }
