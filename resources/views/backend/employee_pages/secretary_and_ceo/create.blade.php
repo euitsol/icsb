@@ -117,12 +117,18 @@
 @push('js')
 <script>
     function generateSlug(str) {
-        return str
-            .toLowerCase()
-            .replace(/\s+/g, "-")
-            .replace(/[^\w-]+/g, "")
-            .replace(/--+/g, "-")
-            .replace(/^-+|-+$/g, "");
+        console.log(str);
+        if (typeof str !== 'string') {
+        // Handle the case where str is not a string, if needed.
+        return '';
+    }
+
+    return str
+        .toLowerCase()
+        .replace(/\s+/g, "-")
+        .replace(/[^\w-]+/g, "")
+        .replace(/--+/g, "-")
+        .replace(/^-+|-+$/g, "");
     }
     $(document).ready(function () {
         $('#memberSelect').on('change', function () {
@@ -133,20 +139,20 @@
                 dataType: 'json',
                 success: function (data) {
                     console.log(data);
-                    const slugValue = generateSlug(data.name);
+                    const slugValue = generateSlug(data.member.name);
                     $("#slug").val(slugValue);
                     $('#memberInfo').html(`
                     <div class='col-md-2 text-center'>
-                        <img class="rounded" width="100" src="{{ storage_url('${data.image}')}}">
+                        <img class="rounded" width="100" src="{{ storage_url('${data.member.image}')}}">
                     </div>
                     <div class='col-md-10'>
                         <div class="form-group">
                             <label>{{ _('Designation') }}</label>
-                            <input type="text" class="form-control" value="${data.designation}" disabled>
+                            <input type="text" class="form-control" value="${data.member.designation}" disabled>
                         </div>
                         <div class="form-group">
                             <label>{{ _('Email') }}</label>
-                            <input type="text" class="form-control" value="${data.email}" disabled>
+                            <input type="text" class="form-control" value="${data.member.email}" disabled>
                         </div>
                     </div>
 

@@ -104,11 +104,11 @@
         const playPauseButton = $("#playPauseButton"); // New play/pause button
 
         // Initial state: muted
-        let isMuted = false;
+        let isMuted = true;
         video.muted = isMuted;
 
         // Initial state: video is paused
-        let isPaused = true;
+        let isPaused = false;
 
         video.addEventListener("timeupdate", function() {
             const currentTime = video.currentTime;
