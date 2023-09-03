@@ -3850,13 +3850,13 @@ td {
 .notice-board-section .notice-board-content .table-pagination li a {
 	border: 0;
 	color: #111;
-	padding: 0;
 	font-size: 14px;
 	line-height: 20px;
+	padding: 3px 11px;
 }
 
-.notice-board-section .notice-board-content .table-pagination li .active {
-	color: #fff;
+.notice-board-section .notice-board-content .table-pagination .active a{
+	color: #fff !important;
 	padding: 3px 11px;
 }
 

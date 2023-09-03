@@ -182,7 +182,7 @@
                         $pageSlug == 'cpd-program' ||
                         $pageSlug == 'training-program' ||
                         $pageSlug == 'members-lounge' ||
-                        $pageSlug == 'members_notice_board' ||
+                        $pageSlug == 'member_notice' ||
                         $pageSlug == 'job_placement'
                     )@else collapsed @endif" data-toggle="collapse" href="#member" @if (
                         $pageSlug == 'member' ||
@@ -195,7 +195,7 @@
                         $pageSlug == 'cpd-program' ||
                         $pageSlug == 'training-program' ||
                         $pageSlug == 'members-lounge' ||
-                        $pageSlug == 'members_notice_board' ||
+                        $pageSlug == 'member_notice' ||
                         $pageSlug == 'job_placement'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-solid fa-people-group"></i>
@@ -214,7 +214,7 @@
                         $pageSlug == 'cpd-program' ||
                         $pageSlug == 'training-program' ||
                         $pageSlug == 'members-lounge' ||
-                        $pageSlug == 'members_notice_board' ||
+                        $pageSlug == 'member_notice' ||
                         $pageSlug == 'job_placement'
                 ) show @endif" id="member">
                     <ul class="nav pl-4">
@@ -230,7 +230,7 @@
                                 ['pageSlug' => 'cpd-program', 'routeName' => 'sp.show', 'params' => 'cpd-program', 'label' => 'CPD Program'],
                                 ['pageSlug' => 'training-program', 'routeName' => 'sp.show', 'params' => 'training-program', 'label' => 'Training Program'],
                                 ['pageSlug' => 'members-lounge', 'routeName' => 'sp.show', 'params' => 'members-lounge', 'label' => 'Members’ Lounge'],
-                                ['pageSlug' => 'members_notice_board', 'routeName' => '', 'label' => 'Members’ Notice Board'],
+                                ['pageSlug' => 'member_notice', 'routeName' => 'notice_board.member_notice_list', 'label' => 'Members’ Notice'],
                                 ['pageSlug' => 'job_placement', 'routeName' => 'job_placement.jp_list', 'label' => 'Job Placement'],
                             ]
                         ])
@@ -248,7 +248,7 @@
                         $pageSlug == 'student-portal' ||
                         $pageSlug == 'financial-assistance' ||
                         $pageSlug == 'icsb-library' ||
-                        $pageSlug == 'student_notice_board' ||
+                        $pageSlug == 'student_notice' ||
                         $pageSlug == 'faculty-evaluation-system'
                     )@else collapsed @endif" data-toggle="collapse" href="#student" @if (
                         $pageSlug == 'admission-form' ||
@@ -258,7 +258,7 @@
                         $pageSlug == 'student-portal' ||
                         $pageSlug == 'financial-assistance' ||
                         $pageSlug == 'icsb-library' ||
-                        $pageSlug == 'student_notice_board' ||
+                        $pageSlug == 'student_notice' ||
                         $pageSlug == 'faculty-evaluation-system'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-solid fa-graduation-cap"></i>
@@ -274,7 +274,7 @@
                         $pageSlug == 'student-portal' ||
                         $pageSlug == 'financial-assistance' ||
                         $pageSlug == 'icsb-library' ||
-                        $pageSlug == 'student_notice_board' ||
+                        $pageSlug == 'student_notice' ||
                         $pageSlug == 'faculty-evaluation-system'
                 ) show @endif" id="student">
                     <ul class="nav pl-4">
@@ -315,7 +315,7 @@
                                 ['pageSlug' => 'student-portal', 'routeName' => 'sp.show', 'params' => 'student-portal', 'label' => 'Student Portal'],
                                 ['pageSlug' => 'financial-assistance', 'routeName' => 'sp.show', 'params' => 'financial-assistance', 'label' => 'Financial Assistance'],
                                 ['pageSlug' => 'icsb-library', 'routeName' => 'sp.show', 'params' => 'icsb-library', 'label' => 'ICSB Library'],
-                                ['pageSlug' => 'student_notice_board', 'routeName' => '', 'label' => 'Student Notice Board'],
+                                ['pageSlug' => 'student_notice', 'routeName' => 'notice_board.student_notice_list', 'label' => 'Student Notice'],
                                 ['pageSlug' => 'faculty-evaluation-system', 'routeName' => 'sp.show', 'params' => 'faculty-evaluation-system', 'label' => 'Faculty Evaluation System'],
                             ]
                         ])
@@ -484,6 +484,7 @@
                 'menuItems' => [
                     ['pageSlug' => 'media_room', 'routeName' => 'media_room.media_room_list', 'iconClass' => 'fa-solid fa-photo-film', 'label' => 'Media Room'],
                     ['pageSlug' => 'contact', 'routeName' => 'contact.contact_create', 'iconClass' => 'fa-solid fa-tty', 'label' => 'Contact Us'],
+                    ['pageSlug' => 'notice_board', 'routeName' => 'notice_board.notice_list', 'iconClass' => 'fa-solid fa-bullhorn', 'label' => 'Notice Board'],
                     ['pageSlug' => 'settings', 'routeName' => 'settings.site_settings', 'iconClass' => 'fa-solid fa-gear', 'label' => 'Site Settings'],
                 ]
             ])
