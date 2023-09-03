@@ -31,11 +31,11 @@ $datas = [
                 </div>
                 <div class="contact-info">
                     <ul>
-                        @if(!empty(json_decode($sec_and_ceo->member->phone)))
+                        {{-- @if(!empty(json_decode($sec_and_ceo->member->phone)))
                             @foreach (json_decode($sec_and_ceo->member->phone) as $phone)
                                 <li><a href="tel:88{{$phone->number}}"><i class="fa-solid fa-phone"></i>+88{{$phone->number}}({{stringLimit(ucfirst($phone->type), 3, '..')}})</a></li>
                             @endforeach
-                        @endif
+                        @endif --}}
                         @if(!empty($sec_and_ceo->member->email))
                             <li><a href="mailto:{{$sec_and_ceo->member->email}}"><i class="fa-solid fa-envelope"></i>{{$sec_and_ceo->member->email}}</a></li>
                         @endif
