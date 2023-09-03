@@ -868,9 +868,13 @@ li {
 {
     height:100%;
 }
+.we-are-section .content-column{
+    width: 40%;
+}
 .we-are-section .image-column {
 	position: relative;
     align-items: center;
+    width: 50%;
 	/* outline: 8px solid #B8C0C3;
 	border: 8px solid #ffffff; */
 }
@@ -889,6 +893,8 @@ li {
 .image-column img{
     border: 10px solid #CCC;
     padding: 5px;
+    height: 500px;
+    width: 100%;
 }
 
 .we-are-section h2 {
