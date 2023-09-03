@@ -166,7 +166,7 @@ $(document).ready(function () {
 $(window).scroll(function () {
     if ($(window).scrollTop() >= 300) {
         $('.header-menu-section').addClass('fixed-header');
-        $('.banner-section .video-container').css('margin-top', '112px');
+        $('.banner-section .video-container').css('margin-top', '105px');
         $('.header-menu-section .stiky-logo-right').css('display', 'block');
         $('.header-menu-section .stiky-logo').css('display', 'block');
 
