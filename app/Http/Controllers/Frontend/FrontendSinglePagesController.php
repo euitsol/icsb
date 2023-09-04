@@ -95,6 +95,12 @@ class FrontendSinglePagesController extends Controller
             case($s['single_page']->frontend_slug == 'eligibility'):
                 return view('frontend.examination.eligibility',$s);
                 break;
+            case($s['single_page']->frontend_slug == 'members-lounge'):
+                return view('frontend.members.member_lounge',$s);
+                break;
+            case($s['single_page']->frontend_slug == 'icsb-library'):
+                return view('frontend.student.icsb_library',$s);
+                break;
             default:
                 return view('frontend.global', $s);
         }

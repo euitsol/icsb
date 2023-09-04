@@ -102,6 +102,7 @@
                                         @include('alerts.feedback', ['field' => $fd->field_key])
                                     </div>
                                 @elseif($fd->type == "image_multiple")
+                                    @if(!empty(json_decode($details->saved_data)) && isset(json_decode($details->saved_data)->$a))
                                     @php
                                         $data = collect(json_decode($details->saved_data)->$a);
                                         $result = '';
@@ -115,6 +116,7 @@
                                             }
                                         }
                                     @endphp
+                                    @endif
                                     <div class="form-group {{ $errors->has($fd->field_key) ? ' has-danger' : '' }}">
                                         <label for="{{$fd->field_key}}">{{ $fd->field_name }}</label>
                                         @if (isset($fd->required) && $fd->required == 'required')

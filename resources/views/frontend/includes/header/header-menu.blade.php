@@ -150,7 +150,7 @@
                             <li><a href="{{ route('sp.frontend','code-of-conducts') }}">Code of Conducts</a></li>
                             <li><a href="{{ route('sp.frontend','cpd-program') }}">CPD Program</a></li>
                             <li><a href="{{ route('sp.frontend','training-program') }}">Training Program</a></li>
-                            <li><a href="{{ route('member_view.members_lounge') }}">Members’ Lounge</a></li>
+                            <li><a href="{{ route('sp.frontend','members-lounge') }}">Members’ Lounge</a></li>
                             <li><a href="{{route('notice_view.notice','member-notice')}}">Members’ Notice Board</a></li>
                             <li><a href="{{ route('member_view.jps') }}">Job Placement</a></li>
                         </ul>
@@ -173,7 +173,7 @@
                                 <li><a target="_blank" href="{{ json_decode($studentPortal->saved_data)->{'portal-url'} }}">Students Portal</a></li>
                             @endif
                             <li><a href="{{ route('sp.frontend','financial-assistance') }}">Financial Assistance</a></li>
-                            <li><a href="{{ route('student_view.library') }}">ICSB Library</a></li>
+                            <li><a href="{{ route('sp.frontend','icsb-library') }}">ICSB Library</a></li>
                             <li><a href="{{route('notice_view.notice','student-notice')}}">Student Notice Board</a></li>
                             @if(isset($facultyEvaluationSystem->saved_data) && !empty(json_decode($facultyEvaluationSystem->saved_data)->{'url'}))
                                 <li><a target="_blank" href="{{ json_decode($facultyEvaluationSystem->saved_data)->{'url'} }}">Faculty Evaluation System</a></li>

@@ -21,7 +21,7 @@ $datas = [
 @endphp
 @include('frontend.includes.breadcrumb',['datas'=>$datas])
 <!-- =============================== Breadcrumb Section ======================================-->
-<section class="objectives-section big-sec-height">
+{{-- <section class="objectives-section big-sec-height">
 <div class="container">
     <div class="objective-row flex">
         <div class="left-column">
@@ -36,6 +36,22 @@ $datas = [
         </div>
     </div>
 </div>
+</section> --}}
+<section class="mision-vision-section big-sec-height">
+    <div class="container">
+        <div class="mission-row flex">
+            <div class="image-column">
+                @if (isset(json_decode($single_page->saved_data)->{'page-image'}))
+                    <img src="{{storage_url(json_decode($single_page->saved_data)->{'page-image'})}}" alt="">
+                @endif
+            </div>
+            <div class="content-column objectives color-white content-description">
+                @if (isset(json_decode($single_page->saved_data)->{'page-description'}))
+                    {!! (json_decode($single_page->saved_data)->{'page-description'}) !!}
+                @endif
+            </div>
+        </div>
+    </div>
 </section>
 
 @endsection

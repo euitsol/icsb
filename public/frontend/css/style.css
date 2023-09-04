@@ -3410,6 +3410,15 @@ td {
 	align-items: center;
 }
 
+.mision-vision-section .mission-row .objectives{
+    left: -2px !important;
+	position: relative;
+	padding: 70px 40px;
+	max-width: 500px;
+	background: #182456;
+	border: 8px double #fff;
+	outline: 8px solid var(--bc-1);
+}
 .mision-vision-section .mission-row .content-column,
 .vision-mission-section .mission-row .content-column {
 	left: -100px;
