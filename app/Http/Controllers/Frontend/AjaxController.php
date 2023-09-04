@@ -52,9 +52,19 @@ class AjaxController extends Controller
         $notice_cat = '';
         if($id != 0){
             $notice_cat=  NoticeCategory::findOrFail($id);
-            $notices = Notice::with('category')->where('cat_id',$notice_cat->id)->where('deleted_at',null)->where('status',1)->latest()->limit(4)->get();
+            $notices = Notice::with('category')->where('cat_id',$notice_cat->id)->where('deleted_at',null)->where('status',1)->latest()->limit(4)->get()
+            ->map(function ($notice) {
+                $notice->date = date('M d, Y', strtotime($notice->created_at));
+                $notice->time = date('H:i A', strtotime($notice->created_at));
+                return $notice;
+            });
         }else{
-            $notices = Notice::with('category')->where('deleted_at',null)->where('status',1)->latest()->limit(4)->get();
+            $notices = Notice::with('category')->where('deleted_at',null)->where('status',1)->latest()->limit(4)->get()
+            ->map(function ($notice) {
+                $notice->date = date('M d, Y', strtotime($notice->created_at));
+                $notice->time = date('H:i A', strtotime($notice->created_at));
+                return $notice;
+            });
         }
 
         return response()->json(['notices'=>$notices, 'notice_cat'=>$notice_cat]);

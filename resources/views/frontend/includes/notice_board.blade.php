@@ -58,25 +58,19 @@
                 method: 'GET',
                 dataType: 'json',
                 success: function (data) {
-
-                    console.log(data.notices);
                     var noticeDetailsHtml = '';
 
                     // Loop through the notices data
                     data.notices.forEach(function (notice) {
-                        var createdAt = new Date(notice.created_at);
-                        var formattedDate = createdAt.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-                        var formattedTime = createdAt.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
-
                         noticeDetailsHtml += `
                             <div class="notice-content flex w-100">
                                 <div class="date-col">
-                                    <h4>${formattedDate}</h4>
+                                    <h4>${notice.date}</h4>
                                 </div>
                                 <div class="content-col">
                                     <h3><a href="#">${notice.title}</a></h3>
                                     <ul>
-                                        <li><i class="fa-solid fa-clock"></i>${formattedTime}</li>
+                                        <li><i class="fa-solid fa-clock"></i>${notice.time}</li>
                                         <li><i class="fa-solid fa-user-large"></i>${notice.category.title}</li>
                                     </ul>
                                 </div>
