@@ -70,7 +70,7 @@
                 </div>
                 <div class="right-column">
                     <h2 class="title-shap">{{_('Message of The President')}}</h2>
-                   <p> {{ stringLimit(html_entity_decode_table($president->message),'2000') }}</p>
+                   <p> {{ stringLimit(html_entity_decode_table($president->message),'2011') }}</p>
                     <a href="{{route('council_view.president.message')}}">{{_('Read More')}}</a>
                 </div>
             </div>
