@@ -3,11 +3,11 @@
         <div class="main-header-column">
             <div class="header-content text-align">
                 <div class="logo-column">
-                    <a href=""><img src="{{storage_url(settings('site_logo'))}}"></a>
+                   <img src="{{storage_url(settings('site_logo'))}}">
                 </div>
-                <a href="{{route('home')}}"><h1>{{settings('site_name')}}</h1></a>
+                <h1>{{settings('site_name')}}</h1>
                 <h2>A Statutory Body under an Act of Parliament</h2>
-                <p><small>Administrative Ministry: Ministry of Commerce, Government of the people's Republic of Bangladesh</small></p>
+                <p><small>Administrative Ministry: Ministry of Commerce, Government of the People's Republic of Bangladesh</small></p>
             </div>
         </div>
     </div>
