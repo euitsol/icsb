@@ -13,6 +13,8 @@ use App\Models\SecretarialStandard;
 use App\Models\SinglePages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class DefaultController extends Controller
@@ -55,6 +57,17 @@ class DefaultController extends Controller
             return response()->download($filePath, $downloadPath);
         } else {
             return redirect()->back();
+        }
+    }
+
+
+    public function view_pdf($filePath){
+        $file_path = base64_decode($filePath);
+        $file_path = storage_path('app/public/'.$file_path);
+        if($file_path != null){
+            if(file_exists($file_path)){
+                 return response()->file($file_path, ['Content-Type' => 'application/pdf']);
+            }
         }
     }
 }

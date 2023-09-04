@@ -95,6 +95,7 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     // Default File Download Route
     Route::get('download/{filename}', [DefaultController::class, 'download'])->name('download');
+    Route::get('view-pdf/{filepath}', [ViewDefaultController::class, 'view_pdf'])->name('view.pdf');
     // Ajax Routes
     Route::get('members/{id}', [AjaxController::class, 'memberInfo'])->name('m.info');
 
