@@ -825,7 +825,7 @@ li {
 
 .news-ticker-section .ticker-desc .bx-wrapper li:hover,
 .news-ticker-section .ticker-desc .bx-wrapper li a:hover {
-	color: #111111;
+	color: red;
 }
 
 /* ================== End Ticker Section ==============*/
