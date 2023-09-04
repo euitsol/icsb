@@ -1556,6 +1556,19 @@ li {
 	background: #182456;
 }
 
+.national-award-section .carousel-indicators button {
+	width: 40px;
+	height: 10px;
+	opacity: 1;
+	border: 2px solid #162B75;
+	background: transparent;
+}
+.national-award-section .carousel-indicators {
+	top: 107%;
+}
+.national-award-section .carousel-indicators .active {
+	background: #162B75;
+}
 .national-award-section {
 	position: relative;
 	background-image: url("../img/background/national-award.jpg");
@@ -1615,6 +1628,19 @@ li {
 	background-image: url("../img/recent_video_bg.png");
 	background-repeat: no-repeat;
 	background-size: cover;
+}
+.recent-video-section .carousel-indicators button {
+	width: 40px;
+	height: 10px;
+	opacity: 1;
+	border: 2px solid #162B75;
+	background: transparent;
+}
+.recent-video-section .carousel-indicators {
+	top: 80%;
+}
+.recent-video-section .carousel-indicators .active {
+	background: #162B75;
 }
 
 .recent-video-section:after {
@@ -1784,6 +1810,9 @@ li {
 
 .cs-wide-section .owl-dot {
 	display: none;
+}
+.logo-carousel{
+    margin-top: 50px;
 }
 
 .national-connection-section .logo-carousel .owl-item {
