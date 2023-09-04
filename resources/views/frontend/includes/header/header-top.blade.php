@@ -7,7 +7,7 @@
             </div>
             <div class="header-column text-center justify-content-center flex ">
                 <p>{{ date( 'l, M d, Y', strtotime(Carbon\Carbon::now()) ) }}</p>
-                <p>Current Time: {{ date( 'H:i A', strtotime(Carbon\Carbon::now()) ) }} (BST)</p>
+                <p id="currentTime"> (BST)</p>
             </div>
             <div class="header-column header-info-column text-center  flex ">
                 @if(!empty($contact->phone))

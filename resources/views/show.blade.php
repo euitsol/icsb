@@ -96,19 +96,19 @@
                                         class="form-control  {{ $errors->has($fd->field_key) ? 'is-invalid' : '' }} image-upload"
                                         @if(!empty(json_decode($details->saved_data)) && isset(json_decode($details->saved_data)->$a))
                                         data-existing-files="{{ storage_url(json_decode($details->saved_data)->$a) }}"
-                                        data-delete-url="{{route('sp.file.delete', ['null',$details->id, $a])}}"
+                                        data-delete-url="{{route('sp.file.delete', [$details->id, $a])}}"
                                         @endif
                                         >
                                         @include('alerts.feedback', ['field' => $fd->field_key])
                                     </div>
                                 @elseif($fd->type == "image_multiple")
-                                    @if(!empty(json_decode($details->saved_data)) && isset(json_decode($details->saved_data)->$a))
+                                    @if(isset(json_decode($details->saved_data)->$a) && !empty(json_decode($details->saved_data)))
                                     @php
-                                        $data = collect(json_decode($details->saved_data)->$a);
+                                        $data = collect(json_decode($details->saved_data, true)[$a]);
                                         $result = '';
                                         $itemCount = count($data);
                                         foreach ($data as $index => $url) {
-                                            $result .= route('sp.file.delete', [base64_encode($url), $details->id, $a]);
+                                            $result .= route('sp.file.delete', [$details->id, $a, base64_encode($url)]);
                                             if($index === $itemCount - 1) {
                                                 $result .= '';
                                             }else{
@@ -164,7 +164,7 @@
                                                 <div class="input-group mb-3">
                                                     <input type="text" class="form-control" value="{{file_title_from_url(json_decode($details->saved_data)->$a)}}" disabled>
                                                     <input type="text" class="form-control" value="{{file_name_from_url(json_decode($details->saved_data)->$a)}}" disabled>
-                                                    <a href="{{route('sp.file.delete', ['null',$details->id, $a])}}">
+                                                    <a href="{{route('sp.file.delete', [$details->id, $a])}}">
                                                         <span class="input-group-text text-danger h-100"><i class="tim-icons icon-trash-simple"></i></span>
                                                     </a>
                                                 </div>
@@ -207,7 +207,7 @@
                                                         <input type="text" class="form-control"  value="{{ file_name_from_url($url) }}" disabled>
                                                         <input type="hidden" class="d-none" name="{{$fd->field_key}}[{{$count}}][url]" value="{{ file_name_from_url($url) }}">
                                                         <input type="hidden" class="d-none" name="{{$fd->field_key}}[{{$count}}][title]" value="{{ file_title_from_url($url) }}">
-                                                        <a href="{{route('sp.file.delete', [base64_encode($url), $details->id, $a])}}">
+                                                        <a href="{{route('sp.file.delete', [$details->id, $a, base64_encode($url)])}}">
                                                             <span class="input-group-text text-danger h-100"><i class="tim-icons icon-trash-simple"></i></span>
                                                         </a>
                                                     </div>
@@ -268,145 +268,6 @@
 @endsection
 
 @push('js_link')
-
-<script>
-    const imageUploadInputs = document.querySelectorAll('.image-upload');
-    const existingFilesArray = [];
-    const deleteUrlArray = [];
-
-    // Add event listener for each file input change
-    imageUploadInputs.forEach(function (imageUploadInput, index) {
-
-
-        // Check if data-existing-files attribute is present
-        if (imageUploadInput.hasAttribute('data-existing-files')) {
-
-            const mainDiv = document.createElement('div');
-            mainDiv.classList.add('imagePreviewMainDiv');
-            imageUploadInput.parentNode.append(mainDiv);
-
-            const existingFilesValue = imageUploadInput.getAttribute('data-existing-files');
-            const deleteUrlValue     = imageUploadInput.getAttribute('data-delete-url');
-            if (existingFilesValue) {
-                let existingFiles;
-                let deleteUrl;
-                try {
-                    existingFiles = existingFilesValue;
-                    deleteUrl = deleteUrlValue;
-                } catch (error) {
-                    existingFiles = [existingFilesValue];
-                    deleteUrl = [deleteUrlValue];
-                }
-
-                var dataArray = existingFiles.split(",");
-                var dltArray = deleteUrl.split(",");
-                if (Array.isArray(dataArray)) {
-                    dataArray.forEach(function(item, index) {
-                        populateImagePreview(item, dltArray[index], mainDiv);
-                    });
-                } else {
-                    console.log(dataArray);
-                    populateImagePreview(dataArray, dltArray[index], mainDiv);
-                }
-            }
-        }
-    });
-
-    $(document).on('change', '.image-upload', function () {
-
-        const imageUploadContainer = this.parentNode;
-        let mainDiv = imageUploadContainer.querySelector('.imagePreviewMainDiv');
-        if (!mainDiv) {
-            mainDiv = document.createElement('div');
-            mainDiv.classList.add('imagePreviewMainDiv');
-            imageUploadContainer.appendChild(mainDiv);
-        }
-        const files = Array.from(this.files);
-
-        // Remove previous images if not multiple
-        if (!this.hasAttribute('multiple')) {
-            const previousImages = mainDiv.querySelectorAll('.imagePreview');
-            previousImages.forEach(function (image) {
-                image.parentNode.remove();
-            });
-        }
-
-        files.forEach(function(file) {
-            const imagePreviewDiv = document.createElement('div');
-            imagePreviewDiv.classList.add('imagePreviewDiv');
-
-            // Create the image element
-            const previewImage = document.createElement('img');
-            previewImage.classList.add('imagePreview', 'rounded', 'me-50', 'border');
-            previewImage.setAttribute('src', '#');
-            previewImage.setAttribute('alt', 'Uploaded Image');
-
-            // Create the remove button
-            const removeButton = document.createElement('i');
-            removeButton.classList.add('fa', 'fa-trash', 'removeImage', 'text-danger');
-            removeButton.addEventListener('click', function () {
-                const imageContainer = this.parentNode;
-                const imagePreview = imageContainer.querySelector('.imagePreview');
-
-                imageContainer.remove();
-            });
-
-            imagePreviewDiv.appendChild(previewImage);
-            imagePreviewDiv.appendChild(removeButton);
-
-            // Append the preview div to the container
-            mainDiv.appendChild(imagePreviewDiv);
-
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                previewImage.setAttribute('src', e.target.result);
-            };
-            reader.readAsDataURL(file);
-        });
-
-    });
-
-
-
-
-
-function populateImagePreview(file, deleteUrl, container) {
-    // files.forEach(function (file) {
-        const imagePreviewDiv = document.createElement('div');
-        imagePreviewDiv.classList.add('imagePreviewDiv');
-
-        // Create the image element
-        const previewImage = document.createElement('img');
-        previewImage.classList.add('imagePreview', 'rounded', 'me-50', 'border');
-        previewImage.setAttribute('src', file);
-        previewImage.setAttribute('alt', 'Uploaded Image');
-
-        //Create a Tag
-        const anchorLink = document.createElement('a');
-        anchorLink.setAttribute('href', deleteUrl);
-
-        // Create the remove button
-        const removeButton = document.createElement('i');
-        removeButton.classList.add('fa-solid', 'fa-trash', 'removeImage', 'text-danger');
-
-        // Add event listener for remove button click
-        removeButton.addEventListener('click', function () {
-            const imageContainer = this.parentNode;
-            const imagePreview = imageContainer.querySelector('.imagePreview');
-
-            imageContainer.remove();
-        });
-
-        imagePreviewDiv.appendChild(previewImage);
-        anchorLink.appendChild(removeButton)
-        imagePreviewDiv.appendChild(anchorLink);
-
-        container.appendChild(imagePreviewDiv);
-    // });
-}
-
-</script>
-
 <script>
     $(document).ready(function () {
         $(document).ready(function () {

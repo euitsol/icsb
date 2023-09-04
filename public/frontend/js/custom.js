@@ -362,4 +362,21 @@ $(document).ready(function () {
 });
 
 
+function updateCurrentTime() {
+    const currentTimeElement = document.getElementById('currentTime');
+    const now = new Date();
 
+    // Set the time zone to Bangladesh Standard Time (BST)
+    now.setUTCHours(now.getUTCHours());
+
+    const options = { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
+    const formattedTime = now.toLocaleTimeString('en-US', options);
+    currentTimeElement.textContent = `Current Time: ${formattedTime} (BST)`;
+}
+
+
+$(document).ready(function () {
+    updateCurrentTime();
+    setInterval(updateCurrentTime, 1000);
+
+});
