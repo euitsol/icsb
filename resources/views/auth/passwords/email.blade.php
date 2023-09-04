@@ -1,32 +1,49 @@
-@extends('layouts.app', ['class' => 'login-page', 'page' => _('Reset password'), 'contentClass' => 'login-page'])
+@extends('backend.layouts.master', ['class' => 'login-page', 'page' => _('Reset password'), 'contentClass' => 'login-page'])
 
 @section('content')
-    <div class="col-lg-5 col-md-7 ml-auto mr-auto">
-        <form class="form" method="post" action="{{ route('password.email') }}">
-            @csrf
+    <div class="login-page">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                @include('alerts.success')
+                <div class="shadow rounded">
+                    <div class="row">
+                        <div class="col-md-7 pe-0">
+                            <div class="form-left h-100 py-5 px-5">
+                                <h3 class="mb-3 text-center">{{ _('Reset password') }}</h3>
+                                <form class="form row g-4" method="post" action="{{ route('password.email') }}">
+                                    @csrf
+                                        <div class="col-12">
+                                            <label>Email<span class="text-danger">*</span></label>
+                                            <div class="input-group">
+                                                <div class="input-group-text" style="border-radius: 0.25rem 0 0 0.25rem;"><i class="fa-solid fa-envelope"></i></div>
+                                                <input type="email" name="email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Enter Email" required>
+                                            </div>
+                                            @include('alerts.feedback', ['field' => 'email'])
+                                        </div>
 
-            <div class="card card-login card-white">
-                <div class="card-header">
-                    <img src="{{ asset('white') }}/img/card-primary.png" alt="">
-                    <h1 class="card-title">{{ _('Reset password') }}</h1>
-                </div>
-                <div class="card-body">
-                    @include('alerts.success')
-
-                    <div class="input-group {{ $errors->has('email') ? ' has-danger' : '' }}">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">
-                                <i class="tim-icons icon-email-85"></i>
+                                        <div class="col-12">
+                                            <button type="submit" class="btn btn-primary px-4 float-end mt-4 w-100">{{ _('Send Password Reset Link') }}</button>
+                                        </div>
+                                </form>
                             </div>
                         </div>
-                        <input type="email" name="email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ _('Email') }}">
-                        @include('alerts.feedback', ['field' => 'email'])
+                        <div class="col-md-5 ps-0 d-none d-md-block">
+                            <div class="form-right h-100 text-white text-center d-flex align-items-center justify-content-center" style="background-color: #273472">
+                                <div>
+                                    <a href="{{route('home')}}"><img src="{{storage_url(settings('site_logo'))}}"></a>
+                                    <a href="{{route('home')}}"><h5 class="fs-1 text-white mt-3">{{settings('site_name')}}</h5></a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block mb-3">{{ _('Send Password Reset Link') }}</button>
-                </div>
             </div>
-        </form>
-    </div>
+        </div>
+</div>
+
+
+
+
+
 @endsection
+

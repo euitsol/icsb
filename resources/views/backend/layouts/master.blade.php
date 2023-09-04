@@ -33,16 +33,30 @@
 
         @stack('css')
     </head>
-    <body class="white-content dark{{ $class ?? '' }}">
+    <body class="white-content dark {{ $class ?? '' }}">
         <div class="wrapper">
+            @auth()
                 @include('backend.partials.navbars.sidebar')
-            <div class="main-panel">
-                @include('backend.partials.navbars.navbar')
-                <div class="content">
-                    @yield('content')
+                <div class="main-panel">
+                    @include('backend.partials.navbars.navbar')
+                    <div class="content">
+                        @yield('content')
+                    </div>
+                    @include('backend.partials.footer')
                 </div>
-                @include('backend.partials.footer')
-            </div>
+            @else
+                @include('layouts.navbars.navbar')
+                <div class="wrapper wrapper-full-page">
+                    <div class="full-page {{ $contentClass ?? '' }} d-flex align-items-center justify-content-center">
+                        <div class="content">
+                            <div class="container">
+                                @yield('content')
+                            </div>
+                        </div>
+                        @include('layouts.footer')
+                    </div>
+                </div>
+            @endauth
         </div>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf

@@ -93,15 +93,18 @@ function createCSV($filename = 'permissions.csv'): string
 function storage_url($urlOrArray){
     if (is_array($urlOrArray) || is_object($urlOrArray)) {
         $result = '';
+        $count = 0;
         $itemCount = count($urlOrArray);
         foreach ($urlOrArray as $index => $url) {
+
             $result .= asset('storage/'.$url);
 
-            if($index === $itemCount - 1) {
+            if($count === $itemCount - 1) {
                 $result .= '';
             }else{
                 $result .= ', ';
             }
+            $count++;
         }
         return $result;
     } else {

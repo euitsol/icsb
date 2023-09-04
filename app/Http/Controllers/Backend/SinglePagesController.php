@@ -61,12 +61,8 @@ class SinglePagesController extends Controller
         $saved_data = json_decode($single_page->saved_data);
 		$rules = [];
         $data = [];
-
-        // dd($request->all());
-
 		if ($params != null) {
 			foreach ($params as $key => $fd) {
-				// $rules[$fd->field_key] = [$fd->required];
 				$rules[$fd->field_key] = [''];
                 $input_name = $fd->field_key;
 
@@ -111,22 +107,22 @@ class SinglePagesController extends Controller
                         return back()->withInput();
                     }
 				}elseif ($fd->type == 'image_multiple') {
-                    $paths=[];
+                    $image_paths=[];
                     if(isset($saved_data->$input_name) && !empty($saved_data->$input_name)){
-                        $paths = $saved_data->$input_name;
+                        $image_paths = $saved_data->$input_name;
                     }
 
                     try{
                         if (is_array($request->$input_name)) {
                             foreach($request->$input_name as $key=>$file){
-                                if ($file instanceof UploadedFile && $file->isFile()) {
-                                    $customFileName = time().'.' . $file->getClientOriginalExtension();
-                                    $path = $file->storeAs('single-page/image-multiple/'.$input_name, $customFileName,'public');
-                                    array_push($paths, $path);
+                                if ($file->isFile()) {
+                                    $customFileName = time().rand(100000, 999999).'.' . $file->getClientOriginalExtension();
+                                    $image_path = $file->storeAs('single-page/image-multiple/'.$input_name, $customFileName,'public');
+                                    array_push($image_paths, $image_path);
                                 }
                             }
                         }
-                        $data[$fd->field_key]=$paths;
+                        $data[$fd->field_key]=$image_paths;
                     }catch (\Exception $exp) {
                         session()->flash('status', 'Could not upload ' . $fd->field_name);
                         return back()->withInput();
@@ -250,16 +246,18 @@ class SinglePagesController extends Controller
         return response()->json(['success' => false, 'message' => 'File upload failed.']);
     }
 
-    public function delete($file_path, $id = null, $key = null){
-        $acc_file_path = base64_decode($file_path);
+    public function delete($id = null, $key = null, $file_path = null){
+        if($file_path){
+            $acc_file_path = base64_decode($file_path);
 
-        if (!Str::startsWith($acc_file_path, 'public/')) {
-            $file_path = 'public/' . $acc_file_path;
+            if (!Str::startsWith($acc_file_path, 'public/')) {
+                $file_path = 'public/' . $acc_file_path;
+            }
         }
-
-        if(Storage::exists($file_path) && $file_path != 'null'){
-            dd('here');
-            Storage::delete($file_path);
+        if($file_path != null){
+            if(Storage::exists($file_path)){
+                Storage::delete($file_path);
+            }
             if($id != null && $key != null){
                 $sp = SinglePages::findOrFail($id);
                 $saved_data = json_decode($sp->saved_data, true);
@@ -278,20 +276,14 @@ class SinglePagesController extends Controller
                 }
             }
         }else{
-
             if($id != null && $key != null){
                 $singlePage = SinglePages::where('id', $id)->firstOrFail();
                 $saved_data = json_decode($singlePage->saved_data, true);
                 if (isset($saved_data[$key])) {
-                    if(is_array($saved_data)){
-                        $array = $saved_data[$key];
-                        $index = array_search($acc_file_path, $array);
-                        unset($array[$index]);
-                        $saved_data[$key] = $array;
-
-                    }else{
-                        unset($saved_data[$key]);
+                    if(Storage::exists('public/'.$saved_data[$key])){
+                        Storage::delete('public/'.$saved_data[$key]);
                     }
+                    unset($saved_data[$key]);
                     $singlePage->saved_data = json_encode($saved_data);
                     $singlePage->save();
                 }
