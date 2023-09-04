@@ -18,7 +18,7 @@ $datas = [
 @include('frontend.includes.breadcrumb',['datas'=>$datas])
 <!-- =============================== Breadcrumb Section ======================================-->
 <!----============================= Library Section ========================---->
-<section class="py-5 mb-5 library-section">
+{{-- <section class="py-5 mb-5 library-section">
     <div class="container">
         <div class="row py-5">
             <div class="col">
@@ -96,6 +96,39 @@ $datas = [
                     />
                 </a>
             </div>
+        </div>
+    </div>
+</section> --}}
+<section class="py-5 mb-5 library-section">
+    <div class="container">
+        <div class="row py-5">
+            <div class="col">
+                @if (isset(json_decode($single_page->saved_data)->{'page-description'}))
+                    {!! (json_decode($single_page->saved_data)->{'page-description'}) !!}
+                @endif
+            </div>
+        </div>
+        <div class="library-imges row row-gap-4 m-auto">
+            @php
+                $images = json_decode($single_page->saved_data)->{'page-images'};
+            @endphp
+            @if (isset($images))
+                @foreach ($images as $image)
+                <div class="col-6">
+                    <a
+                        class="demo col-12"
+                        href="{{ storage_url($image) }}"
+                        data-lightbox="gallery"
+                    >
+                        <img
+                            class="example-image"
+                            src="{{ storage_url($image) }}"
+                            alt="image-1"
+                        />
+                    </a>
+                </div>
+                @endforeach
+            @endif
         </div>
     </div>
 </section>

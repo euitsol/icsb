@@ -86,7 +86,7 @@ class SinglePagesController extends Controller
 					$data[$fd->field_key]=$request->$input_name;
 				}elseif ($fd->type == 'image') {
 					array_push($rules[$fd->field_key], 'image');
-					array_push($rules[$fd->field_key], 'mimes:jpeg,png,jpg,gif,svg');
+					array_push($rules[$fd->field_key], 'mimes:jpeg,png,jpg,gif,svg,webp');
 					array_push($rules[$fd->field_key], 'max:2048');
 
                     try{

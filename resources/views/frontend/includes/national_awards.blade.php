@@ -7,7 +7,13 @@
                 <h2 class="title-shap">{{_('ICSB National Award')}}</h2>
             </div>
 
-            <div class="national-award-carousel">
+            <div class="national-award-carousel" id="carouselCaptions">
+                <div class="carousel-indicators">
+                    @foreach ($national_awards as $key=>$award)
+                        <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="{{$key}}" class="{{($key==0)?'active':''}}"
+                        aria-current="true" aria-label="Slide {{$key+1}}"></button>
+                    @endforeach
+                </div>
                 <div class="national-award-slider owl-carousel owl-theme">
                     @foreach ($national_awards as $award)
                         <div class="item">
