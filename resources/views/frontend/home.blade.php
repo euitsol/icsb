@@ -30,11 +30,12 @@
 @if(!empty(json_decode($single_page->saved_data)) && isset(json_decode($single_page->saved_data)->{'front-image'}) && isset(json_decode($single_page->saved_data)->{'page-description'}))
     <section class="we-are-section big-sec-height">
         <div class="left-col">
-            <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/Image-1.png')}}" data-bg-color="#88BF85"/>
-            <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/Image-2.png')}}" data-bg-color="#C78282"/>
-            <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/Image-3.png')}}" data-bg-color="#B1B9BD"/>
-            <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/Image-4.png')}}" data-bg-color="#CFC6BD"/>
-            <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/Image50.png')}}" data-bg-color="#8A9FB0"/>
+            <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/Image-1.png')}}" data-bg-color="#88BF85"  data-associate-image="{{asset('frontend/img/we-are/Image-6.jpg')}}"/>
+            <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/Image-2.png')}}" data-bg-color="#C78282"  data-associate-image="{{asset('frontend/img/we-are/Image-7.jpg')}}"/>
+            <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/Image-3.png')}}" data-bg-color="#B1B9BD"  data-associate-image="{{asset('frontend/img/we-are/Image-8.jpg')}}"/>
+            <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/Image-4.png')}}" data-bg-color="#CFC6BD"  data-associate-image="{{asset('frontend/img/we-are/Image-9.jpg')}}"/>
+            <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/Image50.png')}}" data-bg-color="#8A9FB0"  data-associate-image="{{asset('frontend/img/we-are/Image-6.jpg')}}"/>
+        
         </div>
         <div class="right-col"></div>
         <div class="container wrap">
@@ -49,7 +50,7 @@
                 </div>
                 <div class="image-column d-flex align-items-center ">
                     <div class="border"></div>
-                    <img src="{{storage_url(json_decode($single_page->saved_data)->{'front-image'})}}" class="image-border" alt="{{$single_page->title}}" />
+                    <img src="{{asset('frontend/img/we-are/Image-9.jpg')}}" class="image-border associate-image" alt="{{$single_page->title}}" />
                 </div>
             </div>
         </div>
@@ -70,7 +71,7 @@
                 </div>
                 <div class="right-column">
                     <h2 class="title-shap">{{_('Message of The President')}}</h2>
-                   <p> {{ stringLimit(html_entity_decode_table($president->message),'2011') }}</p>
+                   <p> {{ stringLimit(html_entity_decode_table($president->message),'1250') }}</p>
                     <a href="{{route('council_view.president.message')}}">{{_('Read More')}}</a>
                 </div>
             </div>

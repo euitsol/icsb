@@ -31,7 +31,7 @@
                     @foreach (json_decode($single_page->saved_data)->{'upload-files'} as $file)
                         <div class="col-md-6 the_cs mb-5">
                             <div class="new-handbook text-align">
-                                    <iframe src="{{ route('sp.file.download', base64_encode($file)) }}" type="application/pdf" width="100%" height="500px"></iframe>
+                                    <iframe src="{{ route('view.pdf', base64_encode($file)) }}" type="application/pdf" width="100%" height="500px"></iframe>
                             </div>
                         </div>
                     @endforeach
