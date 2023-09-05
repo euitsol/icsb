@@ -32,7 +32,7 @@
                     <div class="card-body" id='image-upload-container'>
                         <div class="form-group {{ $errors->has('images.*') ? 'is-invalid' : '' }}  {{ $errors->has('images') ? 'is-invalid' : '' }}">
                             <label>{{ _('Banner Image-1') }}</label>
-                            <input type="file" name="images[]" class="form-control image-upload {{ $errors->has('images.*') ? 'is-invalid' : '' }}  {{ $errors->has('images') ? 'is-invalid' : '' }}">
+                            <input type="file" name="images[]" class="form-control image-upload {{ $errors->has('images.*') ? 'is-invalid' : '' }}  {{ $errors->has('images') ? 'is-invalid' : '' }}" multiple>
                             @include('alerts.feedback', ['field' => 'images'])
                             @include('alerts.feedback', ['field' => 'images.*'])
                         </div>

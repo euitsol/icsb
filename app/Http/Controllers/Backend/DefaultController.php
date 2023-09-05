@@ -27,4 +27,23 @@ class DefaultController extends Controller
             return redirect()->back()->withStatus(__('File not found'));
         }
     }
+    public function jsonImageDelete($model, $id, $key,$column): RedirectResponse
+    {
+        if (class_exists("App\Models\\".$model)) {
+            $modelClass = "App\Models\\" . $model;
+            $data = $modelClass::findOrFail($id);
+            $files = json_decode($data->$column, true);
+
+            if (isset($files[$key])) {
+                $filePathToDelete = $files[$key];
+                unset($files[$key]);
+                $data->$column = json_encode($files);
+                $data->save();
+                $this->fileDelete($filePathToDelete);
+                return redirect()->back()->withStatus(__('Image deleted successfully.'));
+            }
+        } else {
+            return redirect()->back()->withStatus(__('Table not found.'));
+        }
+    }
 }

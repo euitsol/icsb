@@ -23,7 +23,7 @@
                             <thead class=" text-primary">
                                 <tr>
                                     <th>{{ _('Title') }}</th>
-                                    <th>{{ _('Image') }}</th>
+                                    {{-- <th>{{ _('Image') }}</th> --}}
                                     <th>{{ _('Event Duration') }}</th>
                                     <th>{{ _('Event Type') }}</th>
                                     <th>{{ _('Featured') }}</th>
@@ -37,17 +37,12 @@
                                 @foreach ($events as $event)
                                     <tr>
                                         <td> {{ stringLimit($event->title, 30, '...') }} </td>
-                                        <td><img class="rounded" width="60"
-                                            src="
-                                                @if ($event->image)
-                                                    @foreach (json_decode($event->image) as $image)
-                                                        {{ storage_url($image) }}
-                                                    @endforeach
-                                                @else
-                                                {{ asset('no_img/no_img.jpg') }}
-                                                @endif
-                                            "alt="{{ $event->title }}">
-                                        </td>
+                                        {{-- <td>
+                                            @foreach (json_decode($event->image) as $image)
+                                                <img class="rounded" width="60" src="{{ $image ? (storage_url($image)) : (asset('no_img/no_img.jpg'))  }} "alt="{{ $event->title }}">
+                                            @endforeach
+
+                                        </td> --}}
                                         <td> {{ formatDateTimeRange($event->event_start_time, $event->event_end_time)}} </td>
                                         <td>
                                             <span class="badge {{ $event->getTypeClass() }}">{{ $event->getType() }}</span>
