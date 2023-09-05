@@ -354,7 +354,9 @@ $(document).ready(function () {
         borderDiv.css("border-color", bgColor);
 
         images.hide();
-        $(images[currentImageIndex]).fadeIn(500);
+        $('.associate-image').attr('src', $(images[currentImageIndex]).data("associate-image"));
+        $(images[currentImageIndex]).show();
+
         currentImageIndex = (currentImageIndex + 1) % images.length;
     }
     changeImage();

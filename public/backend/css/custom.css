@@ -149,3 +149,27 @@
 .ck.ck-editor__main>.ck-editor__editable.ck-rounded-corners {
     height: 50vh !important;
 }
+
+
+/* Select 2 */
+.select2 {
+    width: 100% !important;
+}
+
+.select2-container .select2-selection--single {
+    height: calc(2.25rem + 2px) !important;
+}
+
+.select2-container--default .select2-selection--single {
+    border-color: rgba(29, 37, 59, 0.5) !important;
+    border-radius: 0.4285rem !important;
+}
+
+.select2-container--default .select2-selection--single {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: 16% !important;
+}
