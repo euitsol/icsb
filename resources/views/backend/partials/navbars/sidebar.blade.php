@@ -364,11 +364,11 @@
             <li>
                 <a class="@if(
                         $pageSlug == 'bss' ||
-                        $pageSlug == 'acts' ||
+                        $pageSlug == 'act' ||
                         $pageSlug == 'cs-practicing-guideline'
                     )@else collapsed @endif" data-toggle="collapse" href="#rules" @if (
                         $pageSlug == 'bss'||
-                        $pageSlug == 'acts' ||
+                        $pageSlug == 'act' ||
                         $pageSlug == 'cs-practicing-guideline'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-solid fa-gavel"></i>
@@ -378,7 +378,7 @@
 
                 <div class="collapse @if (
                         $pageSlug == 'bss'||
-                        $pageSlug == 'acts' ||
+                        $pageSlug == 'act' ||
                         $pageSlug == 'cs-practicing-guideline'
 
 
@@ -387,7 +387,7 @@
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
                                 ['pageSlug' => 'bss', 'routeName' => 'bss.bss_list', 'label' => 'BSS'],
-                                ['pageSlug' => 'acts', 'routeName' => 'acts.acts_list', 'label' => 'Acts'],
+                                ['pageSlug' => 'act', 'routeName' => 'acts.acts_list', 'label' => 'Acts'],
                                 ['pageSlug' => 'cs-practicing-guideline', 'routeName' => 'sp.show', 'params' => 'cs-practicing-guideline', 'label' => 'CS Practicing Guideline'],
                             ]
                         ])
@@ -400,12 +400,14 @@
                         $pageSlug == 'the-chartered-secretary'||
                         $pageSlug == 'national_award' ||
                         $pageSlug == 'convocation' ||
-                        $pageSlug == 'other'
+                        $pageSlug == 'annual-report' ||
+                        $pageSlug == 'others'
                     )@else collapsed @endif" data-toggle="collapse" href="#publications" @if (
                         $pageSlug == 'the-chartered-secretary'||
                         $pageSlug == 'national_award' ||
                         $pageSlug == 'convocation' ||
-                        $pageSlug == 'other'
+                        $pageSlug == 'annual-report' ||
+                        $pageSlug == 'others'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-regular fa-newspaper"></i>
                     <span class="nav-link-text" >{{ __('Publications') }}</span>
@@ -416,7 +418,8 @@
                         $pageSlug == 'the-chartered-secretary'||
                         $pageSlug == 'national_award' ||
                         $pageSlug == 'convocation' ||
-                        $pageSlug == 'other'
+                        $pageSlug == 'annual-report' ||
+                        $pageSlug == 'others'
 
 
                 ) show @endif" id="publications">
