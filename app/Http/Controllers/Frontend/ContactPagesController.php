@@ -51,4 +51,10 @@ class ContactPagesController extends Controller
         $s['contact_numbers'] = collect(json_decode($contact->phone ?? ''))->groupBy('type');
         return view('frontend.contact.feedback',$s);
     }
+    public function address(): View
+    {
+        $contact = Contact::where('deleted_at', null)->first();
+        $s['contact_numbers'] = collect(json_decode($contact->phone ?? ''))->groupBy('type');
+        return view('frontend.contact.address',$s);
+    }
 }
