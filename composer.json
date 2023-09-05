@@ -10,6 +10,7 @@
     "require": {
         "php": "^8.1",
         "anhskohbo/no-captcha": "^3.5",
+        "bensampo/laravel-embed": "^2.3",
         "guzzlehttp/guzzle": "^7.2",
         "jorenvanhocht/laravel-share": "^4.2",
         "laravel-frontend-presets/white-dashboard": "^1.0",
