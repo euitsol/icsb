@@ -74,7 +74,7 @@
                                             <div class="input-group-text">{{ _('to') }}</div>
                                         </div>
                                         <input type="number" class="form-control" name="salary[to]" value="{{ old('salary.to') }}">
-                                        <select name="salary_type" class="form-control">
+                                        <select name="salary_type" class="form-control no-select">
                                             <option selected hidden>{{ _('Select Salary Type') }}</option>
                                             <option value="Per Month">{{ _('Per Month') }}</option>
                                             <option value="Per Year">{{ _('Per Year') }}</option>
