@@ -4252,9 +4252,9 @@ td {
 }
 
 .library-section .library-imges img {
-	height: 400px;
+    height: 400px;
+    border: 7px solid #122F98;
 }
-
 /* #lightbox .lb-outerContainer {
 	transform: translateY(50%);
 } */
