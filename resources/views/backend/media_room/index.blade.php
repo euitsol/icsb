@@ -39,7 +39,7 @@
                             <tbody>
                                 @foreach ($media_rooms as $media_room)
                                     <tr>
-                                        <td> {{ timeFormate($media_room->created_at) }} </td>
+                                        <td> {{ date('d M, Y', strtotime($media_room->created_at)) }} </td>
                                         <td> {{ $media_room->title }} </td>
                                         <td> {{ $media_room->program_date ? date('d M, Y', strtotime($media_room->program_date)) : '' }} </td>
                                         <td> {{ $media_room->cat->name }} </td>
