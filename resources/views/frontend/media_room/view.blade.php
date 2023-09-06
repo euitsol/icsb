@@ -41,6 +41,7 @@ $datas = [
                 <div class="content-description content-description">
                     {!! $media_room->description !!}
                 </div>
+
                 <div class="gallery-section global-gallery-section">
                     <div class="gallery-content">
                         @if(!empty($media_room->additional_images))
@@ -52,6 +53,7 @@ $datas = [
                         @endif
                     </div>
                 </div>
+
             </div>
             <div class="blog-sidebar-column">
                 <div class="recent-post-section">
@@ -73,6 +75,7 @@ $datas = [
         </div>
     </div>
 </section>
+
 <section class="blog-share-section">
     <div class="container">
         <div class="share-content">
