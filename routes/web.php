@@ -95,6 +95,7 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     // Default File Download Route
     Route::get('download/{filename}', [DefaultController::class, 'download'])->name('download');
+    Route::get('json-image/single/delete/{model}/{id}/{key}/{column}', [DefaultController::class, 'jsonImageDelete'])->name('json_image.single.delete');
     Route::get('view-pdf/{filepath}', [ViewDefaultController::class, 'view_pdf'])->name('view.pdf');
     // Ajax Routes
     Route::get('members/{id}', [AjaxController::class, 'memberInfo'])->name('m.info');
@@ -561,8 +562,9 @@ Route::group(['as' => 'notice_view.', 'prefix' => 'notices'], function () {
 // Route::group(['as' => 'publications.', 'prefix' => 'publications'], function () {
 //     Route::get('/photo-gallery', [PublicationsPagesController::class, 'photoGallery'])->name('photo_gallery');
 // });
-Route::group(['as' => 'contact_us.', 'prefix' => 'contact'], function () {
-    Route::get('/contact-us', [ContactPagesController::class, 'feedback'])->name('feedback');
+Route::group(['as' => 'contact_us.', 'prefix' => 'contact-us'], function () {
+    Route::get('/feedback', [ContactPagesController::class, 'feedback'])->name('feedback');
+    Route::get('/address', [ContactPagesController::class, 'address'])->name('address');
 });
 // Route::group(['as' => 'article.', 'prefix' => 'article'], function () {
 //     Route::get('/single', [ArticlesController::class, 'single'])->name('single');

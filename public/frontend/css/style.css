@@ -1957,7 +1957,7 @@ li {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	top: 0;
+	top: -1%;
 	right: -490px;
 }
 
@@ -3442,11 +3442,11 @@ td {
 .mision-vision-section .mission-row .objectives{
     left: -2px !important;
 	position: relative;
-	padding: 70px 40px;
-	max-width: 500px;
+	padding: 70px 40px 70px 18px;
 	background: #182456;
 	border: 8px double #fff;
 	outline: 8px solid var(--bc-1);
+    width: 96%;
 }
 .mision-vision-section .mission-row .content-column,
 .vision-mission-section .mission-row .content-column {
@@ -3651,6 +3651,7 @@ td {
 .fellow-row .fellow-items .image-column {
 	width: 30%;
 }
+
 
 .content-column {
 	width: 65%;

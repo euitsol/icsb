@@ -44,14 +44,22 @@
                         <div id="memberInfo" class="row align-items-center">
 
                         </div>
-                        {{-- <div class="form-group {{ $errors->has('designation') ? ' has-danger' : '' }}">
-                            <label>{{ _('Designation') }}</label>
-                            <select name="designation" class="form-control {{ $errors->has('designation') ? ' is-invalid' : '' }}">
-                                    <option value="President, ICSB" @if( $president->designation == 'President, ICSB') selected @endif>{{_('President')}}</option>
-                                    <option value="Past President, ICSB" @if( $president->designation == 'Past President, ICSB') selected @endif>{{_('Past President')}}</option>
+                        <div class="form-group {{ $errors->has('order_key') ? ' has-danger' : '' }}">
+                            <label>{{ _('Order') }}</label>
+                            <select class="form-control {{ $errors->has('order_key') ? ' is-invalid' : '' }}" name="order_key">
+                                @for ($x=1; $x<=100; $x++)
+                                    @php
+                                        $check = App\Models\President::where('order_key',$x)->first();
+                                    @endphp
+                                    @if($president->order_key == $x)
+                                        <option value="{{$x}}" selected>{{ $x }}</option>
+                                    @elseif(!$check)
+                                        <option value="{{$x}}">{{ $x }}</option>
+                                    @endif
+                                @endfor
                             </select>
-                            @include('alerts.feedback', ['field' => 'designation'])
-                        </div> --}}
+                            @include('alerts.feedback', ['field' => 'order_key'])
+                        </div>
                         @foreach ($president->durations as $key=>$duration)
                         <div class="form-group {{ $errors->has('duration') ? ' has-danger' : '' }} {{ $errors->has('duration.*') ? ' has-danger' : '' }}">
                             <label>{{ _('President Duration -')}}{{$key+1}}</label>

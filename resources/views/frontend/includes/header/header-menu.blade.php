@@ -252,7 +252,7 @@
                         <a href="#">Contact Us <i class="fa-solid fa-angle-down"></i></a>
                         <ul class="">
                             <li><a href="{{route('contact_us.feedback')}}">Feedback</a></li>
-                            <li><a href="#">Address</a></li>
+                            <li><a href="{{route('contact_us.address')}}">Address</a></li>
                             <li><a href="#">Location Map</a></li>
                         </ul>
                     </li>

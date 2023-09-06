@@ -43,7 +43,7 @@ class PresidentController extends Controller
             $p->save();
         }
 
-        $s['presidents'] = President::with(['durations','member'])->where('deleted_at', null)->latest()->get();
+        $s['presidents'] = President::with(['durations','member'])->where('deleted_at', null)->orderBy('order_key','DESC')->get();
         return view('backend.council_pages.president.index',$s);
     }
     public function create(): View
@@ -72,6 +72,7 @@ class PresidentController extends Controller
         }
         }
         $president = new President;
+        $president->order_key = $request->order_key;
         $president->member_id = $request->member_id;
         $president->slug = $request->slug.'-'.$request->member_id;
         // $president->designation = $request->designation;
@@ -127,6 +128,7 @@ class PresidentController extends Controller
 
         }
         $president = President::findOrFail($id);
+        $president->order_key = $request->order_key;
         $president->member_id = $request->member_id;
         if($president->slug != $request->slug){
             $president->slug = $request->slug.'-'.$request->member_id;

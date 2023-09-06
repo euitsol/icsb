@@ -34,6 +34,7 @@ class PresidentRequest extends FormRequest
             'member_id' => 'required|exists:members,id|unique:presidents,member_id,NULL,id,deleted_at,NULL',
             'slug' => 'required|unique:presidents,slug,NULL,id,deleted_at,NULL',
             'duration.*.start_date' => 'required|date',
+            'order_key' => 'required|unique:presidents,order_key,NULL,id,deleted_at,NULL',
         ];
     }
 
@@ -51,6 +52,7 @@ class PresidentRequest extends FormRequest
             ],
             'slug' => 'required|unique:presidents,slug,' . $this->route('id') . ',id,deleted_at,NULL',
             'duration.*.start_date' => 'nullable|date',
+            'order_key' => 'required|unique:presidents,order_key,' . $this->route('id') . ',id,deleted_at,NULL',
         ];
     }
 }

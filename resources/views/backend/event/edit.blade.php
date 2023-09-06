@@ -37,8 +37,27 @@
                         {{-- image --}}
 
                         <div class="form-group  {{ $errors->has('image.*') ? 'is-invalid' : '' }}  {{ $errors->has('image') ? 'is-invalid' : '' }}">
+                            @php
+                                $data = json_decode($event->image, true);
+                                $result = '';
+                                $itemCount = count($data);
+                                foreach ($data as $index => $url) {
+                                    $result .= route('json_image.single.delete', ['Event', $event->id,$index,'image' ]);
+                                    if($index === $itemCount - 1) {
+                                        $result .= '';
+                                    }else{
+                                        $result .= ', ';
+                                    }
+                                }
+                            @endphp
                             <label>{{ _('Event Images') }}</label>
-                            <input type="file" accept="image/*" name="image[]" class="form-control  {{ $errors->has('image.*') ? 'is-invalid' : '' }}  {{ $errors->has('image') ? 'is-invalid' : '' }} image-upload" multiple >
+                            <input type="file" accept="image/*" name="image[]" class="form-control  {{ $errors->has('image.*') ? 'is-invalid' : '' }}  {{ $errors->has('image') ? 'is-invalid' : '' }} image-upload" multiple
+                            @if(isset($data))
+                                data-existing-files="{{ storage_url($data) }}"
+                                data-delete-url="{{ $result }}"
+                            @endif
+                            >
+
                             @include('alerts.feedback', ['field' => 'image'])
                             @include('alerts.feedback', ['field' => 'image.*'])
                         </div>
