@@ -2712,6 +2712,9 @@ td {
 	margin-bottom: 46px;
 }
 
+.blog-content-section .logo-wrapp img {
+    height: 200px;
+}
 .blog-content-section img {
 	width: auto;
 }
