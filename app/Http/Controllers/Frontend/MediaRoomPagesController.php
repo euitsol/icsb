@@ -48,19 +48,22 @@ class MediaRoomPagesController extends Controller
     }
     public function mr_all(): View
     {
-        $s['media_rooms'] = MediaRoom::where('deleted_at', null)->where('permission','1')->orderBy('program_date','ASC')->get();
+        $query = MediaRoom::where('deleted_at', null)->where('permission','1')->orderBy('program_date','DESC');
+        $s['media_rooms'] = $query->get();
         return view('frontend.media_room.media_rooms',$s);
     }
     public function view($slug): View
     {
         $s['media_room'] = MediaRoom::where('deleted_at', null)->where('permission','1')->where('slug',$slug)->first();
-        $s['recents'] = MediaRoom::where('deleted_at', null)->where('permission','1')->orderBy('program_date','ASC')->take(5)->get();
+        $query = MediaRoom::where('deleted_at', null)->where('permission','1')->orderBy('program_date','DESC');
+        $s['recents'] = $query->take(5)->get();
         return view('frontend.media_room.view',$s);
     }
     public function cat_all($slug): View
     {
         $s['cat'] = MediaRoomCategory::with('media_rooms')->where('slug',$slug)->where('deleted_at', null)->where('status','1')->first();
-        $s['media_rooms'] = MediaRoom::where('category_id',$s['cat']->id)->where('deleted_at', null)->where('permission','1')->orderBy('program_date','ASC')->get();
+        $query = MediaRoom::where('category_id',$s['cat']->id)->where('deleted_at', null)->where('permission','1')->orderBy('program_date','DESC');
+        $s['media_rooms'] = $query->get();
         return view('frontend.media_room.media_rooms',$s);
     }
 }

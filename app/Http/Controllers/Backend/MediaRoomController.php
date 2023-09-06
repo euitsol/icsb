@@ -22,7 +22,8 @@ class MediaRoomController extends Controller
 
     public function index(): View
     {
-        $s['media_rooms'] = MediaRoom::where('deleted_at', null)->orderBy('program_date','ASC')->get();
+        $query = MediaRoom::where('deleted_at', null)->orderBy('program_date','DESC');
+        $s['media_rooms'] = $query->get();
         $s['media_room_cats'] = MediaRoomCategory::where('deleted_at', null)->latest()->get();
         return view('backend.media_room.index',$s);
     }
