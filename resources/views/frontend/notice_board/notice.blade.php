@@ -37,7 +37,7 @@ $datas = [
                     @foreach ($notices as $key=>$notice)
                         <tr>
                             <td>{{str_pad($startSerial++, 2, '0', STR_PAD_LEFT)}}</td>
-                            <td><a href="">{{$notice->title}}</a></td>
+                            <td><a href="{{route('sp.file.download', base64_encode($file->file_path))}}">{{$notice->title}}</a></td>
                             <td>{{date('M d, Y', strtotime($notice->created_at))}}</td>
                             <td>
                                 @foreach (json_decode($notice->files) as $file)
