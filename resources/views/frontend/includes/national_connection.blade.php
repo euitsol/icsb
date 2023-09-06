@@ -9,14 +9,14 @@
                     @forelse ($national_connections as $connection)
                     <div class="item">
                         <div class="logo-wrapp">
-                            <a class='fa-beat-fade' href="{{$connection->url}}"><img src="{{ storage_url($connection->logo) }}"></a>
+                            <a href="{{$connection->url}}"><img src="{{ storage_url($connection->logo) }}"></a>
                             <h3>{{$connection->title}}</h3>
                         </div>
                     </div>
                     @empty
                     <div class="item">
                         <div class="logo-wrapp">
-                            <a class='fa-beat-fade' href=""><img src="{{ asset('no_img/no_img.jpg') }}"></a>
+                            <a href=""><img src="{{ asset('no_img/no_img.jpg') }}"></a>
                             <h3>National Connection</h3>
                         </div>
                     </div>
