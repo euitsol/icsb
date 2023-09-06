@@ -36,6 +36,7 @@ $datas = [
                 <ul>
                     <li><img src="{{asset('frontend/img/blog-single/user.svg')}}" alt="User Icon"><a href="">{{_('CS Bangladesh')}}</a></li>
                     <li><img src="{{asset('frontend/img/blog-single/calendar.svg')}}" alt="Calendar Icon"><a href="">{{ date('d M Y', strtotime($media_room->program_date))}}</a></li>
+
                 </ul>
                 <div class="content-description content-description">
                     {!! $media_room->description !!}
@@ -44,8 +45,8 @@ $datas = [
             <div class="blog-sidebar-column">
                 <div class="recent-post-section">
                     <h2>{{_('Recent Posts')}}</h2>
-                    <div class="recent-post-content">
-                        @foreach ($recents as $recent)
+                    @foreach ($recents as $recent)
+                        <div class="recent-post-content">
                             <div class="image-column">
                                 <a href=""><img src="{{storage_url($media_room->thumbnail_image)}}" alt="{{$media_room->title}}"></a>
                             </div>
@@ -53,8 +54,9 @@ $datas = [
                                 <h3><a href="{{route('media_room_view.view',$recent->slug)}}">{{$recent->title}}</a></h3>
                                 <p>{{date('d M, Y', strtotime($recent->program_date))}}</p>
                             </div>
-                        @endforeach
-                    </div>
+                        </div>
+                    @endforeach
+
                 </div>
             </div>
         </div>
