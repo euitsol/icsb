@@ -48,7 +48,7 @@ $datas = [
                     @foreach ($recents as $recent)
                         <div class="recent-post-content">
                             <div class="image-column">
-                                <a href=""><img src="{{storage_url($media_room->thumbnail_image)}}" alt="{{$media_room->title}}"></a>
+                                <a href=""><img src="{{storage_url($recent->thumbnail_image)}}" alt="{{$recent->title}}"></a>
                             </div>
                             <div class="content-column">
                                 <h3><a href="{{route('media_room_view.view',$recent->slug)}}">{{$recent->title}}</a></h3>
