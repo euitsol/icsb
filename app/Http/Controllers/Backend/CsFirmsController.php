@@ -20,7 +20,7 @@ class CsFirmsController extends Controller
     }
     public function index(): View
     {
-        $s['cs_firms'] = CsFirms::with('member')->where('deleted_at',null)->latest()->get();
+        $s['cs_firms'] = CsFirms::with('member')->where('deleted_at',null)->orderBy('private_practice_certificate_no','ASC')->get();
         return view('backend.member.cs_firms.index',$s);
     }
     public function create(): View

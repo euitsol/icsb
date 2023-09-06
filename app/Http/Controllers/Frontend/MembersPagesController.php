@@ -62,7 +62,7 @@ class MembersPagesController extends Controller
     }
     public function cs_firm(): View
     {
-        $s['csf_members'] = CsFirms::where('status',1)->where('deleted_at',null)->latest()->get();
+        $s['csf_members'] = CsFirms::where('status',1)->where('deleted_at',null)->orderBy('private_practice_certificate_no','ASC')->get();
         return view('frontend.members.cs_firms',$s);
 
     }
