@@ -35,7 +35,7 @@ $datas = [
                 <h1>{{$media_room->title}}</h1>
                 <ul>
                     <li><img src="{{asset('frontend/img/blog-single/user.svg')}}" alt="User Icon"><a href="">{{auth()->user()->name}}</a></li>
-                    <li><img src="{{asset('frontend/img/blog-single/calendar.svg')}}" alt="Calendar Icon"><a href="">{{ date('d M Y', strtotime($media_room->created_at))}}</a></li>
+                    <li><img src="{{asset('frontend/img/blog-single/calendar.svg')}}" alt="Calendar Icon"><a href="">{{ date('d M Y', strtotime($media_room->program_date))}}</a></li>
                     <li><img src="{{asset('frontend/img/blog-single/comment.svg')}}" alt="Comment Icon"><a href="">25 Comments</a></li>
                 </ul>
                 <div class="content-description content-description">

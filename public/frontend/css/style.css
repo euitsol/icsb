@@ -893,7 +893,7 @@ li {
 .image-column img{
     border: 10px solid #CCC;
     padding: 5px;
-    height: 500px;
+    /* height: 500px; */
     width: 100%;
 }
 

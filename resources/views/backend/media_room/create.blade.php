@@ -38,6 +38,11 @@
                                 <input type="text" class="form-control {{ $errors->has('slug') ? ' is-invalid' : '' }}" id="slug" name="slug" placeholder="{{ _('Enter Slug (must be use - on white speace)') }}">
                                 @include('alerts.feedback', ['field' => 'slug'])
                             </div>
+                            <div class="form-group {{ $errors->has('program_date') ? ' has-danger' : '' }}">
+                                <label>{{ _('Program Date') }}</label>
+                                <input type="date" class="form-control {{ $errors->has('program_date') ? ' is-invalid' : '' }}" name="program_date">
+                                @include('alerts.feedback', ['field' => 'program_date'])
+                            </div>
                             <div class="form-group {{ $errors->has('category_id') ? ' has-danger' : '' }}">
                                 <label>{{ _('Category') }}</label>
                                 <select name="category_id" class="form-control {{ $errors->has('category_id') ? ' is-invalid' : '' }}">

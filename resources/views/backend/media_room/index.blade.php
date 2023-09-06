@@ -24,6 +24,7 @@
                             <thead class=" text-primary">
                                 <tr>
                                     <th>{{ _('Title') }}</th>
+                                    <th>{{ _('Program Date') }}</th>
                                     <th>{{ _('Category') }}</th>
                                     <th>{{ _('Thumbnail Image') }}</th>
                                     {{-- <th>{{ _('Additional Images') }}</th>
@@ -39,35 +40,12 @@
                                 @foreach ($media_rooms as $media_room)
                                     <tr>
                                         <td> {{ $media_room->title }} </td>
+                                        <td> {{ $media_room->program_date ? date('d M, Y', strtotime($media_room->program_date)) : '' }} </td>
                                         <td> {{ $media_room->cat->name }} </td>
                                         <td><img class="rounded" width="60"
                                             src="@if ($media_room->thumbnail_image) {{ storage_url($media_room->thumbnail_image) }} @else {{ asset('no_img/no_img.jpg') }} @endif"
                                             alt="{{ $media_room->title }}">
                                         </td>
-                                        {{-- <td>
-                                            @if(!empty(json_decode($media_room->additional_images)))
-                                                @foreach (json_decode($media_room->additional_images) as $image)
-                                                    <img class="rounded" width="60"
-                                                    src="{{ storage_url($image) }}"
-                                                    alt="{{ $media_room->title }}">
-                                                @endforeach
-                                            @else
-                                                <img class="rounded" width="60"
-                                                src="{{ asset('no_img/no_img.jpg') }}"
-                                                alt="{{ $media_room->title }}">
-                                            @endif
-
-                                        </td>
-                                        <td>
-                                            @if(!empty(json_decode($media_room->files)))
-                                                @foreach (json_decode($media_room->files) as $file)
-                                                    @if(!empty($file->file_path))
-                                                        <a href="{{route('download',base64_encode($file->file_path))}}" class="btn btn-info btn-sm {{$file->file_path ?  : 'd-none'}}"><i class="fa-regular fa-circle-down"></i></a>
-                                                    @endif
-                                                @endforeach
-                                            @endif
-
-                                        </td> --}}
                                         <td><span class='{{ $media_room->getFeaturedStatusClass() }}'>{{ $media_room->getFeaturedStatus() }}</span></td>
                                         <td>
                                             <span class="badge {{ $media_room->getPermissionClass() }}">{{ $media_room->getPermission() }}</span>

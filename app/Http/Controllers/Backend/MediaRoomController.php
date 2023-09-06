@@ -22,7 +22,7 @@ class MediaRoomController extends Controller
 
     public function index(): View
     {
-        $s['media_rooms'] = MediaRoom::where('deleted_at', null)->latest()->get();
+        $s['media_rooms'] = MediaRoom::where('deleted_at', null)->orderBy('program_date','ASC')->get();
         $s['media_room_cats'] = MediaRoomCategory::where('deleted_at', null)->latest()->get();
         return view('backend.media_room.index',$s);
     }
@@ -72,6 +72,7 @@ class MediaRoomController extends Controller
         }
         $media_room->files = json_encode($data);
         $media_room->title = $request->title;
+        $media_room->program_date = $request->program_date;
         $media_room->slug = $request->slug;
         $media_room->category_id = $request->category_id;
         $media_room->description = $request->description;
@@ -147,6 +148,7 @@ class MediaRoomController extends Controller
             $media_room->slug = $request->slug;
         }
         $media_room->category_id = $request->category_id;
+        $media_room->program_date = $request->program_date;
         $media_room->title = $request->title;
         $media_room->description = $request->description;
         $media_room->updated_by = auth()->user()->id;

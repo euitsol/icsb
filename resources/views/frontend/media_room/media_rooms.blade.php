@@ -3,45 +3,6 @@
 @section('title', 'Media Rooms')
 
 @section('content')
-    {{-- <!----============================= Breadcrumbs Section ========================---->
-    <section class="breadcrumbs-section">
-        <div class="overly-image">
-            <img src="{{ asset('breadcumb_img/media_room.webp') }}" alt="All Events">
-        </div>
-        <div class="container">
-            <div class="breadcrumbs-row flex">
-                <div class="left-column content-column">
-                    <div class="inner-column color-white">
-                        <h1 class="breadcrumbs-heading">
-                            @if(isset($cat))
-                                {{$cat->name}}
-                            @else
-                                {{_('All Media Rooms')}}
-                            @endif
-                        </h1>
-                        <ul class="flex">
-                            <li>
-                            @if(isset($cat))
-                                <a href="{{route('media_room_view.all')}}">{{_('Media Room')}}</a>
-                            @else
-                                <a href="{{route('home')}}">{{_('Home')}}</a>
-                            @endif
-                            </li>
-                            <li><i class="fa-solid fa-angle-right"></i></li>
-                            <li>
-                                @if(isset($cat))
-                                <a href="{{route('media_room_view.cat.all',$cat->slug)}}">{{$cat->name}}</a>
-                            @else
-                                <a href="{{route('media_room_view.all')}}">{{_('Media Room')}}</a>
-                            @endif
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
-<!-- =============================== Breadcrumb Section ======================================-->
 @php
 $banner_image = asset('breadcumb_img/media_room.jpg');
 $title = 'All Media Rooms';
@@ -75,7 +36,7 @@ $datas = [
                                         <a href="#"><i class="fa-solid fa-file-import"></i>Latest News</a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="fa-solid fa-calendar-check"></i>{{ date('d M Y', strtotime($media_room->created_at))}}</a>
+                                        <a href="#"><i class="fa-solid fa-calendar-check"></i>{{ date('d M Y', strtotime($media_room->program_date))}}</a>
                                     </li>
                                 </ul>
                                 <h3><a href="{{route('media_room_view.view',$media_room->slug)}}">{{$media_room->title}}</a></h3>
