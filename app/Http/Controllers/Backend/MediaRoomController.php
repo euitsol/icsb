@@ -112,14 +112,16 @@ class MediaRoomController extends Controller
             $media_room->thumbnail_image = $path;
         }
         if(!empty($request->additional_images)){
-            foreach(json_decode($media_room->additional_images) as $db_image){
-                $this->fileDelete($db_image);
+            if(!empty($media_room->additional_images)){
+                foreach(json_decode($media_room->additional_images) as $db_image){
+                    $this->fileDelete($db_image);
+                }
             }
             $additional_images = array();
             foreach($request->additional_images as $image){
                 if ($image) {
                     $path = $image->store('media_rooms/additional_images', 'public');
-                    array_push($images, $path);
+                    array_push($additional_images, $path);
                 }
             }
 
