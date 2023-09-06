@@ -41,7 +41,7 @@ $datas = [
                             <td>{{date('M d, Y', strtotime($notice->created_at))}}</td>
                             <td>
                                 @foreach (json_decode($notice->files) as $file)
-                                    <a href="{{route('sp.file.download', base64_encode($file->file_path))}}"><i title="{{substr(strrchr($file->file_path, '/'), 1)}}" class="fa-solid fa-cloud-arrow-down"></i></a>
+                                    <a target="_blank" href="{{route('sp.file.download', base64_encode($file->file_path))}}"><i title="{{substr(strrchr($file->file_path, '/'), 1)}}" class="fa-solid fa-cloud-arrow-down"></i></a>
                                 @endforeach
                             </td>
                         </tr>
