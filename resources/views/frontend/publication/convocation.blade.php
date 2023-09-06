@@ -32,7 +32,7 @@
                             </a>
                         </div>
                         <div class="new-handbook text-align">
-                            <h3><a class="text-white" href="{{ $convocation->file ? route('sp.file.download', base64_encode($convocation->file)) : 'javascript:void(0)' }}">{{$convocation->title}}</a></h3>
+                            <h3 ><a  class="text-white" href="{{ $convocation->file ? route('sp.file.download', base64_encode($convocation->file)) : 'javascript:void(0)' }}">{{$convocation->title}}</a></h3>
                         </div>
                     </div>
                 @endforeach

@@ -2622,6 +2622,10 @@ td {
         background: #182456;
         outline: 3px solid #FF8601;
         border: 2px solid #fff;
+        height: 105px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 }
 
 /*================================ CS Handbook Page CSS =========================*/
