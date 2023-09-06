@@ -11,6 +11,7 @@ class MediaRoom extends BaseModel
     use HasFactory;
 
     public $guarded = [];
+    public $timestamps = true;
     public function cat()
     {
         return $this->belongsTo(MediaRoomCategory::class, 'category_id');
