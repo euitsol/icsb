@@ -3401,7 +3401,8 @@ td {
 }
 
 .objectives-section .objective-row .left-column img {
-	max-height: 26rem;
+    max-height: 26rem;
+    border: 10px solid #93931c;
 }
 
 .objectives-section .objective-row .left-column iframe {
