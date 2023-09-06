@@ -54,6 +54,7 @@ class MediaRoomPagesController extends Controller
     public function view($slug): View
     {
         $s['media_room'] = MediaRoom::where('deleted_at', null)->where('permission','1')->where('slug',$slug)->first();
+        $s['recents'] = MediaRoom::where('deleted_at', null)->where('permission','1')->orderBy('program_date','ASC')->take(5)->get();
         return view('frontend.media_room.view',$s);
     }
     public function cat_all($slug): View

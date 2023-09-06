@@ -36,7 +36,6 @@ $datas = [
                 <ul>
                     <li><img src="{{asset('frontend/img/blog-single/user.svg')}}" alt="User Icon"><a href="">{{_('CS Bangladesh')}}</a></li>
                     <li><img src="{{asset('frontend/img/blog-single/calendar.svg')}}" alt="Calendar Icon"><a href="">{{ date('d M Y', strtotime($media_room->program_date))}}</a></li>
-                    <li><img src="{{asset('frontend/img/blog-single/comment.svg')}}" alt="Comment Icon"><a href="">25 Comments</a></li>
                 </ul>
                 <div class="content-description content-description">
                     {!! $media_room->description !!}
@@ -44,82 +43,17 @@ $datas = [
             </div>
             <div class="blog-sidebar-column">
                 <div class="recent-post-section">
-                    <h2>Recent Posts</h2>
+                    <h2>{{_('Recent Posts')}}</h2>
                     <div class="recent-post-content">
-                        <div class="image-column">
-                            <a href=""><img src="{{asset('frontend/img/blog-single/blog_one.png')}}"></a>
-                        </div>
-                        <div class="content-column">
-                            <h3><a href="">Chief guest speech in the 9th ICSB CGE Award, 20211</a></h3>
-                            <p>Dec 20, 2022</p>
-                        </div>
-                    </div>
-
-                    <div class="recent-post-content">
-                        <div class="image-column">
-                            <a href=""><img src="{{asset('frontend/img/blog-single/blog_one.png')}}"></a>
-                        </div>
-                        <div class="content-column">
-                            <h3><a href="">Chief guest speech in the 9th ICSB CGE Award, 20211</a></h3>
-                            <p>Dec 20, 2022</p>
-                        </div>
-                    </div>
-
-                    <div class="recent-post-content">
-                        <div class="image-column">
-                            <a href=""><img src="{{asset('frontend/img/blog-single/blog_one.png')}}"></a>
-                        </div>
-                        <div class="content-column">
-                            <h3><a href="">Chief guest speech in the 9th ICSB CGE Award, 20211</a></h3>
-                            <p>Dec 20, 2022</p>
-                        </div>
-                    </div>
-
-                    <div class="recent-post-content">
-                        <div class="image-column">
-                            <a href=""><img src="{{asset('frontend/img/blog-single/blog_one.png')}}"></a>
-                        </div>
-                        <div class="content-column">
-                            <h3><a href="">Chief guest speech in the 9th ICSB CGE Award, 20211</a></h3>
-                            <p>Dec 20, 2022</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="tag-column">
-                    <div class="tah-heading">
-                        <h3>Popular Tags</h3>
-                    </div>
-                    <div class="tag-item-content">
-                        <div class="tag-item">
-                            <a href="">Finance</a>
-                        </div>
-                        <div class="tag-item">
-                            <a href="">Tech</a>
-                        </div>
-                        <div class="tag-item">
-                            <a href="">Life</a>
-                        </div>
-                        <div class="tag-item">
-                            <a href="">News</a>
-                        </div>
-                        <div class="tag-item">
-                            <a href="">Popular</a>
-                        </div>
-                        <div class="tag-item">
-                            <a href="">Tutorial</a>
-                        </div>
-                        <div class="tag-item">
-                            <a href="">Update</a>
-                        </div>
-                        <div class="tag-item">
-                            <a href="">Download</a>
-                        </div>
-                        <div class="tag-item">
-                            <a href="">News</a>
-                        </div>
-                        <div class="tag-item">
-                            <a href="">Education</a>
-                        </div>
+                        @foreach ($recents as $recent)
+                            <div class="image-column">
+                                <a href=""><img src="{{storage_url($media_room->thumbnail_image)}}" alt="{{$media_room->title}}"></a>
+                            </div>
+                            <div class="content-column">
+                                <h3><a href="{{route('media_room_view.view',$recent->slug)}}">{{$recent->title}}</a></h3>
+                                <p>{{date('d M, Y', strtotime($recent->program_date))}}</p>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -141,20 +75,6 @@ $datas = [
                     <li><a href=""><i class="fa-brands fa-whatsapp"></i></a></li>
                 </ul>
             </div>
-        </div>
-    </div>
-</section>
-
-<section class="comment-section">
-    <div class="container">
-        <div class="comment-form-column">
-            <p>Write Your Comment</p>
-            <form action="">
-                <input type="text" name="name" placeholder="Name:">
-                <input type="email" name="email" placeholder="Email:">
-                <textarea name="message" placeholder="Your Message Here:"></textarea>
-                <input class="comment-button" type="submit" value="Submit Now">
-            </form>
         </div>
     </div>
 </section>
