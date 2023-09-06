@@ -23,6 +23,7 @@
                         <table class="table tablesorter datatable">
                             <thead class=" text-primary">
                                 <tr>
+                                    <th>{{ _('Creation date') }}</th>
                                     <th>{{ _('Title') }}</th>
                                     <th>{{ _('Program Date') }}</th>
                                     <th>{{ _('Category') }}</th>
@@ -31,7 +32,6 @@
                                     <th>{{ _('Files') }}</th> --}}
                                     <th>{{ _('Featured') }}</th>
                                     <th>{{ _('Status') }}</th>
-                                    <th>{{ _('Creation date') }}</th>
                                     <th>{{ _('Created by') }}</th>
                                     <th>{{ _('Action') }}</th>
                                 </tr>
@@ -39,6 +39,7 @@
                             <tbody>
                                 @foreach ($media_rooms as $media_room)
                                     <tr>
+                                        <td> {{ timeFormate($media_room->created_at) }} </td>
                                         <td> {{ $media_room->title }} </td>
                                         <td> {{ $media_room->program_date ? date('d M, Y', strtotime($media_room->program_date)) : '' }} </td>
                                         <td> {{ $media_room->cat->name }} </td>
@@ -50,7 +51,6 @@
                                         <td>
                                             <span class="badge {{ $media_room->getPermissionClass() }}">{{ $media_room->getPermission() }}</span>
                                         </td>
-                                        <td> {{ timeFormate($media_room->created_at) }} </td>
                                         <td> {{ $media_room->created_user->name ?? 'system' }} </td>
                                         <td>
                                             @include('backend.partials.action_buttons', [
