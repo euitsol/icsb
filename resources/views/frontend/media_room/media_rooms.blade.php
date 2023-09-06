@@ -39,7 +39,7 @@ $datas = [
                                         <a href="#"><i class="fa-solid fa-calendar-check"></i>{{ date('d M Y', strtotime($media_room->program_date))}}</a>
                                     </li>
                                 </ul>
-                                <h3><a href="{{route('media_room_view.view',$media_room->slug)}}">{{$media_room->title}}</a></h3>
+                                <h3><a href="{{route('media_room_view.view',$media_room->slug)}}">{{stringLimit($media_room->title)}}</a></h3>
                                 <p>{{ stringLimit(html_entity_decode_table($media_room->description)) }}</p>
                             </div>
                         </div>

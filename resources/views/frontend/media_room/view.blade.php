@@ -41,6 +41,17 @@ $datas = [
                 <div class="content-description content-description">
                     {!! $media_room->description !!}
                 </div>
+                <div class="gallery-section global-gallery-section">
+                    <div class="gallery-content">
+                        @if(!empty($media_room->additional_images))
+                            @foreach (json_decode($media_room->additional_images) as $image)
+                                <div class="gallery-items">
+                                    <a href=""><img src="{{ storage_url($image) }}"></a>
+                                </div>
+                            @endforeach
+                        @endif
+                    </div>
+                </div>
             </div>
             <div class="blog-sidebar-column">
                 <div class="recent-post-section">
@@ -59,18 +70,6 @@ $datas = [
 
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-
-<section>
-    <div class="gallery-section global-gallery-section container">
-        <div class="gallery-content">
-            @foreach (json_decode($media_room->additional_images) as $image)
-                <div class="gallery-items">
-                    <a href=""><img src="{{ storage_url($image) }}"></a>
-                </div>
-            @endforeach
         </div>
     </div>
 </section>
