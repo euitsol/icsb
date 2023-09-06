@@ -2613,7 +2613,7 @@ td {
 
     width: 100% !important;
 }
-.new-handbook h3 {
+.new-handbook h3, .old-handbook h3 {
         color: #fff;
         padding: 15px;
         font-size: 25px;
