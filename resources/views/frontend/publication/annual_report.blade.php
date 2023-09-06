@@ -22,35 +22,22 @@
     @endphp
     @include('frontend.includes.breadcrumb',['datas'=>$datas])
 <!-- =============================== Breadcrumb Section ======================================-->
-    <section class="library-section big-sec-min-height">
-        <div class="container">
-            {{-- <div class="search-row flex">
-                <div class="search-form">
-                    <form class="search-form">
-                        <input class="search-input" type="text" placeholder="Search..." required>
-                        <button class="search-button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                      </form>
-                </div>
-            </div> --}}
+<section class="cs-handbook-section section-padding">
+    <div class="container">
+        <div class="row">
             @if (isset(json_decode($single_page->saved_data)->{'upload-files'}))
-            @foreach (json_decode($single_page->saved_data)->{'upload-files'} as $key=>$file)
-                <div class="library-row">
-                    <div class="library-item flex">
-                        <div class="left-column">
-                            <ul class="flex">
-                                <li>{{str_pad(($key+1), 2, '0', STR_PAD_LEFT)}}</li>
-                                <li><a target="_blank" href="{{ route('sp.file.download', base64_encode($file)) }}">
-                                    {{ucfirst(str_replace('-', ' ', Str::before(basename($file), '.pdf')))}}
-                                </a></li>
-                            </ul>
-                        </div>
-                        <div class="right-column">
-                            <li><a target="_blank" href="{{ route('sp.file.download', base64_encode($file)) }}"><i class="fa-solid fa-cloud-arrow-down"></i></a></li>
+                @foreach (json_decode($single_page->saved_data)->{'upload-files'} as $file)
+                    <div class="col-md-3 the_cs mb-5">
+                        <div class="new-handbook text-align">
+                                <iframe src="{{ route('view.pdf', base64_encode($file)) }}" type="application/pdf" width="100%" height="200px"></iframe>
+                                <h3> {{ucfirst(str_replace('-', ' ', Str::before(basename($file), '.pdf')))}}</h3>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
             @endif
+
+
         </div>
-    </section>
+    </div>
+</section>
 @endsection

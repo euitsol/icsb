@@ -22,7 +22,7 @@ class MediaRoomRequest extends FormRequest
             'program_date'=>'required|date',
             // 'file.*.file_path' => 'nullable|file|required_if:file.*.file_name,!=,null|mimes:jpg,png,pdf,doc,docx,xls,xlsx,ppt,pptx,odt,ods,odp',
             // 'file.*.file_name' => 'nullable|string|required_if:file.*.file_path,!=,null',
-            'additional_images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'additional_images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
             'category_id' => 'required|exists:media_room_categories,id',
 
         ]
@@ -35,7 +35,7 @@ class MediaRoomRequest extends FormRequest
         return [
             'title' => 'required|unique:media_rooms,title,NULL,id,deleted_at,NULL',
             'slug' => 'required|unique:media_rooms,slug,NULL,id,deleted_at,NULL',
-            'thumbnail_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'thumbnail_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ];
     }
 
@@ -44,7 +44,7 @@ class MediaRoomRequest extends FormRequest
         return [
             'title' => 'required|unique:media_rooms,title,' . $this->route('id') . ',id,deleted_at,NULL',
             'slug' => 'required|unique:media_rooms,slug,' . $this->route('id') . ',id,deleted_at,NULL',
-            'thumbnail_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'thumbnail_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
         ];
     }
 }

@@ -31,6 +31,9 @@
                                 <img class="example-image" src="{{ storage_url($award->image) }}" alt="{{ $award->title }}" />
                             </a>
                         </div>
+                        <div class="new-handbook text-align">
+                            <h3><a class="text-white" href="{{ $award->file ? route('sp.file.download', base64_encode($award->file)) : 'javascript:void(0)' }}">{{$award->title}}</a></h3>
+                        </div>
                     </div>
                 @endforeach
             </div>
