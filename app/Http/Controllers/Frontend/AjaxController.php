@@ -6,9 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\Act;
 use App\Models\CommitteeType;
 use App\Models\Contact;
+use App\Models\Convocation;
 use App\Models\Council;
 use App\Models\MediaRoomCategory;
 use App\Models\MemberType;
+use App\Models\NationalAward;
 use App\Models\Notice;
 use App\Models\NoticeCategory;
 use App\Models\SecretarialStandard;
@@ -68,5 +70,15 @@ class AjaxController extends Controller
         }
 
         return response()->json(['notices'=>$notices, 'notice_cat'=>$notice_cat]);
+    }
+    public function awards(): JsonResponse
+    {
+            $awards = NationalAward::where('deleted_at',null)->where('status',1)->get();
+            return response()->json(['awards'=>$awards]);
+    }
+    public function convocation(): JsonResponse
+    {
+            $convocations = Convocation::where('deleted_at',null)->where('status',1)->get();
+            return response()->json(['convocations'=>$convocations]);
     }
 }

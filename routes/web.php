@@ -491,6 +491,8 @@ Route::get('front/download/{filename}', [ViewDefaultController::class, 'view_dow
 
 // Ajax
 Route::get('home/notice/{cat_id}', [FrontendAjaxController::class, 'noticeHome'])->name('home.notice');
+Route::get('national-award/all', [FrontendAjaxController::class, 'awards'])->name('awards');
+Route::get('convocations/all', [FrontendAjaxController::class, 'convocations'])->name('convocations');
 
 // Single Pages Route
 Route::get('/page/{frontend_slug}', [FrontendSinglePagesController::class, 'frontend'])->name('sp.frontend');
