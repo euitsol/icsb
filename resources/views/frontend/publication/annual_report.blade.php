@@ -26,7 +26,10 @@
     <div class="container">
         <div class="row">
             @if (isset(json_decode($single_page->saved_data)->{'upload-files'}))
-                @foreach (json_decode($single_page->saved_data)->{'upload-files'} as $file)
+            @php
+                $files = array_reverse((array)json_decode($single_page->saved_data)->{'upload-files'});
+            @endphp
+                @foreach ($files as $file)
                     <div class="col-md-3 the_cs mb-5">
                         <div class="new-handbook text-align">
                                 <iframe src="{{ route('view.pdf', base64_encode($file)) }}" type="application/pdf" width="100%" height="200px"></iframe>
