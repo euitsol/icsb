@@ -144,6 +144,9 @@
     background: #fff;
     border-radius: 29px;
 }
+.blog-section .logo-wrapp a {
+    width: 100% !important;
+}
 
 .blog-section .item .post-content {
     padding: 13px 23px 30px 23px;
@@ -524,10 +527,6 @@
 
     .job-placement-section .job-table .pagination {
         justify-content: center;
-    }
-
-    .blog-section .item .logo-wrapp a {
-        width: 100%;
     }
 
     .past-president-layout .president-row {
