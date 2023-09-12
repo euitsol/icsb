@@ -81,4 +81,20 @@ class AjaxController extends Controller
             $convocations = Convocation::where('deleted_at',null)->where('status',1)->latest()->get();
             return response()->json(['convocations'=>$convocations]);
     }
+    public function annualReport(): JsonResponse
+    {
+        $annual_reports = SinglePages::where('frontend_slug', 'annual-report')->first();
+        if (isset(json_decode($annual_reports->saved_data)->{'upload-files'})){
+            $files = array_reverse((array)json_decode($annual_reports->saved_data)->{'upload-files'});
+            return response()->json(['files'=>$files]);
+        }            
+    }
+    public function cs(): JsonResponse
+    {
+        $cs = SinglePages::where('frontend_slug', 'the-chartered-secretary')->first();
+        if (isset(json_decode($cs->saved_data)->{'upload-files'})){
+            $files = array_reverse((array)json_decode($cs->saved_data)->{'upload-files'});
+            return response()->json(['files'=>$files]);
+        }            
+    }
 }

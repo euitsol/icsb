@@ -33,7 +33,7 @@
             </div>
             @if(count($convocations)>12)
                 <div class="see-button text-align">
-                    <a href="javascript:void(0)" class="more">See More</a>
+                    <a href="javascript:void(0)" class="more">{{_('See More')}}</a>
                 </div>
             @endif
 
@@ -77,5 +77,4 @@
         });
     });
 </script>
-
 @endpush

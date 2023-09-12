@@ -493,6 +493,8 @@ Route::get('front/download/{filename}', [ViewDefaultController::class, 'view_dow
 Route::get('home/notice/{cat_id}', [FrontendAjaxController::class, 'noticeHome'])->name('home.notice');
 Route::get('national-award/all', [FrontendAjaxController::class, 'awards'])->name('awards');
 Route::get('convocations/all', [FrontendAjaxController::class, 'convocations'])->name('convocations');
+Route::get('annual-report/all', [FrontendAjaxController::class, 'annualReport'])->name('annual_report');
+Route::get('cs/all', [FrontendAjaxController::class, 'cs'])->name('chartered_secretary');
 
 // Single Pages Route
 Route::get('/page/{frontend_slug}', [FrontendSinglePagesController::class, 'frontend'])->name('sp.frontend');
