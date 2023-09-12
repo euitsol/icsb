@@ -31,7 +31,7 @@ $datas = [
             </tr>
             @forelse ($assined_officers as $key=>$officer)
                 <tr>
-                    <td>{{$key+1}}</td>
+                    <td>{{$officer->order_key}}</td>
                     <td>
                         <img src="{{ ($officer->image) ? (storage_url($officer->image)): (asset("no_img/no_img.jpg")) }}" alt="{{$officer->name}}">
                     </td>
