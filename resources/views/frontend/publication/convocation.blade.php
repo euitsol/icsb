@@ -44,7 +44,7 @@
     $(document).ready(function () {
     $('.more').on('click', function () {
         $.ajax({
-            url: `/national-award/all`,
+            url: `/convocations/all`,
             method: 'GET',
             dataType: 'json',
             success: function (data) {
