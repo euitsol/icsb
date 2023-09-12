@@ -31,7 +31,7 @@
                     </div>
                 @endforeach
             </div>
-            @if(count($national_awards)>12)
+            @if(count($convocations)>12)
                 <div class="see-button text-align">
                     <a href="javascript:void(0)" class="more">See More</a>
                 </div>
