@@ -1,12 +1,12 @@
 @extends('frontend.master')
 
-@section('title', 'Assined Officers')
+@section('title', 'Assigned Officers')
 
 @section('content')
 <!-- =============================== Breadcrumb Section ======================================-->
 @php
 $banner_image = asset('breadcumb_img/employees.jpg');
-$title = 'Assined Officers';
+$title = 'Assigned Officers';
 $datas = [
             'image'=>$banner_image,
             'title'=>$title,
