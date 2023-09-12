@@ -31,9 +31,11 @@
                     </div>
                 @endforeach
             </div>
-            <div class="see-button text-align">
-                <a href="javascript:void(0)" class="more">{{_('See More')}}</a>
-            </div>
+            @if(count($national_awards)>12)
+                <div class="see-button text-align">
+                    <a href="javascript:void(0)" class="more">{{_('See More')}}</a>
+                </div>
+            @endif
         </div>
     </section>
 @endsection
