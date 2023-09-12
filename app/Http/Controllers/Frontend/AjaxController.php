@@ -73,12 +73,12 @@ class AjaxController extends Controller
     }
     public function awards(): JsonResponse
     {
-            $awards = NationalAward::where('deleted_at',null)->where('status',1)->get();
+            $awards = NationalAward::where('deleted_at',null)->where('status',1)->latest()->get();
             return response()->json(['awards'=>$awards]);
     }
     public function convocations(): JsonResponse
     {
-            $convocations = Convocation::where('deleted_at',null)->where('status',1)->get();
+            $convocations = Convocation::where('deleted_at',null)->where('status',1)->latest()->get();
             return response()->json(['convocations'=>$convocations]);
     }
 }
