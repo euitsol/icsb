@@ -48,41 +48,43 @@
         </div>
     </section>
 @endsection
+@push('js')
 <script>
     $(document).ready(function () {
-    $('.more').on('click', function () {
-        $.ajax({
-            url: `/cs/all`,
-            method: 'GET',
-            dataType: 'json',
-            success: function (data) {
-                var csDetailsHtml = '';
+        $('.more').on('click', function () {
+            $.ajax({
+                url: `/cs/all`,
+                method: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    var csDetailsHtml = '';
 
-                // Loop through the awards data
-                data.files.forEach(function (file) {
-                    var routeViewPdf = '{{ route("view.pdf", ":file") }}'.replace(':file', btoa(file));
-                    var routeFileDownload = '{{ route("sp.file.download", ":file") }}'.replace(':file', btoa(file));
-                    var fileName = file.split('/').pop().split('.').slice(0, -1).join('.');
+                    // Loop through the awards data
+                    data.files.forEach(function (file) {
+                        var routeViewPdf = '{{ route("view.pdf", ":file") }}'.replace(':file', btoa(file));
+                        var routeFileDownload = '{{ route("sp.file.download", ":file") }}'.replace(':file', btoa(file));
+                        var fileName = file.split('/').pop().split('.').slice(0, -1).join('.');
 
 
-                    csDetailsHtml += `
-                        <div class="col-md-3 the_cs mb-5">
-                            <div class="new-handbook text-align">
-                                    <iframe src="${routeViewPdf}" type="application/pdf" width="100%" height="200px"></iframe>
-                                    <a class="d-block cursor-pointer" target="_blank" href="${routeFileDownload}"><h3 > ${fileName}</h3></a>
+                        csDetailsHtml += `
+                            <div class="col-md-3 the_cs mb-5">
+                                <div class="new-handbook text-align">
+                                        <iframe src="${routeViewPdf}" type="application/pdf" width="100%" height="200px"></iframe>
+                                        <a class="d-block cursor-pointer" target="_blank" href="${routeFileDownload}"><h3 > ${fileName}</h3></a>
+                                </div>
                             </div>
-                        </div>
-                    `;
-                });
+                        `;
+                    });
 
-                // Insert the generated HTML into the '.awards' element
-                $('.cs').html(csDetailsHtml);
-                $('.more').hide();
-            },
-            error: function (xhr, status, error) {
-                console.error('Error fetching awards:', error);
-            }
+                    // Insert the generated HTML into the '.awards' element
+                    $('.cs').html(csDetailsHtml);
+                    $('.more').hide();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error fetching awards:', error);
+                }
             });
         });
     });
 </script>
+@endpush
