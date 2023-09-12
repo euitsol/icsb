@@ -86,7 +86,8 @@ $datas = [
                 <ul>
                     <li><a href=""><i class="fa-brands fa-facebook-f"></i></a></li>
                     <li><a href=""><i class="fa-brands fa-linkedin-in"></i></a></li>
-                    <li><a href=""><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-square-x-twitter"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
                     <li><a href=""><i class="fa-brands fa-whatsapp"></i></a></li>
                 </ul>
             </div>
