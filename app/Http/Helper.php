@@ -266,3 +266,12 @@ function file_title_from_url($url = null){
 //         return asset('storage/'.$urlOrArray);
 //     }
 // }
+function extractStringFromUrl($url) {
+    $social_medias = ['facebook','twitter','linkedin','instagram','youtube'];
+    foreach($social_medias as $media){
+        if (Str::contains($url, $media)) {
+            return Str::ucfirst($media);
+        }
+
+    }
+}

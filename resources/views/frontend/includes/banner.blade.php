@@ -44,10 +44,14 @@
     <aside class="socila-media-sidebar">
         <div class="social-link-wrapper">
             <ul>
-                <li class="active"><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                <li class="active">
+                    <span >{{_('Search')}}</span>
+                    <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                </li>
                 @if(!empty($contact->social))
                     @foreach (json_decode($contact->social) as $social)
                         <li>
+                            <span>{{extractStringFromUrl($social->link)}}</span>
                             <a href="{{$social->link}}" target="_blank"><i class="{{$social->icon}}"></i></a>
                         </li>
                     @endforeach

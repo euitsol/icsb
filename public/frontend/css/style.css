@@ -737,6 +737,38 @@ li {
 	-webkit-transition: all 0.3s;
 	-o-transition: all 0.3s;
 	transition: all 0.3s;
+    position: relative;
+}
+.socila-media-sidebar .social-link-wrapper ul li span {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #99CE72;
+    color: #026737;
+    font-weight: bold;
+    right: 0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-style: italic;
+    opacity: 0;
+    visibility: hidden;
+    transition: .4s;
+}
+.socila-media-sidebar .social-link-wrapper ul li:hover > span{
+    right: 120%;
+    opacity: 1;
+    visibility: visible;
+}
+.socila-media-sidebar .social-link-wrapper ul li span::after{
+    content: '';
+    position: absolute;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 10px solid #99CE72;
+    display: block;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .socila-media-sidebar .social-link-wrapper ul li a {
