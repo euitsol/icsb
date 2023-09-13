@@ -28,17 +28,17 @@ $datas = [
             @php
                 $files = array_reverse((array)json_decode($single_page->saved_data)->{'upload-files'});
             @endphp
-                @foreach (array_slice($files, -1) as $file)
-                    <div class="col-md-3 the_cs mb-5">
+                @foreach (array_slice($files, -4) as $file)
+                    <div class="col-md-6 the_cs mb-5 mx-auto">
                         <div class="new-handbook text-align">
-                                <iframe src="{{ route('view.pdf', base64_encode($file)) }}" type="application/pdf" width="100%" height="200px"></iframe>
+                                <iframe src="{{ route('view.pdf', base64_encode($file)) }}" type="application/pdf" width="100%" height="400px"></iframe>
                                 <a class="d-block cursor-pointer" target="_blank" href="{{route('sp.file.download', base64_encode($file))}}"><h3 > {{ucfirst(str_replace('-', ' ', Str::before(basename($file), '.pdf')))}}</h3></a>
                         </div>
                     </div>
                 @endforeach
             @endif
         </div>
-        @if(count($files)>1)
+        @if(count($files)>4)
             <div class="see-button text-align">
                 <a href="javascript:void(0)" class="more" data-slug="{{$single_page->frontend_slug}}">{{_('See More')}}</a>
             </div>
@@ -66,9 +66,9 @@ $datas = [
 
 
                     annualDetailsHtml += `
-                        <div class="col-md-3 the_cs mb-5">
+                        <div class="col-md-6 the_cs mb-5 mx-auto">
                             <div class="new-handbook text-align">
-                                    <iframe src="${routeViewPdf}" type="application/pdf" width="100%" height="200px"></iframe>
+                                    <iframe src="${routeViewPdf}" type="application/pdf" width="100%" height="400px"></iframe>
                                     <a class="d-block cursor-pointer" target="_blank" href="${routeFileDownload}"><h3 > ${fileName}</h3></a>
                             </div>
                         </div>
