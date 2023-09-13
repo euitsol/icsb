@@ -15,7 +15,7 @@ $datas = [
             'title'=>$title,
             'paths'=>[
                         'home'=>'Home',
-                        'javascript:void(0)'=>'About CS',
+                        'javascript:void(0)'=>'Examination',
                     ]
         ];
 @endphp

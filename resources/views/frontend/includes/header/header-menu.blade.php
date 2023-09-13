@@ -227,9 +227,9 @@
                             <li><a href="{{ route('sp.frontend','exam-schedule') }}">Exam Schedule</a></li>
                             <li class="drop-down"><a href="#">Results <i class="fa-solid fa-angle-down"></i></a>
                                 <ul class="sub-menu">
-                                    <li><a href="#">Foundation Level </a></li>
-                                    <li><a href="#">Certificate Level </a></li>
-                                    <li><a href="#">Professional Level</a></li>
+                                    <li><a href="{{ route('sp.frontend','foundation-complete') }}">Foundation Complete</a></li>
+                                    <li><a href="{{ route('sp.frontend','subject-complete') }}">Subject Complete</a></li>
+                                    <li><a href="{{ route('sp.frontend','final-complete') }}">Final Complete</a></li>
                                 </ul>
                             </li>
                             <li><a href="{{route('examination.sqp')}}">Sample Question Papers</a></li>

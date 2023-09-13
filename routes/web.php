@@ -496,6 +496,7 @@ Route::get('convocations/all', [FrontendAjaxController::class, 'convocations'])-
 Route::get('annual-report/all', [FrontendAjaxController::class, 'annualReport'])->name('annual_report');
 Route::get('cs/all', [FrontendAjaxController::class, 'cs'])->name('chartered_secretary');
 Route::get('media-rooms/all', [FrontendAjaxController::class, 'mediaRooms'])->name('media_rooms');
+Route::get('result/all/{slug}', [FrontendAjaxController::class, 'result'])->name('result');
 
 // Single Pages Route
 Route::get('/page/{frontend_slug}', [FrontendSinglePagesController::class, 'frontend'])->name('sp.frontend');

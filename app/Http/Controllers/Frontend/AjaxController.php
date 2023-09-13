@@ -111,4 +111,12 @@ class AjaxController extends Controller
         }
         return response()->json(['media_rooms'=>$media_rooms]);
     }
+    public function result($slug): JsonResponse
+    {
+        $results = SinglePages::where('frontend_slug', $slug)->first();
+        if(isset(json_decode($results->saved_data)->{'upload-files'})){
+            $files = array_reverse((array)json_decode($results->saved_data)->{'upload-files'});
+            return response()->json(['files'=>$files]);
+        }
+    }
 }

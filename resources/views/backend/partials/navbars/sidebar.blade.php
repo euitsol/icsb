@@ -444,13 +444,17 @@
                 <a class="@if(
                         $pageSlug == 'eligibility' ||
                         $pageSlug == 'exam-schedule' ||
-                        $pageSlug == 'results' ||
+                        $pageSlug == 'foundation-complete' ||
+                        $pageSlug == 'subject-complete' ||
+                        $pageSlug == 'final-complete'||
                         $pageSlug == 'sample_question_paper' ||
                         $pageSlug == 'exam_faq'
                     )@else collapsed @endif" data-toggle="collapse" href="#examination" @if (
                         $pageSlug == 'eligibility' ||
                         $pageSlug == 'exam-schedule' ||
-                        $pageSlug == 'results' ||
+                        $pageSlug == 'foundation-complete' ||
+                        $pageSlug == 'subject-complete' ||
+                        $pageSlug == 'final-complete' ||
                         $pageSlug == 'sample_question_paper' ||
                         $pageSlug == 'exam_faq'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
@@ -462,13 +466,46 @@
                 <div class="collapse @if (
                         $pageSlug == 'eligibility' ||
                         $pageSlug == 'exam-schedule' ||
-                        $pageSlug == 'results' ||
+                        $pageSlug == 'foundation-complete' ||
+                        $pageSlug == 'subject-complete' ||
+                        $pageSlug == 'final-complete' ||
                         $pageSlug == 'sample_question_paper' ||
                         $pageSlug == 'exam_faq'
 
 
                 ) show @endif" id="examination">
                     <ul class="nav pl-4">
+                        <li>
+                            <a class="@if(
+                                    $pageSlug == 'foundation-complete' ||
+                                    $pageSlug == 'subject-complete' ||
+                                    $pageSlug == 'final-complete'
+                                )@else collapsed @endif" data-toggle="collapse" href="#result" @if (
+                                    $pageSlug == 'foundation-complete' ||
+                                    $pageSlug == 'subject-complete' ||
+                                    $pageSlug == 'final-complete'
+                                ) aria-expanded="true" @else aria-expanded="false"@endif">
+                                <i class="fa-solid fa-ticket"></i>
+                                <span class="nav-link-text" >{{ __('Result') }}</span>
+                                <b class="caret mt-1"></b>
+                            </a>
+
+                            <div class="collapse @if (
+                                    $pageSlug == 'foundation-complete' ||
+                                    $pageSlug == 'subject-complete' ||
+                                    $pageSlug == 'final-complete'
+                            ) show @endif" id="result">
+                            <ul class="nav pl-4">
+                                @include('backend.partials.menu_buttons', [
+                                    'menuItems' => [
+                                        ['pageSlug' => 'foundation-complete', 'routeName' => 'sp.show', 'params' => 'foundation-complete', 'label' => 'Foundation Complete'],
+                                        ['pageSlug' => 'subject-complete', 'routeName' => 'sp.show', 'params' => 'subject-complete', 'label' => 'Subject Complete'],
+                                        ['pageSlug' => 'final-complete', 'routeName' => 'sp.show', 'params' => 'final-complete', 'label' => 'Final Complete'],
+                                    ]
+                                ])
+                            </ul>
+
+                        </li>
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
                                 ['pageSlug' => 'eligibility', 'routeName' => 'sp.show', 'params' => 'eligibility', 'label' => 'Eligibility'],
