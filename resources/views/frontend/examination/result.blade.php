@@ -24,7 +24,7 @@ $datas = [
 <section class="cs-handbook-section section-padding">
     <div class="container">
         @if (isset(json_decode($single_page->saved_data)->{'upload-files'}))
-        <div class="row result" >
+        <div class="row all" >
             @php
                 $files = array_reverse((array)json_decode($single_page->saved_data)->{'upload-files'});
             @endphp
@@ -53,11 +53,11 @@ $datas = [
     $('.more').on('click', function () {
         let slug = $(this).data('slug');
             $.ajax({
-                url: `/result/all/${slug}`,
+                url: `/single_page/see_more/${slug}`,
             method: 'GET',
             dataType: 'json',
             success: function (data) {
-                var annualDetailsHtml = '';
+                var allDetailsHtml = '';
 
                 // Loop through the awards data
                 data.files.forEach(function (file) {
@@ -66,7 +66,7 @@ $datas = [
                     var fileName = file.split('/').pop().split('.').slice(0, -1).join('.');
 
 
-                    annualDetailsHtml += `
+                    allDetailsHtml += `
                         <div class="col-md-6 the_cs mb-5 mx-auto">
                             <div class="new-handbook text-align">
                                     <iframe src="${routeViewPdf}" type="application/pdf" width="100%" height="400px"></iframe>
@@ -77,7 +77,7 @@ $datas = [
                 });
 
                 // Insert the generated HTML into the '.awards' element
-                $('.result').html(annualDetailsHtml);
+                $('.all').html(allDetailsHtml);
                 $('.more').hide();
             },
             error: function (xhr, status, error) {
@@ -87,5 +87,4 @@ $datas = [
         });
     });
 </script>
-
 @endpush

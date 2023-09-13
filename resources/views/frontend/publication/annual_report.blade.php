@@ -24,7 +24,7 @@
 <!-- =============================== Breadcrumb Section ======================================-->
 <section class="cs-handbook-section section-padding">
     <div class="container">
-        <div class="row annual_report" >
+        <div class="row all" >
             @if (isset(json_decode($single_page->saved_data)->{'upload-files'}))
             @php
                 $files = array_reverse((array)json_decode($single_page->saved_data)->{'upload-files'});
@@ -41,7 +41,7 @@
         </div>
         @if(count($files)>12)
             <div class="see-button text-align">
-                <a href="javascript:void(0)" class="more">{{_('See More')}}</a>
+                <a href="javascript:void(0)" class="more" data-slug="{{$single_page->frontend_slug}}">{{_('See More')}}</a>
             </div>
         @endif
     </div>
@@ -51,12 +51,13 @@
 <script>
     $(document).ready(function () {
     $('.more').on('click', function () {
-        $.ajax({
-            url: `/annual-report/all`,
+        let slug = $(this).data('slug');
+            $.ajax({
+                url: `/single_page/see_more/${slug}`,
             method: 'GET',
             dataType: 'json',
             success: function (data) {
-                var annualDetailsHtml = '';
+                var allDetailsHtml = '';
 
                 // Loop through the awards data
                 data.files.forEach(function (file) {
@@ -65,7 +66,7 @@
                     var fileName = file.split('/').pop().split('.').slice(0, -1).join('.');
 
 
-                    annualDetailsHtml += `
+                    allDetailsHtml += `
                         <div class="col-md-3 the_cs mb-5">
                             <div class="new-handbook text-align">
                                     <iframe src="${routeViewPdf}" type="application/pdf" width="100%" height="200px"></iframe>
@@ -76,7 +77,7 @@
                 });
 
                 // Insert the generated HTML into the '.awards' element
-                $('.annual_report').html(annualDetailsHtml);
+                $('.all').html(allDetailsHtml);
                 $('.more').hide();
             },
             error: function (xhr, status, error) {
@@ -86,5 +87,4 @@
         });
     });
 </script>
-
 @endpush

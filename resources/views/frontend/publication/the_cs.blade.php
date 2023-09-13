@@ -25,7 +25,7 @@
     <!--============================= Handbok Section ==================-->
     <section class="cs-handbook-section section-padding">
         <div class="container">
-            <div class="row cs">
+            <div class="row all">
                 @if (isset(json_decode($single_page->saved_data)->{'upload-files'}))
                 @php
                     $files = array_reverse((array)json_decode($single_page->saved_data)->{'upload-files'});
@@ -42,7 +42,7 @@
             </div>
             @if(count($files)>12)
             <div class="see-button text-align">
-                <a href="javascript:void(0)" class="more">{{_('See More')}}</a>
+                <a href="javascript:void(0)" class="more" data-slug="{{$single_page->frontend_slug}}">{{_('See More')}}</a>
             </div>
             @endif
         </div>
@@ -51,38 +51,39 @@
 @push('js')
 <script>
     $(document).ready(function () {
-        $('.more').on('click', function () {
+    $('.more').on('click', function () {
+        let slug = $(this).data('slug');
             $.ajax({
-                url: `/cs/all`,
-                method: 'GET',
-                dataType: 'json',
-                success: function (data) {
-                    var csDetailsHtml = '';
+                url: `/single_page/see_more/${slug}`,
+            method: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                var allDetailsHtml = '';
 
-                    // Loop through the awards data
-                    data.files.forEach(function (file) {
-                        var routeViewPdf = '{{ route("view.pdf", ":file") }}'.replace(':file', btoa(file));
-                        var routeFileDownload = '{{ route("sp.file.download", ":file") }}'.replace(':file', btoa(file));
-                        var fileName = file.split('/').pop().split('.').slice(0, -1).join('.');
+                // Loop through the awards data
+                data.files.forEach(function (file) {
+                    var routeViewPdf = '{{ route("view.pdf", ":file") }}'.replace(':file', btoa(file));
+                    var routeFileDownload = '{{ route("sp.file.download", ":file") }}'.replace(':file', btoa(file));
+                    var fileName = file.split('/').pop().split('.').slice(0, -1).join('.');
 
 
-                        csDetailsHtml += `
-                            <div class="col-md-3 the_cs mb-5">
-                                <div class="new-handbook text-align">
-                                        <iframe src="${routeViewPdf}" type="application/pdf" width="100%" height="200px"></iframe>
-                                        <a class="d-block cursor-pointer" target="_blank" href="${routeFileDownload}"><h3 > ${fileName}</h3></a>
-                                </div>
+                    allDetailsHtml += `
+                        <div class="col-md-3 the_cs mb-5">
+                            <div class="new-handbook text-align">
+                                    <iframe src="${routeViewPdf}" type="application/pdf" width="100%" height="200px"></iframe>
+                                    <a class="d-block cursor-pointer" target="_blank" href="${routeFileDownload}"><h3 > ${fileName}</h3></a>
                             </div>
-                        `;
-                    });
+                        </div>
+                    `;
+                });
 
-                    // Insert the generated HTML into the '.awards' element
-                    $('.cs').html(csDetailsHtml);
-                    $('.more').hide();
-                },
-                error: function (xhr, status, error) {
-                    console.error('Error fetching awards:', error);
-                }
+                // Insert the generated HTML into the '.awards' element
+                $('.all').html(allDetailsHtml);
+                $('.more').hide();
+            },
+            error: function (xhr, status, error) {
+                console.error('Error fetching awards:', error);
+            }
             });
         });
     });

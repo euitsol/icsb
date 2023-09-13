@@ -19,6 +19,7 @@ use App\Models\SinglePages;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Schema;
 
 class AjaxController extends Controller
 {
@@ -82,36 +83,42 @@ class AjaxController extends Controller
             $convocations = Convocation::where('deleted_at',null)->where('status',1)->latest()->get();
             return response()->json(['convocations'=>$convocations]);
     }
-    public function annualReport(): JsonResponse
-    {
-        $annual_reports = SinglePages::where('frontend_slug', 'annual-report')->first();
-        if (isset(json_decode($annual_reports->saved_data)->{'upload-files'})){
-            $files = array_reverse((array)json_decode($annual_reports->saved_data)->{'upload-files'});
-            return response()->json(['files'=>$files]);
-        }
-    }
-    public function cs(): JsonResponse
-    {
-        $cs = SinglePages::where('frontend_slug', 'the-chartered-secretary')->first();
-        if (isset(json_decode($cs->saved_data)->{'upload-files'})){
-            $files = array_reverse((array)json_decode($cs->saved_data)->{'upload-files'});
-            return response()->json(['files'=>$files]);
-        }
-    }
-    public function mediaRooms($slug=false): JsonResponse
-    {
-        $media_rooms = '';
-        if($slug == true){
-            $s['cat'] = MediaRoomCategory::with('media_rooms')->where('slug',$slug)->where('deleted_at', null)->where('status','1')->first();
-            $query = MediaRoom::where('category_id',$s['cat']->id)->where('deleted_at', null)->where('permission','1')->orderBy('program_date','DESC');
-            $media_rooms = $query->get();
-        }else{
-            $query = MediaRoom::where('deleted_at', null)->where('permission','1')->orderBy('program_date','DESC');
-            $media_rooms = $query->get();
-        }
-        return response()->json(['media_rooms'=>$media_rooms]);
-    }
-    public function result($slug): JsonResponse
+    // public function seeMore($model, $slug=false): JsonResponse
+    // {
+    //     $see_mores = '';
+    //     if (class_exists("App\Models\\".$model)) {
+    //         $modelClass = "App\Models\\" . $model;
+    //         if($slug != false){
+    //             if (Schema::hasColumn((new $modelClass)->getTable(), 'order_key')) {
+    //                 $see_mores = $modelClass::where('deleted_at',null)->where('status',1)->where('slug',$slug)->orderBy('order_key','ASC')->get();
+    //             } else {
+    //                 $see_mores = $modelClass::where('deleted_at',null)->where('status',1)->where('slug',$slug)->latest()->get();
+    //             }
+    //         }else{
+    //             if (Schema::hasColumn((new $modelClass)->getTable(), 'order_key')) {
+    //                 $see_mores = $modelClass::where('deleted_at',null)->where('status',1)->orderBy('order_key','ASC')->get();
+    //             } else {
+    //                 $see_mores = $modelClass::where('deleted_at',null)->where('status',1)->latest()->get();
+    //             }
+    //         }
+    //     }
+    //     dd($see_mores);
+    //     return response()->json(['see_mores'=>$see_mores]);
+    // }
+    // public function mediaRooms($slug=false): JsonResponse
+    // {
+    //     $media_rooms = '';
+    //     if($slug == true){
+    //         $s['cat'] = MediaRoomCategory::with('media_rooms')->where('slug',$slug)->where('deleted_at', null)->where('status','1')->first();
+    //         $query = MediaRoom::where('category_id',$s['cat']->id)->where('deleted_at', null)->where('permission','1')->orderBy('program_date','DESC');
+    //         $media_rooms = $query->get();
+    //     }else{
+    //         $query = MediaRoom::where('deleted_at', null)->where('permission','1')->orderBy('program_date','DESC');
+    //         $media_rooms = $query->get();
+    //     }
+    //     return response()->json(['media_rooms'=>$media_rooms]);
+    // }
+    public function singlePageSeeMore($slug): JsonResponse
     {
         $results = SinglePages::where('frontend_slug', $slug)->first();
         if(isset(json_decode($results->saved_data)->{'upload-files'})){
