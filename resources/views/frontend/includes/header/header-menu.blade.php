@@ -229,9 +229,7 @@
                                 <ul class="sub-menu">
                                     <li><a href="#">Foundation Level </a></li>
                                     <li><a href="#">Certificate Level </a></li>
-                                    <li><a href="#">Professional Level <br>(New Syllabus)</a></li>
-                                    <li><a href="#">Executive Level <br>(Old Syllabus) </a></li>
-                                    <li><a href="#">Professional Level <br>(Old Syllabus) </a></li>
+                                    <li><a href="#">Professional Level</a></li>
                                 </ul>
                             </li>
                             <li><a href="{{route('examination.sqp')}}">Sample Question Papers</a></li>
