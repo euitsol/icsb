@@ -40,9 +40,9 @@
             @endif
         </div>
         @if(count($files)>12)
-        <div class="see-button text-align">
-            <a href="javascript:void(0)" class="more">{{_('See More')}}</a>
-        </div>
+            <div class="see-button text-align">
+                <a href="javascript:void(0)" class="more">{{_('See More')}}</a>
+            </div>
         @endif
     </div>
 </section>

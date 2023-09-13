@@ -21,12 +21,10 @@ $datas = [
     <section class="director-metting-section">
         <div class="container">
             @foreach (json_decode($view_act->files) as $file)
-            <div class="director-row text-align">
-                <div>
-                    <iframe src="{{(storage_url($file->file_path))}}" width="100%" height="700px"></iframe>
-                </div>
-                <div class="button">
-                    <a href="{{route('view.download',base64_encode($file->file_path))}}"><i class="fa-solid fa-cloud-arrow-down"></i>Click Here To Download</a>
+            <div class="col-md-3 the_cs mb-5">
+                <div class="new-handbook text-align">
+                        <iframe src="{{ route('view.pdf', base64_encode($file->file_path)) }}" type="application/pdf" width="100%" height="200px"></iframe>
+                        <a class="d-block cursor-pointer" target="_blank" href="{{route('sp.file.download', base64_encode($file->file_path))}}"><h3 > {{ucfirst(str_replace('-', ' ', Str::before(basename($file->file_path), '.pdf')))}}</h3></a>
                 </div>
             </div>
             @endforeach

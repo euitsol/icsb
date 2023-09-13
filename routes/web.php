@@ -495,6 +495,7 @@ Route::get('national-award/all', [FrontendAjaxController::class, 'awards'])->nam
 Route::get('convocations/all', [FrontendAjaxController::class, 'convocations'])->name('convocations');
 Route::get('annual-report/all', [FrontendAjaxController::class, 'annualReport'])->name('annual_report');
 Route::get('cs/all', [FrontendAjaxController::class, 'cs'])->name('chartered_secretary');
+Route::get('media-rooms/all', [FrontendAjaxController::class, 'mediaRooms'])->name('media_rooms');
 
 // Single Pages Route
 Route::get('/page/{frontend_slug}', [FrontendSinglePagesController::class, 'frontend'])->name('sp.frontend');
@@ -541,7 +542,7 @@ Route::group(['as' => 'media_room_view.', 'prefix' => 'media-room'], function ()
 });
 Route::group(['as' => 'rules_view.', 'prefix' => 'rules'], function () {
     Route::get('/secretarial-standards/{slug}', [RulesPagesController::class, 'bss_view'])->name('bss.view');
-    Route::get('/{slug}', [RulesPagesController::class, 'view_act'])->name('act.view');
+    Route::get('act/{slug}', [RulesPagesController::class, 'view_act'])->name('act.view');
 });
 
 // Route::group(['as' => 'students.', 'prefix' => 'students'], function () {

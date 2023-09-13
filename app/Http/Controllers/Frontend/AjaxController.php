@@ -8,6 +8,7 @@ use App\Models\CommitteeType;
 use App\Models\Contact;
 use App\Models\Convocation;
 use App\Models\Council;
+use App\Models\MediaRoom;
 use App\Models\MediaRoomCategory;
 use App\Models\MemberType;
 use App\Models\NationalAward;
@@ -87,7 +88,7 @@ class AjaxController extends Controller
         if (isset(json_decode($annual_reports->saved_data)->{'upload-files'})){
             $files = array_reverse((array)json_decode($annual_reports->saved_data)->{'upload-files'});
             return response()->json(['files'=>$files]);
-        }            
+        }
     }
     public function cs(): JsonResponse
     {
@@ -95,6 +96,19 @@ class AjaxController extends Controller
         if (isset(json_decode($cs->saved_data)->{'upload-files'})){
             $files = array_reverse((array)json_decode($cs->saved_data)->{'upload-files'});
             return response()->json(['files'=>$files]);
-        }            
+        }
+    }
+    public function mediaRooms($slug=false): JsonResponse
+    {
+        $media_rooms = '';
+        if($slug == true){
+            $s['cat'] = MediaRoomCategory::with('media_rooms')->where('slug',$slug)->where('deleted_at', null)->where('status','1')->first();
+            $query = MediaRoom::where('category_id',$s['cat']->id)->where('deleted_at', null)->where('permission','1')->orderBy('program_date','DESC');
+            $media_rooms = $query->get();
+        }else{
+            $query = MediaRoom::where('deleted_at', null)->where('permission','1')->orderBy('program_date','DESC');
+            $media_rooms = $query->get();
+        }
+        return response()->json(['media_rooms'=>$media_rooms]);
     }
 }
