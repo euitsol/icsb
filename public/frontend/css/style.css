@@ -4334,8 +4334,8 @@ td {
 }
 
 .main-footer-section ul li {
-	margin-bottom: 4px;
 	margin-bottom: 8px;
+    color: #fff;
 }
 
 .main-footer-section ul li:last-child {

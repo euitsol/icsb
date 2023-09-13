@@ -13,20 +13,20 @@
                         @endif
 
                         <div class="d-flex justify-content-evenly">
-                            <li class="me-3"><a href="tel:+880249349578"><i class="fa-solid fa-tty"></i>
-                                {{_('+880-2-49349578, 58313230 (Ext: 101-108)')}}</a></li>
+                            <li class="me-3"><i class="fa-solid fa-tty"></i>
+                                {{_('+880-2-49349578, 58313230 (Ext: 101-108)')}}</li>
                             @if (!empty($contact->phone))
                             @foreach (json_decode($contact->phone) as $phone)
                                 @if ($phone->type == 'Phone')
-                                    <li class="me-3"><a href="tel:88{{ $phone->number }}"><i class="fa-solid fa-phone"></i>
-                                            +88{{ $phone->number }}</a></li>
+                                    <li class="me-3"><i class="fa-solid fa-phone"></i>
+                                            +88{{ $phone->number }}</li>
                                 @endif
                             @endforeach
                             @endif
                             @if (!empty($contact->email))
                                 @foreach (json_decode($contact->email) as $email)
-                                    <li><a href="mailto:{{ $email }}"><i class="fa-solid fa-envelope"></i>
-                                            {{ strtoupper($email) }}</a></li>
+                                    <li><i class="fa-solid fa-envelope"></i>
+                                            {{ strtoupper($email) }}</li>
                                 @endforeach
                             @endif
                         </div>
