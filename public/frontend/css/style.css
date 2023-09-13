@@ -2343,10 +2343,6 @@ td {
 /*==================== Contact Page CSS ====================*/
 .form-section {
 	padding: 100px 0;
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-image: url("../img/events-bg.png");
 }
 
 .form-section .content-row .content-column .detailes-column h3 {

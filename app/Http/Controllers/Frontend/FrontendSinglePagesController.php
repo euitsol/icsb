@@ -95,6 +95,9 @@ class FrontendSinglePagesController extends Controller
             case($s['single_page']->frontend_slug == 'eligibility'):
                 return view('frontend.examination.eligibility',$s);
                 break;
+            case($s['single_page']->frontend_slug == 'exam-schedule'):
+                return view('frontend.examination.exam_schedule',$s);
+                break;
             case($s['single_page']->frontend_slug == 'members-lounge'):
                 return view('frontend.members.member_lounge',$s);
                 break;
