@@ -33,6 +33,14 @@
     </div> --}}
 
     <div class="video-container">
+        <div class="content">
+            <h3>{{_('Expand Your Horizons')}}</h3>
+            <div class="button d-flex justify-content-center">
+                <a href="javascript:voide(0)" type="button">ADMIT AS <br> STUDENT</a>
+                <a href="javascript:voide(0)" type="button">REGISTER AS <br> MEMBER</a>
+                <a href="javascript:voide(0)" type="button">OBTAIN CS <br> PRACTICE LICENSE</a>
+            </div>
+        </div>
         <video autoplay loop muted id="myVideo" class="video-banner">
             <source src="{{asset('frontend/video/banner-video.mp4')}}" type="video/mp4">
         </video>

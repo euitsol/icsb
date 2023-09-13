@@ -631,19 +631,52 @@ li {
 	color: #fff ;
 } */
 .banner-section .video-container {
-	position: relative;
 	width: 100%;
 	height: 85vh;
 	/* Set the height to 100% of the viewport height */
 	overflow: hidden;
 }
 
+.banner-section .video-container .content{
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #dbd7d7;
+    z-index: 999;
+
+}
+.banner-section .video-container .content h3{
+    font-size: 120px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+.banner-section .video-container .content .button{
+    gap:20px;
+}
+.banner-section .video-container .content .button a{
+    border: 2px solid #dbd7d7;
+    color: #dbd7d7;
+    padding: 5px 10px;
+    width: 180px;
+    text-align: center;
+    transition: .4s;
+    display: inline-block;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.banner-section .video-container .content .button a:hover{
+    border: 2px solid #666;
+    background-color: #99CE72;
+    color: #666;
+}
 .banner-section .video-banner {
 	width: 100%;
 	height: 100%;
-	/* Set the video height to 100% of its container */
 	object-fit: cover;
-	/* Maintain video aspect ratio and cover the container */
+    z-index: 0;
 }
 
 .banner-section .volume-icon {

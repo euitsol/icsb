@@ -14,7 +14,7 @@
                                 <div class="post-content">
                                     <ul>
                                         <li><a href="#"><i class="fa-solid fa-file-import"></i>Latest News</a></li>
-                                        <li><a href="#"><i class="fa-solid fa-calendar-check"></i>{{ date('d-M-Y', strtotime($media_room->created_at))}}</a></li>
+                                        <li><a href="#"><i class="fa-solid fa-calendar-check"></i>{{ date('d M Y', strtotime($media_room->program_date))}}</a></li>
                                     </ul>
                                     <h3>
                                         <a href="{{route('media_room_view.view',$media_room->slug)}}">{{ stringLimit($media_room->title, 30,'...')}}</a>
