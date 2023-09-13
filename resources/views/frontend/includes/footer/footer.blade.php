@@ -3,7 +3,7 @@
         <div class="container">
             <div class="footer-row flex">
                 <div class="footer-column first-column">
-                    <h2>{{ settings('site_name') }}
+                    <h2 class="text-center">{{ settings('site_name') }}
                     </h2>
                     <ul>
                         @if (!empty($contact->location))
@@ -13,10 +13,12 @@
                         @endif
 
                         <div class="d-flex justify-content-evenly">
+                            <li class="me-3"><a href="tel:+880249349578"><i class="fa-solid fa-tty"></i>
+                                {{_('+880-2-49349578, 58313230 (Ext: 101-108)')}}</a></li>
                             @if (!empty($contact->phone))
                             @foreach (json_decode($contact->phone) as $phone)
                                 @if ($phone->type == 'Phone')
-                                    <li><a href="tel:88{{ $phone->number }}"><i class="fa-solid fa-phone"></i>
+                                    <li class="me-3"><a href="tel:88{{ $phone->number }}"><i class="fa-solid fa-phone"></i>
                                             +88{{ $phone->number }}</a></li>
                                 @endif
                             @endforeach

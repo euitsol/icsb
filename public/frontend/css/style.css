@@ -1849,9 +1849,10 @@ li {
 }
 
 .national-connection-section .logo-carousel .owl-item .logo-wrapp {
-	height: 126px;
-	width: 126px;
-	border: 2px solid #7c8ccd;
+    height: 200px;
+    width: 200px;
+    border: 3px solid #7c8ccd;
+    border-radius: 5px;
 }
 
 .national-connection-section .logo-carousel .owl-item img {
