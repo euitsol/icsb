@@ -16,6 +16,27 @@ p {
 	font-weight: 400;
 	font-family: roboto, Helvetica, Arial, sans-serif;
 }
+.scroll_top{
+    position: fixed;
+    top: 90%;
+    left: 95%;
+    font-size: 50px;
+    display: none;
+    z-index: 99999999;
+
+}
+.scroll_top i{
+    background-color: #026737;
+    border-radius: 50%;
+    color: #99CE72;
+    transition: .4s;
+}
+.scroll_top:hover >i{
+    background-color: #fff;
+    color: #026737;
+
+}
+
 
 .title-shap{
 	position: relative;
