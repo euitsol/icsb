@@ -22,9 +22,9 @@ $datas = [
         <div class="container">
            <div class="row">
                 @foreach (json_decode($view_act->files) as $file)
-                <div class="col-md-3 the_cs mb-5">
+                <div class="col-md-6 the_cs mb-5">
                     <div class="new-handbook text-align">
-                            <iframe src="{{ route('view.pdf', base64_encode($file->file_path)) }}" type="application/pdf" width="100%" height="200px"></iframe>
+                            <iframe src="{{ route('view.pdf', base64_encode($file->file_path)) }}" type="application/pdf" width="100%" height="400px"></iframe>
                             <a class="d-block cursor-pointer" target="_blank" href="{{route('sp.file.download', base64_encode($file->file_path))}}"><h3 > {{ucfirst(str_replace('-', ' ', Str::before(basename($file->file_path), '.pdf')))}}</h3></a>
                     </div>
                 </div>
