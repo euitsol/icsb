@@ -23,8 +23,8 @@ $datas = [
 <!-- =============================== Breadcrumb Section ======================================-->
 <section class="cs-handbook-section section-padding">
     <div class="container">
+        @if (isset(json_decode($single_page->saved_data)->{'upload-files'}))
         <div class="row result" >
-            @if (isset(json_decode($single_page->saved_data)->{'upload-files'}))
             @php
                 $files = array_reverse((array)json_decode($single_page->saved_data)->{'upload-files'});
             @endphp
@@ -36,12 +36,13 @@ $datas = [
                         </div>
                     </div>
                 @endforeach
-            @endif
+
         </div>
         @if(count($files)>4)
             <div class="see-button text-align">
                 <a href="javascript:void(0)" class="more" data-slug="{{$single_page->frontend_slug}}">{{_('See More')}}</a>
             </div>
+        @endif
         @endif
     </div>
 </section>

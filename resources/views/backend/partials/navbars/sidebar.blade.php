@@ -288,7 +288,7 @@
                                     $pageSlug == 'examination-policy' ||
                                     $pageSlug == 'admission-form'
                                 ) aria-expanded="true" @else aria-expanded="false"@endif">
-                                <i class="fa-solid fa-ticket"></i>
+                                <i class="fa-solid fa-minus"></i>
                                 <span class="nav-link-text" >{{ __('Admission') }}</span>
                                 <b class="caret mt-1"></b>
                             </a>
@@ -301,9 +301,9 @@
                             <ul class="nav pl-4">
                                 @include('backend.partials.menu_buttons', [
                                     'menuItems' => [
-                                        ['pageSlug' => 'entry-criteria', 'routeName' => 'sp.show', 'params' => 'entry-criteria', 'label' => 'Entry Criteria'],
-                                        ['pageSlug' => 'examination-policy', 'routeName' => 'sp.show', 'params' => 'examination-policy', 'label' => 'Examination Policy'],
-                                        ['pageSlug' => 'admission-form', 'routeName' => 'sp.show', 'params' => 'admission-form', 'label' => 'Admission Form'],
+                                        ['pageSlug' => 'entry-criteria', 'routeName' => 'sp.show', 'iconClass' => 'fa-solid fa-o','params' => 'entry-criteria', 'label' => 'Entry Criteria'],
+                                        ['pageSlug' => 'examination-policy', 'routeName' => 'sp.show','iconClass' => 'fa-solid fa-o', 'params' => 'examination-policy', 'label' => 'Examination Policy'],
+                                        ['pageSlug' => 'admission-form', 'routeName' => 'sp.show','iconClass' => 'fa-solid fa-o', 'params' => 'admission-form', 'label' => 'Admission Form'],
                                     ]
                                 ])
                             </ul>
@@ -485,7 +485,7 @@
                                     $pageSlug == 'subject-complete' ||
                                     $pageSlug == 'final-complete'
                                 ) aria-expanded="true" @else aria-expanded="false"@endif">
-                                <i class="fa-solid fa-ticket"></i>
+                                <i class="fa-solid fa-minus"></i>
                                 <span class="nav-link-text" >{{ __('Result') }}</span>
                                 <b class="caret mt-1"></b>
                             </a>
@@ -498,9 +498,9 @@
                             <ul class="nav pl-4">
                                 @include('backend.partials.menu_buttons', [
                                     'menuItems' => [
-                                        ['pageSlug' => 'foundation-complete', 'routeName' => 'sp.show', 'params' => 'foundation-complete', 'label' => 'Foundation Complete'],
-                                        ['pageSlug' => 'subject-complete', 'routeName' => 'sp.show', 'params' => 'subject-complete', 'label' => 'Subject Complete'],
-                                        ['pageSlug' => 'final-complete', 'routeName' => 'sp.show', 'params' => 'final-complete', 'label' => 'Final Complete'],
+                                        ['pageSlug' => 'foundation-complete', 'routeName' => 'sp.show','iconClass' => 'fa-solid fa-o', 'params' => 'foundation-complete', 'label' => 'Foundation Complete'],
+                                        ['pageSlug' => 'subject-complete', 'routeName' => 'sp.show','iconClass' => 'fa-solid fa-o', 'params' => 'subject-complete', 'label' => 'Subject Complete'],
+                                        ['pageSlug' => 'final-complete', 'routeName' => 'sp.show','iconClass' => 'fa-solid fa-o', 'params' => 'final-complete', 'label' => 'Final Complete'],
                                     ]
                                 ])
                             </ul>
