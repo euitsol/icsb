@@ -53,8 +53,12 @@
                                             <div class="form-group" @if($key>0) id="location-{{$key+1}}" @endif>
                                                 <label>{{ _('Location-'.$key+1) }}</label>
                                                 <div class="input-group mb-3">
-                                                    <input type="text" name="location[]" class="form-control" placeholder="{{ _('Enter Location') }}" value="{{ $location }}" required>
-                                                    @if($key>0)
+                                                    <input type="text" name="location[]" class="form-control border border-dark rounded-left" placeholder="{{ _('Enter Location') }}" value="{{ $location }}" required>
+
+                                                <div class="div">
+                                                    <input type="text" name="location[]" class="form-control " placeholder="{{ _('Enter Location') }}" required>
+                                                </div>
+                                                @if($key>0)
                                                         <span class="input-group-text text-danger" onclick="delete_section_1({{$key+1}})"><i class="tim-icons icon-trash-simple"></i></span>
                                                     @else
                                                         <span class="input-group-text" id="add_location" data-count="{{ count(json_decode($contact->location)) }}"><i class="tim-icons icon-simple-add"></i></span>
@@ -68,6 +72,9 @@
                                             <label>{{ _('Location-1') }}</label>
                                             <div class="input-group mb-3">
                                                 <input type="text" name="location[]" class="form-control " placeholder="{{ _('Enter Location') }}" required>
+                                                <div class="div">
+                                                    <input type="text" name="location[]" class="form-control " placeholder="{{ _('Enter Location') }}" required>
+                                                </div>
                                                 <span class="input-group-text" id="add_location" data-count="1"><i class="tim-icons icon-simple-add"></i></span>
                                             </div>
                                         </div>
