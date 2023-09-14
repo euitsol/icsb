@@ -101,6 +101,17 @@
                             <li><a href="{{ route('about.wwcs') }}">World Wide CS</a></li>
                             <li><a href="{{ route('sp.frontend','corporate-governance') }}">Corporate Governance</a></li>
                             <li><a href="{{ route('sp.frontend','cs-for-cg') }}">CS for CG</a></li>
+                            <li class="drop-down"><a href="javascript:void(0)">National Award for CG<i class="fa-solid fa-angle-down"></i></a>
+                                <ul class="sub-menu">
+                                    <li><a href="{{route('sp.frontend','genesis')}}">Genesis</a></li>
+                                    <li><a href="{{route('sp.frontend','purpose-of-the-award')}}">Purpose of the Award</a></li>
+                                    <li><a href="{{route('sp.frontend','eligibility-for-participation')}}">Eligibility for Participation</a></li>
+                                    <li><a href="{{route('sp.frontend','sources-for-evaluation')}}">Sources for Evaluation</a></li>
+                                    <li><a href="{{route('sp.frontend','evaluation-&-assessment-basis')}}">Evaluation & Assessment Basis</a></li>
+                                    <li><a href="{{route('sp.frontend','jury-board')}}">Jury Board</a></li>
+                                    <li><a href="{{route('sp.frontend','assessment-criteria')}}">Assessment Criteria</a></li>
+                                </ul>
+                            </li>
                             <li><a href="{{ route('sp.frontend','csr-initiatives') }}">CSR Initiatives</a></li>
                             <li><a href="{{ route('about.faq') }}">FAQs</a></li>
                         </ul>

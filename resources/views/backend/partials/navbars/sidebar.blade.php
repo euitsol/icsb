@@ -83,6 +83,13 @@
                         $pageSlug == 'wwcs' ||
                         $pageSlug == 'corporate-governance' ||
                         $pageSlug == 'cs-for-cg' ||
+                        $pageSlug == 'genesis' ||
+                        $pageSlug == 'purpose-of-the-award' ||
+                        $pageSlug == 'eligibility-for-participation' ||
+                        $pageSlug == 'sources-for-evaluation' ||
+                        $pageSlug == 'evaluation-&-assessment-basis' ||
+                        $pageSlug == 'jury-board' ||
+                        $pageSlug == 'assessment-criteria' ||
                         $pageSlug == 'csr-initiatives' ||
                         $pageSlug == 'faq'
                     )@else collapsed @endif" data-toggle="collapse" href="#about" @if (
@@ -95,6 +102,13 @@
                         $pageSlug == 'wwcs' ||
                         $pageSlug == 'corporate-governance' ||
                         $pageSlug == 'cs-for-cg' ||
+                        $pageSlug == 'genesis' ||
+                        $pageSlug == 'purpose-of-the-award' ||
+                        $pageSlug == 'eligibility-for-participation' ||
+                        $pageSlug == 'sources-for-evaluation' ||
+                        $pageSlug == 'evaluation-&-assessment-basis' ||
+                        $pageSlug == 'jury-board' ||
+                        $pageSlug == 'assessment-criteria' ||
                         $pageSlug == 'csr-initiatives' ||
                         $pageSlug == 'faq'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
@@ -113,6 +127,13 @@
                     $pageSlug == 'wwcs' ||
                     $pageSlug == 'corporate-governance' ||
                     $pageSlug == 'cs-for-cg' ||
+                    $pageSlug == 'genesis' ||
+                    $pageSlug == 'purpose-of-the-award' ||
+                    $pageSlug == 'eligibility-for-participation' ||
+                    $pageSlug == 'sources-for-evaluation' ||
+                    $pageSlug == 'evaluation-&-assessment-basis' ||
+                    $pageSlug == 'jury-board' ||
+                    $pageSlug == 'assessment-criteria' ||
                     $pageSlug == 'csr-initiatives' ||
                     $pageSlug == 'faq'
                 ) show @endif" id="about">
@@ -128,6 +149,57 @@
                                 ['pageSlug' => 'wwcs', 'routeName' => 'wwcs.wwcs_list', 'label' => 'World Wide CS'],
                                 ['pageSlug' => 'corporate-governance', 'routeName' => 'sp.show', 'params' => 'corporate-governance', 'label' => 'Corporate Governance'],
                                 ['pageSlug' => 'cs-for-cg', 'routeName' => 'sp.show', 'params' => 'cs-for-cg', 'label' => 'CS for CG'],
+                            ]
+                        ])
+                        <li>
+                            <a class="@if(
+                                    $pageSlug == 'genesis' ||
+                                    $pageSlug == 'purpose-of-the-award' ||
+                                    $pageSlug == 'eligibility-for-participation' ||
+                                    $pageSlug == 'sources-for-evaluation' ||
+                                    $pageSlug == 'evaluation-&-assessment-basis' ||
+                                    $pageSlug == 'jury-board' ||
+                                    $pageSlug == 'assessment-criteria'
+                                )@else collapsed @endif" data-toggle="collapse" href="#national_award_for_cg" @if (
+                                    $pageSlug == 'genesis' ||
+                                    $pageSlug == 'purpose-of-the-award' ||
+                                    $pageSlug == 'eligibility-for-participation' ||
+                                    $pageSlug == 'sources-for-evaluation' ||
+                                    $pageSlug == 'evaluation-&-assessment-basis' ||
+                                    $pageSlug == 'jury-board' ||
+                                    $pageSlug == 'assessment-criteria'
+                                ) aria-expanded="true" @else aria-expanded="false"@endif">
+                                <i class="fa-solid fa-minus"></i>
+                                <span class="nav-link-text" >{{ __('National Award for CG') }}</span>
+                                <b class="caret mt-1"></b>
+                            </a>
+
+                            <div class="collapse @if (
+                                    $pageSlug == 'genesis' ||
+                                    $pageSlug == 'purpose-of-the-award' ||
+                                    $pageSlug == 'eligibility-for-participation' ||
+                                    $pageSlug == 'sources-for-evaluation' ||
+                                    $pageSlug == 'evaluation-&-assessment-basis' ||
+                                    $pageSlug == 'jury-board' ||
+                                    $pageSlug == 'assessment-criteria'
+                            ) show @endif" id="national_award_for_cg">
+                            <ul class="nav pl-4">
+                                @include('backend.partials.menu_buttons', [
+                                    'menuItems' => [
+                                        ['pageSlug' => 'genesis', 'routeName' => 'sp.show', 'iconClass' => 'fa-solid fa-o','params' => 'genesis', 'label' => 'Genesis'],
+                                        ['pageSlug' => 'purpose-of-the-award', 'routeName' => 'sp.show','iconClass' => 'fa-solid fa-o', 'params' => 'purpose-of-the-award', 'label' => 'Purpose of the Award'],
+                                        ['pageSlug' => 'eligibility-for-participation', 'routeName' => 'sp.show','iconClass' => 'fa-solid fa-o', 'params' => 'eligibility-for-participation', 'label' => 'Eligibility for Participation'],
+                                        ['pageSlug' => 'sources-for-evaluation', 'routeName' => 'sp.show','iconClass' => 'fa-solid fa-o', 'params' => 'sources-for-evaluation', 'label' => 'Sources for Evaluation'],
+                                        ['pageSlug' => 'evaluation-&-assessment-basis', 'routeName' => 'sp.show','iconClass' => 'fa-solid fa-o', 'params' => 'evaluation-&-assessment-basis', 'label' => 'Evaluation & Assessment Basis'],
+                                        ['pageSlug' => 'jury-board', 'routeName' => 'sp.show','iconClass' => 'fa-solid fa-o', 'params' => 'jury-board', 'label' => 'Jury Board'],
+                                        ['pageSlug' => 'assessment-criteria', 'routeName' => 'sp.show','iconClass' => 'fa-solid fa-o', 'params' => 'assessment-criteria', 'label' => 'Assessment Criteria'],
+                                    ]
+                                ])
+                            </ul>
+
+                        </li>
+                        @include('backend.partials.menu_buttons', [
+                            'menuItems' => [
                                 ['pageSlug' => 'csr-initiatives', 'routeName' => 'sp.show', 'params' => 'csr-initiatives', 'label' => 'CSR Initiatives'],
                                 ['pageSlug' => 'faq', 'routeName' => 'about.faq.faq_list', 'label' => 'FAQ'],
                             ]
