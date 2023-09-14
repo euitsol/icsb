@@ -13,14 +13,19 @@
                         @endif
 
                         <div class="d-flex justify-content-evenly">
-                            <li class="me-3"><i class="fa-solid fa-tty"></i>
-                                {{_('+880-2-49349578, 58313230 (Ext: 101-108)')}}</li>
                             @if (!empty($contact->phone))
                             @foreach (json_decode($contact->phone) as $phone)
-                                @if ($phone->type == 'Phone')
-                                    <li class="me-3"><i class="fa-solid fa-phone"></i>
-                                            +88{{ $phone->number }}</li>
-                                @endif
+                                    <li>
+                                        @if ($phone->type == 'Phone')
+                                            <i class="fa-solid fa-phone"></i>
+                                        @elseif ($phone->type == 'Telephone')
+                                            <i class="fa-solid fa-tty"></i>
+                                        @elseif ($phone->type == 'Fax')
+                                            <i class="fa-solid fa-fax"></i>
+                                        @endif
+                                        +88{{ $phone->number }}
+                                    </li>
+
                             @endforeach
                             @endif
                             @if (!empty($contact->email))
