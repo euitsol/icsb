@@ -41,11 +41,11 @@ $datas = [
                     @foreach ($contact_numbers as $key=>$numbers)
                         <div class="deatiles-items">
                             <div class="icon">
-                                @if($key == 'Phone')
+                                @if($key == 'Phone' || $key == 'WhatsApp')
                                     <img src="{{asset('frontend/img/contact/contact-phone.png')}}" alt="{{$key}}">
                                 @elseif($key == 'Telephone')
                                     <img src="{{asset('frontend/img/contact/contact-telephone.png')}}" alt="{{$key}}">
-                                @else
+                                @elseif($key == 'Fax')
                                     <img src="{{asset('frontend/img/contact/contact-fax.png')}}" alt="{{$key}}">
                                 @endif
                             </div>

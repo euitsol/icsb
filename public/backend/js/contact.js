@@ -75,6 +75,7 @@ $(document).ready(function() {
                                 <option value="Phone" title='Phone'>Phone</option>
                                 <option value="Telephone" title='Telephone'>Telephone</option>
                                 <option value="Fax" title='Fax'>Fax</option>
+                                <option value="WhatsApp" title='WhatsApp'>WhatsApp</option>
                             </select>
                             <span class="input-group-text text-danger" onclick="delete_section_3(${count})"><i class="tim-icons icon-trash-simple"></i></span>
                         </div>

@@ -117,7 +117,7 @@
                                                 <div class="input-group mb-3">
                                                     <input type="url" name="social[{{$count}}][link]" class="form-control" placeholder="{{ _('Enter social media information') }}" value="{{$social->link}}" required>
                                                     <div class="div">
-                                                        <select class="input-group-text form-select" name="social[{{$count}}][icon]">
+                                                        <select class="input-group-text form-select no-select" name="social[{{$count}}][icon]">
                                                             <option value="fa-brands fa-facebook-f" @if( $social->icon == "fa-brands fa-facebook-f" ) selected @endif title="Facebook" ><i>&#xf09a</i></option>
                                                             <option value="fa-brands fa-square-x-twitter"    @if( $social->icon == "fa-brands fa-square-x-twitter" ) selected @endif title="Twitter" ><i>&#xe61a</i></option>
                                                             <option value="fa-brands fa-linkedin-in"@if( $social->icon == "fa-brands fa-linkedin-in" ) selected @endif title="Linkedin" ><i>&#xf0e1</i></option>
@@ -145,7 +145,7 @@
                                             <div class="input-group mb-3">
                                                 <input type="url" name="social[1][link]" class="form-control" placeholder="{{ _('Enter socilal link') }}" required>
                                                 <div class="div">
-                                                    <select class="input-group-text form-select" name="social[1][icon]">
+                                                    <select class="input-group-text form-select no-select" name="social[1][icon]">
                                                         <option value="fa-brands fa-facebook-f" title="Facebook"><i>&#xf09a</i></option>
                                                         <option value="fa-brands fa-square-x-twitter" title="Twitter"><i>&#xe61a</i></option>
                                                         <option value="fa-brands fa-linkedin-in" title="Linkedin"><i>&#xf0e1</i></option>
@@ -212,10 +212,11 @@
                                                 <div class="input-group mb-3">
                                                     <input type="tel" name="phone[{{$count}}][number]" class="form-control" placeholder="{{ _('Enter phone number') }}" value="{{ $phone->number }}" required>
                                                     <div class="div contact_div">
-                                                        <select class="input-group-text form-select" name="phone[{{$count}}][type]">
+                                                        <select class="input-group-text form-select no-select" name="phone[{{$count}}][type]">
                                                             <option value="Phone" @if($phone->type == "Phone") selected @endif title='Phone'>Phone</option>
                                                             <option value="Telephone" @if($phone->type == "Telephone") selected @endif title='Telephone'>Telephone</option>
                                                             <option value="Fax" @if($phone->type == "Fax") selected @endif title='Fax'>Fax</option>
+                                                            <option value="WhatsApp" @if($phone->type == "WhatsApp") selected @endif title='WhatsApp'>WhatsApp</option>
                                                         </select>
                                                         @if($count>1)
                                                             <span class="input-group-text text-danger" onclick="delete_section_3({{$count}})"><i class="tim-icons icon-trash-simple"></i></span>
@@ -232,10 +233,11 @@
                                             <div class="input-group mb-3">
                                                 <input type="tel" name="phone[1][number]" class="form-control" placeholder="{{ _('Enter phone number') }}" required>
                                                 <div class="div contact_div">
-                                                    <select class="input-group-text form-select" name="phone[1][type]">
+                                                    <select class="input-group-text form-select no-select" name="phone[1][type]">
                                                         <option value="Phone" title='Phone'>Phone</option>
                                                         <option value="Telephone" title='Telephone'>Telephone</option>
                                                         <option value="Fax" title='Fax'>Fax</option>
+                                                        <option value="WhatsApp" title='WhatsApp'>WhatsApp</option>
                                                     </select>
                                                     <span class="input-group-text" id="add_phone" data-count="1"><i class="tim-icons icon-simple-add"></i></span>
                                                 </div>

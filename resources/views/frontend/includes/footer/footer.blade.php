@@ -12,7 +12,7 @@
                             @endforeach
                         @endif
 
-                        <div class="d-flex justify-content-evenly">
+                        <div class="d-grid" style="grid-template-columns: auto auto auto;">
                             @if (!empty($contact->phone))
                             @foreach (json_decode($contact->phone) as $phone)
                                     <li>
@@ -20,6 +20,8 @@
                                             <i class="fa-solid fa-phone"></i>
                                         @elseif ($phone->type == 'Telephone')
                                             <i class="fa-solid fa-tty"></i>
+                                        @elseif ($phone->type == 'WhatsApp')
+                                            <i class="fa-brands fa-whatsapp"></i>
                                         @elseif ($phone->type == 'Fax')
                                             <i class="fa-solid fa-fax"></i>
                                         @endif
