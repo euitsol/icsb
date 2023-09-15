@@ -320,6 +320,7 @@
                         $pageSlug == 'cs-hand-book' ||
                         $pageSlug == 'student-portal' ||
                         $pageSlug == 'financial-assistance' ||
+                        $pageSlug == 'icsb-faculty' ||
                         $pageSlug == 'icsb-library' ||
                         $pageSlug == 'student_notice' ||
                         $pageSlug == 'faculty-evaluation-system'
@@ -331,6 +332,7 @@
                         $pageSlug == 'cs-hand-book' ||
                         $pageSlug == 'student-portal' ||
                         $pageSlug == 'financial-assistance' ||
+                        $pageSlug == 'icsb-faculty' ||
                         $pageSlug == 'icsb-library' ||
                         $pageSlug == 'student_notice' ||
                         $pageSlug == 'faculty-evaluation-system'
@@ -348,6 +350,7 @@
                         $pageSlug == 'cs-hand-book' ||
                         $pageSlug == 'student-portal' ||
                         $pageSlug == 'financial-assistance' ||
+                        $pageSlug == 'icsb-faculty' ||
                         $pageSlug == 'icsb-library' ||
                         $pageSlug == 'student_notice' ||
                         $pageSlug == 'faculty-evaluation-system'
@@ -393,6 +396,7 @@
                                 ['pageSlug' => 'cs-hand-book', 'routeName' => 'sp.show', 'params' => 'cs-hand-book', 'label' => 'CS Hand Book'],
                                 ['pageSlug' => 'student-portal', 'routeName' => 'sp.show', 'params' => 'student-portal', 'label' => 'Student Portal'],
                                 ['pageSlug' => 'financial-assistance', 'routeName' => 'sp.show', 'params' => 'financial-assistance', 'label' => 'Financial Assistance'],
+                                ['pageSlug' => 'icsb-faculty', 'routeName' => 'sp.show', 'params' => 'icsb-faculty', 'label' => 'ICSB Faculty'],
                                 ['pageSlug' => 'icsb-library', 'routeName' => 'sp.show', 'params' => 'icsb-library', 'label' => 'ICSB Library'],
                                 ['pageSlug' => 'student_notice', 'routeName' => 'notice_board.student_notice_list', 'label' => 'Student Notice'],
                                 ['pageSlug' => 'faculty-evaluation-system', 'routeName' => 'sp.show', 'params' => 'faculty-evaluation-system', 'label' => 'Faculty Evaluation System'],
