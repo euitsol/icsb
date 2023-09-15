@@ -62,15 +62,15 @@ $datas = [
                                 </div>
                             @endforeach
                             @endif
-                            @if(isset($contact->phone) && !empty(json_decode($contact->location)))
+                            @if(isset($contact->location) && !empty(json_decode($contact->location)))
                                 @foreach (json_decode($contact->location) as $key=>$location)
                                     <div class="deatiles-items">
                                         <div class="icon">
                                             <img src="{{asset('frontend/img/contact/contact-location.png')}}" alt="Contact Email">
                                         </div>
                                         <div class="content">
-                                            <h4>Address:</h4>
-                                            <a href="">{{$location}}</a>
+                                            <h4> Address{{$key>0 ? "-".$key : ''}}:</h4>
+                                            <a href="{{$location->url}}">{{$location->title}}</a>
                                         </div>
                                     </div>
                                 @endforeach

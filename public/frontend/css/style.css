@@ -2675,6 +2675,10 @@ td {
     background-color: #99CE72;
     color: #026737;
 }
+
+.location-map-section .location-map{
+    border: 10px solid #182456;
+}
 /*=================== Location Page Style ========================*/
 .location-map-section {
 	max-width: 1300px;

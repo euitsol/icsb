@@ -8,7 +8,7 @@
                     <ul>
                         @if (!empty($contact->location))
                             @foreach (json_decode($contact->location) as $location)
-                                <li><a href="#"><i class="fa-solid fa-location-dot"></i>{{ $location }}</a></li>
+                                <li><a href="{{ $location->url }}"><i class="fa-solid fa-location-dot"></i>{{ $location->title }}</a></li>
                             @endforeach
                         @endif
 

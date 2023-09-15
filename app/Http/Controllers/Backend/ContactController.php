@@ -25,31 +25,28 @@ class ContactController extends Controller
     }
     public function createLocation(ContactRequest $request): RedirectResponse
     {
-        $location = $request->location;
-        $filteredLocation = array_filter($location, function ($value) {
-            return $value !== null;
+        $filteredLocation = array_filter($request->location, function ($entry) {
+            return !is_null($entry['title']) && !is_null($entry['url']);
         });
         $contact = Contact::where('deleted_at', null)->first();
         if ($contact === null) {
             $contact = new Contact();
             $contact->location = json_encode($filteredLocation);
-            $contact->created_by = auth()->user()->id;
             if ($request->hasFile('address_page_image')) {
                 $address_page_image = $request->file('address_page_image');
                 $path = $address_page_image->store('contact/address', 'public');
                 $contact->address_page_image = $path;
             }
+            $contact->created_by = auth()->user()->id;
             $contact->save();
         }
-
+        $contact->location = json_encode($filteredLocation);
         if ($request->hasFile('address_page_image')) {
             $address_page_image = $request->file('address_page_image');
             $path = $address_page_image->store('contact/address', 'public');
             $this->fileDelete($contact->address_page_image);
             $contact->address_page_image = $path;
         }
-
-        $contact->location = json_encode($filteredLocation);
         $contact->updated_by = auth()->user()->id;
         $contact->update();
         return redirect()->route('contact.contact_create')->withStatus(__('Contact location updated successfully.'));

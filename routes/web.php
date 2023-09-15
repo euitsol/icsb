@@ -573,6 +573,7 @@ Route::group(['as' => 'contact_us.', 'prefix' => 'contact-us'], function () {
     Route::get('/feedback', [ContactPagesController::class, 'feedback'])->name('feedback');
     Route::get('/address', [ContactPagesController::class, 'address'])->name('address');
     Route::get('/social-platforms', [ContactPagesController::class, 'socialPlatform'])->name('social_platforms');
+    Route::get('/lcoation-map', [ContactPagesController::class, 'locationMap'])->name('location_map');
 });
 // Route::group(['as' => 'article.', 'prefix' => 'article'], function () {
 //     Route::get('/single', [ArticlesController::class, 'single'])->name('single');

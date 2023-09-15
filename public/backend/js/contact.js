@@ -6,13 +6,27 @@ $(document).ready(function() {
         console.log(count);
         $(this).data('count', count);
 
-        result = `<div class="form-group " id="location-${count}">
-                    <label>Location-${count}</label>
-                    <div class="input-group mb-3">
-                        <input type="text" name="location[]" class="form-control" placeholder="Enter Location" required>
-                        <span class="input-group-text text-danger" onclick="delete_section_1(${count})"><i class="tim-icons icon-trash-simple"></i></span>
+        result = `
+                <div class="card location_group" id="location-${count}">
+                    <div class="card-body border">
+                        <div class="form-group">
+                            <label>Location-${count}</label>
+                            <div class="input-group mb-3">
+                                <input type="text" name="location[${count}][title]" class="form-control" placeholder="Enter location address" required>
+                                <div class="div contact_div">
+                                <span class="input-group-text text-danger" onclick="delete_section_1(${count})"><i class="tim-icons icon-trash-simple"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Location URL -${count}</label>
+                            <input type="text" name="location[${count}][url]" class="form-control" placeholder="Enter location url" required>
+                        </div>
                     </div>
-                </div>`;
+                </div>
+
+
+                `;
 
         $('#location').append(result);
     });

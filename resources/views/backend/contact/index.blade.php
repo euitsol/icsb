@@ -46,7 +46,7 @@
                                 <h5 class="title">{{ _('Add Location') }}</h5>
                             </div>
                             <div class="card-body">
-                            <form method="POST" action="{{route('contact.location.contact_create')}}" autocomplete="off" enctype="multipart/form-data">
+                            {{-- <form method="POST" action="{{route('contact.location.contact_create')}}" autocomplete="off" enctype="multipart/form-data">
                                 @csrf
                                     @if(isset($contact) && is_array(json_decode($contact->location)))
                                         @foreach (json_decode($contact->location) as $key=>$location)
@@ -55,16 +55,42 @@
                                                 <div class="input-group mb-3">
                                                     <input type="text" name="location[]" class="form-control border border-dark rounded-left" placeholder="{{ _('Enter Location') }}" value="{{ $location }}" required>
 
-                                                <div class="div">
+                                                <div class="div w-100 mt-3">
                                                     <input type="text" name="location[]" class="form-control " placeholder="{{ _('Enter Location') }}" required>
-                                                </div>
-                                                @if($key>0)
+                                                    @if($key>0)
                                                         <span class="input-group-text text-danger" onclick="delete_section_1({{$key+1}})"><i class="tim-icons icon-trash-simple"></i></span>
                                                     @else
                                                         <span class="input-group-text" id="add_location" data-count="{{ count(json_decode($contact->location)) }}"><i class="tim-icons icon-simple-add"></i></span>
                                                     @endif
 
                                                 </div>
+
+                                                </div>
+                                            </div>
+                                        @php
+                                            $count++;
+                                        @endphp
+                                            <div class="form-group" @if($count>1) id="locat-{{$count}}" @endif>
+                                                <label>{{ _('Social Media Information-'.$count) }}</label>
+                                                <div class="location-group">
+                                                    <div class="input-group mb-3">
+                                                        <input type="text" name="location[{{$count}}][title]" class="form-control border border-dark rounded-left" placeholder="{{ _('Enter Location') }}" value="{{ $location->title }}" required>
+                                                        <div class="div">
+                                                            @if($count>1)
+                                                                <span class="input-group-text text-danger" onclick="delete_section_1({{$count}})"><i class="tim-icons icon-trash-simple"></i></span>
+                                                            @else
+                                                                <span class="input-group-text" id="add_location" data-count="{{collect(json_decode($contact->location))->count()}}"><i class="tim-icons icon-simple-add"></i></span>
+                                                            @endif
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>{{ _('Lacation URL') }}</label>
+                                                        <input type="url" name="location[{{$count}}][url]" class="form-control" placeholder="{{ _('Enter social media information') }}" value="{{$social->url}}" required>
+                                                    </div>
+
+                                                </div>
+
                                             </div>
                                         @endforeach
                                     @else
@@ -93,6 +119,77 @@
                                         >
                                         @include('alerts.feedback', ['field' => 'address_page_image'])
                                     </div>
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-fill btn-primary">{{ _('Save') }}</button>
+                                </div>
+                            </form> --}}
+                            <form method="POST" action="{{route('contact.location.contact_create')}}" autocomplete="off" enctype="multipart/form-data">
+                                @csrf
+                                    @php
+                                        $count = 0;
+                                    @endphp
+                                    @if(isset($contact) && !empty(json_decode($contact->location)))
+                                        @foreach (json_decode($contact->location) as $key=>$location)
+                                        @php
+                                            $count++;
+                                        @endphp
+                                            <div class="card location_group" @if($count>1) id="location-{{$count}}" @endif>
+                                                <div class="card-body border">
+                                                    <div class="form-group" >
+                                                        <label>{{ _('Location-'.$count) }}</label>
+                                                        <div class="input-group mb-3">
+                                                            <input type="text" name="location[{{$count}}][title]" class="form-control" placeholder="{{ _('Enter location address') }}" value="{{ $location->title }}" required>
+                                                            <div class="div contact_div">
+                                                                @if($count>1)
+                                                                    <span class="input-group-text text-danger" onclick="delete_section_1({{$count}})"><i class="tim-icons icon-trash-simple"></i></span>
+                                                                @else
+                                                                    <span class="input-group-text" id="add_location" data-count="{{ collect(json_decode($contact->location))->count() }}"><i class="tim-icons icon-simple-add"></i></span>
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group ">
+                                                        <label>{{ _('Location URL-'.$count) }}</label>
+                                                        <input type="url" name="location[{{$count}}][url]" class="form-control" placeholder="{{ _('Enter location url') }}" value="{{ $location->url }}" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    @else
+                                        <div class="card location_group">
+                                            <div class="card-body border">
+                                                <div class="form-group">
+                                                    <label>{{ _('Location-1') }}</label>
+                                                    <div class="input-group mb-3">
+                                                        <input type="text" name="location[1][title]" class="form-control" placeholder="{{ _('Enter location address') }}" required>
+                                                        <div class="div contact_div">
+                                                            <span class="input-group-text" id="add_location" data-count="1"><i class="tim-icons icon-simple-add"></i></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group {{ $errors->has('address_page_image') ? 'is-invalid' : '' }}">
+                                                    <label>{{ _('Location URL -1') }}</label>
+                                                    <input type="text" name="location[1][url]" class="form-control" placeholder="{{ _('Enter location url') }}" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    <div id="location">
+
+                                    </div>
+                                    <div class="form-group {{ $errors->has('address_page_image') ? 'is-invalid' : '' }}">
+                                        <label>{{ _('Address Page Image') }}</label>
+                                        <input type="file" accept="image/*" name="address_page_image"
+                                        class="form-control  {{ $errors->has('address_page_image') ? 'is-invalid' : '' }} image-upload"
+                                        @if($contact->address_page_image != null)
+                                        data-existing-files="{{ storage_url($contact->address_page_image) }}"
+                                        data-delete-url="{{route('contact.file.delete.contact_create', $contact->id)}}"
+                                        @endif
+                                        >
+                                        @include('alerts.feedback', ['field' => 'address_page_image'])
+                                    </div>
+
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-fill btn-primary">{{ _('Save') }}</button>
                                 </div>
