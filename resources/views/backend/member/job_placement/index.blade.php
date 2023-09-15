@@ -49,8 +49,6 @@
                                         </td>
                                         <td>
                                             {{ date('d-M-Y', strtotime($jp->deadline)) }}
-                                            <br>
-                                            {{ date('H:i A', strtotime($jp->deadline)) }}
                                          </td>
                                         <td>
                                             @include('backend.partials.button', ['routeName' => 'job_placement.status.jp_edit','params' => [$jp->id], 'className' => $jp->getStatusClass(), 'label' => $jp->getStatus() ])
