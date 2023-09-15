@@ -104,6 +104,9 @@ class FrontendSinglePagesController extends Controller
             case($s['single_page']->frontend_slug == 'icsb-library'):
                 return view('frontend.student.icsb_library',$s);
                 break;
+            case($s['single_page']->frontend_slug == 'fees-&-costs'):
+                return view('frontend.student.admission.fees',$s);
+                break;
             case(
                 $s['single_page']->frontend_slug == 'foundation-complete' ||
                 $s['single_page']->frontend_slug == 'subject-complete' ||

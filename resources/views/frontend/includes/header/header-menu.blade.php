@@ -172,6 +172,7 @@
                             <li class="drop-down"><a href="#">Admission <i class="fa-solid fa-angle-down"></i></a>
                                 <ul class="sub-menu">
                                     <li><a href="{{ route('sp.frontend','entry-criteria') }}">Entry Criteria </a></li>
+                                    <li><a href="{{ route('sp.frontend','fees-&-costs') }}">Fees & Costs</a></li>
                                     <li><a href="{{ route('sp.frontend','examination-policy') }}">Exemption Policy </a></li>
                                     <li><a href="{{ route('sp.frontend','admission-form') }}">Admission Forms </a></li>
                                     @if(isset($studentPortal->saved_data) && !empty(json_decode($studentPortal->saved_data)->{'portal-url'}))
