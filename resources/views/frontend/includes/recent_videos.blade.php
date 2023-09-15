@@ -48,7 +48,7 @@
                     <div class="col-sm-6 col-md-3 video-column item">
                         <div class="video-inner-col">
                             <div class="video">
-                                {!! getYoutubeVideoIframe($video->video_url) !!}
+                                <x-embed url="{{$video->url}}" />
                                 <div class="video-title">
                                     {!! $video->title !!}
                                 </div>
