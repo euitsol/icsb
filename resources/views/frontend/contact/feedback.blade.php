@@ -25,7 +25,7 @@ $datas = [
                 <div class="form-border">
                     <h2>Fill The Form Below</h2>
                     <form>
-                        <input type="text" value="To:CS Bangladesh" disabled>
+                        <input type="text" value="To: CS Bangladesh" disabled>
                         <input type="text" name="name" placeholder="Your Name:">
                         <input type="email" name="email" placeholder="Your Email:">
                         <input type="tel" name="phone" placeholder="Your Phone Number:">
@@ -33,11 +33,12 @@ $datas = [
                         <textarea placeholder="Your Message Here:"></textarea>
                         <!-- <div class="g-recaptcha" data-sitekey="6Lfk7gkkAAAAAP3zBcc1gT8AeJVEI-l0lXeCpk7H"></div> -->
                         <!-- <button class="g-recaptcha" data-sitekey="reCAPTCHA_site_key" data-callback='onSubmit'data-action='submit'>Submit</button> -->
-                        <input class="submit-button" type="submit" name="submit" value="Submit Now" class="g-recaptcha" data-sitekey="reCAPTCHA_site_key" data-callback='onSubmit'data-action='submit'>
+                        <input class="submit-button" type="submit" name="submit" value="SEND" class="g-recaptcha" data-sitekey="reCAPTCHA_site_key" data-callback='onSubmit'data-action='submit'>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
 @endsection

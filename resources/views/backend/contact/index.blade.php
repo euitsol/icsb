@@ -45,9 +45,9 @@
                             <div class="card-header">
                                 <h5 class="title">{{ _('Add Location') }}</h5>
                             </div>
-                            <form method="POST" action="{{route('contact.location.contact_create')}}" autocomplete="off">
+                            <div class="card-body">
+                            <form method="POST" action="{{route('contact.location.contact_create')}}" autocomplete="off" enctype="multipart/form-data">
                                 @csrf
-                                <div class="card-body">
                                     @if(isset($contact) && is_array(json_decode($contact->location)))
                                         @foreach (json_decode($contact->location) as $key=>$location)
                                             <div class="form-group" @if($key>0) id="location-{{$key+1}}" @endif>
@@ -75,11 +75,22 @@
                                     <div id="location">
 
                                     </div>
-                                </div>
+                                    <div class="form-group {{ $errors->has('address_page_image') ? 'is-invalid' : '' }}">
+                                        <label>{{ _('Address Page Image') }}</label>
+                                        <input type="file" accept="image/*" name="address_page_image"
+                                        class="form-control  {{ $errors->has('address_page_image') ? 'is-invalid' : '' }} image-upload"
+                                        @if($contact->address_page_image != null)
+                                        data-existing-files="{{ storage_url($contact->address_page_image) }}"
+                                        data-delete-url="{{route('contact.file.delete.contact_create', $contact->id)}}"
+                                        @endif
+                                        >
+                                        @include('alerts.feedback', ['field' => 'address_page_image'])
+                                    </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-fill btn-primary">{{ _('Save') }}</button>
                                 </div>
                             </form>
+                        </div>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -195,9 +206,10 @@
                             <div class="card-header">
                                 <h5 class="title">{{ _('Add Phone') }}</h5>
                             </div>
+                            <div class="card-body">
                             <form method="POST" action="{{route('contact.phone.contact_create')}}" autocomplete="off">
                                 @csrf
-                                <div class="card-body">
+
 
                                     @php
                                         $count = 0;
@@ -248,11 +260,12 @@
                                     <div id="phone">
 
                                     </div>
-                                </div>
+
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-fill btn-primary">{{ _('Save') }}</button>
                                 </div>
                             </form>
+                        </div>
                         </div>
                     </div>
                     <div class="col-md-4">

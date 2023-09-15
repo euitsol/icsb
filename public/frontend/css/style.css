@@ -2443,7 +2443,6 @@ td {
 
 .form-section .detailes-column .deatiles-items {
 	display: flex;
-	width: 50%;
 	column-gap: 25px;
 	margin-top: 25px;
 }
@@ -2490,7 +2489,7 @@ td {
 }
 
 .form-section .detailes-column {
-	width: 65%;
+	width: 100%;
 	padding: 35px 55px 55px 50px;
 	margin: 0 auto;
 	flex-wrap: wrap;
@@ -2547,7 +2546,7 @@ td {
 	border: none;
 	font-size: 20px;
 	line-height: 30px;
-	font-weight: 400;
+	font-weight: bold;
 	max-width: 230px;
 	height: 55px;
 	border-radius: 100px;
@@ -2557,8 +2556,8 @@ td {
 }
 
 .form-section .form-column .submit-button:hover {
-	color: #fff;
-	background: #152360;
+	color: #026737;
+	background: #99CE72;
 }
 
 ::-webkit-input-placeholder {

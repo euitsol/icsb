@@ -34,8 +34,21 @@ class ContactController extends Controller
             $contact = new Contact();
             $contact->location = json_encode($filteredLocation);
             $contact->created_by = auth()->user()->id;
+            if ($request->hasFile('address_page_image')) {
+                $address_page_image = $request->file('address_page_image');
+                $path = $address_page_image->store('contact/address', 'public');
+                $contact->address_page_image = $path;
+            }
             $contact->save();
         }
+
+        if ($request->hasFile('address_page_image')) {
+            $address_page_image = $request->file('address_page_image');
+            $path = $address_page_image->store('contact/address', 'public');
+            $this->fileDelete($contact->address_page_image);
+            $contact->address_page_image = $path;
+        }
+
         $contact->location = json_encode($filteredLocation);
         $contact->updated_by = auth()->user()->id;
         $contact->update();
@@ -95,6 +108,15 @@ class ContactController extends Controller
         $contact->updated_by = auth()->user()->id;
         $contact->update();
         return redirect()->route('contact.contact_create')->withStatus(__('Contact email updated successfully.'));
+    }
+    public function singleFileDelete($id): RedirectResponse
+    {
+        $contact = Contact::findOrFail($id);
+        $contact->address_page_image = '';
+        $this->fileDelete($contact->address_page_image);
+        $contact->save();
+
+        return redirect()->back();
     }
 
 

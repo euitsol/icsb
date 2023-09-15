@@ -175,6 +175,8 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::post('create/social', [ContactController::class, 'createSocial'])->name('social.contact_create');
         Route::post('create/phone', [ContactController::class, 'createPhone'])->name('phone.contact_create');
         Route::post('create/email', [ContactController::class, 'createEmail'])->name('email.contact_create');
+        Route::get('contact/file/delete/{id}',      [ContactController::class, 'singleFileDelete'])->name('file.delete.contact_create');
+
     });
     // National Connection Routes
     Route::group(['as' => 'national_connection.', 'prefix' => 'national_connection'], function () {
