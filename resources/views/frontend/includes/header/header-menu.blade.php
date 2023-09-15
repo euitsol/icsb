@@ -263,7 +263,7 @@
                             <li><a href="{{route('contact_us.feedback')}}">Feedback</a></li>
                             <li><a href="{{route('contact_us.address')}}">Address</a></li>
                             <li><a href="#">Location Map</a></li>
-                            <li><a href="#">Social Platforms</a></li>
+                            <li><a href="{{route('contact_us.social_platforms')}}">Social Platforms</a></li>
                         </ul>
                     </li>
                 </ul>
