@@ -2701,14 +2701,72 @@ td {
 
 .box {
 	width: 200px;
-	border: 1px solid;
+	border: 2px solid #68e0cf;
 	text-align: center;
 	padding: 10px;
+    transition: .8s;
 }
+.box-0 {
+    background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
+    transition: .8s;
+}
+.box-1 {
+    background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+    transition: .8s;
+}
+.box-2 {
+    background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+    transition: .8s;
+}
+.box-3 {
+    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+    transition: .8s;
+}
+.box-4 {
+    background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+    transition: .8s;
+}
+.box-5 {
+    background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+    transition: .8s;
+}
+.box-6 {
+    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+    transition: .8s;
+}
+.box-7 {
+    background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%);
+    transition: .8s;
+}
+.box-8 {
+    background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+    transition: .8s;
+}
+.box-9 {
+    background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+    transition: .8s;
+}
+.box:hover{
+    background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+    border: 2px solid #005bea;
+}
+
 
 .box h3 {
 	font-size: 18px;
 	line-height: 24px;
+}
+.box h2, .box h3 {
+	color: #fff;
+    transition: .8s;
+}
+.box:hover >h3{
+    color: #000;
+    transform: scale(1.1);
+}
+.box:hover >h2{
+    color: #000;
+    transform: scale(1.1);
 }
 
 .level-1 {
@@ -2726,6 +2784,17 @@ td {
 	width: 2px;
 	height: 27px;
 	bottom: -28px;
+    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+
+}
+.level-1 .box-0:after {
+    content: "";
+    position: absolute;
+    background: #000;
+    width: 2px;
+    height: 52px;
+    bottom: -52px;
+    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
 }
 
 .level-2 {
@@ -2744,6 +2813,7 @@ td {
     height: 2px;
     top: -25px;
     left: 7%;
+    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
 }
 
 .level-3 {
@@ -2766,6 +2836,7 @@ td {
 	height: 25px;
 	top: -26px;
     left:50%;
+    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
 }
 
 .level-3 .box {
@@ -2778,8 +2849,9 @@ td {
     background: #000;
     width: 2px;
     height: 153px;
-    bottom: 100%;
+    bottom: 102%;
     left: 50%;
+    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
 }
 .the_cs > .new-handbook{
 
