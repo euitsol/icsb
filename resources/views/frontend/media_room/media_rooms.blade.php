@@ -24,7 +24,7 @@ $datas = [
 
     <div class="blog-section">
         <div class="container">
-            <div class="row media_rooms">
+            <div class="row media_rooms" data-count="{{count($cat->media_rooms)}}">
                 @foreach ($media_rooms as $media_room)
                 <div class="col-md-6 col-lg-4 col-xl-3">
                     <div class="item">
@@ -48,54 +48,66 @@ $datas = [
                 @endforeach
 
             </div>
-            <div class="see-button text-align">
-                <a href="#">{{_('See More')}}</a>
+            <div class="see-button text-align" >
+                <a href="javascript:void(0)" class="more" data-cat_id="{{isset($cat) ? $cat->id : 'all' }}" data-offset="12">{{_('See More')}}</a>
             </div>
         </div>
     </div>
 @endsection
 @push('js')
-{{-- <script>
+<script>
+    $(window).on('load', function() {
+        if($('.media_rooms').data('count')<13){
+            $('.more').parent().hide();
+        }
+    });
     $(document).ready(function () {
     $('.more').on('click', function () {
+        var limit = 12;
+        let id = $(this).data('cat_id');
+        var offset = $(this).attr('data-offset');
+        let _url = ("{{ route('media_rooms', ['cat_id','offset']) }}");
+        let __url = _url.replace('cat_id', id);
+        let ___url = __url.replace('offset', offset);
         $.ajax({
-            url: `/media-rooms/all`,
+            url: ___url,
             method: 'GET',
             dataType: 'json',
             success: function (data) {
-                var awardDetailsHtml = '';
+                $('.more').attr('data-offset', parseInt(offset)+limit);
+                data.media_rooms.forEach(function (media_room) {
+                    var singleViewRoute = '{{ route("media_room_view.view", ":slug") }}'.replace(':slug', btoa(media_room.slug));
+                    var noImage = '{{asset("no_img/no_img.jpg")}}';
+                    var image = `{{ storage_url('${media_room.thumbnail_image}') }}`;
+                    var thumbnailImage = media_room.thumbnail_image ? image : noImage;
+                    let result = `
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div class="item">
+                                <div class="logo-wrapp">
+                                    <a href="${singleViewRoute}"><img src="${thumbnailImage}" alt="..." /></a>
+                                    <div class="post-content">
+                                        <ul>
+                                            <li>
+                                                <i class="fa-solid fa-file-import"></i>Latest News
+                                            </li>
+                                            <li>
+                                                <i class="fa-solid fa-calendar-check"></i>${media_room.date}
+                                            </li>
+                                        </ul>
+                                        <h3><a href="${singleViewRoute}">${media_room.title}</a></h3>
+                                        <p>${media_room.description}</p>
 
-                // Loop through the awards data
-                data.awards.forEach(function (award) {
-                    var routeViewPdf = '{{ route("view.pdf", ":file") }}'.replace(':file', btoa(award.file));
-                    var routeFileDownload = '{{ route("sp.file.download", ":file") }}'.replace(':file', btoa(award.file));
-
-                    awardDetailsHtml += `
-                    <div class="col-md-6 col-lg-4 col-xl-3">
-                        <div class="item">
-                            <div class="logo-wrapp">
-                                <a href="{{route('media_room_view.view',$media_room->slug)}}"><img src="{{storage_url($media_room->thumbnail_image)}}" alt="..." /></a>
-                                <div class="post-content">
-                                    <ul>
-                                        <li>
-                                            <a href="#"><i class="fa-solid fa-file-import"></i>Latest News</a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fa-solid fa-calendar-check"></i>{{ date('d M Y', strtotime($media_room->program_date))}}</a>
-                                        </li>
-                                    </ul>
-                                    <h3><a href="{{route('media_room_view.view',$media_room->slug)}}">{{stringLimit($media_room->title)}}</a></h3>
-                                    <p>{{ stringLimit(html_entity_decode_table($media_room->description)) }}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     `;
+                    $('.media_rooms').append(result);
+                    if(data.media_rooms.length<limit){
+                        $('.more').parent().hide();
+                    }
                 });
 
-                // Insert the generated HTML into the '.awards' element
-                $('.media_rooms').html(awardDetailsHtml);
-                $('.more').hide();
             },
             error: function (xhr, status, error) {
                 console.error('Error fetching awards:', error);
@@ -103,6 +115,6 @@ $datas = [
             });
         });
     });
-</script> --}}
+</script>
 
 @endpush

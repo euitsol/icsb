@@ -105,19 +105,31 @@ class AjaxController extends Controller
     //     dd($see_mores);
     //     return response()->json(['see_mores'=>$see_mores]);
     // }
-    // public function mediaRooms($slug=false): JsonResponse
-    // {
-    //     $media_rooms = '';
-    //     if($slug == true){
-    //         $s['cat'] = MediaRoomCategory::with('media_rooms')->where('slug',$slug)->where('deleted_at', null)->where('status','1')->first();
-    //         $query = MediaRoom::where('category_id',$s['cat']->id)->where('deleted_at', null)->where('permission','1')->orderBy('program_date','DESC');
-    //         $media_rooms = $query->get();
-    //     }else{
-    //         $query = MediaRoom::where('deleted_at', null)->where('permission','1')->orderBy('program_date','DESC');
-    //         $media_rooms = $query->get();
-    //     }
-    //     return response()->json(['media_rooms'=>$media_rooms]);
-    // }
+    public function mediaRooms($id,$offset): JsonResponse
+    {
+
+        $media_rooms = '';
+        if($id != 'all'){
+            $query = MediaRoom::where('category_id',$id)->where('deleted_at', null)->where('permission','1')->orderBy('program_date','DESC');
+            $media_rooms = $query->offset($offset)->limit(12)->get()
+            ->map(function ($media_room) {
+                $media_room->date = date('d M Y', strtotime($media_room->program_date));
+                $media_room->title = stringLimit($media_room->title);
+                $media_room->description = stringLimit(html_entity_decode_table($media_room->description));
+                return $media_room;
+            });
+        }else{
+            $query = MediaRoom::where('deleted_at', null)->where('permission','1')->orderBy('program_date','DESC');
+            $media_rooms = $query->offset($offset)->limit(12)->get()
+            ->map(function ($media_room) {
+                $media_room->date = date('d M Y', strtotime($media_room->program_date));
+                $media_room->title = stringLimit($media_room->title);
+                $media_room->description = stringLimit(html_entity_decode_table($media_room->description));
+                return $media_room;
+            });
+        }
+        return response()->json(['media_rooms'=>$media_rooms]);
+    }
     public function singlePageSeeMore($slug): JsonResponse
     {
         $results = SinglePages::where('frontend_slug', $slug)->first();

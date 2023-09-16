@@ -497,7 +497,7 @@ Route::get('national-award/all', [FrontendAjaxController::class, 'awards'])->nam
 Route::get('convocations/all', [FrontendAjaxController::class, 'convocations'])->name('convocations');
 // Route::get('see-more/all/{model}/{slug?}', [FrontendAjaxController::class, 'seeMore'])->name('see_more');
 Route::get('single_page/see_more/{slug}', [FrontendAjaxController::class, 'singlePageSeeMore'])->name('single_page.see_more');
-// Route::get('media-rooms/all', [FrontendAjaxController::class, 'mediaRooms'])->name('media_rooms');
+Route::get('media-data/{id}/{offset}', [FrontendAjaxController::class, 'mediaRooms'])->name('media_rooms');
 
 // Single Pages Route
 Route::get('/page/{frontend_slug}', [FrontendSinglePagesController::class, 'frontend'])->name('sp.frontend');

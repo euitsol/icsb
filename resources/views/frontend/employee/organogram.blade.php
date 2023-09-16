@@ -23,6 +23,11 @@ $datas = [
             <div class="chart-main">
             <div class="level-1">
                 <div class="box">
+                <h2>President</h2>
+                </div>
+            </div>
+            <div class="level-1">
+                <div class="box">
                 <h2>Secretary & CEO</h2>
                 </div>
             </div>
