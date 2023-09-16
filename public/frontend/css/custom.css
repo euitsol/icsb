@@ -143,6 +143,7 @@
 .blog-section .item {
     background: #fff;
     border-radius: 29px;
+    border: 1px solid #182456;
 }
 .blog-section .logo-wrapp a {
     width: 100% !important;
@@ -150,6 +151,7 @@
 
 .blog-section .item .post-content {
     padding: 13px 23px 30px 23px;
+    height: 212px;
 }
 
 .blog-section .item ul {
@@ -159,7 +161,7 @@
     justify-content: space-between;
 }
 
-.blog-section .item .post-content ul li a {
+.blog-section .item .post-content ul li{
     color: #111111;
     font-size: 16px;
     line-height: 22px;
@@ -171,7 +173,7 @@
 }
 
 .blog-section .item h3 {
-    font-size: 22px;
+    font-size: 17px;
     line-height: 28px;
 }
 

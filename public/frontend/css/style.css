@@ -1354,6 +1354,7 @@ li {
 
 .recent-update-section .recent-update-row .item .post-content {
 	padding: 13px 23px 30px 23px;
+    height: 194px;
 }
 
 .recent-update-section .recent-update-row .item h3 {
@@ -1385,7 +1386,7 @@ li {
 	margin-right: 6px;
 }
 
-.recent-update-section .recent-update-row .item .post-content ul li a {
+.recent-update-section .recent-update-row .item .post-content ul li{
 	color: #111111;
 	font-size: 16px;
 	line-height: 22px;
@@ -1402,7 +1403,7 @@ li {
 	border-radius: 29px;
 	background: #fff;
 	transition: 0.4s;
-	top: 40px;
+	top: 5px;
 	z-index: 999;
 	position: relative;
 }
@@ -1729,7 +1730,7 @@ li {
 	background: transparent;
 }
 .recent-video-section .carousel-indicators {
-	top: 80%;
+	top: 85%;
 }
 .recent-video-section .carousel-indicators .active {
 	background: #162B75;
@@ -2894,6 +2895,7 @@ td {
 
 .blog-section .logo-wrapp img {
     height: 200px;
+    border-radius: 29px 29px 0 0;
 }
 .blog-content-section img {
 	width: auto;

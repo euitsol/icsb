@@ -29,14 +29,14 @@ $datas = [
                 <div class="col-md-6 col-lg-4 col-xl-3">
                     <div class="item">
                         <div class="logo-wrapp">
-                            <a href="{{route('media_room_view.view',$media_room->slug)}}"><img src="{{storage_url($media_room->thumbnail_image)}}" alt="..." /></a>
+                            <a href="{{route('media_room_view.view',$media_room->slug)}}"><img src="{{$media_room->thumbnail_image ? storage_url($media_room->thumbnail_image) : asset('no_img/no_img.jpg')}}" alt="..." /></a>
                             <div class="post-content">
                                 <ul>
                                     <li>
-                                        <a href="#"><i class="fa-solid fa-file-import"></i>Latest News</a>
+                                        <i class="fa-solid fa-file-import"></i>Latest News
                                     </li>
                                     <li>
-                                        <a href="#"><i class="fa-solid fa-calendar-check"></i>{{ date('d M Y', strtotime($media_room->program_date))}}</a>
+                                        <i class="fa-solid fa-calendar-check"></i>{{ date('d M Y', strtotime($media_room->program_date))}}
                                     </li>
                                 </ul>
                                 <h3><a href="{{route('media_room_view.view',$media_room->slug)}}">{{stringLimit($media_room->title)}}</a></h3>

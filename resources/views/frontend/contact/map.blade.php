@@ -6,7 +6,7 @@
 <!-- =============================== Breadcrumb Section ======================================-->
 @php
 $banner_image = asset('breadcumb_img/contact_us.jpg');
-$title = 'Feedback';
+$title = 'Location Map';
 $datas = [
             'image'=>$banner_image,
             'title'=>$title,
