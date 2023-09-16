@@ -31,9 +31,9 @@
                     </div>
                 @endforeach
             </div>
-            @if(count($convocations)>=12)
+            @if(count($count)>12)
                 <div class="see-button text-align">
-                    <a href="javascript:void(0)" class="more">{{_('See More')}}</a>
+                    <a href="javascript:void(0)" class="more" data-offset="12">{{_('See More')}}</a>
                 </div>
             @endif
 
@@ -44,19 +44,21 @@
 <script>
     $(document).ready(function () {
     $('.more').on('click', function () {
+        var limit = 12;
+        var offset = $(this).attr('data-offset');
+        let _url = ("{{ route('convocations', ['offset']) }}");
+        let __url = _url.replace('offset', offset);
         $.ajax({
-            url: `/convocations/all`,
+            url: __url,
             method: 'GET',
             dataType: 'json',
             success: function (data) {
-                var convocationDetailsHtml = '';
-
-                // Loop through the awards data
+                $('.more').attr('data-offset', parseInt(offset)+limit);
                 data.convocations.forEach(function (convocation) {
                     var routeViewPdf = '{{ route("view.pdf", ":file") }}'.replace(':file', btoa(convocation.file));
                     var routeFileDownload = '{{ route("sp.file.download", ":file") }}'.replace(':file', btoa(convocation.file));
 
-                    convocationDetailsHtml += `
+                    var result= `
                         <div class="col-md-3 the_cs mb-5">
                             <div class="new-handbook text-align">
                                 <iframe src="${routeViewPdf}" type="application/pdf" width="100%" height="200px"></iframe>
@@ -64,14 +66,14 @@
                             </div>
                         </div>
                     `;
+                    $('.convocations').append(result);
                 });
-
-                // Insert the generated HTML into the '.awards' element
-                $('.convocations').html(convocationDetailsHtml);
-                $('.more').hide();
+                if(data.convocations.length<limit){
+                    $('.more').parent().hide();
+                }
             },
             error: function (xhr, status, error) {
-                console.error('Error fetching awards:', error);
+                console.error('Error fetching convocations:', error);
             }
             });
         });

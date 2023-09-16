@@ -493,8 +493,8 @@ Route::get('front/download/{filename}', [ViewDefaultController::class, 'view_dow
 
 // Ajax
 Route::get('home/notice/{cat_id}', [FrontendAjaxController::class, 'noticeHome'])->name('home.notice');
-Route::get('national-award/all', [FrontendAjaxController::class, 'awards'])->name('awards');
-Route::get('convocations/all', [FrontendAjaxController::class, 'convocations'])->name('convocations');
+Route::get('national-award/data/{offset}', [FrontendAjaxController::class, 'awards'])->name('awards');
+Route::get('convocations/data/{offset}', [FrontendAjaxController::class, 'convocations'])->name('convocations');
 // Route::get('see-more/all/{model}/{slug?}', [FrontendAjaxController::class, 'seeMore'])->name('see_more');
 Route::get('single_page/see_more/{slug}', [FrontendAjaxController::class, 'singlePageSeeMore'])->name('single_page.see_more');
 Route::get('media-data/{id}/{offset}', [FrontendAjaxController::class, 'mediaRooms'])->name('media_rooms');

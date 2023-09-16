@@ -73,38 +73,16 @@ class AjaxController extends Controller
 
         return response()->json(['notices'=>$notices, 'notice_cat'=>$notice_cat]);
     }
-    public function awards(): JsonResponse
+    public function awards($offset): JsonResponse
     {
-            $awards = NationalAward::where('deleted_at',null)->where('status',1)->latest()->get();
+            $awards = NationalAward::where('deleted_at',null)->where('status',1)->latest()->offset($offset)->limit(12)->get();
             return response()->json(['awards'=>$awards]);
     }
-    public function convocations(): JsonResponse
+    public function convocations($offset): JsonResponse
     {
-            $convocations = Convocation::where('deleted_at',null)->where('status',1)->latest()->get();
+            $convocations = Convocation::where('deleted_at',null)->where('status',1)->latest()->offset($offset)->limit(12)->get();
             return response()->json(['convocations'=>$convocations]);
     }
-    // public function seeMore($model, $slug=false): JsonResponse
-    // {
-    //     $see_mores = '';
-    //     if (class_exists("App\Models\\".$model)) {
-    //         $modelClass = "App\Models\\" . $model;
-    //         if($slug != false){
-    //             if (Schema::hasColumn((new $modelClass)->getTable(), 'order_key')) {
-    //                 $see_mores = $modelClass::where('deleted_at',null)->where('status',1)->where('slug',$slug)->orderBy('order_key','ASC')->get();
-    //             } else {
-    //                 $see_mores = $modelClass::where('deleted_at',null)->where('status',1)->where('slug',$slug)->latest()->get();
-    //             }
-    //         }else{
-    //             if (Schema::hasColumn((new $modelClass)->getTable(), 'order_key')) {
-    //                 $see_mores = $modelClass::where('deleted_at',null)->where('status',1)->orderBy('order_key','ASC')->get();
-    //             } else {
-    //                 $see_mores = $modelClass::where('deleted_at',null)->where('status',1)->latest()->get();
-    //             }
-    //         }
-    //     }
-    //     dd($see_mores);
-    //     return response()->json(['see_mores'=>$see_mores]);
-    // }
     public function mediaRooms($id,$offset): JsonResponse
     {
 

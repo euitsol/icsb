@@ -24,7 +24,7 @@ $datas = [
 
     <div class="blog-section">
         <div class="container">
-            <div class="row media_rooms" data-count="{{count($cat->media_rooms)}}">
+            <div class="row media_rooms">
                 @foreach ($media_rooms as $media_room)
                 <div class="col-md-6 col-lg-4 col-xl-3">
                     <div class="item">
@@ -48,19 +48,16 @@ $datas = [
                 @endforeach
 
             </div>
-            <div class="see-button text-align" >
-                <a href="javascript:void(0)" class="more" data-cat_id="{{isset($cat) ? $cat->id : 'all' }}" data-offset="12">{{_('See More')}}</a>
-            </div>
+            @if(count($cat->media_rooms)>12)
+                <div class="see-button text-align" >
+                    <a href="javascript:void(0)" class="more" data-cat_id="{{isset($cat) ? $cat->id : 'all' }}" data-offset="12">{{_('See More')}}</a>
+                </div>
+            @endif
         </div>
     </div>
 @endsection
 @push('js')
 <script>
-    $(window).on('load', function() {
-        if($('.media_rooms').data('count')<13){
-            $('.more').parent().hide();
-        }
-    });
     $(document).ready(function () {
     $('.more').on('click', function () {
         var limit = 12;
@@ -103,14 +100,14 @@ $datas = [
                         </div>
                     `;
                     $('.media_rooms').append(result);
+                    });
                     if(data.media_rooms.length<limit){
-                        $('.more').parent().hide();
+                            $('.more').parent().hide();
                     }
-                });
 
             },
             error: function (xhr, status, error) {
-                console.error('Error fetching awards:', error);
+                console.error('Error fetching media:', error);
             }
             });
         });

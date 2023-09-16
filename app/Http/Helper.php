@@ -270,6 +270,9 @@ function extractStringFromUrl($url) {
     $social_medias = ['facebook','twitter','linkedin','instagram','youtube','pinterest','google','tiktok','telegram','whatsapp','reddit'];
     foreach($social_medias as $media){
         if (Str::contains($url, $media)) {
+            if($media == 'twitter'){
+                return "X Handle";
+            }
             return Str::ucfirst($media);
         }
 
