@@ -26,18 +26,21 @@
     <div class="container">
         <div class="row all" >
             @if (isset(json_decode($single_page->saved_data)->{'upload-files'}))
-            @php
-                $files = array_reverse((array)json_decode($single_page->saved_data)->{'upload-files'});
-            @endphp
-                @foreach (array_slice($files, -12) as $file)
-                    <div class="col-md-3 the_cs mb-5">
-                        <div class="new-handbook text-align">
+                    @php
+                        $files = (array)json_decode($single_page->saved_data)->{'upload-files'};
+                        $files = array_reverse($files);
+                    @endphp
+                    @foreach (array_slice($files, 0, 12) as $file)
+                        <div class="col-md-3 the_cs mb-5">
+                            <div class="new-handbook text-align">
                                 <iframe src="{{ route('view.pdf', base64_encode($file)) }}" type="application/pdf" width="100%" height="200px"></iframe>
-                                <a class="d-block cursor-pointer" target="_blank" href="{{route('sp.file.download', base64_encode($file))}}"><h3 > {{ucfirst(str_replace('-', ' ', Str::before(basename($file), '.pdf')))}}</h3></a>
+                                <a class="d-block cursor-pointer" target="_blank" href="{{ route('sp.file.download', base64_encode($file)) }}">
+                                    <h3>{{ ucfirst(str_replace('-', ' ', Str::before(basename($file), '.pdf'))) }}</h3>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                @endforeach
-            @endif
+                    @endforeach
+                @endif
         </div>
         @if(count($files)>12)
             <div class="see-button text-align">
