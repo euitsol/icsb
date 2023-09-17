@@ -73,7 +73,8 @@ $datas = [
             success: function (data) {
                 $('.more').attr('data-offset', parseInt(offset)+limit);
                 data.media_rooms.forEach(function (media_room) {
-                    var singleViewRoute = '{{ route("media_room_view.view", ":slug") }}'.replace(':slug', btoa(media_room.slug));
+                    let singleViewRoute = ("{{ route('media_room_view.view', ['slug']) }}");
+                    let _singleViewRoute = singleViewRoute.replace('slug', media_room.slug);
                     var noImage = '{{asset("no_img/no_img.jpg")}}';
                     var image = `{{ storage_url('${media_room.thumbnail_image}') }}`;
                     var thumbnailImage = media_room.thumbnail_image ? image : noImage;
@@ -81,7 +82,7 @@ $datas = [
                         <div class="col-md-6 col-lg-4 col-xl-3">
                             <div class="item">
                                 <div class="logo-wrapp">
-                                    <a href="${singleViewRoute}"><img src="${thumbnailImage}" alt="..." /></a>
+                                    <a href="${_singleViewRoute}"><img src="${thumbnailImage}" alt="..." /></a>
                                     <div class="post-content">
                                         <ul>
                                             <li>
@@ -91,7 +92,7 @@ $datas = [
                                                 <i class="fa-solid fa-calendar-check"></i>${media_room.date}
                                             </li>
                                         </ul>
-                                        <h3><a href="${singleViewRoute}">${media_room.title}</a></h3>
+                                        <h3><a href="${_singleViewRoute}">${media_room.title}</a></h3>
                                         <p>${media_room.description}</p>
 
                                     </div>
