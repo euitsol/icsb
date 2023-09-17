@@ -2719,7 +2719,7 @@ td {
     transition: .8s;
 }
 .box-3 {
-    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
     transition: .8s;
 }
 .box-4 {
@@ -2757,16 +2757,16 @@ td {
 	line-height: 24px;
 }
 .box h2, .box h3 {
-	color: #fff;
+	color: #182456;
     transition: .8s;
 }
 .box:hover >h3{
-    color: #000;
-    transform: scale(1.1);
+    color: #122F98;
+    transform: scale(1.15);
 }
 .box:hover >h2{
-    color: #000;
-    transform: scale(1.1);
+    color: #122F98;
+    transform: scale(1.15);
 }
 
 .level-1 {
