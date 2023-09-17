@@ -175,6 +175,7 @@
 .blog-section .item h3 {
     font-size: 17px;
     line-height: 28px;
+    font-weight: 600;
 }
 
 .blog-section .item .post-content p {

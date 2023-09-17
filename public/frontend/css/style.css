@@ -2823,10 +2823,10 @@ td {
     content: "";
     position: absolute;
     background: #000;
-    width: 79%;
+    width: 78.84%;
     height: 2px;
     top: -25px;
-    left: 7%;
+    left: 7.2%;
     background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
 }
 
@@ -2862,8 +2862,8 @@ td {
     position: absolute;
     background: #000;
     width: 2px;
-    height: 153px;
-    bottom: 94%;
+    height: 146px;
+    bottom:102%;
     left: 50%;
     background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
 }
