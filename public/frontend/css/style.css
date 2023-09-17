@@ -2759,6 +2759,7 @@ td {
 .box h2, .box h3 {
 	color: #182456;
     transition: .8s;
+    margin: 0;
 }
 .box:hover >h3{
     color: #122F98;
