@@ -50,21 +50,6 @@ $datas = [
                                     <a href="{{ storage_url($image) }}" data-lightbox="gallery">
                                     <img src="{{ storage_url($image) }}">
                                 </div>
-
-
-                                {{-- <div class="col-6">
-                                    <a
-                                        class="demo col-12"
-                                        href="{{ storage_url($image) }}"
-                                        data-lightbox="gallery"
-                                    >
-                                        <img
-                                            class="example-image"
-                                            src="{{ storage_url($image) }}"
-                                            alt="image-1"
-                                        />
-                                    </a>
-                                </div> --}}
                             @endforeach
                         @endif
                     </div>
