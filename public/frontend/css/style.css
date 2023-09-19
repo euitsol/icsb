@@ -4305,7 +4305,13 @@ td {
 
 .world-wide-section .world-wide-column .cs-items {
 	width: 32%;
+    transition: .4s;
 }
+.world-wide-section .world-wide-column .cs-items:hover{
+    transform: scale(1.20);
+    z-index: 99;
+}
+
 
 .world-wide-section .world-wide-column .cs-items h3 {
 	color: #fff;
@@ -4317,11 +4323,10 @@ td {
 
 .world-wide-section .world-wide-column .cs-items img {
 	width: fit-content;
-	left: 50%;
 	position: relative;
 	margin-top: 28px;
 	margin-bottom: 30px;
-	transform: translateX(-50%);
+    margin: 0 auto;
 	max-width: 240px;
 	height: 130px;
 	object-fit: contain;
