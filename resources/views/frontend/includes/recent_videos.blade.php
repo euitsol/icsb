@@ -9,12 +9,6 @@
             </div>
         </div>
         <div class="recent-video-carousel ">
-            <div class="carousel-indicators">
-                @foreach ($recent_videos as $key=>$video)
-                    <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="{{$key}}" class="{{($key==0)?'active':''}}"
-                    aria-current="true" aria-label="Slide {{$key+1}}"></button>
-                @endforeach
-            </div>
             <div class="recent-video-slider row videos-row owl-carousel owl-theme">
                 @foreach ($recent_videos as $video)
                     <div class="col-sm-6 col-md-3 video-column item">
@@ -30,8 +24,6 @@
                 @endforeach
             </div>
         </div>
-
     </div>
-
 </section>
 @endif
