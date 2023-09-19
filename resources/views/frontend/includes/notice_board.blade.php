@@ -53,8 +53,10 @@
     $(document).ready(function () {
         $('.category').on('click', function () {
             let id = $(this).data('cat-id');
+            let _url = ("{{ route('home.notice', ['cat_id']) }}");
+            let __url = _url.replace('cat_id', id);
             $.ajax({
-                url: `/home/notice/${id}`,
+                url: __url,
                 method: 'GET',
                 dataType: 'json',
                 success: function (data) {
@@ -78,7 +80,7 @@
                         `;
                     });
                     // Insert the generated HTML into the '.notice-details-col' element
-                    $('.left-column').html(noticeDetailsHtml);
+                    $('.notice-details-col').html(noticeDetailsHtml);
                 },
                 error: function (xhr, status, error) {
                     console.error('Error fetching notices:', error);

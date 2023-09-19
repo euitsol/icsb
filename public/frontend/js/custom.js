@@ -21,48 +21,77 @@ $(document).ready(function () {
             }
         }
     });
-    var owl = $('.national-award-slider');
-    owl.owlCarousel({
+    
+$('.national-award-carousel .owl-carousel').owlCarousel({
+    loop: true,
+    margin: 20,
+    nav: false,
+    dots: true,
+    autoplay: false,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
+    responsive: {
+        0: {
+            items: 1,
+            slideBy: 1 // 1 item per swipe on screens below 600px width
+        },
+        600: {
+            items: 3,
+            slideBy: 3 // 3 items per swipe on screens between 600px and 1000px width
+        },
+        1000: {
+            items: 4,
+            slideBy: 4 // 4 items per swipe on screens wider than 1000px
+        }
+    }
+})
+
+    // var owl = $('.recent-video-slider');
+    // owl.owlCarousel({
+    //     loop: true,
+    //     margin: 20,
+    //     nav: true,
+    //     dots: false,
+    //     autoplay: true,
+    //     autoplayTimeout: 3000,
+    //     autoplayHoverPause: true,
+    //     responsive: {
+    //         0: {
+    //             items: 1
+    //         },
+    //         600: {
+    //             items: 2
+    //         },
+    //         800: {
+    //             items: 4
+    //         }
+    //     }
+    // });
+
+    $('.recent-video-carousel .owl-carousel').owlCarousel({
         loop: true,
         margin: 20,
-        nav: true,
-        dots: false,
-        autoplay: true,
+        nav: false,
+        dots: true,
+        autoplay: false,
         autoplayTimeout: 3000,
         autoplayHoverPause: true,
         responsive: {
             0: {
-                items: 1
+                items: 1,
+                slideBy: 1 // 1 item per swipe on screens below 600px width
             },
             600: {
-                items: 2
+                items: 3,
+                slideBy: 3 // 3 items per swipe on screens between 600px and 1000px width
             },
             800: {
-                items: 4
+                items: 4,
+                slideBy: 4 // 4 items per swipe on screens wider than 1000px
             }
         }
-    });
-    var owl = $('.recent-video-slider');
-    owl.owlCarousel({
-        loop: true,
-        margin: 20,
-        nav: true,
-        dots: false,
-        autoplay: true,
-        autoplayTimeout: 3000,
-        autoplayHoverPause: true,
-        responsive: {
-            0: {
-                items: 1
-            },
-            600: {
-                items: 2
-            },
-            800: {
-                items: 4
-            }
-        }
-    });
+    })
+
     var owl = $('.nation-slider');
     owl.owlCarousel({
         // items:6,
@@ -382,3 +411,4 @@ $(document).ready(function () {
     setInterval(updateCurrentTime, 1000);
 
 });
+

@@ -890,17 +890,17 @@ li {
 	transform: translate(-50%, -50%);
 } */
 
-.image-column img{
+/* .image-column img{
     border: 10px solid #CCC;
     padding: 5px;
     height: 500px;
     width: 100%;
-}
+} */
 .recent-post-section .image-column img{
     border: 5px solid #122F98;
     padding: 5px;
     height: 100px;
-    width: 100%;
+    width: 120px;
 }
 
 .we-are-section h2 {
@@ -1583,7 +1583,6 @@ li {
 .national-award-section .section-heading h2 {
 	color: #fff;
 }
-
 .national-award-section .award-row {
 	z-index: 999;
 	position: relative;
@@ -1597,33 +1596,20 @@ li {
 	width: 23.725%;
 }
 
-.national-award-section .national-award-carousel .national-award-slider .owl-stage {
-	display: flex;
-	align-items: center;
+.national-award-section .owl-dots{
+	margin-top: 30px !important;
 }
-
-.national-award-section .national-award-carousel .national-award-slider .item {
-	width: 335px;
-	margin-right: 20px;
+.national-award-section .owl-dots button span{
+	width: 40px !important;
+	height: 13px !important;
+	opacity: 1;
+	border: 2px solid #162B75;
+	border-radius: 0 !important;
+	background: transparent !important;
 }
-
-.national-award-section .national-award-carousel .national-award-slider {
-	display: flex;
-	align-items: center;
+.national-award-section .owl-dots .active span{
+	background-color: #162B75 !important;
 }
-
-.national-award-section .national-award-slider .owl-item img {
-	width: 100% !important;
-	margin-left: auto;
-	margin-right: auto;
-	object-fit: contain;
-
-}
-
-
-
-
-
 
 /*==================== Recent video Section ======================== */
 
@@ -1724,10 +1710,18 @@ li {
 	margin-left: auto;
 	margin-right: auto;
 	object-fit: contain;
-
 }
-
-
+.recent-video-section .owl-dots button span{
+	width: 40px !important;
+	height: 13px !important;
+	opacity: 1;
+	border: 2px solid #162B75;
+	border-radius: 0 !important;
+	background: transparent !important;
+}
+.recent-video-section .owl-dots .active span{
+	background-color: #162B75 !important;
+}
 
 
 /*==================== CS Logo Carousel ======================== */
