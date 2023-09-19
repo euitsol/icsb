@@ -40,7 +40,7 @@ $datas = [
                             <li><a href="mailto:{{$sec_and_ceo->member->email}}"><i class="fa-solid fa-envelope"></i>{{$sec_and_ceo->member->email}}</a></li>
                         @endif
                         @if(!empty($sec_and_ceo->member->address))
-                            <li><a href="#"><i class="fa-solid fa-location-dot"></i>{{$sec_and_ceo->member->address}}</a></li>
+                            <li><i class="fa-solid fa-location-dot"></i>{{$sec_and_ceo->member->address}}</li>
                         @endif
 
                     </ul>

@@ -47,8 +47,24 @@ $datas = [
                         @if(!empty($media_room->additional_images))
                             @foreach (json_decode($media_room->additional_images) as $image)
                                 <div class="gallery-items">
-                                    <a href=""><img src="{{ storage_url($image) }}"></a>
+                                    <a href="{{ storage_url($image) }}" data-lightbox="gallery">
+                                    <img src="{{ storage_url($image) }}">
                                 </div>
+
+
+                                {{-- <div class="col-6">
+                                    <a
+                                        class="demo col-12"
+                                        href="{{ storage_url($image) }}"
+                                        data-lightbox="gallery"
+                                    >
+                                        <img
+                                            class="example-image"
+                                            src="{{ storage_url($image) }}"
+                                            alt="image-1"
+                                        />
+                                    </a>
+                                </div> --}}
                             @endforeach
                         @endif
                     </div>
