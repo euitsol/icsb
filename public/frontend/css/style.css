@@ -991,12 +991,12 @@ li {
 	transform: translate(-50%, -50%);
 } */
 
-/* .image-column img{
+.image-column img{
     border: 10px solid #CCC;
     padding: 5px;
     height: 500px;
     width: 100%;
-} */
+}
 .recent-post-section .image-column img{
     border: 5px solid #122F98;
     padding: 5px;
