@@ -42,7 +42,7 @@ $datas = [
             </div>
             <div class="summary-column" id="event-summary">
                 <div class="job-summery">
-                    {!! getYoutubeVideoIframe($event->video_url) !!}
+                    <x-embed url="{{$event->video_url}}" />
                     <ul>
                         <li><span>Total Participants:</span> {{$event->total_participant}} {{_('People')}}</li>
                     </ul>

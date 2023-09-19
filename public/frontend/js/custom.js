@@ -110,7 +110,7 @@ $('.national-award-carousel .owl-carousel').owlCarousel({
                 items: 4
             },
             800: {
-                items: 7
+                items: 6
             }
         }
     });
@@ -191,23 +191,31 @@ $('.national-award-carousel .owl-carousel').owlCarousel({
 
 });
 // Sticky Nav Menu
-
 $(window).scroll(function () {
     if ($(window).scrollTop() >= 300) {
         $('.header-menu-section').addClass('fixed-header');
         $('.banner-section .video-container').css('margin-top', '105px');
         $('.header-menu-section .stiky-logo-right').css('display', 'block');
         $('.header-menu-section .stiky-logo').css('display', 'block');
-
-        // $('nav div').addClass('visible-title');
-    }
-    else {
+        $('.scroll_top').css('display', 'block');
+    } else {
         $('.header-menu-section').removeClass('fixed-header');
         $('.header-menu-section .stiky-logo-right').css('display', 'none');
         $('.header-menu-section .stiky-logo').css('display', 'none');
         $('.banner-section .video-container').css('margin-top', '0');
+        $('.scroll_top').css('display', 'none');
         // $('nav div').removeClass('visible-title');
     }
+});
+$(document).ready(function () {
+    $(".scroll_top").click(function (event) {
+        event.preventDefault(); // Prevent the default behavior of the link
+
+        // Scroll to the #main section smoothly
+        $("html, body").animate({
+            scrollTop: $(".top-header-section").offset().top
+        }, 0); // You can adjust the duration (1000ms = 1 second) as needed
+    });
 });
 
 //  Custom jQuery apply

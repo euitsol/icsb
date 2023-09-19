@@ -996,17 +996,17 @@
         left: -50%;
       }
       .level-3 .box::after {
-        width: 50%;
+        width: 53%;
         height: 2px;
         top: 50%;
-        left: -50%;
-      }
+        left: -53%;
+    }
       .level-3 .box::before{
         content: "";
         position: absolute;
         background: #000;
         width: 2px;
-        height: 100px;
+        height: 110px;
         left: -80px;
         top: -50px;
       }
@@ -1032,6 +1032,14 @@
         width: 2px;
         height: 30px;
         bottom: -31px;
+      }
+      .level-1 .box-0:after {
+        content: "";
+        position: absolute;
+        background: #000;
+        width: 2px;
+        height: 52px;
+        bottom: -52px;
       }
 }
 @media only screen and (max-width: 1024px){

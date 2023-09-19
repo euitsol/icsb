@@ -57,4 +57,14 @@ class ContactPagesController extends Controller
         $s['contact_numbers'] = collect(json_decode($contact->phone ?? ''))->groupBy('type');
         return view('frontend.contact.address',$s);
     }
+    public function socialPlatform(): View
+    {
+        $s['contact'] = Contact::where('deleted_at', null)->first();
+        return view('frontend.contact.social_platforms',$s);
+    }
+    public function locationMap(): View
+    {
+        $s['contact'] = Contact::where('deleted_at', null)->first();
+        return view('frontend.contact.map',$s);
+    }
 }

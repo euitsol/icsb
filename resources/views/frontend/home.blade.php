@@ -6,6 +6,10 @@
 </style>
 @endpush
 @section('content')
+<a href="javascript:voide(0)" class="scroll_top"><i class="fa-solid fa-circle-up fa-bounce"></i></i></a>
+<a href="" class="stiky-box">
+    <img src="{{asset('frontend/img/annual-reports/reports-2017.jpg')}}" alt="">
+</a>
 {{-- Banner Section --}}
 @include('frontend.includes.banner',['contact'=>$contact, 'banner'=>$banner])
 
@@ -35,7 +39,7 @@
             <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/Image-3.png')}}" data-bg-color="#B1B9BD"  data-associate-image="{{asset('frontend/img/we-are/Image-8.jpg')}}"/>
             <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/Image-4.png')}}" data-bg-color="#CFC6BD"  data-associate-image="{{asset('frontend/img/we-are/Image-9.jpg')}}"/>
             <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/Image50.png')}}" data-bg-color="#8A9FB0"  data-associate-image="{{asset('frontend/img/we-are/Image-6.jpg')}}"/>
-        
+
         </div>
         <div class="right-col"></div>
         <div class="container wrap">

@@ -1,6 +1,6 @@
 @extends('backend.layouts.master', ['pageSlug' => 'assined_officer'])
 
-@section('title', 'Assined Officer')
+@section('title', 'Assigned Officer')
 
 @section('content')
     <div class="row">
@@ -9,10 +9,10 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-8">
-                            <h4 class="card-title">{{ _('Assined Officer') }}</h4>
+                            <h4 class="card-title">{{ _('Assigned Officer') }}</h4>
                         </div>
                         <div class="col-4 text-right">
-                            @include('backend.partials.button', ['routeName' => 'assined_officer.assined_officer_create', 'className' => 'btn-primary', 'label' => 'Add Assined Officer'])
+                            @include('backend.partials.button', ['routeName' => 'assined_officer.assined_officer_create', 'className' => 'btn-primary', 'label' => 'Add Assigned Officer'])
                         </div>
                     </div>
                 </div>

@@ -21,14 +21,12 @@ $datas = [
 <!-- =============================== Breadcrumb Section ======================================-->
     <section class="director-metting-section">
         <div class="container">
-            <div class="director-row text-align">
-                <div>
-                    <iframe src="{{ storage_url(json_decode($view_bss->file)->file_path) }}" width="100%" height="700px"></iframe>
-                </div>
-                <div class="button">
-                    @if(!empty(json_decode($view_bss->file)))
-                        <a href="{{route('view.download',base64_encode(json_decode($view_bss->file)->file_path))}}"><i class="fa-solid fa-cloud-arrow-down"></i>Click Here To Download</a>
-                    @endif
+            <div class="row">
+                <div class="col-md-6 the_cs mb-5 mx-auto">
+                    <div class="new-handbook text-align">
+                            <iframe src="{{ route('view.pdf', base64_encode(json_decode($view_bss->file)->file_path)) }}" type="application/pdf" width="100%" height="400px"></iframe>
+                            <a class="d-block cursor-pointer" target="_blank" href="{{route('sp.file.download', base64_encode(json_decode($view_bss->file)->file_path))}}"><h3 > {{ucfirst(str_replace('-', ' ', Str::before(basename(json_decode($view_bss->file)->file_path), '.pdf')))}}{{_(' : ')}}{{$view_bss->title}}</h3></a>
+                    </div>
                 </div>
             </div>
         </div>

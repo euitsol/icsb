@@ -202,15 +202,15 @@ function settings($key){
         return $setting->value;
     }
 }
-function getYoutubeVideoIframe($url) {
-    $videoId = '';
-    parse_str(parse_url($url, PHP_URL_QUERY), $params);
-    if (isset($params['v'])) {
-        $videoId = $params['v'];
-    }
-    $iframe = '<iframe width="100%" height="280" src="https://www.youtube.com/embed/'.$videoId.'" frameborder="0" allowfullscreen></iframe>';
-    return $iframe;
-}
+// function getYoutubeVideoIframe($url) {
+//     $videoId = '';
+//     parse_str(parse_url($url, PHP_URL_QUERY), $params);
+//     if (isset($params['v'])) {
+//         $videoId = $params['v'];
+//     }
+//     $iframe = '<iframe width="100%" height="280" src="https://www.youtube.com/embed/'.$videoId.'" frameborder="0" allowfullscreen></iframe>';
+//     return $iframe;
+// }
 // function getSinglePageLebel($fieldName){
 
 //     $withSpaces = str_replace('_', ' ', $fieldName);
@@ -266,3 +266,15 @@ function file_title_from_url($url = null){
 //         return asset('storage/'.$urlOrArray);
 //     }
 // }
+function extractStringFromUrl($url) {
+    $social_medias = ['facebook','twitter','linkedin','instagram','youtube','pinterest','google','tiktok','telegram','whatsapp','reddit'];
+    foreach($social_medias as $media){
+        if (Str::contains($url, $media)) {
+            if($media == 'twitter'){
+                return "X Handle";
+            }
+            return Str::ucfirst($media);
+        }
+
+    }
+}

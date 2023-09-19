@@ -83,6 +83,13 @@
                         $pageSlug == 'wwcs' ||
                         $pageSlug == 'corporate-governance' ||
                         $pageSlug == 'cs-for-cg' ||
+                        $pageSlug == 'genesis' ||
+                        $pageSlug == 'purpose-of-the-award' ||
+                        $pageSlug == 'eligibility-for-participation' ||
+                        $pageSlug == 'sources-for-evaluation' ||
+                        $pageSlug == 'evaluation-&-assessment-basis' ||
+                        $pageSlug == 'jury-board' ||
+                        $pageSlug == 'assessment-criteria' ||
                         $pageSlug == 'csr-initiatives' ||
                         $pageSlug == 'faq'
                     )@else collapsed @endif" data-toggle="collapse" href="#about" @if (
@@ -95,6 +102,13 @@
                         $pageSlug == 'wwcs' ||
                         $pageSlug == 'corporate-governance' ||
                         $pageSlug == 'cs-for-cg' ||
+                        $pageSlug == 'genesis' ||
+                        $pageSlug == 'purpose-of-the-award' ||
+                        $pageSlug == 'eligibility-for-participation' ||
+                        $pageSlug == 'sources-for-evaluation' ||
+                        $pageSlug == 'evaluation-&-assessment-basis' ||
+                        $pageSlug == 'jury-board' ||
+                        $pageSlug == 'assessment-criteria' ||
                         $pageSlug == 'csr-initiatives' ||
                         $pageSlug == 'faq'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
@@ -113,6 +127,13 @@
                     $pageSlug == 'wwcs' ||
                     $pageSlug == 'corporate-governance' ||
                     $pageSlug == 'cs-for-cg' ||
+                    $pageSlug == 'genesis' ||
+                    $pageSlug == 'purpose-of-the-award' ||
+                    $pageSlug == 'eligibility-for-participation' ||
+                    $pageSlug == 'sources-for-evaluation' ||
+                    $pageSlug == 'evaluation-&-assessment-basis' ||
+                    $pageSlug == 'jury-board' ||
+                    $pageSlug == 'assessment-criteria' ||
                     $pageSlug == 'csr-initiatives' ||
                     $pageSlug == 'faq'
                 ) show @endif" id="about">
@@ -128,6 +149,57 @@
                                 ['pageSlug' => 'wwcs', 'routeName' => 'wwcs.wwcs_list', 'label' => 'World Wide CS'],
                                 ['pageSlug' => 'corporate-governance', 'routeName' => 'sp.show', 'params' => 'corporate-governance', 'label' => 'Corporate Governance'],
                                 ['pageSlug' => 'cs-for-cg', 'routeName' => 'sp.show', 'params' => 'cs-for-cg', 'label' => 'CS for CG'],
+                            ]
+                        ])
+                        <li>
+                            <a class="@if(
+                                    $pageSlug == 'genesis' ||
+                                    $pageSlug == 'purpose-of-the-award' ||
+                                    $pageSlug == 'eligibility-for-participation' ||
+                                    $pageSlug == 'sources-for-evaluation' ||
+                                    $pageSlug == 'evaluation-&-assessment-basis' ||
+                                    $pageSlug == 'jury-board' ||
+                                    $pageSlug == 'assessment-criteria'
+                                )@else collapsed @endif" data-toggle="collapse" href="#national_award_for_cg" @if (
+                                    $pageSlug == 'genesis' ||
+                                    $pageSlug == 'purpose-of-the-award' ||
+                                    $pageSlug == 'eligibility-for-participation' ||
+                                    $pageSlug == 'sources-for-evaluation' ||
+                                    $pageSlug == 'evaluation-&-assessment-basis' ||
+                                    $pageSlug == 'jury-board' ||
+                                    $pageSlug == 'assessment-criteria'
+                                ) aria-expanded="true" @else aria-expanded="false"@endif">
+                                <i class="fa-solid fa-minus"></i>
+                                <span class="nav-link-text" >{{ __('National Award for CG') }}</span>
+                                <b class="caret mt-1"></b>
+                            </a>
+
+                            <div class="collapse @if (
+                                    $pageSlug == 'genesis' ||
+                                    $pageSlug == 'purpose-of-the-award' ||
+                                    $pageSlug == 'eligibility-for-participation' ||
+                                    $pageSlug == 'sources-for-evaluation' ||
+                                    $pageSlug == 'evaluation-&-assessment-basis' ||
+                                    $pageSlug == 'jury-board' ||
+                                    $pageSlug == 'assessment-criteria'
+                            ) show @endif" id="national_award_for_cg">
+                            <ul class="nav pl-4">
+                                @include('backend.partials.menu_buttons', [
+                                    'menuItems' => [
+                                        ['pageSlug' => 'genesis', 'routeName' => 'sp.show', 'iconClass' => 'fa-solid fa-o','params' => 'genesis', 'label' => 'Genesis'],
+                                        ['pageSlug' => 'purpose-of-the-award', 'routeName' => 'sp.show','iconClass' => 'fa-solid fa-o', 'params' => 'purpose-of-the-award', 'label' => 'Purpose of the Award'],
+                                        ['pageSlug' => 'eligibility-for-participation', 'routeName' => 'sp.show','iconClass' => 'fa-solid fa-o', 'params' => 'eligibility-for-participation', 'label' => 'Eligibility for Participation'],
+                                        ['pageSlug' => 'sources-for-evaluation', 'routeName' => 'sp.show','iconClass' => 'fa-solid fa-o', 'params' => 'sources-for-evaluation', 'label' => 'Sources for Evaluation'],
+                                        ['pageSlug' => 'evaluation-&-assessment-basis', 'routeName' => 'sp.show','iconClass' => 'fa-solid fa-o', 'params' => 'evaluation-&-assessment-basis', 'label' => 'Evaluation & Assessment Basis'],
+                                        ['pageSlug' => 'jury-board', 'routeName' => 'sp.show','iconClass' => 'fa-solid fa-o', 'params' => 'jury-board', 'label' => 'Jury Board'],
+                                        ['pageSlug' => 'assessment-criteria', 'routeName' => 'sp.show','iconClass' => 'fa-solid fa-o', 'params' => 'assessment-criteria', 'label' => 'Assessment Criteria'],
+                                    ]
+                                ])
+                            </ul>
+
+                        </li>
+                        @include('backend.partials.menu_buttons', [
+                            'menuItems' => [
                                 ['pageSlug' => 'csr-initiatives', 'routeName' => 'sp.show', 'params' => 'csr-initiatives', 'label' => 'CSR Initiatives'],
                                 ['pageSlug' => 'faq', 'routeName' => 'about.faq.faq_list', 'label' => 'FAQ'],
                             ]
@@ -243,20 +315,24 @@
                 <a class="@if(
                         $pageSlug == 'admission-form' ||
                         $pageSlug == 'entry-criteria' ||
+                        $pageSlug == 'fees-&-costs' ||
                         $pageSlug == 'examination-policy' ||
                         $pageSlug == 'cs-hand-book' ||
                         $pageSlug == 'student-portal' ||
                         $pageSlug == 'financial-assistance' ||
+                        $pageSlug == 'icsb-faculty' ||
                         $pageSlug == 'icsb-library' ||
                         $pageSlug == 'student_notice' ||
                         $pageSlug == 'faculty-evaluation-system'
                     )@else collapsed @endif" data-toggle="collapse" href="#student" @if (
                         $pageSlug == 'admission-form' ||
                         $pageSlug == 'entry-criteria' ||
+                        $pageSlug == 'fees-&-costs' ||
                         $pageSlug == 'examination-policy' ||
                         $pageSlug == 'cs-hand-book' ||
                         $pageSlug == 'student-portal' ||
                         $pageSlug == 'financial-assistance' ||
+                        $pageSlug == 'icsb-faculty' ||
                         $pageSlug == 'icsb-library' ||
                         $pageSlug == 'student_notice' ||
                         $pageSlug == 'faculty-evaluation-system'
@@ -269,10 +345,12 @@
                 <div class="collapse @if (
                         $pageSlug == 'admission-form' ||
                         $pageSlug == 'entry-criteria' ||
+                        $pageSlug == 'fees-&-costs' ||
                         $pageSlug == 'examination-policy' ||
                         $pageSlug == 'cs-hand-book' ||
                         $pageSlug == 'student-portal' ||
                         $pageSlug == 'financial-assistance' ||
+                        $pageSlug == 'icsb-faculty' ||
                         $pageSlug == 'icsb-library' ||
                         $pageSlug == 'student_notice' ||
                         $pageSlug == 'faculty-evaluation-system'
@@ -281,29 +359,33 @@
                         <li>
                             <a class="@if(
                                     $pageSlug == 'entry-criteria' ||
+                                    $pageSlug == 'fees-&-costs' ||
                                     $pageSlug == 'examination-policy' ||
                                     $pageSlug == 'admission-form'
                                 )@else collapsed @endif" data-toggle="collapse" href="#admission" @if (
                                     $pageSlug == 'entry-criteria' ||
+                                    $pageSlug == 'fees-&-costs' ||
                                     $pageSlug == 'examination-policy' ||
                                     $pageSlug == 'admission-form'
                                 ) aria-expanded="true" @else aria-expanded="false"@endif">
-                                <i class="fa-solid fa-ticket"></i>
+                                <i class="fa-solid fa-minus"></i>
                                 <span class="nav-link-text" >{{ __('Admission') }}</span>
                                 <b class="caret mt-1"></b>
                             </a>
 
                             <div class="collapse @if (
                                     $pageSlug == 'entry-criteria' ||
+                                    $pageSlug == 'fees-&-costs' ||
                                     $pageSlug == 'examination-policy' ||
                                     $pageSlug == 'admission-form'
                             ) show @endif" id="admission">
                             <ul class="nav pl-4">
                                 @include('backend.partials.menu_buttons', [
                                     'menuItems' => [
-                                        ['pageSlug' => 'entry-criteria', 'routeName' => 'sp.show', 'params' => 'entry-criteria', 'label' => 'Entry Criteria'],
-                                        ['pageSlug' => 'examination-policy', 'routeName' => 'sp.show', 'params' => 'examination-policy', 'label' => 'Examination Policy'],
-                                        ['pageSlug' => 'admission-form', 'routeName' => 'sp.show', 'params' => 'admission-form', 'label' => 'Admission Form'],
+                                        ['pageSlug' => 'entry-criteria', 'routeName' => 'sp.show', 'iconClass' => 'fa-solid fa-o','params' => 'entry-criteria', 'label' => 'Entry Criteria'],
+                                        ['pageSlug' => 'fees-&-costs', 'routeName' => 'sp.show', 'iconClass' => 'fa-solid fa-o','params' => 'fees-&-costs', 'label' => 'Fees & Costs'],
+                                        ['pageSlug' => 'examination-policy', 'routeName' => 'sp.show','iconClass' => 'fa-solid fa-o', 'params' => 'examination-policy', 'label' => 'Examination Policy'],
+                                        ['pageSlug' => 'admission-form', 'routeName' => 'sp.show','iconClass' => 'fa-solid fa-o', 'params' => 'admission-form', 'label' => 'Admission Form'],
                                     ]
                                 ])
                             </ul>
@@ -314,6 +396,7 @@
                                 ['pageSlug' => 'cs-hand-book', 'routeName' => 'sp.show', 'params' => 'cs-hand-book', 'label' => 'CS Hand Book'],
                                 ['pageSlug' => 'student-portal', 'routeName' => 'sp.show', 'params' => 'student-portal', 'label' => 'Student Portal'],
                                 ['pageSlug' => 'financial-assistance', 'routeName' => 'sp.show', 'params' => 'financial-assistance', 'label' => 'Financial Assistance'],
+                                ['pageSlug' => 'icsb-faculty', 'routeName' => 'sp.show', 'params' => 'icsb-faculty', 'label' => 'ICSB Faculty'],
                                 ['pageSlug' => 'icsb-library', 'routeName' => 'sp.show', 'params' => 'icsb-library', 'label' => 'ICSB Library'],
                                 ['pageSlug' => 'student_notice', 'routeName' => 'notice_board.student_notice_list', 'label' => 'Student Notice'],
                                 ['pageSlug' => 'faculty-evaluation-system', 'routeName' => 'sp.show', 'params' => 'faculty-evaluation-system', 'label' => 'Faculty Evaluation System'],
@@ -444,13 +527,17 @@
                 <a class="@if(
                         $pageSlug == 'eligibility' ||
                         $pageSlug == 'exam-schedule' ||
-                        $pageSlug == 'results' ||
+                        $pageSlug == 'foundation-complete' ||
+                        $pageSlug == 'subject-complete' ||
+                        $pageSlug == 'final-complete'||
                         $pageSlug == 'sample_question_paper' ||
                         $pageSlug == 'exam_faq'
                     )@else collapsed @endif" data-toggle="collapse" href="#examination" @if (
                         $pageSlug == 'eligibility' ||
                         $pageSlug == 'exam-schedule' ||
-                        $pageSlug == 'results' ||
+                        $pageSlug == 'foundation-complete' ||
+                        $pageSlug == 'subject-complete' ||
+                        $pageSlug == 'final-complete' ||
                         $pageSlug == 'sample_question_paper' ||
                         $pageSlug == 'exam_faq'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
@@ -462,13 +549,46 @@
                 <div class="collapse @if (
                         $pageSlug == 'eligibility' ||
                         $pageSlug == 'exam-schedule' ||
-                        $pageSlug == 'results' ||
+                        $pageSlug == 'foundation-complete' ||
+                        $pageSlug == 'subject-complete' ||
+                        $pageSlug == 'final-complete' ||
                         $pageSlug == 'sample_question_paper' ||
                         $pageSlug == 'exam_faq'
 
 
                 ) show @endif" id="examination">
                     <ul class="nav pl-4">
+                        <li>
+                            <a class="@if(
+                                    $pageSlug == 'foundation-complete' ||
+                                    $pageSlug == 'subject-complete' ||
+                                    $pageSlug == 'final-complete'
+                                )@else collapsed @endif" data-toggle="collapse" href="#result" @if (
+                                    $pageSlug == 'foundation-complete' ||
+                                    $pageSlug == 'subject-complete' ||
+                                    $pageSlug == 'final-complete'
+                                ) aria-expanded="true" @else aria-expanded="false"@endif">
+                                <i class="fa-solid fa-minus"></i>
+                                <span class="nav-link-text" >{{ __('Result') }}</span>
+                                <b class="caret mt-1"></b>
+                            </a>
+
+                            <div class="collapse @if (
+                                    $pageSlug == 'foundation-complete' ||
+                                    $pageSlug == 'subject-complete' ||
+                                    $pageSlug == 'final-complete'
+                            ) show @endif" id="result">
+                            <ul class="nav pl-4">
+                                @include('backend.partials.menu_buttons', [
+                                    'menuItems' => [
+                                        ['pageSlug' => 'foundation-complete', 'routeName' => 'sp.show','iconClass' => 'fa-solid fa-o', 'params' => 'foundation-complete', 'label' => 'Foundation Complete'],
+                                        ['pageSlug' => 'subject-complete', 'routeName' => 'sp.show','iconClass' => 'fa-solid fa-o', 'params' => 'subject-complete', 'label' => 'Subject Complete'],
+                                        ['pageSlug' => 'final-complete', 'routeName' => 'sp.show','iconClass' => 'fa-solid fa-o', 'params' => 'final-complete', 'label' => 'Final Complete'],
+                                    ]
+                                ])
+                            </ul>
+
+                        </li>
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
                                 ['pageSlug' => 'eligibility', 'routeName' => 'sp.show', 'params' => 'eligibility', 'label' => 'Eligibility'],

@@ -7,7 +7,7 @@
     <!-- =============================== Breadcrumb Section ======================================-->
     @php
         $banner_image = asset('breadcumb_img/examination.jpg');
-        $title = stringLimit($sqp->title,24,'...');
+        $title = stringLimit($sqp->title,23,'...');
         $datas = [
                     'image'=>$banner_image,
                     'title'=>$title,

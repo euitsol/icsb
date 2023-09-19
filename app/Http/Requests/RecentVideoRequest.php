@@ -3,13 +3,25 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use BenSampo\Embed\Rules\EmbeddableUrl;
+use BenSampo\Embed\Services\YouTube;
+use BenSampo\Embed\Services\Vimeo;
+
+
 
 class RecentVideoRequest extends FormRequest
 {
     public function rules(): array
     {
         return [
-            'url' => 'required|url',
+            'url' => [
+                'required',
+                'url',
+                (new EmbeddableUrl)->allowedServices([
+                    YouTube::class,
+                    Vimeo::class
+                ])
+            ],
             'status' => 'nullable|boolean',
 
         ]

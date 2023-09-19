@@ -3,28 +3,37 @@
         <div class="container">
             <div class="footer-row flex">
                 <div class="footer-column first-column">
-                    <h2>{{ settings('site_name') }}
+                    <h2 class="text-center">{{ settings('site_name') }}
                     </h2>
                     <ul>
                         @if (!empty($contact->location))
                             @foreach (json_decode($contact->location) as $location)
-                                <li><a href="#"><i class="fa-solid fa-location-dot"></i>{{ $location }}</a></li>
+                                <li><a href="{{ $location->url }}"><i class="fa-solid fa-location-dot"></i>{{ $location->title }}</a></li>
                             @endforeach
                         @endif
 
-                        <div class="d-flex justify-content-evenly">
+                        <div class="d-grid" style="grid-template-columns: auto auto auto;">
                             @if (!empty($contact->phone))
                             @foreach (json_decode($contact->phone) as $phone)
-                                @if ($phone->type == 'Phone')
-                                    <li><a href="tel:88{{ $phone->number }}"><i class="fa-solid fa-phone"></i>
-                                            +88{{ $phone->number }}</a></li>
-                                @endif
+                                    <li>
+                                        @if ($phone->type == 'Phone')
+                                            <i class="fa-solid fa-phone"></i>
+                                        @elseif ($phone->type == 'Telephone')
+                                            <i class="fa-solid fa-tty"></i>
+                                        @elseif ($phone->type == 'WhatsApp')
+                                            <i class="fa-brands fa-whatsapp"></i>
+                                        @elseif ($phone->type == 'Fax')
+                                            <i class="fa-solid fa-fax"></i>
+                                        @endif
+                                        +88{{ $phone->number }}
+                                    </li>
+
                             @endforeach
                             @endif
                             @if (!empty($contact->email))
                                 @foreach (json_decode($contact->email) as $email)
-                                    <li><a href="mailto:{{ $email }}"><i class="fa-solid fa-envelope"></i>
-                                            {{ strtoupper($email) }}</a></li>
+                                    <li><i class="fa-solid fa-envelope"></i>
+                                            {{ strtoupper($email) }}</li>
                                 @endforeach
                             @endif
                         </div>

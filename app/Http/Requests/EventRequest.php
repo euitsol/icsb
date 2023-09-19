@@ -3,6 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use BenSampo\Embed\Rules\EmbeddableUrl;
+use BenSampo\Embed\Services\YouTube;
+use BenSampo\Embed\Services\Vimeo;
 
 class EventRequest extends FormRequest
 {
@@ -21,8 +24,15 @@ class EventRequest extends FormRequest
             'event_end_time' => 'required',
             'total_participant' => 'required|numeric',
             'event_location' => 'required',
-            'video_url' => 'nullable|url',
             'status' => 'nullable|boolean',
+            'video_url' => [
+                'required',
+                'url',
+                (new EmbeddableUrl)->allowedServices([
+                    YouTube::class,
+                    Vimeo::class
+                ])
+            ],
 
         ]
         +

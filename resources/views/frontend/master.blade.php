@@ -42,11 +42,12 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/css/style.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/css/custom.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/css/responsive.css')}}">
-
+    <x-embed-styles />
     @stack('css')
 </head>
 
 <body>
+    
     @include('frontend.includes.header.header')
 
     <div class="main">

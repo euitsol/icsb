@@ -101,6 +101,17 @@
                             <li><a href="{{ route('about.wwcs') }}">World Wide CS</a></li>
                             <li><a href="{{ route('sp.frontend','corporate-governance') }}">Corporate Governance</a></li>
                             <li><a href="{{ route('sp.frontend','cs-for-cg') }}">CS for CG</a></li>
+                            <li class="drop-down"><a href="javascript:void(0)">National Award for CG<i class="fa-solid fa-angle-down"></i></a>
+                                <ul class="sub-menu">
+                                    <li><a href="{{route('sp.frontend','genesis')}}">Genesis</a></li>
+                                    <li><a href="{{route('sp.frontend','purpose-of-the-award')}}">Purpose of the Award</a></li>
+                                    <li><a href="{{route('sp.frontend','eligibility-for-participation')}}">Eligibility for Participation</a></li>
+                                    <li><a href="{{route('sp.frontend','sources-for-evaluation')}}">Sources for Evaluation</a></li>
+                                    <li><a href="{{route('sp.frontend','evaluation-&-assessment-basis')}}">Evaluation & Assessment Basis</a></li>
+                                    <li><a href="{{route('sp.frontend','jury-board')}}">Jury Board</a></li>
+                                    <li><a href="{{route('sp.frontend','assessment-criteria')}}">Assessment Criteria</a></li>
+                                </ul>
+                            </li>
                             <li><a href="{{ route('sp.frontend','csr-initiatives') }}">CSR Initiatives</a></li>
                             <li><a href="{{ route('about.faq') }}">FAQs</a></li>
                         </ul>
@@ -161,6 +172,7 @@
                             <li class="drop-down"><a href="#">Admission <i class="fa-solid fa-angle-down"></i></a>
                                 <ul class="sub-menu">
                                     <li><a href="{{ route('sp.frontend','entry-criteria') }}">Entry Criteria </a></li>
+                                    <li><a href="{{ route('sp.frontend','fees-&-costs') }}">Fees & Costs</a></li>
                                     <li><a href="{{ route('sp.frontend','examination-policy') }}">Exemption Policy </a></li>
                                     <li><a href="{{ route('sp.frontend','admission-form') }}">Admission Forms </a></li>
                                     @if(isset($studentPortal->saved_data) && !empty(json_decode($studentPortal->saved_data)->{'portal-url'}))
@@ -173,6 +185,7 @@
                                 <li><a target="_blank" href="{{ json_decode($studentPortal->saved_data)->{'portal-url'} }}">Students Portal</a></li>
                             @endif
                             <li><a href="{{ route('sp.frontend','financial-assistance') }}">Financial Assistance</a></li>
+                            <li><a href="{{ route('sp.frontend','icsb-faculty') }}">ICSB Faculty</a></li>
                             <li><a href="{{ route('sp.frontend','icsb-library') }}">ICSB Library</a></li>
                             <li><a href="{{route('notice_view.notice','student-notice')}}">Student Notice Board</a></li>
                             @if(isset($facultyEvaluationSystem->saved_data) && !empty(json_decode($facultyEvaluationSystem->saved_data)->{'url'}))
@@ -227,11 +240,9 @@
                             <li><a href="{{ route('sp.frontend','exam-schedule') }}">Exam Schedule</a></li>
                             <li class="drop-down"><a href="#">Results <i class="fa-solid fa-angle-down"></i></a>
                                 <ul class="sub-menu">
-                                    <li><a href="#">Foundation Level </a></li>
-                                    <li><a href="#">Certificate Level </a></li>
-                                    <li><a href="#">Professional Level <br>(New Syllabus)</a></li>
-                                    <li><a href="#">Executive Level <br>(Old Syllabus) </a></li>
-                                    <li><a href="#">Professional Level <br>(Old Syllabus) </a></li>
+                                    <li><a href="{{ route('sp.frontend','foundation-complete') }}">Foundation Complete</a></li>
+                                    <li><a href="{{ route('sp.frontend','subject-complete') }}">Subject Complete</a></li>
+                                    <li><a href="{{ route('sp.frontend','final-complete') }}">Final Complete</a></li>
                                 </ul>
                             </li>
                             <li><a href="{{route('examination.sqp')}}">Sample Question Papers</a></li>
@@ -253,7 +264,8 @@
                         <ul class="">
                             <li><a href="{{route('contact_us.feedback')}}">Feedback</a></li>
                             <li><a href="{{route('contact_us.address')}}">Address</a></li>
-                            <li><a href="#">Location Map</a></li>
+                            <li><a href="{{route('contact_us.location_map')}}">Location Map</a></li>
+                            <li><a href="{{route('contact_us.social_platforms')}}">Social Platforms</a></li>
                         </ul>
                     </li>
                 </ul>

@@ -1,13 +1,13 @@
 @extends('backend.layouts.master', ['pageSlug' => 'assined_officer'])
 
-@section('title', 'Assined Officer')
+@section('title', 'Assigned Officer')
 
 @section('content')
     <div class="row">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="title">{{ _('Add Assined Officer') }}</h5>
+                    <h5 class="title">{{ _('Add Assigned Officer') }}</h5>
                 </div>
                 <form method="POST" action="{{ route('assined_officer.assined_officer_create') }}" autocomplete="off" enctype="multipart/form-data">
                     @csrf
@@ -72,7 +72,7 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{ _('Assined Officer') }}
+                        {{ _('Assigned Officer') }}
                     </p>
                     <div class="card-description">
                         {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}

@@ -6,9 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\Act;
 use App\Models\CommitteeType;
 use App\Models\Contact;
+use App\Models\Convocation;
 use App\Models\Council;
+use App\Models\MediaRoom;
 use App\Models\MediaRoomCategory;
 use App\Models\MemberType;
+use App\Models\NationalAward;
 use App\Models\Notice;
 use App\Models\NoticeCategory;
 use App\Models\SecretarialStandard;
@@ -16,6 +19,7 @@ use App\Models\SinglePages;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Schema;
 
 class AjaxController extends Controller
 {
@@ -68,5 +72,48 @@ class AjaxController extends Controller
         }
 
         return response()->json(['notices'=>$notices, 'notice_cat'=>$notice_cat]);
+    }
+    public function awards($offset): JsonResponse
+    {
+            $awards = NationalAward::where('deleted_at',null)->where('status',1)->latest()->offset($offset)->limit(12)->get();
+            return response()->json(['awards'=>$awards]);
+    }
+    public function convocations($offset): JsonResponse
+    {
+            $convocations = Convocation::where('deleted_at',null)->where('status',1)->latest()->offset($offset)->limit(12)->get();
+            return response()->json(['convocations'=>$convocations]);
+    }
+    public function mediaRooms($id,$offset): JsonResponse
+    {
+
+        $media_rooms = '';
+        if($id != 'all'){
+            $query = MediaRoom::where('category_id',$id)->where('deleted_at', null)->where('permission','1')->orderBy('program_date','DESC');
+            $media_rooms = $query->offset($offset)->limit(12)->get()
+            ->map(function ($media_room) {
+                $media_room->date = date('d M Y', strtotime($media_room->program_date));
+                $media_room->title = stringLimit($media_room->title);
+                $media_room->description = stringLimit(html_entity_decode_table($media_room->description));
+                return $media_room;
+            });
+        }else{
+            $query = MediaRoom::where('deleted_at', null)->where('permission','1')->orderBy('program_date','DESC');
+            $media_rooms = $query->offset($offset)->limit(12)->get()
+            ->map(function ($media_room) {
+                $media_room->date = date('d M Y', strtotime($media_room->program_date));
+                $media_room->title = stringLimit($media_room->title);
+                $media_room->description = stringLimit(html_entity_decode_table($media_room->description));
+                return $media_room;
+            });
+        }
+        return response()->json(['media_rooms'=>$media_rooms]);
+    }
+    public function singlePageSeeMore($slug): JsonResponse
+    {
+        $results = SinglePages::where('frontend_slug', $slug)->first();
+        if(isset(json_decode($results->saved_data)->{'upload-files'})){
+            $files = array_reverse((array)json_decode($results->saved_data)->{'upload-files'});
+            return response()->json(['files'=>$files]);
+        }
     }
 }

@@ -158,46 +158,49 @@ class SinglePagesController extends Controller
                         }
                     }
 				}elseif ($fd->type == 'file_multiple') {
+                    $paths = [];
 
-                    $paths=[];
-                    if(isset($request->$input_name) && !empty($request->$input_name)){
-
-                        if(isset($saved_data->$input_name) && !empty($saved_data->$input_name)){
-
-
-                            foreach($saved_data->$input_name as $url){
-                                if(Storage::exists('public/' . $url)){
-                                    Storage::delete('public/' . $url);
-                                }
+                    if (isset($request->$input_name) && !empty($request->$input_name)) {
+                        if (isset($saved_data->$input_name) && !empty($saved_data->$input_name)) {
+                            if (is_array($saved_data->$input_name)) {
+                                $paths = $saved_data->$input_name;
+                            } elseif (is_object($saved_data->$input_name)) {
+                                $paths = (array)$saved_data->$input_name;
                             }
                         }
 
-                        foreach($request->$input_name as $key=>$input_data){
+                        foreach ($request->$input_name as $key => $input_data) {
                             $file_path = $input_data['url'];
                             $directoryPath = 'public/single-page/multiple-uploads';
+
                             if (!Storage::exists($directoryPath)) {
-                                Storage::makeDirectory($directoryPath, 0755, true);
+                                $path = Storage::makeDirectory($directoryPath, 0755, true);
+                                array_push($paths, $path);
                             }
 
                             $file_extension = pathinfo($file_path, PATHINFO_EXTENSION);
                             $new_filename = Str::slug($input_data['title'] ?? 'multiple-file') . '.' . $file_extension;
 
-
                             $sourceFilePath = $file_path;
                             $destinationFilePath = $directoryPath . '/' . $new_filename;
                             $databasePath = 'single-page/multiple-uploads/' . $new_filename;
+
                             $moveSuccessful = Storage::move($sourceFilePath, $destinationFilePath);
-                            array_push($paths, $databasePath);
+                            if ($moveSuccessful) {
+                                array_push($paths, $databasePath);
+                            }
                         }
-                        $data[$fd->field_key]=$paths;
-                    }else{
-                        if(isset($saved_data->$input_name)){
-                            $data[$fd->field_key]=$saved_data->$input_name;
+                        $data[$fd->field_key] = $paths;
+                    } else {
+                        if (isset($saved_data->$input_name) && !empty($saved_data->$input_name)) {
+                            if (is_array($saved_data->$input_name)) {
+                                $data[$fd->field_key] = $saved_data->$input_name;
+                            } elseif (is_object($saved_data->$input_name)) {
+                                $data[$fd->field_key] = (array)$saved_data->$input_name;
+                            }
                         }
                     }
-
-
-				}elseif ($fd->type == 'email'){
+                }elseif ($fd->type == 'email'){
 					array_push($rules[$fd->field_key], 'email');
 
 					$data[$fd->field_key]=$request->$input_name;

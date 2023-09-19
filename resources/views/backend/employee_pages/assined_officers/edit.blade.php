@@ -1,13 +1,13 @@
 @extends('backend.layouts.master', ['pageSlug' => 'assined_officer'])
 
-@section('title', 'Edit Assined Officer')
+@section('title', 'Edit Assigned Officer')
 
 @section('content')
     <div class="row">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="title">{{ _('Edit Assined Officer') }}</h5>
+                    <h5 class="title">{{ _('Edit Assigned Officer') }}</h5>
                 </div>
                 <form method="POST" action="{{ route('assined_officer.assined_officer_edit', $asf->id) }}" autocomplete="off" enctype="multipart/form-data">
                     @method('PUT')
@@ -70,7 +70,7 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{ _('Assined Officer') }}
+                        {{ _('Assigned Officer') }}
                     </p>
                     <div class="card-description">
                         {{ _('The faq\'s manages user permissions by assigning different faqs to users. Each faq defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}

@@ -21,22 +21,62 @@
     <!-- =============================== Breadcrumb Section ======================================-->
     <section class="library-section big-sec-min-height">
         <div class="container">
-            <div class="row">
+            <div class="row convocations">
                 @foreach ($convocations as $convocation)
-                    <div class="col-md-3 mb-4">
-                        <div class="item">
-                            <a class="demo col-12"
-                                href="{{ $convocation->file ? route('sp.file.download', base64_encode($convocation->file)) : storage_url($convocation->image) }}"
-                                @if (empty($convocation->file)) data-lightbox="gallery" @else target="_blank" @endif>
-                                <img class="example-image" src="{{ storage_url($convocation->image) }}" alt="{{ $convocation->title }}" />
-                            </a>
-                        </div>
+                    <div class="col-md-3 the_cs mb-5">
                         <div class="new-handbook text-align">
-                            <h3 ><a  class="text-white" href="{{ $convocation->file ? route('sp.file.download', base64_encode($convocation->file)) : 'javascript:void(0)' }}">{{$convocation->title}}</a></h3>
+                                <iframe src="{{ route('view.pdf', base64_encode($convocation->file)) }}" type="application/pdf" width="100%" height="200px"></iframe>
+                                <a class="d-block cursor-pointer" target="_blank" href="{{route('sp.file.download', base64_encode($convocation->file))}}"><h3> {{$convocation->title}}</h3></a>
                         </div>
                     </div>
                 @endforeach
             </div>
+            @if(count($count)>12)
+                <div class="see-button text-align">
+                    <a href="javascript:void(0)" class="more" data-offset="12">{{_('See More')}}</a>
+                </div>
+            @endif
+
         </div>
     </section>
 @endsection
+@push('js')
+<script>
+    $(document).ready(function () {
+    $('.more').on('click', function () {
+        var limit = 12;
+        var offset = $(this).attr('data-offset');
+        let _url = ("{{ route('convocations', ['offset']) }}");
+        let __url = _url.replace('offset', offset);
+        $.ajax({
+            url: __url,
+            method: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                $('.more').attr('data-offset', parseInt(offset)+limit);
+                data.convocations.forEach(function (convocation) {
+                    var routeViewPdf = '{{ route("view.pdf", ":file") }}'.replace(':file', btoa(convocation.file));
+                    var routeFileDownload = '{{ route("sp.file.download", ":file") }}'.replace(':file', btoa(convocation.file));
+
+                    var result= `
+                        <div class="col-md-3 the_cs mb-5">
+                            <div class="new-handbook text-align">
+                                <iframe src="${routeViewPdf}" type="application/pdf" width="100%" height="200px"></iframe>
+                                <a class="d-block cursor-pointer" target="_blank" href="${routeFileDownload}"><h3>${convocation.title}</h3></a>
+                            </div>
+                        </div>
+                    `;
+                    $('.convocations').append(result);
+                });
+                if(data.convocations.length<limit){
+                    $('.more').parent().hide();
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error('Error fetching convocations:', error);
+            }
+            });
+        });
+    });
+</script>
+@endpush

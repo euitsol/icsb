@@ -1,12 +1,12 @@
 @extends('frontend.master')
 
-@section('title', 'Assined Officers')
+@section('title', 'Assigned Officers')
 
 @section('content')
 <!-- =============================== Breadcrumb Section ======================================-->
 @php
 $banner_image = asset('breadcumb_img/employees.jpg');
-$title = 'Assined Officers';
+$title = 'Assigned Officers';
 $datas = [
             'image'=>$banner_image,
             'title'=>$title,
@@ -31,7 +31,7 @@ $datas = [
             </tr>
             @forelse ($assined_officers as $key=>$officer)
                 <tr>
-                    <td>{{$key+1}}</td>
+                    <td>{{$officer->order_key}}</td>
                     <td>
                         <img src="{{ ($officer->image) ? (storage_url($officer->image)): (asset("no_img/no_img.jpg")) }}" alt="{{$officer->name}}">
                     </td>

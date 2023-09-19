@@ -175,6 +175,8 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::post('create/social', [ContactController::class, 'createSocial'])->name('social.contact_create');
         Route::post('create/phone', [ContactController::class, 'createPhone'])->name('phone.contact_create');
         Route::post('create/email', [ContactController::class, 'createEmail'])->name('email.contact_create');
+        Route::get('contact/file/delete/{id}',      [ContactController::class, 'singleFileDelete'])->name('file.delete.contact_create');
+
     });
     // National Connection Routes
     Route::group(['as' => 'national_connection.', 'prefix' => 'national_connection'], function () {
@@ -491,6 +493,11 @@ Route::get('front/download/{filename}', [ViewDefaultController::class, 'view_dow
 
 // Ajax
 Route::get('home/notice/{cat_id}', [FrontendAjaxController::class, 'noticeHome'])->name('home.notice');
+Route::get('national-award/data/{offset}', [FrontendAjaxController::class, 'awards'])->name('awards');
+Route::get('convocations/data/{offset}', [FrontendAjaxController::class, 'convocations'])->name('convocations');
+// Route::get('see-more/all/{model}/{slug?}', [FrontendAjaxController::class, 'seeMore'])->name('see_more');
+Route::get('single_page/see_more/{slug}', [FrontendAjaxController::class, 'singlePageSeeMore'])->name('single_page.see_more');
+Route::get('media-data/{id}/{offset}', [FrontendAjaxController::class, 'mediaRooms'])->name('media_rooms');
 
 // Single Pages Route
 Route::get('/page/{frontend_slug}', [FrontendSinglePagesController::class, 'frontend'])->name('sp.frontend');
@@ -537,7 +544,7 @@ Route::group(['as' => 'media_room_view.', 'prefix' => 'media-room'], function ()
 });
 Route::group(['as' => 'rules_view.', 'prefix' => 'rules'], function () {
     Route::get('/secretarial-standards/{slug}', [RulesPagesController::class, 'bss_view'])->name('bss.view');
-    Route::get('/{slug}', [RulesPagesController::class, 'view_act'])->name('act.view');
+    Route::get('act/{slug}', [RulesPagesController::class, 'view_act'])->name('act.view');
 });
 
 // Route::group(['as' => 'students.', 'prefix' => 'students'], function () {
@@ -565,6 +572,8 @@ Route::group(['as' => 'notice_view.', 'prefix' => 'notices'], function () {
 Route::group(['as' => 'contact_us.', 'prefix' => 'contact-us'], function () {
     Route::get('/feedback', [ContactPagesController::class, 'feedback'])->name('feedback');
     Route::get('/address', [ContactPagesController::class, 'address'])->name('address');
+    Route::get('/social-platforms', [ContactPagesController::class, 'socialPlatform'])->name('social_platforms');
+    Route::get('/lcoation-map', [ContactPagesController::class, 'locationMap'])->name('location_map');
 });
 // Route::group(['as' => 'article.', 'prefix' => 'article'], function () {
 //     Route::get('/single', [ArticlesController::class, 'single'])->name('single');
