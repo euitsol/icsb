@@ -4549,8 +4549,29 @@ td {
     width: 1000px !important;
     height: 70vh !important;
 }
-
-
+#lightbox .lb-outerContainer .lb-prev{
+      position: relative;
+}
+#lightbox .lb-outerContainer .lb-prev::before{
+    content: "\f053";
+    font-family: "FontAwesome";
+    position: absolute;
+    color: #00ff0f;
+    top:50%;
+    left: 10%;
+    transform: translateY(-50%);
+    font-size: 50px;
+}
+#lightbox .lb-outerContainer .lb-next::before{
+    content: "\f054";
+    font-family: "FontAwesome";
+    position: absolute;
+    color: #00ff0f;
+    top:50%;
+    left: 93%;
+    transform: translateY(-50%);
+    font-size: 50px;
+}
 /* #lightbox .lb-outerContainer img {
 	width: 600px !important;
 	height: auto !important;
