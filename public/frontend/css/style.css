@@ -1444,6 +1444,129 @@ li {
 	background: #fff;
 }
 
+/* ======================== Testimonial Section ========================*/
+.testimonial-section .item{
+    padding: 12px 30px;
+    height: 426px;
+}
+.testimonial-section .testimonial{
+    border: 5px solid gray;
+    border-radius: 10px;
+    padding: 40px 30px;
+    text-align: center;
+    position: relative;
+    height: 100%;
+}
+.testimonial-section .testimonial::after {
+    font-size: 40px;
+    content: "\f10d";
+    font-family: "FontAwesome";
+    display: block;
+    position: absolute;
+    color: #122F98;
+    top: -40px;
+    left: -40px;
+    height: 90px;
+    width: 90px;
+    background: #fff;
+    line-height: 90px;
+    border-radius: 50%;
+}
+.testimonial-section .testimonial::before {
+    font-size: 40px;
+    content: "\f10e";
+    font-family: "FontAwesome";
+    display: block;
+    position: absolute;
+    color: #122F98;
+    bottom: -40px;
+    right: -40px;
+    height: 90px;
+    width: 90px;
+    background: #fff;
+    line-height: 90px;
+    border-radius: 50%;
+}
+.testimonial-section .testimonial .content p {
+    font-family: 'Dancing Script', cursive;
+    font-size: 40px;
+    line-height: 40px;
+    font-weight: 600;
+}
+.testimonial-section .testimonial .details{
+    gap: 16px;
+}
+.testimonial-section .testimonial .details .author-image img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+.testimonial-section .testimonial .details .author .author-name {
+    margin: 0;
+    font-family: 'Dancing Script', cursive;
+    font-size: 17px;
+    line-height: 22px;
+    font-weight: 700;
+}
+.testimonial-section .testimonial .details .author .author-designation {
+    margin: 0;
+    font-family: 'Dancing Script', cursive;
+    font-size: 12px;
+    line-height: 22px;
+    font-weight: 700;
+}
+
+.testimonial-section .owl-carousel .owl-nav {
+	margin-top: -48px;
+}
+
+.testimonial-section .owl-carousel .owl-nav.disabled {
+	display: block;
+	margin-top: -48px;
+}
+
+.testimonial-section .owl-carousel .owl-nav button {
+	color: #111111;
+	font-size: 48px;
+	font-weight: 40;
+	line-height: 0;
+	background: #F2F2F2;
+	width: 48px;
+	height: 48px;
+	margin: 0;
+	border-radius: 0;
+	transition: 0.4s;
+}
+
+.testimonial-section .owl-carousel .owl-nav button:hover {
+	background: #182456;
+}
+
+.testimonial-section .owl-carousel .owl-nav button span {
+	top: -7px;
+	display: flex;
+	justify-content: center;
+	position: relative;
+}
+
+.testimonial-section .owl-carousel .owl-nav .owl-prev {
+	left: -114px;
+	position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.testimonial-section .owl-carousel .owl-nav .owl-next {
+	right: -114px;
+	position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.testimonial-section .owl-dot {
+	display: none;
+}
+/* ======================== Endorsement Section ========================*/
 .endorsement-section {
 	background-size: cover;
 	background-position: center;
@@ -4735,153 +4858,4 @@ td {
 
 .copyright-section p a:hover {
 	color: #FF8601;
-}
-
-/* ======================== Testimonial Section ========================*/
-.testimonial-section .item{
-    padding: 12px 30px;
-}
-.testimonial-section .testimonial{
-    border: 5px solid gray;
-    border-radius: 10px;
-    padding: 40px 30px;
-    text-align: center;
-    position: relative;
-}
-/* .testimonial-section .owl-carousel .owl-nav {
-    display: block;
-}
-.testimonial-section .owl-carousel .owl-nav button {
-    color: #111111;
-    font-size: 48px;
-    font-weight: 40;
-    line-height: 0;
-    background: #F2F2F2;
-    width: 48px;
-    height: 48px;
-    margin: 0;
-    border-radius: 0;
-    transition: 0.4s;
-}
-.testimonial-section .owl-carousel .owl-nav .owl-next {
-    right: -114px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
-.testimonial-section .owl-carousel .owl-nav .owl-prev {
-    left: -114px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-} */
-
-.testimonial-section .testimonial::after {
-    font-size: 40px;
-    content: "\f10d";
-    font-family: "FontAwesome";
-    display: block;
-    position: absolute;
-    color: #122F98;
-    top: -40px;
-    left: -40px;
-    height: 90px;
-    width: 90px;
-    background: #fff;
-    line-height: 90px;
-    border-radius: 50%;
-}
-.testimonial-section .testimonial::before {
-    font-size: 40px;
-    content: "\f10e";
-    font-family: "FontAwesome";
-    display: block;
-    position: absolute;
-    color: #122F98;
-    bottom: -40px;
-    right: -40px;
-    height: 90px;
-    width: 90px;
-    background: #fff;
-    line-height: 90px;
-    border-radius: 50%;
-}
-.testimonial-section .testimonial .content p {
-    font-family: 'Dancing Script', cursive;
-    font-size: 40px;
-    line-height: 40px;
-    font-weight: 600;
-}
-.testimonial-section .testimonial .details{
-    gap: 16px;
-}
-.testimonial-section .testimonial .details .author-image img{
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-}
-.testimonial-section .testimonial .details .author .author-name {
-    margin: 0;
-    font-family: 'Dancing Script', cursive;
-    font-size: 17px;
-    line-height: 22px;
-    font-weight: 700;
-}
-.testimonial-section .testimonial .details .author .author-designation {
-    margin: 0;
-    font-family: 'Dancing Script', cursive;
-    font-size: 12px;
-    line-height: 22px;
-    font-weight: 700;
-}
-
-.testimonial-section .owl-carousel .owl-nav {
-	margin-top: -48px;
-}
-
-.testimonial-section .owl-carousel .owl-nav.disabled {
-	display: block;
-	margin-top: -48px;
-}
-
-.testimonial-section .owl-carousel .owl-nav button {
-	color: #111111;
-	font-size: 48px;
-	font-weight: 40;
-	line-height: 0;
-	background: #F2F2F2;
-	width: 48px;
-	height: 48px;
-	margin: 0;
-	border-radius: 0;
-	transition: 0.4s;
-}
-
-.testimonial-section .owl-carousel .owl-nav button:hover {
-	background: #182456;
-}
-
-.testimonial-section .owl-carousel .owl-nav button span {
-	top: -7px;
-	display: flex;
-	justify-content: center;
-	position: relative;
-}
-
-.testimonial-section .owl-carousel .owl-nav .owl-prev {
-	left: -114px;
-	position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.testimonial-section .owl-carousel .owl-nav .owl-next {
-	right: -114px;
-	position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.testimonial-section .owl-dot {
-	display: none;
 }

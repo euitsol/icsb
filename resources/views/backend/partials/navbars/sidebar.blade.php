@@ -39,13 +39,15 @@
                         $pageSlug == 'banner' ||
                         $pageSlug == 'event' ||
                         $pageSlug == 'national_connection' ||
-                        $pageSlug == 'recent_video'
+                        $pageSlug == 'recent_video' ||
+                        $pageSlug == 'testimonial'
                     )@else collapsed @endif" data-toggle="collapse" href="#home" @if (
                         // $pageSlug == 'icsb_profile' ||
                         $pageSlug == 'banner' ||
                         $pageSlug == 'event' ||
                         $pageSlug == 'national_connection' ||
-                        $pageSlug == 'recent_video'
+                        $pageSlug == 'recent_video' ||
+                        $pageSlug == 'testimonial'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-solid fa-house-chimney"></i>
                     <span class="nav-link-text" >{{ __('Home') }}</span>
@@ -57,13 +59,15 @@
                     $pageSlug == 'banner' ||
                     $pageSlug == 'event' ||
                     $pageSlug == 'national_connection' ||
-                    $pageSlug == 'recent_video'
+                    $pageSlug == 'recent_video' ||
+                    $pageSlug == 'testimonial'
                 ) show @endif" id="home">
                     <ul class="nav pl-4">
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
                                 ['pageSlug' => 'banner', 'routeName' => 'banner.banner_list', 'label' => 'Banner'],
                                 ['pageSlug' => 'event', 'routeName' => 'event.event_list', 'label' => 'Event'],
+                                ['pageSlug' => 'testimonial', 'routeName' => 'testimonial.testimonial_list', 'label' => 'Testimonial'],
                                 ['pageSlug' => 'national_connection', 'routeName' => 'national_connection.national_connection_list', 'label' => 'National Connection'],
                                 ['pageSlug' => 'recent_video', 'routeName' => 'recent_video.recent_video_list', 'label' => 'Recent Video'],
                             ]

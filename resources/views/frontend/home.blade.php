@@ -79,11 +79,11 @@
     </section>
 @endif
 <!----============================ Includes ==========================---->
+@include('frontend.includes.testimonial',['testimonials'=>$testimonials])
 @include('frontend.includes.bss',['home_bsss'=>$home_bsss])
 @include('frontend.includes.notice_board',['notice_cats'=>$notice_cats])
 @include('frontend.includes.recent_updates',['media_rooms'=>$media_rooms])
 {{-- @include('frontend.includes.endorsement') --}}
-@include('frontend.includes.testimonial')
 @include('frontend.includes.world_wide_cs',['wwcss'=>$wwcss])
 @include('frontend.includes.events',['events'=>$events])
 {{-- @include('frontend.includes.national_awards',['national_awards'=>$national_awards]) --}}

@@ -23,6 +23,7 @@ use App\Http\Controllers\Backend\SinglePagesController;
 use App\Http\Controllers\Backend\CommitteeController;
 use App\Http\Controllers\Backend\ConvocationController;
 use App\Http\Controllers\Backend\CouncilController;
+use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\Backend\CsFirmsController;
 use App\Http\Controllers\Backend\ExamFaqController;
 use App\Http\Controllers\Backend\JobPlacementController;
@@ -220,6 +221,16 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::put('edit/{id}',      [WWCSController::class, 'update'])->name('wwcs_edit');
         Route::get('status/{id}',      [WWCSController::class, 'status'])->name('status.wwcs_edit');
         Route::get('delete/{id}', [WWCSController::class, 'delete'])->name('wwcs_delete');
+    });
+    // Testimonial Routes
+    Route::group(['as' => 'testimonial.', 'prefix' => 'testimonial'], function () {
+        Route::get('index', [TestimonialController::class, 'index'])->name('testimonial_list');
+        Route::get('create', [TestimonialController::class, 'create'])->name('testimonial_create');
+        Route::post('create', [TestimonialController::class, 'store'])->name('testimonial_create');
+        Route::get('edit/{id}',      [TestimonialController::class, 'edit'])->name('testimonial_edit');
+        Route::put('edit/{id}',      [TestimonialController::class, 'update'])->name('testimonial_edit');
+        Route::get('status/{id}',      [TestimonialController::class, 'status'])->name('status.testimonial_edit');
+        Route::get('delete/{id}', [TestimonialController::class, 'delete'])->name('testimonial_delete');
     });
     // National Award Routes
     Route::group(['as' => 'national_award.', 'prefix' => 'national-award'], function () {

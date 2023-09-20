@@ -1,63 +1,34 @@
-<section class="testimonial-section small-sec-height">
+@if(count($testimonials))
+<section class="testimonial-section big-sec-height">
     <div class="container">
-        <div class=" testimonial-carousel">
+        <div class="heading-element text-align">
+            <h2 class="colo-black title-shap">{{_('Testimonial')}}</h2>
+        </div>
+        <div class="testimonial-carousel">
             <div class="testimonial-slider owl-carousel owl-theme">
-                <div class="item">
-                     <div class="testimonial">
+                @foreach ($testimonials as $testimonial)
+                    <div class="item">
+                        <div class="testimonial d-flex flex-column justify-content-center">
                         <div class="content mb-4">
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis inventore explicabo similique officia optio. Numquam est ullam id ad vel exercitationem </p>
+                            {{-- {!! $testimonial->description !!} --}}
+                            <p>{{ stringLimit(html_entity_decode_table($testimonial->description),'420') }}</p>
                         </div>
                         <div class="details d-flex justify-content-center align-items-center">
                             <div class="author-image">
-                                <img class="" src="{{asset('frontend/img/blog-single/user.svg')}}" alt="">
+                                <img src="{{storage_url($testimonial->image)}}" alt="">
                             </div>
                             <div class="author d-flex flex-column text-start">
-                                <h3 class="author-name">Author Name1</h3>
-                                <h5 class="author-designation">Author Designation1</h5>
+                                <h3 class="author-name">{{ $testimonial->name }}</h3>
+                                <h5 class="author-designation">{{ $testimonial->designation }}</h5>
                             </div>
 
 
                         </div>
-                     </div>
-                </div>
-                <div class="item">
-                     <div class="testimonial">
-                        <div class="content mb-4">
-                            <p>adipisicing elit. Reiciendis inventore explicabo similique officia optio. Numquam est ullam id ad vel exercitationem minus ipsum alias ab aut distinctio, perferendis provident omnis?</p>
                         </div>
-                        <div class="details d-flex justify-content-center align-items-center">
-                            <div class="author-image">
-                                <img class="" src="{{asset('no_img/no_img.jpg')}}" alt="">
-                            </div>
-                            <div class="author d-flex flex-column text-start">
-                                <h3 class="author-name">Author Name2</h3>
-                                <h5 class="author-designation">Author Designation2</h5>
-                            </div>
-
-
-                        </div>
-                     </div>
-                </div>
-                <div class="item">
-                     <div class="testimonial">
-                        <div class="content mb-4">
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis inventore explicabo similique officia optio. Numquam est ullam id ad vel exercitationem minus ipsum alias ab aut distinctio, perferendis provident omnis?</p>
-                        </div>
-                        <div class="details d-flex justify-content-center align-items-center">
-                            <div class="author-image">
-                                <img class="" src="{{asset('no_img/no_img.jpg')}}" alt="">
-                            </div>
-                            <div class="author d-flex flex-column text-start">
-                                <h3 class="author-name">Author Name3</h3>
-                                <h5 class="author-designation">Author Designation3</h5>
-                            </div>
-
-
-                        </div>
-                     </div>
-                </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
-
 </section>
+@endif
