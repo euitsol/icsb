@@ -48,7 +48,8 @@ $datas = [
                             @foreach (json_decode($media_room->additional_images) as $image)
                                 <div class="gallery-items">
                                     <a href="{{ storage_url($image) }}" data-lightbox="gallery">
-                                    <img src="{{ storage_url($image) }}">
+                                        <img src="{{ storage_url($image) }}">
+                                    </a>
                                 </div>
                             @endforeach
                         @endif
@@ -96,3 +97,11 @@ $datas = [
     </div>
 </section>
 @endsection
+@push('js')
+<script>
+    lightbox.option({
+        'resizeDuration': 200,
+        'wrapAround': true
+    });
+</script>
+@endpush
