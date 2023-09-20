@@ -21,6 +21,27 @@ $(document).ready(function () {
             }
         }
     });
+    $('.testimonial-slider').owlCarousel({
+        // items:6,
+        loop: true,
+        margin: 20,
+        nav: true,
+        dots: false,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 1
+            },
+            800: {
+                items: 1
+            }
+        }
+    });
 
 $('.national-award-carousel .owl-carousel').owlCarousel({
     loop: true,
