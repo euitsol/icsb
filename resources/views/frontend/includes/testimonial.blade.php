@@ -20,6 +20,7 @@
                             <div class="author d-flex flex-column text-start">
                                 <h3 class="author-name">{{ $testimonial->name }}</h3>
                                 <h5 class="author-designation">{{ $testimonial->designation }}</h5>
+                                <h5 class="author-designation">{{ $testimonial->responsibility }}</h5>
                             </div>
 
 
