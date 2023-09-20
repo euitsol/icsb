@@ -8,7 +8,7 @@
 @section('content')
 <a href="javascript:voide(0)" class="scroll_top"><i class="fa-solid fa-circle-up fa-bounce"></i></i></a>
 <a href="" class="stiky-box">
-    <img src="{{asset('frontend/img/annual-reports/reports-2017.jpg')}}" alt="">
+    <img src="{{asset('fixed_image/fixed.jpg')}}" alt="">
 </a>
 {{-- Banner Section --}}
 @include('frontend.includes.banner',['contact'=>$contact, 'banner'=>$banner])
@@ -82,21 +82,17 @@
         </div>
     </section>
 @endif
-<!----============================ BSS Secretarial Section ==========================---->
+<!----============================ Includes ==========================---->
 @include('frontend.includes.bss',['home_bsss'=>$home_bsss])
-<!----============================ Notices Section ==========================---->
 @include('frontend.includes.notice_board',['notice_cats'=>$notice_cats])
-
-
-
-
 @include('frontend.includes.recent_updates',['media_rooms'=>$media_rooms])
 @include('frontend.includes.endorsement')
 @include('frontend.includes.world_wide_cs',['wwcss'=>$wwcss])
 @include('frontend.includes.events',['events'=>$events])
-@include('frontend.includes.national_awards',['national_awards'=>$national_awards])
+{{-- @include('frontend.includes.national_awards',['national_awards'=>$national_awards]) --}}
 @include('frontend.includes.recent_videos',['recent_videos'=>$recent_videos])
 @include('frontend.includes.national_connection',['national_connections'=>$national_connections])
+
 @endsection
 @push('js')
 <script>
