@@ -73,7 +73,7 @@ $('.national-award-carousel .owl-carousel').owlCarousel({
         margin: 20,
         nav: false,
         dots: true,
-        autoplay: false,
+        autoplay: true,
         autoplayTimeout: 3000,
         autoplayHoverPause: true,
         responsive: {
