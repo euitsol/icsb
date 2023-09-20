@@ -35,6 +35,7 @@ class TestimonialController extends Controller
 
         $testimonial->name = $request->name;
         $testimonial->designation = $request->designation;
+        $testimonial->responsibility = $request->responsibility;
         $testimonial->order_key = $request->order_key;
         $testimonial->description = $request->description;
         $testimonial->created_by = auth()->user()->id;
@@ -59,6 +60,7 @@ class TestimonialController extends Controller
 
         $testimonial->name = $request->name;
         $testimonial->designation = $request->designation;
+        $testimonial->responsibility = $request->responsibility;
         $testimonial->order_key = $request->order_key;
         $testimonial->description = $request->description;
         $testimonial->updated_by = auth()->user()->id;

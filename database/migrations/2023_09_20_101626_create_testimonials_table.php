@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('designation');
+            $table->string('responsibility');
             $table->bigInteger('order_key')->unique();
             $table->string('image');
             $table->longText('description');

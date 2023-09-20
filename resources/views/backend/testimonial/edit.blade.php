@@ -17,6 +17,11 @@
                             <input type="text" name="name" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter author name') }}" value="{{ $testimonial->name }}">
                             @include('alerts.feedback', ['field' => 'name'])
                         </div>
+                        <div class="form-group  {{ $errors->has('responsibility') ? ' has-danger' : '' }}" >
+                            <label>{{ _('Author Responsibility') }}</label>
+                            <input type="text" name="responsibility" class="form-control {{ $errors->has('responsibility') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter author responsibility') }}" value="{{ $testimonial->responsibility }}">
+                            @include('alerts.feedback', ['field' => 'responsibility'])
+                        </div>
                         <div class="form-group  {{ $errors->has('designation') ? ' has-danger' : '' }}" >
                             <label>{{ _('Author Designation') }}</label>
                             <input type="text" name="designation" class="form-control {{ $errors->has('designation') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter author designation') }}" value="{{ $testimonial->designation }}">
