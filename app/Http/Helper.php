@@ -34,7 +34,8 @@ function get_permission_routes()
             'acts.',
             'exam_faq.',
             'assined_officer.',
-            'sample_question_paper.'
+            'sample_question_paper.',
+            'testimonial.'
         ];
 }
 
