@@ -45,16 +45,17 @@
     margin-bottom: 40px;
 }
 
-.job-placement-section .single-job .right-col {
-    width: 55%;
+.job-placement-section .single-job .middle-col {
+    width: 40%;
     padding-left: 70px;
+    border-right: 1px solid #182456;
 }
 
 .job-placement-section .single-job .left-col {
     display: flex;
     column-gap: 25px;
     border-right: 1px solid #182456;
-    width: 45%;
+    width: 35%;
 }
 
 .job-placement-section .single-job .left-col .img-col {
@@ -92,18 +93,18 @@
     padding-right: 7px;
 }
 
-.job-placement-section .single-job .right-col ul li {
+.job-placement-section .single-job .middle-col ul li {
     list-style-type: disc;
     margin-bottom: 12px;
 }
 
-.job-placement-section .single-job .right-col .btn {
+.job-placement-section .single-job .middle-col .btn {
     width: 100%;
     text-align: right;
     margin-top: 25px;
 }
 
-.job-placement-section .single-job .right-col .btn a {
+.job-placement-section .single-job .middle-col .btn a {
     color: #182456;
     font-weight: 400;
     border: 2px solid #182456;
@@ -115,7 +116,7 @@
     transition: 0.3s;
 }
 
-.job-placement-section .single-job .right-col .btn a:hover {
+.job-placement-section .single-job .middle-col .btn a:hover {
     background: #182456;
     color: #fff;
     border: 2px solid #182456;
@@ -216,12 +217,12 @@
         width: 50%;
     }
 
-    .job-placement-section .single-job .right-col {
+    .job-placement-section .single-job .middle-col {
         width: 50%;
         padding-left: 25px;
     }
 
-    .job-placement-section .single-job .right-col ul {
+    .job-placement-section .single-job .middle-col ul {
         padding-left: 0;
     }
 
@@ -234,7 +235,7 @@
         line-height: 25px;
     }
 
-    .job-placement-section .single-job .right-col .btn a {
+    .job-placement-section .single-job .middle-col .btn a {
         padding: 10px 32px;
         font-size: 18px;
         line-height: 22px;
@@ -273,20 +274,20 @@
         margin-bottom: 20px;
     }
 
-    .job-placement-section .single-job .right-col {
+    .job-placement-section .single-job .middle-col {
         width: 100%;
         text-align: center;
         padding-left: 0;
         margin-top: 15px;
     }
 
-    .job-placement-section .single-job .right-col ul li {
+    .job-placement-section .single-job .middle-col ul li {
         list-style-type: none;
         text-align: center;
         margin-bottom: 5px;
     }
 
-    .job-placement-section .single-job .right-col .btn {
+    .job-placement-section .single-job .middle-col .btn {
         text-align: center;
         margin-top: 15px;
     }
@@ -414,15 +415,8 @@
 }
 
 .job-placement-section .single-job .right-col {
-    width: 55%;
+    width: 25%;
     padding-left: 70px;
-}
-
-.job-placement-section .single-job .left-col {
-    display: flex;
-    column-gap: 25px;
-    border-right: 1px solid #182456;
-    width: 45%;
 }
 
 .job-placement-section .single-job .left-col .img-col {
@@ -460,7 +454,7 @@
     padding-right: 7px;
 }
 
-.job-placement-section .single-job .right-col ul li {
+.job-placement-section .single-job .middle-col ul li {
     list-style-type: disc;
     margin-bottom: 12px;
 }
@@ -504,12 +498,12 @@
         width: 50%;
     }
 
-    .job-placement-section .single-job .right-col {
+    .job-placement-section .single-job .middle-col {
         width: 50%;
         padding-left: 25px;
     }
 
-    .job-placement-section .single-job .right-col ul {
+    .job-placement-section .single-job .middle-col ul {
         padding-left: 0;
     }
 
@@ -522,7 +516,7 @@
         line-height: 25px;
     }
 
-    .job-placement-section .single-job .right-col .btn a {
+    .job-placement-section .single-job .middle-col .btn a {
         padding: 10px 32px;
         font-size: 18px;
         line-height: 22px;
@@ -579,20 +573,20 @@
         margin-bottom: 20px;
     }
 
-    .job-placement-section .single-job .right-col {
+    .job-placement-section .single-job .middle-col {
         width: 100%;
         text-align: center;
         padding-left: 0;
         margin-top: 15px;
     }
 
-    .job-placement-section .single-job .right-col ul li {
+    .job-placement-section .single-job .middle-col ul li {
         list-style-type: none;
         text-align: center;
         margin-bottom: 5px;
     }
 
-    .job-placement-section .single-job .right-col .btn {
+    .job-placement-section .single-job .middle-col .btn {
         text-align: center;
         margin-top: 15px;
     }

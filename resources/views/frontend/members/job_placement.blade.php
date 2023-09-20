@@ -59,12 +59,13 @@ $datas = [
 
                 </div>
             </div>
-            <div class="right-col">
-                <ul>
+            <div class="middle-col d-flex align-items-center">
+                <ul class="m-0">
                 <li><strong>Salary:</strong> TK. <span>{{json_decode($jp->salary)->from}}-{{json_decode($jp->salary)->to}}</span> / {{$jp->salary_type}}</li>
                 <li><strong>Deadline: </strong><span>{{ date('d M, Y', strtotime($jp->deadline))}} ({{ date('H:i A', strtotime($jp->deadline))}})</span></li>
                 </ul>
-
+            </div>
+            <div class="right-col ">
                 <div class="btn">
                 <a href="{{$jp->company_url}}">Apply Now</a>
                 </div>
