@@ -1503,17 +1503,20 @@ li {
 }
 .testimonial-section .testimonial .details .author .author-name {
     margin: 0;
-    font-family: 'Dancing Script', cursive;
+    /* font-family: 'Dancing Script', cursive; */
     font-size: 17px;
     line-height: 22px;
     font-weight: 700;
+    font-style: italic;
 }
 .testimonial-section .testimonial .details .author .author-designation {
+    color: #655f5f;
     margin: 0;
-    font-family: 'Dancing Script', cursive;
-    font-size: 12px;
+    /* font-family: 'Dancing Script', cursive; */
+    font-size: 14px;
     line-height: 22px;
-    font-weight: 700;
+    font-weight: 600;
+    font-style: italic;
 }
 
 .testimonial-section .owl-carousel .owl-nav {
