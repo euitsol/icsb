@@ -11,7 +11,7 @@
         <div class="recent-video-carousel ">
             <div class="recent-video-slider row videos-row owl-carousel owl-theme">
                 @foreach ($recent_videos as $video)
-                    <div class="col-sm-6 col-md-3 video-column item">
+                    <div class="col-sm-6 col-md-3  item">
                         <div class="video-inner-col">
                             <div class="video">
                                 <x-embed url="{{$video->url}}" />
