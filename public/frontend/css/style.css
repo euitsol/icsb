@@ -1767,6 +1767,8 @@ li {
 .recent-video-section .video .video-title {
 	padding: 12px;
 	background-color: #152360;
+    height: 84px;
+    line-height: 84px;
 }
 
 .recent-video-section .video {
