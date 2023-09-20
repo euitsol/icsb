@@ -22,6 +22,7 @@ use App\Models\President;
 use App\Models\RecentVideo;
 use App\Models\SecretarialStandard;
 use App\Models\SinglePages;
+use App\Models\Testimonial;
 use Illuminate\View\View;
 
 class HomePageController extends Controller
@@ -69,6 +70,7 @@ class HomePageController extends Controller
         $s['recent_videos'] = RecentVideo::where('status',1)->where('deleted_at',null)->latest()->get();
         $s['notice_cats'] = NoticeCategory::with('notices')->where('deleted_at',null)->where('status',1)->get();
         $s['notices'] = Notice::with('category')->where('deleted_at',null)->where('status',1)->latest()->limit(4)->get();
+        $s['testimonials'] = Testimonial::where('deleted_at', null)->where('status',1)->orderBy('order_key','ASC')->get();
         return view('frontend.home',$s);
     }
 }

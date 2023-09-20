@@ -1447,6 +1447,7 @@ li {
 /* ======================== Testimonial Section ========================*/
 .testimonial-section .item{
     padding: 12px 30px;
+    height: 426px;
 }
 .testimonial-section .testimonial{
     border: 5px solid gray;
@@ -1454,6 +1455,7 @@ li {
     padding: 40px 30px;
     text-align: center;
     position: relative;
+    height: 100%;
 }
 .testimonial-section .testimonial::after {
     font-size: 40px;
