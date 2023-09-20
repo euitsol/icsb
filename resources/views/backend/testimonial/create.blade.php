@@ -22,6 +22,11 @@
                                 <input type="text" name="designation" class="form-control {{ $errors->has('designation') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter author designation') }}" value="{{ old('designation') }}">
                                 @include('alerts.feedback', ['field' => 'designation'])
                             </div>
+                            <div class="form-group {{ $errors->has('responsibility') ? ' has-danger' : '' }}">
+                                <label>{{ _('Author Responsibility') }}</label>
+                                <input type="text" name="responsibility" class="form-control {{ $errors->has('responsibility') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter author responsibility') }}" value="{{ old('responsibility') }}">
+                                @include('alerts.feedback', ['field' => 'responsibility'])
+                            </div>
                             <div class="form-group {{ $errors->has('order_key') ? ' has-danger' : '' }}">
                                 <label>{{ _('Order') }}</label>
                                 <select class="form-control {{ $errors->has('order_key') ? ' is-invalid' : '' }}" name="order_key">

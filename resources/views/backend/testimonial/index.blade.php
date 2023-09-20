@@ -25,6 +25,7 @@
                                     <th>{{ _('Order') }}</th>
                                     <th>{{ _('Author Name') }}</th>
                                     <th>{{ _('Author Designation') }}</th>
+                                    <th>{{ _('Author Responsibility') }}</th>
                                     <th>{{ _('Author Image') }}</th>
                                     <th>{{ _('Status') }}</th>
                                     <th>{{ _('Creation date') }}</th>
@@ -38,6 +39,7 @@
                                         <td> {{ $testimonial->order_key }} </td>
                                         <td> {{ $testimonial->name }} </td>
                                         <td> {{ $testimonial->designation }} </td>
+                                        <td> {{ $testimonial->responsibility }} </td>
                                         <td><img class="rounded" width="60"
                                             src="@if ($testimonial->image) {{ storage_url($testimonial->image) }} @else {{ asset('no_img/no_img.jpg') }} @endif"
                                             alt="{{ $testimonial->name }}">

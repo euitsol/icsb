@@ -19,6 +19,7 @@ class TestimonialRequest extends FormRequest
             'name' => 'required',
             'designation' => 'required',
             'description' => 'required',
+            'responsibility' => 'required',
             'status' => 'nullable|boolean',
 
         ]
