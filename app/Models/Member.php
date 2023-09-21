@@ -22,5 +22,9 @@ class Member extends BaseModel
     {
         return $this->belongsTo(MemberType::class, 'member_type');
     }
+    public function csFirm()
+    {
+        return $this->hasOne(CsFirm::class, 'member_id');
+    }
 
 }

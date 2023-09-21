@@ -8,8 +8,10 @@ use App\Models\CommitteeType;
 use App\Models\Contact;
 use App\Models\Convocation;
 use App\Models\Council;
+use App\Models\CsFirms;
 use App\Models\MediaRoom;
 use App\Models\MediaRoomCategory;
+use App\Models\Member;
 use App\Models\MemberType;
 use App\Models\NationalAward;
 use App\Models\Notice;
@@ -115,5 +117,18 @@ class AjaxController extends Controller
             $files = array_reverse((array)json_decode($results->saved_data)->{'upload-files'});
             return response()->json(['files'=>$files]);
         }
+    }
+    public function member_search($search_value): JsonResponse
+    {
+        $csFirmMembers = CsFirms::whereHas('member', function ($query) use ($search_value) {
+            $query->where('name', 'like', '%' . $search_value . '%')
+                ->orWhere('designation', 'like', '%' . $search_value . '%');
+        })
+        ->with('member') // Eager load the associated member data
+        ->get()->map(function ($csFirmMember) {
+            $csFirmMember->member->image = getMemberImage($csFirmMember->member);
+            return $csFirmMember;
+        });
+        return response()->json(['csFirmMembers'=>$csFirmMembers]);
     }
 }

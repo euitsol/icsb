@@ -506,6 +506,7 @@ Route::get('front/download/{filename}', [ViewDefaultController::class, 'view_dow
 Route::get('home/notice/{cat_id}', [FrontendAjaxController::class, 'noticeHome'])->name('home.notice');
 Route::get('national-award/data/{offset}', [FrontendAjaxController::class, 'awards'])->name('awards');
 Route::get('convocations/data/{offset}', [FrontendAjaxController::class, 'convocations'])->name('convocations');
+Route::get('member/search/{search_value}', [FrontendAjaxController::class, 'member_search'])->name('member_info.search');
 // Route::get('see-more/all/{model}/{slug?}', [FrontendAjaxController::class, 'seeMore'])->name('see_more');
 Route::get('single_page/see_more/{slug}', [FrontendAjaxController::class, 'singlePageSeeMore'])->name('single_page.see_more');
 Route::get('media-data/{id}/{offset}', [FrontendAjaxController::class, 'mediaRooms'])->name('media_rooms');
