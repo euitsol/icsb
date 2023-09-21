@@ -38,7 +38,7 @@
                                     <h5 type="button" class="profile_data" data-member-id="{{ $c_members[$index]->member->id }}">
                                         {{ $c_members[$index]->member->name }}</h5>
                                 </div>
-                            </div> {{-- Replace id with the desired property --}}
+                            </div>
                             @php
                                 $index++;
                             @endphp
@@ -76,28 +76,10 @@
                 <div class="modal-body">
                     <div class="container">
                         <div class="fellow-row flex my-5" id="member_data">
-                            {{-- <div class="fellow-items flex w-100">
-                                <div class="image-column">
-                                    <img src="{{ asset('no_img/no_img.jpg') }}" alt="">
-                                </div>
-                                <div class="content-column">
-                                    <h4>{{ _('Member ID: F-001') }}</h4>
-                                    <h3 class="mb-0">Md Shariful Islam</h3>
-                                    <p><strong>Software Developer <br> European IT Solutions Bangladesh</strong></p>
-                                    <li><i class="fa-solid fa-house-circle-exclamation"></i>House # 412 (A8), Road # 8,
-                                        Block #D Bashundhara R/A, Dhaka-1229</li>
-                                    <li><i class="fa-solid fa-phone"></i>Phone: <a
-                                            href="tel:+8801792980503">+8801792980503(Official)</a></li>
-                                    <li><i class="fa-solid fa-envelope-open-text"></i>Email: <a
-                                            href="mailto:shariful94@gmail.com">shariful94@gmail.com</a></li>
-                                </div>
-                            </div> --}}
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Understood</button> --}}
                 </div>
             </div>
         </div>
@@ -116,28 +98,23 @@
                     method: 'GET',
                     dataType: 'json',
                     success: function(data) {
-                        console.log(data);
                         var noImage = '{{asset("no_img/no_img.jpg")}}';
                         var image = `{{ storage_url('${data.member.image}') }}`;
                         var member_image = data.member.image ? image : noImage;
-                        $('#member_data').html(`
-                                                <div class="fellow-items flex w-100">
-                                                    <div class="image-column">
-                                                        <img src="${member_image}" alt="">
-                                                    </div>
-                                                    <div class="content-column">
-                                                        <h4>Member ID: ${data.member_id}</h4>
-                                                        <h3 class="mb-0">${data.member.name}</h3>
-                                                        <p><strong>${data.member.designation}<br> European IT Solutions Bangladesh</strong></p>
-                                                        <li><i class="fa-solid fa-house-circle-exclamation"></i>House # 412 (A8), Road # 8,
-                                                            Block #D Bashundhara R/A, Dhaka-1229</li>
-                                                        <li><i class="fa-solid fa-phone"></i>Phone: <a
-                                                                href="tel:+8801792980503">+8801792980503(Official)</a></li>
-                                                        <li><i class="fa-solid fa-envelope-open-text"></i>Email: <a
-                                                                href="mailto:${data.member.email}">${data.member.email}</a></li>
-                                                    </div>
-                                                </div>
-                                            `);
+                        var memberData = `
+                                        <div class="fellow-items flex w-100">
+                                            <div class="image-column">
+                                                <img src="${member_image}" alt="">
+                                            </div>
+                                            <div class="content-column">
+                                                <h4>Member ID: ${data.member_id}</h4>
+                                                <h3 class="mb-0">${data.member.name}</h3>
+                                                <p><strong>${data.member.designation}<br> European IT Solutions Bangladesh</strong></p>
+                                                <li><i class="fa-solid fa-house-circle-exclamation"></i>${data.member.address}</li>
+                                                <li><i class="fa-solid fa-envelope-open-text"></i>Email: <a href="mailto:${data.member.email}">${data.member.email}</a></li>
+                                            </div>
+                                        </div>`;
+                        $('#member_data').html(memberData);
                         $('#view-modal').modal('show');
                     },
                     error: function(xhr, status, error) {
