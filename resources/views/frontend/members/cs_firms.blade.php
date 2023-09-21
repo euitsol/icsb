@@ -21,40 +21,70 @@ $datas = [
 
 <section class="fellow-member-section big-sec-min-height">
     <div class="container">
-        <div class="heading-content text-align">
+        <div class="heading-content text-align d-flex justify-content-between align-items-center">
             <h2 class="common-heading">{{'CS Firm Members'}}</h2>
-        </div>
-        <div class="fellow-row flex">
-            @forelse ($csf_members as $csf_m)
-            <div class="fellow-items flex">
-                <div class="image-column">
-                    <img src="{{getMemberImage($csf_m->member)}}" alt="{{$csf_m->member->name}}">
-                </div>
-                <div class="content-column">
-                    <h4>{{('CS Practicing Licence No: ')}}{{$csf_m->private_practice_certificate_no}}</h4>
-                    <h3 class="mb-0">{{$csf_m->member->name}}</h3>
-                    <p><strong>{{$csf_m->member->designation}}</strong></p>
-                    @if(!empty($csf_m->member->address))
-                        <li><i class="fa-solid fa-house-circle-exclamation"></i>{{$csf_m->member->address}}</li>
-                    @endif
-                    @if(!empty(json_decode($csf_m->member->phone)))
-                        @foreach (json_decode($csf_m->member->phone) as $phone)
-                            <li><i class="fa-solid fa-phone"></i>Phone: <a href="tel:+88{{$phone->number}}">+88 {{$phone->number}}({{stringLimit(ucfirst($phone->type), 3, '')}})</a></li>
-                        @endforeach
-
-                    @endif
-                    @if(!empty($csf_m->member->email))
-                        <li><i class="fa-solid fa-envelope-open-text"></i>Email: <a href="mailto:{{$csf_m->member->email}}">{{$csf_m->member->email}}</a></li>
-                    @endif
+            <div class="search">
+                <div class="input-group">
+                    <input type="text" class="search_value" placeholder="Enter member name">
+                    <button class="search_button" type="submit"><i class="fa fa-search"></i></button>
                 </div>
             </div>
-            @empty
-                <span class="text-center">
-                    <b>Member Not Found</b>
-                </span>
-            @endforelse
+        </div>
+        <div class="fellow-row flex member_data">
 
         </div>
     </div>
 </section>
 @endsection
+@push('js')
+    <script>
+        $(document).ready(function() {
+            $('.search_button').on('click', function() {
+                let search_value = $('.search_value').val();
+                if (search_value != null) {
+                    let _url = ("{{ route('member_info.search', ['search_value']) }}");
+                    let __url = _url.replace('search_value', search_value);
+                    $.ajax({
+                        url: __url,
+                        method: 'GET',
+                        dataType: 'json',
+                        success: function(data) {
+                            var member_data= '';
+                            if(!data.csFirmMembers || data.csFirmMembers.length === 0){
+                                console.log(data);
+                                member_data +=`
+                                                <h3 class="text-danger mx-auto my-5">Member Not Found</h3>
+                                            `;
+                            } else{
+
+                                data.csFirmMembers.forEach(function(csFirmMember) {
+                                    member_data += `
+                                        <div class="fellow-items flex">
+                                            <div class="image-column">
+                                                <img src="${csFirmMember.member.image}" alt="">
+                                            </div>
+                                            <div class="content-column">
+                                                <h4>CS Practicing Licence No: ${csFirmMember.private_practice_certificate_no}</h4>
+                                                <h3 class="mb-0">${csFirmMember.member.name}</h3>
+                                                <p><strong>${csFirmMember.member.designation}</strong></p>
+                                                <li><i class="fa-solid fa-house-circle-exclamation"></i>${csFirmMember.member.address}</li>
+                                                <li><i class="fa-solid fa-envelope-open-text"></i>Email: <a href="mailto:${csFirmMember.member.email}">${csFirmMember.member.email}</a></li>
+                                            </div>
+                                        </div>
+                                    `;
+                                });
+
+                            }
+                            $('.member_data').html(member_data);
+
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('Error fetching member data:', error);
+                        }
+                    });
+                }
+            });
+        });
+
+    </script>
+@endpush

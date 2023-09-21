@@ -4041,6 +4041,32 @@ td {
 	background-repeat: no-repeat;
 }
 
+.fellow-member-section .search{
+    width: 50%;
+    height: 3rem;
+}
+.fellow-member-section .search .input-group{
+    width: 100%;
+    height: 100%;
+}
+.fellow-member-section .search .input-group input {
+    width: 80%;
+    height: 100%;
+    padding: 5px 15px;
+}
+.fellow-member-section .search .input-group button{
+    width: 20%;
+    height: 100%;
+    font-size: 22px;
+    transition: .4s;
+}
+.fellow-member-section .search .input-group button:hover{
+    background-color: #182456;
+    color: #fff;
+    border: 2px solid #182456;
+}
+
+
 .fellow-row {
 	column-gap: 2%;
 	margin-top: 50px;
