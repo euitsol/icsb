@@ -20,6 +20,8 @@ class AjaxController extends Controller
 
         $member = Member::findOrFail($id);
         $member_id = member_id($member->id);
-        return response()->json(['member'=>$member,'member_id'=>$member_id]);
+        $phone = json_decode($member->phone);
+
+        return response()->json(['member'=>$member,'member_id'=>$member_id,'phone'=>$phone]);
     }
 }
