@@ -73,7 +73,7 @@ $(document).ready(function () {
         margin: 20,
         nav: true,
         dots: false,
-        autoplay: false,
+        autoplay: true,
         autoplayTimeout: 3000,
         autoplayHoverPause: true,
         responsive: {
@@ -216,26 +216,26 @@ $(document).ready(function () {
 });
 
 //  Custom jQuery apply
-$(document).ready(function () {
-    //     $(".social-column .share-box label").click(function(){
-    //         $(".social-column .share-box").toggleClass("show");
-    //     });
+// $(document).ready(function () {
+//         $(".social-column .share-box label").click(function(){
+//             $(".social-column .share-box").toggleClass("show");
+//         });
 
 
-    // $(".banner-section .carousel").swipe({
+//     $(".banner-section .carousel").swipe({
 
-    //     swipe: function(event, direction, distance, duration, fingerCount, fingerData) {
+//         swipe: function(event, direction, distance, duration, fingerCount, fingerData) {
 
-    //       if (direction == 'left') $(this).carousel('next');
-    //       if (direction == 'right') $(this).carousel('prev');
+//           if (direction == 'left') $(this).carousel('next');
+//           if (direction == 'right') $(this).carousel('prev');
 
-    //     },
-    //     allowPageScroll:"vertical"
+//         },
+//         allowPageScroll:"vertical"
 
-    //   });
+//       });
 
 
-});
+// });
 
 
 
