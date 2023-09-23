@@ -9,10 +9,10 @@
             </div>
         </div>
         <div class="recent-video-carousel ">
-            <div class="recent-video-slider row videos-row owl-carousel owl-theme">
+            <div class="recent-video-slider owl-carousel owl-theme">
                 @foreach ($recent_videos as $video)
-                    <div class="col-sm-6 col-md-3  item">
-                        <div class="video-inner-col">
+                        <div class="item">
+
                             <div class="video">
                                 <x-embed url="{{$video->url}}" />
                                 <div class="video-title">
@@ -20,7 +20,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
                 @endforeach
             </div>
         </div>
