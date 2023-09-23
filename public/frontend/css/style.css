@@ -943,7 +943,7 @@ li {
 }
 
 .we-are-section .left-col img {
-	width: 63%;
+	width: 20%;
 	border: none;
 	outline: none;
 }
@@ -1920,6 +1920,7 @@ li {
     color: #fff;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 
