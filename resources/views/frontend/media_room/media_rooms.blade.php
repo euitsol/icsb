@@ -48,7 +48,7 @@ $datas = [
                 @endforeach
 
             </div>
-            @if(count($cat->media_rooms)>12)
+            @if((isset($cat) && count($cat->media_rooms)>12) || (!isset($cat) && count($media_rooms)>=12))
                 <div class="see-button text-align" >
                     <a href="javascript:void(0)" class="more" data-cat_id="{{isset($cat) ? $cat->id : 'all' }}" data-offset="12">{{_('See More')}}</a>
                 </div>
