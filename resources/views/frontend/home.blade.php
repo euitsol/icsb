@@ -32,9 +32,9 @@
         <div class="left-col">
             <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/Image12.png')}}" data-bg-color="#88BF85"  data-associate-image="{{asset('frontend/img/we-are/Image-6.jpg')}}"/>
             <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/Image13.png')}}" data-bg-color="#C78282"  data-associate-image="{{asset('frontend/img/we-are/Image-7.jpg')}}"/>
-            <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/Image14.png')}}" data-bg-color="#B1B9BD"  data-associate-image="{{asset('frontend/img/we-are/Image-8.jpg')}}"/>
+            <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/Image14.png')}}" data-bg-color="#B1B9BD"  data-associate-image="{{asset('frontend/img/we-are/Image-6.jpg')}}"/>
             <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/Image15.png')}}" data-bg-color="#CFC6BD"  data-associate-image="{{asset('frontend/img/we-are/Image-9.jpg')}}"/>
-            <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/Image16.png')}}" data-bg-color="#8A9FB0"  data-associate-image="{{asset('frontend/img/we-are/Image-6.jpg')}}"/>
+            <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/Image16.png')}}" data-bg-color="#8A9FB0"  data-associate-image="{{asset('frontend/img/we-are/Image-8.jpg')}}"/>
 
         </div>
         <div class="right-col"></div>
