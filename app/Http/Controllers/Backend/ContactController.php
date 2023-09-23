@@ -26,7 +26,7 @@ class ContactController extends Controller
     public function createLocation(ContactRequest $request): RedirectResponse
     {
         $filteredLocation = array_filter($request->location, function ($entry) {
-            return !is_null($entry['title']) && !is_null($entry['url']);
+            return !is_null($entry['title']) && !is_null($entry['address']) && !is_null($entry['url']);
         });
         $contact = Contact::where('deleted_at', null)->first();
         if ($contact === null) {

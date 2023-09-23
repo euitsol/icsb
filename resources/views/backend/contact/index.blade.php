@@ -2,7 +2,10 @@
 @section('title', 'Conntact Us')
 @push('css')
 <style>
-
+.input-group .form-control:not(:first-child):not(:last-child){
+    border-radius: 0;
+    border-left: 1px solid rgba(29, 37, 59, 0.5);
+}
 </style>
 @endpush
 
@@ -138,7 +141,8 @@
                                                     <div class="form-group" >
                                                         <label>{{ _('Location-'.$count) }}</label>
                                                         <div class="input-group mb-3">
-                                                            <input type="text" name="location[{{$count}}][title]" class="form-control" placeholder="{{ _('Enter location address') }}" value="{{ $location->title }}" required>
+                                                            <input type="text" name="location[{{$count}}][title]" class="form-control" placeholder="{{ _('Enter location title') }}" value="{{ $location->title }}" required>
+                                                            <input type="text" name="location[{{$count}}][address]" class="form-control" placeholder="{{ _('Enter location address') }}" value="{{ $location->address }}" required>
                                                             <div class="div contact_div">
                                                                 @if($count>1)
                                                                     <span class="input-group-text text-danger" onclick="delete_section_1({{$count}})"><i class="tim-icons icon-trash-simple"></i></span>
@@ -161,7 +165,8 @@
                                                 <div class="form-group">
                                                     <label>{{ _('Location-1') }}</label>
                                                     <div class="input-group mb-3">
-                                                        <input type="text" name="location[1][title]" class="form-control" placeholder="{{ _('Enter location address') }}" required>
+                                                        <input type="text" name="location[1][title]" class="form-control" placeholder="{{ _('Enter location title') }}" required>
+                                                        <input type="text" name="location[1][address]" class="form-control" placeholder="{{ _('Enter location address') }}" required>
                                                         <div class="div contact_div">
                                                             <span class="input-group-text" id="add_location" data-count="1"><i class="tim-icons icon-simple-add"></i></span>
                                                         </div>
