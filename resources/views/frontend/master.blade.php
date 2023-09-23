@@ -62,7 +62,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!-- Lightbox -->
     <script src="{{asset('frontend/js/lightbox-plus-jquery.min.js')}}"></script>
-    <script src="{{asset('frontend//js/bxslider.min.js')}}"></script>
+    <script src="{{asset('frontend/js/bxslider.min.js')}}"></script>
     <!-- Owal Carosel -->
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
     <script src="{{asset('frontend/js/query.min.js')}}"></script>
