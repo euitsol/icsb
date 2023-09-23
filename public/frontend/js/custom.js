@@ -191,16 +191,21 @@ $(document).ready(function () {
 $(window).scroll(function () {
     if ($(window).scrollTop() >= 300) {
         $('.header-menu-section').addClass('fixed-header');
-        $('.banner-section .video-container').css('margin-top', '105px');
-        $('.header-menu-section .stiky-logo-right').css('display', 'block');
-        $('.header-menu-section .stiky-logo').css('display', 'block');
-        $('.scroll_top').css('display', 'block');
+        $('.banner-section .video-container').addClass('margin_top');
+        $('.header-menu-section .stiky-logo-right').addClass('display-block');
+        $('.header-menu-section .stiky-logo').addClass('display-block');
+        $('.scroll_top').addClass('display-block');
+        $('.scroll_top').addClass('display-block');
+        $('.banner-section .volume-icon').css('margin-top', '120px');
+        $('.banner-section .play-pause-icon').css('margin-top', '120px');
     } else {
         $('.header-menu-section').removeClass('fixed-header');
-        $('.header-menu-section .stiky-logo-right').css('display', 'none');
-        $('.header-menu-section .stiky-logo').css('display', 'none');
-        $('.banner-section .video-container').css('margin-top', '0');
-        $('.scroll_top').css('display', 'none');
+        $('.header-menu-section .stiky-logo-right').removeClass('display-block');
+        $('.header-menu-section .stiky-logo').removeClass('display-block');
+        $('.banner-section .video-container').removeClass('margin_top');
+        $('.scroll_top').removeClass('display-block');
+        $('.banner-section .volume-icon').css('margin-top', '30px');
+        $('.banner-section .play-pause-icon').css('margin-top', '30px');
         // $('nav div').removeClass('visible-title');
     }
 });

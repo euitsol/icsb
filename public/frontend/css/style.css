@@ -323,14 +323,23 @@ li {
 }
 
 /*====================== Header Menu Section =====================*/
-.fixed-header {
+/* .fixed-header {
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
 	z-index: 99999;
 	transition: .5s;
+} */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    width: 100%;
+    transition: all .6s ease;
 }
+
 
 .header-menu-section {
 	background: #182456;
@@ -654,7 +663,14 @@ li {
 	/* Set the height to 100% of the viewport height */
 	overflow: hidden;
 }
-
+.margin_top{
+	margin-top: 105px;
+    transition: all .3s ease;
+}
+.display-block{
+    display: block !important;
+    transition: all .6s ease;
+}
 .banner-section .video-container .content{
     position: absolute;
     display: block;
