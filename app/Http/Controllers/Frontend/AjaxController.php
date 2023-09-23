@@ -118,7 +118,7 @@ class AjaxController extends Controller
             return response()->json(['files'=>$files]);
         }
     }
-    public function member_search($search_value): JsonResponse
+    public function cs_firms_member_search($search_value): JsonResponse
     {
         $csFirmMembers = CsFirms::whereHas('member', function ($query) use ($search_value) {
             $query->where('name', 'like', '%' . $search_value . '%')
@@ -130,5 +130,21 @@ class AjaxController extends Controller
             return $csFirmMember;
         });
         return response()->json(['csFirmMembers'=>$csFirmMembers]);
+    }
+    public function member_search($search_value, $cat_id): JsonResponse
+    {
+        $member_searchs = Member::where('member_type', $cat_id)
+        ->where(function ($query) use ($search_value) {
+            $query->where('name', 'like', '%' . $search_value . '%')
+                ->orWhere('designation', 'like', '%' . $search_value . '%')
+                ->orWhere('membership_id', 'like', '%' . $search_value . '%');
+        })
+        ->with('type')
+        ->get()
+        ->map(function ($member_search) {
+            $member_search->image = getMemberImage($member_search);
+            return $member_search;
+        });
+        return response()->json(['member_searchs' => $member_searchs]);
     }
 }

@@ -25,7 +25,7 @@ $datas = [
             <h2 class="common-heading">{{'CS Firm Members'}}</h2>
             <div class="search">
                 <div class="input-group">
-                    <input type="text" class="search_value" placeholder="Enter member name">
+                    <input type="text" class="search_value" placeholder="Search by member name or title!">
                     <button class="search_button" type="submit"><i class="fa fa-search"></i></button>
                 </div>
             </div>
@@ -42,7 +42,7 @@ $datas = [
             $('.search_button').on('click', function() {
                 let search_value = $('.search_value').val();
                 if (search_value != null) {
-                    let _url = ("{{ route('member_info.search', ['search_value']) }}");
+                    let _url = ("{{ route('cs_firms.member_info.search', ['search_value']) }}");
                     let __url = _url.replace('search_value', search_value);
                     $.ajax({
                         url: __url,
