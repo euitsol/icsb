@@ -1,12 +1,12 @@
 <!--======================= Header Menu Section =======================-->
 <div class="header-menu-section">
-<div class="stiky-logo">
-    <a href="{{route('home')}}">
-        <img src="{{asset('frontend/img/icsb-logo.svg')}}" alt="{{_('ICSB Logo')}}">
-    </a>
-</div>
+    <div class="stiky-logo">
+        <a href="{{route('home')}}">
+            <img src="{{asset('frontend/img/icsb-logo.svg')}}" alt="{{_('ICSB Logo')}}">
+        </a>
+    </div>
     <div class="container">
-<!--===================================== Mobile Menu ================================-->
+<!--===================================== Mobile Menu Start================================-->
         <nav class="navbar bg-body-tertiary fixed-top mobile-header">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.html"><img src="{{asset('frontend/img/icsb-logo.svg')}}"></a>
@@ -84,9 +84,11 @@
                 </div>
               </div>
             </div>
-          </nav>
-<!--===================================== Desktop Menu ================================-->
-          <section class="desktop-menu">
+        </nav>
+<!--===================================== Mobile Menu End================================-->
+
+<!--===================================== Desktop Menu Start================================-->
+        <div class="desktop-menu">
             <div class="menu-bar">
                 <ul class="d-flex">
                     <li><a class="nav-link active" aria-current="page" href="{{route('home')}}">Home</a></li>
@@ -270,7 +272,8 @@
                     </li>
                 </ul>
             </div>
-          </section>
+        </div>
+<!--===================================== Desktop Menu End================================-->
     </div>
     <div class="stiky-logo-right">
         <a href="{{route('home')}}">
