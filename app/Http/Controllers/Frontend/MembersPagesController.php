@@ -71,4 +71,9 @@ class MembersPagesController extends Controller
         return view('frontend.members.member_lounge');
 
     }
+    public function corporate_leader(): View
+    {
+        return view('frontend.members.find_leader');
+
+    }
 }

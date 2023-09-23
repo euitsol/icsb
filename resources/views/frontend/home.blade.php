@@ -3,7 +3,7 @@
 @section('title', 'Home')
 @section('content')
 <a href="javascript:voide(0)" class="scroll_top"><i class="fa-solid fa-circle-up fa-bounce"></i></i></a>
-<a href="" class="stiky-box">
+<a href="{{route('member_view.corporate_leader')}}" class="stiky-box">
     <img src="{{asset('fixed_image/fixed.jpg')}}" alt="">
 </a>
 {{-- Banner Section --}}

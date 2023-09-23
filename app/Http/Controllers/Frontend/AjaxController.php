@@ -147,4 +147,19 @@ class AjaxController extends Controller
         });
         return response()->json(['member_searchs' => $member_searchs]);
     }
+    public function corporate_leader($search_value): JsonResponse
+    {
+        $member_searchs = Member::where(function ($query) use ($search_value) {
+            $query->where('name', 'like', '%' . $search_value . '%')
+                ->orWhere('designation', 'like', '%' . $search_value . '%')
+                ->orWhere('membership_id', 'like', '%' . $search_value . '%');
+        })
+        ->with('type')
+        ->get()
+        ->map(function ($member_search) {
+            $member_search->image = getMemberImage($member_search);
+            return $member_search;
+        });
+        return response()->json(['member_searchs' => $member_searchs]);
+    }
 }
