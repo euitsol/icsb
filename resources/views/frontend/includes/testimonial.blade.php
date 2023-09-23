@@ -2,7 +2,7 @@
 <section class="testimonial-section big-sec-height">
     <div class="container">
         <div class="heading-element text-align">
-            <h2 class="colo-black title-shap">{{_('Testimonial')}}</h2>
+            <h2 class="colo-black title-shap">{{_('Quotes')}}</h2>
         </div>
         <div class="testimonial-carousel">
             <div class="testimonial-slider owl-carousel owl-theme">
@@ -10,8 +10,7 @@
                     <div class="item">
                         <div class="testimonial d-flex flex-column justify-content-center">
                         <div class="content mb-4">
-                            {{-- {!! $testimonial->description !!} --}}
-                            <p>{{ stringLimit(html_entity_decode_table($testimonial->description),'420') }}</p>
+                            <p>{!! $testimonial->description !!}</p>
                         </div>
                         <div class="details d-flex justify-content-center align-items-center">
                             <div class="author-image">
