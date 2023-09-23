@@ -39,7 +39,7 @@ $datas = [
 @push('js')
     <script>
         $(document).ready(function() {
-            $('.search_button').on('click', function() {
+            $('.search_value').on('keyup', function() {
                 let search_value = $('.search_value').val();
                 if (search_value != null) {
                     let _url = ("{{ route('cs_firms.member_info.search', ['search_value']) }}");
