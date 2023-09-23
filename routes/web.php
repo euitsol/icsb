@@ -508,6 +508,7 @@ Route::get('national-award/data/{offset}', [FrontendAjaxController::class, 'awar
 Route::get('convocations/data/{offset}', [FrontendAjaxController::class, 'convocations'])->name('convocations');
 Route::get('cs-firms-members/search/{search_value}', [FrontendAjaxController::class, 'cs_firms_member_search'])->name('cs_firms.member_info.search');
 Route::get('members/search/{search_value}/{cat_id}', [FrontendAjaxController::class, 'member_search'])->name('member_info.search');
+Route::get('corporate-leader/search/{search_value}', [FrontendAjaxController::class, 'corporate_leader'])->name('corporate_leader.search');
 Route::get('single_page/see_more/{slug}', [FrontendAjaxController::class, 'singlePageSeeMore'])->name('single_page.see_more');
 Route::get('media-data/{id}/{offset}', [FrontendAjaxController::class, 'mediaRooms'])->name('media_rooms');
 
@@ -567,6 +568,7 @@ Route::group(['as' => 'member_view.', 'prefix' => 'member'], function () {
     Route::get('/job-placements', [MembersPagesController::class, 'job_placement'])->name('jps');
     Route::get('/cs-firms', [MembersPagesController::class, 'cs_firm'])->name('cs_firm');
     Route::get('/members-lounge', [MembersPagesController::class, 'members_lounge'])->name('members_lounge');
+    Route::get('/corporate-leader/search', [MembersPagesController::class, 'corporate_leader'])->name('corporate_leader');
 });
 Route::group(['as' => 'student_view.', 'prefix' => 'student'], function () {
     Route::get('/cs-hand-book', [StudentPagesController::class, 'csHandBook'])->name('cs_hand_book');
