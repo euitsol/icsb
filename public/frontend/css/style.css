@@ -1418,7 +1418,7 @@ li {
 	border-radius: 29px;
 	background: #fff;
 	transition: 0.4s;
-	top: 5px;
+	top: 50px;
 	z-index: 999;
 	position: relative;
 }
@@ -1428,11 +1428,11 @@ li {
 	background: #182456;
 }
 
-.recent-update-section .recent-update-row .owl-theme .owl-dots {
+/* .recent-update-section .recent-update-row .owl-theme .owl-dots {
 	margin-top: 65px;
-}
+} */
 
-.recent-update-section .recent-update-row .owl-theme .owl-dots .owl-dot span {
+/* .recent-update-section .recent-update-row .owl-theme .owl-dots .owl-dot span {
 	width: 40px;
 	height: 15px;
 	border-radius: 0;
@@ -1442,6 +1442,59 @@ li {
 
 .recent-update-section .recent-update-row .owl-theme .owl-dots .active span {
 	background: #fff;
+} */
+.recent-update-section .logo-carousel {
+	margin-top: 20px;
+}
+.recent-update-section .owl-carousel .owl-nav {
+	margin-top: -48px;
+}
+
+.recent-update-section .owl-carousel .owl-nav.disabled {
+	display: block;
+	margin-top: -48px;
+}
+
+.recent-update-section .owl-carousel .owl-nav button {
+	color: #111111;
+	font-size: 48px;
+	font-weight: 40;
+	line-height: 0;
+	background: #F2F2F2;
+	width: 48px;
+	height: 48px;
+	margin: 0;
+	border-radius: 0;
+	transition: 0.4s;
+}
+
+.recent-update-section .owl-carousel .owl-nav button:hover {
+	background: #182456;
+}
+
+.recent-update-section .owl-carousel .owl-nav button span {
+	top: -7px;
+	display: flex;
+	justify-content: center;
+	position: relative;
+}
+
+.recent-update-section .owl-carousel .owl-nav .owl-prev {
+	left: -114px;
+	position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.recent-update-section .owl-carousel .owl-nav .owl-next {
+	right: -114px;
+	position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.recent-update-section .owl-dot {
+	display: none;
 }
 
 /* ======================== Testimonial Section ========================*/
@@ -1895,6 +1948,10 @@ li {
 	background-color: #152360;
     height: 84px;
     line-height: 84px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .recent-video-section .video {
