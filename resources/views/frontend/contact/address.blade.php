@@ -69,8 +69,8 @@ $datas = [
                                             <img src="{{asset('frontend/img/contact/contact-location.png')}}" alt="Contact Email">
                                         </div>
                                         <div class="content">
-                                            <h4> Address{{$key>0 ? "-".$key : ''}}:</h4>
-                                            <a href="{{$location->url}}">{{$location->title}}</a>
+                                            <h4>{{$location->title}}:</h4>
+                                            <a href="{{$location->url}}">{{$location->address}}</a>
                                         </div>
                                     </div>
                                 @endforeach

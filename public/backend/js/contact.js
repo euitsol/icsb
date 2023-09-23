@@ -12,7 +12,8 @@ $(document).ready(function() {
                         <div class="form-group">
                             <label>Location-${count}</label>
                             <div class="input-group mb-3">
-                                <input type="text" name="location[${count}][title]" class="form-control" placeholder="Enter location address" required>
+                                <input type="text" name="location[${count}][title]" class="form-control" placeholder="Enter location title" required>
+                                <input type="text" name="location[${count}][address]" class="form-control" placeholder="Enter location address" required>
                                 <div class="div contact_div">
                                 <span class="input-group-text text-danger" onclick="delete_section_1(${count})"><i class="tim-icons icon-trash-simple"></i></span>
                                 </div>

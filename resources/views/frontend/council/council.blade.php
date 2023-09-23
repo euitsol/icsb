@@ -1,6 +1,13 @@
 @extends('frontend.master')
 
 @section('title', 'Council')
+@push('css')
+    <style>
+        #view-modal{
+            z-index: 99999999;
+        }
+    </style>
+@endpush
 
 @section('content')
     <!-- =============================== Breadcrumb Section ======================================-->
@@ -100,6 +107,7 @@
                     success: function(data) {
                         var noImage = '{{asset("no_img/no_img.jpg")}}';
                         var image = `{{ storage_url('${data.member.image}') }}`;
+                        var details = `{!! '${data.member.details}' !!}`;
                         var member_image = data.member.image ? image : noImage;
                         var memberData = `
                                         <div class="fellow-items flex w-100">
@@ -113,7 +121,12 @@
                                                 <li><i class="fa-solid fa-house-circle-exclamation"></i>${data.member.address}</li>
                                                 <li><i class="fa-solid fa-envelope-open-text"></i>Email: <a href="mailto:${data.member.email}">${data.member.email}</a></li>
                                             </div>
-                                        </div>`;
+                                        </div>
+                                        <div class="details">
+                                            ${details}
+                                        </div>
+
+                                        `;
                         $('#member_data').html(memberData);
                         $('#view-modal').modal('show');
                     },
