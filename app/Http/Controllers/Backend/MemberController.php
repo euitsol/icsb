@@ -13,6 +13,7 @@ use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\MemberRequest;
 use App\Http\Requests\MemberTypeRequest;
+use Illuminate\Support\Facades\Http;
 
 class MemberController extends Controller
 {
@@ -183,6 +184,43 @@ class MemberController extends Controller
         }
         $this->soft_delete($type);
         return redirect()->route('member.member_list')->withStatus(__($type->title.' status deleted successfully.'));
+    }
+
+    public function sync()
+    {
+        try {
+            $response = Http::get('http://172.86.183.194/API/api/members/GetMemberList');
+            if ($response->successful()) {
+                $apiData = $response->json();
+                foreach ($apiData as $index => $item) {
+
+                    $mobileNumber = $item['mobile_number'];
+                    $defaultType = 'office';
+                    $transformedmn[0]['type'] = $defaultType;
+                    $transformedmn[0]['number'] = $mobileNumber ?? '';
+
+                    Member::updateOrCreate(
+                        ['membership_id' => $item['member_no']],
+                        [
+                            'name' => trim($item['first_name'] ?? '') . ' ' . trim($item['middle_name'] ?? '') . ' ' . trim($item['last_name'] ?? ''),
+                            'email' => $item['email_address'] ?? '',
+                            'member_type' => $item['member_type'] ?? '',
+                            'designation' => $item['designation'] ?? '',
+                            'image' => $item['std_pic'] ?? '',
+                            'phone' => json_encode($transformedmn,JSON_FORCE_OBJECT),
+                            'address' => trim($item['pre_address'] ?? '') . ' ' . trim($item['pre_address_lin2'] ?? '') . ' ' . trim($item['pre_address_lin3'] ?? ''),
+                            'company_name' => $item['company'] ?? '',
+                        ]
+                    );
+                }
+
+                return response()->json(['message' => 'Sync successful']);
+            } else {
+                return response()->json(['error' => 'Failed to fetch data from the API'], 500);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
     }
 
 }

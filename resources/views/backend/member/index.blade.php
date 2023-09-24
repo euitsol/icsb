@@ -13,11 +13,15 @@
                         </div>
                         <div class="col-4 text-right">
                             @include('backend.partials.button', ['routeName' => 'member.member_create', 'className' => 'btn-primary', 'label' => 'Create Member'])
+                            <a href="javascript:void(0)" class="btn btn-sm btn-success syncButton">Sync</a>
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
                     @include('alerts.success')
+                    <div id="progress" style="display: none;">Sync in progress...</div>
+                    <div id="result"></div>
+
                     <div class="">
                         <table class="table tablesorter datatable">
                             <thead class=" text-primary">
@@ -26,7 +30,6 @@
                                     <th>{{ _('Name') }}</th>
                                     <th>{{ _('Image') }}</th>
                                     <th>{{ _('Type') }}</th>
-                                    <th>{{ _('Username') }}</th>
                                     <th>{{ _('Status') }}</th>
                                     <th>{{ _('Created at') }}</th>
                                     <th>{{ _('Created by') }}</th>
@@ -47,8 +50,7 @@
                                             @endif
                                             ">
                                         </td>
-                                        <td> {{ $member->type->title  }} </td>
-                                        <td> {{ $member->user->name }} </td>
+                                        <td> {{ $member->type->title ?? ''  }} </td>
                                         <td>
                                             @include('backend.partials.button', ['routeName' => 'member.status.member_edit','params' => [$member->id], 'className' => $member->getStatusClass(), 'label' => $member->getStatus() ])
                                         </td>
@@ -102,7 +104,7 @@
                                 @foreach ($types as $type)
                                     <tr>
                                         <td> {{ $type->order_key }} </td>
-                                        <td> {{ $type->title  }} </td>
+                                        <td> {{ $type->title ?? ''  }} </td>
                                         <td> {{ number_format($type->members->count()) }} </td>
                                         <td>
                                             @include('backend.partials.button', ['routeName' => 'member.status.member_type_edit','params' => [$type->id], 'className' => $type->getStatusClass(), 'label' => $type->getStatus() ])
@@ -131,7 +133,61 @@
 
         </div>
     </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="syncModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+            <h5 class="text-center"> Syncing Data....  </h5>
+            <h6 class="text-center text-danger" id="syncError"></h6>
+            <h6 class="text-center text-success" id="syncSuccess"></h6>
+            <div class="text-center" id="countdownTimer"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 @endsection
 
 @include('backend.partials.datatable', ['columns_to_show' => [0,1,2,3,4,5,6]])
+
+
+@push('js')
+<script>
+    $(document).ready(function () {
+        $(".syncButton").click(function () {
+            $('#syncError').text('');
+            $('#syncSuccess').text('');
+            $('#syncModal').modal('show');
+            $.ajax({
+                url: "{{ route('sync') }}",
+                type: "POST",
+                dataType: "json",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                },
+                success: function (data) {
+                    var countdown = 3; // 3 seconds
+                    var countdownTimer = setInterval(function () {
+                        $('#countdownTimer').text(countdown);
+                        countdown--;
+
+                        if (countdown < 0) {
+                            clearInterval(countdownTimer);
+                            $("#syncSuccess").text("Successfully synced");
+                            setTimeout(function () {
+                                location.reload();
+                            }, 1000);
+                        }
+                    }, 1000);
+                },
+                error: function (xhr, status, error) {
+                    $('#syncModal').modal('show');
+                    $("#syncError").text("Error: " + xhr.responseText);
+                },
+            });
+        });
+    });
+</script>
+@endpush
 
