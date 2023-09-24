@@ -14,12 +14,13 @@
     <div class="full-container">
         <div class="ticker-wrapper">
             <div class="ticker-title">
-                <h3>LATEST NEWS</h3>
+                <h3>{{_('LATEST NEWS')}}</h3>
             </div>
             <div class="ticker-desc">
                 <ul class="bxnewsticker">
-                    <li><a href="#">বাংলাদেশ ব্যাংক কর্তৃক তালিকাভুক্তির জন্য সিএ ফার্মের আবেদনের সময়সীমা ২৮ ডিসেম্বর ২০২২ ইং পর্যন্ত নির্ধারণ</a></li>
-                    <li><a href="#">Notice & Students' Enrolment Form: Online Evening Shift Regular Classes for Professional & Ad</a></li>
+                    @foreach ($latest_newses as $news)
+                        <li><a href="#">{{$news->title}}</a></li>
+                    @endforeach
                 </ul>
             </div>
         </div>

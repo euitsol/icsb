@@ -37,6 +37,7 @@
             <li>
                 <a class="@if(
                         $pageSlug == 'banner' ||
+                        $pageSlug == 'latest_news' ||
                         $pageSlug == 'event' ||
                         $pageSlug == 'national_connection' ||
                         $pageSlug == 'recent_video' ||
@@ -44,6 +45,7 @@
                     )@else collapsed @endif" data-toggle="collapse" href="#home" @if (
                         // $pageSlug == 'icsb_profile' ||
                         $pageSlug == 'banner' ||
+                        $pageSlug == 'latest_news' ||
                         $pageSlug == 'event' ||
                         $pageSlug == 'national_connection' ||
                         $pageSlug == 'recent_video' ||
@@ -57,6 +59,7 @@
                 <div class="collapse @if (
                     // $pageSlug == 'icsb_profile' ||
                     $pageSlug == 'banner' ||
+                    $pageSlug == 'latest_news' ||
                     $pageSlug == 'event' ||
                     $pageSlug == 'national_connection' ||
                     $pageSlug == 'recent_video' ||
@@ -66,6 +69,7 @@
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
                                 ['pageSlug' => 'banner', 'routeName' => 'banner.banner_list', 'label' => 'Banner'],
+                                ['pageSlug' => 'latest_news', 'routeName' => 'latest_news.latest_news_list', 'label' => 'Latest News'],
                                 ['pageSlug' => 'event', 'routeName' => 'event.event_list', 'label' => 'Event'],
                                 ['pageSlug' => 'testimonial', 'routeName' => 'testimonial.testimonial_list', 'label' => 'Testimonial'],
                                 ['pageSlug' => 'national_connection', 'routeName' => 'national_connection.national_connection_list', 'label' => 'National Connection'],
