@@ -30,7 +30,6 @@
                                     <th>{{ _('Name') }}</th>
                                     <th>{{ _('Image') }}</th>
                                     <th>{{ _('Type') }}</th>
-                                    <th>{{ _('Username') }}</th>
                                     <th>{{ _('Status') }}</th>
                                     <th>{{ _('Created at') }}</th>
                                     <th>{{ _('Created by') }}</th>
@@ -52,7 +51,6 @@
                                             ">
                                         </td>
                                         <td> {{ $member->type->title ?? ''  }} </td>
-                                        <td> {{ $member->user->name ?? '' }} </td>
                                         <td>
                                             @include('backend.partials.button', ['routeName' => 'member.status.member_edit','params' => [$member->id], 'className' => $member->getStatusClass(), 'label' => $member->getStatus() ])
                                         </td>
@@ -135,6 +133,20 @@
 
         </div>
     </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="syncModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+            <h5 class="text-center"> Syncing Data....  </h5>
+            <h6 class="text-center text-danger" id="syncError"></h6>
+            <h6 class="text-center text-success" id="syncSuccess"></h6>
+            <div class="text-center" id="countdownTimer"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 @endsection
 
 @include('backend.partials.datatable', ['columns_to_show' => [0,1,2,3,4,5,6]])
@@ -144,7 +156,9 @@
 <script>
     $(document).ready(function () {
         $(".syncButton").click(function () {
-            $("#progress").show();
+            $('#syncError').text('');
+            $('#syncSuccess').text('');
+            $('#syncModal').modal('show');
             $.ajax({
                 url: "{{ route('sync') }}",
                 type: "POST",
@@ -153,15 +167,23 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
                 },
                 success: function (data) {
-                    console.log(data);
-                    $("#result").html(data.message);
+                    var countdown = 3; // 3 seconds
+                    var countdownTimer = setInterval(function () {
+                        $('#countdownTimer').text(countdown);
+                        countdown--;
+
+                        if (countdown < 0) {
+                            clearInterval(countdownTimer);
+                            $("#syncSuccess").text("Successfully synced");
+                            setTimeout(function () {
+                                location.reload();
+                            }, 1000);
+                        }
+                    }, 1000);
                 },
                 error: function (xhr, status, error) {
-                    $("#result").html("Error: " + xhr.responseText);
-                },
-                complete: function (data) {
-                    console.log(data);
-                    $("#progress").hide();
+                    $('#syncModal').modal('show');
+                    $("#syncError").text("Error: " + xhr.responseText);
                 },
             });
         });

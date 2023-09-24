@@ -190,14 +190,27 @@ class MemberController extends Controller
     {
         try {
             $response = Http::get('http://172.86.183.194/API/api/members/GetMemberList');
-            // Check for a successful response (you may need to adjust this condition)
             if ($response->successful()) {
                 $apiData = $response->json();
-                // Update your database with the API data (example using Member model)
-                foreach ($apiData as $item) {
+                foreach ($apiData as $index => $item) {
+
+                    $mobileNumber = $item['mobile_number'];
+                    $defaultType = 'office';
+                    $transformedmn[0]['type'] = $defaultType;
+                    $transformedmn[0]['number'] = $mobileNumber ?? '';
+
                     Member::updateOrCreate(
                         ['membership_id' => $item['member_no']],
-                        ['name' => $item['first_name'], 'email' => $item['email_address']]
+                        [
+                            'name' => trim($item['first_name'] ?? '') . ' ' . trim($item['middle_name'] ?? '') . ' ' . trim($item['last_name'] ?? ''),
+                            'email' => $item['email_address'] ?? '',
+                            'member_type' => $item['member_type'] ?? '',
+                            'designation' => $item['designation'] ?? '',
+                            'image' => $item['std_pic'] ?? '',
+                            'phone' => json_encode($transformedmn,JSON_FORCE_OBJECT),
+                            'address' => trim($item['pre_address'] ?? '') . ' ' . trim($item['pre_address_lin2'] ?? '') . ' ' . trim($item['pre_address_lin3'] ?? ''),
+                            'company_name' => $item['company'] ?? '',
+                        ]
                     );
                 }
 

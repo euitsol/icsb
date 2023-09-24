@@ -13,23 +13,24 @@ return new class extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->id();
-            $table->string('membership_id')->unique();
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('membership_id')->nullable();
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();;
             $table->unsignedBigInteger('member_type');
             $table->string('designation');
             $table->string('image')->nullable();
             $table->json('phone')->nullable();
             $table->string('address')->nullable();
             $table->longText('details')->nullable();
+            $table->longText('company_name')->nullable();
             $table->boolean('status')->default(1);
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
             $this->addAuditColumns($table);
 
 
-            $table->foreign('member_type')->references('id')->on('member_types')->onDelete('cascade')->onUpdate('cascade');
+            // $table->foreign('member_type')->references('id')->on('member_types')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
