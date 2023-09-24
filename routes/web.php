@@ -28,6 +28,7 @@ use App\Http\Controllers\Backend\CsFirmsController;
 use App\Http\Controllers\Backend\ExamFaqController;
 use App\Http\Controllers\Backend\JobPlacementController;
 use App\Http\Controllers\Backend\MediaRoomController;
+use App\Http\Controllers\Backend\LatestNewsController;
 use App\Http\Controllers\Backend\NoticeBoardController;
 use App\Http\Controllers\Backend\PresidentController;
 use App\Http\Controllers\Backend\RecentVideoController;
@@ -273,6 +274,18 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
         Route::put('category/edit/{id}', [MediaRoomController::class, 'cat_update'])->name('media_room_cat_edit');
         Route::get('category/status/{id}', [MediaRoomController::class, 'cat_status'])->name('status.media_room_cat_edit');
         Route::get('category/delete/{id}', [MediaRoomController::class, 'cat_delete'])->name('media_room_cat_delete');
+    });
+
+    // Latest News Routes
+    Route::group(['as' => 'latest_news.', 'prefix' => 'latest-news'], function () {
+        Route::get('index', [LatestNewsController::class, 'index'])->name('latest_news_list');
+        Route::get('create', [LatestNewsController::class, 'create'])->name('latest_news_create');
+        Route::post('create', [LatestNewsController::class, 'store'])->name('latest_news_create');
+        Route::get('edit/{id}',      [LatestNewsController::class, 'edit'])->name('latest_news_edit');
+        Route::put('edit/{id}',      [LatestNewsController::class, 'update'])->name('latest_news_edit');
+        Route::get('single-file/delete/{id}/{key}',      [LatestNewsController::class, 'singleFileDelete'])->name('single_file.delete.latest_news_edit');
+        Route::get('status/{id}', [LatestNewsController::class, 'status'])->name('status.latest_news_edit');
+        Route::get('delete/{id}', [LatestNewsController::class, 'delete'])->name('latest_news_delete');
     });
 
 

@@ -29,7 +29,7 @@ function generateSlug(str) {
         .replace(/^-+|-+$/g, "");
 }
 $(document).ready(function () {
-    $("#title").on("keyup mouseleave blur focusout ", function () {
+    $("#title").on("keyup", function () {
         const titleValue = $(this).val().trim();
         const slugValue = generateSlug(titleValue);
         $("#slug").val(slugValue);

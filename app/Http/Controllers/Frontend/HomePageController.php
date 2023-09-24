@@ -13,6 +13,7 @@ use App\Models\CommitteeType;
 use App\Models\Council;
 use App\Models\WWCS;
 use App\Models\Event;
+use App\Models\LatestNews;
 use App\Models\NationalAward;
 use App\Models\NationalConnection;
 use App\Models\MemberType;
@@ -71,6 +72,7 @@ class HomePageController extends Controller
         $s['notice_cats'] = NoticeCategory::with('notices')->where('deleted_at',null)->where('status',1)->get();
         $s['notices'] = Notice::with('category')->where('deleted_at',null)->where('status',1)->latest()->limit(4)->get();
         $s['testimonials'] = Testimonial::where('deleted_at', null)->where('status',1)->orderBy('order_key','ASC')->get();
+        $s['latest_newses'] = LatestNews::where('deleted_at', null)->where('status',1)->orderBy('date','ASC')->get();
         return view('frontend.home',$s);
     }
 }
