@@ -33,8 +33,8 @@
             <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/1.png')}}" data-bg-color="#88BF85"  data-associate-image="{{asset('frontend/img/we-are/Image-6.jpg')}}"/>
             <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/2.png')}}" data-bg-color="#C78282"  data-associate-image="{{asset('frontend/img/we-are/Image-7.jpg')}}"/>
             <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/3.png')}}" data-bg-color="#B1B9BD"  data-associate-image="{{asset('frontend/img/we-are/Image-6.jpg')}}"/>
-            <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/1.png')}}" data-bg-color="#CFC6BD"  data-associate-image="{{asset('frontend/img/we-are/Image-9.jpg')}}"/>
-            <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/4.png')}}" data-bg-color="#8A9FB0"  data-associate-image="{{asset('frontend/img/we-are/Image-8.jpg')}}"/>
+            <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/4.png')}}" data-bg-color="#CFC6BD"  data-associate-image="{{asset('frontend/img/we-are/Image-9.jpg')}}"/>
+            <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/12.png')}}" data-bg-color="#8A9FB0"  data-associate-image="{{asset('frontend/img/we-are/Image-8.jpg')}}"/>
 
         </div>
         <div class="right-col"></div>
