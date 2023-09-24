@@ -100,6 +100,9 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
     Route::get('view-pdf/{filepath}', [ViewDefaultController::class, 'view_pdf'])->name('view.pdf');
     // Ajax Routes
     Route::get('members/{id}', [AjaxController::class, 'memberInfo'])->name('m.info');
+    //ERP Memeber
+    Route::post('member-sync', [MemberController::class, 'sync'])->name('sync');
+
 
     //User Management
     Route::group(['as' => 'um.', 'prefix' => 'user-management'], function () {

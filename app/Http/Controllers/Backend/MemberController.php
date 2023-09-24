@@ -13,6 +13,7 @@ use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\MemberRequest;
 use App\Http\Requests\MemberTypeRequest;
+use Illuminate\Support\Facades\Http;
 
 class MemberController extends Controller
 {
@@ -183,6 +184,30 @@ class MemberController extends Controller
         }
         $this->soft_delete($type);
         return redirect()->route('member.member_list')->withStatus(__($type->title.' status deleted successfully.'));
+    }
+
+    public function sync()
+    {
+        try {
+            $response = Http::get('http://172.86.183.194/API/api/members/GetMemberList');
+            // Check for a successful response (you may need to adjust this condition)
+            if ($response->successful()) {
+                $apiData = $response->json();
+                // Update your database with the API data (example using Member model)
+                foreach ($apiData as $item) {
+                    Member::updateOrCreate(
+                        ['membership_id' => $item['member_no']],
+                        ['name' => $item['first_name'], 'email' => $item['email_address']]
+                    );
+                }
+
+                return response()->json(['message' => 'Sync successful']);
+            } else {
+                return response()->json(['error' => 'Failed to fetch data from the API'], 500);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
     }
 
 }

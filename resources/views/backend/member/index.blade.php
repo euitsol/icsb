@@ -13,11 +13,15 @@
                         </div>
                         <div class="col-4 text-right">
                             @include('backend.partials.button', ['routeName' => 'member.member_create', 'className' => 'btn-primary', 'label' => 'Create Member'])
+                            <a href="javascript:void(0)" class="btn btn-sm btn-success syncButton">Sync</a>
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
                     @include('alerts.success')
+                    <div id="progress" style="display: none;">Sync in progress...</div>
+                    <div id="result"></div>
+
                     <div class="">
                         <table class="table tablesorter datatable">
                             <thead class=" text-primary">
@@ -47,8 +51,8 @@
                                             @endif
                                             ">
                                         </td>
-                                        <td> {{ $member->type->title  }} </td>
-                                        <td> {{ $member->user->name }} </td>
+                                        <td> {{ $member->type->title ?? ''  }} </td>
+                                        <td> {{ $member->user->name ?? '' }} </td>
                                         <td>
                                             @include('backend.partials.button', ['routeName' => 'member.status.member_edit','params' => [$member->id], 'className' => $member->getStatusClass(), 'label' => $member->getStatus() ])
                                         </td>
@@ -102,7 +106,7 @@
                                 @foreach ($types as $type)
                                     <tr>
                                         <td> {{ $type->order_key }} </td>
-                                        <td> {{ $type->title  }} </td>
+                                        <td> {{ $type->title ?? ''  }} </td>
                                         <td> {{ number_format($type->members->count()) }} </td>
                                         <td>
                                             @include('backend.partials.button', ['routeName' => 'member.status.member_type_edit','params' => [$type->id], 'className' => $type->getStatusClass(), 'label' => $type->getStatus() ])
@@ -134,4 +138,34 @@
 @endsection
 
 @include('backend.partials.datatable', ['columns_to_show' => [0,1,2,3,4,5,6]])
+
+
+@push('js')
+<script>
+    $(document).ready(function () {
+        $(".syncButton").click(function () {
+            $("#progress").show();
+            $.ajax({
+                url: "{{ route('sync') }}",
+                type: "POST",
+                dataType: "json",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                },
+                success: function (data) {
+                    console.log(data);
+                    $("#result").html(data.message);
+                },
+                error: function (xhr, status, error) {
+                    $("#result").html("Error: " + xhr.responseText);
+                },
+                complete: function (data) {
+                    console.log(data);
+                    $("#progress").hide();
+                },
+            });
+        });
+    });
+</script>
+@endpush
 
