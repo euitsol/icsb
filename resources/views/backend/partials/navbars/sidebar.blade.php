@@ -37,6 +37,7 @@
             <li>
                 <a class="@if(
                         $pageSlug == 'banner' ||
+                        $pageSlug == 'who-we-are' ||
                         $pageSlug == 'latest_news' ||
                         $pageSlug == 'event' ||
                         $pageSlug == 'national_connection' ||
@@ -45,6 +46,7 @@
                     )@else collapsed @endif" data-toggle="collapse" href="#home" @if (
                         // $pageSlug == 'icsb_profile' ||
                         $pageSlug == 'banner' ||
+                        $pageSlug == 'who-we-are' ||
                         $pageSlug == 'latest_news' ||
                         $pageSlug == 'event' ||
                         $pageSlug == 'national_connection' ||
@@ -59,6 +61,7 @@
                 <div class="collapse @if (
                     // $pageSlug == 'icsb_profile' ||
                     $pageSlug == 'banner' ||
+                    $pageSlug == 'who-we-are' ||
                     $pageSlug == 'latest_news' ||
                     $pageSlug == 'event' ||
                     $pageSlug == 'national_connection' ||
@@ -69,6 +72,7 @@
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
                                 ['pageSlug' => 'banner', 'routeName' => 'banner.banner_list', 'label' => 'Banner'],
+                                ['pageSlug' => 'who-we-are', 'routeName' => 'sp.show', 'params' =>'who-we-are', 'label' => 'Who we are'],
                                 ['pageSlug' => 'latest_news', 'routeName' => 'latest_news.latest_news_list', 'label' => 'Latest News'],
                                 ['pageSlug' => 'event', 'routeName' => 'event.event_list', 'label' => 'Event'],
                                 ['pageSlug' => 'testimonial', 'routeName' => 'testimonial.testimonial_list', 'label' => 'Testimonial'],

@@ -67,7 +67,7 @@ class HomePageController extends Controller
         $s['national_connections'] = NationalConnection::where('deleted_at', null)->where('status',1)->orderBy('order_key','ASC')->get();
         $s['president'] = President::with(['durations','member'])->where('status',1)->where('deleted_at',null)->first();
         $s['home_bsss'] = SecretarialStandard::where('deleted_at', null)->where('is_featured','1')->where('status', 1)->get();
-        $s['single_page'] = SinglePages::where('frontend_slug', 'icsb-profile')->first();
+        $s['who_we_are'] = SinglePages::where('frontend_slug', 'who-we-are')->first();
         $s['recent_videos'] = RecentVideo::where('status',1)->where('deleted_at',null)->latest()->get();
         $s['notice_cats'] = NoticeCategory::with('notices')->where('deleted_at',null)->where('status',1)->get();
         $s['notices'] = Notice::with('category')->where('deleted_at',null)->where('status',1)->latest()->limit(4)->get();

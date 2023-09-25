@@ -34,30 +34,42 @@
 </section>
 
 <!----============================ Who We are Section ==========================---->
-@if(!empty(json_decode($single_page->saved_data)) && isset(json_decode($single_page->saved_data)->{'front-image'}) && isset(json_decode($single_page->saved_data)->{'page-description'}))
-    <section class="we-are-section big-sec-height">
-        <div class="left-col wow fadeInLeftBig">
-            <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/1.png')}}" data-bg-color="#88BF85"  data-associate-image="{{asset('frontend/img/we-are/Image-6.jpg')}}"/>
-            <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/2.png')}}" data-bg-color="#C78282"  data-associate-image="{{asset('frontend/img/we-are/Image-7.jpg')}}"/>
-            <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/3.png')}}" data-bg-color="#B1B9BD"  data-associate-image="{{asset('frontend/img/we-are/Image-6.jpg')}}"/>
-            <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/4.png')}}" data-bg-color="#CFC6BD"  data-associate-image="{{asset('frontend/img/we-are/Image-9.jpg')}}"/>
-            <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/Image12.png')}}" data-bg-color="#8A9FB0"  data-associate-image="{{asset('frontend/img/we-are/Image-8.jpg')}}"/>
+@if(isset(json_decode($who_we_are->saved_data)->{'background-image'}) && isset(json_decode($who_we_are->saved_data)->{'slider-images'}) && isset(json_decode($who_we_are->saved_data)->{'page-description'}))
+    <section class="we-are-section big-sec-min-height" >
+        <div class="container">
+            <div class="section-heading wow fadeInLeftBig text-center">
+                <h2 class="title-shap">{{_('Who We Are')}}</h2>
+            </div>
+            <div class="who_we_are_wrap" style="background-image:linear-gradient(rgb(51 232 243), rgb(17 167 36 / 57%)), url({{storage_url(json_decode($who_we_are->saved_data)->{'background-image'})}})">
+                <div class="left-col wow fadeInLeftBig">
+                    @php
+                        $colors=[
+                            "#88BF85",
+                            "#C78282",
+                            "#B1B9BD",
+                            "#CFC6BD",
+                            "#8A9FB0"
+                        ];
+                    @endphp
 
-        </div>
-        <div class="right-col wow fadeInRightBig"></div>
-        <div class="container wrap">
-            <div class="we-are-coulmn flex">
-                <div class="content-column text-right">
-                    <div class="section-heading wow fadeInLeftBig">
-                        <h2 class="title-shap">{{_('Who We Are')}}</h2>
-                    </div>
-                    {{-- <p>{{ stringLimit(html_entity_decode_table(json_decode($single_page->saved_data)->{'page-description'}),'800') }}</p> --}}
-                    <div class="content-description wow fadeInLeftBig">{!! json_decode($single_page->saved_data)->{'page-description'} !!}</div>
-                    {{-- <a href="{{route('sp.frontend',$single_page->frontend_slug)}}">{{_('Read More')}}</a> --}}
                 </div>
-                <div class="image-column d-flex align-items-center wow fadeInRightBig">
-                    <div class="border"></div>
-                    <img src="{{asset('frontend/img/we-are/Image-9.jpg')}}" class="image-border associate-image" alt="{{$single_page->title}}" />
+                <div class="right-col wow fadeInRightBig"></div>
+                <div class="container wrap">
+                    <div class="we-are-coulmn flex">
+                        <div class="content-column text-right">
+                            {{-- <p>{{ stringLimit(html_entity_decode_table(json_decode($single_page->saved_data)->{'page-description'}),'800') }}</p> --}}
+                            <div class="content-description wow fadeInLeftBig">{!! json_decode($who_we_are->saved_data)->{'page-description'} !!}</div>
+                            {{-- <a href="{{route('sp.frontend',$single_page->frontend_slug)}}">{{_('Read More')}}</a> --}}
+                        </div>
+                        <div class="image-column wow fadeInRightBig">
+
+                                <div class="border"></div>
+                                @foreach (json_decode($who_we_are->saved_data)->{'slider-images'} as $key=>$image)
+                                    <img class="image-border associate-image image-loop" style="display: none;" src="{{storage_url($image)}}" data-bg-color="{{ $colors[$key % count($colors)] }}" alt="" />
+                                @endforeach
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

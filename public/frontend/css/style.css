@@ -949,6 +949,12 @@ li {
 }
 
 /* ================== End Ticker Section ==============*/
+.we-are-section .who_we_are_wrap {
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 90px 60px 60px 60px;
+    border-radius: 50px;
+}
 .we-are-section .left-col {
 	width: 64%;
 	position: absolute;
