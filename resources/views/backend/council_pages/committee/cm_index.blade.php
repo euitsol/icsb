@@ -40,7 +40,7 @@
                                         <td>
                                             <img class="rounded" width="60" src="{{getMemberImage($committee_member->member)}}">
                                         </td>
-                                        <td> {{ $committee_member->member->type->title  }} </td>
+                                        <td> {{ $committee_member->member->member_type()  }} </td>
                                         <td> {{ $committee_member->committe->committe_type->title  }} </td>
                                         <td> {{ $committee_member->committe_member_type->title  }} </td>
                                         <td>

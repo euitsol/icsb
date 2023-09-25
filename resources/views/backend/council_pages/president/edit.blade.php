@@ -142,7 +142,7 @@
                     $("#slug").val(slugValue);
                     $('#memberInfo').html(`
                     <div class='col-md-2 text-center'>
-                        <img class="rounded" width="100" src="{{ storage_url('${data.member.image}')}}">
+                        <img class="rounded" width="100" src="${data.member.image}">
                     </div>
                     <div class='col-md-10'>
                         <div class="form-group">

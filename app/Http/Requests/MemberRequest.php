@@ -18,7 +18,7 @@ class MemberRequest extends FormRequest
         return [
             'name' => 'required|max:255',
             'designation' => 'required|max:255',
-            'member_type' => 'required|exists:member_types,id',
+            'member_type' => 'nullable|exists:member_types,id',
             'phone' => 'required|array|min:1',
             'phone.*.number' => 'required|string|max:20',
             'phone.*.type' => 'required|string|in:residential,office',
@@ -34,7 +34,7 @@ class MemberRequest extends FormRequest
     {
         return [
             'member_email' => 'required|unique:members,email,NULL,id,deleted_at,NULL',
-            'membership_id' => 'required|unique:members,membership_id,NULL,id,deleted_at,NULL',
+            'membership_id' => 'nullable',
 
 
         ];
@@ -44,7 +44,7 @@ class MemberRequest extends FormRequest
     {
         return [
             'member_email' => 'required|unique:members,email,' . $this->route('id') . ',id,deleted_at,NULL',
-            'membership_id' => 'required|unique:members,membership_id,' . $this->route('id') . ',id,deleted_at,NULL',
+            'membership_id' => 'nullable',
 
         ];
     }
