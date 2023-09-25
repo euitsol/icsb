@@ -73,6 +73,71 @@
                 </div>
             </div>
 
+
+
+            <div class="card ">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-8">
+                            <h4 class="card-title">{{ _('Honorary Member List') }}</h4>
+                        </div>
+                        <div class="col-4 text-right">
+                            @include('backend.partials.button', ['routeName' => 'member.member_create', 'params' => [2], 'className' => 'btn-primary', 'label' => 'Create Honorary Member'])
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    @include('alerts.success')
+                    <div class="">
+                        <table class="table tablesorter datatable">
+                            <thead class=" text-primary">
+                                <tr>
+                                    <th>{{ _('Name') }}</th>
+                                    <th>{{ _('Image') }}</th>
+                                    <th>{{ _('Type') }}</th>
+                                    <th>{{ _('Status') }}</th>
+                                    <th>{{ _('Created at') }}</th>
+                                    <th>{{ _('Created by') }}</th>
+                                    <th>{{ _('Action') }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($honorary_members as $hmember)
+                                    <tr>
+                                        <td> {{ $hmember->name }} </td>
+                                        <td>
+                                            <img class="rounded" width="60" src="
+                                            @if(!empty($hmember->image))
+                                                {{ member_image($hmember->image) }}
+                                            @else
+                                                {{ asset('no_img/no_img.jpg') }}
+                                            @endif
+                                            ">
+                                        </td>
+                                        <td> {{ $hmember->type->title ?? ''}} </td>
+                                        <td>
+                                            @include('backend.partials.button', ['routeName' => 'member.status.member_edit','params' => [$hmember->id], 'className' => $hmember->getStatusClass(), 'label' => $hmember->getStatus() ])
+                                        </td>
+                                        <td> {{ timeFormate($hmember->created_at) }} </td>
+                                        <td> {{ $hmember->created_user->name ?? 'system' }} </td>
+                                        <td>
+                                            @include('backend.partials.action_buttons', [
+                                                'menuItems' => [
+                                                    ['routeName' => '', 'label' => 'View'],
+                                                    ['routeName' => 'member.member_edit',     'params' => [$hmember->id], 'label' => 'Update'],
+                                                    ['routeName' => 'member.status.member_edit',   'params' => [$hmember->id], 'label' => 'Change Status'],
+                                                    ['routeName' => 'member.member_delete',   'params' => [$hmember->id], 'label' => 'Delete', 'delete' => true],
+                                                ]
+                                            ])
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
             <div class="card ">
                 <div class="card-header">
                     <div class="row">
@@ -80,7 +145,7 @@
                             <h4 class="card-title">{{ _('Non Member List') }}</h4>
                         </div>
                         <div class="col-4 text-right">
-                            @include('backend.partials.button', ['routeName' => 'member.member_create', 'className' => 'btn-primary', 'label' => 'Create Non Member'])
+                            @include('backend.partials.button', ['routeName' => 'member.member_create', 'params' => [1], 'className' => 'btn-primary', 'label' => 'Create Non Member'])
                         </div>
                     </div>
                 </div>

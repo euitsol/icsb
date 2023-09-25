@@ -31,10 +31,10 @@ class Member extends BaseModel
     {
         switch ($this->type) {
             case '0':
-                return 'ACS';
+                return 'Associate Member';
 
             case '1':
-                return 'FCS';
+                return 'Fellow Member';
 
             default:
                 return 'Not Found';
