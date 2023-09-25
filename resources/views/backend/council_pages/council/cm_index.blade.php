@@ -41,7 +41,7 @@
                                         <td>
                                             <img class="rounded" width="60" src="{{getMemberImage($council_member->member)}}">
                                         </td>
-                                        <td> {{ $council_member->member->type->title  }} </td>
+                                        <td> {{ $council_member->member->member_type()  }} </td>
                                         <td> {{ $council_member->council_member_type->title  }} </td>
                                         <td>
                                             @include('backend.partials.button', ['routeName' => 'council.status.council_member_edit','params' => [$council_member->id], 'className' => $council_member->getStatusClass(), 'label' => $council_member->getStatus() ])

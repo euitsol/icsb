@@ -6,6 +6,7 @@
     <div class="row">
         <div class="col-md-8">
             <div class="card">
+                @include('alerts.success')
                 <div class="card-header">
                     <h5 class="title">{{ _('Edit Member') }}</h5>
                 </div>
@@ -13,11 +14,11 @@
                     @csrf
                     @method('PUT')
                     <div class="card-body">
-                        <div class="form-group {{ $errors->has('membership_id') ? ' has-danger' : '' }}">
+                        {{-- <div class="form-group {{ $errors->has('membership_id') ? ' has-danger' : '' }}">
                             <label>{{ _('Membership ID') }}</label>
                             <input type="text" name="membership_id" class="form-control {{ $errors->has('membership_id') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter membership ID') }}" value="{{$member->membership_id }}">
                             @include('alerts.feedback', ['field' => 'membership_id'])
-                        </div>
+                        </div> --}}
                         <div class="form-group {{ $errors->has('name') ? ' has-danger' : '' }}">
                             <label>{{ _('Name') }}</label>
                             <input type="text" name="name" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter Member\'s Name') }}" value="{{ $member->name }}">
@@ -29,7 +30,7 @@
                             @include('alerts.feedback', ['field' => 'designation'])
                         </div>
                         <div class="row">
-                            <div class="form-group col-md-6 {{ $errors->has('member_type') ? ' has-danger' : '' }}">
+                            {{-- <div class="form-group col-md-6 {{ $errors->has('member_type') ? ' has-danger' : '' }}">
                                 <label>{{ _('Member Type') }}</label>
                                 <select name="member_type" class="form-control {{ $errors->has('member_type') ? ' is-invalid' : '' }}">
                                     @foreach ($types as $type)
@@ -37,8 +38,8 @@
                                     @endforeach
                                 </select>
                                 @include('alerts.feedback', ['field' => 'member_type'])
-                            </div>
-                            <div class="form-group col-md-6 {{ $errors->has('member_email') ? ' has-danger' : '' }}">
+                            </div> --}}
+                            <div class="form-group col-md-12 {{ $errors->has('member_email') ? ' has-danger' : '' }}">
                                 <label>{{ _('Member Email') }} <small>will be used for login</small></label>
                                 <input type="email" name="member_email" class="form-control {{ $errors->has('member_email') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter Member\'s Email') }}" value="{{ $member->email }}">
                                 @include('alerts.feedback', ['field' => 'member_email'])

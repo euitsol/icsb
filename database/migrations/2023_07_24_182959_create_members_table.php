@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->id();
-            $table->string('membership_id')->nullable();
             $table->string('name')->nullable();
             $table->string('email')->nullable();;
-            $table->unsignedBigInteger('member_type');
+            $table->unsignedBigInteger('member_type')->nullable();
             $table->string('designation');
             $table->string('image')->nullable();
             $table->json('phone')->nullable();
@@ -24,6 +23,13 @@ return new class extends Migration
             $table->longText('details')->nullable();
             $table->longText('company_name')->nullable();
             $table->boolean('status')->default(1);
+
+            $table->string('member_id')->nullable();
+            $table->string('membership_id')->nullable();
+            $table->string('mem_current_status')->nullable();
+            $table->string('honorary')->nullable();
+            $table->string('type')->nullable();
+
             $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
             $table->softDeletes();

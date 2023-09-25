@@ -113,7 +113,9 @@ function storage_url($urlOrArray){
     }
 }
 
-
+    function member_image($url){
+    return $url;
+}
 
 function timeFormate($time){
     $dateFormat = env('DATE_FORMAT', 'd-M-Y');
@@ -220,7 +222,7 @@ function settings($key){
 // }
 function getMemberImage($object){
     if($object->image){
-        return storage_url($object->image);
+        return $object->image;
     }else{
         // if($object->gender == 'Male'){
         //     return 'Male Image';

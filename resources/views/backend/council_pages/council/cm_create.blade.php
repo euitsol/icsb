@@ -133,7 +133,7 @@ $(function() {
                 </div>
         `;
         $('#append').append(result);
-
+        $('select:not(.no-select)').select2();
     });
 
     $(document).on('click', '.delete_member', function() {
