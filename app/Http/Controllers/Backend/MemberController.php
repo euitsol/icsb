@@ -27,16 +27,17 @@ class MemberController extends Controller
     {
         $members = Member::with(['user', 'type'])->where('member_type', null)->latest()->get();
         $non_members = Member::with(['user', 'type'])->where('member_type', 1)->latest()->get();
+        $honorary_members = Member::with(['user', 'type'])->where('member_type', 2)->latest()->get();
         // $types = MemberType::with(['members'])->where('deleted_at', null)->orderBy('order_key','ASC')->get();
 
-        return view('backend.member.index',['members' => $members, 'non_members' => $non_members]);
+        return view('backend.member.index',['members' => $members, 'non_members' => $non_members, 'honorary_members' => $honorary_members]);
     }
 
-    public function create():View
+    public function create($id):View
     {
         $types = MemberType::where('deleted_at', null)->where('status', 1)->latest()->get();
 
-        return view('backend.member.create', ['types' => $types]);
+        return view('backend.member.create', ['types' => $types, 'membership_id' => $id]);
     }
 
     public function store(MemberRequest $request): RedirectResponse
@@ -45,7 +46,7 @@ class MemberController extends Controller
         $member->membership_id = "";
         $member->name = $request->name;
         $member->designation = $request->designation;
-        $member->member_type = 1;
+        $member->member_type = $request->membership_id;
         $member->email = $request->member_email;
         $member->address = $request->address;
         $member->details = $request->description;
@@ -62,7 +63,7 @@ class MemberController extends Controller
         $member->created_by = auth()->user()->id;
         $member->save();
 
-        return redirect()->back()->withStatus(__('Non Member '.$member->name.' created successfully.'));
+        return redirect()->back()->withStatus(__($member->name.' added successfully.'));
     }
 
     public function edit($id):View
@@ -77,9 +78,7 @@ class MemberController extends Controller
     {
         $member = Member::findOrFail($id);
         $member->name = $request->name;
-        $member->membership_id = "";
         $member->designation = $request->designation;
-        $member->member_type = 1;
         $member->email = $request->member_email;
         $member->address = $request->address;
         $member->details = $request->description;
@@ -107,7 +106,7 @@ class MemberController extends Controller
         $member->updated_by = auth()->user()->id;
         $member->save();
 
-        return redirect()->back()->withStatus(__('Non Member '.$member->name.' updated successfully.'));
+        return redirect()->back()->withStatus(__($member->name.' updated successfully.'));
     }
 
     public function status($id): RedirectResponse

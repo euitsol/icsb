@@ -13,6 +13,7 @@
                 <form method="POST" action="{{ route('member.member_create') }}" autocomplete="off" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
+                        <input type="hidden" name="membership_id" value="{{$membership_id}}">
                         {{-- <div class="form-group {{ $errors->has('membership_id') ? ' has-danger' : '' }}">
                             <label>{{ _('Membership ID') }}</label>
                             <input type="text" name="membership_id" class="form-control {{ $errors->has('membership_id') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter membership ID') }}" value="{{ old('membership_id') }}">

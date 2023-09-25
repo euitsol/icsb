@@ -16,5 +16,12 @@ class MemberTypeSeeder extends Seeder
             'slug' => 'non-members',
             'description' => 'These people are not members of ICSB. Adding here is for adding as a member of the Council only.',
         ]);
+        MemberType::create([
+            'id' => 2,
+            'order_key' => 2,
+            'title' => 'Honorary Members',
+            'slug' => 'honorary-members',
+            'description' => '',
+        ]);
     }
 }

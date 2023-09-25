@@ -308,8 +308,8 @@ Route::group(['middleware' => 'auth', 'permission'], function () {
     // Member Module
     Route::group(['as' => 'member.', 'prefix' => 'member'], function () {
         Route::get('index', [MemberController::class, 'index'])->name('member_list');
-        Route::get('create', [MemberController::class, 'create'])->name('member_create');
-        Route::post('create', [MemberController::class, 'store'])->name('member_create');
+        Route::get('create/{type?}', [MemberController::class, 'create'])->name('member_create');
+        Route::post('create/{type?}', [MemberController::class, 'store'])->name('member_create');
         Route::get('edit/{id}', [MemberController::class, 'edit'])->name('member_edit');
         Route::put('edit/{id}', [MemberController::class, 'update'])->name('member_edit');
         Route::get('status/{id}', [MemberController::class, 'status'])->name('status.member_edit');
