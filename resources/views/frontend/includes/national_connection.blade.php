@@ -1,11 +1,11 @@
 <section class="national-connection-section small-sec-height">
     <div class="container">
         <div class="content">
-            <div class="heading-element text-align">
+            <div class="heading-element text-align wow fadeInRightBig">
                 <h2 class="colo-black title-shap">{{_('National Connections')}}</h2>
             </div>
             <div class="logo-carousel">
-                <div class="nation-slider owl-carousel owl-theme">
+                <div class="nation-slider owl-carousel owl-theme wow fadeInDownBig">
                     @forelse ($national_connections as $connection)
                     <div class="item">
                         <div class="logo-wrapp">

@@ -1,11 +1,11 @@
 <section class="notice-section big-sec-height">
     <div class="container">
         <div class="notice-row">
-            <div class="section-heading text-align">
+            <div class="section-heading text-align wow fadeInRightBig">
                 <h2 class="title-shap">{{_('Notice Board')}}</h2>
             </div>
             <div class="notice-board-wrapper">
-                <div class="left-column notice-details-col">
+                <div class="left-column notice-details-col wow fadeInLeftBig">
                     @foreach ($notices as $notice)
                     <div class="notice-content flex w-100">
                         <div class="date-col">
@@ -20,7 +20,7 @@
                                     <i class="fa-solid fa-clock"></i>{{date('H:i A', strtotime($notice->created_at))}}
                                 </li>
                                 <li>
-                                    <i class="fa-solid fa-user-large"></i>{{$notice->title}}
+                                    <i class="fa-solid fa-user-large"></i>{{_('CS Bangladesh')}}
                                 </li>
                             </ul>
                         </div>
@@ -28,7 +28,7 @@
                     @endforeach
 
                 </div>
-                <div class="right-column notice-title-col">
+                <div class="right-column notice-title-col wow fadeInRightBig">
                     <div class="notice-wrapper">
                         <div class="title-box">
                             <h4>{{_('Categories')}}</h4>

@@ -24,7 +24,7 @@ function generateSlug(str) {
     return str
         .toLowerCase()
         .replace(/\s+/g, "-")
-        .replace(/[^\w-]+/g, "")
+        .replace(/[^\w\u0980-\u09FF-]+/g, "") // Allow Bangla characters (\u0980-\u09FF)
         .replace(/--+/g, "-")
         .replace(/^-+|-+$/g, "");
 }

@@ -1759,9 +1759,37 @@ li {
 }
 
 .events-section .events-row .item {
-	padding: 37px;
-	background: #fff;
-	border-radius: 50px 50px 0px 00px;
+
+	border-radius: 50px;
+}
+.events-section .events-row .item .logo_image {
+    position: relative;
+    top: 24px;
+}
+.events-section .events-row .item .logo_image .month {
+    position: absolute;
+    top: 55px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-weight: 900;
+    font-size: 60px;
+}
+.events-section .events-row .item .logo_image .date {
+    position: absolute;
+    top: 165px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 120px;
+    font-weight: 900;
+    color: #565555;
+}
+
+
+.events-section .events-row .item .logo-wrapp {
+    padding: 50px 37px 37px 37px;
+    background: #fff;
+    border-radius: 0 0 50px 50px;
 }
 
 .events-section .events-row .item h3 {

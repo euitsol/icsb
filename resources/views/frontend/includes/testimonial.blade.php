@@ -1,10 +1,10 @@
 @if(count($testimonials))
 <section class="testimonial-section big-sec-height">
     <div class="container">
-        <div class="heading-element text-align">
+        <div class="heading-element text-align wow fadeInLeftBig">
             <h2 class="colo-black title-shap">{{_('Quotes')}}</h2>
         </div>
-        <div class="testimonial-carousel">
+        <div class="testimonial-carousel wow fadeInUpBig">
             <div class="testimonial-slider owl-carousel owl-theme">
                 @foreach ($testimonials as $testimonial)
                     <div class="item">
