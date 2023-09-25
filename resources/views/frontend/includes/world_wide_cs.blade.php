@@ -1,11 +1,11 @@
 <section class="cs-wide-section small-sec-height">
     <div class="container">
         <div class="content">
-            <div class="heading-element text-align">
+            <div class="heading-element text-align wow fadeInLeftBig">
                 <h2 class="colo-black title-shap">{{_('World Wide CS')}}</h2>
             </div>
             <div class="logo-carousel">
-                <div class="cs-wide-slider owl-carousel owl-theme">
+                <div class="cs-wide-slider owl-carousel owl-theme wow fadeInUpBig">
                     @forelse ($wwcss as $wwcs)
                         <a href="{{$wwcs->url}}" target="_blank">
                             <div class="item">

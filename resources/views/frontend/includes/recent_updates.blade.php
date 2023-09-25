@@ -2,11 +2,11 @@
 <section class="recent-update-section big-sec-height">
     <div class="container">
         <div class="recent-update-row">
-            <div class="section-heading text-align">
+            <div class="section-heading text-align wow fadeInRightBig">
                 <h2 class="title-shap">Most Recent Updates</h2>
             </div>
             <div class="logo-carousel">
-                <div class="recent-update-slider owl-carousel owl-theme">
+                <div class="recent-update-slider owl-carousel owl-theme wow fadeInDownBig">
                     @foreach ($media_rooms as $media_room)
                         <div class="item">
                             <div class="logo-wrapp">
@@ -26,7 +26,7 @@
                     @endforeach
                 </div>
             </div>
-            <div class="see-button text-align d-block">
+            <div class="see-button text-align d-block wow fadeInLeftBig">
                 <a href="{{route('media_room_view.all')}}">See All Updates</a>
             </div>
         </div>

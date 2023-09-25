@@ -3,9 +3,11 @@
 @section('title', 'Home')
 @section('content')
 <a href="javascript:voide(0)" class="scroll_top"><i class="fa-solid fa-circle-up fa-bounce"></i></i></a>
-<a href="{{route('member_view.corporate_leader')}}" class="stiky-box">
-    <img src="{{asset('fixed_image/fixed.jpg')}}" alt="">
-</a>
+<div class="">
+    <a href="{{route('member_view.corporate_leader')}}" class="stiky-box ">
+        <img src="{{asset('fixed_image/fixed.jpg')}}" alt="">
+    </a>
+</div>
 {{-- Banner Section --}}
 @include('frontend.includes.banner',['contact'=>$contact, 'banner'=>$banner])
 
@@ -30,7 +32,7 @@
 <!----============================ Who We are Section ==========================---->
 @if(!empty(json_decode($single_page->saved_data)) && isset(json_decode($single_page->saved_data)->{'front-image'}) && isset(json_decode($single_page->saved_data)->{'page-description'}))
     <section class="we-are-section big-sec-height">
-        <div class="left-col">
+        <div class="left-col wow fadeInLeftBig">
             <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/1.png')}}" data-bg-color="#88BF85"  data-associate-image="{{asset('frontend/img/we-are/Image-6.jpg')}}"/>
             <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/2.png')}}" data-bg-color="#C78282"  data-associate-image="{{asset('frontend/img/we-are/Image-7.jpg')}}"/>
             <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/3.png')}}" data-bg-color="#B1B9BD"  data-associate-image="{{asset('frontend/img/we-are/Image-6.jpg')}}"/>
@@ -38,18 +40,18 @@
             <img class="image-loop" style="display: none;" src="{{asset('frontend/img/we-are/Image12.png')}}" data-bg-color="#8A9FB0"  data-associate-image="{{asset('frontend/img/we-are/Image-8.jpg')}}"/>
 
         </div>
-        <div class="right-col"></div>
+        <div class="right-col wow fadeInRightBig"></div>
         <div class="container wrap">
             <div class="we-are-coulmn flex">
                 <div class="content-column text-right">
-                    <div class="section-heading">
+                    <div class="section-heading wow fadeInLeftBig">
                         <h2 class="title-shap">{{_('Who We Are')}}</h2>
                     </div>
                     {{-- <p>{{ stringLimit(html_entity_decode_table(json_decode($single_page->saved_data)->{'page-description'}),'800') }}</p> --}}
-                    <div class="content-description">{!! json_decode($single_page->saved_data)->{'page-description'} !!}</div>
+                    <div class="content-description wow fadeInLeftBig">{!! json_decode($single_page->saved_data)->{'page-description'} !!}</div>
                     {{-- <a href="{{route('sp.frontend',$single_page->frontend_slug)}}">{{_('Read More')}}</a> --}}
                 </div>
-                <div class="image-column d-flex align-items-center ">
+                <div class="image-column d-flex align-items-center wow fadeInRightBig">
                     <div class="border"></div>
                     <img src="{{asset('frontend/img/we-are/Image-9.jpg')}}" class="image-border associate-image" alt="{{$single_page->title}}" />
                 </div>
@@ -93,6 +95,9 @@
 
 @endsection
 @push('js')
+<script>
+    new WOW().init();
+</script>
 <script>
     // Banner Video Control JS
     $(document).ready(function() {
