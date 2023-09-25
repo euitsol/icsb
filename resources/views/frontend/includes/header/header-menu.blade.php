@@ -145,16 +145,13 @@
                             <li><a href="{{ route('sp.frontend','who-are-css') }}">Who are CSs</a></li>
                             <li><a href="{{ route('sp.frontend','cs-membership') }}">CS Membership</a></li>
                             <li><a href="{{ route('sp.frontend','membership-benefits') }}">Membership Benefits</a></li>
-                            <li class="drop-down"><a href="#">Members’ Search <i class="fa-solid fa-angle-down"></i></a>
-                                @if(count($memberTypes))
-                                    <ul class="sub-menu">
-                                        @foreach ($memberTypes as $mType)
-                                            @if($mType->id != 5)
-                                                <li><a href="{{route('member_view.m_search',$mType->slug)}}">{{ $mType->title }}</a></li>
-                                            @endif
-                                        @endforeach
-                                    </ul>
-                                @endif
+                            <li class="drop-down"><a href="#">Member’s Search <i class="fa-solid fa-angle-down"></i></a>
+                                <ul class="sub-menu">
+                                    <li><a href="{{route('member_view.m_search', 'honorary')}}">Honorary Members</a></li>
+                                    <li><a href="{{route('member_view.m_search', 'fellow')}}">Fellow Members</a></li>
+                                    <li><a href="{{route('member_view.m_search', 'associate')}}">Associate Members</a></li>
+                                    <li><a href="{{route('member_view.m_search', 'deceased')}}">Deceased Members</a></li>
+                                </ul>
                             </li>
                             @if(isset($memberPortal->saved_data) && !empty(json_decode($memberPortal->saved_data)->{'portal-url'}))
                                 <li><a target="_blank" href="{{ json_decode($memberPortal->saved_data)->{'portal-url'} }}">Members Portal</a></li>

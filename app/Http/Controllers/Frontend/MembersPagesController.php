@@ -12,6 +12,7 @@ use App\Models\Council;
 use App\Models\CsFirms;
 use App\Models\JobPlacement;
 use App\Models\MemberType;
+use App\Models\Member;
 use App\Models\SecretarialStandard;
 use App\Models\SinglePages;
 use Carbon\Carbon;
@@ -49,7 +50,37 @@ class MembersPagesController extends Controller
     }
     public function memberSearch($slug): View
     {
-        $s['type'] = MemberType::with('members')->where('status', 1)->where('slug', $slug)->first();
+        switch ($slug) {
+            case 'honorary':
+                $s['title'] = 'Honorary Members';
+                $s['slug'] = 'honorary';
+                $s['members'] = Member::where('status', 1)->where('member_type', 2)->latest()->get();
+                break;
+
+            case 'fellow':
+                $s['title'] = 'Fellow Members';
+                $s['slug'] = 'fellow';
+                $s['members'] = Member::where('mem_current_status', 1)->where('type', 1)->latest()->get();
+                break;
+
+            case 'associate':
+                $s['title'] = 'Associate Members';
+                $s['slug'] = 'associate';
+                $s['members'] = Member::where('mem_current_status', 1)->where('type', 0)->latest()->get();
+                break;
+
+            case 'deceased':
+                $s['title'] = 'Deceased Members';
+                $s['slug'] = 'deceased';
+                $s['members'] = Member::where('mem_current_status', 3)->latest()->get();
+                break;
+
+            default:
+                $s['title'] = '';
+                $s['slug'] = '';
+                $s['members'] = [];
+                break;
+        }
         return view('frontend.members.member_view',$s);
 
     }
