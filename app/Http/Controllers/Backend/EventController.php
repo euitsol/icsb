@@ -6,9 +6,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Event;
+use App\Models\Member;
 use Illuminate\View\View;
 use App\Http\Requests\EventRequest;
 use Illuminate\Http\RedirectResponse;
+
+use App\Jobs\SendMemberEmail;
 
 
 class EventController extends Controller
@@ -20,6 +23,15 @@ class EventController extends Controller
     }
     public function index(): View
     {
+        $members = Member::all(); // Fetch your list of members here
+
+        foreach ($members as $member) {
+            $title = 'Your Email Title';
+            $details = 'Email details for ' . $member->name ?? '';
+
+
+            dispatch(new SendMemberEmail($member, $title, $details));
+        }
         $n['events']= Event::where('deleted_at', null)->latest()->get();
         return view('backend.event.index',$n);
     }
@@ -50,6 +62,10 @@ class EventController extends Controller
         $event->description = $request->description;
         $event->created_by = auth()->user()->id;
         $event->save();
+
+
+
+
         return redirect()->route('event.event_list')->withStatus(__('Event '.$request->title.' created successfully.'));
     }
     public function edit($id): View

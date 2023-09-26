@@ -70,7 +70,7 @@ $datas = [
                                         </div>
                                         <div class="content">
                                             <h4>{{$location->title}}:</h4>
-                                            <a href="{{$location->url}}">{{$location->address}}</a>
+                                            <a href="{{ route('contact_us.location_map') }}">{{$location->address}}</a>
                                         </div>
                                     </div>
                                 @endforeach

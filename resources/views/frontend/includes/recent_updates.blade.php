@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="see-button text-align d-block wow fadeInLeftBig">
-                <a href="{{route('media_room_view.all')}}">See All Updates</a>
+                <a href="{{route('media_room_view.all')}}">{{_('See All Updates')}}</a>
             </div>
         </div>
     </div>
