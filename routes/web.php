@@ -92,7 +92,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 //Backend Routes
 
-Route::group(['middleware' => 'auth', 'permission'], function () {
+Route::group(['middleware' => ['auth', 'permission']], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     // Default File Download Route
     Route::get('download/{filename}', [DefaultController::class, 'download'])->name('download');
@@ -489,7 +489,7 @@ Route::get('/export-permissions', function () {
 
 
 
-Route::group(['middleware' => 'log_visitor', 'auth'], function () {
+Route::group(['middleware' => ['log_visitor', 'auth']], function () {
 
     Route::get('/single-page/create', [SinglePagesController::class, 'create'])->name('sp.create');
     Route::post('/single-page/store', [SinglePagesController::class, 'store'])->name('sp.store');
