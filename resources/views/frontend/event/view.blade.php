@@ -44,26 +44,37 @@ $datas = [
                 <div class="job-summery">
                     <x-embed url="{{$event->video_url}}" />
                     <ul>
-                        <li><span>Total Participants:</span> {{$event->total_participant}} {{_('People')}}</li>
+                        <li><span>{{_('Total Participants:')}}</span> {{$event->total_participant}} {{_('People')}}</li>
                     </ul>
                 </div>
-                <h3>Get Location</h3>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.050621451953!2d90.39431318612283!3d23.745574179751582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8967169ead3%3A0xf0167ae0ec63f58a!2sInstitute%20of%20Chartered%20Secretaries%20of%20Bangladesh%20(ICSB)!5e0!3m2!1sen!2sie!4v1689596152282!5m2!1sen!2sie" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
         <!--=============================== Gallery Section ========================== -->
 	<section class="gallery-section">
-            <h3>Event Images</h3>
-			<div class="gallery-content">
+            <h3>{{_('Event Images')}}</h3>
+			{{-- <div class="gallery-content">
                 @if(!empty(json_decode($event->image)))
                         @foreach (json_decode($event->image) as $image)
                             <div class="gallery-items">
-                                <a href=""><img src="{{storage_url($image)}}"></a>
+                                <a href=""><img src="{{storage_url($image)}}" width=""></a>
                             </div>
                         @endforeach
                     @endif
 
-			</div>
+			</div> --}}
+            <div class="gallery-section global-gallery-section">
+                <div class="gallery-content">
+                    @if(!empty(json_decode($event->image)))
+                        @foreach (json_decode($event->image) as $image)
+                            <div class="gallery-items">
+                                <a href="{{ storage_url($image) }}" data-lightbox="gallery">
+                                    <img src="{{ storage_url($image) }}">
+                                </a>
+                            </div>
+                        @endforeach
+                    @endif
+                </div>
+            </div>
 	</section>
     </div>
 </section>
