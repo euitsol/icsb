@@ -16,7 +16,7 @@
             $parameterArray = isset($menuItem['params']) ? $menuItem['params'] : [];
         @endphp
         @if ($check)
-            <a  onclick="return confirm('Are you sure?')" class="dropdown-item @if(isset($menuItem['className'])) {{$menuItem['className']}} @endif @if(isset($menuItem['delete']) && $menuItem['delete'] == true) action-delete @endif" href="{{ route($menuItem['routeName'], $parameterArray) }}">{{ _($menuItem['label']) }}</a>
+            <a class="dropdown-item @if(isset($menuItem['className'])) {{$menuItem['className']}} @endif @if(isset($menuItem['delete']) && $menuItem['delete'] == true) action-delete @endif" @if(isset($menuItem['delete']) && $menuItem['delete'] == true) onclick="return confirm('Are you sure?')" @endif href="{{ route($menuItem['routeName'], $parameterArray) }}">{{ _($menuItem['label']) }}</a>
         @endif
 
         @endforeach

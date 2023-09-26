@@ -65,8 +65,8 @@ p {
 .pop_up_modal .modal-body .pop_up_close {
     outline: 1px solid #182456;
     position: absolute;
-    right: 3%;
-    top: 2%;
+    right: 30px;
+    top: 30px;
     transition: .4s;
 }
 .pop_up_modal .modal-body .pop_up_close:hover{
