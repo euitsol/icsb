@@ -110,28 +110,21 @@
 @include('frontend.includes.national_connection',['national_connections'=>$national_connections])
 
 
-
  <!-- Pop Up Modal -->
- <div class="modal fade" id="view-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+ @if(isset(json_decode($pop_up->saved_data)->{'upload-image'}))
+ <div class="modal fade pop_up_modal" id="view-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
  aria-labelledby="staticBackdropLabel" aria-hidden="true">
- <div class="modal-dialog modal-lg modal-dialog-centered">
-     <div class="modal-content">
-         <div class="modal-header">
-             <h1 class="modal-title fs-5" id="staticBackdropLabel">Latest News</h1>
-             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-         </div>
-         <div class="modal-body">
-             <div class="container">
-                 <div class="fellow-row flex my-5" id="member_data">
-                    <h2 class="my-5">This is for Latest news popup</h2>
-                 </div>
-             </div>
-         </div>
-         <div class="modal-footer">
-         </div>
-     </div>
- </div>
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <img src="{{storage_url(json_decode($pop_up->saved_data)->{'upload-image'})}}" alt="Pop Up Notice Not Found">
+                <button type="button" class="btn text-danger pop_up_close" data-bs-dismiss="modal" ><i class="fa-solid fa-xmark fa-beat"></i></button>
+            </div>
+        </div>
+    </div>
 </div>
+@endif
 
 
 

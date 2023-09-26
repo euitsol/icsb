@@ -36,6 +36,7 @@
             {{-- Home --}}
             <li>
                 <a class="@if(
+                        $pageSlug == 'pop-up' ||
                         $pageSlug == 'banner' ||
                         $pageSlug == 'who-we-are' ||
                         $pageSlug == 'latest_news' ||
@@ -44,7 +45,7 @@
                         $pageSlug == 'recent_video' ||
                         $pageSlug == 'testimonial'
                     )@else collapsed @endif" data-toggle="collapse" href="#home" @if (
-                        // $pageSlug == 'icsb_profile' ||
+                        $pageSlug == 'pop-up' ||
                         $pageSlug == 'banner' ||
                         $pageSlug == 'who-we-are' ||
                         $pageSlug == 'latest_news' ||
@@ -59,7 +60,7 @@
                 </a>
 
                 <div class="collapse @if (
-                    // $pageSlug == 'icsb_profile' ||
+                    $pageSlug == 'pop-up' ||
                     $pageSlug == 'banner' ||
                     $pageSlug == 'who-we-are' ||
                     $pageSlug == 'latest_news' ||
@@ -71,6 +72,7 @@
                     <ul class="nav pl-4">
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
+                                ['pageSlug' => 'pop-up', 'routeName' => 'sp.show', 'params' =>'pop-up', 'label' => 'Pop Up'],
                                 ['pageSlug' => 'banner', 'routeName' => 'banner.banner_list', 'label' => 'Banner'],
                                 ['pageSlug' => 'who-we-are', 'routeName' => 'sp.show', 'params' =>'who-we-are', 'label' => 'Who we are'],
                                 ['pageSlug' => 'latest_news', 'routeName' => 'latest_news.latest_news_list', 'label' => 'Latest News'],
@@ -422,12 +424,10 @@
             <li>
                 <a class="@if(
                         $pageSlug == 'sec_and_ceo' ||
-                        $pageSlug == 'organogram' ||
                         $pageSlug == 'assined_officer' ||
                         $pageSlug == 'help-desk'
                     )@else collapsed @endif" data-toggle="collapse" href="#employees" @if (
                         $pageSlug == 'sec_and_ceo' ||
-                        $pageSlug == 'organogram' ||
                         $pageSlug == 'assined_officer' ||
                         $pageSlug == 'help-desk'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
@@ -438,7 +438,6 @@
 
                 <div class="collapse @if (
                         $pageSlug == 'sec_and_ceo' ||
-                        $pageSlug == 'organogram' ||
                         $pageSlug == 'assined_officer' ||
                         $pageSlug == 'help-desk'
 
@@ -447,7 +446,6 @@
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
                                 ['pageSlug' => 'sec_and_ceo', 'routeName' => 'sec_and_ceo.sc_list', 'label' => 'Secretary & CEO'],
-                                ['pageSlug' => 'organogram', 'routeName' => '', 'label' => 'Organogram'],
                                 ['pageSlug' => 'assined_officer', 'routeName' => 'assined_officer.assined_officer_list', 'label' => 'Assigned Officers'],
                                 ['pageSlug' => 'help-desk', 'routeName' => 'sp.show', 'params' => 'help-desk', 'label' => 'Help Desk'],
                             ]
