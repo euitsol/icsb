@@ -13,7 +13,7 @@
                         </div>
                         <div class="content-col">
                             <h3>
-                                <a href="#">{{$notice->title}}</a>
+                                <a href="{{ route('notice_view.notice',$notice->category->slug) }}">{{$notice->title}}</a>
                             </h3>
                             <ul>
                                 <li>
@@ -64,13 +64,15 @@
 
                     // Loop through the notices data
                     data.notices.forEach(function (notice) {
+                        let route = ("{{ route('notice_view.notice', ['slug']) }}");
+                        let _route = route.replace('slug', notice.category.slug);
                         noticeDetailsHtml += `
                             <div class="notice-content flex w-100">
                                 <div class="date-col">
                                     <h4>${notice.date}</h4>
                                 </div>
                                 <div class="content-col">
-                                    <h3><a href="#">${notice.title}</a></h3>
+                                    <h3><a href="${_route}">${notice.title}</a></h3>
                                     <ul>
                                         <li><i class="fa-solid fa-clock"></i>${notice.time}</li>
                                         <li><i class="fa-solid fa-user-large"></i>${notice.category.title}</li>
