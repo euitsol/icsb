@@ -7,6 +7,8 @@
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
     <meta http-equiv="pragma" content="no-cache">
+    <script async src="https://cse.google.com/cse.js?cx=9471c5d01dcda4965">
+    </script>
 
 	<title>
         CS Bangladesh
