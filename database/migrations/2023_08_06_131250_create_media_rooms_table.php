@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('category_id');
             $table->string('slug')->unique();
             $table->string('thumbnail_image');
+            $table->string('program_date');
             $table->json('additional_images')->nullable();
             $table->json('files')->nullable();
             $table->longText('description');
