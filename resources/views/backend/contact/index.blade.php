@@ -187,7 +187,7 @@
                                         <label>{{ _('Address Page Image') }}</label>
                                         <input type="file" accept="image/*" name="address_page_image"
                                         class="form-control  {{ $errors->has('address_page_image') ? 'is-invalid' : '' }} image-upload"
-                                        @if($contact->address_page_image != null)
+                                        @if(isset($contact->address_page_image) && $contact->address_page_image != null)
                                         data-existing-files="{{ storage_url($contact->address_page_image) }}"
                                         data-delete-url="{{route('contact.file.delete.contact_create', $contact->id)}}"
                                         @endif

@@ -41,7 +41,7 @@
                                         <td> {{ $president->order_key }} </td>
                                         <td> {{ $president->member->name }} </td>
                                         <td>
-                                            <img class="rounded" width="60" src=" {{getMemberImage($president->member) }}">
+                                            <img class="rounded" width="60" src=" {{member_image($president->member->image) }}">
                                         </td>
                                         <td> {{ $president->member->designation  }} </td>
                                         <td>

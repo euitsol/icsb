@@ -25,26 +25,28 @@ class MemberController extends Controller
 
     public function index():View
     {
-        $members = Member::with(['user', 'type'])->where('deleted_at', null)->latest()->get();
-        $types = MemberType::with(['members'])->where('deleted_at', null)->orderBy('order_key','ASC')->get();
+        $members = Member::with(['user', 'type'])->where('member_type', null)->latest()->get();
+        $non_members = Member::with(['user', 'type'])->where('member_type', 1)->latest()->get();
+        $honorary_members = Member::with(['user', 'type'])->where('member_type', 2)->latest()->get();
+        // $types = MemberType::with(['members'])->where('deleted_at', null)->orderBy('order_key','ASC')->get();
 
-        return view('backend.member.index',['members' => $members, 'types' => $types]);
+        return view('backend.member.index',['members' => $members, 'non_members' => $non_members, 'honorary_members' => $honorary_members]);
     }
 
-    public function create():View
+    public function create($id):View
     {
         $types = MemberType::where('deleted_at', null)->where('status', 1)->latest()->get();
 
-        return view('backend.member.create', ['types' => $types]);
+        return view('backend.member.create', ['types' => $types, 'membership_id' => $id]);
     }
 
     public function store(MemberRequest $request): RedirectResponse
     {
         $member = new Member;
-        $member->membership_id = $request->membership_id;
+        $member->membership_id = "";
         $member->name = $request->name;
         $member->designation = $request->designation;
-        $member->member_type = $request->member_type;
+        $member->member_type = $request->membership_id;
         $member->email = $request->member_email;
         $member->address = $request->address;
         $member->details = $request->description;
@@ -53,16 +55,15 @@ class MemberController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $path = $image->store('member', 'public');
-            $member->image = $path;
+            $member->image = storage_url($path);
         }
 
-        $user = $this->create_user($request->name, $request->member_email, null, 5);
+        // $user = $this->create_user($request->name, $request->member_email, null, 5);
 
-        $member->user_id = $user->id;
         $member->created_by = auth()->user()->id;
         $member->save();
 
-        return redirect()->route('member.member_list')->withStatus(__('Member '.$member->name.' created successfully.'));
+        return redirect()->back()->withStatus(__($member->name.' added successfully.'));
     }
 
     public function edit($id):View
@@ -77,9 +78,7 @@ class MemberController extends Controller
     {
         $member = Member::findOrFail($id);
         $member->name = $request->name;
-        $member->membership_id = $request->membership_id;
         $member->designation = $request->designation;
-        $member->member_type = $request->member_type;
         $member->email = $request->member_email;
         $member->address = $request->address;
         $member->details = $request->description;
@@ -91,23 +90,23 @@ class MemberController extends Controller
             }
             $image = $request->file('image');
             $path = $image->store('member', 'public');
-            $member->image = $path;
+            $member->image = storage_url($path);
         }
 
-        if($member->email != $request->email){
-            $user = $this->edit_user($member->user_id, null, $request->member_email, null, null);
-        }
+        // if($member->email != $request->email){
+        //     $user = $this->edit_user($member->user_id, null, $request->member_email, null, null);
+        // }
 
 
-        if($member->name != $request->name){
-            $user = $this->edit_user($member->user_id, $request->name, null, null, null);
-        }
+        // if($member->name != $request->name){
+        //     $user = $this->edit_user($member->user_id, $request->name, null, null, null);
+        // }
 
-        $member->user_id = $user->id;
+        // $member->user_id = $user->id;
         $member->updated_by = auth()->user()->id;
         $member->save();
 
-        return redirect()->route('member.member_list')->withStatus(__('Member '.$member->name.' updated successfully.'));
+        return redirect()->back()->withStatus(__($member->name.' updated successfully.'));
     }
 
     public function status($id): RedirectResponse
@@ -193,23 +192,33 @@ class MemberController extends Controller
             if ($response->successful()) {
                 $apiData = $response->json();
                 foreach ($apiData as $index => $item) {
-
+                    $filePath = '';
                     $mobileNumber = $item['mobile_number'];
                     $defaultType = 'office';
                     $transformedmn[0]['type'] = $defaultType;
                     $transformedmn[0]['number'] = $mobileNumber ?? '';
 
+                    if(isset($item['std_pic']) && !empty($item['std_pic'])){
+                        $filePath = str_replace('~', 'https://icsberp.org', $item['std_pic']);
+                    }
+
                     Member::updateOrCreate(
-                        ['membership_id' => $item['member_no']],
+                        ['member_id' => $item['member_id']],
                         [
                             'name' => trim($item['first_name'] ?? '') . ' ' . trim($item['middle_name'] ?? '') . ' ' . trim($item['last_name'] ?? ''),
                             'email' => $item['email_address'] ?? '',
-                            'member_type' => $item['member_type'] ?? '',
+                            'member_type' => null,
                             'designation' => $item['designation'] ?? '',
-                            'image' => $item['std_pic'] ?? '',
+                            'image' => $filePath ?? '',
                             'phone' => json_encode($transformedmn,JSON_FORCE_OBJECT),
                             'address' => trim($item['pre_address'] ?? '') . ' ' . trim($item['pre_address_lin2'] ?? '') . ' ' . trim($item['pre_address_lin3'] ?? ''),
                             'company_name' => $item['company'] ?? '',
+
+                            'membership_id' => $item['member_no'] ?? '',
+                            'mem_current_status' => $item['mem_current_status'] ?? '',
+                            'honorary' => $item['honorary'] ?? '0',
+                            'type' => $item['member_type'] ?? '',
+
                         ]
                     );
                 }

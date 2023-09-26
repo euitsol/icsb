@@ -50,7 +50,7 @@ class SinglePagesController extends Controller
     }
 
     public function show($page_key){
-        $details = SinglePages::where('page_key', $page_key)->latest()->get()->first();
+        $details = SinglePages::where('page_key', $page_key)->latest()->firstOrFail();
 
         return view('show', ['details' => $details]);
     }

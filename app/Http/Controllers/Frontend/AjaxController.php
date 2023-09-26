@@ -26,32 +26,7 @@ use Illuminate\Support\Facades\Schema;
 class AjaxController extends Controller
 {
     public function __construct() {
-        $contact = Contact::where('deleted_at', null)->first();
-        $memberTypes = MemberType::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
-        $committeeTypes = CommitteeType::with('committees')->where('deleted_at', null)->where('status', 1)->get();
-        $mediaRoomCategory = MediaRoomCategory::with('media_rooms')->where('deleted_at', null)->where('status', 1)->get();
-        $bsss = SecretarialStandard::where('deleted_at', null)->where('status', 1)->get();
-        $memberPortal = SinglePages::where('frontend_slug', 'member-portal')->first();
-        $studentPortal = SinglePages::where('frontend_slug', 'student-portal')->first();
-        $studentPortal = SinglePages::where('frontend_slug', 'student-portal')->first();
-        $facultyEvaluationSystem = SinglePages::where('frontend_slug', 'faculty-evaluation-system')->first();
-        $publicationOthers = SinglePages::where('frontend_slug', 'others')->first();
-        $menu_acts = Act::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
-        $councils = Council::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
-        view()->share([
-            'contact' => $contact,
-            'memberTypes' => $memberTypes,
-            'committeeTypes' => $committeeTypes,
-            'mediaRoomCategory' => $mediaRoomCategory,
-            'bsss' => $bsss,
-            'memberPortal' => $memberPortal,
-            'studentPortal' => $studentPortal,
-            'facultyEvaluationSystem' => $facultyEvaluationSystem,
-            'publicationOthers' => $publicationOthers,
-            'menu_acts' => $menu_acts,
-            'councils' => $councils,
-        ]);
-        return $this->middleware('auth');
+
     }
     public function noticeHome($id): JsonResponse
     {
@@ -133,18 +108,38 @@ class AjaxController extends Controller
     }
     public function member_search($search_value, $cat_id): JsonResponse
     {
-        $member_searchs = Member::where('member_type', $cat_id)
-        ->where(function ($query) use ($search_value) {
+        switch ($cat_id) {
+            case 'honorary':
+                $search = Member::where('status', 1)->where('member_type', 2);
+                break;
+
+            case 'fellow':
+                $search = Member::where('mem_current_status', 1)->where('type', 1);
+                break;
+
+            case 'associate':
+                $search = Member::where('mem_current_status', 1)->where('type', 0);
+                break;
+
+            case 'deceased':
+                $search = Member::where('mem_current_status', 3);
+                break;
+
+            default:
+                $search = Member::where('deleted_at', null);
+                break;
+        }
+
+        $search->where(function ($query) use ($search_value) {
             $query->where('name', 'like', '%' . $search_value . '%')
                 ->orWhere('designation', 'like', '%' . $search_value . '%')
                 ->orWhere('membership_id', 'like', '%' . $search_value . '%');
-        })
-        ->with('type')
-        ->get()
-        ->map(function ($member_search) {
+        });
+
+        $member_searchs = $search->latest()->get()->map(function ($member_search) {
             $member_search->image = getMemberImage($member_search);
             return $member_search;
-        });
+        });;
         return response()->json(['member_searchs' => $member_searchs]);
     }
     public function corporate_leader($search_value): JsonResponse

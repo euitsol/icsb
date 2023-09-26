@@ -27,4 +27,52 @@ class Member extends BaseModel
         return $this->hasOne(CsFirm::class, 'member_id');
     }
 
+    public function member_type()
+    {
+        switch ($this->type) {
+            case '0':
+                return 'Associate Member';
+
+            case '1':
+                return 'Fellow Member';
+
+            default:
+                return 'Not Found';
+        }
+    }
+
+    public function member_honorary()
+    {
+        switch ($this->honorary) {
+            case '0':
+                return 'False';
+
+            case '1':
+                return 'True';
+
+            default:
+                return 'Not Found';
+        }
+    }
+
+    public function member_status()
+    {
+        switch ($this->mem_current_status	) {
+            case '1':
+                return 'Active';
+
+            case '2':
+                return 'Inactive';
+
+            case '3':
+                return 'Deceased';
+
+            case '4':
+                return 'Cancelled';
+
+            default:
+                return 'Not Found';
+        }
+    }
+
 }

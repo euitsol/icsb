@@ -103,6 +103,7 @@ $(function() {
                 </div>
         `;
         $('#append').append(result);
+        $('select:not(.no-select)').select2();
 
     });
 

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->longText('bio');
             $table->longText('message')->nullable();
             $table->boolean('status')->default(1);
+            $table->string('order_key')->unique();
             $table->timestamps();
             $table->softDeletes();
             $this->addAuditColumns($table);

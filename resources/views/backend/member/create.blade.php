@@ -6,20 +6,22 @@
     <div class="row">
         <div class="col-md-8">
             <div class="card">
+                @include('alerts.success')
                 <div class="card-header">
                     <h5 class="title">{{ _('Create Member') }}</h5>
                 </div>
                 <form method="POST" action="{{ route('member.member_create') }}" autocomplete="off" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
-                        <div class="form-group {{ $errors->has('membership_id') ? ' has-danger' : '' }}">
+                        <input type="hidden" name="membership_id" value="{{$membership_id}}">
+                        {{-- <div class="form-group {{ $errors->has('membership_id') ? ' has-danger' : '' }}">
                             <label>{{ _('Membership ID') }}</label>
                             <input type="text" name="membership_id" class="form-control {{ $errors->has('membership_id') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter membership ID') }}" value="{{ old('membership_id') }}">
                             @include('alerts.feedback', ['field' => 'membership_id'])
-                        </div>
+                        </div> --}}
                         <div class="form-group {{ $errors->has('name') ? ' has-danger' : '' }}">
                             <label>{{ _('Name') }}</label>
-                            <input type="text" name="name" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter Member\'s Name') }}" value="{{ old('name') }}">
+                            <input type="text" name="name" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter Non Member\'s Name') }}" value="{{ old('name') }}">
                             @include('alerts.feedback', ['field' => 'name'])
                         </div>
                         <div class="form-group {{ $errors->has('designation') ? ' has-danger' : '' }}">
@@ -28,7 +30,7 @@
                             @include('alerts.feedback', ['field' => 'designation'])
                         </div>
                         <div class="row">
-                            <div class="form-group col-md-6 {{ $errors->has('member_type') ? ' has-danger' : '' }}">
+                            {{-- <div class="form-group col-md-6 {{ $errors->has('member_type') ? ' has-danger' : '' }}">
                                 <label>{{ _('Member Type') }}</label>
                                 <select name="member_type" class="form-control {{ $errors->has('member_type') ? ' is-invalid' : '' }}">
                                     @foreach ($types as $type)
@@ -36,10 +38,10 @@
                                     @endforeach
                                 </select>
                                 @include('alerts.feedback', ['field' => 'member_type'])
-                            </div>
-                            <div class="form-group col-md-6 {{ $errors->has('member_email') ? ' has-danger' : '' }}">
-                                <label>{{ _('Member Email') }} <small>will be used for login</small></label>
-                                <input type="email" name="member_email" class="form-control {{ $errors->has('member_email') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter Member\'s Email') }}" value="{{ old('member_email') }}">
+                            </div> --}}
+                            <div class="form-group col-md-12 {{ $errors->has('member_email') ? ' has-danger' : '' }}">
+                                <label>{{ _('Email') }}</label>
+                                <input type="email" name="member_email" class="form-control {{ $errors->has('member_email') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter Email') }}" value="{{ old('member_email') }}">
                                 @include('alerts.feedback', ['field' => 'member_email'])
                             </div>
                         </div>

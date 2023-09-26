@@ -46,13 +46,13 @@
                         <h3>Our Visitor</h3>
                     </li>
                     <li>
-                        <p><i class="fa-regular fa-hand-point-right"></i>Views Today: 80</p>
+                        <p><i class="fa-regular fa-hand-point-right"></i>Views Today: {{ $todayVisitors }}</p>
                     </li>
                     <li class="indicator">
                         <p>|</p>
                     </li>
                     <li>
-                        <p>Total Visitor: 9000</p>
+                        <p>Total Visitor: {{ $totalVisitors }}</p>
                     </li>
                 </ul>
             </div>
