@@ -60,6 +60,7 @@
                         <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
                     </div>
 
+
                 </li>
                 @if(!empty($contact->social))
                     @foreach (json_decode($contact->social) as $social)
