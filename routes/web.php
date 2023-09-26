@@ -489,7 +489,7 @@ Route::get('/export-permissions', function () {
 
 
 
-Route::group(['middleware' => ['log_visitor', 'auth']], function () {
+Route::group(['middleware' => ['log_visitor']], function () {
 
     Route::get('/single-page/create', [SinglePagesController::class, 'create'])->name('sp.create');
     Route::post('/single-page/store', [SinglePagesController::class, 'store'])->name('sp.store');
