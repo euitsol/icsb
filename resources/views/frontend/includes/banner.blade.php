@@ -49,6 +49,7 @@
         <button id="playPauseButton" class="play-pause-icon"><i class="fas fa-pause"></i></button>
     </div>
 
+    <div class="gcse-search"></div>
     <aside class="socila-media-sidebar">
         <div class="social-link-wrapper">
             <ul>
