@@ -11,6 +11,8 @@ use App\Models\MediaRoomCategory;
 use App\Models\MemberType;
 use App\Models\SecretarialStandard;
 use App\Models\SinglePages;
+use App\Models\Visitor;
+use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\View\View;
@@ -30,6 +32,8 @@ class StudentPagesController extends Controller
         $publicationOthers = SinglePages::where('frontend_slug', 'others')->first();
         $menu_acts = Act::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
         $councils = Council::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
+        $totalVisitors = Visitor::count();
+        $todayVisitors = Visitor::whereDate('created_at', Carbon::today())->count();
         view()->share([
             'contact' => $contact,
             'memberTypes' => $memberTypes,
@@ -42,8 +46,9 @@ class StudentPagesController extends Controller
             'publicationOthers' => $publicationOthers,
             'menu_acts' => $menu_acts,
             'councils' => $councils,
+            'totalVisitors' => $totalVisitors,
+            'todayVisitors' => $todayVisitors,
         ]);
-        return $this->middleware('auth');
     }
     public function csHandBook(): View
     {

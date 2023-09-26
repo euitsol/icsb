@@ -23,6 +23,8 @@ use App\Models\RecentVideo;
 use App\Models\SecretarialStandard;
 use App\Models\SinglePages;
 use App\Models\Testimonial;
+use App\Models\Visitor;
+use Illuminate\Support\Carbon;
 use Illuminate\View\View;
 
 class HomePageController extends Controller
@@ -40,6 +42,8 @@ class HomePageController extends Controller
         $publicationOthers = SinglePages::where('frontend_slug', 'others')->first();
         $menu_acts = Act::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
         $councils = Council::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
+        $totalVisitors = Visitor::count();
+        $todayVisitors = Visitor::whereDate('created_at', Carbon::today())->count();
         view()->share([
             'contact' => $contact,
             'memberTypes' => $memberTypes,
@@ -52,8 +56,9 @@ class HomePageController extends Controller
             'publicationOthers' => $publicationOthers,
             'menu_acts' => $menu_acts,
             'councils' => $councils,
+            'totalVisitors' => $totalVisitors,
+            'todayVisitors' => $todayVisitors,
         ]);
-        return $this->middleware('auth');
     }
 
     public function index(): View
