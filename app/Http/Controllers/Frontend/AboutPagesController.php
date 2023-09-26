@@ -18,6 +18,8 @@ use App\Models\NationalAward;
 use App\Models\SecretarialStandard;
 use App\Models\SinglePages;
 use App\Models\WWCS;
+use App\Models\Visitor;
+use Illuminate\Support\Carbon;
 
 class AboutPagesController extends Controller
 {
@@ -34,6 +36,8 @@ class AboutPagesController extends Controller
         $publicationOthers = SinglePages::where('frontend_slug', 'others')->first();
         $menu_acts = Act::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
         $councils = Council::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
+        $totalVisitors = Visitor::count();
+        $todayVisitors = Visitor::whereDate('created_at', Carbon::today())->count();
         view()->share([
             'contact' => $contact,
             'memberTypes' => $memberTypes,
@@ -46,8 +50,9 @@ class AboutPagesController extends Controller
             'publicationOthers' => $publicationOthers,
             'menu_acts' => $menu_acts,
             'councils' => $councils,
+            'totalVisitors' => $totalVisitors,
+            'todayVisitors' => $todayVisitors,
         ]);
-        return $this->middleware('auth');
     }
     public function faq(): View
     {
