@@ -83,14 +83,14 @@ $datas = [
         <div class="share-content">
             <div class="share-heading-column">
                 <p>Share:</p>
+
             </div>
             <div class="share-icon-column">
                 <ul>
-                    <li><a href=""><i class="fa-brands fa-facebook-f"></i></a></li>
-                    <li><a href=""><i class="fa-brands fa-linkedin-in"></i></a></li>
-                    <li><a href=""><i class="fa-brands fa-square-x-twitter"></i></a></li>
-                    <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
-                    <li><a href=""><i class="fa-brands fa-whatsapp"></i></a></li>
+                    <li><a href="{!! Share::currentPage()->facebook()->getRawLinks() !!}"><i class="fa-brands fa-facebook-f"></i></a></li>
+                    <li><a href="{!! Share::currentPage()->linkedin()->getRawLinks() !!}"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                    <li><a href="{!! Share::currentPage()->twitter()->getRawLinks() !!}"><i class="fa-brands fa-square-x-twitter"></i></a></li>
+                    <li><a href="{!! Share::currentPage()->whatsapp()->getRawLinks() !!}"><i class="fa-brands fa-whatsapp"></i></a></li>
                 </ul>
             </div>
         </div>
