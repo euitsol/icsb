@@ -54,7 +54,11 @@
             <ul>
                 <li class="active">
                     <span >{{_('Search')}}</span>
-                    <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id='search_box' placeholder="search here...">
+                        <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    </div>
+
                 </li>
                 @if(!empty($contact->social))
                     @foreach (json_decode($contact->social) as $social)
