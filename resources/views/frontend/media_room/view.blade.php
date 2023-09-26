@@ -99,7 +99,7 @@ $datas = [
                         @endphp
 
                         @foreach ($facebookLinks as $facebookLink)
-                            <a href="{{ $facebookLink }}">
+                            <a href="{{ $facebookLink }}" target="_blank">
                                 @if ($count == 0)
                                     <i class="fa-brands fa-facebook-f"></i>
                                 @elseif ($count == 1)
