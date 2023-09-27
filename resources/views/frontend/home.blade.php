@@ -25,7 +25,7 @@
             <div class="ticker-desc">
                 <ul class="bxnewsticker">
                     @foreach ($latest_newses as $news)
-                        <li><a href="#">{{$news->title}}</a></li>
+                        <li><a href="{{route('news.view',$news->slug)}}">{{$news->title}}</a></li>
                     @endforeach
                 </ul>
             </div>
