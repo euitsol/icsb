@@ -67,6 +67,12 @@
                                 </textarea>
                                 @include('alerts.feedback', ['field' => 'description'])
                             </div>
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label">
+                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="1">
+                                  <span class="form-check-sign"><strong>{{_('Notify All Members')}}</strong></span>
+                                </label>
+                            </div>
 
                     </div>
                     <div class="card-footer">

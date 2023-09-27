@@ -175,13 +175,13 @@ $(document).ready(function () {
                 items: 1
             },
             600: {
-                items: 1
-            },
-            800: {
                 items: 2
             },
-            1368: {
+            800: {
                 items: 3
+            },
+            1368: {
+                items: 4
             }
         }
     });
