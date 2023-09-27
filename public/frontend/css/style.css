@@ -63,16 +63,15 @@ p {
     border-radius: 5px;
 }
 .pop_up_modal .modal-body .pop_up_close {
-    outline: 1px solid #182456;
     position: absolute;
-    right: 30px;
-    top: 30px;
-    transition: .4s;
+    right: 35px;
+    top: 20px;
+    border: 0;
+    background: transparent;
+    color: red;
+    font-size: 25px;
 }
-.pop_up_modal .modal-body .pop_up_close:hover{
-    background: #d7d5d5;
-    color: #182456 !important;
-}
+
 
 
 .title-shap{
@@ -1409,10 +1408,6 @@ li {
 	height: 15rem;
 	/* object-fit: contain; */
 	border-radius: 29px 29px 0 0;
-}
-
-.recent-update-section h2 {
-	color: #fff;
 }
 
 .recent-update-section .recent-update-row .item {
