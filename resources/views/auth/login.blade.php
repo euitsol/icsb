@@ -30,11 +30,11 @@
                                             </div>
 
                                             <div class="col-sm-6">
-                                                <a href="{{ route('password.request') }}" class="float-end text-primary">Forgot Password?</a>
+                                                <a href="{{ route('password.request') }}" class="float-end" style="color: #122F98">Forgot Password?</a>
                                             </div>
 
                                             <div class="col-12">
-                                                <button type="submit" class="btn btn-primary px-4 float-end mt-4 w-100">Login</button>
+                                                <button type="submit" style="background-color: #122F98" class="btn px-4 float-end mt-4 w-100">Login</button>
                                             </div>
                                     </form>
                                 </div>
