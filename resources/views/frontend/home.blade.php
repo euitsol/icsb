@@ -13,7 +13,7 @@
     </a>
 </div>
 {{-- Banner Section --}}
-@include('frontend.includes.banner',['contact'=>$contact, 'banner'=>$banner])
+@include('frontend.includes.banner',['contact'=>$contact, 'banner'=>$banner,'banner_video'=>$banner_video])
 
  <!-- Start News Ticker Section -->
  <section class="news-ticker-section">
@@ -111,7 +111,7 @@
 
 
  <!-- Pop Up Modal -->
- @if(isset($pop_up) && isset(json_decode($pop_up->saved_data)->{'upload-image'}))
+ @if(isset(json_decode($pop_up->saved_data)->{'upload-image'}))
  <div class="modal fade pop_up_modal" id="view-modal" data-bs-keyboard="false" tabindex="-1"
  aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
