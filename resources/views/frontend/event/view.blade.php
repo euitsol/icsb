@@ -42,26 +42,21 @@ $datas = [
             </div>
             <div class="summary-column" id="event-summary">
                 <div class="job-summery">
-                    <x-embed url="{{$event->video_url}}" />
-                    <ul>
-                        <li><span>{{_('Total Participants:')}}</span> {{$event->total_participant}} {{_('People')}}</li>
-                    </ul>
+                    @if(!empty(json_decode($event->image)))
+                        @foreach (json_decode($event->image) as $image)
+                            <div class="gallery-items mb-4">
+                                <a class="w-100" href="{{ storage_url($image) }}" data-lightbox="gallery">
+                                    <img src="{{ storage_url($image) }}">
+                                </a>
+                            </div>
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>
         <!--=============================== Gallery Section ========================== -->
-	<section class="gallery-section">
+	{{-- <section class="gallery-section">
             <h3>{{_('Event Images')}}</h3>
-			{{-- <div class="gallery-content">
-                @if(!empty(json_decode($event->image)))
-                        @foreach (json_decode($event->image) as $image)
-                            <div class="gallery-items">
-                                <a href=""><img src="{{storage_url($image)}}" width=""></a>
-                            </div>
-                        @endforeach
-                    @endif
-
-			</div> --}}
             <div class="gallery-section global-gallery-section">
                 <div class="gallery-content">
                     @if(!empty(json_decode($event->image)))
@@ -75,7 +70,7 @@ $datas = [
                     @endif
                 </div>
             </div>
-	</section>
+	</section> --}}
     </div>
 </section>
 @endsection

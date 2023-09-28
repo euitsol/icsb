@@ -16,12 +16,12 @@ class MemberRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|max:255',
-            'designation' => 'required|max:255',
+            'name' => 'nullable|max:255',
+            'designation' => 'nullable|max:255',
             'member_type' => 'nullable|exists:member_types,id',
-            'phone' => 'required|array|min:1',
-            'phone.*.number' => 'required|string|max:20',
-            'phone.*.type' => 'required|string|in:residential,office',
+            'phone' => 'nullable|array|min:1',
+            'phone.*.number' => 'nullable|string|max:20',
+            'phone.*.type' => 'nullable|string|in:residential,office',
             'address' => 'nullable',
             'description' => 'nullable',
             'image' => 'nullable|image|mimes:mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -33,7 +33,7 @@ class MemberRequest extends FormRequest
     protected function store(): array
     {
         return [
-            'member_email' => 'required|unique:members,email,NULL,id,deleted_at,NULL',
+            'member_email' => 'nullable|unique:members,email,NULL,id,deleted_at,NULL',
             'membership_id' => 'nullable',
 
 
@@ -43,7 +43,7 @@ class MemberRequest extends FormRequest
     protected function update(): array
     {
         return [
-            'member_email' => 'required|unique:members,email,' . $this->route('id') . ',id,deleted_at,NULL',
+            'member_email' => 'nullable|unique:members,email,' . $this->route('id') . ',id,deleted_at,NULL',
             'membership_id' => 'nullable',
 
         ];
