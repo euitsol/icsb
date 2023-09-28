@@ -193,6 +193,7 @@ class MemberController extends Controller
                 $apiData = $response->json();
                 foreach ($apiData as $index => $item) {
                     $filePath = '';
+                    $type = 'N/A';
                     $mobileNumber = $item['mobile_number'];
                     $defaultType = 'office';
                     $transformedmn[0]['type'] = $defaultType;
@@ -202,10 +203,18 @@ class MemberController extends Controller
                         $filePath = str_replace('~', 'https://icsberp.org', $item['std_pic']);
                     }
 
+                    if($item['member_type'] == 0){
+                        $type = 'ACS';
+                    }elseif($item['member_type'] == 1){
+                        $type = 'FCS';
+                    }else{
+                        $type = '';
+                    }
+
                     Member::updateOrCreate(
                         ['member_id' => $item['member_id']],
                         [
-                            'name' => trim($item['first_name'] ?? '') . ' ' . trim($item['middle_name'] ?? '') . ' ' . trim($item['last_name'] ?? ''),
+                            'name' => trim($item['first_name'] ?? '') . ' ' . trim($item['middle_name'] ?? '') .' '.trim($item['last_name']??'').' '.trim($type ?? ''),
                             'email' => $item['email_address'] ?? '',
                             'member_type' => null,
                             'designation' => $item['designation'] ?? '',
