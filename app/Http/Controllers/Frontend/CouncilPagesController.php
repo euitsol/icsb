@@ -73,7 +73,6 @@ class CouncilPagesController extends Controller
         $s['president'] = President::with(['durations','member'])
                         ->where('status',1)
                         ->where('deleted_at',null)
-                        ->orderBy('order_key', 'ASC')
                         ->first();
         return view('frontend.council.president',$s);
     }
@@ -89,7 +88,7 @@ class CouncilPagesController extends Controller
     {
         $s['p_presidents'] = President::with(['durations','member'])
                         ->where('deleted_at',null)
-                        ->orderBy('order_key','DESC')
+                        ->orderBy('order_key','ASC')
                         ->get();
         return view('frontend.council.past_presidents',$s);
     }
