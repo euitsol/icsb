@@ -10,7 +10,7 @@
                     <a href="{{ route('rules_view.bss.view', $home_bss->slug) }}">
                         <div class="bss-item text-align">
                             <div class="bss-icon">
-                                <img
+                                <img class="fa-beat"
                                     src="{{ storage_url($home_bss->image) }}"
                                     alt="{{ $home_bss->short_title }}"
                                 />

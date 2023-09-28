@@ -20,7 +20,7 @@
                                 <div class="logo-wrapp">
 
                                     <div class="content">
-                                        <h3><a href="{{route('event_view.view',$event->slug)}}">{{stringLimit($event->title,82)}}</a></h3>
+                                        <h3><a href="{{route('event_view.view',$event->slug)}}">{{stringLimit($event->title,80)}}</a></h3>
                                     </div>
                                     <ul>
                                         <li><i class="fa-solid fa-calendar-check"></i> {{ date('d-M-Y', strtotime($event->event_start_time))}}</li>

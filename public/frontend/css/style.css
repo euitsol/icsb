@@ -1252,10 +1252,6 @@ li {
 }
 .bss-section .bss-row .bss-right-column .bss-item img {
 	width: auto;
-    transition: .4s;
-}
-.bss-section .bss-row .bss-right-column .bss-item img:hover{
-    transform: scale(1.6);
 }
 .bss-section .bss-row .bss-right-column .bss-item .title {
 	min-height: 45px;
@@ -1436,12 +1432,6 @@ li {
 
 .recent-update-section .recent-update-row .item .post-content {
 	padding: 13px 23px 30px 23px;
-    height: 194px;
-}
-
-.recent-update-section .recent-update-row .item h3 {
-	font-size: 22px;
-	line-height: 28px;
 }
 
 .recent-update-section .recent-update-row .item ul {
@@ -1450,14 +1440,21 @@ li {
 	display: flex;
 	justify-content: space-between;
 }
+.recent-update-section .recent-update-row .item .content{
+    height: 95px;
+}
 
 .recent-update-section .recent-update-row .item h3 a {
 	color: #111111;
-	transition: 0.4s;
+    transition: 0.4s;
+    line-height: 28px;
+    font-size: 15px;
+    text-align: justify;
+    font-family: 'Poppins', sans-serif;
 }
 
 .recent-update-section .recent-update-row .item h3 a:hover {
-	color: #182456;
+	color: #2A74B5;
 }
 
 .recent-update-section .recent-update-row .item .post-content p {
@@ -1851,22 +1848,17 @@ li {
 .events-section .events-row .item .logo-wrapp .content{
     height: 95px;
 }
-
-.events-section .events-row .item h3 {
-	font-size: 22px;
-	line-height: 28px;
-	font-family: 'Poppins', sans-serif;
-}
-
 .events-section .events-row .item h3 a {
     color: #111111;
     transition: 0.4s;
+    line-height: 28px;
     font-size: 15px;
     text-align: justify;
+    font-family: 'Poppins', sans-serif;
 }
 
 .events-section .events-row .item h3 a:hover {
-	color: #182456;
+	color: #2A74B5;
 }
 
 .events-section .events-row .item ul {
@@ -4832,11 +4824,6 @@ td {
 }
 
 .president-content-section .president-content-row .left-column .contact-info ul li {
-	font-size: 16px;
-	line-height: 35px;
-	color: #111111;
-}
-.president-content-section .president-content-row .left-column .contact-info ul li a{
 	font-size: 16px;
 	line-height: 35px;
 	color: #111111;
