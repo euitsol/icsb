@@ -37,6 +37,7 @@
             <li>
                 <a class="@if(
                         $pageSlug == 'pop-up' ||
+                        $pageSlug == 'banner-video' ||
                         $pageSlug == 'banner' ||
                         $pageSlug == 'who-we-are' ||
                         $pageSlug == 'latest_news' ||
@@ -46,6 +47,7 @@
                         $pageSlug == 'testimonial'
                     )@else collapsed @endif" data-toggle="collapse" href="#home" @if (
                         $pageSlug == 'pop-up' ||
+                        $pageSlug == 'banner-video' ||
                         $pageSlug == 'banner' ||
                         $pageSlug == 'who-we-are' ||
                         $pageSlug == 'latest_news' ||
@@ -61,6 +63,7 @@
 
                 <div class="collapse @if (
                     $pageSlug == 'pop-up' ||
+                    $pageSlug == 'banner-video' ||
                     $pageSlug == 'banner' ||
                     $pageSlug == 'who-we-are' ||
                     $pageSlug == 'latest_news' ||
@@ -73,6 +76,7 @@
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
                                 ['pageSlug' => 'pop-up', 'routeName' => 'sp.show', 'params' =>'pop-up', 'label' => 'Pop Up'],
+                                ['pageSlug' => 'banner-video', 'routeName' => 'sp.show', 'params' =>'banner-video', 'label' => 'Banner Video'],
                                 ['pageSlug' => 'banner', 'routeName' => 'banner.banner_list', 'label' => 'Banner'],
                                 ['pageSlug' => 'who-we-are', 'routeName' => 'sp.show', 'params' =>'who-we-are', 'label' => 'Who we are'],
                                 ['pageSlug' => 'latest_news', 'routeName' => 'latest_news.latest_news_list', 'label' => 'Latest News'],

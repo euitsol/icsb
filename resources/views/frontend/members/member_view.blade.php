@@ -33,7 +33,7 @@ $datas = [
             </div>
         </div>
         <div class="fellow-row flex member_data">
-            {{-- @if($type->id ==3 || $type->id ==4) --}}
+            @if($slug == 'honorary' || $slug == 'deceased')
                 @foreach ($members as $member)
                     <div class="fellow-items flex">
                         <div class="image-column">
@@ -42,13 +42,14 @@ $datas = [
                         <div class="content-column">
                             <h4>{{$member->membership_id}}</h4>
                             <h3 class="mb-0">{{$member->name}}</h3>
-                            <p><strong>{{$member->designation}}</strong></p>
+                            <p class="mb-0"><strong>{{$member->designation}}</strong></p>
+                            <p><strong>{{$member->company_name}}</strong></p>
                             <li><i class="fa-solid fa-house-circle-exclamation"></i>{{$member->address}}</li>
                             <li><i class="fa-solid fa-envelope-open-text"></i>{{_('Email:')}} <a href="mailto:{{$member->email}}">{{$member->email}}</a></li>
                         </div>
                     </div>
                 @endforeach
-            {{-- @endif --}}
+            @endif
         </div>
     </div>
 </section>

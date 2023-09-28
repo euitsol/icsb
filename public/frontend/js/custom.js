@@ -192,6 +192,7 @@ $(window).scroll(function () {
     if ($(window).scrollTop() >= 300) {
         $('.header-menu-section').addClass('fixed-header');
         $('.banner-section .video-container').addClass('margin_top');
+        $('.banner-section #carouselExampleCaptions').addClass('margin_top');
         $('.header-menu-section .stiky-logo-right').addClass('display-block');
         $('.header-menu-section .stiky-logo').addClass('display-block');
         $('.scroll_top').addClass('display-block');
@@ -203,6 +204,7 @@ $(window).scroll(function () {
         $('.header-menu-section .stiky-logo-right').removeClass('display-block');
         $('.header-menu-section .stiky-logo').removeClass('display-block');
         $('.banner-section .video-container').removeClass('margin_top');
+        $('.banner-section #carouselExampleCaptions').removeClass('margin_top');
         $('.scroll_top').removeClass('display-block');
         $('.banner-section .volume-icon').css('margin-top', '30px');
         $('.banner-section .play-pause-icon').css('margin-top', '30px');

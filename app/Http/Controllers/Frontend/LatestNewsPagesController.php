@@ -7,19 +7,18 @@ use App\Models\Act;
 use App\Models\CommitteeType;
 use App\Models\Contact;
 use App\Models\Council;
+use App\Models\LatestNews;
 use App\Models\MediaRoomCategory;
 use App\Models\MemberType;
-use App\Models\Notice;
-use App\Models\NoticeCategory;
 use App\Models\SecretarialStandard;
 use App\Models\SinglePages;
 use App\Models\Visitor;
-use Illuminate\Support\Carbon;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\View\View;
 
-class NoticeBoardPageController extends Controller
+class LatestNewsPagesController extends Controller
 {
     public function __construct() {
         $contact = Contact::where('deleted_at', null)->first();
@@ -52,18 +51,9 @@ class NoticeBoardPageController extends Controller
             'todayVisitors' => $todayVisitors,
         ]);
     }
-
-    public function notice($slug = false): View
+    public function view($slug): View
     {
-
-        $s=[];
-        if($slug != false){
-            // $s['notice_cat'] = NoticeCategory::where('slug',$slug)->where('deleted_at',null)->first();
-            $s['notices'] = Notice::where('slug',$slug)->where('deleted_at',null)->where('status',1)->latest()->paginate(10);
-        }else{
-            $s['notices'] = Notice::where('deleted_at',null)->where('status',1)->latest()->paginate(10);
-        }
-        return view('frontend.notice_board.notice',$s);
-
+        $s['latest_news'] = LatestNews::where('slug',$slug)->where('deleted_at',null)->first();
+        return view('frontend.latest_news.view',$s);
     }
 }

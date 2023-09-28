@@ -63,16 +63,15 @@ p {
     border-radius: 5px;
 }
 .pop_up_modal .modal-body .pop_up_close {
-    outline: 1px solid #182456;
     position: absolute;
-    right: 30px;
-    top: 30px;
-    transition: .4s;
+    right: 35px;
+    top: 20px;
+    border: 0;
+    background: transparent;
+    color: red;
+    font-size: 25px;
 }
-.pop_up_modal .modal-body .pop_up_close:hover{
-    background: #d7d5d5;
-    color: #182456 !important;
-}
+
 
 
 .title-shap{
@@ -682,6 +681,12 @@ li {
 	/* Set the height to 100% of the viewport height */
 	overflow: hidden;
 }
+.banner-section #carouselExampleCaptions {
+	width: 100%;
+	height: 85vh;
+	/* Set the height to 100% of the viewport height */
+	overflow: hidden;
+}
 .margin_top{
 	margin-top: 105px;
     transition: all .3s ease;
@@ -817,6 +822,7 @@ li {
 /* ==================== Start Social Media Link ====================== */
 .banner-section {
 	position: relative;
+    overflow: hidden;
 }
 
 .socila-media-sidebar {
@@ -1099,11 +1105,11 @@ li {
 }
 
 .president-section {
-	position: relative;
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-image: url("../img/home_bg/p-bg.png");
+    position: relative;
+    background-position: center 180%;
+    background-repeat: no-repeat;
+    background-image: url("../img/home_bg/p-bg.png");
+    background-color: #efeeee;
 }
 
 .president-section .president-column {
@@ -1409,10 +1415,6 @@ li {
 	height: 15rem;
 	/* object-fit: contain; */
 	border-radius: 29px 29px 0 0;
-}
-
-.recent-update-section h2 {
-	color: #fff;
 }
 
 .recent-update-section .recent-update-row .item {

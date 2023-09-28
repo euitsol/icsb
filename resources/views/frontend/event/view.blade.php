@@ -67,7 +67,7 @@ $datas = [
                     @if(!empty(json_decode($event->image)))
                         @foreach (json_decode($event->image) as $image)
                             <div class="gallery-items">
-                                <a href="{{ storage_url($image) }}" data-lightbox="gallery">
+                                <a class="w-100" href="{{ storage_url($image) }}" data-lightbox="gallery">
                                     <img src="{{ storage_url($image) }}">
                                 </a>
                             </div>
