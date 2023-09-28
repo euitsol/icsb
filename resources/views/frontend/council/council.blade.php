@@ -107,9 +107,9 @@
                     method: 'GET',
                     dataType: 'json',
                     success: function(data) {
-                        console.log(data);
                         var noImage = '{{asset("no_img/no_img.jpg")}}';
-
+                        var membership_id =`<h4>Member ID: ${data.member.membership_id}</h4>`;
+                        var _membership_id = data.member.membership_id ? membership_id : '';
                         var image = `${data.member.image}`;
                         var details = `{!! '${data.council.description}' !!}`;
 
@@ -121,7 +121,7 @@
                                                 <img src="${member_image}" alt="">
                                             </div>
                                             <div class="content-column">
-                                                <h4>Member ID: ${data.member.membership_id}</h4>
+                                                ${_membership_id}
                                                 <h3 class="mb-0">${data.member.name}</h3>
                                                 <p class="mb-0"><strong>${data.member.designation}</strong></p>
                                                 <p><strong>${data.member.company_name}</strong></p>
