@@ -127,7 +127,7 @@ class CouncilController extends Controller
         if($cmt->council_member_type_members->count() > 0){
             return redirect()->route('council.council_list')->withStatus(__($cmt->title.' has '.$cmt->council_member_type_members->count().' members assigned. Can\'t be deleted. Best option is to deactivate it.'));
         }
-        $this->soft_delete($cmt);
+        $cmt->delete();
         return redirect()->route('council.council_list')->withStatus(__($cmt->title.' status deleted successfully.'));
     }
 
@@ -211,8 +211,7 @@ class CouncilController extends Controller
     public function cm_delete($id): RedirectResponse
     {
         $cm = CouncilMember::findOrFail($id);
-        // $this->soft_delete($cmt);
-        $cm->delete();
+        $this->soft_delete($cm);
         return redirect()->route('council.council_member_list',$cm->council_id)->withStatus(__($cm->council_id.' deleted successfully.'));
     }
 }
