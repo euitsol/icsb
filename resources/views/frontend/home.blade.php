@@ -140,6 +140,20 @@
 @endpush
 @push('js')
 <script>
+   $(document).ready(function() {
+        $('.search_button').on("click", function() {
+            $('#___gcse_0').css('display', 'block',);
+            $('#___gcse_0').css('left', '0',);
+        });
+        setTimeout(function() {
+            $('#___gcse_0').css('left', '118%');
+            setTimeout(function() {
+                $('#___gcse_0').css('display', 'none');
+            }, 400); // Wait for the transition to complete (0.4 seconds)
+        }, 500); //
+    });
+</script>
+<script>
     new WOW().init();
 </script>
 <script>
