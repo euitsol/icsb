@@ -19,7 +19,7 @@ class SecAndCeoRequest extends FormRequest
         return [
             'bio' => 'required',
             // 'designation' => 'required',
-            'message' => 'required',
+            'message' => 'nullable',
             'status' => 'nullable|boolean',
             'duration.*.end_date' => 'nullable|date',
 
