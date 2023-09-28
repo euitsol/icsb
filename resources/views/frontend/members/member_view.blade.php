@@ -87,8 +87,9 @@ $datas = [
                                             </div>
                                             <div class="content-column">
                                                 <h4>${member_search.membership_id}</h4>
-                                                <h3 class="mb-0">${member_search.name}</h3>
-                                                <p><strong>${member_search.designation}</strong></p>
+                                                <h3>${member_search.name}</h3>
+                                                <p class="mb-0"><strong>${member_search.designation}</strong></p>
+                                                <p><strong>${member_search.company_name}</strong></p>
                                                 <li><i class="fa-solid fa-house-circle-exclamation"></i>${member_search.address}</li>
                                                 <li><i class="fa-solid fa-envelope-open-text"></i>Email: <a href="mailto:${member_search.email}">${member_search.email}</a></li>
                                             </div>

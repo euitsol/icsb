@@ -81,7 +81,7 @@
                                 ['pageSlug' => 'who-we-are', 'routeName' => 'sp.show', 'params' =>'who-we-are', 'label' => 'Who we are'],
                                 ['pageSlug' => 'latest_news', 'routeName' => 'latest_news.latest_news_list', 'label' => 'Latest News'],
                                 ['pageSlug' => 'event', 'routeName' => 'event.event_list', 'label' => 'Event'],
-                                ['pageSlug' => 'testimonial', 'routeName' => 'testimonial.testimonial_list', 'label' => 'Testimonial'],
+                                ['pageSlug' => 'testimonial', 'routeName' => 'testimonial.testimonial_list', 'label' => 'Quotes'],
                                 ['pageSlug' => 'national_connection', 'routeName' => 'national_connection.national_connection_list', 'label' => 'National Connection'],
                                 ['pageSlug' => 'recent_video', 'routeName' => 'recent_video.recent_video_list', 'label' => 'Recent Video'],
                             ]

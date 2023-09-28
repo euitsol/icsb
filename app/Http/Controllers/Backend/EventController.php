@@ -23,15 +23,15 @@ class EventController extends Controller
     }
     public function index(): View
     {
-        $members = Member::all(); // Fetch your list of members here
+        // $members = Member::all(); // Fetch your list of members here
 
-        foreach ($members as $member) {
-            $title = 'Your Email Title';
-            $details = 'Email details for ' . $member->name ?? '';
+        // foreach ($members as $member) {
+        //     $title = 'Your Email Title';
+        //     $details = 'Email details for ' . $member->name ?? '';
 
 
-            dispatch(new SendMemberEmail($member, $title, $details));
-        }
+        //     dispatch(new SendMemberEmail($member, $title, $details));
+        // }
         $n['events']= Event::where('deleted_at', null)->latest()->get();
         return view('backend.event.index',$n);
     }
