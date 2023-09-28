@@ -4052,10 +4052,13 @@ td {
 .council-section .column {
 	width: 14.2857%;
 }
-.council-section .column img{
+.council-section .column img {
     max-width: 100%;
     height: 12rem;
     object-fit: cover;
+    border: 2px solid #707070;
+    border-radius: 65px 0 65px 0;
+    padding: 10px;
 }
 /*=========================== Library Page Style ============================*/
 .search-row {
