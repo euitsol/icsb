@@ -530,6 +530,7 @@ Route::group(['middleware' => ['log_visitor']], function () {
     Route::get('corporate-leader/search/{search_value}', [FrontendAjaxController::class, 'corporate_leader'])->name('corporate_leader.search');
     Route::get('single_page/see_more/{slug}', [FrontendAjaxController::class, 'singlePageSeeMore'])->name('single_page.see_more');
     Route::get('media-data/{id}/{offset}', [FrontendAjaxController::class, 'mediaRooms'])->name('media_rooms');
+    Route::get('frontend/members/{id}/{cmId?}', [FrontendAjaxController::class, 'memberInfo'])->name('frontend.m.info');
 
     // Single Pages Route
     Route::get('/page/{frontend_slug}', [FrontendSinglePagesController::class, 'frontend'])->name('sp.frontend');
