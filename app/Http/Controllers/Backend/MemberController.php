@@ -46,6 +46,7 @@ class MemberController extends Controller
         $member->membership_id = "";
         $member->name = $request->name;
         $member->designation = $request->designation;
+        $member->company_name = $request->company_name;
         $member->member_type = $request->membership_id;
         $member->email = $request->member_email;
         $member->address = $request->address;
@@ -79,6 +80,7 @@ class MemberController extends Controller
         $member = Member::findOrFail($id);
         $member->name = $request->name;
         $member->designation = $request->designation;
+        $member->company_name = $request->company_name;
         $member->email = $request->member_email;
         $member->address = $request->address;
         $member->details = $request->description;

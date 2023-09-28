@@ -29,6 +29,11 @@
                             <input type="text" name="designation" class="form-control {{ $errors->has('designation') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter Member\'s Designation') }}" value="{{ $member->designation }}">
                             @include('alerts.feedback', ['field' => 'designation'])
                         </div>
+                        <div class="form-group {{ $errors->has('company_name') ? ' has-danger' : '' }}">
+                            <label>{{ _('Company Name') }} </label>
+                            <input type="text" name="company_name" class="form-control {{ $errors->has('company_name') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter Member\'s company_name') }}" value="{{ $member->company_name }}">
+                            @include('alerts.feedback', ['field' => 'company_name'])
+                        </div>
                         <div class="row">
                             {{-- <div class="form-group col-md-6 {{ $errors->has('member_type') ? ' has-danger' : '' }}">
                                 <label>{{ _('Member Type') }}</label>
