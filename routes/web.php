@@ -93,6 +93,9 @@ Route::group(['middleware' => 'auth'], function () {
 
 //Backend Routes
 
+//Without Permission
+Route::get('member-email/status/{id}', [MemberController::class, 'email_status'])->name('member-email.status');
+
 Route::group(['middleware' => ['auth', 'permission']], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     // Default File Download Route

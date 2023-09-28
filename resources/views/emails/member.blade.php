@@ -1,18 +1,8 @@
 <!DOCTYPE html>
-<html>
-<head>
-<title></title>
-</head>
-<body>
-
-<h1>{{$title ?? ''}}</h1>
-<p>{{ $details ?? '' }}</p>
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mail Template</title>
     <style>
         .container_wrap{
             width: 91.25rem;
@@ -49,10 +39,10 @@
             <img src="{{storage_url(settings('site_logo'))}}" height="100px" width="250px" alt="{{settings('site_name')}}">
         </div>
         <div class="mail_body">
-            <p>Input here your mail body text.</p>
+            {!! $data->email_body !!}
         </div>
         <footer>
-            <p>Copyright © <a href="{{env('APP_URL')}}">INSTITUTE OF CHARTERED SECRETARIES OF BANGLADESH</a>, All rights reserved</p>
+            <p style="text-align: center;">Copyright © <a href="{{env('APP_URL')}}">INSTITUTE OF CHARTERED SECRETARIES OF BANGLADESH</a>, All rights reserved</p>
         </footer>
     </div>
 </body>

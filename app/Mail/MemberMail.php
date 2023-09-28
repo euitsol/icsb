@@ -13,18 +13,17 @@ class MemberMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $title, $details;
+    public $data;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($title, $details)
+    public function __construct($data)
     {
         //
-        $this->title = $title;
-        $this->details = $details;
+        $this->data = $data;
     }
 
     /**
@@ -35,7 +34,7 @@ class MemberMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Member Mail',
+            subject: $this->data->email_subject,
         );
     }
 
