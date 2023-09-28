@@ -1165,23 +1165,24 @@ li {
 }
 
 .president-section .president-column .right-column a {
-	color: #182456;
-	width: 100%;
-	max-width: 170px;
-	height: 40px;
+	color: #fff;
 	font-size: 18px;
-	line-height: 39px;
-	border-radius: 50px;
+	line-height: 40px;
+	width: 100%;
+	height: 40px;
+	max-width: 239px;
+	border-radius: 29px;
+	background: #182456;
 	transition: 0.4s;
-	text-align: center;
-	margin-top: 68px;
-	transition: 0.4s;
-	border: 1.5px solid #182456;
+	top: 40px;
+	z-index: 999;
+	position: relative;
+	border: 1px solid #182456;
 }
 
 .president-section .president-column .right-column a:hover {
-	color: #fff;
-	background: #162B75;
+	color: #182456;
+	background: #fff;
 }
 
 .bss-section {
@@ -1474,23 +1475,24 @@ li {
 }
 
 .recent-update-section .recent-update-row .see-button a {
-	color: #182456;
+	color: #fff;
 	font-size: 18px;
 	line-height: 40px;
 	width: 100%;
-	height: 41px;
+	height: 40px;
 	max-width: 239px;
 	border-radius: 29px;
-	background: #fff;
+	background: #182456;
 	transition: 0.4s;
-	top: 50px;
+	top: 40px;
 	z-index: 999;
 	position: relative;
+	border: 1px solid #182456;
 }
 
 .recent-update-section .recent-update-row .see-button a:hover {
-	color: #fff;
-	background: #182456;
+	color: #182456;
+	background: #fff;
 }
 
 /* .recent-update-section .recent-update-row .owl-theme .owl-dots {
@@ -2665,6 +2667,21 @@ td {
 #event-summary ul a:hover {
 	color: #152360;
 	background: #fff;
+}
+.events-section .events-row .see-button a {
+	color: #fff;
+	font-size: 18px;
+	line-height: 40px;
+	width: 100%;
+	height: 40px;
+	max-width: 239px;
+	border-radius: 29px;
+	background: #182456;
+	transition: 0.4s;
+	top: 40px;
+	z-index: 999;
+	position: relative;
+	border: 1px solid #182456;
 }
 
 .events-section .events-row .see-button a {
