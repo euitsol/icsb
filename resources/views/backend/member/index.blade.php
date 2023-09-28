@@ -28,6 +28,7 @@
                                     <th>{{ _('Type') }}</th>
                                     <th>{{ _('Honorary') }}</th>
                                     <th>{{ _('Member Status') }}</th>
+                                    <th>{{ _('Email Status') }}</th>
                                     <th>{{ _('Created at') }}</th>
                                     <th>{{ _('Created by') }}</th>
                                     <th>{{ _('Action') }}</th>
@@ -53,6 +54,7 @@
                                             {{-- @include('backend.partials.button', ['routeName' => 'member.status.member_edit','params' => [$member->id], 'className' => $member->getStatusClass(), 'label' => $member->getStatus() ]) --}}
                                             {{ $member->member_status()}}
                                         </td>
+                                        <td> {{ $member->email_status()}} </td>
                                         <td> {{ timeFormate($member->created_at) }} </td>
                                         <td> {{ $member->created_user->name ?? 'system' }} </td>
                                         <td>
@@ -163,6 +165,7 @@
                                     <th>{{ _('Image') }}</th>
                                     <th>{{ _('Type') }}</th>
                                     <th>{{ _('Status') }}</th>
+                                    <th>{{ _('Email Status') }}</th>
                                     <th>{{ _('Created at') }}</th>
                                     <th>{{ _('Created by') }}</th>
                                     <th>{{ _('Action') }}</th>
@@ -185,6 +188,7 @@
                                         <td>
                                             @include('backend.partials.button', ['routeName' => 'member.status.member_edit','params' => [$nmember->id], 'className' => $nmember->getStatusClass(), 'label' => $nmember->getStatus() ])
                                         </td>
+                                        <td> {{ $nmember->email_status()}} </td>
                                         <td> {{ timeFormate($nmember->created_at) }} </td>
                                         <td> {{ $nmember->created_user->name ?? 'system' }} </td>
                                         <td>
