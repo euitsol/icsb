@@ -40,7 +40,7 @@
             <div class="section-heading wow fadeInLeftBig text-center">
                 <h2 class="title-shap">{{_('Who We Are')}}</h2>
             </div>
-            <div class="who_we_are_wrap" style="background-image:linear-gradient(rgb(51 232 243), rgb(17 167 36 / 57%)), url({{storage_url(json_decode($who_we_are->saved_data)->{'background-image'})}})">
+            <div class="who_we_are_wrap" style="background-image:linear-gradient(rgb(127 227 150 / 32%), rgb(17 167 36 / 57%)), url({{storage_url(json_decode($who_we_are->saved_data)->{'background-image'})}})">
                 <div class="left-col wow fadeInLeftBig">
                     @php
                         $colors=[
