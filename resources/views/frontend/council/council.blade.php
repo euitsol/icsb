@@ -121,7 +121,7 @@
                                                 <img src="${member_image}" alt="">
                                             </div>
                                             <div class="content-column">
-                                                <h4>Member ID: ${data.membeship_id}</h4>
+                                                <h4>Member ID: ${data.membership_id}</h4>
                                                 <h3 class="mb-0">${data.member.name}</h3>
                                                 <p class="mb-0"><strong>${data.member.designation}</strong></p>
                                                 <p><strong>${data.member.company_name}</strong></p>
