@@ -64,7 +64,7 @@ class MemberController extends Controller
         $member->created_by = auth()->user()->id;
         $member->save();
 
-        return redirect()->back()->withStatus(__($member->name.' added successfully.'));
+        return redirect()->route('member.member_list')->withStatus(__($member->name.' added successfully.'));
     }
 
     public function edit($id):View
@@ -108,7 +108,7 @@ class MemberController extends Controller
         $member->updated_by = auth()->user()->id;
         $member->save();
 
-        return redirect()->back()->withStatus(__($member->name.' updated successfully.'));
+        return redirect()->route('member.member_list')->withStatus(__($member->name.' updated successfully.'));
     }
 
     public function status($id): RedirectResponse
