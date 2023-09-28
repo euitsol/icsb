@@ -110,7 +110,7 @@
                         console.log(data);
                         var noImage = '{{asset("no_img/no_img.jpg")}}';
 
-                        var image = `{{ storage_url('${data.member.image}') }}`;
+                        var image = `${data.member.image}`;
                         var details = `{!! '${data.council.description}' !!}`;
 
                         var member_image = data.member.image ? image : noImage;
@@ -121,7 +121,7 @@
                                                 <img src="${member_image}" alt="">
                                             </div>
                                             <div class="content-column">
-                                                <h4>Member ID: ${data.membeship_id}</h4>
+                                                <h4>Member ID: ${data.member.membership_id}</h4>
                                                 <h3 class="mb-0">${data.member.name}</h3>
                                                 <p class="mb-0"><strong>${data.member.designation}</strong></p>
                                                 <p><strong>${data.member.company_name}</strong></p>
