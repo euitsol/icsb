@@ -16,9 +16,11 @@
                                         <li><i class="fa-solid fa-file-import"></i>Latest News</li>
                                         <li><i class="fa-solid fa-calendar-check"></i>{{ date('d M Y', strtotime($media_room->program_date))}}</li>
                                     </ul>
-                                    <h3>
-                                        <a href="{{route('media_room_view.view',$media_room->slug)}}">{{ stringLimit($media_room->title, 30,'...')}}</a>
-                                    </h3>
+                                    <div class="content">
+                                        <h3>
+                                            <a href="{{route('media_room_view.view',$media_room->slug)}}">{{ stringLimit($media_room->title, 80,'...')}}</a>
+                                        </h3>
+                                    </div>
                                     <p> {!! stringLimit(html_entity_decode_table($media_room->description)) !!} </p>
                                 </div>
                             </div>

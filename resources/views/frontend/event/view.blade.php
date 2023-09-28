@@ -26,11 +26,9 @@ $datas = [
                         <h2>{{$event->title}}</h2>
                         <ul class="flex">
                             <li><i class="fa-solid fa-calendar-days"></i>{{ formatDateTimeRange($event->event_start_time, $event->event_end_time)}}</li>
-                            <li><i class="fa-solid fa-briefcase"></i>Cantonese</li>
                         </ul>
                         <ul class="location-text">
                             <li><i class="fa-solid fa-map-location-dot"></i>{{$event->event_location}}</li>
-                            <li><i class="fa-solid fa-users-line"></i>HKCGI Member, Graduate, Student, Affiliated Person & Non-Member</li>
                         </ul>
                     </div>
                 </div>

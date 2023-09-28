@@ -39,7 +39,7 @@
                                 @endforeach
                             </ul>
                             <div class="button-wrapper">
-                                <a class="transparent-button" href="{{route('notice_view.notice')}}">{{_('View All')}}</a>
+                                <a class="transparent-button" href="{{route('notice_view.notice')}}">{{_('View All Notice')}}</a>
                             </div>
                         </div>
                     </div>
