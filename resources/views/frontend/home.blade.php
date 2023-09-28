@@ -44,11 +44,11 @@
                 <div class="left-col wow fadeInLeftBig">
                     @php
                         $colors=[
-                            "#88BF85",
-                            "#C78282",
-                            "#B1B9BD",
-                            "#CFC6BD",
-                            "#8A9FB0"
+                            "#000000",
+                            "#162B75",
+                            "#E42C20",
+                            "#087055",
+                            "#F7BD02"
                         ];
                     @endphp
 
@@ -63,7 +63,7 @@
                         </div>
                         <div class="image-column wow fadeInRightBig">
 
-                                <div class="border"></div>
+
                                 @foreach (json_decode($who_we_are->saved_data)->{'slider-images'} as $key=>$image)
                                     <img class="image-border associate-image image-loop" style="display: none;" src="{{storage_url($image)}}" data-bg-color="{{ $colors[$key % count($colors)] }}" alt="" />
                                 @endforeach
@@ -90,7 +90,8 @@
                 </div>
                 <div class="right-column">
                     <h2 class="title-shap">{{_('Message of The President')}}</h2>
-                   <p> {{ stringLimit(html_entity_decode_table($president->message),'1250') }}</p>
+                   <p> {!! stringLimit($president->message,'1650') !!}</p>
+                   {{-- {!! $president->message !!} --}}
                     <a href="{{route('council_view.president.message')}}">{{_('Read More')}}</a>
                 </div>
             </div>

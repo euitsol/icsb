@@ -1,4 +1,5 @@
 <section class="banner-section">
+    <div class="gcse-search"></div>
     @if(isset(json_decode($banner_video->saved_data)->{'upload-video'}) && isset(json_decode($banner_video->saved_data)->{'banner-title'}))
         <div class="video-container">
             <div class="content">
@@ -53,16 +54,20 @@
         </div>
     @endif
 
-    <div class="gcse-search"></div>
+
     <aside class="socila-media-sidebar">
+        {{-- <div class="gcse-search"></div>
+        <span class="close_search"><i class="fa-solid fa-xmark fa-beat"></i></i></span> --}}
         <div class="social-link-wrapper">
+
             <ul>
-                <li class="active">
+                <li class="active search_li">
                     <span >{{_('Search')}}</span>
-                    <div class="input-group">
+                    <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    {{-- <div class="input-group">
                         <input type="text" class="form-control" id='search_box' placeholder="search here...">
                         <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-                    </div>
+                    </div> --}}
 
 
                 </li>

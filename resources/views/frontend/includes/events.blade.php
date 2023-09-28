@@ -7,14 +7,15 @@
                 <div class="section-heading text-align wow fadeInRightBig">
                     <h2 class="title-shap">{{_('Upcomming Events')}}</h2>
                 </div>
-                <div class="logo-carousel">
+                <div class="logo-carousel mt-0">
                     <div class="events-slider owl-carousel owl-theme wow fadeInDownBig">
                         @foreach ($events as $event)
                             <div class="item">
                                 <div class="logo_image">
-                                    <img src="{{asset('frontend/img/calender.svg')}}" alt="{{$event->title}}">
-                                    <h3 class="month">{{ date('M', strtotime($event->event_start_time))}}</h3>
+                                    <img src="{{asset('frontend/img/cldr.png')}}" alt="{{$event->title}}">
+                                    <h3 class="month">{{ date('F', strtotime($event->event_start_time))}}</h3>
                                     <h3 class="date">{{ date('d', strtotime($event->event_start_time))}}</h3>
+                                    <h3 class="day">{{ date('l', strtotime($event->event_start_time))}}</h3>
                                 </div>
                                 <div class="logo-wrapp">
 

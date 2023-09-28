@@ -90,7 +90,12 @@
                                 <input type="datetime-local" name="deadline" class="form-control {{ $errors->has('deadline') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter deadline') }}" value="{{ old('deadline') }}">
                                 @include('alerts.feedback', ['field' => 'deadline'])
                             </div>
-
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label">
+                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="1">
+                                  <span class="form-check-sign"><strong>{{_('Notify All Members')}}</strong></span>
+                                </label>
+                            </div>
                     </div>
                     <div class="card-footer">
                         <button type="submit" class="btn btn-fill btn-primary">{{ _('Save') }}</button>
