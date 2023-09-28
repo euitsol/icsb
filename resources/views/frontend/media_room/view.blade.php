@@ -83,14 +83,40 @@ $datas = [
         <div class="share-content">
             <div class="share-heading-column">
                 <p>Share:</p>
+
             </div>
             <div class="share-icon-column">
                 <ul>
-                    <li><a href=""><i class="fa-brands fa-facebook-f"></i></a></li>
-                    <li><a href=""><i class="fa-brands fa-linkedin-in"></i></a></li>
-                    <li><a href=""><i class="fa-brands fa-square-x-twitter"></i></a></li>
-                    <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
-                    <li><a href=""><i class="fa-brands fa-whatsapp"></i></a></li>
+                    <li>
+                        @php
+                        $facebookLinks = Share::currentPage()->facebook()->linkedin($media_room->title)->twitter()->whatsapp()->getRawLinks();
+
+                        // Ensure $facebookLinks is an array
+                        if (!is_array($facebookLinks)) {
+                            $facebookLinks = [$facebookLinks];
+                        }
+                        $count = 0;
+                        @endphp
+
+                        @foreach ($facebookLinks as $facebookLink)
+                            <a href="{{ $facebookLink }}" target="_blank">
+                                @if ($count == 0)
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                @elseif ($count == 1)
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                @elseif ($count == 2)
+                                    <i class="fa-brands fa-square-x-twitter"></i>
+                                @elseif ($count == 3)
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                @endif
+
+                            </a>
+                            @php
+                                $count++;
+                            @endphp
+                        @endforeach
+                    </li>
+
                 </ul>
             </div>
         </div>

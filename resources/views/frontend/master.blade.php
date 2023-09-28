@@ -74,6 +74,8 @@
     <!-- BXSlider -->
     <script src="{{asset('frontend/js/jquery.bxslider.min.js')}}"></script>
 
+    <script src="{{asset('js/share.js')}}"></script>
+
     @stack('js_link')
 
     <!-- Custom js -->
