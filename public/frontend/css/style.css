@@ -1229,7 +1229,7 @@ li {
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	background-image: url("../img/bss-bg.png");
+	background-image: url("../img/home_bg/bss-bg.png");
 }
 
 .bss-section .bss-row .bss-left-column {
@@ -2067,12 +2067,13 @@ li {
     left: 0;
 }
 .recent-video-section .video iframe {
-	border: 5px solid #182456;
+	border: 5px solid #074246;
+
 }
 
 .recent-video-section .video .video-title {
 	padding: 0 12px;
-	background-color: #074246;
+	background-color: #182456;
     height: 84px;
     line-height: 84px;
     font-size: 14px;
@@ -2558,7 +2559,7 @@ td {
 	padding: 35px;
 	height: 275px;
 	border-radius: 50px 50px 0px 00px;
-	box-shadow: 0px 0px 7px 0px rgba(166.99999999999997, 163.99999999999997, 163.99999999999997, 0.5);
+	box-shadow: 0px 0px 7px 0px #122F98;
 }
 
 .our-events-section .events-row .item h3 {
