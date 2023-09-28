@@ -136,7 +136,6 @@
 
     <script src="{{ asset('frontend/js/particles.min.js') }}"></script>
     <script src="{{ asset('frontend/js/particle-configure.js') }}"></script>
-    <script src="{{ asset('frontend/js/stats.js') }}"></script>
 @endpush
 @push('js')
 <script>
