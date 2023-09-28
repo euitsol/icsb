@@ -112,7 +112,7 @@
         }
 
         function bindChangeEvents() {
-            $('.memberSelect').off('change').on('change', function() {
+            $('.memberSelect').on('change', function() {
                 const selectedMemberId = $(this).val();
                 const container = $(this).closest('.delete_div');
                 fetchMemberData(selectedMemberId, container);
