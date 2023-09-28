@@ -21,12 +21,12 @@ class EventRequest extends FormRequest
         return [
             'description' => 'required|max:10000',
             'event_start_time' => 'required',
-            'event_end_time' => 'required',
-            'total_participant' => 'required|numeric',
+            'event_end_time' => 'nullable',
+            'total_participant' => 'nullable|numeric',
             'event_location' => 'required',
             'status' => 'nullable|boolean',
             'video_url' => [
-                'required',
+                'nullable',
                 'url',
                 (new EmbeddableUrl)->allowedServices([
                     YouTube::class,
