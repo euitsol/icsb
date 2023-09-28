@@ -14,19 +14,18 @@ class SendMemberEmail implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    public $member, $title, $details;
+    public $email, $data;
 
 
-    public function __construct($member, $title, $details)
+    public function __construct($email, $data)
     {
         //
-        $this->member = $member;
-        $this->title = $title;
-        $this->details = $details;
+        $this->email = $email;
+        $this->data = $data;
     }
 
     public function handle()
     {
-        Mail::to($this->member->email)->send(new MemberMail($this->title, $this->details));
+        Mail::to($this->email)->send(new MemberMail($this->data));
     }
 }
