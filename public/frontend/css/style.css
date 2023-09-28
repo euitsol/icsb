@@ -1136,7 +1136,7 @@ li {
 }
 
 .president-section .president-column .left-column img {
-	border: 7px solid #707070;
+    border: 7px solid #182456;
     border-radius: 100px 0 100px 0;
 }
 
@@ -1178,6 +1178,7 @@ li {
 	z-index: 999;
 	position: relative;
 	border: 1px solid #182456;
+    text-align: center;
 }
 
 .president-section .president-column .right-column a:hover {
@@ -1847,6 +1848,9 @@ li {
     border-radius: 0 0 50px 50px;
     border: 1px solid #99CE72;
 }
+.events-section .events-row .item .logo-wrapp .content{
+    height: 95px;
+}
 
 .events-section .events-row .item h3 {
 	font-size: 22px;
@@ -1857,7 +1861,8 @@ li {
 .events-section .events-row .item h3 a {
     color: #111111;
     transition: 0.4s;
-    font-size: 16px;
+    font-size: 15px;
+    text-align: justify;
 }
 
 .events-section .events-row .item h3 a:hover {
@@ -2003,9 +2008,12 @@ li {
 
 .recent-video-section {
 	position: relative;
-	background-image: url("../img/home_bg/bg-3.png");
+	background-image: url("../img/home_bg/recent_video.jpg");
 	background-repeat: no-repeat;
-	background-size:cover;
+    background-size: cover;
+    background-attachment: fixed;
+    top: 0;
+    left: 0;
 }
 .recent-video-section .video iframe {
 	border: 5px solid #8A8A8A;
@@ -2013,7 +2021,7 @@ li {
 
 .recent-video-section .video .video-title {
 	padding: 0 12px;
-	background-color: #152360;
+	background-color: #074246;
     height: 84px;
     line-height: 84px;
     font-size: 14px;
@@ -2168,7 +2176,12 @@ li {
 .logo-carousel{
     margin-top: 50px;
 }
-
+.national-connection-section{
+    background-image: url('../img/home_bg/national_connection.png');
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: cover;
+}
 .national-connection-section .logo-carousel .owl-item {
 	text-align: center;
 	display: flex;
@@ -2202,6 +2215,7 @@ li {
     border: 3px solid #7c8ccd;
     border-radius: 5px;
     position: relative;
+    background-color: #fff;
 }
 
 .national-connection-section .logo-carousel .owl-item img {
@@ -4822,9 +4836,10 @@ td {
 	line-height: 35px;
 	color: #111111;
 }
-
-.president-content-section .president-content-row .left-column .contact-info ul li:hover {
-	color: #FF8601;
+.president-content-section .president-content-row .left-column .contact-info ul li a{
+	font-size: 16px;
+	line-height: 35px;
+	color: #111111;
 }
 
 .president-content-section .president-content-row .left-column .contact-info ul li i {
