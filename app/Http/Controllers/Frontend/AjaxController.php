@@ -12,6 +12,7 @@ use App\Models\CsFirms;
 use App\Models\MediaRoom;
 use App\Models\MediaRoomCategory;
 use App\Models\Member;
+use App\Models\CouncilMember;
 use App\Models\MemberType;
 use App\Models\NationalAward;
 use App\Models\Notice;
@@ -156,5 +157,18 @@ class AjaxController extends Controller
             return $member_search;
         });
         return response()->json(['member_searchs' => $member_searchs]);
+    }
+
+    public function memberInfo($id, $cmId = null): JsonResponse
+    {
+        if($cmId != null){
+            $council = CouncilMember::findOrFail($cmId);
+        }
+
+        $member = Member::findOrFail($id);
+        $member_id = member_id($member->id);
+        $phone = json_decode($member->phone);
+
+        return response()->json(['member'=>$member,'member_id'=>$member_id,'phone'=>$phone, 'council'=>$council ?? '',]);
     }
 }

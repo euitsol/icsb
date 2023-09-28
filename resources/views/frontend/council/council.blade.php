@@ -99,7 +99,7 @@
             $('.profile_data').on('click', function() {
                 let id = $(this).data('member-id');
                 let cmId = $(this).data('cm-id');
-                let _url = ("{{ route('m.info', ['member_id', 'cmId']) }}");
+                let _url = ("{{ route('frontend.m.info', ['member_id', 'cmId']) }}");
                 let __url = _url.replace('member_id', id);
                 let ___url = __url.replace('cmId', cmId);
                 $.ajax({
