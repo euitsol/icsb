@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('council_id');
             $table->unsignedBigInteger('member_id');
             $table->unsignedBigInteger('cmt_id');
+            $table->longText('description')->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();
             $table->softDeletes();
