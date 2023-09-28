@@ -43,7 +43,7 @@ class HomePageController extends Controller
         $publicationOthers = SinglePages::where('frontend_slug', 'others')->first();
         $menu_acts = Act::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
         $councils = Council::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
-        $totalVisitors = Visitor::count();
+        $totalVisitors = 50000 + Visitor::count();
         $todayVisitors = Visitor::whereDate('created_at', Carbon::today())->count();
         view()->share([
             'contact' => $contact,
