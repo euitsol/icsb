@@ -79,6 +79,7 @@ class HomePageController extends Controller
         $s['notices'] = Notice::with('category')->where('deleted_at',null)->where('status',1)->latest()->limit(4)->get();
         $s['testimonials'] = Testimonial::where('deleted_at', null)->where('status',1)->orderBy('order_key','ASC')->get();
         $s['latest_newses'] = LatestNews::where('deleted_at', null)->where('status',1)->orderBy('date','ASC')->get();
+        $s['banner_video'] = SinglePages::where('frontend_slug', 'banner-video')->first();
         return view('frontend.home',$s);
     }
 }

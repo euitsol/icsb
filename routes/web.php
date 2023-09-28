@@ -43,7 +43,7 @@ use App\Http\Controllers\Frontend\EventPagesController;
 use App\Http\Controllers\Frontend\CouncilPagesController;
 use App\Http\Controllers\Frontend\StudentsPagesController;
 use App\Http\Controllers\Frontend\MembersPagesController;
-use App\Http\Controllers\Frontend\RulesAndRegulationsPagesController;
+use App\Http\Controllers\Frontend\LatestNewsPagesController;
 use App\Http\Controllers\Frontend\PublicationsPagesController;
 use App\Http\Controllers\Frontend\ContactPagesController;
 use App\Http\Controllers\Frontend\ArticlesController;
@@ -534,6 +534,8 @@ Route::group(['middleware' => ['log_visitor']], function () {
 
     // Single Pages Route
     Route::get('/page/{frontend_slug}', [FrontendSinglePagesController::class, 'frontend'])->name('sp.frontend');
+
+    Route::get('/latest-news/{slug}', [LatestNewsPagesController::class, 'view'])->name('news.view');
 
     Route::group(['as' => 'about.', 'prefix' => 'about'], function () {
         // Route::get('/icsb-profile', [AboutPagesController::class, 'icsb_profile'])->name('icsb_profile');

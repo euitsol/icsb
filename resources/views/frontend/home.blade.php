@@ -13,7 +13,7 @@
     </a>
 </div>
 {{-- Banner Section --}}
-@include('frontend.includes.banner',['contact'=>$contact, 'banner'=>$banner])
+@include('frontend.includes.banner',['contact'=>$contact, 'banner'=>$banner,'banner_video'=>$banner_video])
 
  <!-- Start News Ticker Section -->
  <section class="news-ticker-section">
@@ -25,7 +25,7 @@
             <div class="ticker-desc">
                 <ul class="bxnewsticker">
                     @foreach ($latest_newses as $news)
-                        <li><a href="#">{{$news->title}}</a></li>
+                        <li><a href="{{route('news.view',$news->slug)}}">{{$news->title}}</a></li>
                     @endforeach
                 </ul>
             </div>
@@ -111,7 +111,7 @@
 
 
  <!-- Pop Up Modal -->
- @if(isset($pop_up) && isset(json_decode($pop_up->saved_data)->{'upload-image'}))
+ @if(isset(json_decode($pop_up->saved_data)->{'upload-image'}))
  <div class="modal fade pop_up_modal" id="view-modal" data-bs-keyboard="false" tabindex="-1"
  aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -119,7 +119,7 @@
 
             <div class="modal-body">
                 <img src="{{storage_url(json_decode($pop_up->saved_data)->{'upload-image'})}}" alt="Pop Up Notice Not Found">
-                <button type="button" class="btn text-danger pop_up_close" data-bs-dismiss="modal" ><i class="fa-solid fa-xmark fa-beat"></i></button>
+                <button type="button" class="close pop_up_close" data-bs-dismiss="modal" aria-label="Close" ><i class="fa-solid fa-xmark fa-beat"></i></button>
             </div>
         </div>
     </div>
@@ -139,46 +139,8 @@
 </script>
 <script>
     $(document).ready(function() {
-
-            // let id = $(this).data('member-id');
-            // let _url = ("{{ route('m.info', ['member_id']) }}");
-            // let __url = _url.replace('member_id', id);
-            // $.ajax({
-            //     url: __url,
-            //     method: 'GET',
-            //     dataType: 'json',
-            //     success: function(data) {
-            //         var noImage = '{{asset("no_img/no_img.jpg")}}';
-            //         var image = `{{ storage_url('${data.member.image}') }}`;
-            //         var details = `{!! '${data.member.details}' !!}`;
-            //         var member_image = data.member.image ? image : noImage;
-            //         var memberData = `
-            //                         <div class="fellow-items flex w-100">
-            //                             <div class="image-column">
-            //                                 <img src="${member_image}" alt="">
-            //                             </div>
-            //                             <div class="content-column">
-            //                                 <h4>Member ID: ${data.member_id}</h4>
-            //                                 <h3 class="mb-0">${data.member.name}</h3>
-            //                                 <p><strong>${data.member.designation}</strong></p>
-            //                                 <li><i class="fa-solid fa-house-circle-exclamation"></i>${data.member.address}</li>
-            //                                 <li><i class="fa-solid fa-envelope-open-text"></i>Email: <a href="mailto:${data.member.email}">${data.member.email}</a></li>
-            //                             </div>
-            //                         </div>
-            //                         <div class="details">
-            //                             ${details}
-            //                         </div>
-
-            //                         `;
-            //         $('#member_data').html(memberData);
-            //         $('#view-modal').modal('show');
-            //     },
-            //     error: function(xhr, status, error) {
-            //         console.error('Error fetching member data:', error);
-            //     }
-            // });
-            $('#view-modal').modal('show');
-        });
+        $('#view-modal').modal('show');
+    });
 
 </script>
 <script>

@@ -109,24 +109,28 @@
                     success: function(data) {
                         console.log(data);
                         var noImage = '{{asset("no_img/no_img.jpg")}}';
+
                         var image = `{{ storage_url('${data.member.image}') }}`;
                         var details = `{!! '${data.council.description}' !!}`;
+
                         var member_image = data.member.image ? image : noImage;
+                        var _details = details !='null' ? details : 'Description not found!';
                         var memberData = `
                                         <div class="fellow-items flex w-100">
                                             <div class="image-column">
                                                 <img src="${member_image}" alt="">
                                             </div>
                                             <div class="content-column">
-                                                <h4>Member ID: ${data.member_id}</h4>
+                                                <h4>Member ID: ${data.membeship_id}</h4>
                                                 <h3 class="mb-0">${data.member.name}</h3>
-                                                <p><strong>${data.member.designation}</strong></p>
+                                                <p class="mb-0"><strong>${data.member.designation}</strong></p>
+                                                <p><strong>${data.member.company_name}</strong></p>
                                                 <li><i class="fa-solid fa-house-circle-exclamation"></i>${data.member.address}</li>
                                                 <li><i class="fa-solid fa-envelope-open-text"></i>Email: <a href="mailto:${data.member.email}">${data.member.email}</a></li>
                                             </div>
                                         </div>
                                         <div class="details">
-                                            ${details}
+                                            ${_details}
                                         </div>
 
                                         `;
