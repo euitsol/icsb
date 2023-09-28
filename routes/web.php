@@ -100,7 +100,7 @@ Route::group(['middleware' => ['auth', 'permission']], function () {
     Route::get('json-image/single/delete/{model}/{id}/{key}/{column}', [DefaultController::class, 'jsonImageDelete'])->name('json_image.single.delete');
     Route::get('view-pdf/{filepath}', [ViewDefaultController::class, 'view_pdf'])->name('view.pdf');
     // Ajax Routes
-    Route::get('members/{id}', [AjaxController::class, 'memberInfo'])->name('m.info');
+    Route::get('members/{id}/{cmId?}', [AjaxController::class, 'memberInfo'])->name('m.info');
     //ERP Memeber
     Route::post('member-sync', [MemberController::class, 'sync'])->name('sync');
 

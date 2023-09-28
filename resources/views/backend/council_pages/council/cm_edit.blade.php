@@ -56,6 +56,13 @@
                             </select>
                             @include('alerts.feedback', ['field' => 'cmt_id'])
                         </div>
+
+                        <div class="form-group {{ $errors->has('description') ? ' has-danger' : '' }}">
+                            <label for="description">Member Description</label>
+                            <textarea name="description" class="form-control">
+                                {{ $cm->description }}
+                            </textarea>
+                        </div>
                     </div>
                     <div class="card-footer">
                         <button type="submit" class="btn btn-fill btn-primary">{{ _('Update') }}</button>
