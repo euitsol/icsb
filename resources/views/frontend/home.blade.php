@@ -78,7 +78,7 @@
 
 <!----============================ President Section ==========================---->
 @if(!empty($president))
-    <section class="president-section big-sec-height">
+    <section class="president-section big-sec-height"  id="particles-js">
         <div class="container wrap">
             <div class="president-column flex">
                 <div class="left-column">
@@ -112,7 +112,7 @@
 
 
  <!-- Pop Up Modal -->
- @if(isset(json_decode($pop_up->saved_data)->{'upload-image'}))
+ @if(isset($pop_up) && isset(json_decode($pop_up->saved_data)->{'upload-image'}))
  <div class="modal fade pop_up_modal" id="view-modal" data-bs-keyboard="false" tabindex="-1"
  aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -133,6 +133,10 @@
 @push('js_link')
     {{-- WOW JS --}}
     <script src="{{asset('frontend/js/wow.min.js')}}"></script>
+
+    <script src="{{ asset('frontend/js/particles.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/particle-configure.js') }}"></script>
+    <script src="{{ asset('frontend/js/stats.js') }}"></script>
 @endpush
 @push('js')
 <script>

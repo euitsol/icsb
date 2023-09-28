@@ -146,6 +146,7 @@
     border-radius: 29px;
     border: 1px solid #182456;
 }
+
 .blog-section .logo-wrapp a {
     width: 100% !important;
 }
@@ -162,7 +163,7 @@
     justify-content: space-between;
 }
 
-.blog-section .item .post-content ul li{
+.blog-section .item .post-content ul li {
     color: #111111;
     font-size: 16px;
     line-height: 22px;
@@ -492,6 +493,7 @@
     color: #000;
     border: none;
 }
+
 /*======================  Job Placement Responsive css ===============*/
 @media only screen and (max-width: 1024px) {
     .job-placement-section .single-job .left-col {
@@ -616,4 +618,12 @@
         row-gap: 11px;
         flex-direction: column-reverse;
     }
+}
+
+
+
+/* Particle Js */
+.particles-js-canvas-el {
+    position: absolute !important;
+    top: 0 !important;
 }

@@ -1,6 +1,6 @@
 <section class="banner-section">
     <div class="gcse-search"></div>
-    @if(isset(json_decode($banner_video->saved_data)->{'upload-video'}) && isset(json_decode($banner_video->saved_data)->{'banner-title'}))
+    @if(isset($banner_video) && isset(json_decode($banner_video->saved_data)->{'upload-video'}) && isset(json_decode($banner_video->saved_data)->{'banner-title'}))
         <div class="video-container">
             <div class="content">
                 <h3>{{ json_decode($banner_video->saved_data)->{'banner-title'} }}</h3>
