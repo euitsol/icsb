@@ -53,7 +53,7 @@
                         <div class="form-group">
                             <label>{{ _('Contact Number - 1') }}</label>
                             <div class="input-group mb-3">
-                                <input type="text" name="phone[1][number]" class="form-control" placeholder="{{ _('Enter Member\'s Contact Number') }}" required>
+                                <input type="text" name="phone[1][number]" class="form-control" placeholder="{{ _('Enter Member\'s Contact Number') }}">
                                 <div class="div">
                                     <select class="form-control" name="phone[1][type]" style="font-family: inherit;">
                                         <option value="residential">{{ _('Residential') }}</option>
@@ -115,7 +115,7 @@ $(function() {
                 <div class="form-group">
                     <label>{{ _('Contact Number - ${count}') }}</label>
                     <div class="input-group mb-3">
-                        <input type="text" name="phone[${count}][number]" class="form-control" placeholder="{{ _('Enter Member\'s Contact Number') }}" required>
+                        <input type="text" name="phone[${count}][number]" class="form-control" placeholder="{{ _('Enter Member\'s Contact Number') }}">
                         <div class="div">
                             <select class="form-control" name="phone[${count}][type]" style="font-family: inherit;">
                                 <option value="residential">{{ _('Residential') }}</option>
