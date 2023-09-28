@@ -42,7 +42,7 @@
                                     alt="{{ $c_members[$index]->member->name }}" />
                                 <div class="info text-center">
                                     <p>{{ $c_members[$index]->council_member_type->title }}</p>
-                                    <h5 type="button" class="profile_data" data-member-id="{{ $c_members[$index]->member->id }}">
+                                    <h5 type="button" class="profile_data" data-cm-id="{{ $c_members[$index]->id }}" data-member-id="{{ $c_members[$index]->member->id }}">
                                         {{ $c_members[$index]->member->name }}</h5>
                                 </div>
                             </div>
@@ -98,16 +98,19 @@
         $(document).ready(function() {
             $('.profile_data').on('click', function() {
                 let id = $(this).data('member-id');
-                let _url = ("{{ route('m.info', ['member_id']) }}");
+                let cmId = $(this).data('cm-id');
+                let _url = ("{{ route('m.info', ['member_id', 'cmId']) }}");
                 let __url = _url.replace('member_id', id);
+                let ___url = __url.replace('cmId', cmId);
                 $.ajax({
-                    url: __url,
+                    url: ___url,
                     method: 'GET',
                     dataType: 'json',
                     success: function(data) {
+                        console.log(data);
                         var noImage = '{{asset("no_img/no_img.jpg")}}';
                         var image = `{{ storage_url('${data.member.image}') }}`;
-                        var details = `{!! '${data.member.details}' !!}`;
+                        var details = `{!! '${data.council.description}' !!}`;
                         var member_image = data.member.image ? image : noImage;
                         var memberData = `
                                         <div class="fellow-items flex w-100">

@@ -11,6 +11,9 @@
         border-left: 1px solid rgba(29, 37, 59, 0.5);
         border-right: 0;
     }
+    .ck-rounded-corners .ck.ck-editor__main>.ck-editor__editable, .ck.ck-editor__main>.ck-editor__editable.ck-rounded-corners {
+        height: 20vh !important;
+    }
 </style>
 @endpush
 @section('content')
@@ -59,7 +62,14 @@
                                         @endif
                                     @endfor
                                 </select>
+
                                 <span class="input-group-text" id="add_member" data-count="1"><i class="tim-icons icon-simple-add"></i></span>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="">Member Description</label>
+                                <textarea name="cm[1][description]" class="form-control">
+                                </textarea>
                             </div>
                         </div>
                         @include('alerts.feedback', ['field' => 'cm.*.member_id'])
@@ -97,6 +107,8 @@ $(function() {
         $(this).data('count', count);
 
         result = `
+            <div>
+
                 <div class="form-group ">
                     <label>{{ _('Member-${count}') }}</label>
                     <div class="input-group mb-3">
@@ -131,13 +143,20 @@ $(function() {
                         <span class="input-group-text text-danger delete_member"><i class="tim-icons icon-trash-simple"></i></span>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="">Member Description</label>
+                    <textarea name="cm[${count}][description]" class="form-control">
+                    </textarea>
+                </div>
+            </div>
         `;
         $('#append').append(result);
         $('select:not(.no-select)').select2();
+        initializeEditor();
     });
 
     $(document).on('click', '.delete_member', function() {
-        $(this).closest('.form-group').remove();
+        $(this).closest('.form-group').parent().remove();
     });
 });
 </script>

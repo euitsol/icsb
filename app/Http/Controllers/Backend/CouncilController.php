@@ -159,6 +159,7 @@ class CouncilController extends Controller
                 if(empty($check)){
                     $cm->member_id = $single_cm['member_id'];
                     $cm->order_key = $single_cm['order_key'];
+                    $cm->description = $single_cm['description'];
                     $cm->council_id = $id;
                     $cm->cmt_id = $single_cm['cmt_id'];
                     $cm->created_by = auth()->user()->id;
@@ -190,6 +191,7 @@ class CouncilController extends Controller
             $cm->member_id = $request->member_id;
             $cm->cmt_id = $request->cmt_id;
             $cm->order_key = $request->order_key;
+            $cm->description = $request->description;
             $cm->updated_by = auth()->user()->id;
             $cm->save();
             return redirect()->route('council.council_member_list',$cm->council_id)->withStatus(__($cm->member->name.' assigned updated in this council as a '.$cm->council_member_type->title.' successfully'));
