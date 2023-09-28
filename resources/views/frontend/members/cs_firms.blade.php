@@ -39,7 +39,7 @@ $datas = [
 @push('js')
     <script>
         $(document).ready(function() {
-            $('.search_value').on('keyup', function() {
+            $('.search_value').on('input change', function() {
                 let search_value = $('.search_value').val();
                 if (search_value != null) {
                     let _url = ("{{ route('cs_firms.member_info.search', ['search_value']) }}");
@@ -65,8 +65,9 @@ $datas = [
                                             </div>
                                             <div class="content-column">
                                                 <h4>CS Practicing Licence No: ${csFirmMember.private_practice_certificate_no}</h4>
-                                                <h3 class="mb-0">${csFirmMember.member.name}</h3>
-                                                <p><strong>${csFirmMember.member.designation}</strong></p>
+                                                <h3>${csFirmMember.member.name}</h3>
+                                                <p class="mb-0"><strong>${csFirmMember.member.designation}</strong></p>
+                                                <p><strong>${csFirmMember.member.company_name}</strong></p>
                                                 <li><i class="fa-solid fa-house-circle-exclamation"></i>${csFirmMember.member.address}</li>
                                                 <li><i class="fa-solid fa-envelope-open-text"></i>Email: <a href="mailto:${csFirmMember.member.email}">${csFirmMember.member.email}</a></li>
                                             </div>
