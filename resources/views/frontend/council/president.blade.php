@@ -36,7 +36,7 @@ $datas = [
                         @endforeach
                     @endif --}}
                     @if(!empty($president->member->email))
-                        <li><a href="mailto:{{$president->member->email}}"><i class="fa-solid fa-envelope"></i>{{$president->member->email}}</a></li>
+                        <li><i class="fa-solid fa-envelope"></i>{{$president->member->email}}</li>
                     @endif
                     @if(!empty($president->member->address))
                         <li><i class="fa-solid fa-location-dot"></i>{{$president->member->address}}</li>

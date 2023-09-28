@@ -30,7 +30,7 @@ $datas = [
              <div class="contact-info">
                 <ul>
                     @if(!empty($president->member->email))
-                        <li><a href="mailto:{{$president->member->email}}"><i class="fa-solid fa-envelope"></i>{{$president->member->email}}</a></li>
+                        <li><i class="fa-solid fa-envelope"></i>{{$president->member->email}}</li>
                     @endif
                     @if(!empty($president->member->address))
                         <li><a href="#"><i class="fa-solid fa-location-dot"></i>{{$president->member->address}}</a></li>

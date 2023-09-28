@@ -58,7 +58,7 @@ class MembersPagesController extends Controller
             case 'honorary':
                 $s['title'] = 'Honorary Members';
                 $s['slug'] = 'honorary';
-                $s['members'] = Member::where('status', 1)->where('member_type', 2)->latest()->get();
+                $s['members'] = Member::where('mem_current_status', 1)->where('honorary', 1)->latest()->get();
                 break;
 
             case 'fellow':
