@@ -53,7 +53,8 @@ class EventPagesController extends Controller
     }
     public function events(): View
     {
-        $s['events'] = Event::where('status',1)->where('deleted_at', null)->latest()->get();
+        $query = Event::where('status',1)->where('deleted_at', null)->orderBy('event_start_time','DESC');
+        $s['events'] =$query->limit(12)->get();
         return view('frontend.event.events',$s);
     }
     public function view($slug): View

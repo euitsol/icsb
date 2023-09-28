@@ -13,6 +13,7 @@ use App\Models\MediaRoom;
 use App\Models\MediaRoomCategory;
 use App\Models\Member;
 use App\Models\CouncilMember;
+use App\Models\Event;
 use App\Models\MemberType;
 use App\Models\NationalAward;
 use App\Models\Notice;
@@ -85,6 +86,18 @@ class AjaxController extends Controller
             });
         }
         return response()->json(['media_rooms'=>$media_rooms]);
+    }
+    public function events($offset): JsonResponse
+    {
+
+        $query = Event::where('deleted_at', null)->where('status','1')->orderBy('event_start_time','DESC');
+        $events = $query->offset($offset)->limit(12)->get()
+        ->map(function ($event) {
+            $event->event_start_time = date('d-M-Y', strtotime($event->event_start_time));
+            $event->title = stringLimit($event->title,80);
+            return $event;
+        });
+        return response()->json(['events'=>$events]);
     }
     public function singlePageSeeMore($slug): JsonResponse
     {

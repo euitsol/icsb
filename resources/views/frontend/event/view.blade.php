@@ -25,7 +25,7 @@ $datas = [
                     <div class="info-row">
                         <h2>{{$event->title}}</h2>
                         <ul class="flex">
-                            <li><i class="fa-solid fa-calendar-days"></i>{{ formatDateTimeRange($event->event_start_time, $event->event_end_time)}}</li>
+                            <li><i class="fa-solid fa-calendar-days"></i>{{ date('d-M-Y', strtotime($event->event_start_time)) }}</li>
                         </ul>
                         <ul class="location-text">
                             <li><i class="fa-solid fa-map-location-dot"></i>{{$event->event_location}}</li>

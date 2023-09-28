@@ -1,5 +1,4 @@
 <section class="banner-section">
-    <div class="gcse-search"></div>
     @if(isset($banner_video) && isset(json_decode($banner_video->saved_data)->{'upload-video'}) && isset(json_decode($banner_video->saved_data)->{'banner-title'}))
         <div class="video-container">
             <div class="content">
@@ -56,20 +55,11 @@
 
 
     <aside class="socila-media-sidebar">
-        {{-- <div class="gcse-search"></div>
-        <span class="close_search"><i class="fa-solid fa-xmark fa-beat"></i></i></span> --}}
         <div class="social-link-wrapper">
-
             <ul>
-                <li class="active search_li">
+                <li class="active search_button">
                     <span >{{_('Search')}}</span>
-                    <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-                    {{-- <div class="input-group">
-                        <input type="text" class="form-control" id='search_box' placeholder="search here...">
-                        <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-                    </div> --}}
-
-
+                    <a href="javascript:void(0)"><i class="fa-solid fa-magnifying-glass"></i></a>
                 </li>
                 @if(!empty($contact->social))
                     @foreach (json_decode($contact->social) as $social)
