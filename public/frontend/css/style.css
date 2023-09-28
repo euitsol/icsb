@@ -988,6 +988,7 @@ li {
     background-size: cover;
     padding: 90px 60px 60px 60px;
     border-radius: 50px;
+    background-position: center center;
 }
 .we-are-section .left-col {
 	width: 64%;
