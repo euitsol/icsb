@@ -30,6 +30,8 @@ return new class extends Migration
             $table->string('honorary')->nullable();
             $table->string('type')->nullable();
 
+            $table->boolean('notify_email')->default(1);
+
             $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
             $table->softDeletes();

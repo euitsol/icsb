@@ -17,7 +17,7 @@
                             <select name="member_id" class="form-control {{ $errors->has('member_id') ? ' is-invalid' : '' }}">
                                 @foreach ($members as $member)
                                     @if($member->member_type != 5)
-                                        <option value="{{ $member->id }}" @if( $cm->member_id == $member->id) selected @endif> {{ $member->name }}</option>
+                                        <option value="{{ $member->id }}" @if( $cm->member_id == $member->id) selected @endif> {{ $member->name }} ( {{ $member->membership_id }} )</option>
                                     @endif
                                 @endforeach
                             </select>

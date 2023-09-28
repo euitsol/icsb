@@ -30,7 +30,7 @@
                                     <th>{{ _('Member Status') }}</th>
                                     <th>{{ _('Created at') }}</th>
                                     <th>{{ _('Created by') }}</th>
-                                    {{-- <th>{{ _('Action') }}</th> --}}
+                                    <th>{{ _('Action') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -55,16 +55,20 @@
                                         </td>
                                         <td> {{ timeFormate($member->created_at) }} </td>
                                         <td> {{ $member->created_user->name ?? 'system' }} </td>
-                                        {{-- <td>
+                                        <td>
+                                            @php
+                                                if($member->notify_email == 1){
+                                                    $label = 'Mute email notifications';
+                                                }else {
+                                                    $label = 'Unmute email notifications';
+                                                }
+                                            @endphp
                                             @include('backend.partials.action_buttons', [
                                                 'menuItems' => [
-                                                    ['routeName' => '', 'label' => 'View'],
-                                                    ['routeName' => 'member.member_edit',     'params' => [$member->id], 'label' => 'Update'],
-                                                    ['routeName' => 'member.status.member_edit',   'params' => [$member->id], 'label' => 'Change Status'],
-                                                    ['routeName' => 'member.member_delete',   'params' => [$member->id], 'label' => 'Delete', 'delete' => true],
+                                                    ['routeName' => 'member-email.status',   'params' => [$member->id], 'label' => $label, 'delete' => true],
                                                 ]
                                             ])
-                                        </td> --}}
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -75,7 +79,7 @@
 
 
 
-            <div class="card ">
+            {{-- <div class="card ">
                 <div class="card-header">
                     <div class="row">
                         <div class="col-8">
@@ -136,7 +140,7 @@
                         </table>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="card ">
                 <div class="card-header">
@@ -184,11 +188,19 @@
                                         <td> {{ timeFormate($nmember->created_at) }} </td>
                                         <td> {{ $nmember->created_user->name ?? 'system' }} </td>
                                         <td>
+                                            @php
+                                                if($nmember->notify_email == 1){
+                                                    $nlabel = 'Mute email notifications';
+                                                }else {
+                                                    $nlabel = 'Unmute email notifications';
+                                                }
+                                            @endphp
                                             @include('backend.partials.action_buttons', [
                                                 'menuItems' => [
                                                     ['routeName' => '', 'label' => 'View'],
                                                     ['routeName' => 'member.member_edit',     'params' => [$nmember->id], 'label' => 'Update'],
                                                     ['routeName' => 'member.status.member_edit',   'params' => [$nmember->id], 'label' => 'Change Status'],
+                                                    ['routeName' => 'member-email.status',   'params' => [$nmember->id], 'label' => $nlabel, 'delete' => true],
                                                     ['routeName' => 'member.member_delete',   'params' => [$nmember->id], 'label' => 'Delete', 'delete' => true],
                                                 ]
                                             ])

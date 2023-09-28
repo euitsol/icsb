@@ -10,13 +10,14 @@ use App\Models\Member;
 use Illuminate\View\View;
 use App\Http\Requests\EventRequest;
 use Illuminate\Http\RedirectResponse;
+use App\Http\Traits\SendMailTrait;
 
-use App\Jobs\SendMemberEmail;
 
 
 class EventController extends Controller
 {
     //
+    use SendMailTrait;
 
     public function __construct() {
         return $this->middleware('auth');
@@ -60,10 +61,20 @@ class EventController extends Controller
         $event->event_start_time = $request->event_start_time;
         $event->event_end_time = $request->event_end_time;
         $event->description = $request->description;
+
+        if($request->notify == 1){
+            $event->notify = $request->notify;
+            $event->email_subject = $request->email_subject;
+            $event->email_body = $request->email_body;
+        }
+
         $event->created_by = auth()->user()->id;
         $event->save();
 
 
+        if($request->notify == 1){
+            $this->send_member_email($event);
+        }
 
 
         return redirect()->route('event.event_list')->withStatus(__('Event '.$request->title.' created successfully.'));

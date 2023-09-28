@@ -21,9 +21,9 @@
                                             $check = App\Models\CouncilMember::where('member_id',$member->id)->first();
                                         @endphp
                                         @if($cm->member_id == $member->id)
-                                            <option value="{{$member->id}}" selected>{{ $member->name }} @if($member->member_type == 5){{(' (Non Member)')}}@endif</option>
+                                            <option value="{{$member->id}}" selected>{{ $member->name }} ( {{ $member->membership_id }} ) @if($member->member_type == 1){{(' (Non Member)')}}@endif</option>
                                         @elseif(!$check)
-                                            <option value="{{$member->id}}">{{ $member->name }} @if($member->member_type == 5){{(' (Non Member)')}}@endif</option>
+                                            <option value="{{$member->id}}">{{ $member->name }} ( {{ $member->membership_id }} ) @if($member->member_type == 1){{(' (Non Member)')}}@endif</option>
                                         @endif
                                     @endforeach
                                 </select>

@@ -243,4 +243,16 @@ class MemberController extends Controller
         }
     }
 
+    public function email_status($id): RedirectResponse
+    {
+        $member = Member::findOrFail($id);
+        if($member->notify_email == 1){
+            $member->notify_email = 0;
+        }else{
+            $member->notify_email = 1;
+        }
+        $member->save();
+        return redirect()->route('member.member_list')->withStatus(__('Email status changed for: '.$member->name));
+    }
+
 }

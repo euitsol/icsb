@@ -34,7 +34,7 @@
                                     <option selected hidden>{{_('Select Committee Member')}}</option>
                                     @foreach ($members as $member)
                                         @if($member->member_type != 5)
-                                            <option value="{{ $member->id }}" @if( old('cm[1][member_id]') == $member->id) selected @endif> {{ $member->name }}</option>
+                                            <option value="{{ $member->id }}" @if( old('cm[1][member_id]') == $member->id) selected @endif> {{ $member->name }} ( {{ $member->membership_id }} )</option>
                                         @endif
                                     @endforeach
                                 </select>
@@ -88,7 +88,7 @@ $(function() {
                             <option selected hidden>{{_('Select Committee')}}</option>
                             @foreach ($members as $member)
                                 @if($member->member_type != 5)
-                                    <option value="{{ $member->id }}" @if( old('cm[${count}][member_id]') == $member->id) selected @endif> {{ $member->name }}</option>
+                                    <option value="{{ $member->id }}" @if( old('cm[${count}][member_id]') == $member->id) selected @endif> {{ $member->name }} ( {{ $member->membership_id }} )</option>
                                 @endif
                             @endforeach
                         </select>

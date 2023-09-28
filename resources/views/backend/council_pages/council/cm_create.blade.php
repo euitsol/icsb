@@ -41,7 +41,7 @@
                                             $check = App\Models\CouncilMember::where('member_id',$member->id)->first();
                                         @endphp
                                         @if(!$check)
-                                            <option value="{{ $member->id }}" @if( old('cm[1][member_id]') == $member->id) selected @endif> {{ $member->name }}@if($member->member_type == 5){{(' (Non Member)')}}@endif</option>
+                                            <option value="{{ $member->id }}" @if( old('cm[1][member_id]') == $member->id) selected @endif> {{ $member->name }} ( {{ $member->membership_id }} ) @if($member->member_type == 1){{(' (Non Member)')}}@endif</option>
                                         @endif
                                     @endforeach
                                 </select>
@@ -119,7 +119,7 @@ $(function() {
                                     $check = App\Models\CouncilMember::where('member_id',$member->id)->first();
                                 @endphp
                                 @if(!$check)
-                                    <option value="{{ $member->id }}" @if( old('cm[${count}][member_id]') == $member->id) selected @endif> {{ $member->name }}</option>
+                                    <option value="{{ $member->id }}" @if( old('cm[${count}][member_id]') == $member->id) selected @endif> {{ $member->name }} ( {{ $member->membership_id }} ) </option>
                                 @endif
                             @endforeach
                         </select>
