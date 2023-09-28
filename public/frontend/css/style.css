@@ -3758,10 +3758,11 @@ td {
 }
 
 .executive-committee-section .committee-row .committee-items img {
-	width: 100%;
-	object-fit: cover;
-	border-radius: 50%;
-	height: 100%;
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+    border: 2px solid #122F98;
+    border-radius: 65px 0 65px 0;
 }
 
 .executive-committee-section .committee-row .committee-items h3 {
