@@ -110,7 +110,7 @@
                         console.log(data);
                         var noImage = '{{asset("no_img/no_img.jpg")}}';
 
-                        var image = `{{ storage_url('${data.member.image}') }}`;
+                        var image = `${data.member.image}`;
                         var details = `{!! '${data.council.description}' !!}`;
 
                         var member_image = data.member.image ? image : noImage;
