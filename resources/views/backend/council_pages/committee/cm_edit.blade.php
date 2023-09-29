@@ -39,7 +39,7 @@
                                 <select class="form-control {{ $errors->has('order_key') ? ' is-invalid' : '' }}" name="order_key">
                                     @for ($x=1; $x<=100; $x++)
                                         @php
-                                        $check = App\Models\CommitteeMember::where('cmt_id', $committee->id)->where('order_key',$x)->first();
+                                        $check = App\Models\CommitteeMember::where('cmt_id', $cm->committe->id)->where('order_key',$x)->first();
                                         @endphp
                                         @if($cm->order_key == $x)
                                             <option value="{{$x}}" selected>{{ $x }}</option>
