@@ -21,7 +21,7 @@
                 </a>
 
                 <div class="collapse @if ($pageSlug == 'role' || $pageSlug == 'permission') show @endif" id="user-management">
-                    <ul class="nav pl-4">
+                    <ul class="nav pl-2">
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
                                 ['pageSlug' => 'user', 'routeName' => '', 'iconClass' => 'fa-solid fa-user-group', 'label' => 'Users'],
@@ -72,7 +72,7 @@
                     $pageSlug == 'recent_video' ||
                     $pageSlug == 'testimonial'
                 ) show @endif" id="home">
-                    <ul class="nav pl-4">
+                    <ul class="nav pl-2">
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
                                 ['pageSlug' => 'pop-up', 'routeName' => 'sp.show', 'params' =>'pop-up', 'label' => 'Pop Up'],
@@ -155,7 +155,7 @@
                     $pageSlug == 'csr-initiatives' ||
                     $pageSlug == 'faq'
                 ) show @endif" id="about">
-                    <ul class="nav pl-4">
+                    <ul class="nav pl-2">
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
                                 // ['pageSlug' => 'icsb_profile', 'routeName' => 'icsb_profile.icsb_profile_create', 'label' => 'ICSB Profile'],
@@ -201,7 +201,7 @@
                                     $pageSlug == 'jury-board' ||
                                     $pageSlug == 'assessment-criteria'
                             ) show @endif" id="national_award_for_cg">
-                            <ul class="nav pl-4">
+                            <ul class="nav pl-2">
                                 @include('backend.partials.menu_buttons', [
                                     'menuItems' => [
                                         ['pageSlug' => 'genesis', 'routeName' => 'sp.show', 'iconClass' => 'fa-solid fa-o','params' => 'genesis', 'label' => 'Genesis'],
@@ -247,7 +247,7 @@
                     $pageSlug == 'president' ||
                     $pageSlug == 'committee'
                 ) show @endif" id="council">
-                    <ul class="nav pl-4">
+                    <ul class="nav pl-2">
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
                                 ['pageSlug' => 'council', 'routeName' => 'council.council_list', 'label' => 'Council'],
@@ -307,7 +307,7 @@
                         $pageSlug == 'member_notice' ||
                         $pageSlug == 'job_placement'
                 ) show @endif" id="member">
-                    <ul class="nav pl-4">
+                    <ul class="nav pl-2">
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
                                 ['pageSlug' => 'who-are-css', 'routeName' => 'sp.show', 'params' => 'who-are-css', 'label' => 'Who are CSs'],
@@ -373,7 +373,7 @@
                         $pageSlug == 'student_notice' ||
                         $pageSlug == 'faculty-evaluation-system'
                 ) show @endif" id="student">
-                    <ul class="nav pl-4">
+                    <ul class="nav pl-2">
                         <li>
                             <a class="@if(
                                     $pageSlug == 'entry-criteria' ||
@@ -397,7 +397,7 @@
                                     $pageSlug == 'examination-policy' ||
                                     $pageSlug == 'admission-form'
                             ) show @endif" id="admission">
-                            <ul class="nav pl-4">
+                            <ul class="nav pl-2">
                                 @include('backend.partials.menu_buttons', [
                                     'menuItems' => [
                                         ['pageSlug' => 'entry-criteria', 'routeName' => 'sp.show', 'iconClass' => 'fa-solid fa-o','params' => 'entry-criteria', 'label' => 'Entry Criteria'],
@@ -446,7 +446,7 @@
                         $pageSlug == 'help-desk'
 
                 ) show @endif" id="employees">
-                    <ul class="nav pl-4">
+                    <ul class="nav pl-2">
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
                                 ['pageSlug' => 'sec_and_ceo', 'routeName' => 'sec_and_ceo.sc_list', 'label' => 'Secretary & CEO'],
@@ -480,7 +480,7 @@
 
 
                 ) show @endif" id="rules">
-                    <ul class="nav pl-4">
+                    <ul class="nav pl-2">
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
                                 ['pageSlug' => 'bss', 'routeName' => 'bss.bss_list', 'label' => 'BSS'],
@@ -520,7 +520,7 @@
 
 
                 ) show @endif" id="publications">
-                    <ul class="nav pl-4">
+                    <ul class="nav pl-2">
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
                                 ['pageSlug' => 'the-chartered-secretary', 'routeName' => 'sp.show', 'params' => 'the-chartered-secretary', 'label' => 'The Chartered Secretary'],
@@ -571,7 +571,7 @@
 
 
                 ) show @endif" id="examination">
-                    <ul class="nav pl-4">
+                    <ul class="nav pl-2">
                         <li>
                             <a class="@if(
                                     $pageSlug == 'foundation-complete' ||
@@ -592,7 +592,7 @@
                                     $pageSlug == 'subject-complete' ||
                                     $pageSlug == 'final-complete'
                             ) show @endif" id="result">
-                            <ul class="nav pl-4">
+                            <ul class="nav pl-2">
                                 @include('backend.partials.menu_buttons', [
                                     'menuItems' => [
                                         ['pageSlug' => 'foundation-complete', 'routeName' => 'sp.show','iconClass' => 'fa-solid fa-o', 'params' => 'foundation-complete', 'label' => 'Foundation Complete'],
