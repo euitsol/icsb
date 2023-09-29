@@ -4006,6 +4006,7 @@ td {
 
 .past-president-layout .president-row .items {
 	width: 31.66%;
+    height: 651px;
 	padding: 33px;
 	background: #F2F2F2;
 }
@@ -4013,6 +4014,14 @@ td {
 .past-president-layout .president-row .items img {
 	width: 180px;
 	border-radius: 50%;
+
+}
+.past-president-layout .president-row .items .duration {
+	width: 374px;
+	height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 

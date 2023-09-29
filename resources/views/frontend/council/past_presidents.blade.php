@@ -21,9 +21,6 @@ $datas = [
 @if(!empty($p_presidents))
 <section class="past-president-layout big-sec-min-height">
     <div class="container">
-        {{-- <div class="heading-content text-align">
-            <h2 class="common-heading">{{_('Past Presidents')}}</h2>
-        </div> --}}
         <div class="president-row flex">
             @foreach ($p_presidents as $pp)
                 @if($pp->status == 1 && count($pp->durations)<=1)
@@ -32,17 +29,26 @@ $datas = [
                     <div class="items text-align">
                         <img src="{{getMemberImage($pp->member)}}" alt="">
                         <h3>{{$pp->member->name}}</h3>
-                        <h4>
-                            @foreach ($pp->durations as $key=>$duration)
-                                @if($key<1)
-                                    <span>{{formatYearRange($duration->start_date, $duration->end_date)}}</span>
-                                @else
-                                    <span>{{_(', ')}}{{formatYearRange($duration->start_date, $duration->end_date)}}</span>
-                                @endif
+                        <div class="duration">
+                            <h4>
+                                @foreach ($pp->durations as $key=>$duration)
+                                    @if(count($pp->durations) == 17)
+                                        <span>{{_('...')}}</span>
+                                        @break;
+                                    @endif
+                                    @if($key<1)
+                                        <span>{{formatYearRange($duration->start_date, $duration->end_date)}}</span>
+                                    @else
+                                        <span>{{_(', ')}}{{formatYearRange($duration->start_date, $duration->end_date)}}</span>
+                                    @endif
 
-                            @endforeach
-                        </h4>
-                        <p class="text-justify">{{ stringLimit(html_entity_decode_table($pp->bio), '300') }}</p>
+                                @endforeach
+
+                            </h4>
+                        </div>
+
+                                                                                                                                </h4>
+                        {{-- <p class="text-justify">{{ stringLimit(html_entity_decode_table($pp->bio), '300') }}</p> --}}
                         <a href="{{route('council_view.single.pp',$pp->slug)}}">Read More</a>
                     </div>
                 @endif
