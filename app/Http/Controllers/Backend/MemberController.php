@@ -195,7 +195,7 @@ class MemberController extends Controller
                 $apiData = $response->json();
                 foreach ($apiData as $index => $item) {
                     $filePath = '';
-                    $type = 'N/A';
+                    $type = '';
                     $mobileNumber = $item['mobile_number'];
                     $defaultType = 'office';
                     $transformedmn[0]['type'] = $defaultType;
@@ -205,12 +205,16 @@ class MemberController extends Controller
                         $filePath = str_replace('~', 'https://icsberp.org', $item['std_pic']);
                     }
 
-                    if($item['member_type'] == 0){
-                        $type = 'ACS';
-                    }elseif($item['member_type'] == 1){
-                        $type = 'FCS';
+                    if(isset($item['honorary']) && $item['honorary'] == 1){
+
                     }else{
-                        $type = '';
+                        if($item['member_type'] == 0){
+                            $type = 'ACS';
+                        }elseif($item['member_type'] == 1){
+                            $type = 'FCS';
+                        }else{
+                            $type = '';
+                        }
                     }
 
                     Member::updateOrCreate(
@@ -223,7 +227,7 @@ class MemberController extends Controller
                             'image' => $filePath ?? '',
                             'phone' => json_encode($transformedmn,JSON_FORCE_OBJECT),
                             'address' => trim($item['company_address'] ?? ''),
-
+                            'company_name' => trim($item['company'] ?? ''),
                             'membership_id' => $item['member_no'] ?? '',
                             'mem_current_status' => $item['mem_current_status'] ?? '',
                             'honorary' => $item['honorary'] ?? '0',
