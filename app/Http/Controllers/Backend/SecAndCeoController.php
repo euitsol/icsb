@@ -58,7 +58,7 @@ class SecAndCeoController extends Controller
                 $check = SecAndCeoDuration::where('deleted_at',null)->where('end_date',null)->first();
                 $check2 = SecAndCeoDuration::where('deleted_at',null)->where('end_date','>',Carbon::now()->format('Y-m-d'))->first();
                 if($check2){
-                    return redirect()->route('sec_and_ceo.sc_list')->withStatus(__('Secretary & CEO '.$check2->secretary_and_ceo->member->name.' end date not expire! Fist change ' .$check2->secretary_and_ceo->member->name.' end date or you can add past secretary & CEO with end date!'));
+                    return redirect()->route('sec_and_ceo.sc_list')->withStatus(__('Secretary & CEO '.$check2->secretary_and_ceo->member->name.'\'s end date is not expired. Fist update his end date.'));
                 }
                 if($check){
                     $check->end_date = Carbon::now()->format('Y-m-d');
@@ -112,7 +112,7 @@ class SecAndCeoController extends Controller
                     $check = SecAndCeoDuration::where('deleted_at',null)->where('end_date',null)->first();
                     $check2 = SecAndCeoDuration::where('deleted_at',null)->where('end_date','>',Carbon::now()->format('Y-m-d'))->first();
                     if($check2){
-                        return redirect()->route('sec_and_ceo.sc_list')->withStatus(__('Secretary & CEO '.$check2->secretary_and_ceo->member->name.' end date not expire! Fist change ' .$check2->secretary_and_ceo->member->name.' end date or you can add past secretary & CEO with end date!'));
+                        return redirect()->route('sec_and_ceo.sc_list')->withStatus(__('Secretary & CEO '.$check2->secretary_and_ceo->member->name.'\'s end date is not expired. Fist update his end date.'));
                     }
                     if($check){
                         $check->end_date = Carbon::now()->format('Y-m-d');

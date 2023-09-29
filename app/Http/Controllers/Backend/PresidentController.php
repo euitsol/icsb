@@ -59,7 +59,7 @@ class PresidentController extends Controller
                 $check = PresidentDuration::where('deleted_at', null)->where('end_date', null)->first();
                 $check2 = PresidentDuration::where('deleted_at', null)->where('end_date', '>', Carbon::now()->format('Y-m-d'))->first();
                 if ($check2) {
-                    return redirect()->route('president.president_list')->withStatus(__('President ' . $check2->president->member->name . ' end date not expire! Fist change ' . $check2->president->member->name . ' end date or you can add past president with end date!'));
+                    return redirect()->route('president.president_list')->withStatus(__('President ' . $check2->president->member->name . '\'s end date is not expired. Fist update his end date.'));
                 }
                 if ($check) {
                     $check->end_date = Carbon::now()->format('Y-m-d');
@@ -114,7 +114,7 @@ class PresidentController extends Controller
                     $check = PresidentDuration::where('deleted_at', null)->where('end_date', null)->first();
                     $check2 = PresidentDuration::where('deleted_at', null)->where('end_date', '>', Carbon::now()->format('Y-m-d'))->first();
                     if ($check2) {
-                        return redirect()->route('president.president_list')->withStatus(__('President ' . $check2->president->member->name . ' end date not expire! Fist change ' . $check2->president->member->name . ' end date or you can add past president with end date!'));
+                        return redirect()->route('president.president_list')->withStatus(__('President ' . $check2->president->member->name . '\'s end date is not expired. Fist update his end date.'));
                     }
                     if ($check) {
                         $check->end_date = Carbon::now()->format('Y-m-d');
