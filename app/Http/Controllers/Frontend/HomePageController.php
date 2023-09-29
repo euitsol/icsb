@@ -89,7 +89,10 @@ class HomePageController extends Controller
         $file_path = storage_path('app/public/'.$file_path);
         if($file_path != null){
             if(file_exists($file_path)){
-                 return response()->file($file_path, ['Content-Type' => 'video/mp4']);
+                $fileContents = file_get_contents($file_path);
+                $response = response($fileContents, 200);
+                $response->header('Content-Type', 'video/mp4');
+                return $response;
             }
         }
     }

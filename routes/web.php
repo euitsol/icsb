@@ -523,7 +523,7 @@ Route::group(['middleware' => ['log_visitor']], function () {
     Route::get('/', [HomePageController::class, 'index'])->name('home');
     // Default View File Download Route
     Route::get('front/download/{filename}', [ViewDefaultController::class, 'view_download'])->name('view.download');
-    Route::get('home-banner/show/{filename}', [HomePageController::class, 'banner_video'])->name('banner.show');
+    Route::get('home-banner/show/{filename}', [HomePageController::class, 'banner_video'])->name('banner-video.show');
 
     // Ajax
     Route::get('home/notice/{cat_id}', [FrontendAjaxController::class, 'noticeHome'])->name('home.notice');
