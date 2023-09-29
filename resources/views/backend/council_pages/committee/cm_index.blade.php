@@ -22,6 +22,7 @@
                         <table class="table tablesorter datatable">
                             <thead class=" text-primary">
                                 <tr>
+                                    <th>{{ _('Order') }}</th>
                                     <th>{{ _('Name') }}</th>
                                     <th>{{ _('Image') }}</th>
                                     <th>{{ _('Member Type') }}</th>
@@ -36,6 +37,7 @@
                             <tbody>
                                 @foreach($committee->committe_members as $committee_member)
                                     <tr>
+                                        <td> {{ $committee_member->order_key }} </td>
                                         <td> {{ $committee_member->member->name }} </td>
                                         <td>
                                             <img class="rounded" width="60" src="{{getMemberImage($committee_member->member)}}">

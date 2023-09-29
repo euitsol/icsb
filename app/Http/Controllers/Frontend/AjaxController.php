@@ -111,7 +111,8 @@ class AjaxController extends Controller
     {
         $csFirmMembers = CsFirms::whereHas('member', function ($query) use ($search_value) {
             $query->where('name', 'like', '%' . $search_value . '%')
-                ->orWhere('company_name', 'like', '%' . $search_value . '%');
+                ->orWhere('company_name', 'like', '%' . $search_value . '%')
+                ->where('mem_current_status',1);
         })
         ->orWhere('private_practice_certificate_no', 'like', '%' . $search_value . '%')
         ->with('member') // Eager load the associated member data
@@ -163,13 +164,17 @@ class AjaxController extends Controller
             $query->where('name', 'like', '%' . $search_value . '%')
                 ->orWhere('designation', 'like', '%' . $search_value . '%')
                 ->orWhere('membership_id', 'like', '%' . $search_value . '%');
-        })
-        ->with('type')
+        })->where('mem_current_status',1)
         ->get()
         ->map(function ($member_search) {
             $member_search->image = getMemberImage($member_search);
             return $member_search;
-        });
+        })
+        ->map(function ($m_search) {
+            $m_search->type = $m_search->member_type();
+            return $m_search;
+        })
+        ;
         return response()->json(['member_searchs' => $member_searchs]);
     }
 

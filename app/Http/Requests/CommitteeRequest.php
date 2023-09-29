@@ -29,6 +29,7 @@ class CommitteeRequest extends FormRequest
         return [
             'title' => 'required|unique:committees,title,NULL,id,deleted_at,NULL',
             'slug' => 'required|unique:committees,slug,NULL,id,deleted_at,NULL',
+            'order_key' => 'required|unique:committees,order_key,NULL,id,deleted_at,NULL',
         ];
     }
 
@@ -37,6 +38,7 @@ class CommitteeRequest extends FormRequest
         return [
             'title' => 'required|unique:committees,title,' . $this->route('id') . ',id,deleted_at,NULL',
             'slug' => 'required|unique:committees,slug,' . $this->route('id') . ',id,deleted_at,NULL',
+            'order_key' => 'required|unique:committees,order_key,' . $this->route('id') . ',id,deleted_at,NULL',
         ];
     }
 }

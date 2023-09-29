@@ -44,11 +44,23 @@
                                         <option value="{{ $type->id }}" @if( old('cm[1][cmt_id]') == $type->id) selected @endif> {{ $type->title }}</option>
                                     @endforeach
                                 </select>
+                                <select class="form-control" name="cm[1][order_key]">
+                                    <option value="" selected hidden>{{ _('Select Order') }}</option>
+                                    @for ($x=1; $x<=100; $x++)
+                                        @php
+                                            $check = App\Models\CommitteeMember::where('order_key',$x)->first();
+                                        @endphp
+                                        @if(!$check)
+                                            <option value="{{$x}}">{{ $x }}</option>
+                                        @endif
+                                    @endfor
+                                </select>
                                 <span class="input-group-text" id="add_member" data-count="1"><i class="tim-icons icon-simple-add"></i></span>
                             </div>
                         </div>
                         @include('alerts.feedback', ['field' => 'cm.*.member_id'])
                         @include('alerts.feedback', ['field' => 'cm.*.cmt_id'])
+                        @include('alerts.feedback', ['field' => 'cm.*.order_key'])
                         <div id="append">
                         </div>
                     </div>
@@ -97,6 +109,17 @@ $(function() {
                             @foreach ($cm_types as $type)
                                 <option value="{{ $type->id }}" @if( old('cm[${count}][cmt_id]') == $type->id) selected @endif> {{ $type->title }}</option>
                             @endforeach
+                        </select>
+                        <select class="form-control" name="cm[${count}][order_key]">
+                            <option value="" selected hidden>Select Order</option>
+                            @for ($x=1; $x<=100; $x++)
+                                @php
+                                    $check = App\Models\CommitteeMember::where('order_key',$x)->first();
+                                @endphp
+                                @if(!$check)
+                                    <option value="{{$x}}">{{ $x }}</option>
+                                @endif
+                            @endfor
                         </select>
                         <span class="input-group-text text-danger delete_member"><i class="tim-icons icon-trash-simple"></i></span>
                     </div>

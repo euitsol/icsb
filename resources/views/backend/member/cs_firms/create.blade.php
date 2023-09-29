@@ -84,8 +84,10 @@
 @push('js')
     <script>
         function fetchMemberData(selectedMemberId, container) {
+            let _url = ("{{ route('m.info', ['member_id']) }}");
+            let __url = _url.replace('member_id', selectedMemberId);
             $.ajax({
-                url: `/members/${selectedMemberId}`,
+                url: __url,
                 method: 'GET',
                 dataType: 'json',
                 success: function(data) {

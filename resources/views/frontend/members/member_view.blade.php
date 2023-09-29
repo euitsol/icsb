@@ -60,7 +60,7 @@ $datas = [
 
             $('.search_value').on('input', function() {
                 let search_value = $('.search_value').val();
-                if (search_value != null) {
+                if (search_value != null && search_value != '') {
                     let _url = ("{{ route('member_info.search', ['search_value','cat_id']) }}");
                     let __url = _url.replace('search_value', search_value);
                     let ___url = __url.replace('cat_id', '{{$slug}}' );
@@ -69,6 +69,9 @@ $datas = [
                         url: ___url,
                         method: 'GET',
                         dataType: 'json',
+                        beforeSend:function() {
+                            $('.member_data').html('Loading...');
+                        },
                         success: function(data) {
                             console.log(data);
                             var member_data= '';
@@ -105,6 +108,8 @@ $datas = [
                             console.error('Error fetching member data:', error);
                         }
                     });
+                }else{
+                    $('.member_data').html('');
                 }
             });
         });

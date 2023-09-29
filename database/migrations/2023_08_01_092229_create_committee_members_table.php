@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('committee_id');
             $table->unsignedBigInteger('member_id');
+            $table->bigInteger('order_key')->unique();
             $table->unsignedBigInteger('cmt_id');
             $table->boolean('status')->default(1);
             $table->timestamps();

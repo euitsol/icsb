@@ -44,14 +44,6 @@
                         <div id="memberInfo" class="row align-items-center">
 
                         </div>
-                        {{-- <div class="form-group {{ $errors->has('designation') ? ' has-danger' : '' }}">
-                            <label>{{ _('Designation') }}</label>
-                            <select name="designation" class="form-control {{ $errors->has('designation') ? ' is-invalid' : '' }}">
-                                    <option value="Secretary & CEO, ICSB" @if( $sec_and_ceo->designation == 'Secretary & CEO, ICSB') selected @endif>{{_('Secretary & CEO')}}</option>
-                                    <option value="Past Secretary & CEO, ICSB" @if( $sec_and_ceo->designation == 'Past Secretary & CEO, ICSB') selected @endif>{{_('Past Secretary & CEO')}}</option>
-                            </select>
-                            @include('alerts.feedback', ['field' => 'designation'])
-                        </div> --}}
                         @foreach ($sec_and_ceo->durations as $key=>$duration)
                         <div class="form-group {{ $errors->has('duration') ? ' has-danger' : '' }} {{ $errors->has('duration.*') ? ' has-danger' : '' }}">
                             <label>{{ _('Secretary & CEO Duration -')}}{{$key+1}}</label>
@@ -124,8 +116,10 @@
     $(document).ready(function () {
         $('#memberSelect').on('change', function () {
             const selectedMemberId = $(this).val();
+            let _url = ("{{ route('m.info', ['member_id']) }}");
+            let __url = _url.replace('member_id', selectedMemberId);
             $.ajax({
-                url: `/members/${selectedMemberId}`,
+                url: __url,
                 method: 'GET',
                 dataType: 'json',
                 success: function (data) {

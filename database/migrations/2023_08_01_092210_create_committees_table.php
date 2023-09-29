@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('committees', function (Blueprint $table) {
             $table->id();
             $table->string('title')->unique();
+            $table->bigInteger('order_key')->unique();
             $table->string('slug')->unique();
             $table->unsignedBigInteger('committee_type');
             $table->longText('description')->nullable();

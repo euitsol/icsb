@@ -43,6 +43,7 @@ class CommitteeController extends Controller
     {
         $committee = new Committee();
         $committee->title = $request->title;
+        $committee->order_key = $request->order_key;
         $committee->committee_type = $request->committee_type;
         $committee->slug = $request->slug;
         $committee->description = $request->description;
@@ -60,6 +61,7 @@ class CommitteeController extends Controller
     {
         $committee = Committee::findOrFail($id);
         $committee->title = $request->title;
+        $committee->order_key = $request->order_key;
         $committee->committee_type = $request->committee_type;
         $committee->slug = $request->slug;
         $committee->description = $request->description;
@@ -200,7 +202,8 @@ class CommitteeController extends Controller
 
         $filteredInputs = array_filter($request->cm, function ($entry) {
             return isset($entry['member_id']) && !is_null($entry['member_id']) &&
-                   isset($entry['cmt_id']) && !is_null($entry['cmt_id']);
+                   isset($entry['cmt_id']) && !is_null($entry['cmt_id']) &&
+                   isset($entry['order_key']) && !is_null($entry['order_key']);
         });
 
         if($filteredInputs){
@@ -210,7 +213,8 @@ class CommitteeController extends Controller
                 $cm = new CommitteeMember();
                 if(empty($check)){
                     $cm->member_id = $single_cm['member_id'];
-                    $cm->committee_id = $id;
+                    $cm->committee_id = $single_cm['order_key'];
+                    $cm->order_key = $id;
                     $cm->cmt_id = $single_cm['cmt_id'];
                     $cm->created_by = auth()->user()->id;
                     $cm->save();
@@ -240,6 +244,7 @@ class CommitteeController extends Controller
         if(empty($check)){
             $cm->member_id = $request->member_id;
             $cm->cmt_id = $request->cmt_id;
+            $cm->order_key = $request->order_key;
             $cm->updated_by = auth()->user()->id;
             $cm->save();
             return redirect()->route('committee.committee_member_list',$cm->committee_id)->withStatus(__($cm->member->name.' assigned updated in this committee as a '.$cm->committe_member_type->title.' successfully'));

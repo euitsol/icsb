@@ -22,6 +22,7 @@
                         <table class="table tablesorter datatable">
                             <thead class=" text-primary">
                                 <tr>
+                                    <th>{{ _('Order') }}</th>
                                     <th>{{ _('Title') }}</th>
                                     <th>{{ _('Total Member') }}</th>
                                     <th>{{ _('Status') }}</th>
@@ -33,6 +34,7 @@
                             <tbody>
                                 @foreach ($committees as $committee)
                                     <tr>
+                                        <td> {{ $committee->order_key  }} </td>
                                         <td> {{ $committee->title  }} </td>
                                         <td> {{ number_format($committee->committe_members->count()) }} </td>
                                         <td>

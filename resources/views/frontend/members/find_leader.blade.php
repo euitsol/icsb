@@ -38,9 +38,9 @@ $datas = [
 @push('js')
     <script>
         $(document).ready(function() {
-            $('.search_button').on('click', function() {
+            $('.search_value').on('input', function() {
                 let search_value = $('.search_value').val();
-                if (search_value != null) {
+                if (search_value != null && search_value != '') {
                     let _url = ("{{ route('corporate_leader.search', ['search_value']) }}");
                     let __url = _url.replace('search_value', search_value);
                     console.log(__url);
@@ -49,6 +49,9 @@ $datas = [
                         url: __url,
                         method: 'GET',
                         dataType: 'json',
+                        beforeSend:function() {
+                            $('.member_data').html('Loading...');
+                        },
                         success: function(data) {
                             console.log(data);
                             var member_data= '';
@@ -68,8 +71,9 @@ $datas = [
                                             <div class="content-column">
                                                 <h4>${member_search.membership_id}</h4>
                                                 <h3 class="mb-0">${member_search.name}</h3>
-                                                <h5>${member_search.type.title}(ICSB)</h5>
-                                                <p><strong>${member_search.designation}</strong></p>
+                                                <h5>${member_search.type}(ICSB)</h5>
+                                                <p class="mb-0"><strong>${member_search.designation}</strong></p>
+                                                <p><strong>${member_search.company_name}</strong></p>
                                                 <li><i class="fa-solid fa-house-circle-exclamation"></i>${member_search.address}</li>
                                                 <li><i class="fa-solid fa-envelope-open-text"></i>Email: <a href="mailto:${member_search.email}">${member_search.email}</a></li>
                                             </div>
@@ -85,6 +89,8 @@ $datas = [
                             console.error('Error fetching member data:', error);
                         }
                     });
+                }else{
+                    $('.member_data').html('');
                 }
             });
         });
