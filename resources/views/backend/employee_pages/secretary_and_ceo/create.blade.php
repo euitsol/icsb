@@ -53,17 +53,6 @@
                         <div id="memberInfo" class="row align-items-center">
 
                         </div>
-                        {{-- <div class="form-group {{ $errors->has('designation') ? ' has-danger' : '' }}">
-                            <label>{{ _('Designation') }}</label>
-                            <select name="designation" class="form-control {{ $errors->has('designation') ? ' is-invalid' : '' }}">
-                                <option selected hidden>{{_('Select Designation')}}</option>
-                                    <option value="Secretary & CEO, ICSB" @if( old('designation') == 'Secretary & CEO, ICSB') selected @endif>{{_('Secretary & CEO')}}</option>
-                                    <option value="Past Secretary & CEO, ICSB" @if( old('designation') == 'Past Secretary & CEO, ICSB') selected @endif>{{_('Past Secretary & CEO')}}</option>
-                            </select>
-                            @include('alerts.feedback', ['field' => 'designation'])
-                        </div> --}}
-
-
                         <div class="form-group {{ $errors->has('duration') ? ' has-danger' : '' }} {{ $errors->has('duration.*') ? ' has-danger' : '' }}">
                             <label>{{ _('Secretary & CEO Duration - 1') }}</label>
                             <div class="input-group mb-3">
@@ -119,7 +108,6 @@
     function generateSlug(str) {
         console.log(str);
         if (typeof str !== 'string') {
-        // Handle the case where str is not a string, if needed.
         return '';
     }
 
@@ -133,8 +121,10 @@
     $(document).ready(function () {
         $('#memberSelect').on('change', function () {
             const selectedMemberId = $(this).val();
+            let _url = ("{{ route('m.info', ['member_id']) }}");
+            let __url = _url.replace('member_id', selectedMemberId);
             $.ajax({
-                url: `/members/${selectedMemberId}`,
+                url: __url,
                 method: 'GET',
                 dataType: 'json',
                 success: function (data) {
