@@ -41,10 +41,76 @@
             -25px 51px 1px #eaeaea,
             -26px 53px 1px #efefef;
         }
+    .main-animation{
+        position: absolute;
+        top: 8%
+    }
+    .main-animation .line{
+        margin: 20px 0px;
+    }
+    .animated {
+        overflow: hidden;
+        width: 100%;
+        white-space: nowrap;
+        font-size: 20px;
+        font-weight: 200;
+    }
+
+    .animated .left {
+        display: inline-block;
+        position: relative;
+        animation: move-left 200s linear 0s 100 alternate;
+    }
+
+
+    .animated .right {
+        display: inline-block;
+        position: relative;
+        animation: move-right 200s linear 0s 100 alternate;
+    }
+
+
+    @keyframes move-right {
+        0%{
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(0%);
+        }
+    }
+
+    @keyframes move-left {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
 </style>
 @endpush
 
 @section('content')
+
+@php
+    $chunkedNames = array_chunk($memberNames, ceil(count($memberNames) / 17));
+@endphp
+<div class="main-animation">
+@foreach ($chunkedNames as $index => $line)
+<div class="line">
+    <div class="">
+        <div class="animated">
+            <span class="{{ $index % 2 == 0 ? 'left' : 'right' }}">
+                @foreach ($line as $name)
+                    {{$name}},
+                @endforeach
+            </span>
+        </div>
+    </div>
+</div>
+@endforeach
+</div>
     <div class="row">
         <div class="col-12">
             <div class="dashboard_wrap d-flex flex-column justify-content-center align-items-center">
@@ -53,6 +119,7 @@
             </div>
         </div>
     </div>
+
 @endsection
 
 @push('js_link')
