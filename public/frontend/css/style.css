@@ -4126,6 +4126,7 @@ td {
 }
 
 .past-president-layout .president-row .items {
+    border: 1px solid #182456;
 	width: 31.66%;
     height: 651px;
 	padding: 33px;
