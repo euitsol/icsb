@@ -82,4 +82,15 @@ class HomePageController extends Controller
         $s['banner_video'] = SinglePages::where('frontend_slug', 'banner-video')->first();
         return view('frontend.home',$s);
     }
+
+    public function banner_video($url)
+    {
+        $file_path = base64_decode($url);
+        $file_path = storage_path('app/public/'.$file_path);
+        if($file_path != null){
+            if(file_exists($file_path)){
+                 return response()->file($file_path, ['Content-Type' => 'video/mp4']);
+            }
+        }
+    }
 }
