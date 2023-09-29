@@ -53,7 +53,7 @@
                                 </select>
                                 <select class="form-control " name="cm[1][order_key]">
                                     <option value="" selected hidden>{{ _('Select Council Member Order') }}</option>
-                                    @for ($x=1; $x<=100; $x++)
+                                    @for ($x=1; $x<=1000; $x++)
                                         @php
                                             $check = App\Models\CouncilMember::where('order_key',$x)->first();
                                         @endphp
@@ -131,7 +131,7 @@ $(function() {
                         </select>
                         <select class="form-control " name="cm[${count}][order_key]">
                             <option value="" selected hidden>{{ _('Select Council Member Order') }}</option>
-                            @for ($x=1; $x<=100; $x++)
+                            @for ($x=1; $x<=1000; $x++)
                                 @php
                                     $check = App\Models\CouncilMember::where('order_key',$x)->first();
                                 @endphp

@@ -24,7 +24,7 @@
                             <div class="col-md-4 form-group {{ $errors->has('order_key') ? ' has-danger' : '' }}">
                                 <label>{{ _('Council Order') }}</label>
                                 <select class="form-control {{ $errors->has('order_key') ? ' is-invalid' : '' }}" name="order_key">
-                                    @for ($x=1; $x<=100; $x++)
+                                    @for ($x=1; $x<=1000; $x++)
                                         @php
                                             $check = App\Models\CouncilMemberType::where('order_key',$x)->where('order_key',$x)->first();
                                         @endphp

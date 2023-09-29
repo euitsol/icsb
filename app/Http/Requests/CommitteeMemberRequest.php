@@ -27,7 +27,7 @@ class CommitteeMemberRequest extends FormRequest
         return [
             'cm.*.member_id' => 'required|exists:members,id',
             'cm.*.cmt_id' => 'required|exists:committee_member_types,id',
-            'cm.*.order_key' => 'required|unique:committee_members,order_key,NULL,id,deleted_at,NULL',
+            'cm.*.order_key' => 'required',
         ];
     }
 
@@ -36,7 +36,7 @@ class CommitteeMemberRequest extends FormRequest
         return [
             'member_id'=> 'required|exists:members,id',
             'cmt_id'=> 'required|exists:committee_member_types,id',
-            'order_key' => 'required|unique:committee_members,order_key,' . $this->route('id') . ',id,deleted_at,NULL',
+            'order_key' => 'required',
         ];
     }
 }

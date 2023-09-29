@@ -22,7 +22,7 @@
                                     <label>{{ _('FAQ Order') }}</label>
                                     <select class="form-control {{ $errors->has('order_key') ? ' is-invalid' : '' }}" name="order_key">
                                         <option value="" selected hidden>{{ _('Select FAQ Order') }}</option>
-                                        @for ($x=1; $x<=100; $x++)
+                                        @for ($x=1; $x<=1000; $x++)
                                             @php
                                                 $check = App\Models\Faq::where('order_key',$x)->first();
                                             @endphp
