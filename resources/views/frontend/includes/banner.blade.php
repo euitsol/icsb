@@ -11,7 +11,7 @@
             </div>
 
                 <video autoplay loop muted id="myVideo" class="video-banner">
-                    <source src="{{storage_url(json_decode($banner_video->saved_data)->{'upload-video'})}}" type="video/mp4">
+                    <source src="{{ route('banner.show', base64_encode(json_decode($banner_video->saved_data)->{'upload-video'})) }}" type="video/mp4">
                 </video>
 
             <progress id="videoProgress" value="0" max="100"></progress>
