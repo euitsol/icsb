@@ -62,7 +62,7 @@
             @csrf
         </form>
 
-        <div class="fixed-plugin">
+        {{-- <div class="fixed-plugin">
             <div class="dropdown show-dropdown">
                 <a href="#" data-toggle="dropdown">
                 <i class="fa fa-cog fa-2x"> </i>
@@ -72,7 +72,7 @@
                 <li class="adjustments-line">
                     <a href="javascript:void(0)" class="switch-trigger background-color">
                     <div class="badge-colors text-center">
-                        <span class="badge filter badge-primary active" data-color="primary"></span>
+                        <span class="badge filter badge-primary active" data-color="primary" style="background-color: #182456 !important"></span>
                         <span class="badge filter badge-info" data-color="blue"></span>
                         <span class="badge filter badge-success" data-color="green"></span>
                     </div>
@@ -81,7 +81,7 @@
                 </li>
                 </ul>
             </div>
-        </div>
+        </div> --}}
 
 
         <script src="{{ asset('white') }}/js/core/jquery.min.js"></script>
