@@ -46,9 +46,9 @@
                                 </select>
                                 <select class="form-control" name="cm[1][order_key]">
                                     <option value="" selected hidden>{{ _('Select Order') }}</option>
-                                    @for ($x=1; $x<=1000; $x++)
+                                    @for ($x=1; $x<=100; $x++)
                                         @php
-                                            $check = App\Models\CommitteeMember::where('order_key',$x)->first();
+                                            $check = App\Models\CommitteeMember::where('cmt_id', $committee->id)->where('order_key',$x)->first();
                                         @endphp
                                         @if(!$check)
                                             <option value="{{$x}}">{{ $x }}</option>
@@ -112,9 +112,9 @@ $(function() {
                         </select>
                         <select class="form-control" name="cm[${count}][order_key]">
                             <option value="" selected hidden>Select Order</option>
-                            @for ($x=1; $x<=1000; $x++)
+                            @for ($x=1; $x<=100; $x++)
                                 @php
-                                    $check = App\Models\CommitteeMember::where('order_key',$x)->first();
+                                            $check = App\Models\CommitteeMember::where('cmt_id', $committee->id)->where('order_key',$x)->first();
                                 @endphp
                                 @if(!$check)
                                     <option value="{{$x}}">{{ $x }}</option>
