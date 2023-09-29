@@ -12,6 +12,6 @@ class CommitteeType extends BaseModel
 
     public $guarded = [];
     public function committees(){
-        return $this->hasMany(Committee::class, 'committee_type');
+        return $this->hasMany(Committee::class, 'committee_type')->orderBy('order_key','ASC');
     }
 }

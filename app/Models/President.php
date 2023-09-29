@@ -12,7 +12,7 @@ class President extends BaseModel
 
     public $guarded = [];
     public function durations(){
-        return $this->hasMany(PresidentDuration::class, 'president_id');
+        return $this->hasMany(PresidentDuration::class, 'president_id')->orderBy('start_date','ASC');
     }
     public function member(){
         return $this->belongsTo(Member::class, 'member_id');
