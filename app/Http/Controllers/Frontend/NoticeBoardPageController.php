@@ -53,13 +53,17 @@ class NoticeBoardPageController extends Controller
         ]);
     }
 
-    public function notice($slug = false): View
+    public function notice($slug = null): View
     {
 
         $s=[];
-        if($slug != false){
-            // $s['notice_cat'] = NoticeCategory::where('slug',$slug)->where('deleted_at',null)->first();
-            $s['notices'] = Notice::where('slug',$slug)->where('deleted_at',null)->where('status',1)->latest()->paginate(10);
+        if($slug !== null){
+            $s['notice_cat'] = NoticeCategory::where('slug',$slug)->where('deleted_at',null)->first();
+            if(!empty($s['notice_cat'])){
+                $s['notices'] = Notice::where('cat_id',$s['notice_cat']->id)->where('deleted_at',null)->where('status',1)->latest()->paginate(10);
+            }else{
+                $s['notices'] = Notice::where('slug',$slug)->where('deleted_at',null)->where('status',1)->latest()->paginate(10);
+            }
         }else{
             $s['notices'] = Notice::where('deleted_at',null)->where('status',1)->latest()->paginate(10);
         }
