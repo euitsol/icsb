@@ -1,3 +1,8 @@
+:root {
+    --primary-color: #182456;
+    --primary-hover-color: #525975;
+}
+
 .has-success:after,
 .has-danger:after {
     top: 35% !important;
@@ -172,4 +177,33 @@
 
 .select2-container--default .select2-selection--single .select2-selection__arrow {
     top: 16% !important;
+}
+
+
+
+
+
+
+/* Dashboard */
+.sidebar {
+    background: var(--primary-color) !important;
+}
+
+.main-panel {
+    border-color: var(--primary-color) !important;
+}
+
+.btn-primary {
+    background: var(--primary-color) !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.btn-primary:active:focus,
+.btn-primary:active:hover,
+.btn-primary.active:focus,
+.btn-primary.active:hover {
+    background: var(--primary-hover-color) !important;
 }

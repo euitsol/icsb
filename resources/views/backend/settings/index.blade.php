@@ -83,7 +83,7 @@
 
                                     <div class="form-group{{ $errors->has('debug') ? ' has-danger' : '' }}">
                                         <label>{{ _('App Debug') }} <small>({{ _('Best to keep in false') }})</small></label>
-                                        <select name="debug" class="form-control{{ $errors->has('debug') ? ' is-invalid' : '' }}">
+                                        <select name="debug" class="form-control no-select {{ $errors->has('debug') ? ' is-invalid' : '' }}">
                                             <option value="1" @if(isset($SiteSettings['debug']) && ($SiteSettings['debug'] == '1')) selected @endif>{{ _('True') }}</option>
                                             <option value="0" @if(isset($SiteSettings['debug']) && ($SiteSettings['debug'] == '0')) selected @endif>{{ _('False') }}</option>
                                         </select>
@@ -92,7 +92,7 @@
 
                                     <div class="form-group {{ $errors->has('debugbar') ? ' has-danger' : '' }}">
                                         <label>{{ _('Enable Debugbar') }} <small>({{ _('Best to keep in false') }})</small></label>
-                                        <select name="debugbar" class="form-control {{ $errors->has('debugbar') ? ' is-invalid' : '' }}">
+                                        <select name="debugbar" class="form-control no-select  {{ $errors->has('debugbar') ? ' is-invalid' : '' }}">
                                             <option value="1" @if(isset($SiteSettings['debugbar']) && ($SiteSettings['debugbar'] == '1')) selected @endif>{{ _('True') }}</option>
                                             <option value="0" @if(isset($SiteSettings['debugbar']) && ($SiteSettings['debugbar'] == '0')) selected @endif>{{ _('False') }}</option>
                                         </select>
@@ -102,7 +102,7 @@
                                     <div class="form-group {{ $errors->has('date_format') ? ' has-danger' : '' }} row">
                                         <div class="col-md-6">
                                             <label>{{ _('Date Format') }}</label>
-                                            <select name="date_format" class="form-control {{ $errors->has('date_format') ? ' is-invalid' : '' }}">
+                                            <select name="date_format" class="form-control no-select  {{ $errors->has('date_format') ? ' is-invalid' : '' }}">
                                                 <option value="Y-m-d" @if(isset($SiteSettings['date_format']) && ($SiteSettings['date_format'] == 'Y-m-d')) selected @endif>{{ _('YYYY-MM-DD') }}</option>
                                                 <option value="d/m/Y" @if(isset($SiteSettings['date_format']) && ($SiteSettings['date_format'] == 'd/m/Y')) selected @endif>{{ _('DD/MM/YYYY') }}</option>
                                                 <option value="m/d/Y" @if(isset($SiteSettings['date_format']) && ($SiteSettings['date_format'] == 'm/d/Y')) selected @endif>{{ _('MM/DD/YYYY') }}</option>
@@ -111,7 +111,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <label>{{ _('Time Format') }}</label>
-                                            <select name="time_format" class="form-control {{ $errors->has('time_format') ? ' is-invalid' : '' }}">
+                                            <select name="time_format" class="form-control  no-select {{ $errors->has('time_format') ? ' is-invalid' : '' }}">
                                                 <option value="H:i:s" @if(isset($SiteSettings['time_format']) && ($SiteSettings['time_format'] == 'H:i:s')) selected @endif>{{ _('24-hour format (HH:mm:ss)') }}</option>
                                                 <option value="h:i:s A" @if(isset($SiteSettings['time_format']) && ($SiteSettings['time_format'] == 'h:i:s A')) selected @endif>{{ _('12-hour format (hh:mm:ss AM/PM)') }}</option>
                                             </select>
@@ -155,7 +155,7 @@
 
                                     <div class="form-group {{ $errors->has('mail_mailer') ? ' has-danger' : '' }}">
                                         <label>{{ _('Mailer') }}</label>
-                                        <select name="mail_mailer" class="form-control {{ $errors->has('mail_mailer') ? ' is-invalid' : '' }}">
+                                        <select name="mail_mailer" class="form-control  no-select  {{ $errors->has('mail_mailer') ? ' is-invalid' : '' }}">
                                             <option value="smtp"     @if(isset($SiteSettings['mail_mailer']) && ($SiteSettings['mail_mailer'] == 'smtp')) selected @endif>SMTP Mailer</option>
                                             <option value="sendmail" @if(isset($SiteSettings['mail_mailer']) && ($SiteSettings['mail_mailer'] == 'sendmail')) selected @endif>Sendmail Mailer</option>
                                             <option value="mailgun"  @if(isset($SiteSettings['mail_mailer']) && ($SiteSettings['mail_mailer'] == 'mailgun')) selected @endif>Mailgun Mailer</option>
@@ -200,7 +200,7 @@
 
                                     <div class="form-group {{ $errors->has('mail_encription') ? ' has-danger' : '' }}">
                                         <label>{{ _('Mail Encription') }}</label>
-                                        <select name="mail_encription" class="form-control {{ $errors->has('mail_encription') ? ' is-invalid' : '' }}">
+                                        <select name="mail_encription" class="form-control  no-select {{ $errors->has('mail_encription') ? ' is-invalid' : '' }}">
                                             <option value="ssl" @if(isset($SiteSettings['mail_encription']) && ($SiteSettings['mail_encription'] == 'ssl')) selected @endif>SSL</option>
                                             <option value="tls" @if(isset($SiteSettings['mail_encription']) && ($SiteSettings['mail_encription'] == 'tls')) selected @endif>TLS</option>
                                             <option value=""    @if(isset($SiteSettings['mail_encription']) && ($SiteSettings['mail_encription'] == '')) selected @endif>None</option>
@@ -262,7 +262,7 @@
 
                                     <div class="form-group {{ $errors->has('database_driver') ? ' has-danger' : '' }}">
                                         <label>{{ _('Database Driver') }}</label>
-                                        <select name="database_driver" class="form-control {{ $errors->has('database_driver') ? ' is-invalid' : '' }}">
+                                        <select name="database_driver" class="form-control  no-select {{ $errors->has('database_driver') ? ' is-invalid' : '' }}">
                                             <option value="mysql"     @if(isset($SiteSettings['database_driver']) && ($SiteSettings['database_driver'] == 'mysql')) selected @endif>MySQL</option>
                                             <option value="pgsql" @if(isset($SiteSettings['database_driver']) && ($SiteSettings['database_driver'] == 'pgsql')) selected @endif>PostgreSQL</option>
                                             <option value="sqlite"  @if(isset($SiteSettings['database_driver']) && ($SiteSettings['database_driver'] == 'sqlite')) selected @endif>SQLite</option>
