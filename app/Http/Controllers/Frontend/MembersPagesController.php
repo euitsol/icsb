@@ -76,7 +76,10 @@ class MembersPagesController extends Controller
             case 'deceased':
                 $s['title'] = 'Deceased Members';
                 $s['slug'] = 'deceased';
-                $s['members'] = Member::where('mem_current_status', 3)->orderBy('membership_id', 'ASC')->get();
+                $s['members'] = Member::where('mem_current_status', 3)
+                ->orderByRaw("SUBSTRING_INDEX(membership_id, '-', 1) DESC")
+                ->orderByRaw("CAST(SUBSTRING_INDEX(membership_id, '-', -1) AS UNSIGNED) ASC")
+                ->get();
                 break;
 
             default:
