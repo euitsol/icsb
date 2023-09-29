@@ -148,6 +148,7 @@
 
     <script src="{{ asset('frontend/js/particles.min.js') }}"></script>
     <script src="{{ asset('frontend/js/particle-configure.js') }}"></script>
+    <script src="{{ asset('frontend/js/particle-configure-nasa.js') }}"></script>
 @endpush
 @push('js')
 <script>

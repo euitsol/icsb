@@ -1,7 +1,7 @@
 
 @if(count($events)>0)
 
-    <section class="events-section big-sec-min-height">
+    <section class="events-section big-sec-min-height" id="event-section">
         <div class="container">
             <div class="events-row">
                 <div class="section-heading text-align wow fadeInRightBig">

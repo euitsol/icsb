@@ -1,4 +1,4 @@
-particlesJS('particles-js-snow',
+particlesJS('event-section',
 
     {
         "particles": {
