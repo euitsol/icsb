@@ -38,7 +38,7 @@ class NoticeBoardPageController extends Controller
         $publicationOthers = SinglePages::where('frontend_slug', 'others')->first();
         $menu_acts = Act::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
         $councils = Council::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
-        $totalVisitors = Visitor::count();
+        $totalVisitors = 50000 + Visitor::count();
         $todayVisitors = Visitor::whereDate('created_at', Carbon::today())->count();
         view()->share([
             'contact' => $contact,
@@ -57,13 +57,17 @@ class NoticeBoardPageController extends Controller
         ]);
     }
 
-    public function notice($slug = false): View
+    public function notice($slug = null): View
     {
 
         $s=[];
-        if($slug != false){
-            // $s['notice_cat'] = NoticeCategory::where('slug',$slug)->where('deleted_at',null)->first();
-            $s['notices'] = Notice::where('slug',$slug)->where('deleted_at',null)->where('status',1)->latest()->paginate(10);
+        if($slug !== null){
+            $s['notice_cat'] = NoticeCategory::where('slug',$slug)->where('deleted_at',null)->first();
+            if(!empty($s['notice_cat'])){
+                $s['notices'] = Notice::where('cat_id',$s['notice_cat']->id)->where('deleted_at',null)->where('status',1)->latest()->paginate(10);
+            }else{
+                $s['notices'] = Notice::where('slug',$slug)->where('deleted_at',null)->where('status',1)->latest()->paginate(10);
+            }
         }else{
             $s['notices'] = Notice::where('deleted_at',null)->where('status',1)->latest()->paginate(10);
         }

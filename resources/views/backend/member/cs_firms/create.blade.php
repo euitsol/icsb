@@ -40,7 +40,7 @@
                                             @if(!$check)
                                                 @if($member->member_type != 5)
                                                     <option value="{{ $member->id }}"
-                                                        @if (old('csf_member.1.member_id') == $member->id) selected @endif> {{ $member->name }}
+                                                        @if (old('csf_member.1.member_id') == $member->id) selected @endif> {{ $member->name }} ( {{ $member->membership_id }} )
                                                     </option>
                                                 @endif
                                             @endif
@@ -89,11 +89,9 @@
                 method: 'GET',
                 dataType: 'json',
                 success: function(data) {
-                    console.log(data);
-                    container.find('.ppcn').val(data.member_id);
                     container.find('.memberInfo').html(`
                         <div class='col-md-2 text-center'>
-                            <img class="rounded" width="100" src="{{ storage_url('${data.member.image}') }}">
+                            <img class="rounded" width="100" src="${data.member.image}">
                         </div>
                         <div class='col-md-10'>
                             <div class="form-group">
@@ -114,7 +112,7 @@
         }
 
         function bindChangeEvents() {
-            $('.memberSelect').off('change').on('change', function() {
+            $('.memberSelect').on('change', function() {
                 const selectedMemberId = $(this).val();
                 const container = $(this).closest('.delete_div');
                 fetchMemberData(selectedMemberId, container);
@@ -138,7 +136,7 @@
                                 @foreach ($members as $member)
                                     @if($member->member_type != 5)
                                         <option value="{{ $member->id }}"
-                                            @if (old('csf_member.${count}.member_id') == $member->id) selected @endif> {{ $member->name }}
+                                            @if (old('csf_member.${count}.member_id') == $member->id) selected @endif> {{ $member->name }}  ( {{ $member->membership_id }} )
                                         </option>
                                     @endif
                                 @endforeach
@@ -156,7 +154,8 @@
                 `;
 
                 $('#append').append(result);
-                bindChangeEvents(); // Rebind change events for new elements
+                bindChangeEvents();
+                $('select:not(.no-select)').select2();
             });
 
             $(document).on('click', '.delete_csfirm', function() {

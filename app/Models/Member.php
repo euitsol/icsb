@@ -37,7 +37,7 @@ class Member extends BaseModel
                 return 'Fellow Member';
 
             default:
-                return 'Not Found';
+                return '';
         }
     }
 
@@ -72,6 +72,20 @@ class Member extends BaseModel
 
             default:
                 return 'Not Found';
+        }
+    }
+
+    public function email_status()
+    {
+        switch ($this->notify_email	) {
+            case 0:
+                return 'Muted';
+
+            case 1:
+                return 'Notify';
+
+            default:
+                return '';
         }
     }
 

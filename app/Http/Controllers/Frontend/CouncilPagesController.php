@@ -40,7 +40,7 @@ class CouncilPagesController extends Controller
         $publicationOthers = SinglePages::where('frontend_slug', 'others')->first();
         $menu_acts = Act::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
         $councils = Council::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
-        $totalVisitors = Visitor::count();
+        $totalVisitors = 50000 + Visitor::count();
         $todayVisitors = Visitor::whereDate('created_at', Carbon::today())->count();
         view()->share([
             'contact' => $contact,
@@ -93,7 +93,7 @@ class CouncilPagesController extends Controller
     {
         $s['p_presidents'] = President::with(['durations','member'])
                         ->where('deleted_at',null)
-                        ->orderBy('order_key','DESC')
+                        ->orderBy('order_key','ASC')
                         ->get();
         return view('frontend.council.past_presidents',$s);
     }

@@ -222,8 +222,7 @@ class MemberController extends Controller
                             'designation' => $item['designation'] ?? '',
                             'image' => $filePath ?? '',
                             'phone' => json_encode($transformedmn,JSON_FORCE_OBJECT),
-                            'address' => trim($item['pre_address'] ?? '') . ' ' . trim($item['pre_address_lin2'] ?? '') . ' ' . trim($item['pre_address_lin3'] ?? ''),
-                            'company_name' => $item['company'] ?? '',
+                            'address' => trim($item['company_address'] ?? ''),
 
                             'membership_id' => $item['member_no'] ?? '',
                             'mem_current_status' => $item['mem_current_status'] ?? '',

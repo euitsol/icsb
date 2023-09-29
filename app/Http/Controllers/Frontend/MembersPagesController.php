@@ -38,7 +38,7 @@ class MembersPagesController extends Controller
         $publicationOthers = SinglePages::where('frontend_slug', 'others')->first();
         $menu_acts = Act::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
         $councils = Council::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
-        $totalVisitors = Visitor::count();
+        $totalVisitors = 50000 + Visitor::count();
         $todayVisitors = Visitor::whereDate('created_at', Carbon::today())->count();
         view()->share([
             'contact' => $contact,
@@ -62,7 +62,7 @@ class MembersPagesController extends Controller
             case 'honorary':
                 $s['title'] = 'Honorary Members';
                 $s['slug'] = 'honorary';
-                $s['members'] = Member::where('status', 1)->where('member_type', 2)->latest()->get();
+                $s['members'] = Member::where('mem_current_status', 1)->where('honorary', 1)->orderBy('membership_id', 'ASC')->get();
                 break;
 
             case 'fellow':
@@ -80,7 +80,7 @@ class MembersPagesController extends Controller
             case 'deceased':
                 $s['title'] = 'Deceased Members';
                 $s['slug'] = 'deceased';
-                $s['members'] = Member::where('mem_current_status', 3)->latest()->get();
+                $s['members'] = Member::where('mem_current_status', 3)->orderBy('membership_id', 'ASC')->get();
                 break;
 
             default:

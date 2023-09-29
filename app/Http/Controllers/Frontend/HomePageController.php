@@ -47,7 +47,7 @@ class HomePageController extends Controller
         $publicationOthers = SinglePages::where('frontend_slug', 'others')->first();
         $menu_acts = Act::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
         $councils = Council::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
-        $totalVisitors = Visitor::count();
+        $totalVisitors = 50000 + Visitor::count();
         $todayVisitors = Visitor::whereDate('created_at', Carbon::today())->count();
         view()->share([
             'contact' => $contact,
@@ -71,7 +71,7 @@ class HomePageController extends Controller
         $s['banner'] = Banner::with('images')->where('deleted_at', null)->where('status',1)->first();
         $s['media_rooms'] = MediaRoom::where('deleted_at', null)->where('permission','1')->where('is_featured','1')->latest()->get();
         $s['wwcss'] = WWCS::where('deleted_at', null)->where('status',1)->orderBy('order_key','ASC')->get();
-        $s['events'] = Event::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
+        $s['events'] = Event::where('deleted_at', null)->where('is_featured','1')->where('status',1)->orderBy('event_start_time', 'ASC')->get();
         $s['national_awards'] = NationalAward::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
         $s['national_connections'] = NationalConnection::where('deleted_at', null)->where('status',1)->orderBy('order_key','ASC')->get();
         $s['president'] = President::with(['durations','member'])->where('status',1)->where('deleted_at',null)->first();
@@ -85,5 +85,19 @@ class HomePageController extends Controller
         $s['latest_newses'] = LatestNews::where('deleted_at', null)->where('status',1)->orderBy('date','ASC')->get();
         $s['banner_video'] = SinglePages::where('frontend_slug', 'banner-video')->first();
         return view('frontend.home',$s);
+    }
+
+    public function banner_video($url)
+    {
+        $file_path = base64_decode($url);
+        $file_path = storage_path('app/public/'.$file_path);
+        if($file_path != null){
+            if(file_exists($file_path)){
+                $fileContents = file_get_contents($file_path);
+                $response = response($fileContents, 200);
+                $response->header('Content-Type', 'video/mp4');
+                return $response;
+            }
+        }
     }
 }

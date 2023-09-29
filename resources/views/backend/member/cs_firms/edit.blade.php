@@ -35,7 +35,7 @@
                                             @if(!$check)
                                                 @if($member->member_type != 5)
                                                     <option value="{{ $member->id }}"
-                                                        @if ($csf_member->member_id == $member->id) selected @endif> {{ $member->name }}
+                                                        @if ($csf_member->member_id == $member->id) selected @endif> {{ $member->name }} ( {{ $member->membership_id }} )
                                                     </option>
                                                 @endif
                                             @endif
@@ -83,11 +83,9 @@
                 method: 'GET',
                 dataType: 'json',
                 success: function(data) {
-                    console.log(data);
-                    container.find('.ppcn').val(data.member_id);
                     container.find('.memberInfo').html(`
                         <div class='col-md-2 text-center'>
-                            <img class="rounded" width="100" src="{{ storage_url('${data.member.image}') }}">
+                            <img class="rounded" width="100" src="${data.member.image}">
                         </div>
                         <div class='col-md-10'>
                             <div class="form-group">
@@ -107,7 +105,6 @@
             });
         };
         $('.memberSelect').on('change', handleMemberSelection);
-        $('.memberSelect').each(handleMemberSelection);
     });
     </script>
 @endpush
