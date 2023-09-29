@@ -126,6 +126,18 @@
     </div>
 </div>
 @endif
+ <!-- Google Search Modal -->
+ <div class="modal fade pop_up_modal" id="gs-modal" data-bs-keyboard="false" tabindex="-1"
+ aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <div class="gcse-search"></div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
@@ -141,15 +153,8 @@
 <script>
    $(document).ready(function() {
         $('.search_button').on("click", function() {
-            $('#___gcse_0').css('display', 'block',);
-            $('#___gcse_0').css('left', '0',);
+            $('#gs-modal').modal('show');
         });
-        setTimeout(function() {
-            $('#___gcse_0').css('left', '118%');
-            setTimeout(function() {
-                $('#___gcse_0').css('display', 'none');
-            }, 400); // Wait for the transition to complete (0.4 seconds)
-        }, 500); //
     });
 </script>
 <script>

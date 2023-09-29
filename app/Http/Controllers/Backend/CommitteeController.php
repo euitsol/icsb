@@ -213,8 +213,8 @@ class CommitteeController extends Controller
                 $cm = new CommitteeMember();
                 if(empty($check)){
                     $cm->member_id = $single_cm['member_id'];
-                    $cm->committee_id = $single_cm['order_key'];
-                    $cm->order_key = $id;
+                    $cm->order_key = $single_cm['order_key'];
+                    $cm->committee_id = $id;
                     $cm->cmt_id = $single_cm['cmt_id'];
                     $cm->created_by = auth()->user()->id;
                     $cm->save();

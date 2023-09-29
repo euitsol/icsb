@@ -30,9 +30,7 @@ p {
 /* GOOGLE SEARCH BOX DESIGN CSS START */
 #___gcse_0 {
     margin-bottom: 15px;
-    display: none;
     position: relative;
-    left: 118%;
     transition: all 0.4s ease;
 
   }
@@ -45,16 +43,32 @@ p {
       background-color: transparent !important;
   }
   table.gsc-search-box td.gsc-input{
-      padding: 0 !important;
+      padding-right: 0 !important;
+      border-radius: 7px 0 0 7px !important;
+      overflow: hidden !important;
   }
+  input.gsc-input{
+    padding: 6px 0 !important;
+  }
+  .gsib_a{
+    padding: 6px 16px !important;
+  }
+
   .gsc-search-button-v2 {
       margin: 0 !important;
+      background-color: #2A74B5 !important;
+      border: 1px solid #2A74B5 !important;
+      transition: .4s;
   }
+  .gsc-search-button-v2:hover {
+    background-color: #122F98 !important;
+    border: 1px solid #122F98 !important;
+    }
 
 
 .gsc-search-button-v2 svg {
     margin: 0 !important;
-    height: 30px !important;
+    height: 36px !important;
     width: 27px;
 }
 
@@ -68,6 +82,15 @@ table.gsc-search-box {
 
 .gsc-input-box {
     border: 0 !important;
+}
+
+/* Modal Css */
+#gs-modal .modal-content{
+    background-color: transparent;
+    border: 0;
+}
+#gs-modal .modal-body{
+    background-color: transparent;
 }
 
 /* GOOGLE SEARCH BOX DESIGN CSS END */
