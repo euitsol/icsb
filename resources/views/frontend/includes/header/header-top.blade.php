@@ -1,6 +1,5 @@
 <div class="top-header-section">
     <div class="container">
-        <div class="gcse-search"></div>
         <div class="header-content-column flex">
             <div class="header-column text-center  flex ">
                 <a href="https://icsberp.org/users/login.aspx" target="_blank">Member's Login</a>
