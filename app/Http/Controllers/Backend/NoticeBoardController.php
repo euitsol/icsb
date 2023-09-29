@@ -11,10 +11,12 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\View\View;
+use App\Http\Traits\SendMailTrait;
 
 class NoticeBoardController extends Controller
 {
     //
+    use SendMailTrait;
 
     public function __construct() {
         return $this->middleware('auth');
@@ -76,8 +78,20 @@ class NoticeBoardController extends Controller
         $notice->cat_id = $request->cat_id;
         $notice->slug = $request->slug;
         $notice->description = $request->description;
+
+        if($request->notify == 1){
+            $notice->notify = $request->notify;
+            $notice->email_subject = $request->email_subject;
+            $notice->email_body = $request->email_body;
+        }
+
         $notice->created_by = auth()->user()->id;
         $notice->save();
+
+        if($request->notify == 1){
+            $this->send_member_email($notice);
+        }
+
         return redirect()->route('notice_board.notice_list')->withStatus(__('Notice'.$notice->title.' created successfully.'));
     }
     public function edit($id): View
