@@ -126,9 +126,8 @@ class AjaxController extends Controller
     {
         switch ($cat_id) {
             case 'honorary':
-                $search = Member::where('status', 1)->where('member_type', 2);
+                $search = Member::where('mem_current_status', 1)->where('honorary', 1);
                 break;
-
             case 'fellow':
                 $search = Member::where('mem_current_status', 1)->where('type', 1);
                 break;
