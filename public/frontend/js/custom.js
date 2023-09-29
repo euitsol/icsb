@@ -43,29 +43,29 @@ $(document).ready(function () {
         }
     });
 
-// $('.national-award-carousel .owl-carousel').owlCarousel({
-//     loop: true,
-//     margin: 20,
-//     nav: false,
-//     dots: true,
-//     autoplay: true,
-//     autoplayTimeout: 3000,
-//     autoplayHoverPause: true,
-//     responsive: {
-//         0: {
-//             items: 1,
-//             slideBy: 1 // 1 item per swipe on screens below 600px width
-//         },
-//         600: {
-//             items: 3,
-//             slideBy: 3 // 3 items per swipe on screens between 600px and 1000px width
-//         },
-//         1000: {
-//             items: 4,
-//             slideBy: 4 // 4 items per swipe on screens wider than 1000px
-//         }
-//     }
-// })
+    // $('.national-award-carousel .owl-carousel').owlCarousel({
+    //     loop: true,
+    //     margin: 20,
+    //     nav: false,
+    //     dots: true,
+    //     autoplay: true,
+    //     autoplayTimeout: 3000,
+    //     autoplayHoverPause: true,
+    //     responsive: {
+    //         0: {
+    //             items: 1,
+    //             slideBy: 1 // 1 item per swipe on screens below 600px width
+    //         },
+    //         600: {
+    //             items: 3,
+    //             slideBy: 3 // 3 items per swipe on screens between 600px and 1000px width
+    //         },
+    //         1000: {
+    //             items: 4,
+    //             slideBy: 4 // 4 items per swipe on screens wider than 1000px
+    //         }
+    //     }
+    // })
 
     var owl = $('.recent-video-slider');
     owl.owlCarousel({
@@ -189,25 +189,14 @@ $(document).ready(function () {
 });
 // Sticky Nav Menu
 $(window).scroll(function () {
-    if ($(window).scrollTop() >= 300) {
+    if ($(window).scrollTop() >= 408) {
         $('.header-menu-section').addClass('fixed-header');
-        $('.banner-section .video-container').addClass('margin_top');
-        $('.banner-section #carouselExampleCaptions').addClass('margin_top');
-        $('.header-menu-section .stiky-logo-right').addClass('display-block');
-        $('.header-menu-section .stiky-logo').addClass('display-block');
-        $('.scroll_top').addClass('display-block');
-        $('.scroll_top').addClass('display-block');
-        $('.banner-section .volume-icon').css('margin-top', '120px');
-        $('.banner-section .play-pause-icon').css('margin-top', '120px');
+        $('.header-menu-section').parent().next('div').addClass('main_margin_top');
+
     } else {
         $('.header-menu-section').removeClass('fixed-header');
-        $('.header-menu-section .stiky-logo-right').removeClass('display-block');
-        $('.header-menu-section .stiky-logo').removeClass('display-block');
-        $('.banner-section .video-container').removeClass('margin_top');
-        $('.banner-section #carouselExampleCaptions').removeClass('margin_top');
-        $('.scroll_top').removeClass('display-block');
-        $('.banner-section .volume-icon').css('margin-top', '30px');
-        $('.banner-section .play-pause-icon').css('margin-top', '30px');
+        $('.header-menu-section').parent().next('div').removeClass('main_margin_top');
+
         // $('nav div').removeClass('visible-title');
     }
 });
