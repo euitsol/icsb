@@ -48,7 +48,7 @@
                                     <option value="" selected hidden>{{ _('Select Order') }}</option>
                                     @for ($x=1; $x<=100; $x++)
                                         @php
-                                            $check = App\Models\CommitteeMember::where('cmt_id', $committee->id)->where('order_key',$x)->first();
+                                            $check = App\Models\CommitteeMember::where('committee_id', $committee->id)->where('order_key',$x)->first();
                                         @endphp
                                         @if(!$check)
                                             <option value="{{$x}}">{{ $x }}</option>
@@ -114,7 +114,7 @@ $(function() {
                             <option value="" selected hidden>Select Order</option>
                             @for ($x=1; $x<=100; $x++)
                                 @php
-                                            $check = App\Models\CommitteeMember::where('cmt_id', $committee->id)->where('order_key',$x)->first();
+                                            $check = App\Models\CommitteeMember::where('committee_id', $committee->id)->where('order_key',$x)->first();
                                 @endphp
                                 @if(!$check)
                                     <option value="{{$x}}">{{ $x }}</option>
