@@ -48,7 +48,7 @@
     <div class="row">
         <div class="col-12">
             <div class="dashboard_wrap d-flex flex-column justify-content-center align-items-center">
-                <img src="{{storage_url(settings('site_logo'))}}" alt="{{settings('site_short_name')}}">
+                <img src="{{storage_url(settings('site_logo'))}}" style="height: 150px;" alt="{{settings('site_short_name')}}">
                 <h2>{{_('DASHBOARD')}}</h2>
             </div>
         </div>
