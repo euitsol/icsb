@@ -67,7 +67,7 @@ class HomePageController extends Controller
         $s['banner'] = Banner::with('images')->where('deleted_at', null)->where('status',1)->first();
         $s['media_rooms'] = MediaRoom::where('deleted_at', null)->where('permission','1')->where('is_featured','1')->latest()->get();
         $s['wwcss'] = WWCS::where('deleted_at', null)->where('status',1)->orderBy('order_key','ASC')->get();
-        $s['events'] = Event::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
+        $s['events'] = Event::where('deleted_at', null)->where('is_featured','1')->where('status',1)->orderBy('event_start_time', 'ASC')->get();
         $s['national_awards'] = NationalAward::where('deleted_at', null)->where('is_featured','1')->where('status',1)->latest()->get();
         $s['national_connections'] = NationalConnection::where('deleted_at', null)->where('status',1)->orderBy('order_key','ASC')->get();
         $s['president'] = President::with(['durations','member'])->where('status',1)->where('deleted_at',null)->first();
