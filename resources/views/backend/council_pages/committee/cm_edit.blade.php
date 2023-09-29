@@ -23,15 +23,33 @@
                             </select>
                             @include('alerts.feedback', ['field' => 'member_id'])
                         </div>
-                        <div class="form-group {{ $errors->has('cmt_id') ? ' has-danger' : '' }}">
-                            <label>{{ _('Committee Member Type') }}</label>
-                            <select name="cmt_id" class="form-control {{ $errors->has('cmt_id') ? ' is-invalid' : '' }}">
-                                <option selected hidden>{{_('Select Committee Member Type')}}</option>
-                                @foreach ($cm_types as $type)
-                                    <option value="{{ $type->id }}" @if( $cm->cmt_id == $type->id) selected @endif> {{ $type->title }}</option>
-                                @endforeach
-                            </select>
-                            @include('alerts.feedback', ['field' => 'cmt_id'])
+                        <div class="row">
+                            <div class="form-group col-md-6 {{ $errors->has('cmt_id') ? ' has-danger' : '' }}">
+                                <label>{{ _('Committee Member Type') }}</label>
+                                <select name="cmt_id" class="form-control {{ $errors->has('cmt_id') ? ' is-invalid' : '' }}">
+                                    <option selected hidden>{{_('Select Committee Member Type')}}</option>
+                                    @foreach ($cm_types as $type)
+                                        <option value="{{ $type->id }}" @if( $cm->cmt_id == $type->id) selected @endif> {{ $type->title }}</option>
+                                    @endforeach
+                                </select>
+                                @include('alerts.feedback', ['field' => 'cmt_id'])
+                            </div>
+                            <div class="form-group col-md-6 {{ $errors->has('order_key') ? ' has-danger' : '' }}">
+                                <label>{{ _('Order') }}</label>
+                                <select class="form-control {{ $errors->has('order_key') ? ' is-invalid' : '' }}" name="order_key">
+                                    @for ($x=1; $x<=100; $x++)
+                                        @php
+                                            $check = App\Models\CommitteeMember::where('order_key',$x)->first();
+                                        @endphp
+                                        @if($cm->order_key == $x)
+                                            <option value="{{$x}}" selected>{{ $x }}</option>
+                                        @elseif(!$check)
+                                            <option value="{{$x}}">{{ $x }}</option>
+                                        @endif
+                                    @endfor
+                                </select>
+                                @include('alerts.feedback', ['field' => 'order_key'])
+                            </div>
                         </div>
                     </div>
                     <div class="card-footer">

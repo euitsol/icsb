@@ -132,8 +132,10 @@
     $(document).ready(function () {
         $('#memberSelect').on('change', function () {
             const selectedMemberId = $(this).val();
+            let _url = ("{{ route('m.info', ['member_id']) }}");
+            let __url = _url.replace('member_id', selectedMemberId);
             $.ajax({
-                url: `/members/${selectedMemberId}`,
+                url: __url,
                 method: 'GET',
                 dataType: 'json',
                 success: function (data) {

@@ -35,21 +35,21 @@ p {
     left: 118%;
     transition: all 0.4s ease;
 
-}
-
-.gsc-control-cse {
-    padding: 0 !important;
-    border: 0 !important;
-    background-color: transparent !important;
-}
-
-table.gsc-search-box td.gsc-input {
-    padding: 0 !important;
-}
-
-.gsc-search-button-v2 {
-    margin: 0 !important;
-}
+  }
+  .gssb_a img {
+    width: auto !important;
+  }
+  .gsc-control-cse{
+      padding: 0 !important;
+      border: 0 !important;
+      background-color: transparent !important;
+  }
+  table.gsc-search-box td.gsc-input{
+      padding: 0 !important;
+  }
+  .gsc-search-button-v2 {
+      margin: 0 !important;
+  }
 
 
 .gsc-search-button-v2 svg {
@@ -4126,14 +4126,23 @@ td {
 }
 
 .past-president-layout .president-row .items {
-    width: 31.66%;
-    padding: 33px;
-    background: #F2F2F2;
+	width: 31.66%;
+    height: 651px;
+	padding: 33px;
+	background: #F2F2F2;
 }
 
 .past-president-layout .president-row .items img {
     width: 180px;
     border-radius: 50%;
+
+}
+.past-president-layout .president-row .items .duration {
+	width: 374px;
+	height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
