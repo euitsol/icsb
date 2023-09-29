@@ -189,7 +189,7 @@ $(document).ready(function () {
 });
 // Sticky Nav Menu
 $(window).scroll(function () {
-    if ($(window).scrollTop() >= 300) {
+    if ($(window).scrollTop() >= 280) {
         $('.header-menu-section').addClass('fixed-header');
         $('.header-menu-section').parent().next('div').addClass('main_margin_top');
 
