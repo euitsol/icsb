@@ -25,7 +25,7 @@ $datas = [
             <h2 class="common-heading">{{'CS Firm Members'}}</h2>
             <div class="search">
                 <div class="input-group">
-                    <input type="text" class="search_value" placeholder="Search by member name or title!">
+                    <input type="text" class="search_value" placeholder="Search by Member Name, Designation, Private Practice Certificate No!">
                     <button class="search_button" type="submit"><i class="fa fa-search"></i></button>
                 </div>
             </div>
