@@ -28,6 +28,9 @@ p {
     transition: all 0.4s ease;
 
   }
+  .gssb_a img {
+    width: auto !important;
+  }
   .gsc-control-cse{
       padding: 0 !important;
       border: 0 !important;

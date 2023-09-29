@@ -39,19 +39,23 @@ $datas = [
 @push('js')
     <script>
         $(document).ready(function() {
-            $('.search_value').on('input change', function() {
+            $('.search_value').on('input', function() {
+
                 let search_value = $('.search_value').val();
-                if (search_value != null) {
+                if (search_value != null && search_value != '') {
                     let _url = ("{{ route('cs_firms.member_info.search', ['search_value']) }}");
                     let __url = _url.replace('search_value', search_value);
                     $.ajax({
                         url: __url,
                         method: 'GET',
                         dataType: 'json',
+                        beforeSend:function() {
+                            $('.member_data').html('Loading...');
+                        },
                         success: function(data) {
+                            console.log(data);
                             var member_data= '';
                             if(!data.csFirmMembers || data.csFirmMembers.length === 0){
-                                console.log(data);
                                 member_data +=`
                                                 <h3 class="text-danger mx-auto my-5">Member Not Found</h3>
                                             `;
@@ -77,12 +81,13 @@ $datas = [
 
                             }
                             $('.member_data').html(member_data);
-
                         },
                         error: function(xhr, status, error) {
                             console.error('Error fetching member data:', error);
                         }
                     });
+                }else{
+                    $('.member_data').html('');
                 }
             });
         });
