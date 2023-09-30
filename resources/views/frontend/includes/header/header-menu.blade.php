@@ -174,9 +174,9 @@
                                     <li><a href="{{ route('sp.frontend','fees-&-costs') }}">{{_('Fees & Costs')}}</a></li>
                                     <li><a href="{{ route('sp.frontend','examination-policy') }}">{{_('Exemption Policy ')}}</a></li>
                                     <li><a href="{{ route('sp.frontend','admission-form') }}">{{_('Admission Forms ')}}</a></li>
-                                    @if(isset($studentPortal->saved_data) && !empty(json_decode($studentPortal->saved_data)->{'portal-url'}))
-                                        <li><a target="_blank" href="{{ json_decode($studentPortal->saved_data)->{'portal-url'} }}">{{_('Online Admission')}}</a></li>
-                                    @endif
+                                    {{-- @if(isset($studentPortal->saved_data) && !empty(json_decode($studentPortal->saved_data)->{'portal-url'})) --}}
+                                        <li><a target="_blank" href="https://icsberp.org/Home/Default.aspx">{{_('Online Admission')}}</a></li>
+                                    {{-- @endif --}}
                                 </ul>
                             </li>
                             <li><a href="{{route('student_view.cs_hand_book')}}">{{_('CS Hand Book')}}</a></li>
