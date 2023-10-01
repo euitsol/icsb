@@ -42,7 +42,7 @@
                     @endforeach
                 @endif
         </div>
-        @if(count($files)>12)
+        @if(isset($files) && count($files)>12)
             <div class="see-button text-align">
                 <a href="javascript:void(0)" class="more" data-slug="{{$single_page->frontend_slug}}">{{_('See More')}}</a>
             </div>

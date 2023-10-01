@@ -226,9 +226,7 @@
                             <li><a href="{{route('publication_view.national_award')}}">{{_('ICSB National Award Souvenir')}}</a></li>
                             <li><a href="{{route('publication_view.convocation')}}">{{_('ICSB Convocation Souvenir')}}</a></li>
                             <li><a href="{{ route('sp.frontend','annual-report') }}">{{_('Annual Reports')}}</a></li>
-                            @if(isset($publicationOthers->saved_data) && !empty(json_decode($publicationOthers->saved_data)->{'url'}))
-                                <li><a target="_blank" href="{{ json_decode($publicationOthers->saved_data)->{'url'} }}">{{_('Others')}}</a></li>
-                            @endif
+                            <li><a href="{{ route('sp.frontend','other-publications') }}">{{_('Other Publications')}}</a></li>
                         </ul>
                     </li>
                     <li class="drop-down">

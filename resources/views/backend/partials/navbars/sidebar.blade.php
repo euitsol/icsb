@@ -498,13 +498,13 @@
                         $pageSlug == 'national_award' ||
                         $pageSlug == 'convocation' ||
                         $pageSlug == 'annual-report' ||
-                        $pageSlug == 'others'
+                        $pageSlug == 'other-publications'
                     )@else collapsed @endif" data-toggle="collapse" href="#publications" @if (
                         $pageSlug == 'the-chartered-secretary'||
                         $pageSlug == 'national_award' ||
                         $pageSlug == 'convocation' ||
                         $pageSlug == 'annual-report' ||
-                        $pageSlug == 'others'
+                        $pageSlug == 'other-publications'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-regular fa-newspaper"></i>
                     <span class="nav-link-text" >{{ __('Publications') }}</span>
@@ -516,7 +516,7 @@
                         $pageSlug == 'national_award' ||
                         $pageSlug == 'convocation' ||
                         $pageSlug == 'annual-report' ||
-                        $pageSlug == 'others'
+                        $pageSlug == 'other-publications'
 
 
                 ) show @endif" id="publications">
@@ -527,7 +527,7 @@
                                 ['pageSlug' => 'national_award', 'routeName' => 'national_award.national_award_list',  'label' => 'National Award'],
                                 ['pageSlug' => 'convocation', 'routeName' => 'convocation.convocation_list',  'label' => 'ICSB Convocation'],
                                 ['pageSlug' => 'annual-report', 'routeName' => 'sp.show', 'params' => 'annual-report', 'label' => 'Annual Report'],
-                                ['pageSlug' => 'others', 'routeName' => 'sp.show', 'params' => 'others', 'label' => 'Others'],
+                                ['pageSlug' => 'other-publications', 'routeName' => 'sp.show', 'params' => 'other-publications', 'label' => 'Other Publications'],
                             ]
                         ])
                     </ul>
