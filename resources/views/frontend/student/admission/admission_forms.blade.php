@@ -32,6 +32,9 @@
                         <div class="col-md-6 the_cs mb-5 mx-auto">
                             <div class="new-handbook text-align">
                                 <iframe src="{{ route('view.pdf', base64_encode($file)) }}" type="application/pdf" width="100%" height="500px"></iframe>
+                                <a class="d-block cursor-pointer" target="_blank" href="{{ route('sp.file.download', base64_encode($file)) }}">
+                                    <h3>{{ ucfirst(str_replace('-', ' ', Str::before(basename($file), '.pdf'))) }}</h3>
+                                </a>
                             </div>
                         </div>
                     @endforeach
