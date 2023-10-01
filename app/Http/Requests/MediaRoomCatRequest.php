@@ -27,6 +27,7 @@ class MediaRoomCatRequest extends FormRequest
         return [
             'name' => 'required|unique:media_room_categories,name,NULL,id,deleted_at,NULL',
             'slug' => 'required|unique:media_room_categories,slug,NULL,id,deleted_at,NULL',
+            'order_key' => 'required|unique:media_room_categories,order_key,NULL,id,deleted_at,NULL',
         ];
     }
 
@@ -35,6 +36,7 @@ class MediaRoomCatRequest extends FormRequest
         return [
             'name' => 'required|unique:media_room_categories,name,' . $this->route('id') . ',id,deleted_at,NULL',
             'slug' => 'required|unique:media_room_categories,slug,' . $this->route('id') . ',id,deleted_at,NULL',
+            'order_key' => 'required|unique:media_room_categories,order_key,' . $this->route('id') . ',id,deleted_at,NULL',
         ];
     }
 }

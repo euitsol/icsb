@@ -23,6 +23,21 @@
                             <input type="text" class="form-control {{ $errors->has('slug') ? ' is-invalid' : '' }}" id="slug" name="slug" placeholder="{{ _('Enter Slug (must be use - on white speace)') }}">
                             @include('alerts.feedback', ['field' => 'slug'])
                         </div>
+                        <div class="form-group {{ $errors->has('order_key') ? ' has-danger' : '' }}">
+                            <label>{{ _('Order') }}</label>
+                            <select class="form-control {{ $errors->has('order_key') ? ' is-invalid' : '' }}" name="order_key">
+                                <option value="" selected hidden>{{ _('Select Order') }}</option>
+                                @for ($x=1; $x<=1000; $x++)
+                                    @php
+                                        $check = App\Models\MediaRoomCategory::where('order_key',$x)->first();
+                                    @endphp
+                                    @if(!$check)
+                                        <option value="{{$x}}">{{ $x }}</option>
+                                    @endif
+                                @endfor
+                            </select>
+                            @include('alerts.feedback', ['field' => 'order_key'])
+                        </div>
                     </div>
                     <div class="card-footer">
                         <button type="submit" class="btn btn-fill btn-primary">{{ _('Save') }}</button>

@@ -23,7 +23,7 @@ class MediaRoomController extends Controller
     public function index(): View
     {
         $s['media_rooms'] = MediaRoom::where('deleted_at', null)->latest()->get();
-        $s['media_room_cats'] = MediaRoomCategory::where('deleted_at', null)->latest()->get();
+        $s['media_room_cats'] = MediaRoomCategory::where('deleted_at', null)->orderBy('order_key','ASC')->get();
         return view('backend.media_room.index',$s);
     }
     public function create(): View
@@ -211,6 +211,7 @@ class MediaRoomController extends Controller
 
         $cat = new MediaRoomCategory;
         $cat->name = $request->name;
+        $cat->order_key = $request->order_key;
         $cat->slug = $request->slug;
         $cat->created_by = auth()->user()->id;
         $cat->save();
@@ -228,6 +229,7 @@ class MediaRoomController extends Controller
     {
         $cat = MediaRoomCategory::findOrFail($id);
         $cat->name = $request->name;
+        $cat->order_key = $request->order_key;
         $cat->slug = $request->slug;
         $cat->updated_by = auth()->user()->id;
         $cat->save();

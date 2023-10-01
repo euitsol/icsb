@@ -26,7 +26,7 @@ class DefaultController extends Controller
         $contact = Contact::where('deleted_at', null)->first();
         $memberTypes = MemberType::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
         $committeeTypes = CommitteeType::with('committees')->where('deleted_at', null)->where('status', 1)->get();
-        $mediaRoomCategory = MediaRoomCategory::with('media_rooms')->where('deleted_at', null)->where('status', 1)->get();
+        $mediaRoomCategory = MediaRoomCategory::with('media_rooms')->where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
         $bsss = SecretarialStandard::where('deleted_at', null)->where('status', 1)->get();
         $memberPortal = SinglePages::where('frontend_slug', 'member-portal')->first();
         $studentPortal = SinglePages::where('frontend_slug', 'student-portal')->first();
