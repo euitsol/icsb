@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('media_room_categories', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
+            $table->bigInteger('order_key')->unique();
             $table->string('slug')->unique();
             $table->boolean('status')->default(1);
             $table->timestamps();

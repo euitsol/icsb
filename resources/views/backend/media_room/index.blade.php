@@ -91,6 +91,7 @@
                         <table class="table tablesorter datatable">
                             <thead class=" text-primary">
                                 <tr>
+                                    <th>{{ _('Order') }}</th>
                                     <th>{{ _('Name') }}</th>
                                     <th>{{ _('Total media_rooms') }}</th>
                                     <th>{{ _('Status') }}</th>
@@ -102,6 +103,7 @@
                             <tbody>
                                 @foreach ($media_room_cats as $cat)
                                     <tr>
+                                        <td> {{ $cat->order_key }} </td>
                                         <td> {{ $cat->name }} </td>
                                         <td> {{ number_format($cat->media_rooms->count()) }} </td>
                                         <td>
