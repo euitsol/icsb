@@ -87,6 +87,14 @@ class AjaxController extends Controller
         }
         return response()->json(['media_rooms'=>$media_rooms]);
     }
+    public function csFirms($offset){
+        $query = CsFirms::with('member')->where('status',1)->where('deleted_at',null)->orderBy('private_practice_certificate_no','ASC');
+        $csFirmMembers = $query->offset($offset)->limit(10)->get()->map(function ($csFirmMember) {
+            $csFirmMember->member->image = getMemberImage($csFirmMember->member);
+            return $csFirmMember;
+        });
+        return response()->json(['csFirmMembers'=>$csFirmMembers]);
+    }
     public function events($offset): JsonResponse
     {
 
