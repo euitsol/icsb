@@ -47,13 +47,7 @@ $datas = [
                 <h2>{{$jp->title}}</h2>
                 <h3>{{$jp->company_name}}</h3>
                 <span class="day"><i class="fa-solid fa-clock"></i>
-                    @if(($today->diff(date('Y-m-d', strtotime($jp->deadline))))->days == 0 )
-                        {{_('Today')}}
-                    @elseif(($today->diff(date('Y-m-d', strtotime($jp->deadline))))->days == 1 )
-                        {{($today->diff(date('Y-m-d', strtotime($jp->deadline))))->days}}{{_(' day ago')}}
-                    @else
-                        {{($today->diff(date('Y-m-d', strtotime($jp->deadline))))->days}}{{_(' days ago')}}
-                    @endif
+                    {{\Carbon\Carbon::parse($jp->created_at)->diffForhumans()}}
                 </span>
                 <span><i class="fa-solid fa-briefcase"></i>{{$jp->job_type}}</span>
 

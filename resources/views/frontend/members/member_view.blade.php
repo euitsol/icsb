@@ -27,7 +27,7 @@ $datas = [
             <h2 class="common-heading">{{$title}}</h2>
             <div class="search">
                 <div class="input-group">
-                    <input type="text" class="search_value" placeholder="Search by Member Name, Designation, Membership ID!">
+                    <input type="text" class="search_value" placeholder="Search by Member Name, Designation, Company Name or Membership ID!">
                     <button class="search_button" type="submit"><i class="fa fa-search"></i></button>
                 </div>
             </div>

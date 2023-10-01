@@ -25,13 +25,27 @@ $datas = [
             <h2 class="common-heading">{{'CS Firm Members'}}</h2>
             <div class="search">
                 <div class="input-group">
-                    <input type="text" class="search_value" placeholder="Search by Member Name, Designation, Private Practice Certificate No!">
+                    <input type="text" class="search_value" placeholder="Search by Member Name, Designation, Company Name or Private Practice Certificate No">
                     <button class="search_button" type="submit"><i class="fa fa-search"></i></button>
                 </div>
             </div>
         </div>
         <div class="fellow-row flex member_data">
-
+            @foreach ($csf_members as $member)
+            <div class="fellow-items flex">
+                <div class="image-column">
+                    <img src="{{getMemberImage($member->member)}}" alt="{{$member->member->name}}">
+                </div>
+                <div class="content-column">
+                    <h4>{{_('CS Practicing Licence No:')}} {{$member->private_practice_certificate_no}}</h4>
+                    <h3 class="mb-0">{{$member->member->name}}</h3>
+                    <p class="mb-0"><strong>{{$member->member->designation}}</strong></p>
+                    <p><strong>{{$member->member->company_name}}</strong></p>
+                    <li><i class="fa-solid fa-house-circle-exclamation"></i>{{$member->member->address}}</li>
+                    <li><i class="fa-solid fa-envelope-open-text"></i>{{_('Email:')}} <a href="mailto:{{$member->member->email}}">{{$member->member->email}}</a></li>
+                </div>
+            </div>
+        @endforeach
         </div>
     </div>
 </section>

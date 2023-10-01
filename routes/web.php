@@ -95,13 +95,13 @@ Route::group(['middleware' => 'auth'], function () {
 
 //Without Permission
 Route::get('member-email/status/{id}', [MemberController::class, 'email_status'])->name('member-email.status');
-
+Route::get('view-pdf/{filepath}', [ViewDefaultController::class, 'view_pdf'])->name('view.pdf');
 Route::group(['middleware' => ['auth', 'permission']], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     // Default File Download Route
     Route::get('download/{filename}', [DefaultController::class, 'download'])->name('download');
     Route::get('json-image/single/delete/{model}/{id}/{key}/{column}', [DefaultController::class, 'jsonImageDelete'])->name('json_image.single.delete');
-    Route::get('view-pdf/{filepath}', [ViewDefaultController::class, 'view_pdf'])->name('view.pdf');
+
     // Ajax Routes
     Route::get('members/{id}/{cmId?}', [AjaxController::class, 'memberInfo'])->name('m.info');
     //ERP Memeber
