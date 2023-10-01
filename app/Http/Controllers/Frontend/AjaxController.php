@@ -112,6 +112,7 @@ class AjaxController extends Controller
         $csFirmMembers = CsFirms::whereHas('member', function ($query) use ($search_value) {
             $query->where('name', 'like', '%' . $search_value . '%')
                 ->orWhere('designation', 'like', '%' . $search_value . '%')
+                ->orWhere('company_name', 'like', '%' . $search_value . '%')
                 ->where('mem_current_status',1);
         })
         ->orWhere('private_practice_certificate_no', 'like', '%' . $search_value . '%')
@@ -148,7 +149,8 @@ class AjaxController extends Controller
         $search->where(function ($query) use ($search_value) {
             $query->where('name', 'like', '%' . $search_value . '%')
                 ->orWhere('designation', 'like', '%' . $search_value . '%')
-                ->orWhere('membership_id', 'like', '%' . $search_value . '%');
+                ->orWhere('membership_id', 'like', '%' . $search_value . '%')
+                ->orWhere('company_name', 'like', '%' . $search_value . '%');
         });
 
         $member_searchs = $search->latest()->get()->map(function ($member_search) {
@@ -162,7 +164,8 @@ class AjaxController extends Controller
         $member_searchs = Member::where(function ($query) use ($search_value) {
             $query->where('name', 'like', '%' . $search_value . '%')
                 ->orWhere('designation', 'like', '%' . $search_value . '%')
-                ->orWhere('membership_id', 'like', '%' . $search_value . '%');
+                ->orWhere('membership_id', 'like', '%' . $search_value . '%')
+                ->orWhere('company_name', 'like', '%' . $search_value . '%');
         })->where('mem_current_status',1)
         ->get()
         ->map(function ($member_search) {
