@@ -112,14 +112,14 @@
 
 
  <!-- Pop Up Modal -->
- @if(isset($pop_up) && isset(json_decode($pop_up->saved_data)->{'upload-image'}))
+ @if(isset(json_decode($pop_up->saved_data)->{'upload-image'}))
  <div class="modal fade pop_up_modal" id="view-modal" data-bs-keyboard="false" tabindex="-1"
  aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
 
             <div class="modal-body">
-                <img src="{{storage_url(json_decode($pop_up->saved_data)->{'upload-image'})}}" alt="Pop Up Notice Not Found">
+                <a href="{{isset(json_decode($pop_up->saved_data)->{'url'}) ? json_decode($pop_up->saved_data)->{'url'} : 'javascript:voide(0)' }}"><img src="{{storage_url(json_decode($pop_up->saved_data)->{'upload-image'})}}" alt="Pop Up Notice Not Found"></a>
                 <button type="button" class="close pop_up_close" data-bs-dismiss="modal" aria-label="Close" ><i class="fa-solid fa-xmark fa-beat"></i></button>
             </div>
         </div>
