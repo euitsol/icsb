@@ -24,7 +24,7 @@
 <!-- =============================== Breadcrumb Section ======================================-->
 <section class="cs-handbook-section section-padding">
     <div class="container">
-        <div class="row all" >
+        <div class="row all justify-content-center" >
             @if (isset(json_decode($single_page->saved_data)->{'upload-files'}))
                     @php
                         $files = (array)json_decode($single_page->saved_data)->{'upload-files'};

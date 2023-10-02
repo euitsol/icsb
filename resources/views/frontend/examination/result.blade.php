@@ -24,7 +24,7 @@ $datas = [
 <section class="cs-handbook-section section-padding">
     <div class="container">
         @if (isset(json_decode($single_page->saved_data)->{'upload-files'}))
-        <div class="row all" >
+        <div class="row all justify-content-center" >
             @php
                 $files = array_reverse((array)json_decode($single_page->saved_data)->{'upload-files'});
             @endphp
