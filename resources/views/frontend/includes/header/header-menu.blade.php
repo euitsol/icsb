@@ -175,20 +175,22 @@
                                     {{-- <li><a href="{{ route('sp.frontend','examination-policy') }}">{{_('Exemption Policy ')}}</a></li> --}}
 
                                     @if(isset($policies) && isset($policies->saved_data) && !empty(json_decode($policies->saved_data)->{'upload-files'}))
+                                    <li><a href="{{ route('sp.frontend','policy') }}">{{_('Policies for Students')}}</a></li>
 
-                                    <li class="drop-down"><a href="javascript:voide(0)">{{_('Policies for Students')}} <i class="fa-solid fa-angle-down"></i></a>
+                                    {{-- <li class="drop-down"><a href="javascript:voide(0)">{{_('Policies for Students')}} <i class="fa-solid fa-angle-down"></i></a>
                                         <ul class="sub-menu">
                                             @foreach (json_decode($policies->saved_data)->{'upload-files'} as $k => $up)
                                                 <li><a href="{{ route('sp.policy', make_slug(file_title_from_url($up))) }}">{{ file_title_from_url($up) }}</a></li>
                                             @endforeach
                                         </ul>
-                                    </li>
+                                    </li> --}}
 
                                     @endif
                                     <li><a href="{{ route('sp.frontend','admission-form') }}">{{_('Admission Forms ')}}</a></li>
-                                    {{-- @if(isset($studentPortal->saved_data) && !empty(json_decode($studentPortal->saved_data)->{'portal-url'})) --}}
-                                        <li><a target="_blank" href="https://icsberp.org/Home/Default.aspx">{{_('Online Admission')}}</a></li>
-                                    {{-- @endif --}}
+
+                                    @if(isset($onlineAdmission->saved_data) && !empty(json_decode($onlineAdmission->saved_data)->{'url'}))
+                                        <li><a target="_blank" href="{{ json_decode($onlineAdmission->saved_data)->{'url'} }}">{{_('Online Admission')}}</a></li>
+                                    @endif
                                 </ul>
                             </li>
                             <li><a href="{{route('student_view.cs_hand_book')}}">{{_('CS Hand Book')}}</a></li>
@@ -246,6 +248,9 @@
                         <ul class="">
                             <li><a href="{{ route('sp.frontend','eligibility') }}">{{_('Eligibility')}}</a></li>
                             <li><a href="{{ route('sp.frontend','exam-schedule') }}">{{_('Exam Schedule')}}</a></li>
+                            @if(isset($examRegistration->saved_data) && !empty(json_decode($examRegistration->saved_data)->{'url'}))
+                                <li><a target="_blank" href="{{ json_decode($examRegistration->saved_data)->{'url'} }}">{{_('Exam Registration')}}</a></li>
+                            @endif
                             <li class="drop-down"><a href="javascript:voide(0)">Results <i class="fa-solid fa-angle-down"></i></a>
                                 <ul class="sub-menu">
                                     <li><a href="{{ route('sp.frontend','foundation-complete') }}">{{_('Foundation Complete')}}</a></li>

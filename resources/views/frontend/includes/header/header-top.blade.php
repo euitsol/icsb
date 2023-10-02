@@ -2,8 +2,11 @@
     <div class="container">
         <div class="header-content-column flex">
             <div class="header-column text-center  flex ">
-                <a href="https://icsberp.org/users/login.aspx" target="_blank">Member's Login</a>
-                <a href="https://icsberp.org/users/login.aspx" target="_blank">Students Login</a>
+                @if(isset($memberLogin->saved_data) && !empty(json_decode($memberLogin->saved_data)->{'url'}))
+                    <a href="{{ json_decode($memberLogin->saved_data)->{'url'} }}" target="_blank">Member's Login</a>@endif
+                @if(isset($studentLogin->saved_data) && !empty(json_decode($studentLogin->saved_data)->{'url'}))
+                    <a href="{{ json_decode($studentLogin->saved_data)->{'url'} }}" target="_blank">Students Login</a>
+                @endif
             </div>
             <div class="header-column text-center justify-content-center flex ">
                 <p>{{ date( 'l, M d, Y', strtotime(Carbon\Carbon::now()) ) }}</p>
