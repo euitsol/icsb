@@ -34,6 +34,7 @@ class FrontendSinglePagesController extends Controller
         $studentPortal = SinglePages::where('frontend_slug', 'student-portal')->first();
         $facultyEvaluationSystem = SinglePages::where('frontend_slug', 'faculty-evaluation-system')->first();
         $publicationOthers = SinglePages::where('frontend_slug', 'others')->first();
+        $policies = SinglePages::where('frontend_slug', 'policy')->first();
         $menu_acts = Act::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
         $councils = Council::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
         $totalVisitors = 50000 + Visitor::count();
@@ -47,6 +48,7 @@ class FrontendSinglePagesController extends Controller
             'memberPortal' => $memberPortal,
             'studentPortal' => $studentPortal,
             'facultyEvaluationSystem' => $facultyEvaluationSystem,
+            'policies' => $policies,
             'publicationOthers' => $publicationOthers,
             'menu_acts' => $menu_acts,
             'councils' => $councils,
@@ -124,6 +126,23 @@ class FrontendSinglePagesController extends Controller
                 break;
             default:
                 return view('frontend.global', $s);
+        }
+    }
+
+    public function policy($slug){
+        $data['file'] = '';
+        $data['single_page'] = SinglePages::where('frontend_slug', 'policy')->firstOrFail();
+        $data['title'] = '';
+        foreach(json_decode($data['single_page']->saved_data)->{'upload-files'} as $key => $up){
+            if($slug == make_slug(file_title_from_url($up))){
+                $data['file'] = $up;
+                $data['title'] = file_title_from_url($up);
+            }
+        }
+        if(!empty($data['file'])){
+            return view('frontend.student.admission.policy', $data);
+        }else{
+            abort(404);
         }
     }
 }

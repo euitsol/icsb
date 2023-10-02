@@ -285,3 +285,7 @@ function extractStringFromUrl($url) {
 
     }
 }
+
+function make_slug($data){
+    return Str::slug($data);
+}
