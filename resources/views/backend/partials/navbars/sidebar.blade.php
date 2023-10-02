@@ -1,8 +1,10 @@
 <div class="sidebar">
     <div class="sidebar-wrapper">
         <div class="logo">
-            <a href="{{ route('dashboard') }}" class="simple-text logo-mini">{{ _('ICSB') }}</a>
-            <a href="{{ route('dashboard') }}" class="simple-text logo-normal">{{ _('Institute Of Chartered Secretaries Of Bangladesh') }}</a>
+            <a href="{{ route('dashboard') }}" class="simple-text logo-mini">{{ _('CS') }}</a>
+            <a href="{{ route('dashboard') }}" class="simple-text logo-normal">{{ _('Bangladesh') }}</a>
+            {{-- <a href="{{ route('dashboard') }}" class="simple-text logo-mini">{{ _('ICSB') }}</a>
+            <a href="{{ route('dashboard') }}" class="simple-text logo-normal">{{ _('Institute Of Chartered Secretaries Of Bangladesh') }}</a> --}}
         </div>
         <ul class="nav">
               @include('backend.partials.menu_buttons', [

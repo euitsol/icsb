@@ -162,9 +162,39 @@
     new WOW().init();
 </script>
 <script>
-    $(document).ready(function() {
-        $('#view-modal').modal('show');
+    $( window ).on( "load", function() {
+        if (shouldShowModal()) {
+            showNotificationModal();
+        }
+
+        $('.close').click(function() {
+            hideNotificationModal();
+        });
     });
+
+    function showNotificationModal() {
+        $('#view-modal').modal('show');
+
+        const now = new Date();
+        localStorage.setItem('modalClosedTimestamp', now.getTime());
+    }
+
+    function hideNotificationModal() {
+        $('#view-modal').modal('hide');
+    }
+
+    function shouldShowModal() {
+        const closedTimestamp = localStorage.getItem('modalClosedTimestamp');
+        if (!closedTimestamp) {
+            return true;
+        }
+
+        const now = new Date();
+        const closedTime = new Date(parseInt(closedTimestamp));
+        const timeDifference = now - closedTime;
+
+        return timeDifference >= 60 * 60 * 1000;
+    }
 
 </script>
 <script>
