@@ -16,7 +16,8 @@
                     'title'=>$title,
                     'paths'=>[
                                 'home'=>'Home',
-                                'javascript:void(0)'=>'Publications',
+                                'javascript:void(0)'=>'Students',
+                                'javascript:void(0)'=>'Admission',
                             ]
                 ];
     @endphp
@@ -25,14 +26,14 @@
 <!--============================= Handbok Section ==================-->
 <section class="cs-handbook-section section-padding">
     <div class="container">
-        <div class="row all">
+        <div class="row all justify-content-center">
             @if (isset(json_decode($single_page->saved_data)->{'upload-files'}))
                 @php
                     $files = (array)json_decode($single_page->saved_data)->{'upload-files'};
                     $files = array_reverse($files);
                 @endphp
                 @foreach (array_slice($files, 0, 12) as $file)
-                    <div class="col-md-3 the_cs mb-5">
+                    <div class="col-md-3 the_cs mb-5 m-auto">
                         <div class="new-handbook text-align">
                             <iframe src="{{ route('view.pdf', base64_encode($file)) }}" type="application/pdf" width="100%" height="200px"></iframe>
                             <a class="d-block cursor-pointer" target="_blank" href="{{ route('sp.file.download', base64_encode($file)) }}">

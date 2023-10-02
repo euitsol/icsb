@@ -26,7 +26,7 @@
     <!--============================= Handbok Section ==================-->
     <section class="cs-handbook-section section-padding">
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 @if (isset(json_decode($single_page->saved_data)->{'upload-files'}))
                     @foreach (json_decode($single_page->saved_data)->{'upload-files'} as $file)
                         <div class="col-md-6 the_cs mb-5 mx-auto">
