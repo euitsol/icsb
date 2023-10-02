@@ -33,6 +33,7 @@ class DefaultController extends Controller
         $studentPortal = SinglePages::where('frontend_slug', 'student-portal')->first();
         $facultyEvaluationSystem = SinglePages::where('frontend_slug', 'faculty-evaluation-system')->first();
         $publicationOthers = SinglePages::where('frontend_slug', 'others')->first();
+        $policies = SinglePages::where('frontend_slug', 'policy')->first();
         $menu_acts = Act::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
         $councils = Council::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
         $totalVisitors = 50000 + Visitor::count();
@@ -46,6 +47,7 @@ class DefaultController extends Controller
             'memberPortal' => $memberPortal,
             'studentPortal' => $studentPortal,
             'facultyEvaluationSystem' => $facultyEvaluationSystem,
+            'policies' => $policies,
             'publicationOthers' => $publicationOthers,
             'menu_acts' => $menu_acts,
             'councils' => $councils,

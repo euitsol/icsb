@@ -540,6 +540,7 @@ Route::group(['middleware' => ['log_visitor']], function () {
 
     // Single Pages Route
     Route::get('/page/{frontend_slug}', [FrontendSinglePagesController::class, 'frontend'])->name('sp.frontend');
+    Route::get('/policy/{policy_id}', [FrontendSinglePagesController::class, 'policy'])->name('sp.policy');
 
     Route::get('/latest-news/{slug}', [LatestNewsPagesController::class, 'view'])->name('news.view');
 

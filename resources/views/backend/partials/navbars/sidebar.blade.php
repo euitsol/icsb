@@ -336,7 +336,7 @@
                         $pageSlug == 'admission-form' ||
                         $pageSlug == 'entry-criteria' ||
                         $pageSlug == 'fees-&-costs' ||
-                        $pageSlug == 'examination-policy' ||
+                        $pageSlug == 'policy' ||
                         $pageSlug == 'cs-hand-book' ||
                         $pageSlug == 'student-portal' ||
                         $pageSlug == 'financial-assistance' ||
@@ -348,7 +348,7 @@
                         $pageSlug == 'admission-form' ||
                         $pageSlug == 'entry-criteria' ||
                         $pageSlug == 'fees-&-costs' ||
-                        $pageSlug == 'examination-policy' ||
+                        $pageSlug == 'policy' ||
                         $pageSlug == 'cs-hand-book' ||
                         $pageSlug == 'student-portal' ||
                         $pageSlug == 'financial-assistance' ||
@@ -366,7 +366,7 @@
                         $pageSlug == 'admission-form' ||
                         $pageSlug == 'entry-criteria' ||
                         $pageSlug == 'fees-&-costs' ||
-                        $pageSlug == 'examination-policy' ||
+                        $pageSlug == 'policy' ||
                         $pageSlug == 'cs-hand-book' ||
                         $pageSlug == 'student-portal' ||
                         $pageSlug == 'financial-assistance' ||
@@ -380,12 +380,12 @@
                             <a class="@if(
                                     $pageSlug == 'entry-criteria' ||
                                     $pageSlug == 'fees-&-costs' ||
-                                    $pageSlug == 'examination-policy' ||
+                                    $pageSlug == 'policy' ||
                                     $pageSlug == 'admission-form'
                                 )@else collapsed @endif" data-toggle="collapse" href="#admission" @if (
                                     $pageSlug == 'entry-criteria' ||
                                     $pageSlug == 'fees-&-costs' ||
-                                    $pageSlug == 'examination-policy' ||
+                                    $pageSlug == 'policy' ||
                                     $pageSlug == 'admission-form'
                                 ) aria-expanded="true" @else aria-expanded="false"@endif">
                                 <i class="fa-solid fa-minus"></i>
@@ -396,7 +396,7 @@
                             <div class="collapse @if (
                                     $pageSlug == 'entry-criteria' ||
                                     $pageSlug == 'fees-&-costs' ||
-                                    $pageSlug == 'examination-policy' ||
+                                    $pageSlug == 'policy' ||
                                     $pageSlug == 'admission-form'
                             ) show @endif" id="admission">
                             <ul class="nav pl-2">
@@ -404,7 +404,7 @@
                                     'menuItems' => [
                                         ['pageSlug' => 'entry-criteria', 'routeName' => 'sp.show', 'iconClass' => 'fa-solid fa-o','params' => 'entry-criteria', 'label' => 'Entry Criteria'],
                                         ['pageSlug' => 'fees-&-costs', 'routeName' => 'sp.show', 'iconClass' => 'fa-solid fa-o','params' => 'fees-&-costs', 'label' => 'Fees & Costs'],
-                                        ['pageSlug' => 'examination-policy', 'routeName' => 'sp.show','iconClass' => 'fa-solid fa-o', 'params' => 'examination-policy', 'label' => 'Examination Policy'],
+                                        ['pageSlug' => 'policy', 'routeName' => 'sp.show','iconClass' => 'fa-solid fa-o', 'params' => 'policy', 'label' => 'Policies'],
                                         ['pageSlug' => 'admission-form', 'routeName' => 'sp.show','iconClass' => 'fa-solid fa-o', 'params' => 'admission-form', 'label' => 'Admission Form'],
                                     ]
                                 ])
