@@ -176,7 +176,7 @@
 
                                     @if(isset($policies) && isset($policies->saved_data) && !empty(json_decode($policies->saved_data)->{'upload-files'}))
 
-                                    <li class="drop-down"><a href="javascript:voide(0)">{{_('Policy')}} <i class="fa-solid fa-angle-down"></i></a>
+                                    <li class="drop-down"><a href="javascript:voide(0)">{{_('Policies for Student')}} <i class="fa-solid fa-angle-down"></i></a>
                                         <ul class="sub-menu">
                                             @foreach (json_decode($policies->saved_data)->{'upload-files'} as $k => $up)
                                                 <li><a href="{{ route('sp.policy', make_slug(file_title_from_url($up))) }}">{{ file_title_from_url($up) }}</a></li>
