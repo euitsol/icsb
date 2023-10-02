@@ -31,7 +31,10 @@ class FrontendSinglePagesController extends Controller
         $bsss = SecretarialStandard::where('deleted_at', null)->where('status', 1)->get();
         $memberPortal = SinglePages::where('frontend_slug', 'member-portal')->first();
         $studentPortal = SinglePages::where('frontend_slug', 'student-portal')->first();
-        $studentPortal = SinglePages::where('frontend_slug', 'student-portal')->first();
+        $studentLogin = SinglePages::where('frontend_slug', 'student-login')->first();
+        $memberLogin  = SinglePages::where('frontend_slug', 'member-login')->first();
+        $examRegistration  = SinglePages::where('frontend_slug', 'exam-registration')->first();
+        $onlineAdmission  = SinglePages::where('frontend_slug', 'online-admission')->first();
         $facultyEvaluationSystem = SinglePages::where('frontend_slug', 'faculty-evaluation-system')->first();
         $publicationOthers = SinglePages::where('frontend_slug', 'others')->first();
         $policies = SinglePages::where('frontend_slug', 'policy')->first();
@@ -47,6 +50,10 @@ class FrontendSinglePagesController extends Controller
             'bsss' => $bsss,
             'memberPortal' => $memberPortal,
             'studentPortal' => $studentPortal,
+            'studentLogin' => $studentLogin,
+            'memberLogin' => $memberLogin,
+            'examRegistration' => $examRegistration,
+            'onlineAdmission' => $onlineAdmission,
             'facultyEvaluationSystem' => $facultyEvaluationSystem,
             'policies' => $policies,
             'publicationOthers' => $publicationOthers,
@@ -90,6 +97,9 @@ class FrontendSinglePagesController extends Controller
             case($s['single_page']->frontend_slug == 'the-chartered-secretary'):
                 return view('frontend.publication.the_cs',$s);
                 break;
+            case($s['single_page']->frontend_slug == 'policy'):
+                return view('frontend.student.admission.policy',$s);
+                break;
             case($s['single_page']->frontend_slug == 'admission-form'):
                 return view('frontend.student.admission.admission_forms',$s);
                 break;
@@ -129,20 +139,20 @@ class FrontendSinglePagesController extends Controller
         }
     }
 
-    public function policy($slug){
-        $data['file'] = '';
-        $data['single_page'] = SinglePages::where('frontend_slug', 'policy')->firstOrFail();
-        $data['title'] = '';
-        foreach(json_decode($data['single_page']->saved_data)->{'upload-files'} as $key => $up){
-            if($slug == make_slug(file_title_from_url($up))){
-                $data['file'] = $up;
-                $data['title'] = file_title_from_url($up);
-            }
-        }
-        if(!empty($data['file'])){
-            return view('frontend.student.admission.policy', $data);
-        }else{
-            abort(404);
-        }
-    }
+    // public function policy($slug){
+    //     $data['file'] = '';
+    //     $data['single_page'] = SinglePages::where('frontend_slug', 'policy')->firstOrFail();
+    //     $data['title'] = '';
+    //     foreach(json_decode($data['single_page']->saved_data)->{'upload-files'} as $key => $up){
+    //         if($slug == make_slug(file_title_from_url($up))){
+    //             $data['file'] = $up;
+    //             $data['title'] = file_title_from_url($up);
+    //         }
+    //     }
+    //     if(!empty($data['file'])){
+    //         return view('frontend.student.admission.policy', $data);
+    //     }else{
+    //         abort(404);
+    //     }
+    // }
 }

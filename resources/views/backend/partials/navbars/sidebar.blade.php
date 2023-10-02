@@ -46,7 +46,9 @@
                         $pageSlug == 'event' ||
                         $pageSlug == 'national_connection' ||
                         $pageSlug == 'recent_video' ||
-                        $pageSlug == 'testimonial'
+                        $pageSlug == 'testimonial' ||
+                        $pageSlug == 'student-login' ||
+                        $pageSlug == 'member-login'
                     )@else collapsed @endif" data-toggle="collapse" href="#home" @if (
                         $pageSlug == 'pop-up' ||
                         $pageSlug == 'banner-video' ||
@@ -56,7 +58,9 @@
                         $pageSlug == 'event' ||
                         $pageSlug == 'national_connection' ||
                         $pageSlug == 'recent_video' ||
-                        $pageSlug == 'testimonial'
+                        $pageSlug == 'testimonial' ||
+                        $pageSlug == 'student-login' ||
+                        $pageSlug == 'member-login'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-solid fa-house-chimney"></i>
                     <span class="nav-link-text" >{{ __('Home') }}</span>
@@ -72,7 +76,9 @@
                     $pageSlug == 'event' ||
                     $pageSlug == 'national_connection' ||
                     $pageSlug == 'recent_video' ||
-                    $pageSlug == 'testimonial'
+                    $pageSlug == 'testimonial' ||
+                    $pageSlug == 'student-login' ||
+                    $pageSlug == 'member-login'
                 ) show @endif" id="home">
                     <ul class="nav pl-2">
                         @include('backend.partials.menu_buttons', [
@@ -86,6 +92,10 @@
                                 ['pageSlug' => 'testimonial', 'routeName' => 'testimonial.testimonial_list', 'label' => 'Quotes'],
                                 ['pageSlug' => 'national_connection', 'routeName' => 'national_connection.national_connection_list', 'label' => 'National Connection'],
                                 ['pageSlug' => 'recent_video', 'routeName' => 'recent_video.recent_video_list', 'label' => 'Recent Video'],
+
+
+                                ['pageSlug' => 'student-login', 'routeName' => 'sp.show', 'params' =>'student-login', 'label' => 'Student Login'],
+                                ['pageSlug' => 'member-login', 'routeName' => 'sp.show', 'params' =>'member-login', 'label' => 'Member Login'],
                             ]
                         ])
                     </ul>
@@ -343,7 +353,8 @@
                         $pageSlug == 'icsb-faculty' ||
                         $pageSlug == 'icsb-library' ||
                         $pageSlug == 'student_notice' ||
-                        $pageSlug == 'faculty-evaluation-system'
+                        $pageSlug == 'faculty-evaluation-system' ||
+                        $pageSlug == 'online-admission'
                     )@else collapsed @endif" data-toggle="collapse" href="#student" @if (
                         $pageSlug == 'admission-form' ||
                         $pageSlug == 'entry-criteria' ||
@@ -355,7 +366,8 @@
                         $pageSlug == 'icsb-faculty' ||
                         $pageSlug == 'icsb-library' ||
                         $pageSlug == 'student_notice' ||
-                        $pageSlug == 'faculty-evaluation-system'
+                        $pageSlug == 'faculty-evaluation-system' ||
+                        $pageSlug == 'online-admission'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-solid fa-graduation-cap"></i>
                     <span class="nav-link-text" >{{ __('Student') }}</span>
@@ -373,7 +385,8 @@
                         $pageSlug == 'icsb-faculty' ||
                         $pageSlug == 'icsb-library' ||
                         $pageSlug == 'student_notice' ||
-                        $pageSlug == 'faculty-evaluation-system'
+                        $pageSlug == 'faculty-evaluation-system' ||
+                        $pageSlug == 'online-admission'
                 ) show @endif" id="student">
                     <ul class="nav pl-2">
                         <li>
@@ -381,12 +394,14 @@
                                     $pageSlug == 'entry-criteria' ||
                                     $pageSlug == 'fees-&-costs' ||
                                     $pageSlug == 'policy' ||
-                                    $pageSlug == 'admission-form'
+                                    $pageSlug == 'admission-form' ||
+                                    $pageSlug == 'online-admission'
                                 )@else collapsed @endif" data-toggle="collapse" href="#admission" @if (
                                     $pageSlug == 'entry-criteria' ||
                                     $pageSlug == 'fees-&-costs' ||
                                     $pageSlug == 'policy' ||
-                                    $pageSlug == 'admission-form'
+                                    $pageSlug == 'admission-form' ||
+                                    $pageSlug == 'online-admission'
                                 ) aria-expanded="true" @else aria-expanded="false"@endif">
                                 <i class="fa-solid fa-minus"></i>
                                 <span class="nav-link-text" >{{ __('Admission') }}</span>
@@ -397,7 +412,8 @@
                                     $pageSlug == 'entry-criteria' ||
                                     $pageSlug == 'fees-&-costs' ||
                                     $pageSlug == 'policy' ||
-                                    $pageSlug == 'admission-form'
+                                    $pageSlug == 'admission-form' ||
+                                    $pageSlug == 'online-admission'
                             ) show @endif" id="admission">
                             <ul class="nav pl-2">
                                 @include('backend.partials.menu_buttons', [
@@ -406,6 +422,7 @@
                                         ['pageSlug' => 'fees-&-costs', 'routeName' => 'sp.show', 'iconClass' => 'fa-solid fa-o','params' => 'fees-&-costs', 'label' => 'Fees & Costs'],
                                         ['pageSlug' => 'policy', 'routeName' => 'sp.show','iconClass' => 'fa-solid fa-o', 'params' => 'policy', 'label' => 'Policies'],
                                         ['pageSlug' => 'admission-form', 'routeName' => 'sp.show','iconClass' => 'fa-solid fa-o', 'params' => 'admission-form', 'label' => 'Admission Form'],
+                                        ['pageSlug' => 'online-admission', 'routeName' => 'sp.show','iconClass' => 'fa-solid fa-o', 'params' => 'online-admission', 'label' => 'Online Admission'],
                                     ]
                                 ])
                             </ul>
@@ -543,6 +560,7 @@
                 <a class="@if(
                         $pageSlug == 'eligibility' ||
                         $pageSlug == 'exam-schedule' ||
+                        $pageSlug == 'exam-registration' ||
                         $pageSlug == 'foundation-complete' ||
                         $pageSlug == 'subject-complete' ||
                         $pageSlug == 'final-complete'||
@@ -551,6 +569,7 @@
                     )@else collapsed @endif" data-toggle="collapse" href="#examination" @if (
                         $pageSlug == 'eligibility' ||
                         $pageSlug == 'exam-schedule' ||
+                        $pageSlug == 'exam-registration' ||
                         $pageSlug == 'foundation-complete' ||
                         $pageSlug == 'subject-complete' ||
                         $pageSlug == 'final-complete' ||
@@ -565,6 +584,7 @@
                 <div class="collapse @if (
                         $pageSlug == 'eligibility' ||
                         $pageSlug == 'exam-schedule' ||
+                        $pageSlug == 'exam-registration' ||
                         $pageSlug == 'foundation-complete' ||
                         $pageSlug == 'subject-complete' ||
                         $pageSlug == 'final-complete' ||
@@ -609,6 +629,7 @@
                             'menuItems' => [
                                 ['pageSlug' => 'eligibility', 'routeName' => 'sp.show', 'params' => 'eligibility', 'label' => 'Eligibility'],
                                 ['pageSlug' => 'exam-schedule', 'routeName' => 'sp.show', 'params' => 'exam-schedule', 'label' => 'Exam Schedule'],
+                                ['pageSlug' => 'exam-registration', 'routeName' => 'sp.show', 'params' => 'exam-registration', 'label' => 'Exam Registration'],
                                 ['pageSlug' => 'results', 'routeName' => '', 'label' => 'Results'],
                                 ['pageSlug' => 'sample_question_paper', 'routeName' => 'sample_question_paper.sqp_list', 'label' => 'Sample Question Papers'],
                                 ['pageSlug' => 'exam_faq', 'routeName' => 'exam_faq.exam_faq_list', 'label' => 'Exam FAQs'],
