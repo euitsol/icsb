@@ -107,6 +107,12 @@ class MembersPagesController extends Controller
         return view('frontend.members.job_placement',$s);
 
     }
+    public function job_index(){
+        return view('frontend.members.job_index');
+    }
+    public function job_create(){
+        return view('frontend.members.job_create');
+    }
     public function cs_firm(): View
     {
         $query = CsFirms::with('member')->where('status',1)->where('deleted_at',null)->orderBy('private_practice_certificate_no','ASC');

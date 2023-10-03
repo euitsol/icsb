@@ -594,7 +594,9 @@ Route::group(['middleware' => ['log_visitor']], function () {
     // });
     Route::group(['as' => 'member_view.', 'prefix' => 'member'], function () {
         Route::get('/member-search/{slug}', [MembersPagesController::class, 'memberSearch'])->name('m_search');
-        Route::get('/job-placements', [MembersPagesController::class, 'job_placement'])->name('jps');
+        Route::get('/job-placement', [MembersPagesController::class, 'job_index'])->name('job_index');
+        Route::get('/job-posting', [MembersPagesController::class, 'job_create'])->name('job_create');
+        Route::get('/jobs', [MembersPagesController::class, 'job_placement'])->name('jps');
         Route::get('/cs-firms', [MembersPagesController::class, 'cs_firm'])->name('cs_firm');
         Route::get('/members-lounge', [MembersPagesController::class, 'members_lounge'])->name('members_lounge');
         Route::get('/corporate-leader/search', [MembersPagesController::class, 'corporate_leader'])->name('corporate_leader');
