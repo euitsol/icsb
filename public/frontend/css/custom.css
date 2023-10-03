@@ -4,6 +4,13 @@
 }
 
 /*======================  Job Placement CS ===============*/
+.job-index-section .employee a,
+.job-index-section .employeer a{
+    font-size: 24px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
 .job-placement-section {
     padding: 80px 0px;
 }

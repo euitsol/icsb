@@ -162,7 +162,7 @@
                             <li><a href="{{ route('sp.frontend','training-program') }}">{{_('Training Program')}}</a></li>
                             <li><a href="{{ route('sp.frontend','members-lounge') }}">{{_('Members’ Lounge')}}</a></li>
                             <li><a href="{{route('notice_view.notice','member-notice')}}">{{_('Members’ Notice Board')}}</a></li>
-                            <li><a href="{{ route('member_view.jps') }}">{{_('Job Placement')}}</a></li>
+                            <li><a href="{{ route('member_view.job_index') }}">{{_('Job Placement')}}</a></li>
                         </ul>
                     </li>
                     <li class="drop-down">
