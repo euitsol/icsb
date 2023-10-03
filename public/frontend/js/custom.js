@@ -192,10 +192,14 @@ $(window).scroll(function () {
     if ($(window).scrollTop() >= 280) {
         $('.header-menu-section').addClass('fixed-header');
         $('.header-menu-section').parent().next('div').addClass('main_margin_top');
+        $('.header-menu-section .stiky-logo').css('display','block');
+        $('.header-menu-section .stiky-logo-right').css('display','block');
 
     } else {
         $('.header-menu-section').removeClass('fixed-header');
         $('.header-menu-section').parent().next('div').removeClass('main_margin_top');
+        $('.header-menu-section .stiky-logo').css('display','none');
+        $('.header-menu-section .stiky-logo-right').css('display','none');
 
         // $('nav div').removeClass('visible-title');
     }
