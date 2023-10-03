@@ -142,7 +142,7 @@
                     <li class="drop-down">
                         <a href="javascript:voide(0)">Members <i class="fa-solid fa-angle-down"></i></a>
                         <ul class="">
-                            <li><a href="{{ route('sp.frontend','who-are-css') }}">Who are CSs</a></li>
+                            <li><a href="{{ route('sp.frontend','who-are-cs') }}">Who are CS</a></li>
                             <li><a href="{{ route('sp.frontend','cs-membership') }}">CS Membership</a></li>
                             <li><a href="{{ route('sp.frontend','membership-benefits') }}">Membership Benefits</a></li>
                             <li class="drop-down"><a href="#">Member’s Search <i class="fa-solid fa-angle-down"></i></a>
