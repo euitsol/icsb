@@ -6,7 +6,22 @@
     .ck-rounded-corners .ck.ck-editor__main>.ck-editor__editable,
     .ck.ck-editor__main>.ck-editor__editable.ck-rounded-corners {
     height: 15vh !important;
-}
+    }
+    .fieldset {
+    border: 1px solid black;
+    position: relative;
+    margin-top: 1.6rem;
+    }
+    .legend {
+        position: absolute;
+        top: -14%;
+        background: #fff;
+        padding: 0px 3px;
+        left: 3%;
+    }
+    #job_type{
+        padding: 1rem;
+    }
 </style>
 
 @endpush
@@ -38,22 +53,22 @@ $datas = [
                     <div class="job_create_form p-4">
                         <form action="" method="post" class="p-4">
                             <h2>CREATE A JOB POSTING</h2>
-                            <div class="row">
+                            <div class="row align-items-center">
                                 <div class="form-group mb-3 col-md-6">
                                     <label for="job_position">Position Name</label>
-                                    <input type="text" name="job_position" id="job_position" placeholder="Job Position:" class="form-control py-3 px-3">
+                                    <input type="text" name="job_position" id="job_position" placeholder="Job Position" class="form-control py-3 px-3">
                                 </div>
                                 <div class="form-group mb-3 col-md-6">
                                     <label for="company_name">Company Name</label>
-                                    <input type="text" name="company_name" placeholder="Company Name:" class="form-control py-3 px-3">
+                                    <input type="text" name="company_name" placeholder="Company Name" class="form-control py-3 px-3">
                                 </div>
                                 <div class="form-group mb-3 col-md-6">
                                     <label for="vacancy">Number of Vacancy</label>
-                                    <input type="text" name="vacancy" id="vacancy" placeholder="Number of Vacancies:" class="form-control py-3 px-3">
+                                    <input type="text" name="vacancy" id="vacancy" placeholder="Number of Vacancies" class="form-control py-3 px-3">
                                 </div>
                                 <div class="form-group mb-3 col-md-6">
-                                    <fieldset>
-                                        <legend><label for="job_type1">Nature of Job</label></legend>
+                                    <div class="fieldset">
+                                        <label for="job_type" class="legend">Nature of Job</label>
                                         <div class="form-check" id="job_type">
                                             <label class="form-check-label ms-5" for="job_type1">
                                                 <input class="form-check-input" type="radio" name="job_type" id="job_type1" value="full_time">
@@ -68,11 +83,11 @@ $datas = [
                                                 Contractual
                                             </label>
                                         </div>
-                                    </fieldset>
+                                    </div>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="jr">Job Responsibility</label>
-                                    <textarea name="job_responsibility" id="jr" cols="30" rows="5" class="form-control py-3 px-3" placeholder="Enter Job Responsibility:"></textarea>
+                                    <textarea name="job_responsibility" id="jr" cols="30" rows="5" class="form-control py-3 px-3" placeholder="Enter Job Responsibility"></textarea>
                                 </div>
                                 <div class="form-group mb-3 col-md-6">
                                     <label for="er">Educational Requirements</label>
@@ -91,24 +106,27 @@ $datas = [
                                 </div>
                                 <div class="form-group mb-3 col-md-6">
                                     <label for="ar">Age Requirements</label>
-                                    <input type="number" name="age_requirement" id="ar" class="form-control py-3 px-3" placeholder="Age at most in years">
+                                    <div class="input-group">
+                                        <input type="number" name="age_requirement" id="er" class="form-control py-3 px-3 w-75" placeholder="Age at most in years">
+                                        <input type="text" value="in Years" class="form-control py-3 px-3 bold text-center w-25" disabled>
+                                    </div>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="adr">Additional Requirements</label>
-                                    <textarea name="additional_requirements" id="adr" cols="30" rows="5" class="form-control py-3 px-3" placeholder="Enter Additional Requirements:"></textarea>
+                                    <textarea name="additional_requirements" id="adr" cols="30" rows="5" class="form-control py-3 px-3" placeholder="Enter Additional Requirements"></textarea>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="jl">Job Location</label>
-                                    <textarea name="job_location" id="jl" cols="30" rows="5" class="form-control py-3 px-3" placeholder="Enter Job Location:"></textarea>
+                                    <textarea name="job_location" id="jl" cols="30" rows="5" class="form-control py-3 px-3" placeholder="Enter Job Location"></textarea>
                                 </div>
 
                                 <div class="form-group mb-3">
                                     <label for="ob">Other Benefits</label>
-                                    <textarea name="other_benefits" id="ob" cols="30" rows="5" class="form-control py-3 px-3" placeholder="Enter Other Benefits:"></textarea>
+                                    <textarea name="other_benefits" id="ob" cols="30" rows="5" class="form-control py-3 px-3" placeholder="Enter Other Benefits"></textarea>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="si">Special Instructions</label>
-                                    <textarea name="special_instractions" id="si" cols="30" rows="5" class="form-control py-3 px-3" placeholder="Enter Special Instructions:"></textarea>
+                                    <textarea name="special_instractions" id="si" cols="30" rows="5" class="form-control py-3 px-3" placeholder="Enter Special Instructions"></textarea>
                                 </div>
                                 <div class="form-group mb-3 col-md-6">
                                     <label for="ad">Application Deadline</label>
@@ -116,19 +134,19 @@ $datas = [
                                 </div>
                                 <div class="form-group mb-3 col-md-6">
                                     <label for="email">Email Address</label>
-                                    <input type="email" name="email" id="email" class="form-control py-3 px-3" placeholder="Enter Company Email Address:">
+                                    <input type="email" name="email" id="email" class="form-control py-3 px-3" placeholder="Enter Company Email Address">
                                 </div>
                                 <div class="form-group mb-3 col-md-6">
                                     <label for="url">Application URL</label>
-                                    <input type="url" name="url" id="url" class="form-control py-3 px-3" placeholder="Enter Application URL:">
+                                    <input type="url" name="url" id="url" class="form-control py-3 px-3" placeholder="Enter Application URL">
                                 </div>
                                 <div class="form-group mb-3 col-md-6">
                                     <label for="curl">Company Website</label>
-                                    <input type="url" name="company_url" id="curl" class="form-control py-3 px-3" placeholder="Enter Company URL:">
+                                    <input type="url" name="company_url" id="curl" class="form-control py-3 px-3" placeholder="Enter Company URL">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="ca">Company Address</label>
-                                    <textarea name="company_address" id="ca" cols="30" rows="5" class="form-control py-3 px-3" placeholder="Enter Company Address:"></textarea>
+                                    <textarea name="company_address" id="ca" cols="30" rows="5" class="form-control py-3 px-3" placeholder="Enter Company Address"></textarea>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="cpnd">Contact Person Name & Designation</label>
