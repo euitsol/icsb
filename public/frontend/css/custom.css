@@ -10,7 +10,33 @@
     font-weight: 900;
     text-transform: uppercase;
 }
-
+.job-create-section{
+    font-family: "Teko", sans-serif !important;
+}
+.job-create-section .job_create_form{
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 7px 0px rgba(166.99999999999997, 163.99999999999997, 163.99999999999997, 0.5);
+    padding: 20px;
+}
+.job-create-section .job_create_form form{
+    border: 7px solid #122F98;
+}
+.job-create-section .job_create_form form input,
+.job-create-section .job_create_form form textarea{
+    border-radius: 0;
+    border-color: #182456;
+}
+.job-create-section .job_create_form form input::placeholder,
+.job-create-section .job_create_form form textarea::placeholder{
+    border-radius: 0;
+    border-color: #182456;
+    font-family: "Teko", sans-serif !important;
+}
+.job-create-section .job_create_form form input:focus,
+.job-create-section .job_create_form form textarea:focus{
+    border: 1px solid #182456;
+}
 .job-placement-section {
     padding: 80px 0px;
 }
