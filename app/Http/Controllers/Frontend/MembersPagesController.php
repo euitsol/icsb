@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\JobPlacementRequest;
 use App\Models\Act;
 use App\Models\MediaRoomCategory;
 use App\Models\CommitteeType;
@@ -16,6 +17,7 @@ use App\Models\Member;
 use App\Models\SecretarialStandard;
 use App\Models\SinglePages;
 use App\Models\Visitor;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Carbon;
 use Illuminate\View\View;
 
@@ -129,5 +131,20 @@ class MembersPagesController extends Controller
     {
         return view('frontend.members.find_leader');
 
+    }
+
+    public function fjob_store(JobPlacementRequest $request): RedirectResponse
+    {
+        $jp = new JobPlacement();
+        $jp->title = $request->position_name;
+        $jp->company_name = $request->company_name;
+        $jp->company_url = $request->company_url;
+        $jp->job_type = $request->job_type;
+        $jp->salary = json_encode($request->salary);
+        $jp->salary_type = $request->salary_type;
+        $jp->deadline = $request->deadline;
+        $jp->created_by = auth()->user()->id;
+        $jp->save();
+        return redirect()->route('job_placement.jp_list')->withStatus(__('Job '.$request->title.' created successfully.'));
     }
 }

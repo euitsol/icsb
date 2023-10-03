@@ -55,8 +55,8 @@ $datas = [
                             <h2>CREATE A JOB POSTING</h2>
                             <div class="row align-items-center">
                                 <div class="form-group mb-3 col-md-6">
-                                    <label for="job_position">Position Name</label>
-                                    <input type="text" name="job_position" id="job_position" placeholder="Job Position" class="form-control py-3 px-3">
+                                    <label for="position_name">Position Name</label>
+                                    <input type="text" name="position_name" id="position_name" placeholder="Job Position" class="form-control py-3 px-3">
                                 </div>
                                 <div class="form-group mb-3 col-md-6">
                                     <label for="company_name">Company Name</label>
@@ -71,15 +71,15 @@ $datas = [
                                         <label for="job_type" class="legend">Nature of Job</label>
                                         <div class="form-check" id="job_type">
                                             <label class="form-check-label ms-5" for="job_type1">
-                                                <input class="form-check-input" type="radio" name="job_type" id="job_type1" value="full_time">
+                                                <input class="form-check-input" type="radio" name="job_type" id="job_type1" value="Full-Time">
                                                 Full Time
                                             </label>
                                             <label class="form-check-label ms-5" for="job_type2">
-                                                <input class="form-check-input" type="radio" name="job_type" id="job_type2" value="part_time">
+                                                <input class="form-check-input" type="radio" name="job_type" id="job_type2"  value="Part-Time">
                                                 Part Time
                                             </label>
                                             <label class="form-check-label ms-5" for="job_type3">
-                                                <input class="form-check-input" type="radio" name="job_type" id="job_type3" value="contractual">
+                                                <input class="form-check-input" type="radio" name="job_type" id="job_type3" value="Contractual">
                                                 Contractual
                                             </label>
                                         </div>
@@ -100,7 +100,7 @@ $datas = [
                                 <div class="form-group mb-3 col-md-6">
                                     <label for="er">Experience Requirements</label>
                                     <div class="input-group">
-                                        <input type="number" name="professional_requirement" id="er" class="form-control py-3 px-3 w-75" placeholder="Enter Experience Requirements">
+                                        <input type="number" name="experience_requirement" id="er" class="form-control py-3 px-3 w-75" placeholder="Enter Experience Requirements">
                                         <input type="text" value="in Years" class="form-control py-3 px-3 bold text-center w-25" disabled>
                                     </div>
                                 </div>
@@ -113,11 +113,31 @@ $datas = [
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="adr">Additional Requirements</label>
-                                    <textarea name="additional_requirements" id="adr" cols="30" rows="5" class="form-control py-3 px-3" placeholder="Enter Additional Requirements"></textarea>
+                                    <textarea name="additional_requirement" id="adr" cols="30" rows="5" class="form-control py-3 px-3" placeholder="Enter Additional Requirements"></textarea>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="jl">Job Location</label>
                                     <textarea name="job_location" id="jl" cols="30" rows="5" class="form-control py-3 px-3" placeholder="Enter Job Location"></textarea>
+                                </div>
+                                <div class="form-group {{ $errors->has('salary') ? ' has-danger' : '' }} {{ $errors->has('salary.*') ? ' has-danger' : '' }} {{ $errors->has('salary_type') ? ' has-danger' : '' }}">
+                                    <label class="col-md-12">Salary</label>
+                                    <div class="col-md-12">
+                                        <div class="input-group">
+                                            <input type="number" class="form-control" name="salary[from]" value="{{ old('salary.from') }}">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">{{ _('to') }}</div>
+                                            </div>
+                                            <input type="number" class="form-control" name="salary[to]" value="{{ old('salary.to') }}">
+                                            <select name="salary_type" class="form-control no-select">
+                                                <option selected hidden>{{ _('Select Salary Type') }}</option>
+                                                <option value="Per Month">{{ _('Per Month') }}</option>
+                                                <option value="Per Year">{{ _('Per Year') }}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    @include('alerts.feedback', ['field' => 'salary'])
+                                    @include('alerts.feedback', ['field' => 'salary.*'])
+                                    @include('alerts.feedback', ['field' => 'salary_type'])
                                 </div>
 
                                 <div class="form-group mb-3">
@@ -138,7 +158,7 @@ $datas = [
                                 </div>
                                 <div class="form-group mb-3 col-md-6">
                                     <label for="url">Application URL</label>
-                                    <input type="url" name="url" id="url" class="form-control py-3 px-3" placeholder="Enter Application URL">
+                                    <input type="url" name="application_url" id="url" class="form-control py-3 px-3" placeholder="Enter Application URL">
                                 </div>
                                 <div class="form-group mb-3 col-md-6">
                                     <label for="curl">Company Website</label>
