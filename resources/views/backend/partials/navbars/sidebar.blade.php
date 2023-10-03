@@ -275,7 +275,7 @@
             <li>
                 <a class="@if(
                         $pageSlug == 'member' ||
-                        $pageSlug == 'who-are-css' ||
+                        $pageSlug == 'who-are-cs' ||
                         $pageSlug == 'cs-membership' ||
                         $pageSlug == 'membership-benefits' ||
                         $pageSlug == 'member-portal' ||
@@ -288,7 +288,7 @@
                         $pageSlug == 'job_placement'
                     )@else collapsed @endif" data-toggle="collapse" href="#member" @if (
                         $pageSlug == 'member' ||
-                        $pageSlug == 'who-are-css' ||
+                        $pageSlug == 'who-are-cs' ||
                         $pageSlug == 'cs-membership' ||
                         $pageSlug == 'membership-benefits' ||
                         $pageSlug == 'member-portal' ||
@@ -307,7 +307,7 @@
 
                 <div class="collapse @if (
                         $pageSlug == 'member' ||
-                        $pageSlug == 'who-are-css' ||
+                        $pageSlug == 'who-are-cs' ||
                         $pageSlug == 'cs-membership' ||
                         $pageSlug == 'membership-benefits' ||
                         $pageSlug == 'member-portal' ||
@@ -322,7 +322,7 @@
                     <ul class="nav pl-2">
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
-                                ['pageSlug' => 'who-are-css', 'routeName' => 'sp.show', 'params' => 'who-are-css', 'label' => 'Who are CSs'],
+                                ['pageSlug' => 'who-are-cs', 'routeName' => 'sp.show', 'params' => 'who-are-cs', 'label' => 'Who are CS'],
                                 ['pageSlug' => 'cs-membership', 'routeName' => 'sp.show', 'params' => 'cs-membership', 'label' => 'CS Membership'],
                                 ['pageSlug' => 'membership-benefits', 'routeName' => 'sp.show', 'params' => 'membership-benefits', 'label' => 'Membership Benefits'],
                                 ['pageSlug' => 'member', 'routeName' => 'member.member_list', 'label' => 'Member Search'],
