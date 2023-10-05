@@ -9,7 +9,7 @@
 <a href="javascript:voide(0)" class="scroll_top"><i class="fa-solid fa-circle-up fa-bounce"></i></i></a>
 <div class="">
     <a href="https://csjobsbd.com/" class="stiky-box " target="_blank">
-        <img src="{{asset('fixed_image/fixed.jpg')}}" alt="">
+        <img src="{{asset('fixed_image/stiky_image.jpg')}}" alt="">
     </a>
 </div>
 {{-- Banner Section --}}
