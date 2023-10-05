@@ -23,7 +23,8 @@
     border: 7px solid #122F98;
 }
 .job-create-section .job_create_form form input,
-.job-create-section .job_create_form form textarea{
+.job-create-section .job_create_form form textarea,
+.job-create-section .job_create_form form select{
     border-radius: 0;
     border-color: #182456;
 }

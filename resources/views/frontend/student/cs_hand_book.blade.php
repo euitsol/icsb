@@ -27,27 +27,24 @@
         <div class="container">
             <div class="handbook-column flex">
                 <div class="new-handbook text-align">
-
-                        <a href="
+                    <iframe src="{{ route('view.pdf', base64_encode(json_decode($csHandBook->saved_data)->{'new-student-hand-book-pdf'})) }}" type="application/pdf" width="100%" height="700px"></iframe>
+                    <a href="
                             {{
                                 (isset(json_decode($csHandBook->saved_data)->{'new-student-hand-book-pdf'})) ?
                                 (route('sp.file.download', base64_encode(json_decode($csHandBook->saved_data)->{'new-student-hand-book-pdf'}))) :
                                 '#'
                             }}
-                        " target="_blank"><h3>{{_('New Students Handbook')}} <i class="fa-solid fa-cloud-arrow-down"></i></h3></a>
-
-                    <iframe src="{{ route('view.pdf', base64_encode(json_decode($csHandBook->saved_data)->{'new-student-hand-book-pdf'})) }}" type="application/pdf" width="100%" height="700px"></iframe>
+                        " target="_blank"><h3>{{_('New Students Handbook')}}</h3></a>
                 </div>
                 <div class="old-handbook text-align">
-
-                        <a href="
+                    <iframe src="{{ route('view.pdf', base64_encode(json_decode($csHandBook->saved_data)->{'old-student-hand-book-pdf'})) }}" type="application/pdf" width="100%" height="700px"></iframe>
+                    <a href="
                             {{
                                 (isset(json_decode($csHandBook->saved_data)->{'old-student-hand-book-pdf'})) ?
                                 (route('sp.file.download', base64_encode(json_decode($csHandBook->saved_data)->{'old-student-hand-book-pdf'}))) :
                                 '#'
                             }}
-                        " target="_blank"><h3>{{_('Old Students Handbook')}} <i class="fa-solid fa-cloud-arrow-down"></i></h3></a>
-                    <iframe src="{{ route('view.pdf', base64_encode(json_decode($csHandBook->saved_data)->{'old-student-hand-book-pdf'})) }}" type="application/pdf" width="100%" height="700px"></iframe>
+                        " target="_blank"><h3>{{_('Old Students Handbook')}}</h3></a>
                 </div>
             </div>
         </div>
