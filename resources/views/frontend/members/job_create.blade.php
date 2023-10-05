@@ -50,25 +50,27 @@ $datas = [
         <div class="container">
             <div class="row">
                 <div class="col-md-12 mx-auto">
+                    @include('alerts.success')
                     <div class="job_create_form p-4">
-                        <form action="" method="post" class="p-4">
+                        <form action="{{route('member_view.fjob_store')}}" method="POST" class="p-4">
+                            @csrf
                             <h2>CREATE A JOB POSTING</h2>
                             <div class="row align-items-center">
                                 <div class="form-group mb-3 col-md-6">
-                                    <label for="position_name">Position Name</label>
+                                    <label for="position_name">Position Name <span class="text-danger">*</span></label>
                                     <input type="text" name="position_name" id="position_name" placeholder="Job Position" class="form-control py-3 px-3">
                                 </div>
                                 <div class="form-group mb-3 col-md-6">
-                                    <label for="company_name">Company Name</label>
+                                    <label for="company_name">Company Name <span class="text-danger">*</span></label>
                                     <input type="text" name="company_name" placeholder="Company Name" class="form-control py-3 px-3">
                                 </div>
                                 <div class="form-group mb-3 col-md-6">
-                                    <label for="vacancy">Number of Vacancy</label>
+                                    <label for="vacancy">Number of Vacancy <span class="text-danger">*</span></label>
                                     <input type="text" name="vacancy" id="vacancy" placeholder="Number of Vacancies" class="form-control py-3 px-3">
                                 </div>
                                 <div class="form-group mb-3 col-md-6">
                                     <div class="fieldset">
-                                        <label for="job_type" class="legend">Nature of Job</label>
+                                        <label for="job_type" class="legend">Nature of Job <span class="text-danger">*</span></label>
                                         <div class="form-check" id="job_type">
                                             <label class="form-check-label ms-5" for="job_type1">
                                                 <input class="form-check-input" type="radio" name="job_type" id="job_type1" value="Full-Time">
@@ -86,7 +88,7 @@ $datas = [
                                     </div>
                                 </div>
                                 <div class="form-group mb-3">
-                                    <label for="jr">Job Responsibility</label>
+                                    <label for="jr">Job Responsibility <span class="text-danger">*</span></label>
                                     <textarea name="job_responsibility" id="jr" cols="30" rows="5" class="form-control py-3 px-3" placeholder="Enter Job Responsibility"></textarea>
                                 </div>
                                 <div class="form-group mb-3 col-md-6">
@@ -116,11 +118,11 @@ $datas = [
                                     <textarea name="additional_requirement" id="adr" cols="30" rows="5" class="form-control py-3 px-3" placeholder="Enter Additional Requirements"></textarea>
                                 </div>
                                 <div class="form-group mb-3">
-                                    <label for="jl">Job Location</label>
+                                    <label for="jl">Job Location <span class="text-danger">*</span></label>
                                     <textarea name="job_location" id="jl" cols="30" rows="5" class="form-control py-3 px-3" placeholder="Enter Job Location"></textarea>
                                 </div>
                                 <div class="form-group {{ $errors->has('salary') ? ' has-danger' : '' }} {{ $errors->has('salary.*') ? ' has-danger' : '' }} {{ $errors->has('salary_type') ? ' has-danger' : '' }}">
-                                    <label class="col-md-12">Salary</label>
+                                    <label class="col-md-12">Salary <span class="text-danger">*</span></label>
                                     <div class="col-md-12">
                                         <div class="input-group">
                                             <input type="number" class="form-control" name="salary[from]" value="{{ old('salary.from') }}">
@@ -149,11 +151,11 @@ $datas = [
                                     <textarea name="special_instractions" id="si" cols="30" rows="5" class="form-control py-3 px-3" placeholder="Enter Special Instructions"></textarea>
                                 </div>
                                 <div class="form-group mb-3 col-md-6">
-                                    <label for="ad">Application Deadline</label>
+                                    <label for="ad">Application Deadline <span class="text-danger">*</span></label>
                                     <input type="date" name="application_deadline" id="ad" class="form-control py-3 px-3">
                                 </div>
                                 <div class="form-group mb-3 col-md-6">
-                                    <label for="email">Email Address</label>
+                                    <label for="email">Email Address <span class="text-danger">*</span></label>
                                     <input type="email" name="email" id="email" class="form-control py-3 px-3" placeholder="Enter Company Email Address">
                                 </div>
                                 <div class="form-group mb-3 col-md-6">
@@ -165,12 +167,15 @@ $datas = [
                                     <input type="url" name="company_url" id="curl" class="form-control py-3 px-3" placeholder="Enter Company URL">
                                 </div>
                                 <div class="form-group mb-3">
-                                    <label for="ca">Company Address</label>
+                                    <label for="ca">Company Address <span class="text-danger">*</span></label>
                                     <textarea name="company_address" id="ca" cols="30" rows="5" class="form-control py-3 px-3" placeholder="Enter Company Address"></textarea>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="cpnd">Contact Person Name & Designation</label>
                                     <textarea name="contact_details" id="cpnd" cols="30" rows="5" class="form-control py-3 px-3" placeholder="ICSB Official will communicate with the person to authenticate the job posting. Being authentication, ICSB Official will go accept this job circular for live posting and email to the members of the institute."></textarea>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <input type="submit" class="btn btn-primary w-100" value="POST">
                                 </div>
                             </div>
                         </form>

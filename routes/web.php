@@ -597,6 +597,7 @@ Route::group(['middleware' => ['log_visitor']], function () {
         Route::get('/job-placement', [MembersPagesController::class, 'job_index'])->name('job_index');
         Route::get('/job-posting', [MembersPagesController::class, 'job_create'])->name('job_create');
         Route::get('/jobs', [MembersPagesController::class, 'job_placement'])->name('jps');
+        Route::post('job/post', [MembersPagesController::class, 'store'])->name('fjob_store');
         Route::get('/cs-firms', [MembersPagesController::class, 'cs_firm'])->name('cs_firm');
         Route::get('/members-lounge', [MembersPagesController::class, 'members_lounge'])->name('members_lounge');
         Route::get('/corporate-leader/search', [MembersPagesController::class, 'corporate_leader'])->name('corporate_leader');

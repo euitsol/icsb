@@ -3,6 +3,10 @@
 @section('title', 'Add Job Placement')
 @push('css')
 <style>
+    .ck-rounded-corners .ck.ck-editor__main>.ck-editor__editable,
+    .ck.ck-editor__main>.ck-editor__editable.ck-rounded-corners {
+    height: 20vh !important;
+    }
     .input-group-append .input-group-text {
         border-left: none;
         padding: 0 !important;
@@ -38,16 +42,29 @@
                                 <input type="text" name="title" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter job title') }}" value="{{ old('title') }}">
                                 @include('alerts.feedback', ['field' => 'title'])
                             </div>
-                            <div class="form-group {{ $errors->has('company_name') ? ' has-danger' : '' }}">
-                                <label>{{ _('Company Name') }}</label>
-                                <input type="text" name="company_name" class="form-control {{ $errors->has('company_name') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter job company_name') }}" value="{{ old('company_name') }}">
-                                @include('alerts.feedback', ['field' => 'company_name'])
+                            <div class="row">
+                                <div class="form-group col-md-6 {{ $errors->has('company_name') ? ' has-danger' : '' }}">
+                                    <label>{{ _('Company Name') }}</label>
+                                    <input type="text" name="company_name" class="form-control {{ $errors->has('company_name') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter job company_name') }}" value="{{ old('company_name') }}">
+                                    @include('alerts.feedback', ['field' => 'company_name'])
+                                </div>
+                                <div class="form-group col-md-6 {{ $errors->has('company_url') ? ' has-danger' : '' }}">
+                                    <label>{{ _('Company URL') }}</label>
+                                    <input type="url" name="company_url" class="form-control {{ $errors->has('company_url') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter job company_url') }}" value="{{ old('company_url') }}">
+                                    @include('alerts.feedback', ['field' => 'company_url'])
+                                </div>
+                                <div class="form-group col-md-6 {{ $errors->has('application_url') ? ' has-danger' : '' }}">
+                                    <label>{{ _('Application URL') }}</label>
+                                    <input type="url" name="application_url" class="form-control {{ $errors->has('application_url') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter job application url') }}" value="{{ old('application_url') }}">
+                                    @include('alerts.feedback', ['field' => 'application_url'])
+                                </div>
+                                <div class="form-group col-md-6 {{ $errors->has('email') ? ' has-danger' : '' }}">
+                                    <label>{{ _('Email') }}</label>
+                                    <input type="email" name="email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter job email') }}" value="{{ old('email') }}">
+                                    @include('alerts.feedback', ['field' => 'email'])
+                                </div>
                             </div>
-                            <div class="form-group {{ $errors->has('company_url') ? ' has-danger' : '' }}">
-                                <label>{{ _('Company URL') }}</label>
-                                <input type="url" name="company_url" class="form-control {{ $errors->has('company_url') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter job company_url') }}" value="{{ old('company_url') }}">
-                                @include('alerts.feedback', ['field' => 'company_url'])
-                            </div>
+
                             <div class="form-group {{ $errors->has('job_type') ? ' has-danger' : '' }}">
                                 <label>Job Type</label>
                                 <div class="form-radio">
@@ -86,9 +103,69 @@
                                 @include('alerts.feedback', ['field' => 'salary_type'])
                             </div>
                             <div class="form-group {{ $errors->has('deadline') ? ' has-danger' : '' }}">
-                                <label>{{ _('deadline') }}</label>
-                                <input type="datetime-local" name="deadline" class="form-control {{ $errors->has('deadline') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter deadline') }}" value="{{ old('deadline') }}">
+                                <label>{{ _('Deadline') }}</label>
+                                <input type="date" name="deadline" class="form-control {{ $errors->has('deadline') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter deadline') }}" value="{{ old('deadline') }}">
                                 @include('alerts.feedback', ['field' => 'deadline'])
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6 {{ $errors->has('educational_requirement') ? ' has-danger' : '' }}">
+                                    <label>{{ _('Educational Requirement') }}</label>
+                                    <input type="text" name="educational_requirement" class="form-control {{ $errors->has('educational_requirement') ? ' is-invalid' : '' }}" placeholder="{{ _('MBA/ M.Sc/ BBA/ Masters') }}" value="{{ old('educational_requirement') }}">
+                                    @include('alerts.feedback', ['field' => 'educational_requirement'])
+                                </div>
+                                <div class="form-group col-md-6 {{ $errors->has('professional_requirement') ? ' has-danger' : '' }}">
+                                    <label>{{ _('Professional Requirement') }}</label>
+                                    <input type="text" name="professional_requirement" class="form-control {{ $errors->has('professional_requirement') ? ' is-invalid' : '' }}" placeholder="{{ _('FCS/ ACS/ QCS/ Certificate Level Passed') }}" value="{{ old('professional_requirement') }}">
+                                    @include('alerts.feedback', ['field' => 'professional_requirement'])
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6 {{ $errors->has('experience_requirement') ? ' has-danger' : '' }}">
+                                    <label>{{ _('Experience Requirement') }}</label>
+                                    <div class="input-group">
+                                        <input type="number" name="experience_requirement" class="form-control w-75" value="{{ old('experience_requirement') }}" placeholder="Enter Experience Requirements">
+                                        <input type="text" value="in Years" class="form-control text-center w-25" disabled>
+                                    </div>
+                                    @include('alerts.feedback', ['field' => 'experience_requirement'])
+                                </div>
+                                <div class="form-group col-md-6 {{ $errors->has('age_requirement') ? ' has-danger' : '' }}">
+                                    <label>{{ _('Age Requirement') }}</label>
+                                    <div class="input-group">
+                                        <input type="number" value="{{ old('age_requirement') }}" name="age_requirement" class="form-control w-75" placeholder="Enter Age Requirements">
+                                        <input type="text" value="in Years" class="form-control text-center w-25" disabled>
+                                    </div>
+                                    @include('alerts.feedback', ['field' => 'age_requirement'])
+                                </div>
+                            </div>
+                            <div class="form-group {{ $errors->has('company_address') ? 'has-danger' : '' }}">
+                                <label>{{ _('Company Address') }}</label>
+                                <textarea name="company_address" class="form-control {{ $errors->has('company_address') ? ' is-invalid' : '' }}" placeholder="Enter company address">{{ old('company_address') }}</textarea>
+                                @include('alerts.feedback', ['field' => 'company_address'])
+                            </div>
+                            <div class="form-group {{ $errors->has('job_responsibility') ? 'has-danger' : '' }}">
+                                <label>{{ _('Job Responsibility') }}</label>
+                                <textarea name="job_responsibility" class="form-control {{ $errors->has('job_responsibility') ? ' is-invalid' : '' }}" placeholder="Enter job responsibility">{{ old('job_responsibility') }}</textarea>
+                                @include('alerts.feedback', ['field' => 'job_responsibility'])
+                            </div>
+                            <div class="form-group {{ $errors->has('additional_requirement') ? 'has-danger' : '' }}">
+                                <label>{{ _('Additional Requirement') }}</label>
+                                <textarea name="additional_requirement" class="form-control {{ $errors->has('additional_requirement') ? ' is-invalid' : '' }}" placeholder="Enter additional requirement">{{ old('additional_requirement') }}</textarea>
+                                @include('alerts.feedback', ['field' => 'additional_requirement'])
+                            </div>
+                            <div class="form-group {{ $errors->has('job_location') ? 'has-danger' : '' }}">
+                                <label>{{ _('Job Location') }}</label>
+                                <textarea name="job_location" class="form-control {{ $errors->has('job_location') ? ' is-invalid' : '' }}" placeholder="Enter job location">{{ old('job_location') }}</textarea>
+                                @include('alerts.feedback', ['field' => 'job_location'])
+                            </div>
+                            <div class="form-group {{ $errors->has('other_benefits') ? 'has-danger' : '' }}">
+                                <label>{{ _('Other Benefits') }}</label>
+                                <textarea name="other_benefits" class="form-control {{ $errors->has('other_benefits') ? ' is-invalid' : '' }}" placeholder="Enter ohter benefits">{{ old('other_benefits') }}</textarea>
+                                @include('alerts.feedback', ['field' => 'other_benefits'])
+                            </div>
+                            <div class="form-group {{ $errors->has('special_instractions') ? 'has-danger' : '' }}">
+                                <label>{{ _('Special Instructions') }}</label>
+                                <textarea name="special_instractions" class="form-control {{ $errors->has('special_instractions') ? ' is-invalid' : '' }}" placeholder="Enter special instractions">{{ old('special_instractions') }}</textarea>
+                                @include('alerts.feedback', ['field' => 'special_instractions'])
                             </div>
                             <div class="form-check form-check-inline">
                                 <label class="form-check-label">

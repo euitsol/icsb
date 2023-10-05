@@ -133,18 +133,33 @@ class MembersPagesController extends Controller
 
     }
 
-    public function fjob_store(JobPlacementRequest $request): RedirectResponse
+    public function store(JobPlacementRequest $request): RedirectResponse
     {
         $jp = new JobPlacement();
-        $jp->title = $request->position_name;
+        $jp->title = $request->title;
         $jp->company_name = $request->company_name;
         $jp->company_url = $request->company_url;
+        $jp->application_url = $request->application_url;
         $jp->job_type = $request->job_type;
         $jp->salary = json_encode($request->salary);
         $jp->salary_type = $request->salary_type;
         $jp->deadline = $request->deadline;
-        $jp->created_by = auth()->user()->id;
+        $jp->age_requirement = $request->age_requirement;
+        $jp->experience_requirement = $request->experience_requirement;
+        $jp->professional_requirement = $request->professional_requirement;
+        $jp->educational_requirement = $request->educational_requirement;
+        $jp->additional_requirement = $request->additional_requirement;
+        $jp->company_addess = $request->company_addess;
+        $jp->job_responsibility = $request->job_responsibility;
+        $jp->other_benefits = $request->other_benefits;
+        $jp->job_location = $request->job_location;
+        $jp->special_instructions = $request->special_instructions;
+        if(auth()->user()->id){
+            $jp->created_by =  auth()->user()->id;
+        }else{
+            $jp->created_by =  'Frontend';
+        }
         $jp->save();
-        return redirect()->route('job_placement.jp_list')->withStatus(__('Job '.$request->title.' created successfully.'));
+        return redirect()->back()->withStatus(__('Job post '.$request->title.' created successfully.'));
     }
 }
