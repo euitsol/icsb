@@ -25,7 +25,7 @@
     <!--============================= Handbok Section ==================-->
     <section class="cs-handbook-section section-padding">
         <div class="container">
-            <div class="row all">
+            <div class="row all justify-content-center">
                 @if (isset(json_decode($single_page->saved_data)->{'upload-files'}))
                     @php
                         $files = (array)json_decode($single_page->saved_data)->{'upload-files'};
@@ -45,7 +45,7 @@
             </div>
             @if(isset($files) && count($files)>12)
             <div class="see-button text-align">
-                <a href="javascript:void(0)" class="more" data-slug="{{$single_page->frontend_slug}}">{{_('See More')}}</a>
+                <a href="javascript:void(0)" class="more" data-offset="12" data-slug="{{$single_page->frontend_slug}}">{{_('See More')}}</a>
             </div>
             @endif
         </div>
@@ -55,22 +55,26 @@
 <script>
     $(document).ready(function () {
     $('.more').on('click', function () {
+        var limit = 12;
         let slug = $(this).data('slug');
+        var offset = $(this).attr('data-offset');
+        let _url = ("{{ route('single_page.see_more', ['slug','offset']) }}");
+        let __url = _url.replace('slug', slug);
+        let ___url = __url.replace('offset', offset);
+        console.log(___url);
             $.ajax({
-                url: `/single_page/see_more/${slug}`,
+                url: ___url,
             method: 'GET',
             dataType: 'json',
             success: function (data) {
-                var allDetailsHtml = '';
-
-                // Loop through the awards data
+                $('.more').attr('data-offset', parseInt(offset)+limit);
                 data.files.forEach(function (file) {
                     var routeViewPdf = '{{ route("view.pdf", ":file") }}'.replace(':file', btoa(file));
                     var routeFileDownload = '{{ route("sp.file.download", ":file") }}'.replace(':file', btoa(file));
                     var fileName = file.split('/').pop().split('.').slice(0, -1).join('.');
 
 
-                    allDetailsHtml += `
+                    result = `
                         <div class="col-md-3 the_cs mb-5">
                             <div class="new-handbook text-align">
                                     <iframe src="${routeViewPdf}" type="application/pdf" width="100%" height="200px"></iframe>
@@ -78,11 +82,11 @@
                             </div>
                         </div>
                     `;
+                    $('.all').append(result);
                 });
-
-                // Insert the generated HTML into the '.awards' element
-                $('.all').html(allDetailsHtml);
-                $('.more').hide();
+                if(data.files.length<limit){
+                    $('.more').parent().hide();
+                }
             },
             error: function (xhr, status, error) {
                 console.error('Error fetching awards:', error);
