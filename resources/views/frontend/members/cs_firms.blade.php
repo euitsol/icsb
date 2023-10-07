@@ -108,15 +108,13 @@ $datas = [
                 }else{
                     $('.see-button').show();
                     var member_data= '';
-                    let image = ("{{storage_url('image')}}");
                     let no_image = ("{{asset('no_img/no_img.jpg')}}")
                     members.forEach(function(csFirmMember) {
-                        let _image = image.replace('image', csFirmMember.member.image);
-                        let __image = csFirmMember.member.image ? _image : no_image;
+                        let image = csFirmMember.member.image ? csFirmMember.member.image : no_image;
                         member_data += `
                             <div class="fellow-items flex">
                                 <div class="image-column">
-                                    <img src="${__image}" alt="">
+                                    <img src="${image}" alt="">
                                 </div>
                                 <div class="content-column">
                                     <h4>CS Practicing Licence No: ${csFirmMember.private_practice_certificate_no}</h4>
