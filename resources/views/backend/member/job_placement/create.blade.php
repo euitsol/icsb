@@ -38,14 +38,14 @@
                     @csrf
                     <div class="card-body">
                             <div class="form-group {{ $errors->has('title') ? ' has-danger' : '' }}">
-                                <label>{{ _('Job Title') }}</label>
+                                <label>{{ _('Job Title') }} <span class="text-danger">*</span></label>
                                 <input type="text" name="title" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter job title') }}" value="{{ old('title') }}">
                                 @include('alerts.feedback', ['field' => 'title'])
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6 {{ $errors->has('company_name') ? ' has-danger' : '' }}">
-                                    <label>{{ _('Company Name') }}</label>
-                                    <input type="text" name="company_name" class="form-control {{ $errors->has('company_name') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter job company_name') }}" value="{{ old('company_name') }}">
+                                    <label>{{ _('Company Name') }} <span class="text-danger">*</span></label>
+                                    <input type="text" name="company_name" class="form-control {{ $errors->has('company_name') ? ' is-inlid' : '' }}" placeholder="{{ _('Enter job company_name') }}" value="{{ old('company_name') }}">
                                     @include('alerts.feedback', ['field' => 'company_name'])
                                 </div>
                                 <div class="form-group col-md-6 {{ $errors->has('company_url') ? ' has-danger' : '' }}">
@@ -59,14 +59,14 @@
                                     @include('alerts.feedback', ['field' => 'application_url'])
                                 </div>
                                 <div class="form-group col-md-6 {{ $errors->has('email') ? ' has-danger' : '' }}">
-                                    <label>{{ _('Email') }}</label>
+                                    <label>{{ _('Email') }} <span class="text-danger">*</span></label>
                                     <input type="email" name="email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter job email') }}" value="{{ old('email') }}">
                                     @include('alerts.feedback', ['field' => 'email'])
                                 </div>
                             </div>
 
                             <div class="form-group {{ $errors->has('job_type') ? ' has-danger' : '' }}">
-                                <label>Job Type</label>
+                                <label>{{_('Job Type')}} <span class="text-danger">*</span></label>
                                 <div class="form-radio">
                                     <input class="form-check-input ml-2" name='job_type' type="radio" value="Full-Time">
                                     <label class="form-check-label mr-3 ml-4">{{_('Full-Time')}}</label>
@@ -102,12 +102,17 @@
                                 @include('alerts.feedback', ['field' => 'salary.*'])
                                 @include('alerts.feedback', ['field' => 'salary_type'])
                             </div>
-                            <div class="form-group {{ $errors->has('deadline') ? ' has-danger' : '' }}">
-                                <label>{{ _('Deadline') }}</label>
-                                <input type="date" name="deadline" class="form-control {{ $errors->has('deadline') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter deadline') }}" value="{{ old('deadline') }}">
-                                @include('alerts.feedback', ['field' => 'deadline'])
-                            </div>
                             <div class="row">
+                                <div class="form-group col-md-6 {{ $errors->has('deadline') ? ' has-danger' : '' }}">
+                                    <label>{{ _('Deadline') }} <span class="text-danger">*</span></label>
+                                    <input type="date" name="deadline" class="form-control {{ $errors->has('deadline') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter deadline') }}" value="{{ old('deadline') }}">
+                                    @include('alerts.feedback', ['field' => 'deadline'])
+                                </div>
+                                <div class="form-group col-md-6 {{ $errors->has('vacancy') ? ' has-danger' : '' }}">
+                                    <label>{{ _('Number of Vacancy') }} <span class="text-danger">*</span></label>
+                                    <input type="number" name="vacancy" class="form-control {{ $errors->has('vacancy') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter number of vacancy') }}" value="{{ old('vacancy') }}">
+                                    @include('alerts.feedback', ['field' => 'vacancy'])
+                                </div>
                                 <div class="form-group col-md-6 {{ $errors->has('educational_requirement') ? ' has-danger' : '' }}">
                                     <label>{{ _('Educational Requirement') }}</label>
                                     <input type="text" name="educational_requirement" class="form-control {{ $errors->has('educational_requirement') ? ' is-invalid' : '' }}" placeholder="{{ _('MBA/ M.Sc/ BBA/ Masters') }}" value="{{ old('educational_requirement') }}">
@@ -138,12 +143,12 @@
                                 </div>
                             </div>
                             <div class="form-group {{ $errors->has('company_address') ? 'has-danger' : '' }}">
-                                <label>{{ _('Company Address') }}</label>
+                                <label>{{ _('Company Address') }} <span class="text-danger">*</span></label>
                                 <textarea name="company_address" class="form-control {{ $errors->has('company_address') ? ' is-invalid' : '' }}" placeholder="Enter company address">{{ old('company_address') }}</textarea>
                                 @include('alerts.feedback', ['field' => 'company_address'])
                             </div>
                             <div class="form-group {{ $errors->has('job_responsibility') ? 'has-danger' : '' }}">
-                                <label>{{ _('Job Responsibility') }}</label>
+                                <label>{{ _('Job Responsibility') }} <span class="text-danger">*</span></label>
                                 <textarea name="job_responsibility" class="form-control {{ $errors->has('job_responsibility') ? ' is-invalid' : '' }}" placeholder="Enter job responsibility">{{ old('job_responsibility') }}</textarea>
                                 @include('alerts.feedback', ['field' => 'job_responsibility'])
                             </div>
@@ -153,7 +158,7 @@
                                 @include('alerts.feedback', ['field' => 'additional_requirement'])
                             </div>
                             <div class="form-group {{ $errors->has('job_location') ? 'has-danger' : '' }}">
-                                <label>{{ _('Job Location') }}</label>
+                                <label>{{ _('Job Location') }} <span class="text-danger">*</span></label>
                                 <textarea name="job_location" class="form-control {{ $errors->has('job_location') ? ' is-invalid' : '' }}" placeholder="Enter job location">{{ old('job_location') }}</textarea>
                                 @include('alerts.feedback', ['field' => 'job_location'])
                             </div>

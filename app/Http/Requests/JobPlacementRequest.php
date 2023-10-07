@@ -22,6 +22,7 @@ class JobPlacementRequest extends FormRequest
             'company_url' => 'required|url',
             'application_url' => 'nullable|url',
             'email' => 'required|email',
+            'vacancy' => 'required|numeric',
             'job_type' => [
                 'required',
                 Rule::in(["Full-Time", "Part-Time","Work From Home", "Contractual","Intern"]),
@@ -36,7 +37,7 @@ class JobPlacementRequest extends FormRequest
             ],
 
             'deadline' => 'required|date',
-            'company_addess'=>'required',
+            'company_address'=>'required',
             'job_responsibility'=>'required',
            ' additional_requirement'=>'nullable',
             'job_location'=>'required',

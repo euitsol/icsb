@@ -52,74 +52,85 @@ $datas = [
                 <div class="col-md-12 mx-auto">
                     @include('alerts.success')
                     <div class="job_create_form p-4">
-                        <form action="{{route('member_view.fjob_store')}}" method="POST" class="p-4">
+                        <form action="{{route('member_view.fjob_store')}}" method="POST" class="p-4" enctype="multipart/form-data">
                             @csrf
                             <h2>CREATE A JOB POSTING</h2>
                             <div class="row align-items-center">
-                                <div class="form-group mb-3 col-md-6">
-                                    <label for="position_name">Position Name <span class="text-danger">*</span></label>
-                                    <input type="text" name="position_name" id="position_name" placeholder="Job Position" class="form-control py-3 px-3">
+                                <div class="form-group mb-3 col-md-6 {{ $errors->has('title') ? ' has-danger' : '' }}">
+                                    <label for="title">Position Name <span class="text-danger">*</span></label>
+                                    <input type="text" name="title" value="{{ old('title') }}" id="title" placeholder="Job Position" class="form-control py-3 px-3 {{ $errors->has('title') ? ' is-invalid' : '' }}">
+                                    @include('alerts.feedback', ['field' => 'title'])
                                 </div>
-                                <div class="form-group mb-3 col-md-6">
+                                <div class="form-group mb-3 col-md-6 {{ $errors->has('company_name') ? ' has-danger' : '' }}">
                                     <label for="company_name">Company Name <span class="text-danger">*</span></label>
-                                    <input type="text" name="company_name" placeholder="Company Name" class="form-control py-3 px-3">
+                                    <input type="text" name="company_name" placeholder="Company Name" value="{{ old('company_name') }}" class="form-control py-3 px-3 {{ $errors->has('company_name') ? ' is-invalid' : '' }}">
+                                    @include('alerts.feedback', ['field' => 'company_name'])
                                 </div>
-                                <div class="form-group mb-3 col-md-6">
+                                <div class="form-group mb-3 col-md-6 {{ $errors->has('vacancy') ? ' has-danger' : '' }}">
                                     <label for="vacancy">Number of Vacancy <span class="text-danger">*</span></label>
-                                    <input type="text" name="vacancy" id="vacancy" placeholder="Number of Vacancies" class="form-control py-3 px-3">
+                                    <input type="number" name="vacancy" id="vacancy" value="{{ old('company_name') }}" placeholder="Number of Vacancies" class="form-control py-3 px-3 {{ $errors->has('vacancy') ? ' is-invalid' : '' }}">
+                                    @include('alerts.feedback', ['field' => 'vacancy'])
                                 </div>
-                                <div class="form-group mb-3 col-md-6">
+                                <div class="form-group mb-3 col-md-6 {{ $errors->has('job_type') ? ' has-danger' : '' }}">
                                     <div class="fieldset">
                                         <label for="job_type" class="legend">Nature of Job <span class="text-danger">*</span></label>
                                         <div class="form-check" id="job_type">
                                             <label class="form-check-label ms-5" for="job_type1">
-                                                <input class="form-check-input" type="radio" name="job_type" id="job_type1" value="Full-Time">
+                                                <input class="form-check-input" type="radio" name="job_type" id="job_type1" {{(old('job_type') == 'Full-Time') ? 'checked' : '' }} value="Full-Time">
                                                 Full Time
                                             </label>
                                             <label class="form-check-label ms-5" for="job_type2">
-                                                <input class="form-check-input" type="radio" name="job_type" id="job_type2"  value="Part-Time">
+                                                <input class="form-check-input" type="radio" name="job_type" id="job_type2" {{(old('job_type') == 'Part-Time') ? 'checked' : '' }}  value="Part-Time">
                                                 Part Time
                                             </label>
                                             <label class="form-check-label ms-5" for="job_type3">
-                                                <input class="form-check-input" type="radio" name="job_type" id="job_type3" value="Contractual">
+                                                <input class="form-check-input" type="radio" name="job_type" id="job_type3" {{(old('job_type') == 'Contractual') ? 'checked' : '' }} value="Contractual">
                                                 Contractual
                                             </label>
                                         </div>
                                     </div>
+                                    @include('alerts.feedback', ['field' => 'job_type'])
                                 </div>
-                                <div class="form-group mb-3">
+                                <div class="form-group mb-3 {{ $errors->has('job_responsibility') ? ' has-danger' : '' }}">
                                     <label for="jr">Job Responsibility <span class="text-danger">*</span></label>
-                                    <textarea name="job_responsibility" id="jr" cols="30" rows="5" class="form-control py-3 px-3" placeholder="Enter Job Responsibility"></textarea>
+                                    <textarea name="job_responsibility" id="jr" cols="30" rows="5" class="form-control py-3 px-3 {{ $errors->has('job_responsibility') ? ' is-invalid' : '' }}" placeholder="Enter Job Responsibility">{{ old('job_responsibility') }}</textarea>
+                                    @include('alerts.feedback', ['field' => 'job_responsibility'])
                                 </div>
-                                <div class="form-group mb-3 col-md-6">
+                                <div class="form-group mb-3 col-md-6 {{ $errors->has('educational_requirement') ? ' has-danger' : '' }}">
                                     <label for="er">Educational Requirements</label>
-                                    <input type="text" name="educational_requirement" id="er" class="form-control py-3 px-3" placeholder="MBA/ M.Sc/ BBA/ Masters">
+                                    <input type="text" name="educational_requirement" value="{{ old('educational_requirement') }}" id="er" class="form-control py-3 px-3 {{ $errors->has('educational_requirement') ? ' is-invalid' : '' }}" placeholder="MBA/ M.Sc/ BBA/ Masters">
+                                    @include('alerts.feedback', ['field' => 'educational_requirement'])
                                 </div>
-                                <div class="form-group mb-3 col-md-6">
+                                <div class="form-group mb-3 col-md-6 {{ $errors->has('professional_requirement') ? ' has-danger' : '' }}">
                                     <label for="pr">Professional Requirements</label>
-                                        <input type="text" name="professional_requirement" id="pr" class="form-control py-3 px-3" placeholder="FCS/ ACS/ QCS/ Certificate Level Passed">
+                                    <input type="text" name="professional_requirement" value="{{ old('professional_requirement') }}" id="pr" class="form-control py-3 px-3 {{ $errors->has('professional_requirement') ? ' is-invalid' : '' }}" placeholder="FCS/ ACS/ QCS/ Certificate Level Passed">
+                                    @include('alerts.feedback', ['field' => 'professional_requirement'])
                                 </div>
-                                <div class="form-group mb-3 col-md-6">
+                                <div class="form-group mb-3 col-md-6 {{ $errors->has('experience_requirement') ? ' has-danger' : '' }}">
                                     <label for="er">Experience Requirements</label>
                                     <div class="input-group">
-                                        <input type="number" name="experience_requirement" id="er" class="form-control py-3 px-3 w-75" placeholder="Enter Experience Requirements">
+                                        <input type="number" name="experience_requirement" value="{{ old('experience_requirement') }}" id="er" class="form-control py-3 px-3 w-75 {{ $errors->has('experience_requirement') ? ' is-invalid' : '' }}" placeholder="Enter Experience Requirements">
                                         <input type="text" value="in Years" class="form-control py-3 px-3 bold text-center w-25" disabled>
                                     </div>
+                                    @include('alerts.feedback', ['field' => 'experience_requirement'])
                                 </div>
-                                <div class="form-group mb-3 col-md-6">
+                                <div class="form-group mb-3 col-md-6 {{ $errors->has('age_requirement') ? ' has-danger' : '' }}">
                                     <label for="ar">Age Requirements</label>
                                     <div class="input-group">
-                                        <input type="number" name="age_requirement" id="er" class="form-control py-3 px-3 w-75" placeholder="Age at most in years">
+                                        <input type="number" name="age_requirement" value="{{ old('age_requirement') }}" id="er" class="form-control py-3 px-3 w-75 {{ $errors->has('age_requirement') ? ' is-invalid' : '' }}" placeholder="Age at most in years">
                                         <input type="text" value="in Years" class="form-control py-3 px-3 bold text-center w-25" disabled>
                                     </div>
+                                    @include('alerts.feedback', ['field' => 'age_requirement'])
                                 </div>
-                                <div class="form-group mb-3">
+                                <div class="form-group mb-3 {{ $errors->has('additional_requirement') ? ' has-danger' : '' }}">
                                     <label for="adr">Additional Requirements</label>
-                                    <textarea name="additional_requirement" id="adr" cols="30" rows="5" class="form-control py-3 px-3" placeholder="Enter Additional Requirements"></textarea>
+                                    <textarea name="additional_requirement" id="adr" cols="30" rows="5" class="form-control py-3 px-3 {{ $errors->has('additional_requirement') ? ' is-invalid' : '' }}" placeholder="Enter Additional Requirements">{{ old('additional_requirement') }}</textarea>
+                                    @include('alerts.feedback', ['field' => 'additional_requirement'])
                                 </div>
-                                <div class="form-group mb-3">
+                                <div class="form-group mb-3 {{ $errors->has('job_location') ? ' has-danger' : '' }}">
                                     <label for="jl">Job Location <span class="text-danger">*</span></label>
-                                    <textarea name="job_location" id="jl" cols="30" rows="5" class="form-control py-3 px-3" placeholder="Enter Job Location"></textarea>
+                                    <textarea name="job_location" id="jl" cols="30" rows="5" class="form-control py-3 px-3 {{ $errors->has('job_location') ? ' is-invalid' : '' }}" placeholder="Enter Job Location"> {{ old('job_location') }}</textarea>
+                                    @include('alerts.feedback', ['field' => 'job_location'])
                                 </div>
                                 <div class="form-group {{ $errors->has('salary') ? ' has-danger' : '' }} {{ $errors->has('salary.*') ? ' has-danger' : '' }} {{ $errors->has('salary_type') ? ' has-danger' : '' }}">
                                     <label class="col-md-12">Salary <span class="text-danger">*</span></label>
@@ -132,8 +143,8 @@ $datas = [
                                             <input type="number" class="form-control" name="salary[to]" value="{{ old('salary.to') }}">
                                             <select name="salary_type" class="form-control no-select">
                                                 <option selected hidden>{{ _('Select Salary Type') }}</option>
-                                                <option value="Per Month">{{ _('Per Month') }}</option>
-                                                <option value="Per Year">{{ _('Per Year') }}</option>
+                                                <option {{ (old('salary_type') == 'Per Month') ? 'selected' : '' }} value="Per Month">{{ _('Per Month') }}</option>
+                                                <option  {{ (old('salary_type') == 'Per Year') ? 'selected' : '' }} value="Per Year">{{ _('Per Year') }}</option>
                                             </select>
                                         </div>
                                     </div>
@@ -142,37 +153,45 @@ $datas = [
                                     @include('alerts.feedback', ['field' => 'salary_type'])
                                 </div>
 
-                                <div class="form-group mb-3">
+                                <div class="form-group mb-3 {{ $errors->has('other_benefits') ? ' has-danger' : '' }}">
                                     <label for="ob">Other Benefits</label>
-                                    <textarea name="other_benefits" id="ob" cols="30" rows="5" class="form-control py-3 px-3" placeholder="Enter Other Benefits"></textarea>
+                                    <textarea name="other_benefits" id="ob" cols="30" rows="5" class="form-control py-3 px-3 {{ $errors->has('other_benefits') ? ' is-invalid' : '' }}" placeholder="Enter Other Benefits">{{ old('other_benefits') }}</textarea>
+                                    @include('alerts.feedback', ['field' => 'other_benefits'])
                                 </div>
-                                <div class="form-group mb-3">
+                                <div class="form-group mb-3 {{ $errors->has('special_instractions') ? ' has-danger' : '' }}">
                                     <label for="si">Special Instructions</label>
-                                    <textarea name="special_instractions" id="si" cols="30" rows="5" class="form-control py-3 px-3" placeholder="Enter Special Instructions"></textarea>
+                                    <textarea name="special_instractions" id="si" cols="30" rows="5" class="form-control py-3 px-3 {{ $errors->has('special_instractions') ? ' is-invalid' : '' }}" placeholder="Enter Special Instructions">{{ old('special_instractions') }}</textarea>
+                                    @include('alerts.feedback', ['field' => 'special_instractions'])
                                 </div>
-                                <div class="form-group mb-3 col-md-6">
+                                <div class="form-group mb-3 col-md-6 {{ $errors->has('deadline') ? ' has-danger' : '' }}">
                                     <label for="ad">Application Deadline <span class="text-danger">*</span></label>
-                                    <input type="date" name="application_deadline" id="ad" class="form-control py-3 px-3">
+                                    <input type="date" name="deadline" value="{{ old('deadline') }}" id="ad" class="form-control py-3 px-3 {{ $errors->has('deadline') ? ' is-invalid' : '' }}">
+                                    @include('alerts.feedback', ['field' => 'deadline'])
                                 </div>
-                                <div class="form-group mb-3 col-md-6">
+                                <div class="form-group mb-3 col-md-6 {{ $errors->has('email') ? ' has-danger' : '' }}">
                                     <label for="email">Email Address <span class="text-danger">*</span></label>
-                                    <input type="email" name="email" id="email" class="form-control py-3 px-3" placeholder="Enter Company Email Address">
+                                    <input type="email" name="email" value="{{ old('email') }}" id="email" class="form-control py-3 px-3 {{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Enter Company Email Address">
+                                    @include('alerts.feedback', ['field' => 'email'])
                                 </div>
-                                <div class="form-group mb-3 col-md-6">
+                                <div class="form-group mb-3 col-md-6 {{ $errors->has('application_url') ? ' has-danger' : '' }}">
                                     <label for="url">Application URL</label>
-                                    <input type="url" name="application_url" id="url" class="form-control py-3 px-3" placeholder="Enter Application URL">
+                                    <input type="url" name="application_url" value="{{ old('application_url') }}" id="url" class="form-control py-3 px-3 {{ $errors->has('application_url') ? ' is-invalid' : '' }}" placeholder="Enter Application URL">
+                                    @include('alerts.feedback', ['field' => 'application_url'])
                                 </div>
-                                <div class="form-group mb-3 col-md-6">
+                                <div class="form-group mb-3 col-md-6 {{ $errors->has('company_url') ? ' has-danger' : '' }}">
                                     <label for="curl">Company Website</label>
-                                    <input type="url" name="company_url" id="curl" class="form-control py-3 px-3" placeholder="Enter Company URL">
+                                    <input type="url" name="company_url" value="{{ old('company_url') }}" id="curl" class="form-control py-3 px-3 {{ $errors->has('company_url') ? ' is-invalid' : '' }}" placeholder="Enter Company URL">
+                                    @include('alerts.feedback', ['field' => 'company_url'])
                                 </div>
-                                <div class="form-group mb-3">
+                                <div class="form-group mb-3 {{ $errors->has('company_address') ? ' has-danger' : '' }}">
                                     <label for="ca">Company Address <span class="text-danger">*</span></label>
-                                    <textarea name="company_address" id="ca" cols="30" rows="5" class="form-control py-3 px-3" placeholder="Enter Company Address"></textarea>
+                                    <textarea name="company_address" id="ca" cols="30" rows="5" class="form-control py-3 px-3 {{ $errors->has('company_address') ? ' is-invalid' : '' }}" placeholder="Enter Company Address">{{ old('company_address') }}</textarea>
+                                    @include('alerts.feedback', ['field' => 'company_address'])
                                 </div>
-                                <div class="form-group mb-3">
+                                <div class="form-group mb-3 {{ $errors->has('contact_details') ? ' has-danger' : '' }}">
                                     <label for="cpnd">Contact Person Name & Designation</label>
-                                    <textarea name="contact_details" id="cpnd" cols="30" rows="5" class="form-control py-3 px-3" placeholder="ICSB Official will communicate with the person to authenticate the job posting. Being authentication, ICSB Official will go accept this job circular for live posting and email to the members of the institute."></textarea>
+                                    <textarea name="contact_details" id="cpnd" cols="30" rows="5" class="form-control py-3 px-3 {{ $errors->has('contact_details') ? ' is-invalid' : '' }}" placeholder="ICSB Official will communicate with the person to authenticate the job posting. Being authentication, ICSB Official will go accept this job circular for live posting and email to the members of the institute.">{{ old('contact_details') }}</textarea>
+                                    @include('alerts.feedback', ['field' => 'contact_details'])
                                 </div>
                                 <div class="form-group mb-3">
                                     <input type="submit" class="btn btn-primary w-100" value="POST">

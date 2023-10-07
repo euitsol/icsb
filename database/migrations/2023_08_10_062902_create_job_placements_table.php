@@ -23,7 +23,7 @@ return new class extends Migration
             $table->enum('salary_type',["Per Month", "Per Year"]);
             $table->dateTime('deadline');
 
-            $table->longText('company_addess');
+            $table->longText('company_address');
             $table->longText('job_responsibility');
             $table->longText('additional_requirement')->nullable();
             $table->longText('job_location');

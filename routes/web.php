@@ -459,7 +459,7 @@ Route::group(['middleware' => ['auth', 'permission']], function () {
         Route::post('create', [JobPlacementController::class, 'store'])->name('jp_create');
         Route::get('edit/{id}', [JobPlacementController::class, 'edit'])->name('jp_edit');
         Route::put('edit/{id}', [JobPlacementController::class, 'update'])->name('jp_edit');
-        Route::get('status/{id}', [JobPlacementController::class, 'status'])->name('status.jp_edit');
+        Route::get('status/{id}/{status}', [JobPlacementController::class, 'status'])->name('status.jp_edit');
         Route::get('delete/{id}', [JobPlacementController::class, 'delete'])->name('jp_delete');
     });
     Route::group(['as' => 'cs_firm.', 'prefix' => 'cs-firms'], function () {
@@ -597,7 +597,7 @@ Route::group(['middleware' => ['log_visitor']], function () {
         Route::get('/job-placement', [MembersPagesController::class, 'job_index'])->name('job_index');
         Route::get('/job-posting', [MembersPagesController::class, 'job_create'])->name('job_create');
         Route::get('/jobs', [MembersPagesController::class, 'job_placement'])->name('jps');
-        Route::post('job/post', [MembersPagesController::class, 'store'])->name('fjob_store');
+        Route::post('job/store', [MembersPagesController::class, 'fj_store'])->name('fjob_store');
         Route::get('/cs-firms', [MembersPagesController::class, 'cs_firm'])->name('cs_firm');
         Route::get('/members-lounge', [MembersPagesController::class, 'members_lounge'])->name('members_lounge');
         Route::get('/corporate-leader/search', [MembersPagesController::class, 'corporate_leader'])->name('corporate_leader');
