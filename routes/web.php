@@ -35,6 +35,7 @@ use App\Http\Controllers\Backend\RecentVideoController;
 use App\Http\Controllers\Backend\SampleQuestionPaperController;
 use App\Http\Controllers\Backend\SecAndCeoController;
 use App\Http\Controllers\Backend\UserManagement\RoleController;
+use App\Http\Controllers\Backend\UserManagement\UserController;
 use App\Http\Controllers\Backend\UserManagement\PermissionController;
 use App\Http\Controllers\Frontend\DefaultController as ViewDefaultController;
 use App\Http\Controllers\Frontend\AboutPagesController;
@@ -110,6 +111,17 @@ Route::group(['middleware' => ['auth', 'permission']], function () {
 
     //User Management
     Route::group(['as' => 'um.', 'prefix' => 'user-management'], function () {
+
+        //User Management
+        Route::group(['as' => 'user.', 'prefix' => 'user'], function () {
+            Route::get('list',           [UserController::class, 'index'])->name('user_list');
+            Route::get('create',         [UserController::class, 'create'])->name('user_create');
+            Route::post('create',        [UserController::class, 'store'])->name('user_create');
+            Route::get('edit/{id}',      [UserController::class, 'edit'])->name('user_edit');
+            Route::put('edit/{id}',      [UserController::class, 'update'])->name('user_edit');
+            Route::get('status/{id}', [UserController::class, 'status'])->name('status.user_edit');
+            Route::get('delete/{id}', [UserController::class, 'delete'])->name('user_delete');
+        });
 
         //Role Management
         Route::group(['as' => 'role.', 'prefix' => 'role'], function () {
