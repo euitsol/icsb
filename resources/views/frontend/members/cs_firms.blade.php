@@ -136,7 +136,7 @@ $datas = [
     <script>
         $(document).ready(function () {
         $('.more').on('click', function () {
-            var limit = 10;
+            var limit = 50;
             var offset = $(this).attr('data-offset');
             let url = ("{{ route('cs_firms_more', ['offset']) }}");
             let _url = url.replace('offset', offset);

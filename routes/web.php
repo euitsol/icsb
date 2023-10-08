@@ -631,6 +631,7 @@ Route::group(['middleware' => ['log_visitor']], function () {
         Route::get('/address', [ContactPagesController::class, 'address'])->name('address');
         Route::get('/social-platforms', [ContactPagesController::class, 'socialPlatform'])->name('social_platforms');
         Route::get('/lcoation-map', [ContactPagesController::class, 'locationMap'])->name('location_map');
+        Route::post('/feedback/store', [ContactPagesController::class, 'feedbackStore'])->name('feedback.store');
     });
     // Route::group(['as' => 'article.', 'prefix' => 'article'], function () {
     //     Route::get('/single', [ArticlesController::class, 'single'])->name('single');
