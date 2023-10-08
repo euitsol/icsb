@@ -116,7 +116,7 @@ class AjaxController extends Controller
     }
     public function csFirms($offset){
         $query = CsFirms::with('member')->where('status',1)->where('deleted_at',null)->orderBy('private_practice_certificate_no','ASC');
-        $csFirmMembers = $query->offset($offset)->limit(10)->get()->map(function ($csFirmMember) {
+        $csFirmMembers = $query->offset($offset)->limit(50)->get()->map(function ($csFirmMember) {
             $csFirmMember->member->image = getMemberImage($csFirmMember->member);
             return $csFirmMember;
         });
