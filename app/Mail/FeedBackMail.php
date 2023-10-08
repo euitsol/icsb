@@ -14,15 +14,17 @@ class FeedBackMail extends Mailable
     use Queueable, SerializesModels;
 
     public $mail;
+    public $subject;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($mail)
+    public function __construct($mail, $subject)
     {
         $this->mail = $mail;
+        $this->subject = $subject;
     }
 
     /**
@@ -33,7 +35,7 @@ class FeedBackMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'New feedback submitted - ICSB',
+            subject: $this->subject,
         );
     }
 
