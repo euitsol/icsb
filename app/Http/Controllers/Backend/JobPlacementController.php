@@ -60,7 +60,8 @@ class JobPlacementController extends Controller
     public function delete($id): RedirectResponse
     {
         $jp = JobPlacement::findOrFail($id);
-        $jp->delete();
+        // $jp->delete();
+        $this->soft_delete($jp);
 
         return redirect()->route('job_placement.jp_list')->withStatus(__('Job '.$jp->title.' deleted successfully.'));
     }

@@ -71,8 +71,9 @@ class TestimonialController extends Controller
     public function delete($id): RedirectResponse
     {
         $testimonial = Testimonial::findOrFail($id);
-        $this->fileDelete($testimonial->image);
-        $testimonial->delete();
+        // $this->fileDelete($testimonial->image);
+        // $testimonial->delete();
+        $this->soft_delete($testimonial);
 
         return redirect()->route('testimonial.testimonial_list')->withStatus(__($testimonial->name.' testimonial deleted successfully.'));
     }

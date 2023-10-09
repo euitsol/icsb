@@ -68,8 +68,9 @@ class NationalConnectionController extends Controller
     public function delete($id): RedirectResponse
     {
         $nationalConnection = NationalConnection::findOrFail($id);
-        $this->fileDelete($nationalConnection->logo);
-        $nationalConnection->delete();
+        // $this->fileDelete($nationalConnection->logo);
+        // $nationalConnection->delete();
+        $this->soft_delete($nationalConnection);
 
         return redirect()->route('national_connection.national_connection_list')->withStatus(__('National Connection '.$nationalConnection->title.' deleted successfully.'));
     }

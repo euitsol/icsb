@@ -121,9 +121,9 @@ class MemberController extends Controller
     public function delete($id): RedirectResponse
     {
         $member = Member::findOrFail($id);
-        if(!empty($member->image)){
-            $this->fileDelete($member->image);
-        }
+        // if(!empty($member->image)){
+        //     $this->fileDelete($member->image);
+        // }
         $this->soft_delete($member);
         return redirect()->route('member.member_list')->withStatus(__($member->title.' status deleted successfully.'));
     }

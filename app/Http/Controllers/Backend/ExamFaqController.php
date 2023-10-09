@@ -55,7 +55,8 @@ class ExamFaqController extends Controller
     public function delete($id): RedirectResponse
     {
         $faq = ExamFaq::findOrFail($id);
-        $faq->delete();
+        // $faq->delete();
+        $this->soft_delete($faq);
 
         return redirect()->route('exam_faq.exam_faq_list')->withStatus(__('Faq '.$faq->title.' deleted successfully.'));
     }
