@@ -56,7 +56,8 @@ class FaqController extends Controller
     public function delete($id): RedirectResponse
     {
         $faq = Faq::findOrFail($id);
-        $faq->delete();
+        // $faq->delete();
+        $this->soft_delete($faq);
 
         return redirect()->route('about.faq.faq_list')->withStatus(__('Faq '.$faq->title.' deleted successfully.'));
     }

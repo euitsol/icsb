@@ -160,20 +160,21 @@ class MediaRoomController extends Controller
     public function delete($id): RedirectResponse
     {
         $media_room = MediaRoom::findOrFail($id);
-        $this->fileDelete($media_room->thumbnail_image);
-        if(!empty($media_room->additional_images)){
-            foreach(json_decode($media_room->additional_images) as $db_image){
-                $this->fileDelete($db_image);
-            }
-        }
-        $files = json_decode($media_room->files, true);
-        if(!empty($files)){
-            foreach($files as $key=>$file){
-                $filePathToDelete = $files[$key]['file_path'];
-                $this->fileDelete($filePathToDelete);
-            }
-        }
-        $media_room->delete();
+        // $this->fileDelete($media_room->thumbnail_image);
+        // if(!empty($media_room->additional_images)){
+        //     foreach(json_decode($media_room->additional_images) as $db_image){
+        //         $this->fileDelete($db_image);
+        //     }
+        // }
+        // $files = json_decode($media_room->files, true);
+        // if(!empty($files)){
+        //     foreach($files as $key=>$file){
+        //         $filePathToDelete = $files[$key]['file_path'];
+        //         $this->fileDelete($filePathToDelete);
+        //     }
+        // }
+        // $media_room->delete();
+        $this->soft_delete($media_room);
         return redirect()->route('media_room.media_room_list')->withStatus(__('Media room '.$media_room->title.' deleted successfully.'));
     }
     public function permissionAccept($id): RedirectResponse

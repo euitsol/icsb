@@ -71,8 +71,9 @@ class WWCSController extends Controller
     public function delete($id): RedirectResponse
     {
         $wwcs = WWCS::findOrFail($id);
-        $this->fileDelete($wwcs->logo);
-        $wwcs->delete();
+        // $this->fileDelete($wwcs->logo);
+        // $wwcs->delete();
+        $this->soft_delete($wwcs);
 
         return redirect()->route('wwcs.wwcs_list')->withStatus(__('World Wide CS '.stringLimit(html_entity_decode_table($wwcs->title)).' deleted successfully.'));
     }

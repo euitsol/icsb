@@ -120,11 +120,12 @@ class BannerController extends Controller
     public function delete($id): RedirectResponse
     {
         $banner = Banner::with('images')->findOrFail($id);
-        foreach($banner->images as $image){
-            $this->fileDelete($image->image);
-            Storage::deleteDirectory('public/banner/'.$banner->id);
-        }
-        $banner->delete();
+        // foreach($banner->images as $image){
+        //     $this->fileDelete($image->image);
+        //     Storage::deleteDirectory('public/banner/'.$banner->id);
+        // }
+        // $banner->delete();
+        $this->soft_delete($banner);
         return redirect()->route('banner.banner_list')->withStatus(__('banner '.$banner->banner_name.' deleted successfully.'));
     }
 

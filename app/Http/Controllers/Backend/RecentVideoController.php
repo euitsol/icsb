@@ -51,8 +51,9 @@ class RecentVideoController extends Controller
     public function delete($id): RedirectResponse
     {
         $recent_video = RecentVideo::findOrFail($id);
-        $this->fileDelete($recent_video->logo);
-        $recent_video->delete();
+        // $this->fileDelete($recent_video->logo);
+        // $recent_video->delete();
+        $this->soft_delete($recent_video);
 
         return redirect()->route('recent_video.recent_video_list')->withStatus(__('Recent Video '.$recent_video->title.' deleted successfully.'));
     }

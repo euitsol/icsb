@@ -73,8 +73,9 @@ class AssinedOfficerController extends Controller
     public function delete($id): RedirectResponse
     {
         $assined_officer = AssinedOfficer::findOrFail($id);
-        $this->fileDelete($assined_officer->image);
-        $assined_officer->delete();
+        // $this->fileDelete($assined_officer->image);
+        // $assined_officer->delete();
+        $this->soft_delete($assined_officer);
 
         return redirect()->route('assined_officer.assined_officer_list')->withStatus(__('Assined Officer '.$assined_officer->name.' deleted successfully.'));
     }

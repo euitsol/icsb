@@ -91,9 +91,10 @@ class NationalAwardController extends Controller
     public function delete($id): RedirectResponse
     {
         $national_award = NationalAward::findOrFail($id);
-        $this->fileDelete($national_award->image);
-        $this->fileDelete($national_award->file);
-        $national_award->delete();
+        // $this->fileDelete($national_award->image);
+        // $this->fileDelete($national_award->file);
+        // $national_award->delete();
+        $this->soft_delete($national_award);
 
         return redirect()->route('national_award.national_award_list')->withStatus(__('National Award '.$national_award->title.' deleted successfully.'));
     }
