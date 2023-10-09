@@ -1,6 +1,6 @@
 @extends('frontend.master')
 
-@section('title', 'Create Job Posting')
+@section('title', 'Edit Job Posting')
 @push('css')
 <style>
     .ck-rounded-corners .ck.ck-editor__main>.ck-editor__editable,
@@ -29,7 +29,7 @@
   <!-- =============================== Breadcrumb Section ======================================-->
 @php
 $banner_image = asset('breadcumb_img/members.jpg');
-$title = 'Create Job Posting';
+$title = 'Edit Your Job Posting';
 $datas = [
             'image'=>$banner_image,
             'title'=>$title,
@@ -54,7 +54,7 @@ $datas = [
                     <div class="job_create_form p-4">
                         <form action="{{route('member_view.fjob_update',$jp->id)}}" method="POST" class="p-4" enctype="multipart/form-data">
                             @csrf
-                            <h2>CREATE A JOB POSTING</h2>
+                            <h2>EDIT YOUR JOB POSTING</h2>
                             <div class="row align-items-center">
                                 <div class="form-group mb-3 col-md-6 {{ $errors->has('title') ? ' has-danger' : '' }}">
                                     <label for="title">Position Name <span class="text-danger">*</span></label>

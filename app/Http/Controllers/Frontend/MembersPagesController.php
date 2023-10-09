@@ -187,10 +187,10 @@ class MembersPagesController extends Controller
     }
 
     public function job_edit($id,$status){
-        // $p_id = base64_decode($id);
-        // $p_status = base64_decode($status);
-        $p_id = $id;
-        $p_status = $status;
+        $p_id = base64_decode($id);
+        $p_status = base64_decode($status);
+        // $p_id = $id;
+        // $p_status = $status;
         if($p_status == 1){
             abort(404);
         }else{
@@ -232,10 +232,10 @@ class MembersPagesController extends Controller
         $jp->save();
 
 
-        // $id = base64_encode($jp->id);
-        // $status = base64_encode($jp->status);
-        $id = $jp->id;
-        $status = $jp->status;
+        $id = base64_encode($jp->id);
+        $status = base64_encode($jp->status);
+        // $id = $jp->id;
+        // $status = $jp->status;
         $url = route('member_view.job_edit',[$id,$status]);
         $subject = "Edit success of your Job Post";
         $mail =

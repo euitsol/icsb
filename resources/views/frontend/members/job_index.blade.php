@@ -31,7 +31,7 @@ $datas = [
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <h1><a href="{{route('member_view.job_edit',[1,'-1'])}}">edit</a></h1>
+                    {{-- <h1><a href="{{route('member_view.job_edit',[1,'-1'])}}">edit</a></h1> --}}
                     <div class="employeer">
                         <a href="{{route('member_view.job_create')}}" class="rounded p-5 btn btn-outline-primary w-100">{{_("I'm Employer")}}</a>
                     </div>

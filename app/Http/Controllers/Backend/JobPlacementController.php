@@ -103,8 +103,8 @@ class JobPlacementController extends Controller
             $jp->save();
             // $id = base64_encode($jp->id);
             // $status = base64_encode($jp->status);
-            $id = $jp->id;
-            $status = $jp->status;
+            // $id = $jp->id;
+            // $status = $jp->status;
             $url = route('member_view.jps');
             $subject = "Approval of Your Job Post";
             $mail =
@@ -123,10 +123,10 @@ class JobPlacementController extends Controller
         }elseif($status == 'declined'){
             $jp->status = '-1';
             $jp->save();
-            // $id = base64_encode($jp->id);
-            // $status = base64_encode($jp->status);
-            $id = $jp->id;
-            $status = $jp->status;
+            $id = base64_encode($jp->id);
+            $status = base64_encode($jp->status);
+            // $id = $jp->id;
+            // $status = $jp->status;
             $url = route('member_view.job_edit',[$id,$status]);
             $subject = "Declined of your Job Post";
             $mail =
@@ -141,10 +141,10 @@ class JobPlacementController extends Controller
         }elseif($status == 'disclosed'){
             $jp->status = '2';
             $jp->save();
-            // $id = base64_encode($jp->id);
-            // $status = base64_encode($jp->status);
-            $id = $jp->id;
-            $status = $jp->status;
+            $id = base64_encode($jp->id);
+            $status = base64_encode($jp->status);
+            // $id = $jp->id;
+            // $status = $jp->status;
             $url = route('member_view.job_edit',[$id,$status]);
             $subject = "Disclosed of your Job Post";
             $mail =
@@ -162,10 +162,10 @@ class JobPlacementController extends Controller
             }else{
                 $jp->status = '0';
                 $jp->save();
-                // $id = base64_encode($jp->id);
-                // $status = base64_encode($jp->status);
-                $id = $jp->id;
-                $status = $jp->status;
+                $id = base64_encode($jp->id);
+                $status = base64_encode($jp->status);
+                // $id = $jp->id;
+                // $status = $jp->status;
                 $url = route('member_view.job_edit',[$id,$status]);
                 $subject = "Re-post of your Job Post";
                 $mail =
