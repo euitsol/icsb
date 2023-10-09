@@ -104,18 +104,18 @@ class ActsController extends Controller
     }
     public function delete($id): RedirectResponse
     {
-        $act = Act::findOrFail($id);
-        $files = json_decode($act->files, true);
-        if(!empty($files)){
-            foreach($files as $key=>$file){
-                $filePathToDelete = $files[$key]['file_path'];
-                $this->fileDelete($filePathToDelete);
-            }
-        }
-        $act->delete();
-
         // $act = Act::findOrFail($id);
-        // $this->soft_delete($act);
+        // $files = json_decode($act->files, true);
+        // if(!empty($files)){
+        //     foreach($files as $key=>$file){
+        //         $filePathToDelete = $files[$key]['file_path'];
+        //         $this->fileDelete($filePathToDelete);
+        //     }
+        // }
+        // $act->delete();
+
+        $act = Act::findOrFail($id);
+        $this->soft_delete($act);
         return redirect()->route('acts.acts_list')->withStatus(__('Act '.$act->title.' deleted successfully.'));
     }
     public function status($id): RedirectResponse

@@ -62,6 +62,33 @@ class AjaxController extends Controller
             $convocations = Convocation::where('deleted_at',null)->where('status',1)->latest()->offset($offset)->limit(12)->get();
             return response()->json(['convocations'=>$convocations]);
     }
+    // public function singlePageSeeMore($slug,$offset): JsonResponse
+    // {
+    //     $results = SinglePages::where('frontend_slug', $slug)->first();
+    //     if(isset(json_decode($results->saved_data)->{'upload-files'})){
+    //         $files = array_reverse((array)json_decode($results->saved_data)->{'upload-files'});
+    //         return response()->json(['files'=>$files]);
+    //     }
+    // }
+    public function singlePageSeeMore($slug, $offset): JsonResponse
+    {
+        $results = SinglePages::where('frontend_slug', $slug)->first();
+
+        if ($results) {
+            $savedData = json_decode($results->saved_data);
+
+            if (isset($savedData->{'upload-files'})) {
+                $files = array_reverse((array) $savedData->{'upload-files'});
+
+                $offset = intval($offset);
+                $limit = 12;
+                $files = array_slice($files, $offset, $limit);
+
+                return response()->json(['files' => $files]);
+            }
+        }
+        return response()->json(['files' => []]);
+    }
     public function mediaRooms($id,$offset): JsonResponse
     {
 
@@ -89,7 +116,7 @@ class AjaxController extends Controller
     }
     public function csFirms($offset){
         $query = CsFirms::with('member')->where('status',1)->where('deleted_at',null)->orderBy('private_practice_certificate_no','ASC');
-        $csFirmMembers = $query->offset($offset)->limit(10)->get()->map(function ($csFirmMember) {
+        $csFirmMembers = $query->offset($offset)->limit(50)->get()->map(function ($csFirmMember) {
             $csFirmMember->member->image = getMemberImage($csFirmMember->member);
             return $csFirmMember;
         });
@@ -106,14 +133,6 @@ class AjaxController extends Controller
             return $event;
         });
         return response()->json(['events'=>$events]);
-    }
-    public function singlePageSeeMore($slug): JsonResponse
-    {
-        $results = SinglePages::where('frontend_slug', $slug)->first();
-        if(isset(json_decode($results->saved_data)->{'upload-files'})){
-            $files = array_reverse((array)json_decode($results->saved_data)->{'upload-files'});
-            return response()->json(['files'=>$files]);
-        }
     }
     public function cs_firms_member_search($search_value): JsonResponse
     {

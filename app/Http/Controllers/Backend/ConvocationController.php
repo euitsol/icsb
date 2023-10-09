@@ -91,9 +91,10 @@ class ConvocationController extends Controller
     public function delete($id): RedirectResponse
     {
         $convocation = Convocation::findOrFail($id);
-        $this->fileDelete($convocation->image);
-        $this->fileDelete($convocation->file);
-        $convocation->delete();
+        // $this->fileDelete($convocation->image);
+        // $this->fileDelete($convocation->file);
+        // $convocation->delete();
+        $this->soft_delete($convocation);
 
         return redirect()->route('convocation.convocation_list')->withStatus(__('Convocation '.$convocation->title.' deleted successfully.'));
     }

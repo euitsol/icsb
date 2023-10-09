@@ -25,7 +25,7 @@ $datas = [
             <h2 class="common-heading">{{'CS Firm Members'}}</h2>
             <div class="search">
                 <div class="input-group">
-                    <input type="text" class="search_value" placeholder="Search by Member Name, Designation, Company Name or Private Practice Certificate No">
+                    <input type="text" data-members="{{$csf_members}}" class="search_value" placeholder="Search by Member Name, Designation, Company Name or Private Practice Certificate No">
                     <button class="search_button" type="submit"><i class="fa fa-search"></i></button>
                 </div>
             </div>
@@ -49,7 +49,7 @@ $datas = [
         </div>
         @if((count($csf_members)>=50))
             <div class="see-button text-align" >
-                <a href="javascript:void(0)" class="more" data-offset="10">{{_('See More')}}</a>
+                <a href="javascript:void(0)" class="more" data-offset="50">{{_('See More')}}</a>
             </div>
         @endif
     </div>
@@ -60,6 +60,7 @@ $datas = [
         $(document).ready(function() {
             $('.search_value').on('input', function() {
                 let search_value = $('.search_value').val();
+                let members = $('.search_value').data('members');
                 if (search_value != null && search_value != '') {
                     let _url = ("{{ route('cs_firms.member_info.search', ['search_value']) }}");
                     let __url = _url.replace('search_value', search_value);
@@ -105,7 +106,28 @@ $datas = [
                         }
                     });
                 }else{
-                    $('.member_data').html('');
+                    $('.see-button').show();
+                    var member_data= '';
+                    let no_image = ("{{asset('no_img/no_img.jpg')}}")
+                    members.forEach(function(csFirmMember) {
+                        let image = csFirmMember.member.image ? csFirmMember.member.image : no_image;
+                        member_data += `
+                            <div class="fellow-items flex">
+                                <div class="image-column">
+                                    <img src="${image}" alt="">
+                                </div>
+                                <div class="content-column">
+                                    <h4>CS Practicing Licence No: ${csFirmMember.private_practice_certificate_no}</h4>
+                                    <h3>${csFirmMember.member.name}</h3>
+                                    <p class="mb-0"><strong>${csFirmMember.member.designation}</strong></p>
+                                    <p><strong>${csFirmMember.member.company_name}</strong></p>
+                                    <li><i class="fa-solid fa-house-circle-exclamation"></i>${csFirmMember.member.address}</li>
+                                    <li><i class="fa-solid fa-envelope-open-text"></i>Email: <a href="mailto:${csFirmMember.member.email}">${csFirmMember.member.email}</a></li>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    $('.member_data').html(member_data);
                 }
             });
         });
@@ -114,7 +136,7 @@ $datas = [
     <script>
         $(document).ready(function () {
         $('.more').on('click', function () {
-            var limit = 10;
+            var limit = 50;
             var offset = $(this).attr('data-offset');
             let url = ("{{ route('cs_firms_more', ['offset']) }}");
             let _url = url.replace('offset', offset);

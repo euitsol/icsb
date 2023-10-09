@@ -5,6 +5,9 @@ namespace App\Http\Traits;
 use App\Jobs\SendMemberEmail;
 use App\Models\Member;
 use Illuminate\Database\Schema\Blueprint;
+// use Mail;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\FeedBackMail;
 
 trait SendMailTrait{
 
@@ -15,6 +18,9 @@ trait SendMailTrait{
                 SendMemberEmail::dispatch($member->email, $data)->delay(now()->addSeconds(60));
             }
         }
+    }
+    public function send_feedback_email($mail, $subject, $to){
+        Mail::to($to)->send(new FeedBackMail($mail, $subject));
     }
 
 }

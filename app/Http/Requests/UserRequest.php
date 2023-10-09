@@ -23,18 +23,45 @@ class UserRequest extends FormRequest
      *
      * @return array
      */
+    // public function rules(): array
+    // {
+    //     return [
+    //         'name' => [
+    //             'required', 'min:3'
+    //         ],
+    //         'email' => [
+    //             'required', 'email', Rule::unique((new User)->getTable())->ignore($this->route()->user->id ?? null)
+    //         ],
+    //         'password' => [
+    //             $this->route()->user ? 'required_with:password_confirmation' : 'required', 'nullable', 'confirmed', 'min:6'
+    //         ],
+    //     ];
+    // }
     public function rules(): array
     {
         return [
-            'name' => [
-                'required', 'min:3'
-            ],
-            'email' => [
-                'required', 'email', Rule::unique((new User)->getTable())->ignore($this->route()->user->id ?? null)
-            ],
-            'password' => [
-                $this->route()->user ? 'required_with:password_confirmation' : 'required', 'nullable', 'confirmed', 'min:6'
-            ],
+            'name' => 'required|min:3',
+            'status' => 'nullable|boolean',
+            'role' => 'nullable|exists:roles,id',
+
+        ]
+        +
+        ($this->isMethod('POST') ? $this->store() : $this->update());
+    }
+
+    protected function store(): array
+    {
+        return [
+            'email' => 'required|unique:users,email,NULL,id,deleted_at,NULL',
+            'password' => 'required|min:6|confirmed',
+        ];
+    }
+
+    protected function update(): array
+    {
+        return [
+            'email' => 'required|unique:users,email,' . $this->route('id') . ',id,deleted_at,NULL',
+            'password' => 'nullable|min:6|confirmed',
         ];
     }
 }

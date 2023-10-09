@@ -119,10 +119,11 @@ class EventController extends Controller
     public function delete($id): RedirectResponse
     {
         $event = Event::findOrFail($id);
-        foreach(json_decode($event->image) as $db_image){
-            $this->fileDelete($db_image);
-        }
-        $event->delete();
+        // foreach(json_decode($event->image) as $db_image){
+        //     $this->fileDelete($db_image);
+        // }
+        // $event->delete();
+        $this->soft_delete($event);
 
         return redirect()->route('event.event_list')->withStatus(__('Event '.$event->title.' deleted successfully.'));
     }

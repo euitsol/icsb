@@ -104,18 +104,18 @@ class SampleQuestionPaperController extends Controller
     }
     public function delete($id): RedirectResponse
     {
-        $sqp = SampleQuestionPaper::findOrFail($id);
-        $files = json_decode($sqp->files, true);
-        if(!empty($files)){
-            foreach($files as $key=>$file){
-                $filePathToDelete = $files[$key]['file_path'];
-                $this->fileDelete($filePathToDelete);
-            }
-        }
-        $sqp->delete();
-
         // $sqp = SampleQuestionPaper::findOrFail($id);
-        // $this->soft_delete($sqp);
+        // $files = json_decode($sqp->files, true);
+        // if(!empty($files)){
+        //     foreach($files as $key=>$file){
+        //         $filePathToDelete = $files[$key]['file_path'];
+        //         $this->fileDelete($filePathToDelete);
+        //     }
+        // }
+        // $sqp->delete();
+
+        $sqp = SampleQuestionPaper::findOrFail($id);
+        $this->soft_delete($sqp);
         return redirect()->route('acts.acts_list')->withStatus(__('Sample Question Paper '.$sqp->title.' deleted successfully.'));
     }
     public function status($id): RedirectResponse

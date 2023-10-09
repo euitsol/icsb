@@ -79,7 +79,8 @@ class RoleController extends Controller
     public function delete($id): RedirectResponse
     {
         $role = Role::findOrFail($id);
-        $role->delete();
+        // $role->delete();
+        $this->soft_delete($role);
 
         return redirect()->route('um.role.role_list')->withStatus(__('Role '.$role->name.' deleted successfully.'));
     }

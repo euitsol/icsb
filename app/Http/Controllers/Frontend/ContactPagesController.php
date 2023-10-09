@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\FeedbackRequest;
 use App\Models\Act;
 use App\Models\MediaRoomCategory;
 use App\Models\CommitteeType;
@@ -10,15 +11,19 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Contact;
 use App\Models\Council;
+use App\Models\Feedback;
 use App\Models\MemberType;
 use App\Models\SecretarialStandard;
 use App\Models\SinglePages;
 use App\Models\Visitor;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Carbon;
 use Illuminate\View\View;
+use App\Http\Traits\SendMailTrait;
 
 class ContactPagesController extends Controller
 {
+    use SendMailTrait;
     public function __construct() {
         $contact = Contact::where('deleted_at', null)->first();
         $memberTypes = MemberType::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
@@ -80,5 +85,25 @@ class ContactPagesController extends Controller
     {
         $s['contact'] = Contact::where('deleted_at', null)->first();
         return view('frontend.contact.map',$s);
+    }
+    public function feedbackStore(FeedbackRequest $req): RedirectResponse
+    {
+        $feedback = new Feedback();
+        $feedback->name = $req->name;
+        $feedback->email = $req->email;
+        $feedback->phone = $req->phone;
+        $feedback->subject = $req->subject;
+        $feedback->message = $req->message;
+        $feedback->save();
+        $mail =
+        "
+        Sent From: $feedback->email <br>
+        Name: $feedback->name <br>
+        Phone: $feedback->phone <br>
+        Feedback: $feedback->message <br>
+        ";
+        $to = "shariful.euitsols@gmail.com";
+        $this->send_feedback_email($mail,$feedback->subject, $to);
+        return redirect()->route('contact_us.feedback')->withStatus(__('Thank you for your feedback!'));
     }
 }

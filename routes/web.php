@@ -35,6 +35,7 @@ use App\Http\Controllers\Backend\RecentVideoController;
 use App\Http\Controllers\Backend\SampleQuestionPaperController;
 use App\Http\Controllers\Backend\SecAndCeoController;
 use App\Http\Controllers\Backend\UserManagement\RoleController;
+use App\Http\Controllers\Backend\UserManagement\UserController;
 use App\Http\Controllers\Backend\UserManagement\PermissionController;
 use App\Http\Controllers\Frontend\DefaultController as ViewDefaultController;
 use App\Http\Controllers\Frontend\AboutPagesController;
@@ -110,6 +111,17 @@ Route::group(['middleware' => ['auth', 'permission']], function () {
 
     //User Management
     Route::group(['as' => 'um.', 'prefix' => 'user-management'], function () {
+
+        //User Management
+        Route::group(['as' => 'user.', 'prefix' => 'user'], function () {
+            Route::get('list',           [UserController::class, 'index'])->name('user_list');
+            Route::get('create',         [UserController::class, 'create'])->name('user_create');
+            Route::post('create',        [UserController::class, 'store'])->name('user_create');
+            Route::get('edit/{id}',      [UserController::class, 'edit'])->name('user_edit');
+            Route::put('edit/{id}',      [UserController::class, 'update'])->name('user_edit');
+            Route::get('status/{id}', [UserController::class, 'status'])->name('status.user_edit');
+            Route::get('delete/{id}', [UserController::class, 'delete'])->name('user_delete');
+        });
 
         //Role Management
         Route::group(['as' => 'role.', 'prefix' => 'role'], function () {
@@ -532,7 +544,7 @@ Route::group(['middleware' => ['log_visitor']], function () {
     Route::get('cs-firms-members/search/{search_value}', [FrontendAjaxController::class, 'cs_firms_member_search'])->name('cs_firms.member_info.search');
     Route::get('members/search/{search_value}/{cat_id}', [FrontendAjaxController::class, 'member_search'])->name('member_info.search');
     Route::get('corporate-leader/search/{search_value}', [FrontendAjaxController::class, 'corporate_leader'])->name('corporate_leader.search');
-    Route::get('single_page/see_more/{slug}', [FrontendAjaxController::class, 'singlePageSeeMore'])->name('single_page.see_more');
+    Route::get('single_page/see_more/{slug}/{offset}', [FrontendAjaxController::class, 'singlePageSeeMore'])->name('single_page.see_more');
     Route::get('media-data/{id}/{offset}', [FrontendAjaxController::class, 'mediaRooms'])->name('media_rooms');
     Route::get('cs-firms-data/{offset}', [FrontendAjaxController::class, 'csFirms'])->name('cs_firms_more');
     Route::get('event-data/{offset}', [FrontendAjaxController::class, 'events'])->name('events_more');
@@ -620,6 +632,7 @@ Route::group(['middleware' => ['log_visitor']], function () {
         Route::get('/address', [ContactPagesController::class, 'address'])->name('address');
         Route::get('/social-platforms', [ContactPagesController::class, 'socialPlatform'])->name('social_platforms');
         Route::get('/lcoation-map', [ContactPagesController::class, 'locationMap'])->name('location_map');
+        Route::post('/feedback/store', [ContactPagesController::class, 'feedbackStore'])->name('feedback.store');
     });
     // Route::group(['as' => 'article.', 'prefix' => 'article'], function () {
     //     Route::get('/single', [ArticlesController::class, 'single'])->name('single');
