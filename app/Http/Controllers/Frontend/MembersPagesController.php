@@ -20,9 +20,11 @@ use App\Models\Visitor;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Carbon;
 use Illuminate\View\View;
+use App\Http\Traits\SendMailTrait;
 
 class MembersPagesController extends Controller
 {
+    use SendMailTrait;
     public function __construct() {
         $contact = Contact::where('deleted_at', null)->first();
         $memberTypes = MemberType::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
@@ -162,6 +164,91 @@ class MembersPagesController extends Controller
             $jp->created_by =  'Frontend';
         }
         $jp->save();
+
+
+        // $id = base64_encode($jp->id);
+        // $status = base64_encode($jp->status);
+        $id = $jp->id;
+        $status = $jp->status;
+        $subject = "Pending of your Job Post";
+        $url = route('member_view.job_edit',[$id,$status]);
+        $mail =
+        "
+        Dear Sir, <br><br>
+
+        Thank you for choosing ICSB Job Portal to post your job opportunity. We appreciate your trust in our platform to connect you with potential candidates.<br><br>
+
+        We want to inform you that your job post is currently in the pending status. Our team is working diligently to review and approve your job listing. Once approved, it will be live on our platform for job seekers to view and apply. <br><br>
+
+        Edit URL: $url
+        ";
+        $this->send_feedback_email($mail,$subject, $jp->email);
         return redirect()->back()->withStatus(__('Job post '.$request->title.' created successfully.'));
+    }
+
+    public function job_edit($id,$status){
+        // $p_id = base64_decode($id);
+        // $p_status = base64_decode($status);
+        $p_id = $id;
+        $p_status = $status;
+        if($p_status == 1){
+            abort(404);
+        }else{
+            $s['jp'] = JobPlacement::where('id',$p_id)->where('status',$p_status)->first();
+            return view('frontend.members.job_edit',$s);
+        }
+    }
+    public function fj_update(JobPlacementRequest $request, $id): RedirectResponse
+    {
+        $jp = JobPlacement::findOrFail($id);
+        $jp->title = $request->title;
+        $jp->company_name = $request->company_name;
+        $jp->company_url = $request->company_url;
+        $jp->application_url = $request->application_url;
+        $jp->job_type = $request->job_type;
+        $jp->salary = json_encode($request->salary);
+        $jp->salary_type = $request->salary_type;
+        $jp->email = $request->email;
+        $jp->deadline = $request->deadline;
+        $jp->vacancy = $request->vacancy;
+        $jp->age_requirement = $request->age_requirement;
+        $jp->experience_requirement = $request->experience_requirement;
+        $jp->professional_requirement = $request->professional_requirement;
+        $jp->educational_requirement = $request->educational_requirement;
+        $jp->additional_requirement = $request->additional_requirement;
+        $jp->company_address = $request->company_address;
+        $jp->job_responsibility = $request->job_responsibility;
+        $jp->other_benefits = $request->other_benefits;
+        $jp->job_location = $request->job_location;
+        $jp->special_instractions = $request->special_instractions;
+        if($request->deadline > Carbon::now()){
+            $jp->status = '0';
+        }
+        if(auth()->user()->id){
+            $jp->created_by =  auth()->user()->id;
+        }else{
+            $jp->created_by =  'Frontend';
+        }
+        $jp->save();
+
+
+        // $id = base64_encode($jp->id);
+        // $status = base64_encode($jp->status);
+        $id = $jp->id;
+        $status = $jp->status;
+        $url = route('member_view.job_edit',[$id,$status]);
+        $subject = "Edit success of your Job Post";
+        $mail =
+        "
+        Dear Sir, <br><br>
+
+        Your Job post edit successfully. We appreciate your trust in our platform to connect you with potential candidates.<br><br>
+
+        We want to inform you that your job post is currently in the pending status. Our team is working diligently to review and approve your job listing. Once approved, it will be live on our platform for job seekers to view and apply. <br><br>
+
+        Edit URL: $url
+        ";
+        $this->send_feedback_email($mail,$subject, $jp->email);
+        return redirect()->back()->withStatus(__('Job post '.$request->title.' edit successfully.'));
     }
 }

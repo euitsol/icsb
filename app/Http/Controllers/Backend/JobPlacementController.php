@@ -100,17 +100,88 @@ class JobPlacementController extends Controller
         $jp = JobPlacement::findOrFail($id);
         if($status == 'accept'){
             $jp->status = '1';
+            $jp->save();
+            // $id = base64_encode($jp->id);
+            // $status = base64_encode($jp->status);
+            $id = $jp->id;
+            $status = $jp->status;
+            $url = route('member_view.jps');
+            $subject = "Approval of Your Job Post";
+            $mail =
+            "
+            Dear Sir,<br><br>
+
+            I am pleased to inform you that your job post has been reviewed and approved by our team. Your job listing is now live on our platform and accessible to job seekers who are eager to explore opportunities.<br><br>
+
+            We appreciate your trust in our platform to connect you with potential candidates. Your job post will undoubtedly contribute to the success of your recruitment efforts.<br><br>
+
+            Thank you for using our platform, and we wish you the best in finding the perfect candidate for your job opening.<br><br>
+
+            Live URL: $url
+            ";
+            $this->send_feedback_email($mail,$subject, $jp->email);
         }elseif($status == 'declined'){
             $jp->status = '-1';
+            $jp->save();
+            // $id = base64_encode($jp->id);
+            // $status = base64_encode($jp->status);
+            $id = $jp->id;
+            $status = $jp->status;
+            $url = route('member_view.job_edit',[$id,$status]);
+            $subject = "Declined of your Job Post";
+            $mail =
+            "
+            Dear Sir, <br><br>
+
+            Your Job post was declined from ICSB Job Portal
+
+            Edit URL:$url
+            ";
+        $this->send_feedback_email($mail,$subject, $jp->email);
         }elseif($status == 'disclosed'){
             $jp->status = '2';
+            $jp->save();
+            // $id = base64_encode($jp->id);
+            // $status = base64_encode($jp->status);
+            $id = $jp->id;
+            $status = $jp->status;
+            $url = route('member_view.job_edit',[$id,$status]);
+            $subject = "Disclosed of your Job Post";
+            $mail =
+            "
+            Dear Sir, <br><br>
+
+            Your Job post was declined from ICSB Job Portal
+
+            Edit URL: $url
+            ";
+            $this->send_feedback_email($mail,$subject, $jp->email);
         }elseif($status == 'restore'){
             if($jp->deadline < Carbon::now()){
                 return redirect()->route('job_placement.jp_list')->withStatus(__('This post deadline expired please update the deadline before.'));
+            }else{
+                $jp->status = '0';
+                $jp->save();
+                // $id = base64_encode($jp->id);
+                // $status = base64_encode($jp->status);
+                $id = $jp->id;
+                $status = $jp->status;
+                $url = route('member_view.job_edit',[$id,$status]);
+                $subject = "Re-post of your Job Post";
+                $mail =
+                "
+                Dear Sir, <br><br>
+
+                Re-post of your Job Post. We appreciate your trust in our platform to connect you with potential candidates.<br><br>
+
+                We want to inform you that your job post is currently in the pending status. Our team is working diligently to review and approve your job listing. Once approved, it will be live on our platform for job seekers to view and apply. <br><br>
+
+                Edit URL: $url
+                ";
+                $this->send_feedback_email($mail,$subject, $jp->email);
             }
-            $jp->status = '0';
+
         }
-        $jp->save();
         return redirect()->route('job_placement.jp_list')->withStatus(__($jp->title.' status updated successfully.'));
     }
 }
