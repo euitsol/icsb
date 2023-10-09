@@ -105,7 +105,7 @@ class MembersPagesController extends Controller
     public function job_placement(): View
     {
         $s['today'] = Carbon::now();
-        $s['job_placements'] = JobPlacement::where('status',1)->where('deleted_at',null)->latest()->get();
+        $s['job_placements'] = JobPlacement::where('status','1')->where('deadline','>=',$s['today'])->where('deleted_at',null)->latest()->get();
         return view('frontend.members.job_placement',$s);
 
     }
@@ -145,6 +145,7 @@ class MembersPagesController extends Controller
         $jp->salary_type = $request->salary_type;
         $jp->email = $request->email;
         $jp->deadline = $request->deadline;
+        $jp->vacancy = $request->vacancy;
         $jp->age_requirement = $request->age_requirement;
         $jp->experience_requirement = $request->experience_requirement;
         $jp->professional_requirement = $request->professional_requirement;

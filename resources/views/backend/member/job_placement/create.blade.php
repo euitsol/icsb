@@ -68,15 +68,15 @@
                             <div class="form-group {{ $errors->has('job_type') ? ' has-danger' : '' }}">
                                 <label>{{_('Job Type')}} <span class="text-danger">*</span></label>
                                 <div class="form-radio">
-                                    <input class="form-check-input ml-2" name='job_type' type="radio" value="Full-Time">
+                                    <input class="form-check-input ml-2" {{(old('job_type') == 'Full-Time') ? 'checked' : ''}}  name='job_type' type="radio" value="Full-Time">
                                     <label class="form-check-label mr-3 ml-4">{{_('Full-Time')}}</label>
-                                    <input class="form-check-input ml-2" name='job_type' type="radio" value="Part-Time">
+                                    <input class="form-check-input ml-2" {{(old('job_type') == 'Part-Time') ? 'checked' : ''}} name='job_type' type="radio" value="Part-Time">
                                     <label class="form-check-label mr-3 ml-4">{{_('Part-Time')}}</label>
-                                    <input class="form-check-input ml-2" name='job_type' type="radio" value="Work From Home">
+                                    <input class="form-check-input ml-2" {{(old('job_type') == 'Work From Home') ? 'checked' : ''}} name='job_type' type="radio" value="Work From Home">
                                     <label class="form-check-label mr-3 ml-4">{{_('Work From Home')}}</label>
-                                    <input class="form-check-input ml-2" name='job_type' type="radio" value="Contractual">
+                                    <input class="form-check-input ml-2" {{(old('job_type') == 'Contractual') ? 'checked' : ''}} name='job_type' type="radio" value="Contractual">
                                     <label class="form-check-label mr-3 ml-4">{{_('Contractual')}}</label>
-                                    <input class="form-check-input ml-2" name='job_type' type="radio" value="Intern">
+                                    <input class="form-check-input ml-2" {{(old('job_type') == 'Intern') ? 'checked' : ''}} name='job_type' type="radio" value="Intern">
                                     <label class="form-check-label mr-3 ml-4">{{_('Intern')}}</label>
                                 </div>
                                 @include('alerts.feedback', ['field' => 'job_type'])
@@ -93,8 +93,8 @@
                                         <input type="number" class="form-control" name="salary[to]" value="{{ old('salary.to') }}">
                                         <select name="salary_type" class="form-control no-select">
                                             <option selected hidden>{{ _('Select Salary Type') }}</option>
-                                            <option value="Per Month">{{ _('Per Month') }}</option>
-                                            <option value="Per Year">{{ _('Per Year') }}</option>
+                                            <option {{(old('salary_type') == 'Per Month') ? 'selected' : ''}} value="Per Month">{{ _('Per Month') }}</option>
+                                            <option {{(old('salary_type') == 'Per Year') ? 'selected' : ''}} value="Per Year">{{ _('Per Year') }}</option>
                                         </select>
                                     </div>
                                 </div>

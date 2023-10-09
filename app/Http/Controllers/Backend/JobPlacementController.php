@@ -7,6 +7,7 @@ use Illuminate\View\View;
 use App\Models\JobPlacement;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\JobPlacementRequest;
+use Carbon\Carbon;
 
 class JobPlacementController extends Controller
 {
@@ -15,6 +16,11 @@ class JobPlacementController extends Controller
     }
     public function index(): View
     {
+        $disclosed = JobPlacement::where('deadline','<',Carbon::now())->get();
+        foreach($disclosed as $d){
+            $d->status = '2';
+            $d->save();
+        }
         $s['job_placements'] = JobPlacement::where('deleted_at', null)->latest()->get();
         return view('backend.member.job_placement.index',$s);
     }
@@ -34,6 +40,7 @@ class JobPlacementController extends Controller
         $jp->salary = json_encode($request->salary);
         $jp->salary_type = $request->salary_type;
         $jp->deadline = $request->deadline;
+        $jp->vacancy = $request->vacancy;
         $jp->age_requirement = $request->age_requirement;
         $jp->experience_requirement = $request->experience_requirement;
         $jp->professional_requirement = $request->professional_requirement;
@@ -65,6 +72,7 @@ class JobPlacementController extends Controller
         $jp->salary = json_encode($request->salary);
         $jp->salary_type = $request->salary_type;
         $jp->deadline = $request->deadline;
+        $jp->vacancy = $request->vacancy;
         $jp->age_requirement = $request->age_requirement;
         $jp->experience_requirement = $request->experience_requirement;
         $jp->professional_requirement = $request->professional_requirement;
@@ -97,6 +105,9 @@ class JobPlacementController extends Controller
         }elseif($status == 'disclosed'){
             $jp->status = '2';
         }elseif($status == 'restore'){
+            if($jp->deadline < Carbon::now()){
+                return redirect()->route('job_placement.jp_list')->withStatus(__('This post deadline expired please update the deadline before.'));
+            }
             $jp->status = '0';
         }
         $jp->save();
