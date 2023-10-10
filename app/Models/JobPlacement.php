@@ -68,7 +68,6 @@ public function getMultiStatusClass()
         }else{
             return['menuItems' => [
                 ['routeName' => '', 'label' => 'View'],
-                ['routeName' => 'job_placement.status.jp_edit',   'params' => [$id,'restore'], 'label' => 'Restore'],
                 ['routeName' => 'job_placement.jp_edit',   'params' => [$id], 'label' => 'Update'],
                 ['routeName' => 'job_placement.jp_delete', 'params' => [$id], 'label' => 'Delete', 'delete' => true],
             ]];

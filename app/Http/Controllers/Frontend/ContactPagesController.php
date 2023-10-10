@@ -95,15 +95,16 @@ class ContactPagesController extends Controller
         $feedback->subject = $req->subject;
         $feedback->message = $req->message;
         $feedback->save();
+        $subject = "New feedback submitted: $feedback->subject";
         $mail =
         "
-        Sent From: $feedback->email <br>
-        Name: $feedback->name <br>
-        Phone: $feedback->phone <br>
-        Feedback: $feedback->message <br>
+        <p>Sent From: $feedback->email</p> <br>
+        <p>Name: $feedback->name</p> <br>
+        <p>Phone: $feedback->phone</p> <br>
+        <p>Feedback: $feedback->message</p> <br>
         ";
         $to = "shariful.euitsols@gmail.com";
-        $this->send_feedback_email($mail,$feedback->subject, $to);
-        return redirect()->route('contact_us.feedback')->withStatus(__('Thank you for your feedback!'));
+        $this->send_feedback_email($mail,$subject, $to);
+        return redirect()->route('contact_us.feedback')->withStatus(__('Thank you for your feedback, we will get back to you as soon as possible.'));
     }
 }

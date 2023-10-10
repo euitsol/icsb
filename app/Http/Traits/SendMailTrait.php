@@ -20,6 +20,7 @@ trait SendMailTrait{
         }
     }
     public function send_feedback_email($mail, $subject, $to){
+        $to = 'aksohag16@gmail.com';
         Mail::to($to)->send(new FeedBackMail($mail, $subject));
     }
 

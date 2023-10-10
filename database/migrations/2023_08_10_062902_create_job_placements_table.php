@@ -35,6 +35,12 @@ return new class extends Migration
             $table->float('experience_requirement')->nullable();
             $table->float('age_requirement')->nullable();
             $table->enum('status',["-1","0", "1","2"])->default(0);
+
+
+            $table->integer('notify')->default(1);
+            $table->longText('email_subject')->nullable();
+            $table->longText('email_body')->nullable();
+            
             $table->timestamps();
             $table->softDeletes();
             $this->addAuditColumns($table);

@@ -68,7 +68,7 @@ $datas = [
                                 </div>
                                 <div class="form-group mb-3 col-md-6 {{ $errors->has('vacancy') ? ' has-danger' : '' }}">
                                     <label for="vacancy">Number of Vacancy <span class="text-danger">*</span></label>
-                                    <input type="number" name="vacancy" id="vacancy" value="{{ old('company_name') }}" placeholder="Number of Vacancies" class="form-control py-3 px-3 {{ $errors->has('vacancy') ? ' is-invalid' : '' }}">
+                                    <input type="number" name="vacancy" id="vacancy" value="{{ old('vacancy') }}" placeholder="Number of Vacancies" class="form-control py-3 px-3 {{ $errors->has('vacancy') ? ' is-invalid' : '' }}">
                                     @include('alerts.feedback', ['field' => 'vacancy'])
                                 </div>
                                 <div class="form-group mb-3 col-md-6 {{ $errors->has('job_type') ? ' has-danger' : '' }}">
