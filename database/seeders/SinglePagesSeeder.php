@@ -431,9 +431,6 @@ class SinglePagesSeeder extends Seeder
                 "title": "Member Portal",
                 "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
             }',
-            'extra_data' => '{
-                "portal-url": "https://icsberp.org/users/login.aspx"
-            }',
         ]);
         SinglePages::create([
             'page_key' => 'training-program',
@@ -475,10 +472,6 @@ class SinglePagesSeeder extends Seeder
                 "title": "Training Program",
                 "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
             }',
-            'extra_data' => '{
-                "page-image": "single-page/image-single/page-image/1695059280.jpg",
-                "page-description": "<p style=\"text-align:justify;\">ICSB is a recognized authority on governance issues. The institute produce guidance notes, training programs, research papers and submissions that are practical and promote good governance practices.</p><p style=\"text-align:justify;\">The Institute appreciate the input of its members and other stakeholders, including the training participants who help shape our leadership strategy.</p>"
-            }',
         ]);
         SinglePages::create([
             'page_key' => 'cs-hand-book',
@@ -508,10 +501,6 @@ class SinglePagesSeeder extends Seeder
                 "title": "CS Hand Book",
                 "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
             }',
-            'extra_data' => '{
-                "new-student-hand-book-pdf": "single-page/single-uploads/new-hand-book.pdf",
-                "old-student-hand-book-pdf": "single-page/single-uploads/old-hand-book.pdf"
-            }',
         ]);
         SinglePages::create([
             'page_key' => 'student-portal',
@@ -529,9 +518,6 @@ class SinglePagesSeeder extends Seeder
                 "title": "Student Portal",
                 "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
             }',
-            'extra_data' => '{
-                "portal-url": "https://icsberp.org/users/login.aspx"
-            }',
         ]);
         SinglePages::create([
             'page_key' => 'faculty-evaluation-system',
@@ -548,9 +534,6 @@ class SinglePagesSeeder extends Seeder
             'documentation' => '{
                 "title": "Faculty Evaluation System",
                 "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
-            }',
-            'extra_data' => '{
-                "url": "http://122.144.12.70:9090/apex/f?p=112:LOGIN_DESKTOP"
             }',
         ]);
         SinglePages::create([
@@ -580,10 +563,6 @@ class SinglePagesSeeder extends Seeder
             'documentation' => '{
                 "title": "Help Desk",
                 "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
-            }',
-            'extra_data' => '{
-                "page-image": "single-page/image-single/page-image/1694011265.png",
-                "page-description": "<p><strong>Cell for Information:</strong> 01708030804<br><strong>Email ID:</strong> icsb@icsb.edu.bd<br><strong>Telephone:</strong> +880249349578, 58313230, 48315338 (Ext: 101 and 105)</p>"
             }',
         ]);
         SinglePages::create([
@@ -620,12 +599,6 @@ class SinglePagesSeeder extends Seeder
                 "title": "CS Practicing Guideline",
                 "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
             }',
-            'extra_data' => '{
-                "page-image": "single-page/page-image/1691830978.jpg",
-                "banner-image": "single-page/banner-image/1691830978.png",
-                "upload-files": [],
-                "page-description": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system..<\\/span><\\/p><p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.<\\/span><\\/p><p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.<\\/span><\\/p><p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.<\\/span><\\/p><p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.<\\/span><\\/p>"
-            }',
         ]);
         SinglePages::create([
             'page_key' => 'other-publications',
@@ -648,13 +621,6 @@ class SinglePagesSeeder extends Seeder
             'documentation' => '{
                 "title": "Others",
                 "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
-            }',
-            'extra_data' => '{
-                "upload-files": [
-                    "single-page/multiple-uploads/icsb-annual-picnic-2022.pdf",
-                    "single-page/multiple-uploads/25th-anniversary-1997-2022.pdf",
-                    "single-page/multiple-uploads/icsb-annual-picnic-2023.pdf"
-                ]
             }',
         ]);
         SinglePages::create([
@@ -696,11 +662,6 @@ class SinglePagesSeeder extends Seeder
             'documentation' => '{
                 "title": "Eligibility",
                 "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
-            }',
-            'extra_data' => '{
-                "banner-image": "single-page/banner-image/1693289107.jpg",
-                "page-image": "single-page/page-image/1691831008.jpg",
-                "page-description": "<p style=\"text-align:justify;\">In order to be eligible to appear at the examination students are required to comply with such conditions relating to examination as may be laid down by the council from time to time. To be specific, a student shall comply with the following regulation including others applicable:</p><ul style=\"list-style-type:square;\"><li style=\"text-align:justify;\">Students enrolled in a particular session must attend at least 75% of classes. Students failing to pass in a particular subject may reappear in that subject in any subsequent examination until he successfully passes the examination.</li></ul>"
             }',
         ]);
         SinglePages::create([
