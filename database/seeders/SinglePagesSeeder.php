@@ -1327,7 +1327,7 @@ class SinglePagesSeeder extends Seeder
             }',
             'documentation' => '{
                 "title": "ICSB Faculty",
-                "details": "<p style=\\\"margin-left:-15px;\\\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.<\\/p><p style=\\\"margin-left:auto;\\\"><br>&nbsp;<\\/p>"
+                "details": "<p style=\"margin-left:-15px;\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</p><p style=\"margin-left:auto;\"><br>&nbsp;</p>"
             }',
         ]);
         SinglePages::create([
@@ -1356,7 +1356,7 @@ class SinglePagesSeeder extends Seeder
             }',
             'documentation' => '{
                 "title": "Who we are",
-                "details": "<p><span style=\\\"background-color:rgb(255,255,255);color:rgb(29,37,59);\\\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.<\\/span><\\/p>"
+                "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -1379,7 +1379,7 @@ class SinglePagesSeeder extends Seeder
             }',
             'documentation' => '{
                 "title": "Pop Up",
-                "details": "<p><span style=\\\"background-color:rgb(255,255,255);color:rgb(29,37,59);\\\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.<\\/span><\\/p>"
+                "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -1402,7 +1402,7 @@ class SinglePagesSeeder extends Seeder
             }',
             'documentation' => '{
                 "title": "Banner Video",
-                "details": "<p><span style=\\\"background-color:rgb(255,255,255);color:rgb(29,37,59);\\\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.<\\/span><\\/p>"
+                "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -1425,7 +1425,7 @@ class SinglePagesSeeder extends Seeder
             }',
             'documentation' => '{
                 "title": "Policy",
-                "details": "<p><span style=\\\"background-color:rgb(255,255,255);color:rgb(29,37,59);\\\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.<\\/span><\\/p>"
+                "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -1442,7 +1442,7 @@ class SinglePagesSeeder extends Seeder
             }',
             'documentation' => '{
                 "title": "Student Login",
-                "details": "<p><span style=\\\"background-color:rgb(255,255,255);color:rgb(29,37,59);\\\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
+                "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -1459,7 +1459,7 @@ class SinglePagesSeeder extends Seeder
             }',
             'documentation' => '{
                 "title": "Member Login",
-                "details": "<p><span style=\\\"background-color:rgb(255,255,255);color:rgb(29,37,59);\\\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
+                "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -1476,7 +1476,7 @@ class SinglePagesSeeder extends Seeder
             }',
             'documentation' => '{
                 "title": "Online Admission",
-                "details": "<p><span style=\\\"background-color:rgb(255,255,255);color:rgb(29,37,59);\\\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
+                "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -1493,7 +1493,7 @@ class SinglePagesSeeder extends Seeder
             }',
             'documentation' => '{
                 "title": "Exam Registration",
-                "details": "<p><span style=\\\"background-color:rgb(255,255,255);color:rgb(29,37,59);\\\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
+                "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
             }',
         ]);
     }
