@@ -8,9 +8,11 @@ use App\Models\JobPlacement;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\JobPlacementRequest;
 use Carbon\Carbon;
+use App\Http\Traits\SendMailTrait;
 
 class JobPlacementController extends Controller
 {
+    use SendMailTrait;
     public function __construct() {
         return $this->middleware('auth');
     }
@@ -101,86 +103,43 @@ class JobPlacementController extends Controller
         if($status == 'accept'){
             $jp->status = '1';
             $jp->save();
-            // $id = base64_encode($jp->id);
-            // $status = base64_encode($jp->status);
-            // $id = $jp->id;
-            // $status = $jp->status;
             $url = route('member_view.jps');
             $subject = "Approval of Your Job Post";
             $mail =
             "
-            Dear Sir,<br><br>
+           <p>Dear Sir,</p><br>
 
-            I am pleased to inform you that your job post has been reviewed and approved by our team. Your job listing is now live on our platform and accessible to job seekers who are eager to explore opportunities.<br><br>
+           <p> We are pleased to inform you that your job post has been reviewed and approved by our team. Your job listing is now live on our platform and accessible to job seekers who are eager to explore opportunities.</p><br>
 
-            We appreciate your trust in our platform to connect you with potential candidates. Your job post will undoubtedly contribute to the success of your recruitment efforts.<br><br>
+            <p>We appreciate your trust in our platform to connect you with potential candidates. Your job post will undoubtedly contribute to the success of your recruitment efforts.</p><br>
 
-            Thank you for using our platform, and we wish you the best in finding the perfect candidate for your job opening.<br><br>
+            <p>Thank you for using our platform, and we wish you the best in finding the perfect candidate for your job opening.</p><br>
 
-            Live URL: $url
+            <a href='".$url."' target='_blank'>Live Job Posts</a>
             ";
             $this->send_feedback_email($mail,$subject, $jp->email);
         }elseif($status == 'declined'){
             $jp->status = '-1';
             $jp->save();
-            $id = base64_encode($jp->id);
-            $status = base64_encode($jp->status);
-            // $id = $jp->id;
-            // $status = $jp->status;
-            $url = route('member_view.job_edit',[$id,$status]);
             $subject = "Declined of your Job Post";
             $mail =
             "
-            Dear Sir, <br><br>
+           <p>Dear Sir,</p><br>
 
-            Your Job post was declined from ICSB Job Portal
-
-            Edit URL:$url
+            <p>Your job post has been declined</p>
             ";
         $this->send_feedback_email($mail,$subject, $jp->email);
         }elseif($status == 'disclosed'){
             $jp->status = '2';
             $jp->save();
-            $id = base64_encode($jp->id);
-            $status = base64_encode($jp->status);
-            // $id = $jp->id;
-            // $status = $jp->status;
-            $url = route('member_view.job_edit',[$id,$status]);
             $subject = "Disclosed of your Job Post";
             $mail =
             "
-            Dear Sir, <br><br>
+            <p>Dear Sir,</p> <br><br>
 
-            Your Job post was declined from ICSB Job Portal
-
-            Edit URL: $url
+            <p>Your job post has been disclosed</p>
             ";
             $this->send_feedback_email($mail,$subject, $jp->email);
-        }elseif($status == 'restore'){
-            if($jp->deadline < Carbon::now()){
-                return redirect()->route('job_placement.jp_list')->withStatus(__('This post deadline expired please update the deadline before.'));
-            }else{
-                $jp->status = '0';
-                $jp->save();
-                $id = base64_encode($jp->id);
-                $status = base64_encode($jp->status);
-                // $id = $jp->id;
-                // $status = $jp->status;
-                $url = route('member_view.job_edit',[$id,$status]);
-                $subject = "Re-post of your Job Post";
-                $mail =
-                "
-                Dear Sir, <br><br>
-
-                Re-post of your Job Post. We appreciate your trust in our platform to connect you with potential candidates.<br><br>
-
-                We want to inform you that your job post is currently in the pending status. Our team is working diligently to review and approve your job listing. Once approved, it will be live on our platform for job seekers to view and apply. <br><br>
-
-                Edit URL: $url
-                ";
-                $this->send_feedback_email($mail,$subject, $jp->email);
-            }
-
         }
         return redirect()->route('job_placement.jp_list')->withStatus(__($jp->title.' status updated successfully.'));
     }

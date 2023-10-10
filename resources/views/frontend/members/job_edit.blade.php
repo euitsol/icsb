@@ -52,7 +52,7 @@ $datas = [
                 <div class="col-md-12 mx-auto">
                     @include('alerts.success')
                     <div class="job_create_form p-4">
-                        <form action="{{route('member_view.fjob_update',$jp->id)}}" method="POST" class="p-4" enctype="multipart/form-data">
+                        <form action="{{route('member_view.fjob_update',$id)}}" method="POST" class="p-4" enctype="multipart/form-data">
                             @csrf
                             <h2>EDIT YOUR JOB POSTING</h2>
                             <div class="row align-items-center">

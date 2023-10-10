@@ -22,6 +22,7 @@ $datas = [
     <div class="container">
         <div class="form-content">
             <div class="form-column">
+                @include('alerts.success')
                 <div class="form-border">
                     <h2>Fill The Form Below</h2>
                     <form action="{{route('contact_us.feedback.store')}}" method="POST">
