@@ -68,6 +68,7 @@ class BaseModel extends Model
             return 'Deactive';
         }
     }
+    
 
     public function getStatusClass()
     {
@@ -77,6 +78,8 @@ class BaseModel extends Model
             return 'btn-danger';
         }
     }
+    
+   
     public function getFeatured()
     {
         if ($this->is_featured == 1) {

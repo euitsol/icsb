@@ -20,6 +20,9 @@ class JobPlacementRequest extends FormRequest
             'title' => 'required',
             'company_name' => 'required',
             'company_url' => 'required|url',
+            'application_url' => 'nullable|url',
+            'email' => 'required|email',
+            'vacancy' => 'required|numeric',
             'job_type' => [
                 'required',
                 Rule::in(["Full-Time", "Part-Time","Work From Home", "Contractual","Intern"]),
@@ -33,7 +36,17 @@ class JobPlacementRequest extends FormRequest
                 Rule::in(['Per Month', 'Per Year']),
             ],
 
-            'deadline' => 'required|date',
+            'deadline' => 'required|date|after:today',
+            'company_address'=>'required',
+            'job_responsibility'=>'required',
+           ' additional_requirement'=>'nullable',
+            'job_location'=>'required',
+           ' other_benefits'=>'nullable',
+            'special_instractions'=>'nullable',
+            'educational_requirement'=>'nullable',
+            'professional_requirement'=>'nullable',
+            'experience_requirement'=>'nullable',
+            'age_requirement'=>'nullable',
         ]
         +
         ($this->isMethod('POST') ? $this->store() : $this->update());

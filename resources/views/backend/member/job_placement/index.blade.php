@@ -51,19 +51,14 @@
                                             {{ date('d-M-Y', strtotime($jp->deadline)) }}
                                          </td>
                                         <td>
-                                            @include('backend.partials.button', ['routeName' => 'job_placement.status.jp_edit','params' => [$jp->id], 'className' => $jp->getStatusClass(), 'label' => $jp->getStatus() ])
+                                            <span class="badge {{$jp->getMultiStatusClass()}}">{{$jp->getMultiStatus()}}</span>
                                         </td>
                                         <td> {{ timeFormate($jp->created_at) }} </td>
                                         <td> {{ $jp->created_user->name ?? 'system' }} </td>
                                         <td>
-                                            @include('backend.partials.action_buttons', [
-                                                'menuItems' => [
-                                                    ['routeName' => '', 'label' => 'View'],
-                                                    ['routeName' => 'job_placement.status.jp_edit',   'params' => [$jp->id], 'label' => 'Change Status'],
-                                                    ['routeName' => 'job_placement.jp_edit',   'params' => [$jp->id], 'label' => 'Update'],
-                                                    ['routeName' => 'job_placement.jp_delete', 'params' => [$jp->id], 'label' => 'Delete', 'delete' => true],
-                                                ]
-                                            ])
+                                            @include('backend.partials.action_buttons',
+                                                $jp->getMultiStatusBtn($jp->id)
+                                            )
                                         </td>
                                     </tr>
                                 @endforeach
