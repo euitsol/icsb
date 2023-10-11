@@ -101,7 +101,11 @@ class JobPlacementController extends Controller
     {
         $jp = JobPlacement::findOrFail($id);
         if($status == 'accept'){
+            $url = route('member_view.jps');
             $jp->status = '1';
+            $jp->notify = 1;
+            $jp->email_subject = "New job opportunitie $jp->title";
+            $jp->email_body = "$jp->job_responsibility <br> <a href='".$url."' target='_blank'>Live Job Posts</a>";
             $jp->save();
             $url = route('member_view.jps');
             $subject = "Approval of Your Job Post";
@@ -118,6 +122,8 @@ class JobPlacementController extends Controller
             <a href='".$url."' target='_blank'>Live Job Posts</a>
             ";
             $this->send_feedback_email($mail,$subject, $jp->email);
+            $this->send_member_email($jp);
+            
         }elseif($status == 'declined'){
             $jp->status = '-1';
             $jp->save();
