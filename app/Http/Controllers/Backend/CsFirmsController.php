@@ -47,7 +47,7 @@ class CsFirmsController extends Controller
             }
         }
 
-        return redirect()->route('cs_firm.cs_firm_list')->withStatus(__('CS Firm Members created successfully.'));
+        return redirect()->route('cs_firm.cs_firm_list')->withStatus(__('CS Firms member '.$cs_fm->member->name.' added successfully.'));
     }
 
     public function edit($id): View
@@ -68,7 +68,7 @@ class CsFirmsController extends Controller
         $cs_fm->save();
 
 
-        return redirect()->route('cs_firm.cs_firm_list')->withStatus(__('CS Firm Member'.$cs_fm->member->id.'created successfully.'));
+        return redirect()->route('cs_firm.cs_firm_list')->withStatus(__('CS Firms member '.$cs_fm->member->name.' updated successfully.'));
     }
 
 
@@ -83,6 +83,6 @@ class CsFirmsController extends Controller
     {
         $csf_member = CsFirms::findOrFail($id);
         $this->soft_delete($csf_member);
-        return redirect()->route('cs_firm.cs_firm_list')->withStatus(__($csf_member->member->name.' status deleted successfully.'));
+        return redirect()->route('cs_firm.cs_firm_list')->withStatus(__($csf_member->member->name.' deleted successfully.'));
     }
 }

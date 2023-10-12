@@ -143,7 +143,7 @@ class NoticeBoardController extends Controller
         $notice->updated_by = auth()->user()->id;
         $notice->save();
 
-        return redirect()->route('notice_board.notice_list')->withStatus(__('Notice Category'.$notice->title.' updated successfully.'));
+        return redirect()->route('notice_board.notice_list')->withStatus(__('Notice '.$notice->title.' updated successfully.'));
     }
     public function status($id): RedirectResponse
     {
@@ -156,7 +156,7 @@ class NoticeBoardController extends Controller
     {
         $notice = Notice::findOrFail($id);
         $this->soft_delete($notice);
-        return redirect()->route('notice_board.notice_list')->withStatus(__($notice->title.' status deleted successfully.'));
+        return redirect()->route('notice_board.notice_list')->withStatus(__($notice->title.' deleted successfully.'));
     }
 
 
@@ -205,6 +205,6 @@ class NoticeBoardController extends Controller
             return redirect()->route('notice_board.notice_list')->withStatus(__($nc->title.' has '.$nc->notices->count().' notices assigned. Can\'t be deleted. Best option is to deactivate it.'));
         }
         $this->soft_delete($nc);
-        return redirect()->route('notice_board.notice_list')->withStatus(__($nc->title.' status deleted successfully.'));
+        return redirect()->route('notice_board.notice_list')->withStatus(__($nc->title.' deleted successfully.'));
     }
 }

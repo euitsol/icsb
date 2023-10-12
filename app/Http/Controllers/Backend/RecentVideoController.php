@@ -32,7 +32,7 @@ class RecentVideoController extends Controller
         $recent_video->url = $request->url;
         $recent_video->created_by = auth()->user()->id;
         $recent_video->save();
-        return redirect()->route('recent_video.recent_video_list')->withStatus(__('Recent Video '.$recent_video->title.' created successfully.'));
+        return redirect()->route('recent_video.recent_video_list')->withStatus(__('Recent Video '.$recent_video->title.' added successfully.'));
     }
     public function edit($id): View
     {

@@ -125,7 +125,7 @@ class MemberController extends Controller
         //     $this->fileDelete($member->image);
         // }
         $this->soft_delete($member);
-        return redirect()->route('member.member_list')->withStatus(__($member->title.' status deleted successfully.'));
+        return redirect()->route('member.member_list')->withStatus(__($member->title.' deleted successfully.'));
     }
 
     public function mt_create():View
@@ -143,7 +143,7 @@ class MemberController extends Controller
         $type->created_by = auth()->user()->id;
         $type->save();
 
-        return redirect()->route('member.member_list')->withStatus(__('Member Type '.$type->title.' created successfully.'));
+        return redirect()->route('member.member_list')->withStatus(__('Member type '.$type->title.' created successfully.'));
     }
 
     public function mt_edit($id):View
@@ -162,7 +162,7 @@ class MemberController extends Controller
         $type->updated_by = auth()->user()->id;
         $type->save();
 
-        return redirect()->route('member.member_list')->withStatus(__('Member Type '.$type->title.' updated successfully.'));
+        return redirect()->route('member.member_list')->withStatus(__('Member type '.$type->title.' updated successfully.'));
     }
 
     public function mt_status($id): RedirectResponse
@@ -184,7 +184,7 @@ class MemberController extends Controller
 
         }
         $this->soft_delete($type);
-        return redirect()->route('member.member_list')->withStatus(__($type->title.' status deleted successfully.'));
+        return redirect()->route('member.member_list')->withStatus(__($type->title.' deleted successfully.'));
     }
 
     public function sync()

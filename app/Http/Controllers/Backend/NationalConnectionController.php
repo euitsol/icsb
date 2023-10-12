@@ -39,7 +39,7 @@ class NationalConnectionController extends Controller
         $nationalConnection->url = $request->url;
         $nationalConnection->created_by = auth()->user()->id;
         $nationalConnection->save();
-        return redirect()->route('national_connection.national_connection_list')->withStatus(__('National Connection '.$request->title.' created successfully.'));
+        return redirect()->route('national_connection.national_connection_list')->withStatus(__('National Connection '.$request->title.' added successfully.'));
     }
     public function edit($id): View
     {

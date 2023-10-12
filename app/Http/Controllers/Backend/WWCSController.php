@@ -41,7 +41,7 @@ class WWCSController extends Controller
         $wwcs->description = $request->description;
         $wwcs->created_by = auth()->user()->id;
         $wwcs->save();
-        return redirect()->route('wwcs.wwcs_list')->withStatus(__('World Wide CS '.stringLimit(html_entity_decode_table($wwcs->title)).' created successfully.'));
+        return redirect()->route('wwcs.wwcs_list')->withStatus(__('World Wide CS '.stringLimit(html_entity_decode_table($wwcs->title)).' added successfully.'));
     }
     public function edit($id): View
     {
