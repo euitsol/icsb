@@ -39,7 +39,7 @@ class NationalConnectionController extends Controller
         $nationalConnection->url = $request->url;
         $nationalConnection->created_by = auth()->user()->id;
         $nationalConnection->save();
-        return redirect()->route('national_connection.national_connection_list')->withStatus(__('National Connection '.$request->title.' added successfully.'));
+        return redirect()->route('national_connection.national_connection_list')->withStatus(__('National connection '.$request->title.' added successfully.'));
     }
     public function edit($id): View
     {
@@ -63,7 +63,7 @@ class NationalConnectionController extends Controller
         $nationalConnection->updated_by = auth()->user()->id;
         $nationalConnection->save();
 
-        return redirect()->route('national_connection.national_connection_list')->withStatus(__('National Connection '.$nationalConnection->title.' updated successfully.'));
+        return redirect()->route('national_connection.national_connection_list')->withStatus(__('National connection '.$nationalConnection->title.' updated successfully.'));
     }
     public function delete($id): RedirectResponse
     {
@@ -72,7 +72,7 @@ class NationalConnectionController extends Controller
         // $nationalConnection->delete();
         $this->soft_delete($nationalConnection);
 
-        return redirect()->route('national_connection.national_connection_list')->withStatus(__('National Connection '.$nationalConnection->title.' deleted successfully.'));
+        return redirect()->route('national_connection.national_connection_list')->withStatus(__('National connection '.$nationalConnection->title.' deleted successfully.'));
     }
     public function status($id): RedirectResponse
     {

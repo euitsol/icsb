@@ -49,7 +49,7 @@ class CommitteeController extends Controller
         $committee->description = $request->description;
         $committee->created_by = auth()->user()->id;
         $committee->save();
-        return redirect()->route('committee.committee_member_create',$committee->id)->withStatus(__('Committee'.$committee->title.' created successfully.'));
+        return redirect()->route('committee.committee_member_create',$committee->id)->withStatus(__('Committee '.$committee->title.' created successfully.'));
     }
     public function edit($id): View
     {
@@ -68,7 +68,7 @@ class CommitteeController extends Controller
         $committee->updated_by = auth()->user()->id;
         $committee->save();
 
-        return redirect()->route('committee.committee_list')->withStatus(__('Committee Type'.$committee->title.' updated successfully.'));
+        return redirect()->route('committee.committee_list')->withStatus(__('Committee '.$committee->title.' updated successfully.'));
     }
     public function status($id): RedirectResponse
     {
@@ -84,7 +84,7 @@ class CommitteeController extends Controller
             return redirect()->route('committee.committee_list')->withStatus(__($committee->title.' has '.$committee->committe_members->count().' members assigned. Can\'t be deleted. Best option is to deactivate it.'));
         }
         $this->soft_delete($committee);
-        return redirect()->route('committee.committee_list')->withStatus(__($committee->title.' status deleted successfully.'));
+        return redirect()->route('committee.committee_list')->withStatus(__($committee->title.' deleted successfully.'));
     }
 
 
@@ -102,7 +102,7 @@ class CommitteeController extends Controller
         $ct->created_by = auth()->user()->id;
         $ct->save();
 
-        return redirect()->route('committee.committee_list')->withStatus(__('Committee Type'.$ct->title.' created successfully.'));
+        return redirect()->route('committee.committee_list')->withStatus(__('Committee type '.$ct->title.' created successfully.'));
     }
     public function ct_edit($id): View
     {
@@ -118,7 +118,7 @@ class CommitteeController extends Controller
         $ct->updated_by = auth()->user()->id;
         $ct->save();
 
-        return redirect()->route('committee.committee_list')->withStatus(__('Committee Type'.$ct->title.' updated successfully.'));
+        return redirect()->route('committee.committee_list')->withStatus(__('Committee type '.$ct->title.' updated successfully.'));
     }
     public function ct_status($id): RedirectResponse
     {
@@ -150,7 +150,7 @@ class CommitteeController extends Controller
         $cmt->created_by = auth()->user()->id;
         $cmt->save();
 
-        return redirect()->route('committee.committee_list')->withStatus(__('Committee Type'.$cmt->title.' created successfully.'));
+        return redirect()->route('committee.committee_list')->withStatus(__('Committee member type '.$cmt->title.' created successfully.'));
     }
     public function cmt_edit($id): View
     {
@@ -166,7 +166,7 @@ class CommitteeController extends Controller
         $cmt->updated_by = auth()->user()->id;
         $cmt->save();
 
-        return redirect()->route('committee.committee_list')->withStatus(__('Committee Type'.$cmt->title.' updated successfully.'));
+        return redirect()->route('committee.committee_list')->withStatus(__('Committee member type '.$cmt->title.' updated successfully.'));
     }
     public function cmt_status($id): RedirectResponse
     {

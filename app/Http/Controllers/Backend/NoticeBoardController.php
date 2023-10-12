@@ -92,7 +92,7 @@ class NoticeBoardController extends Controller
             $this->send_member_email($notice);
         }
 
-        return redirect()->route('notice_board.notice_list')->withStatus(__('Notice'.$notice->title.' created successfully.'));
+        return redirect()->route('notice_board.notice_list')->withStatus(__('Notice '.$notice->title.' created successfully.'));
     }
     public function edit($id): View
     {
@@ -173,7 +173,7 @@ class NoticeBoardController extends Controller
         $nc->created_by = auth()->user()->id;
         $nc->save();
 
-        return redirect()->route('notice_board.notice_list')->withStatus(__('Notice Category'.$nc->title.' created successfully.'));
+        return redirect()->route('notice_board.notice_list')->withStatus(__('Notice category '.$nc->title.' created successfully.'));
     }
     public function nc_edit($id): View
     {
@@ -189,7 +189,7 @@ class NoticeBoardController extends Controller
         $nc->updated_by = auth()->user()->id;
         $nc->save();
 
-        return redirect()->route('notice_board.notice_list')->withStatus(__('Notice Category'.$nc->title.' updated successfully.'));
+        return redirect()->route('notice_board.notice_list')->withStatus(__('Notice category '.$nc->title.' updated successfully.'));
     }
     public function nc_status($id): RedirectResponse
     {
