@@ -40,7 +40,7 @@ class TestimonialController extends Controller
         $testimonial->description = $request->description;
         $testimonial->created_by = auth()->user()->id;
         $testimonial->save();
-        return redirect()->route('testimonial.testimonial_list')->withStatus(__($testimonial->name.' testimonial created successfully.'));
+        return redirect()->route('testimonial.testimonial_list')->withStatus(__($testimonial->name.' testimonial added successfully.'));
     }
     public function edit($id): View
     {

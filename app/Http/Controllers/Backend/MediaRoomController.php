@@ -155,7 +155,7 @@ class MediaRoomController extends Controller
         $media_room->description = $request->description;
         $media_room->updated_by = auth()->user()->id;
         $media_room->save();
-        return redirect()->route('media_room.media_room_list')->withStatus(__('Media room '.$request->title.' created successfully.'));
+        return redirect()->route('media_room.media_room_list')->withStatus(__('Media room '.$request->title.' updated successfully.'));
     }
     public function delete($id): RedirectResponse
     {
@@ -181,7 +181,7 @@ class MediaRoomController extends Controller
     {
         $media_room = MediaRoom::findOrFail($id);
         $this->permissionAcceptFunction($media_room);
-        return redirect()->route('media_room.media_room_list')->withStatus(__($media_room->title.' accept successfully.'));
+        return redirect()->route('media_room.media_room_list')->withStatus(__($media_room->title.' accepted successfully.'));
     }
     public function permissionDecline($id): RedirectResponse
     {
@@ -217,7 +217,7 @@ class MediaRoomController extends Controller
         $cat->created_by = auth()->user()->id;
         $cat->save();
 
-        return redirect()->route('media_room.media_room_list')->withStatus(__('Media Room Category '.$cat->name.' created successfully.'));
+        return redirect()->route('media_room.media_room_list')->withStatus(__('Media room category '.$cat->name.' created successfully.'));
     }
 
     public function cat_edit($id):View
@@ -235,7 +235,7 @@ class MediaRoomController extends Controller
         $cat->updated_by = auth()->user()->id;
         $cat->save();
 
-        return redirect()->route('media_room.media_room_list')->withStatus(__('Media room Category '.$cat->name.' updated successfully.'));
+        return redirect()->route('media_room.media_room_list')->withStatus(__('Media room category '.$cat->name.' updated successfully.'));
     }
 
     public function cat_status($id): RedirectResponse

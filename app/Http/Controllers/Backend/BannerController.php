@@ -126,7 +126,7 @@ class BannerController extends Controller
         // }
         // $banner->delete();
         $this->soft_delete($banner);
-        return redirect()->route('banner.banner_list')->withStatus(__('banner '.$banner->banner_name.' deleted successfully.'));
+        return redirect()->route('banner.banner_list')->withStatus(__('Banner '.$banner->banner_name.' deleted successfully.'));
     }
 
 }

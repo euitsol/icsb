@@ -66,7 +66,7 @@ class ContactController extends Controller
         $contact->social = json_encode($filteredSocial);
         $contact->updated_by = auth()->user()->id;
         $contact->save();
-        return redirect()->route('contact.contact_create')->withStatus(__('Contact social info updated successfully.'));
+        return redirect()->route('contact.contact_create')->withStatus(__('Social info updated successfully.'));
     }
 
 
@@ -86,7 +86,7 @@ class ContactController extends Controller
         $contact->phone = json_encode($filteredPhone);
         $contact->updated_by = auth()->user()->id;
         $contact->update();
-        return redirect()->route('contact.contact_create')->withStatus(__('Contact phone updated successfully.'));
+        return redirect()->route('contact.contact_create')->withStatus(__('Phone number updated successfully.'));
     }
     public function createEmail(ContactRequest $request): RedirectResponse
     {
@@ -104,7 +104,7 @@ class ContactController extends Controller
         $contact->email = json_encode($filteredEmail);
         $contact->updated_by = auth()->user()->id;
         $contact->update();
-        return redirect()->route('contact.contact_create')->withStatus(__('Contact email updated successfully.'));
+        return redirect()->route('contact.contact_create')->withStatus(__('Email updated successfully.'));
     }
     public function singleFileDelete($id): RedirectResponse
     {

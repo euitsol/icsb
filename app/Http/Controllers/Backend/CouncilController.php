@@ -77,7 +77,7 @@ class CouncilController extends Controller
             return redirect()->route('council.council_list')->withStatus(__($council->title.' has '.$council->council_members->count().' members assigned. Can\'t be deleted. Best option is to deactivate it.'));
         }
         $this->soft_delete($council);
-        return redirect()->route('council.council_list')->withStatus(__($council->title.' status deleted successfully.'));
+        return redirect()->route('council.council_list')->withStatus(__($council->title.' deleted successfully.'));
     }
 
 
@@ -129,7 +129,7 @@ class CouncilController extends Controller
         }
         // $cmt->delete();
         $this->soft_delete($cmt);
-        return redirect()->route('council.council_list')->withStatus(__($cmt->title.' status deleted successfully.'));
+        return redirect()->route('council.council_list')->withStatus(__($cmt->title.' deleted successfully.'));
     }
 
     public function cm_index($id): View
@@ -195,10 +195,10 @@ class CouncilController extends Controller
             $cm->description = $request->description;
             $cm->updated_by = auth()->user()->id;
             $cm->save();
-            return redirect()->route('council.council_member_list',$cm->council_id)->withStatus(__($cm->member->name.' assigned updated in this council as a '.$cm->council_member_type->title.' successfully'));
+            return redirect()->route('council.council_member_list',$cm->council_id)->withStatus(__($cm->member->name.' has been appointed as the '.$cm->council_member_type->title.' of this council'));
         }
         else{
-            return redirect()->route('council.council_member_list',$cm->council_id)->withStatus(__($check->member->name.' already assigned in this council as a '.$check->council_member_type->title.'. Can\'t update this member!'));
+            return redirect()->route('council.council_member_list',$cm->council_id)->withStatus(__($check->member->name.' has already been appointed as the '.$check->council_member_type->title.' of this council.'));
         }
 
     }

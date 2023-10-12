@@ -93,7 +93,7 @@ class SecretarialStandardsController extends Controller
     {
         $bss = SecretarialStandard::findOrFail($id);
         $this->soft_delete($bss);
-        return redirect()->route('bss.bss_list')->withStatus(__('BSS '.$bss->title.' status deleted successfully.'));
+        return redirect()->route('bss.bss_list')->withStatus(__('BSS '.$bss->title.' deleted successfully.'));
     }
     public function status($id): RedirectResponse
     {

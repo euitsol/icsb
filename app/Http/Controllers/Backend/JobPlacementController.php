@@ -55,7 +55,7 @@ class JobPlacementController extends Controller
         $jp->special_instractions = $request->special_instractions;
         $jp->created_by = auth()->user()->id;
         $jp->save();
-        return redirect()->route('job_placement.jp_list')->withStatus(__('Job '.$request->title.' created successfully.'));
+        return redirect()->route('job_placement.jp_list')->withStatus(__('Job '.$jp->title.' created successfully.'));
     }
     public function edit($id): View
     {
@@ -87,7 +87,7 @@ class JobPlacementController extends Controller
         $jp->special_instractions = $request->special_instractions;
         $jp->updated_by = auth()->user()->id;
         $jp->save();
-        return redirect()->route('job_placement.jp_list')->withStatus(__('Job '.$request->title.' updated successfully.'));
+        return redirect()->route('job_placement.jp_list')->withStatus(__('Job '.$jp->title.' updated successfully.'));
     }
     public function delete($id): RedirectResponse
     {
@@ -123,7 +123,7 @@ class JobPlacementController extends Controller
             ";
             $this->send_feedback_email($mail,$subject, $jp->email);
             $this->send_member_email($jp);
-            
+
         }elseif($status == 'declined'){
             $jp->status = '-1';
             $jp->save();

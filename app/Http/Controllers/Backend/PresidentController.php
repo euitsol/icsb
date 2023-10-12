@@ -166,7 +166,7 @@ class PresidentController extends Controller
             return redirect()->route('president.president_list')->withStatus(__('Can\'t delete' . $p->member->name . ' is a running president. First add a new president!'));
         } else {
             $this->soft_delete($p);
-            return redirect()->route('president.president_list')->withStatus(__($p->member->name . ' status deleted successfully.'));
+            return redirect()->route('president.president_list')->withStatus(__($p->member->name . ' deleted successfully.'));
         }
     }
     public function singleDelete($id): RedirectResponse

@@ -74,7 +74,6 @@ class SecAndCeoController extends Controller
         $secretary_and_ceo = new SecAndCeo();
         $secretary_and_ceo->member_id = $request->member_id;
         $secretary_and_ceo->slug = $request->slug.'-'.$request->member_id;
-        // $secretary_and_ceo->designation = $request->designation;
         $secretary_and_ceo->bio = $request->bio;
         $secretary_and_ceo->message = $request->message;
         $secretary_and_ceo->created_by = auth()->user()->id;
@@ -164,7 +163,7 @@ class SecAndCeoController extends Controller
             return redirect()->route('sec_and_ceo.sc_list')->withStatus(__('Can\'t delete'.$sc->member->name.' is a running cecretary & CEO. First add a new secretary & CEO!'));
         }else{
             $this->soft_delete($sc);
-            return redirect()->route('sec_and_ceo.sc_list')->withStatus(__($sc->member->name.' status deleted successfully.'));
+            return redirect()->route('sec_and_ceo.sc_list')->withStatus(__($sc->member->name.' deleted successfully.'));
         }
     }
     public function singleDelete($id): RedirectResponse

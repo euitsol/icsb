@@ -47,7 +47,7 @@ class NationalAwardController extends Controller
         $nationalAward->description = $request->description;
         $nationalAward->created_by = auth()->user()->id;
         $nationalAward->save();
-        return redirect()->route('national_award.national_award_list')->withStatus(__('National Award '.$request->title.' created successfully.'));
+        return redirect()->route('national_award.national_award_list')->withStatus(__('National Award '.$request->title.' added successfully.'));
     }
     public function edit($id): View
     {
