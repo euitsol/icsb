@@ -32,7 +32,7 @@ class RecentVideoController extends Controller
         $recent_video->url = $request->url;
         $recent_video->created_by = auth()->user()->id;
         $recent_video->save();
-        return redirect()->route('recent_video.recent_video_list')->withStatus(__('Recent Video '.$recent_video->title.' added successfully.'));
+        return redirect()->route('recent_video.recent_video_list')->withStatus(__('Recent video '.$recent_video->title.' added successfully.'));
     }
     public function edit($id): View
     {
@@ -46,7 +46,7 @@ class RecentVideoController extends Controller
         $recent_video->url = $request->url;
         $recent_video->updated_by = auth()->user()->id;
         $recent_video->save();
-        return redirect()->route('recent_video.recent_video_list')->withStatus(__('Recent Video '.$recent_video->title.' updated successfully.'));
+        return redirect()->route('recent_video.recent_video_list')->withStatus(__('Recent video '.$recent_video->title.' updated successfully.'));
     }
     public function delete($id): RedirectResponse
     {
@@ -55,7 +55,7 @@ class RecentVideoController extends Controller
         // $recent_video->delete();
         $this->soft_delete($recent_video);
 
-        return redirect()->route('recent_video.recent_video_list')->withStatus(__('Recent Video '.$recent_video->title.' deleted successfully.'));
+        return redirect()->route('recent_video.recent_video_list')->withStatus(__('Recent video '.$recent_video->title.' deleted successfully.'));
     }
     public function status($id): RedirectResponse
     {

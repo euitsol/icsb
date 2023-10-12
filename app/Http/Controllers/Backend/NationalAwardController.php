@@ -47,7 +47,7 @@ class NationalAwardController extends Controller
         $nationalAward->description = $request->description;
         $nationalAward->created_by = auth()->user()->id;
         $nationalAward->save();
-        return redirect()->route('national_award.national_award_list')->withStatus(__('National Award '.$request->title.' added successfully.'));
+        return redirect()->route('national_award.national_award_list')->withStatus(__('National award '.$request->title.' added successfully.'));
     }
     public function edit($id): View
     {
@@ -86,7 +86,7 @@ class NationalAwardController extends Controller
         $national_award->updated_by = auth()->user()->id;
         $national_award->save();
 
-        return redirect()->route('national_award.national_award_list')->withStatus(__('National Award '.$national_award->title.' updated successfully.'));
+        return redirect()->route('national_award.national_award_list')->withStatus(__('National award '.$national_award->title.' updated successfully.'));
     }
     public function delete($id): RedirectResponse
     {
@@ -96,7 +96,7 @@ class NationalAwardController extends Controller
         // $national_award->delete();
         $this->soft_delete($national_award);
 
-        return redirect()->route('national_award.national_award_list')->withStatus(__('National Award '.$national_award->title.' deleted successfully.'));
+        return redirect()->route('national_award.national_award_list')->withStatus(__('National award '.$national_award->title.' deleted successfully.'));
     }
     public function status($id): RedirectResponse
     {

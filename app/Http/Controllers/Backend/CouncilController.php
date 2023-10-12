@@ -43,7 +43,7 @@ class CouncilController extends Controller
         $council->description = $request->description;
         $council->created_by = auth()->user()->id;
         $council->save();
-        return redirect()->route('council.council_member_create',$council->id)->withStatus(__('Council'.$council->title.' created successfully.'));
+        return redirect()->route('council.council_member_create',$council->id)->withStatus(__('Council '.$council->title.' created successfully.'));
     }
     public function edit($id): View
     {
@@ -61,7 +61,7 @@ class CouncilController extends Controller
         $council->updated_by = auth()->user()->id;
         $council->save();
 
-        return redirect()->route('council.council_list')->withStatus(__('Council'.$council->title.' updated successfully.'));
+        return redirect()->route('council.council_list')->withStatus(__('Council '.$council->title.' updated successfully.'));
     }
     public function status($id): RedirectResponse
     {
@@ -95,7 +95,7 @@ class CouncilController extends Controller
         $cmt->created_by = auth()->user()->id;
         $cmt->save();
 
-        return redirect()->route('council.council_list')->withStatus(__('Council Type'.$cmt->title.' created successfully.'));
+        return redirect()->route('council.council_list')->withStatus(__('Council member type '.$cmt->title.' created successfully.'));
     }
     public function cmt_edit($id): View
     {
@@ -112,7 +112,7 @@ class CouncilController extends Controller
         $cmt->updated_by = auth()->user()->id;
         $cmt->save();
 
-        return redirect()->route('council.council_list')->withStatus(__('Council Type'.$cmt->title.' updated successfully.'));
+        return redirect()->route('council.council_list')->withStatus(__('Council member type '.$cmt->title.' updated successfully.'));
     }
     public function cmt_status($id): RedirectResponse
     {

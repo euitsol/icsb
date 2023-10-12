@@ -54,7 +54,7 @@ class SampleQuestionPaperController extends Controller
         $sqp->order_key = $request->order_key;
         $sqp->created_by = auth()->user()->id;
         $sqp->save();
-        return redirect()->route('sample_question_paper.sqp_list')->withStatus(__('Sample Question Paper '.$sqp->title.' created successfully.'));
+        return redirect()->route('sample_question_paper.sqp_list')->withStatus(__('Sample question paper '.$sqp->title.' created successfully.'));
     }
     public function edit($id): View
     {
@@ -100,7 +100,7 @@ class SampleQuestionPaperController extends Controller
         $sqp->title = $request->title;
         $sqp->updated_by = auth()->user()->id;
         $sqp->save();
-        return redirect()->route('sample_question_paper.sqp_list')->withStatus(__('Sample Question Paper '.$sqp->title.' updated successfully.'));
+        return redirect()->route('sample_question_paper.sqp_list')->withStatus(__('Sample question paper '.$sqp->title.' updated successfully.'));
     }
     public function delete($id): RedirectResponse
     {
@@ -116,7 +116,7 @@ class SampleQuestionPaperController extends Controller
 
         $sqp = SampleQuestionPaper::findOrFail($id);
         $this->soft_delete($sqp);
-        return redirect()->route('acts.acts_list')->withStatus(__('Sample Question Paper '.$sqp->title.' deleted successfully.'));
+        return redirect()->route('acts.acts_list')->withStatus(__('Sample question paper '.$sqp->title.' deleted successfully.'));
     }
     public function status($id): RedirectResponse
     {
