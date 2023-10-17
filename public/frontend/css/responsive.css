@@ -518,6 +518,7 @@
         display: block;
         position: fixed;
         background: #182456;
+        z-index: 999999999999999;
     }
 }
 @media only screen and (max-width: 1100px){
