@@ -21,39 +21,49 @@
                 <div class="offcanvas-body">
                     <nav>
                         <ul>
-                            <li><a href="">Home</a></li>
-                            <li class="dropdown">
-                                <a href="javascript:voide(0)">About CS</a>
-                                <ul class="">
-                                    <li><a href="javascript:voide(0)">ICSB Profile</a></li>
-                                    <li><a href="javascript:voide(0)">Vision</a></li>
-                                    <li><a href="javascript:voide(0)">Mission</a></li>
-                                    <li><a href="javascript:voide(0)">Objectives</a></li>
-                                    <li><a href="javascript:voide(0)">Values</a></li>
-                                    <li><a href="javascript:voide(0)">World Wide CS</a></li>
-                                    <li><a href="javascript:voide(0)">Corporate Governance</a></li>
-                                    <li><a href="javascript:voide(0)">CS for CG</a></li>
-                                    <li><a href="javascript:voide(0)">FAQs</a></li>
+                            <li><a href="{{route('home')}}">{{_('Home')}}</a></li>
+                            <li>
+                                <a class="main-nav" href="javascript:void(0)">{{_('About CS')}}<i class="fa-solid fa-angle-down icon"></i></a>
+                                <ul>
+                                    <li><a href="javascript:void(0)">ICSB Profile</a></li>
+                                    <li><a href="javascript:void(0)">Vision</a></li>
+                                    <li><a href="javascript:void(0)">Mission</a></li>
+                                    <li><a href="javascript:void(0)">Objectives</a></li>
+                                    <li><a href="javascript:void(0)">Values</a></li>
+                                    <li><a href="javascript:void(0)">World Wide CS</a></li>
+                                    <li><a href="javascript:void(0)">Corporate Governance</a></li>
+                                    <li><a href="javascript:void(0)">CS for CG</a></li>
+                                    <li><a href="javascript:void(0)">FAQs</a></li>
                                 </ul>
                             </li>
-                            <li class="">
-                                <a href="javascript:voide(0)">Council </a>
-                                <ul class="">
-                                    <li><a href="javascript:voide(0)">ICSB Profile</a></li>
-                                    <li><a href="javascript:voide(0)">Vision</a></li>
-                                    <li><a href="javascript:voide(0)">Mission</a></li>
-                                    <li><a href="javascript:voide(0)">Objectives</a></li>
-                                    <li><a href="javascript:voide(0)">Values</a></li>
-                                    <li><a href="javascript:voide(0)">World Wide CS</a></li>
-                                    <li><a href="javascript:voide(0)">Corporate Governance</a></li>
-                                    <li><a href="javascript:voide(0)">CS for CG</a></li>
-                                    <li><a href="javascript:voide(0)">FAQs </a>
-                                        <ul class="">
-                                            <li><a href="javascript:voide(0)">Values</a></li>
-                                            <li><a href="javascript:voide(0)">World Wide CS</a></li>
-                                            <li><a href="javascript:voide(0)">Corporate Governance</a></li>
-                                            <li><a href="javascript:voide(0)">CS for CG</a></li>
-                                            <li><a href="javascript:voide(0)">FAQs</a></li>
+                            <li>
+                                <a class="main-nav">Council<i class="fa-solid fa-angle-down icon"></i> </a>
+                                <ul>
+                                    <li><a href="{{ route('sp.frontend','icsb-profile') }}">ICSB Profile</a></li>
+                                    <li><a href="javascript:void(0)">Vision</a></li>
+                                    <li><a href="javascript:void(0)">Mission</a></li>
+                                    <li><a href="javascript:void(0)">Objectives</a></li>
+                                    <li><a href="javascript:void(0)">Values</a></li>
+                                    <li><a href="javascript:void(0)">World Wide CS</a></li>
+                                    <li><a class="sub-nav">{{_('Exam FAQs')}} <i class="fa-solid fa-angle-down sub-icon"></i></a>
+                                        <ul>
+                                            <li><a href="javascript:void(0)">Values</a></li>
+                                            <li><a href="javascript:void(0)">World Wide CS</a></li>
+                                            <li><a href="javascript:void(0)">Corporate Governance</a></li>
+                                            <li><a href="javascript:void(0)">CS for CG</a></li>
+                                            <li><a href="javascript:void(0)">FAQs</a></li>
+                                        </ul>
+
+                                    </li>
+                                    <li><a href="javascript:void(0)">Corporate Governance</a></li>
+                                    <li><a href="javascript:void(0)">CS for CG</a></li>
+                                    <li><a class="sub-nav" href="javascript:void(0)">{{_('FAQs')}} <i class="fa-solid fa-angle-down sub-icon"></i></a>
+                                        <ul>
+                                            <li><a href="javascript:void(0)">Values</a></li>
+                                            <li><a href="javascript:void(0)">World Wide CS</a></li>
+                                            <li><a href="javascript:void(0)">Corporate Governance</a></li>
+                                            <li><a href="javascript:void(0)">CS for CG</a></li>
+                                            <li><a href="javascript:void(0)">FAQs</a></li>
                                         </ul>
 
                                     </li>
@@ -93,8 +103,8 @@
                 <ul class="d-flex">
                     <li><a class="nav-link active" aria-current="page" href="{{route('home')}}">{{_('Home')}}</a></li>
                     <li class="drop-down">
-                        <a href="javascript:voide(0)">About CS <i class="fa-solid fa-angle-down"></i></a>
-                        <ul class="">
+                        <a href="javascript:void(0)">About CS <i class="fa-solid fa-angle-down"></i></a>
+                        <ul>
                             <li><a href="{{ route('sp.frontend','icsb-profile') }}">{{_('ICSB Profile')}}</a></li>
                             <li><a href="{{ route('sp.frontend','vision') }}">{{_('Vision')}}</a></li>
                             <li><a href="{{ route('sp.frontend','mission') }}">{{_('Mission')}}</a></li>
@@ -119,15 +129,15 @@
                         </ul>
                     </li>
                     <li class="drop-down">
-                        <a href="javascript:voide(0)">Council <i class="fa-solid fa-angle-down"></i></a>
-                        <ul class="">
+                        <a href="javascript:void(0)">Council <i class="fa-solid fa-angle-down"></i></a>
+                        <ul>
                             @foreach ($councils as $council)
                                 <li><a href="{{route('council_view.council.members',$council->slug)}}">{{$council->title}}</a></li>
                             @endforeach
                             <li><a href="{{route('council_view.president')}}">{{_('The President')}}</a></li>
                             <li><a href="{{route('council_view.past_presidents')}}">{{_('Past Presidents')}}</a></li>
                             @foreach ($committeeTypes as $type)
-                                <li class="drop-down"><a href="javascript:voide(0)">{{$type->title}} <i class="fa-solid fa-angle-down"></i></a>
+                                <li class="drop-down"><a href="javascript:void(0)">{{$type->title}} <i class="fa-solid fa-angle-down"></i></a>
                                     @if(count($type->committees))
                                         <ul class="sub-menu">
                                             @foreach ($type->committees as $committee)
@@ -140,8 +150,8 @@
                         </ul>
                     </li>
                     <li class="drop-down">
-                        <a href="javascript:voide(0)">Members <i class="fa-solid fa-angle-down"></i></a>
-                        <ul class="">
+                        <a href="javascript:void(0)">Members <i class="fa-solid fa-angle-down"></i></a>
+                        <ul>
                             <li><a href="{{ route('sp.frontend','who-are-cs') }}">Who are CS</a></li>
                             <li><a href="{{ route('sp.frontend','cs-membership') }}">CS Membership</a></li>
                             <li><a href="{{ route('sp.frontend','membership-benefits') }}">Membership Benefits</a></li>
@@ -166,9 +176,9 @@
                         </ul>
                     </li>
                     <li class="drop-down">
-                        <a href="javascript:voide(0)">Students <i class="fa-solid fa-angle-down"></i></a>
-                        <ul class="">
-                            <li class="drop-down"><a href="javascript:voide(0)">Admission <i class="fa-solid fa-angle-down"></i></a>
+                        <a href="javascript:void(0)">Students <i class="fa-solid fa-angle-down"></i></a>
+                        <ul>
+                            <li class="drop-down"><a href="javascript:void(0)">Admission <i class="fa-solid fa-angle-down"></i></a>
                                 <ul class="sub-menu">
                                     <li><a href="{{ route('sp.frontend','entry-criteria') }}">{{_('Entry Criteria ')}}</a></li>
                                     <li><a href="{{ route('sp.frontend','fees-&-costs') }}">{{_('Fees & Costs')}}</a></li>
@@ -177,7 +187,7 @@
                                     @if(isset($policies) && isset($policies->saved_data) && !empty(json_decode($policies->saved_data)->{'upload-files'}))
                                     <li><a href="{{ route('sp.frontend','policy') }}">{{_('Policies for Students')}}</a></li>
 
-                                    {{-- <li class="drop-down"><a href="javascript:voide(0)">{{_('Policies for Students')}} <i class="fa-solid fa-angle-down"></i></a>
+                                    {{-- <li class="drop-down"><a href="javascript:void(0)">{{_('Policies for Students')}} <i class="fa-solid fa-angle-down"></i></a>
                                         <ul class="sub-menu">
                                             @foreach (json_decode($policies->saved_data)->{'upload-files'} as $k => $up)
                                                 <li><a href="{{ route('sp.policy', make_slug(file_title_from_url($up))) }}">{{ file_title_from_url($up) }}</a></li>
@@ -207,8 +217,8 @@
                         </ul>
                     </li>
                     <li class="drop-down">
-                        <a href="javascript:voide(0)">Employees <i class="fa-solid fa-angle-down"></i></a>
-                        <ul class="">
+                        <a href="javascript:void(0)">Employees <i class="fa-solid fa-angle-down"></i></a>
+                        <ul>
                             <li><a href="{{route('employee_view.sec_and_ceo')}}">{{_('Secretary & CEO')}}</a></li>
                             <li><a href="{{route('employee_view.organogram')}}">{{_('Organogram')}}</a></li>
                             <li><a href="{{route('employee_view.assined_officer')}}">{{_('Assigned Officers')}}</a></li>
@@ -216,8 +226,8 @@
                         </ul>
                     </li>
                     <li class="drop-down">
-                        <a href="javascript:voide(0)">Rules <i class="fa-solid fa-angle-down"></i></a>
-                        <ul class="">
+                        <a href="javascript:void(0)">Rules <i class="fa-solid fa-angle-down"></i></a>
+                        <ul>
                             @foreach ($menu_acts as $act)
                                 <li><a href="{{route('rules_view.act.view',$act->slug)}}">{{$act->title}}</a></li>
                             @endforeach
@@ -234,8 +244,8 @@
                         </ul>
                     </li>
                     <li class="drop-down">
-                        <a href="javascript:voide(0)">Publications<i class="fa-solid fa-angle-down"></i></a>
-                        <ul class="">
+                        <a href="javascript:void(0)">Publications<i class="fa-solid fa-angle-down"></i></a>
+                        <ul>
                             <li><a href="{{ route('sp.frontend','the-chartered-secretary') }}">{{_('The Chartered Secretary')}}</a></li>
                             <li><a href="{{route('publication_view.national_award')}}">{{_('ICSB National Award Souvenir')}}</a></li>
                             <li><a href="{{route('publication_view.convocation')}}">{{_('ICSB Convocation Souvenir')}}</a></li>
@@ -244,14 +254,14 @@
                         </ul>
                     </li>
                     <li class="drop-down">
-                        <a href="javascript:voide(0)">Examination <i class="fa-solid fa-angle-down"></i></a>
-                        <ul class="">
+                        <a href="javascript:void(0)">Examination <i class="fa-solid fa-angle-down"></i></a>
+                        <ul>
                             <li><a href="{{ route('sp.frontend','eligibility') }}">{{_('Eligibility')}}</a></li>
                             <li><a href="{{ route('sp.frontend','exam-schedule') }}">{{_('Exam Schedule')}}</a></li>
                             @if(isset($examRegistration->saved_data) && !empty(json_decode($examRegistration->saved_data)->{'url'}))
                                 <li><a target="_blank" href="{{ json_decode($examRegistration->saved_data)->{'url'} }}">{{_('Exam Registration')}}</a></li>
                             @endif
-                            <li class="drop-down"><a href="javascript:voide(0)">Results <i class="fa-solid fa-angle-down"></i></a>
+                            <li class="drop-down"><a href="javascript:void(0)">Results <i class="fa-solid fa-angle-down"></i></a>
                                 <ul class="sub-menu">
                                     <li><a href="{{ route('sp.frontend','foundation-complete') }}">{{_('Foundation Complete')}}</a></li>
                                     <li><a href="{{ route('sp.frontend','subject-complete') }}">{{_('Subject Complete')}}</a></li>
@@ -263,9 +273,9 @@
                         </ul>
                     </li>
                     <li class="drop-down">
-                        <a href="javascript:voide(0)">Media Room <i class="fa-solid fa-angle-down"></i></a>
+                        <a href="javascript:void(0)">Media Room <i class="fa-solid fa-angle-down"></i></a>
                         @if(count($mediaRoomCategory))
-                            <ul class="">
+                            <ul>
                                 @foreach ($mediaRoomCategory as $cat)
                                     <li><a href="{{route('media_room_view.cat.all',$cat->slug)}}">{{$cat->name}}</a></li>
                                 @endforeach
@@ -273,8 +283,8 @@
                         @endif
                     </li>
                     <li class="drop-down">
-                        <a href="javascript:voide(0)">Contact Us <i class="fa-solid fa-angle-down"></i></a>
-                        <ul class="">
+                        <a href="javascript:void(0)">Contact Us <i class="fa-solid fa-angle-down"></i></a>
+                        <ul>
                             <li><a href="{{route('contact_us.feedback')}}">{{_('Feedback')}}</a></li>
                             <li><a href="{{route('contact_us.address')}}">{{_('Address')}}</a></li>
                             <li><a href="{{route('contact_us.location_map')}}">{{_('Location Map')}}</a></li>

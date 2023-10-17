@@ -617,12 +617,16 @@ li {
     display: inline-block;
 }
 
-.header-menu-section .desktop-menu .menu-bar ul li a i {
+.header-menu-section .desktop-menu .menu-bar ul li a i,
+.header-menu-section .mobile-header ul li a i {
     margin-left: 5px;
     top: 2px;
     position: relative;
     transform: rotate(-90deg);
     transition: .4s;
+}
+.header-menu-section .mobile-header ul li a i.rotate{
+    transform: rotate(0deg);
 }
 
 .header-menu-section .desktop-menu .menu-bar>ul>li:hover>a>i {

@@ -51,7 +51,7 @@
 </head>
 
 <body>
-    <a href="javascript:voide(0)" class="scroll_top"><i class="fa-solid fa-circle-up fa-bounce"></i></i></a>
+    <a href="javascript:void(0)" class="scroll_top"><i class="fa-solid fa-circle-up fa-bounce"></i></i></a>
     @include('frontend.includes.header.header')
 
     <div class="main">
