@@ -6,9 +6,8 @@
 	<link rel="stylesheet" href="{{asset('frontend/css/animate.css')}}">
 @endpush
 @section('content')
-<a href="javascript:voide(0)" class="scroll_top"><i class="fa-solid fa-circle-up fa-bounce"></i></i></a>
 <div class="">
-    <a href="https://csjobsbd.com/" class="stiky-box " target="_blank">
+    <a href="{{route('member_view.job_index')}}" class="stiky-box ">
         <img src="{{asset('fixed_image/stiky_image.jpg')}}" alt="">
     </a>
 </div>
