@@ -118,7 +118,7 @@
         <div class="modal-content">
 
             <div class="modal-body">
-                <a href="{{isset(json_decode($pop_up->saved_data)->{'url'}) ? json_decode($pop_up->saved_data)->{'url'} : 'javascript:voide(0)' }}"><img src="{{storage_url(json_decode($pop_up->saved_data)->{'upload-image'})}}" alt="Pop Up Notice Not Found"></a>
+                <a href="{{isset(json_decode($pop_up->saved_data)->{'url'}) ? json_decode($pop_up->saved_data)->{'url'} : 'javascript:void(0)' }}"><img src="{{storage_url(json_decode($pop_up->saved_data)->{'upload-image'})}}" alt="Pop Up Notice Not Found"></a>
                 <button type="button" class="close pop_up_close" data-bs-dismiss="modal" aria-label="Close" ><i class="fa-solid fa-xmark fa-beat"></i></button>
             </div>
         </div>

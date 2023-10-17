@@ -4,9 +4,9 @@
             <div class="content">
                 <h3>{{ json_decode($banner_video->saved_data)->{'banner-title'} }}</h3>
                 <div class="button d-flex justify-content-center">
-                    <a href="javascript:voide(0)" type="button">ADMIT AS <br> STUDENT</a>
-                    <a href="javascript:voide(0)" type="button">REGISTER AS <br> MEMBER</a>
-                    <a href="javascript:voide(0)" type="button">OBTAIN CS <br> PRACTICE LICENSE</a>
+                    <a href="javascript:void(0)" type="button">ADMIT AS <br> STUDENT</a>
+                    <a href="javascript:void(0)" type="button">REGISTER AS <br> MEMBER</a>
+                    <a href="javascript:void(0)" type="button">OBTAIN CS <br> PRACTICE LICENSE</a>
                 </div>
             </div>
 

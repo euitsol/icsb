@@ -496,6 +496,14 @@
     .header-menu-section .offcanvas-body nav ul li > ul {
         display: none;
     }
+    .header-menu-section .offcanvas-body nav ul li.active > a{
+        color: #182456;
+        font-weight: bold;
+    }
+    .header-menu-section .offcanvas-body nav ul li.activea > a{
+        color: #182456;
+        font-weight: bold;
+    }
     .header-menu-section .offcanvas-body nav ul li.active > ul {
         display: block;
     }
