@@ -4,12 +4,56 @@
 }
 
 /*======================  Job Placement CS ===============*/
+.job-index-section{
+    background-image: url('../img/jp.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+.job-index-section .container{
+    position: relative;
+    height: 100%;
+}
+.job-index-section .wrap {
+    position: absolute;
+    width: 85%;
+    display: block;
+    top: 65%;
+    left: 50%;
+    transform: translateX(-47%);
+}
 .job-index-section .employee a,
 .job-index-section .employeer a{
     font-size: 24px;
     font-weight: 900;
     text-transform: uppercase;
+    transition: .4s;
+
+    background-color: #182456;
+    color: #fff;
+    border: 3px solid #182456;
 }
+/* .job-index-section .employee a{
+    background-color: #182456;
+    color: #fff;
+    border: 3px solid #182456;
+}
+.job-index-section .employeer a{
+    background-color: #122F98;
+    color: #fff;
+    border: 3px solid #122F98;
+} */
+.job-index-section .employee a:hover,
+.job-index-section .employeer a:hover{
+    background-color: transparent;
+    color: #182456;
+    border: 3px solid #182456;
+}
+/* .job-index-section .employeer a:hover{
+    background-color: transparent;
+    color: #122F98;
+    border: 3px solid #122F98;
+} */
 .job-create-section{
     font-family: "Teko", sans-serif !important;
 }
