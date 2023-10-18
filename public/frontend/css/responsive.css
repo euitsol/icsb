@@ -13,6 +13,9 @@
     .level-2{
       column-gap: 10%;
     }
+    .header-menu-section .desktop-menu .menu-bar ul li > ul {
+        left: -103%;
+    }
   }
   @media only screen and (max-width: 1600px){
     .level-3 {
@@ -23,15 +26,25 @@
     .level-3 {
       padding-right: 0;
     }
+    .header-menu-section .desktop-menu .menu-bar ul li > ul {
+        width: 260px;
+    }
   }
 @media only screen and (max-width: 1460px){
     .header-menu-section .navbar-nav {
         column-gap: 3px;
     }
-    .header-menu-section .navbar-nav li a {
+    .header-menu-section .desktop-menu .menu-bar ul li a {
         font-size: 14px;
         line-height: 20px;
     }
+
+}
+@media only screen and (max-width: 1454px){
+    .header-menu-section .desktop-menu .menu-bar > ul{
+        column-gap: 30px;
+    }
+
 }
 @media only screen and (max-width: 1405px){
 /*====================== Event Page Style ======================*/
@@ -44,7 +57,15 @@
         display: flex;
     }
 }
+@media only screen and (max-width: 1347px){
+    .header-menu-section .desktop-menu .menu-bar > ul {
+        column-gap: 25px;
+    }
+}
 @media only screen and (max-width: 1300px){
+    .header-menu-section .desktop-menu .menu-bar > ul{
+        column-gap: 14px;
+    }
     .top-header-section .header-column {
         column-gap: 17px;
     }
@@ -101,8 +122,12 @@
       }
 }
 @media only screen and (max-width: 1200px){
+    .header-menu-section .desktop-menu .menu-bar > ul{
+        column-gap: 14px;
+    }
     .main-header-section {
         padding: 36px 0 10px 0;
+
     }
     .main-header-section .header-content h1 {
         font-size: 45px;
@@ -282,6 +307,12 @@
     }
 }
 @media only screen and (max-width: 1199px){
+    .top-header-section{
+        display: none;
+    }
+    .main-header-section {
+        display: none;
+    }
     .header-menu-section {
         padding: 7px 0 6px 0;
     }
@@ -299,7 +330,6 @@
     }
     .header-menu-section .navbar-brand{
         display: block;
-        margin: 0 auto;
     }
     .main-header-section .header-content img {
         display: none;
@@ -591,10 +621,6 @@
         font-size: 18px;
         line-height: 25px;
         margin-bottom: 10px;
-    }
-
-    .top-header-section{
-        display: none;
     }
     .main-header-section {
         padding: 10px 0;
