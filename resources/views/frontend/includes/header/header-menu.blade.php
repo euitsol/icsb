@@ -2,14 +2,14 @@
 <div class="header-menu-section">
     <div class="stiky-logo">
         <a href="{{ route('home') }}">
-            <img src="{{ asset('frontend/img/icsb-logo.svg') }}" alt="{{ _('ICSB Logo') }}">
+            <img src="{{storage_url(settings('site_logo'))}}" alt="{{ _('ICSB Logo') }}">
         </a>
     </div>
     <div class="container">
         <!--===================================== Mobile Menu Start================================-->
         <nav class="navbar bg-body-tertiary fixed-top mobile-header">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html"><img src="{{ asset('frontend/img/icsb-logo.svg') }}"></a>
+                <a class="navbar-brand" href="index.html"><img src="{{storage_url(settings('site_logo'))}}"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"><i class="fa-solid fa-bars-staggered"></i></span>
@@ -17,7 +17,7 @@
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
                     aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
-                        <a class="navbar-brand" href="index.html"><img src="{{ asset('frontend/img/logo.svg') }}"></a>
+                        <a class="navbar-brand" href="index.html"><img src="{{storage_url(settings('site_logo'))}}"></a>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
                             aria-label="Close"></button>
                     </div>
