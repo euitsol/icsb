@@ -60,6 +60,19 @@
 
     @include('frontend.includes.footer.footer')
 
+    <!-- Google Search Modal -->
+    <div class="modal fade pop_up_modal" id="gs-modal" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <div class="gcse-search"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
     <!-- BXSlider -->
@@ -80,6 +93,13 @@
 
     <!-- Custom js -->
     <script src="{{asset('frontend/js/custom.js')}}"></script>
+    <script>
+        $(document).ready(function() {
+             $('.search_button').on("click", function() {
+                 $('#gs-modal').modal('show');
+             });
+         });
+    </script>
 
     @stack('js')
 </body>

@@ -312,9 +312,9 @@
                                 </li>
                             </ul>
                         </nav>
-                        <form class="d-flex mt-3" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        <form class="mt-3" role="search">
+                            <button class="btn btn-outline-success w-100 search_button btn-close" style="height:auto; opacity:1;" data-bs-dismiss="offcanvas"
+                            aria-label="Close" type="button">{{_('Search')}}</button>
                         </form>
                         <div class="mobile-menu-button flex">
                             @if (!empty($contact->phone))

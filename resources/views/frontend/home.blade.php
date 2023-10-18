@@ -125,18 +125,7 @@
     </div>
 </div>
 @endif
- <!-- Google Search Modal -->
- <div class="modal fade pop_up_modal" id="gs-modal" data-bs-keyboard="false" tabindex="-1"
- aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
 
-            <div class="modal-body">
-                <div class="gcse-search"></div>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 
@@ -150,13 +139,6 @@
     <script src="{{ asset('frontend/js/particle-configure-nasa.js') }}"></script>
 @endpush
 @push('js')
-<script>
-   $(document).ready(function() {
-        $('.search_button').on("click", function() {
-            $('#gs-modal').modal('show');
-        });
-    });
-</script>
 <script>
     new WOW().init();
 </script>

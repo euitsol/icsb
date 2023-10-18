@@ -299,6 +299,7 @@
     }
     .header-menu-section .navbar-brand{
         display: block;
+        margin: 0 auto;
     }
     .main-header-section .header-content img {
         display: none;
@@ -590,6 +591,22 @@
         font-size: 18px;
         line-height: 25px;
         margin-bottom: 10px;
+    }
+
+    .top-header-section{
+        display: none;
+    }
+    .main-header-section {
+        padding: 10px 0;
+        display: none;
+    }
+    .about-us-section .about-us-row .image-column .first-image{
+        width: 300px;
+        height: 300px;
+    }
+    .about-us-section .about-us-row .image-column .second-image{
+        width: 300px;
+        height: 300px;
     }
 
 /*=========================== Code of Conduct Page =======================*/
@@ -1050,23 +1067,6 @@
         height: 52px;
         bottom: -52px;
       }
-}
-@media only screen and (max-width: 1024px){
-    .top-header-section{
-        display: none;
-    }
-    .main-header-section {
-        padding: 10px 0;
-        display: none;
-    }
-    .about-us-section .about-us-row .image-column .first-image{
-        width: 300px;
-        height: 300px;
-    }
-    .about-us-section .about-us-row .image-column .second-image{
-        width: 300px;
-        height: 300px;
-    }
 }
 @media only screen and (max-width: 991px){
     .main-header-section {
