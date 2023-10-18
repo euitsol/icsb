@@ -83,6 +83,12 @@ table.gsc-search-box {
 .gsc-input-box {
     border: 0 !important;
 }
+.gsc-results-wrapper-overlay.gsc-results-wrapper-visible{
+    background-color: #fff !important;
+}
+.gsc-results-wrapper-overlay{
+    background-color: #fff !important;
+}
 
 /* Modal Css */
 #gs-modal .modal-content{
@@ -135,7 +141,7 @@ table.gsc-search-box {
 }
 
 .pop_up_modal {
-    z-index: 99999999;
+    z-index: 99999999999999999999999999999999999999999999999;
 }
 
 .pop_up_modal .modal-body {
