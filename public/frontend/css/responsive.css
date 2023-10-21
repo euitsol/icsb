@@ -326,6 +326,9 @@
     } */
 }
 @media only screen and (max-width: 1199px){
+    .banner-section .video-container {
+        height: 90vh;
+    }
     .top-header-section{
         display: none;
     }
