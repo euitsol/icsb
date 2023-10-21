@@ -102,7 +102,7 @@ table.gsc-search-box {
 /* GOOGLE SEARCH BOX DESIGN CSS END */
 .scroll_top {
     position: fixed;
-    top: 90%;
+    top: 95%;
     left: 95%;
     font-size: 50px;
     display: none;
@@ -1271,7 +1271,7 @@ li {
 
 .president-section .president-column .right-column {
     width: 65%;
-    text-align: justify;
+    /* text-align: justify; */
 }
 
 .president-section .president-column .right-column h2 {
@@ -1593,7 +1593,6 @@ li {
     transition: 0.4s;
     line-height: 28px;
     font-size: 15px;
-    text-align: justify;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
 }
