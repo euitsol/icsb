@@ -11,22 +11,22 @@
       column-gap: 7%;
     }
   }
-  @media only screen and (max-width: 1700px){
-    .header-menu-section .stiky-logo,
-    .header-menu-section .stiky-logo-right {
-        transform: translateY(-23%);
-        width: 90px;
-    }
-    .level-3 {
-      column-gap: 12%;
-    }
-    .level-2{
-      column-gap: 10%;
-    }
-    .header-menu-section .desktop-menu .menu-bar ul li > ul {
-        left: -103%;
-    }
-  }
+@media only screen and (max-width: 1700px){
+.header-menu-section .stiky-logo,
+.header-menu-section .stiky-logo-right {
+    transform: translateY(-23%);
+    width: 90px;
+}
+.level-3 {
+    column-gap: 12%;
+}
+.level-2{
+    column-gap: 10%;
+}
+.header-menu-section .desktop-menu .menu-bar ul li > ul {
+    left: -103%;
+}
+}
   @media only screen and (max-width: 1680px){
     .header-menu-section .stiky-logo,
     .header-menu-section .stiky-logo-right {
@@ -71,6 +71,9 @@
         width: 48.5%;
         align-items: center;
         display: flex;
+    }
+    .we-are-section .who_we_are_wrap {
+        padding: 70px 30px 70px 30px;
     }
 }
 @media only screen and (max-width: 1347px){
@@ -153,6 +156,9 @@
         line-height: 51px;
         margin-top: 0px;
         margin-bottom: 15px;
+    }
+    .we-are-section .content-column{
+        width: 50%;
     }
     .recent-update-section .recent-update-row .item h3 {
         font-size: 19px;
@@ -741,14 +747,36 @@
     .global-page-section .global-row .right-column {
         width: 100%;
     }
+
+    /* Who We Are */
+    .we-are-section .we-are-coulmn {
+        flex-direction: column-reverse;
+    }
+    .we-are-section .image-column {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .we-are-section .content-column {
+        width: 100%;
+    }
+    .we-are-section .we-are-coulmn .content-column p {
+        max-width: 100%;
+    }
 }
 @media only screen and (max-width: 991px){
+    /* Who We are  */
+    .who-are-section .section-heading {
+        margin-bottom: 1rem;
+    }
+    .title-shap::after {
+        margin-top: 0.7rem;
+    }
+
+
+
     .main-header-section {
         padding: 30px 0 10px 0;
     }
-
-}
-@media only screen and (max-width: 989px){
     .scroll_top {
         left: 92%;
     }
@@ -848,11 +876,6 @@
 
     .recent-update-section {
         padding: 70px 0 30px 0;
-    }
-    .section-heading h2 {
-        font-size: 45px;
-        line-height: 51px;
-        margin-bottom: 43px;
     }
     .recent-update-section .recent-update-row .see-button a {
         top: -110px;
@@ -1168,6 +1191,7 @@
         .main-footer-section .visitor-column p {
             font-size: 17px;
         }
+
 }
 @media only screen and (max-width: 800px) {
     .main-footer-section h2 {
@@ -1196,16 +1220,16 @@
     }
 }
 @media only screen and (max-width: 767px) {
+    /* Latest News  */
+    .news-ticker-section .ticker-desc {
+        width: calc(100% - 160px);
+        margin-left: auto;
+    }
     .scroll_top {
         left: 90%;
     }
     .container {
         padding: 0 20px;
-    }
-    .section-heading h2 {
-        font-size: 33px;
-        line-height: 40px;
-        margin-bottom: 15px;
     }
     .common-heading{
         font-size: 30px;
@@ -1806,6 +1830,16 @@
     .scroll_top {
         font-size: 40px;
     }
+    /* Who We Are  */
+    .we-are-section .who_we_are_wrap {
+        padding: 40px 5px 30px 5px;
+    }
+    .we-are-section .we-are-coulmn .content-column {
+        margin-top: 10px;
+    }
+
+
+
     .faq-section .faq-content .accordion-item .collapsed {
         font-size: 15px;
         line-height: 21px;
@@ -1955,7 +1989,7 @@
         height: 250px;
     }
 }
-@media only screen and (max-width: 414px){
+@media only screen and (max-width: 575px){
     .scroll_top {
         left: 87%;
         font-size: 35px;
@@ -1973,3 +2007,10 @@
         display: block;
     }
 }
+
+
+
+
+
+
+

@@ -183,7 +183,7 @@ table.gsc-search-box {
     z-index: -1;
 }
 
-.big-sec-height {
+.big-sec-min-height {
     height: 50rem;
     padding: 100px 0;
     /* display: flex;
@@ -1593,7 +1593,6 @@ li {
     transition: 0.4s;
     line-height: 28px;
     font-size: 15px;
-    text-align: justify;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
 }
