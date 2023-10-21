@@ -1323,7 +1323,9 @@
         margin-bottom: 10px;
     }
 
-
+    .banner-section .video-container {
+        height: 50vh;
+    }
     /* Who we are  */
     .image-column img {
         height: auto;
