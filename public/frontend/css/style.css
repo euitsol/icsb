@@ -1271,7 +1271,7 @@ li {
 
 .president-section .president-column .right-column {
     width: 65%;
-    text-align: justify;
+    /* text-align: justify; */
 }
 
 .president-section .president-column .right-column h2 {

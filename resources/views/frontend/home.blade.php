@@ -77,7 +77,7 @@
 
 <!----============================ President Section ==========================---->
 @if(!empty($president))
-    <section class="president-section big-sec-height"  id="particles-js">
+    <section class="president-section big-sec-min-height"  id="particles-js">
         <div class="container wrap">
             <div class="president-column flex">
                 <div class="left-column">
@@ -89,9 +89,11 @@
                 </div>
                 <div class="right-column">
                     <h2 class="title-shap">{{_('Message of The President')}}</h2>
-                   <p> {!! stringLimit($president->message,'1650') !!}</p>
+                  <div>
+                    {!! stringLimit($president->message,'1650') !!}
+                  </div>
                    {{-- {!! $president->message !!} --}}
-                    <a href="{{route('council_view.president.message')}}">{{_('Read More')}}</a>
+                <a href="{{route('council_view.president.message')}}">{{_('Read More')}}</a>
                 </div>
             </div>
         </div>
