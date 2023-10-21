@@ -1,5 +1,5 @@
 @if(count($testimonials))
-<section class="testimonial-section big-sec-height">
+<section class="testimonial-section big-sec-min-height">
     <div class="container">
         <div class="heading-element text-align wow fadeInLeftBig">
             <h2 class="colo-black title-shap">{{_('Quotes')}}</h2>
