@@ -1,4 +1,9 @@
 @media only screen and (max-width: 1800px){
+    .header-menu-section .stiky-logo,
+    .header-menu-section .stiky-logo-right {
+        transform: translateY(-30%);
+        width: 110px;
+    }
     .level-2 {
       column-gap: 5%;
     }
@@ -7,6 +12,11 @@
     }
   }
   @media only screen and (max-width: 1700px){
+    .header-menu-section .stiky-logo,
+    .header-menu-section .stiky-logo-right {
+        transform: translateY(-23%);
+        width: 90px;
+    }
     .level-3 {
       column-gap: 12%;
     }
@@ -17,6 +27,12 @@
         left: -103%;
     }
   }
+  @media only screen and (max-width: 1680px){
+    .header-menu-section .stiky-logo,
+    .header-menu-section .stiky-logo-right {
+        display: none !important;
+    }
+}
   @media only screen and (max-width: 1600px){
     .level-3 {
       column-gap: 10%;
@@ -122,6 +138,9 @@
       }
 }
 @media only screen and (max-width: 1200px){
+    .scroll_top {
+        left: 94%;
+    }
     .header-menu-section .desktop-menu .menu-bar > ul{
         column-gap: 14px;
     }
@@ -272,7 +291,7 @@
         column-gap: 10%;
       }
 
-    .main-footer-section {
+    /* .main-footer-section {
         padding: 55px 0 10px 0;
     }
     .main-footer-section h2 {
@@ -304,7 +323,7 @@
     }
     .main-footer-section .visitor-column ul {
         margin-top: 10px;
-    }
+    } */
 }
 @media only screen and (max-width: 1199px){
     .top-header-section{
@@ -559,6 +578,30 @@
     .level-3 {
       column-gap: 8%;
     }
+    .main-footer-section h2 {
+        font-size: 30px;
+    }
+    .main-footer-section ul li a {
+        font-size: 12px;
+    }
+    .main-footer-section ul li {
+        font-size: 13px;
+    }
+    .main-footer-section .visitor-column ul {
+        max-width: 550px;
+    }
+    .main-footer-section .visitor-column h3 {
+        font-size: 15px;
+    }
+    .main-footer-section ul li{
+        font-size: 12px;
+    }
+    .main-footer-section .footer-row {
+        margin-bottom: .5rem;
+    }
+    .main-footer-section ul {
+        margin: 0;
+    }
   }
 @media only screen and (max-width: 1024px){
     .breadcrumbs-section .breadcrumbs-row .left-column {
@@ -699,7 +742,16 @@
         width: 100%;
     }
 }
+@media only screen and (max-width: 991px){
+    .main-header-section {
+        padding: 30px 0 10px 0;
+    }
+
+}
 @media only screen and (max-width: 989px){
+    .scroll_top {
+        left: 92%;
+    }
     .flex{
         flex-wrap: wrap;
     }
@@ -1093,13 +1145,60 @@
         height: 52px;
         bottom: -52px;
       }
+      .main-footer-section::before,
+      .main-footer-section::after {
+        display: none;
+        }
+        .main-footer-section h2 {
+            font-size: 35px;
+        }
+        .main-footer-section ul li a {
+            font-size: 14px;
+        }
+        .main-footer-section ul li {
+            font-size: 14px;
+        }
+        .main-footer-section .visitor-column ul {
+            max-width: 635px;
+            padding: 15px 0;
+        }
+        .main-footer-section .visitor-column h3 {
+            font-size: 20px;
+        }
+        .main-footer-section .visitor-column p {
+            font-size: 17px;
+        }
 }
-@media only screen and (max-width: 991px){
-    .main-header-section {
-        padding: 30px 0 10px 0;
+@media only screen and (max-width: 800px) {
+    .main-footer-section h2 {
+        font-size: 30px;
+    }
+    .main-footer-section ul li a {
+        font-size: 12px;
+    }
+    .main-footer-section ul li {
+        font-size: 13px;
+    }
+    .main-footer-section .visitor-column ul {
+        max-width: 550px;
+    }
+    .main-footer-section .visitor-column h3 {
+        font-size: 15px;
+    }
+    .main-footer-section ul li{
+        font-size: 12px;
+    }
+    .main-footer-section .footer-row {
+        margin-bottom: .5rem;
+    }
+    .main-footer-section ul {
+        margin: 0;
     }
 }
 @media only screen and (max-width: 767px) {
+    .scroll_top {
+        left: 90%;
+    }
     .container {
         padding: 0 20px;
     }
@@ -1662,8 +1761,51 @@
     .owl-nav{
         display: none;
     }
+    .main-footer-section ul li {
+        display: block;
+    }
+    .main-footer-section ul div{
+        display: block !important;
+    }
+    .main-footer-section ul li {
+        font-size: 17px;
+        /* line-height: 10px; */
+        margin-bottom: 10px;
+    }
+    .main-footer-section ul li a {
+        font-size: 17px;
+    }
+}
+@media only screen and (max-width: 700px) {
+    .main-footer-section h2 {
+        font-size: 30px;
+    }
+    .main-footer-section ul li a {
+        max-width: 100%;
+    }
+    .main-footer-section ul li i {
+        margin-right: 5px;
+    }
+    .main-footer-section .visitor-column ul {
+        max-width: 455px;
+        padding: 8px 0;
+    }
+    .main-footer-section .visitor-column h3,
+    .main-footer-section .visitor-column p {
+        font-size: 11px;
+    }
+    .main-footer-section .footer-row {
+        padding: 0;
+    }
+    .copyright-section p, .copyright-section p a {
+        font-size: 11px;
+    }
+
 }
 @media only screen and (max-width: 600px){
+    .scroll_top {
+        font-size: 40px;
+    }
     .faq-section .faq-content .accordion-item .collapsed {
         font-size: 15px;
         line-height: 21px;
@@ -1788,9 +1930,9 @@
         display: flex;
         justify-content: center;
     }
-    .main-footer-section ul li a {
-        max-width: 290px;
-        text-align: center;
+    .main-footer-section .visitor-column h3, .main-footer-section .visitor-column p {
+        font-size: 20px;
+        line-height: 30px;
     }
     .main-footer-section .visitor-column ul{
         column-gap: 8px;
@@ -1814,6 +1956,10 @@
     }
 }
 @media only screen and (max-width: 414px){
+    .scroll_top {
+        left: 87%;
+        font-size: 35px;
+    }
     .header-menu-section .mobile-menu-button {
         flex-wrap: wrap;
         row-gap: 15px;
@@ -1822,5 +1968,8 @@
     .mobile-menu-button a {
         max-width: 200px;
         font-size: 14px;
+    }
+    .main-footer-section ul li{
+        display: block;
     }
 }
