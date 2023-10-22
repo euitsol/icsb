@@ -1390,6 +1390,9 @@
     .national-connection-section.small-sec-height{
         height: auto;
     }
+    .title-shap::after {
+        margin-top: -2%;
+    }
 
     /* Notice  */
     .notice-section .notice-row .notice-board-wrapper .notice-content {
