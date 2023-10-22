@@ -84,7 +84,7 @@ $(document).ready(function () {
                 items: 2
             },
             800: {
-                items: 4
+                items: 3
             }
         }
     });
@@ -101,12 +101,21 @@ $(document).ready(function () {
         autoplayHoverPause: true,
         responsive: {
             0: {
+                items: 1
+            },
+            480: {
                 items: 2
             },
-            600: {
+            767: {
+                items: 3
+            },
+            991: {
                 items: 4
             },
-            800: {
+            1200: {
+                items: 5
+            },
+            1400: {
                 items: 6
             }
         }
@@ -148,13 +157,13 @@ $(document).ready(function () {
             0: {
                 items: 1
             },
-            650: {
+            600: {
                 items: 2
             },
-            989: {
+            800: {
                 items: 3
             },
-            1200: {
+            1368: {
                 items: 4
             }
         }
