@@ -1,4 +1,7 @@
 @media only screen and (max-width: 1800px){
+    .main_margin_top {
+        margin-top: 6.8rem;
+    }
     .header-menu-section .stiky-logo,
     .header-menu-section .stiky-logo-right {
         transform: translateY(-30%);
@@ -2319,8 +2322,10 @@
         justify-content: center;
     }
     .mobile-menu-button a {
-        max-width: 200px;
-        font-size: 14px;
+        max-width: 50%;
+        font-size: 12px;
+        width: auto;
+        padding: 0px 10px;
     }
     .main-footer-section ul li{
         display: block;
