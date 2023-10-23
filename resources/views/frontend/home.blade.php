@@ -4,10 +4,11 @@
 @push('css_link')
     {{-- Anmate CSS --}}
 	<link rel="stylesheet" href="{{asset('frontend/css/animate.css')}}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 @endpush
 @section('content')
 <div class="">
-    <a href="{{route('member_view.job_index')}}" class="stiky-box ">
+    <a href="{{route('member_view.job_index')}}" class="stiky-box bubble">
         <img src="{{asset('fixed_image/stiky_image.jpg')}}" alt="">
     </a>
 </div>
@@ -139,6 +140,7 @@
     <script src="{{ asset('frontend/js/particles.min.js') }}"></script>
     <script src="{{ asset('frontend/js/particle-configure.js') }}"></script>
     <script src="{{ asset('frontend/js/particle-configure-nasa.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
 @endpush
 @push('js')
 <script>
@@ -232,6 +234,38 @@
             isPaused = !isPaused;
         });
     });
+</script>
+
+<script>
+$(document).ready(function() {
+    $(".bubble").draggable();
+
+    var isMoving = false;
+    var isdragging = false;
+    $(".bubble").mousedown(function(){
+    isdragging = false;
+    });
+
+    $(".bubble").mousemove(function(){
+    isdragging = true;
+    $(this).css("transition", "all 0s");
+    });
+
+    $(".bubble").mouseup(function(e){
+    e.preventDefault();
+    var lastY = window.event.clientY;
+    var lastX = window.event.clientX;
+    var swidth = $( window ).width();
+
+    if(isdragging){
+        if(lastX > (swidth/2)){
+            $(this).css("top", lastY).css("left", (swidth-110) + "px").css("transition", "all 0.4s");
+        }else{
+            $(this).css("top", lastY).css("left", "0px").css("transition", "all 0.4s");
+        }
+    }
+    });
+});
 </script>
 
 @endpush
