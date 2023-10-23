@@ -1006,6 +1006,8 @@
     }
     .president-section .president-column .right-column a {
         margin-top: 25px;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .recent-update-section {
@@ -1378,12 +1380,21 @@
 
 }
 @media only screen and (max-width: 767px) {
+
     /* National Connection  */
     .national-connection-section.small-sec-height{
         height: auto;
     }
-
     /* Notice  */
+    .notice-section.big-sec-height {
+        padding: 80px 0 120px 0;
+    }
+    .bird-container {
+        top: -2%;
+    }
+    .notice-section .notice-wrapper .button-wrapper a {
+        top: 65px;
+    }
     .notice-section .notice-row .notice-board-wrapper .notice-content {
         column-gap: 10px;
     }
@@ -1469,8 +1480,12 @@
     .image-column img {
         height: auto;
     }
+    .testimonial-section {
+        padding: 60px 0px;
+        min-height: auto;
+    }
     .we-are-section {
-        padding: 65px 0 110px 0;
+        padding: 40px 0 60px 0;
     }
     .we-are-section .we-are-coulmn .content-column {
         width: 100%;
@@ -1493,10 +1508,13 @@
         margin-top: 0;
     }
     .president-section {
-        padding: 60px 0;
+        padding: 70px 0 85px 0;
     }
     .president-section .title-shap {
         font-size: 32px !important;
+    }
+    .bss-section {
+        padding: 50px 0 76px 0;
     }
 
     /* testimonial  */
@@ -1541,7 +1559,8 @@
         display: block;
     }
     .recent-update-section {
-        padding: 52px 0 8px 0;
+        padding: 50px 0 90px 0;
+        min-height: auto;
     }
     .recent-update-section .recent-update-row .recent-update-slider{
         margin-top: 32px;
@@ -1572,9 +1591,9 @@
         padding: 100px 25px;
     }
 
-    .cs-wide-section .content {
-        padding-top: 53px;
-        padding-bottom: 54px;
+    .cs-wide-section {
+        padding: 50px 0;
+        height: auto;
     }
     .heading-element h2 {
         font-size: 35px;
@@ -1583,7 +1602,8 @@
     }
 
     .events-section {
-        padding: 55px 0 55px 0;
+        padding: 50px 0 90px 0;
+        min-height: auto;
     }
     .events-section h2{
         margin-bottom: 30px;
@@ -1603,8 +1623,9 @@
     }
 
     .recent-video-section {
-        padding: 57px 0 65px 0;
+        padding: 50px 0 70px 0;
         background-repeat: no-repeat;
+        height: auto;
     }
     .recent-video-section h2{
         margin-bottom: 30px;
