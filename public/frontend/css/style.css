@@ -128,16 +128,16 @@ table.gsc-search-box {
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    z-index: 99999999;
-    height: 100px;
-    width: 100px;
-    border-radius: 0 25px 25px 0;
+    z-index: 99;
+    height: 110px;
+    width: 110px;
+
 }
 
 .stiky-box img {
     height: 100%;
     width: 100%;
-    border-radius: 0 25px 25px 0;
+    border-radius: 10px;
 }
 
 .pop_up_modal {

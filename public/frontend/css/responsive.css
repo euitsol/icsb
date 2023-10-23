@@ -1339,25 +1339,21 @@
         width: 65px;
     }
 
-
-
     .main-footer-section h2 {
-        font-size: 30px;
+        font-size: 2.1rem;
     }
     .main-footer-section ul li a {
-        font-size: 12px;
+        font-size: .84rem;
+        text-align: justify;
     }
     .main-footer-section ul li {
-        font-size: 13px;
+        font-size: .84rem;
     }
     .main-footer-section .visitor-column ul {
         max-width: 550px;
     }
     .main-footer-section .visitor-column h3 {
         font-size: 15px;
-    }
-    .main-footer-section ul li{
-        font-size: 12px;
     }
     .main-footer-section .footer-row {
         margin-bottom: .5rem;
@@ -2010,19 +2006,29 @@
     .owl-nav{
         display: none;
     }
-    .main-footer-section ul li {
-        display: block;
-    }
     .main-footer-section ul div{
         display: block !important;
     }
     .main-footer-section ul li {
         font-size: 17px;
-        /* line-height: 10px; */
         margin-bottom: 10px;
+        display: block;
+
+    }
+    .main-footer-section ul .d-grid{
+        text-align: justify;
+    }
+    .main-footer-section ul .d-grid li {
+        display: inline-block;
+        text-align: justify;
+        padding-right: 10px;
+
     }
     .main-footer-section ul li a {
         font-size: 17px;
+    }
+    .main-footer-section ul .d-grid li:first-child {
+        display: block;
     }
 }
 @media only screen and (max-width: 700px) {
@@ -2031,7 +2037,7 @@
         line-height: 22px;
     }
     .main-footer-section h2 {
-        font-size: 30px;
+        font-size: 1.9rem;
     }
     .main-footer-section ul li a {
         max-width: 100%;
@@ -2313,6 +2319,12 @@
 
 }
 @media only screen and (max-width: 480px){
+    .main-footer-section ul li {
+        font-size: 14px;
+    }
+    .main-footer-section ul li a{
+        font-size: 14px;
+    }
     /* National  */
     .title-shap {
         font-size: 40px !important;
