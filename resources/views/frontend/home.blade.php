@@ -258,6 +258,9 @@ $(document).ready(function() {
                 } else {
                     $(this).css("top", lastY).css("left", "0px").css("transition", "all 0.4s");
                 }
+
+                if(lastY < 60)
+                    $(this).css("top", 60 + "px").css("transition", "all 0.4s");
             }
         }
     });
@@ -265,11 +268,12 @@ $(document).ready(function() {
     // Add touch events for mobile devices
     $(".bubble").on("touchstart", function(e) {
         var touch = e.originalEvent.touches[0];
-        var pos = $(this).position();
+        var pos = $(this).position()
         isdragging = false;
         $(this).css("transition", "none");
         $(this).data("startX", touch.pageX - pos.left);
         $(this).data("startY", touch.pageY - pos.top);
+
     });
 
     $(".bubble").on("touchmove", function(e) {
@@ -288,10 +292,15 @@ $(document).ready(function() {
             var lastX = parseInt($(this).css("left"));
             var swidth = $(window).width();
 
+
             if (lastX > swidth / 2) {
                 $(this).css("top", lastY + "px").css("left", (swidth - 110) + "px").css("transition", "all 0.4s");
             } else {
                 $(this).css("top", lastY + "px").css("left", "0px").css("transition", "all 0.4s");
+            }
+
+            if(lastY < 140){
+                $(this).css("top", 140 + "px").css("transition", "all 0.4s");
             }
         }
     });

@@ -342,6 +342,10 @@
       }
 }
 @media only screen and (max-width: 1199px){
+    .stiky-box {
+        z-index: 9999;
+
+    }
     .banner-section .video-container {
         height: 90vh;
     }
