@@ -33,9 +33,9 @@
     <!----------------------- Lightbox ------------------------>
     <link rel="stylesheet" href="{{asset('frontend/css/lightbox.min.css')}}" />
 
-	 <!-- Links to the BXSlider -->
+	 {{-- <!-- Links to the BXSlider -->
 	<link rel="stylesheet" href="{{asset('frontend/css/jquery.bxslider.css')}}">
-	<link rel="stylesheet" href="{{asset('frontend/css/bxslider.min.css')}}">
+	<link rel="stylesheet" href="{{asset('frontend/css/bxslider.min.css')}}"> --}}
 	<!----------------------- Owal Carousel ------------------------>
 	<link rel="stylesheet" href="{{asset('frontend/css/owl.carousel.min.css')}}">
 	<link rel="stylesheet" href="{{asset('frontend/css/owl.theme.default.min.css')}}">
@@ -79,7 +79,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!-- Lightbox -->
     <script src="{{asset('frontend/js/lightbox-plus-jquery.min.js')}}"></script>
-    <script src="{{asset('frontend/js/bxslider.min.js')}}"></script>
+    {{-- <script src="{{asset('frontend/js/bxslider.min.js')}}"></script> --}}
     <!-- Owal Carosel -->
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
     <script src="{{asset('frontend/js/query.min.js')}}"></script>
