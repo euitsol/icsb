@@ -69,7 +69,7 @@ p {
 .gsc-search-button-v2 svg {
     margin: 0 !important;
     height: 36px !important;
-    width: 27px;
+    width: 27px !important;
 }
 
 form.gsc-search-box {
@@ -128,7 +128,7 @@ table.gsc-search-box {
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    z-index: 99;
+    z-index: 9999;
     height: 110px;
     width: 110px;
 
@@ -676,7 +676,7 @@ li {
     z-index: 2;
     background: #ffffff;
     width: 280px;
-    top: 4.39rem;
+    top: 4.28rem;
     height: 0;
     visibility: hidden;
     opacity: 0;
