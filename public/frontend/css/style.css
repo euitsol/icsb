@@ -58,7 +58,7 @@ p {
       margin: 0 !important;
       background-color: #2A74B5 !important;
       border: 1px solid #2A74B5 !important;
-      transition: .4s;
+      transition: .4s !important;
   }
   .gsc-search-button-v2:hover {
     background-color: #122F98 !important;
