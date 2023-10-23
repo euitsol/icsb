@@ -1381,6 +1381,9 @@
 }
 @media only screen and (max-width: 767px) {
 
+    .scroll_top {
+        top: 90%;
+    }
     /* National Connection  */
     .national-connection-section.small-sec-height{
         height: auto;
