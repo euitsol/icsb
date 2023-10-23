@@ -22,11 +22,11 @@
                 <h3>{{_('LATEST NEWS')}}</h3>
             </div>
             <div class="ticker-desc">
-                <ul class="bxnewsticker">
+                <div class="scrolling-text" style="animation: scroll {{count($latest_newses)*10}}s linear infinite;">
                     @foreach ($latest_newses as $news)
-                        <li><a href="{{route('news.view',$news->slug)}}">{{$news->title}}</a></li>
+                        <a href="{{route('news.view',$news->slug)}}">{{$news->title}}&nbsp;&nbsp;</a>
                     @endforeach
-                </ul>
+                </div>
             </div>
         </div>
     </div>

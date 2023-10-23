@@ -2275,6 +2275,25 @@
     }
 }
 @media only screen and (max-width: 575px){
+    /* Latest news  */
+
+    .news-ticker-section .ticker-title {
+        width: 130px;
+    }
+    .news-ticker-section .ticker-title h3 {
+        font-size: 13px;
+        line-height: 20px;
+    }
+    .news-ticker-section .ticker-desc {
+        width: calc(100% - 130px);
+    }
+    .news-ticker-section .ticker-desc a {
+        font-size: 15px;
+    }
+    .news-ticker-section .ticker-title {
+        clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 91% 100%, 0% 100%);
+    }
+
 
     /* Video  */
     .banner-section .video-container .content h3 {
