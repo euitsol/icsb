@@ -1378,6 +1378,9 @@
 }
 @media only screen and (max-width: 767px) {
 
+    .gsc-search-button-v2 {
+        padding: 6px 27px !important;
+    }
     .scroll_top {
         top: 90%;
     }
@@ -2272,6 +2275,7 @@
     }
 }
 @media only screen and (max-width: 575px){
+
     /* Video  */
     .banner-section .video-container .content h3 {
         font-size: 65px;
@@ -2340,9 +2344,6 @@
 
 }
 @media only screen and (max-width: 480px){
-    .gsc-search-button-v2 {
-        padding: 6px 40px !important;
-    }
     .main-footer-section ul li {
         font-size: 14px;
     }
