@@ -85,6 +85,9 @@ $(document).ready(function () {
             },
             800: {
                 items: 3
+            },
+            1200: {
+                items: 4
             }
         }
     });

@@ -904,9 +904,6 @@
         width: 85px;
         line-height: 85px;
     }
-    .president-section .title-shap::after {
-        margin-top: -0.3rem;
-    }
 
     /* BSS  */
 
@@ -1004,7 +1001,6 @@
         line-height: 26px;
     }
     .president-section .president-column .right-column h2 {
-        font-size: 35px;
         line-height: 41px;
         margin-bottom: 15px;
     }
@@ -1389,9 +1385,6 @@
     /* National Connection  */
     .national-connection-section.small-sec-height{
         height: auto;
-    }
-    .title-shap::after {
-        margin-top: -2%;
     }
 
     /* Notice  */
