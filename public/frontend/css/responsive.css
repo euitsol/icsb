@@ -1477,6 +1477,7 @@
     .news-ticker-section .ticker-title h3 {
         font-size: 17px;
         line-height: 28px;
+        margin-bottom: 0;
     }
 
     .section-heading h2 {
