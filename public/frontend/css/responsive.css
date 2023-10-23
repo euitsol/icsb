@@ -185,7 +185,7 @@
         height: 75px;
     }
     .bss-section .bss-row .bss-right-column .bss-item .title {
-        min-height: 40px;
+        min-height: 55px;
        margin-bottom: 0;
     }
     .bss-section .bss-row .bss-right-column .bss-item h3 {
@@ -613,9 +613,6 @@
     .bss-section .bss-row .bss-right-column .bss-item h3 {
         font-size: 27px;
         line-height: 27px;
-    }
-    .bss-section .bss-row .bss-right-column .bss-item .title {
-        min-height: 50px;
     }
     .bss-section .bss-row .bss-right-column .bss-item h4 {
         font-size: 27px;
