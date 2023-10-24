@@ -922,7 +922,7 @@
         width: 20%;
     }
     .council-section .column img {
-        height: 10rem;
+        padding: 5px;
     }
 
     /* global-page-sectio  */
@@ -1478,7 +1478,7 @@
 
     /* Council */
     .council-section .column img {
-        height: 7rem;
+        height: 9rem;
         border-radius: 30px 0 30px 0;
         padding: 5px;
     }
@@ -2400,14 +2400,26 @@
 }
 @media only screen and (max-width: 575px){
     /* Council  */
-    .council-section .column img {
+    /* .council-section .column img {
         height: 6rem;
         border-radius: 15px 0 15px 0;
         padding: 1px;
     }
     .council-section .info h5 {
         font-size: 1rem;
+    } */
+    .council-section .column {
+        width: 100%;
     }
+    .council-section .column img {
+        height: auto;
+    }
+    .council-section .info h5 {
+        font-size: 1.7rem;
+    } 
+    .council-section .info p {
+        font-size: 1.2rem;
+    } 
 
 
 
