@@ -115,6 +115,13 @@
     }
 }
 @media only screen and (max-width: 1300px){
+
+    /* Council  */
+    .council-section .column {
+        width: 16.286%;
+    }
+
+
     .main_margin_top {
         margin-top: 6.7rem;
     }
@@ -679,14 +686,14 @@
         z-index: 999999999999999;
     }
 }
-@media only screen and (max-width: 1100px){
-    /* BSS  */
-    /* .bss-section .bss-row .bss-right-column > a {
-        width: 48.35%;
+@media only screen and (max-width: 1100px){ 
+    /* Council  */
+    .council-section .column {
+        width: 18.286%;
     }
-    .bss-section .bss-row .bss-left-column {
-        padding-left: 0;
-    } */
+
+
+
     .bss-section {
         padding: 70px 0 76px 0;
     }
@@ -910,6 +917,13 @@
 }
 @media only screen and (max-width: 991px){
 
+    /* Council  */
+    .council-section .column {
+        width: 20%;
+    }
+    .council-section .column img {
+        height: 10rem;
+    }
 
     /* global-page-sectio  */
     .global-page-section .global-row .left-column {
@@ -1461,6 +1475,25 @@
 
 }
 @media only screen and (max-width: 767px) {
+
+    /* Council */
+    .council-section .column img {
+        height: 7rem;
+        border-radius: 30px 0 30px 0;
+        padding: 5px;
+    }
+    .council-section .info p{
+        font-size: .95rem;
+    }
+    .council-section .info h5{
+        font-size: 1.09rem;
+    }
+    .council-section{
+        padding: 50px 0;
+    }
+
+
+
     .mision-vision-section {
         padding: 60px 0;
     }
@@ -2366,6 +2399,18 @@
     }
 }
 @media only screen and (max-width: 575px){
+    /* Council  */
+    .council-section .column img {
+        height: 6rem;
+        border-radius: 15px 0 15px 0;
+        padding: 1px;
+    }
+    .council-section .info h5 {
+        font-size: 1rem;
+    }
+
+
+
 
     .world-wide-section .world-wide-column .cs-items {
         width: 100%;
