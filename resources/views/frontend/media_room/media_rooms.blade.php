@@ -26,7 +26,7 @@ $datas = [
         <div class="container">
             <div class="row media_rooms">
                 @foreach ($media_rooms as $media_room)
-                <div class="col-md-6 col-lg-4 col-xl-3">
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                     <div class="item">
                         <div class="logo-wrapp">
                             <a href="{{route('media_room_view.view',$media_room->slug)}}"><img src="{{$media_room->thumbnail_image ? storage_url($media_room->thumbnail_image) : asset('no_img/no_img.jpg')}}" alt="..." /></a>

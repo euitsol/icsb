@@ -42,6 +42,21 @@
     }
 }
 @media only screen and (max-width: 1500px){
+     /* ICSB Profile  */
+     .about-us-section{
+        height: auto;
+     }
+
+     .breadcrumbs-section .breadcrumbs-row .left-column::after {
+        right: -80%;
+    }
+
+
+
+
+
+
+
     .level-3 {
       padding-right: 0;
     }
@@ -67,6 +82,9 @@
 }
 @media only screen and (max-width: 1405px){
 /*====================== Event Page Style ======================*/
+    .breadcrumbs-section .breadcrumbs-row .left-column::after {
+        right: -78%;
+    }
     .our-events-section .events-row{
         column-gap: 3%;
     }
@@ -89,6 +107,9 @@
     }
 }
 @media only screen and (max-width: 1300px){
+    .main_margin_top {
+        margin-top: 6.7rem;
+    }
     .header-menu-section .desktop-menu .menu-bar > ul{
         column-gap: 14px;
     }
@@ -109,19 +130,8 @@
     }
 
 
-    .breadcrumbs-section .overly-image {
-        display: none;
-    }
-    .breadcrumbs-section .breadcrumbs-row .left-column {
-        width: 100%;
-    }
     .breadcrumbs-section .breadcrumbs-row .left-column::after {
-        display: block;
-        left: 87%;
-        right: 0;
-    }
-    .breadcrumbs-heading {
-        max-width: 100%;
+        right: -74%;
     }
 
 
@@ -148,6 +158,9 @@
       }
 }
 @media only screen and (max-width: 1200px){
+    .main_margin_top {
+        margin-top: 5.3rem;
+    }
     .scroll_top {
         left: 94%;
     }
@@ -342,6 +355,35 @@
       }
 }
 @media only screen and (max-width: 1199px){
+
+    /* Breadcrumbs  */
+    .breadcrumbs-section {
+        margin-top: 83px;
+    }
+    .breadcrumbs-section .breadcrumbs-row .left-column {
+        width: 100%;
+    }
+    .breadcrumbs-section .overly-image {
+        display: none;
+    }
+    .breadcrumbs-section .breadcrumbs-row .left-column::after {
+        display: none;
+    }
+    .breadcrumbs-section {
+        height: 180px;
+    }
+    .breadcrumbs-heading {
+        margin: 0;
+    }
+    .breadcrumbs-section .breadcrumbs-row .left-column ul {
+        margin: 0;
+    }
+
+
+
+
+
+
     .stiky-box {
         z-index: 9999;
 
@@ -1350,7 +1392,7 @@
     }
     .main-footer-section ul li a {
         font-size: .84rem;
-        text-align: justify;
+        text-align: left;
     }
     .main-footer-section ul li {
         font-size: .84rem;
@@ -1384,7 +1426,6 @@
 
 }
 @media only screen and (max-width: 767px) {
-
     .gsc-search-button-v2 {
         padding: 6px 27px !important;
     }
@@ -1813,13 +1854,19 @@
         padding: 25px 20px;
     }
 /*=========================== Breascrumb Section ====================*/
+    .breadcrumbs-section {
+        margin-top: 69px;
+        height: 150px;
+    }
     .breadcrumbs-heading {
-        font-size: 30px;
-        line-height: 37px;
-        max-width: 100%;
+        font-size: 28px;
+        line-height: 28px;
+    }
+    .breadcrumbs-section .breadcrumbs-row .left-column ul {
+        font-size: 13px;
     }
     .breadcrumbs-section .breadcrumbs-row .left-column ul li a {
-        font-size: 16px;
+        font-size: 13px;
         line-height: 22px;
     }
     .breadcrumbs-section .breadcrumbs-row .left-column ul {
@@ -2283,6 +2330,25 @@
     }
 }
 @media only screen and (max-width: 575px){
+
+    .breadcrumbs-section {
+        height: 110px;
+    }
+    .breadcrumbs-heading {
+        font-size: 26px;
+    }
+    .breadcrumbs-section .breadcrumbs-row .left-column ul li{
+        line-height: 17px;
+    }
+    .breadcrumbs-section .breadcrumbs-row .left-column ul li a{
+        line-height: 17px;
+    }
+    .breadcrumbs-section .breadcrumbs-row .left-column ul {
+        margin-top: 3px;
+    }
+
+
+
     /* Latest news  */
 
     .news-ticker-section .ticker-title {
