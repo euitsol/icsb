@@ -303,9 +303,7 @@
     }
 
 /*===================== President Page ======================*/
-    .president-content-section .president-content-row {
-        padding: 90px 0 65px 0;
-    }
+    
     .president-content-section .president-content-row .right-column h2 {
         font-size: 60px;
         line-height: 64px;
@@ -317,7 +315,6 @@
     .president-content-section .president-content-row .left-column .name-tittle h3 {
         font-size: 24px;
         line-height: 30px;
-        margin-bottom: 5px;
     }
     .president-content-section .president-content-row .left-column .name-tittle p {
         font-size: 19px;
@@ -1172,9 +1169,6 @@
         padding: 80px 0;
     }
 /*======================= President Page ============================*/
-    .president-content-section .president-content-row {
-        padding: 78px 0 60px 0;
-    }
     .president-content-section .president-content-row .left-column {
         width: 100%;
     }
@@ -1631,6 +1625,11 @@
 
     /* President  */
 
+    .president-content-section{
+        padding: 60px 0;
+        min-height: auto;
+    }
+
     .president-section .president-column .right-column a {
         margin-top: 0;
     }
@@ -1812,9 +1811,6 @@
         width: 100%;
     }
 /*====================== President Page ======================*/
-    .president-content-section .president-content-row {
-        padding: 63px 0 45px 0;
-    }
     .president-content-section .president-content-row .left-column .name-tittle {
         padding: 25px 20px;
     }
@@ -1826,7 +1822,7 @@
     .president-content-section .president-content-row .left-column .name-tittle h3 {
         font-size: 23px;
         line-height: 32px;
-        margin-bottom: 6px;
+        margin-bottom: 0;
     }
     .president-content-section .president-content-row .left-column .name-tittle p {
         font-size: 19px;
@@ -1840,7 +1836,8 @@
         line-height: 24px;
     }
     .president-content-section .president-content-row .left-column .contact-info ul li{
-        margin-bottom: 7px;
+        margin-bottom: 0;
+        line-height: 26px;
     }
     .president-content-section .president-content-row .left-column .social-media {
         padding: 15px 0;
