@@ -2400,14 +2400,9 @@
 }
 @media only screen and (max-width: 575px){
     /* Council  */
-    /* .council-section .column img {
-        height: 6rem;
-        border-radius: 15px 0 15px 0;
-        padding: 1px;
+    .council-section .row{
+        margin: 0 !important;
     }
-    .council-section .info h5 {
-        font-size: 1rem;
-    } */
     .council-section .column {
         width: 100%;
     }
