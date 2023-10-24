@@ -4077,8 +4077,10 @@ td {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    /* background-image: url("../img/events-bg.png"); */
+    display: flex;
+    align-items: center;
 }
+
 
 .objectives-section .objective-row {
     padding: 100px;
@@ -4996,7 +4998,6 @@ td {
 }
 
 .library-section .library-imges img {
-    height: 400px;
     border: 7px solid #122F98;
 }
 
