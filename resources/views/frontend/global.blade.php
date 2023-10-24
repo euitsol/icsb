@@ -38,14 +38,16 @@ $datas = [
                         {!! $saved_data->{'page-description'} ?? '' !!}
                     @endif
                 </div>
+                @if (isset($saved_data->{'page-image'}))
                 <div class="right-column @if (isset($saved_data->{'page-description'}) && $count>1700 || empty($saved_data->{'page-image'}))  w-100 mb-5  @endif"
                     style="max-height:600px !important;"
                     >
-                    @if (isset($saved_data->{'page-image'}))
+                    
                         <img class="img-fluid object-fit-contain" style="max-height:600px !important; @if (isset($saved_data->{'page-description'}) && $count>1700 ) border:0; outline:none; @endif" src="{{ storage_url($saved_data->{'page-image'}) }}">
-                    @endif
+                    
 
                 </div>
+                @endif
             </div>
             @if (isset($saved_data->{'upload-file'}))
                 <div class="global-table">
