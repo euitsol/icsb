@@ -4176,6 +4176,11 @@ td {
 }
 
 /*=========================== Council Page Style ============================*/
+.council-section{
+    display: flex;
+    align-items: center;
+    min-height: auto;
+}
 .council-section .column {
     width: 14.2857%;
 }
