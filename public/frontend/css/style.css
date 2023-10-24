@@ -2683,8 +2683,7 @@ td {
 }
 
 .about-us-section .about-us-row .image-column .first-image {
-    width: 540px;
-    height: 480px;
+    width: 100%;
     object-fit: cover;
     outline: 8px solid var(--bc-2);
     border: 8px solid #ffffff;

@@ -788,10 +788,6 @@
         padding: 10px 0;
         display: none;
     }
-    .about-us-section .about-us-row .image-column .first-image{
-        width: 300px;
-        height: 300px;
-    }
     .about-us-section .about-us-row .image-column .second-image{
         width: 300px;
         height: 300px;
@@ -1084,9 +1080,6 @@
     }
     .about-us-section .about-us-row .image-column {
         width: 100%;
-    }
-    .about-us-section .about-us-row .image-column .first-image {
-        width: 80%;
     }
     .about-us-section .about-us-row .image-column .second-image {
         width: 80%;
@@ -1426,6 +1419,9 @@
 
 }
 @media only screen and (max-width: 767px) {
+    .blog-section {
+        padding: 60px 0;
+    }
     .gsc-search-button-v2 {
         padding: 6px 27px !important;
     }
@@ -1822,10 +1818,7 @@
     }
 /*============================ About ICSB Page =========================*/
     .about-us-section {
-        padding: 54px 0;
-    }
-    .about-us-section .about-us-row .image-column .first-image {
-        width: 76%;
+        padding: 60px 0;
     }
     .about-us-section .about-us-row .image-column .second-image {
         width: 76%;
@@ -2332,7 +2325,7 @@
 @media only screen and (max-width: 575px){
 
     .breadcrumbs-section {
-        height: 110px;
+        height: 108px;
     }
     .breadcrumbs-heading {
         font-size: 26px;
