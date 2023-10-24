@@ -358,6 +358,7 @@
 /*============================= Objective Page =====================*/
     .objectives-section {
         padding: 90px 0;
+        height: auto;
     }
     .objectives-section .objective-row {
         padding: 50px;
@@ -1218,18 +1219,20 @@
     .objectives-section {
         padding: 80px 0;
     }
+    .objectives-section .objective-row .left-column{
+        margin: 15px 0;
+    }
+    .objectives-section .objective-row .right-column p {
+        margin-top: 15px;
+    }
     .objectives-section .objective-row {
-        padding: 50px 40px 30px 40px;
+        padding: 70px 40px;
     }
     .objectives-section .objective-row .left-column {
         width: 100%;
     }
-    .objectives-section .objective-row .left-column iframe{
-        width: 100%;
-    }
     .objectives-section .objective-row .right-column {
         width: 100%;
-        margin-top: 35px;
     }
     .objectives-section .objective-row .right-column h2 {
         margin-bottom: 20px;
@@ -1261,20 +1264,29 @@
     }
 
 
+    /* Committee  */
+    .executive-committee-section .committee-row .committee-items li {
+        float: left;
+        padding-right: 10px;
+    }
+    .executive-committee-section .committee-row .committee-items .content-column {
+        width: 100%;
+    }
     .executive-committee-section .committee-row {
         row-gap: 45px;
     }
     .executive-committee-section .committee-row .committee-items {
         justify-content: center;
     }
-    .executive-committee-section .committee-row .committee-items img{
+    .executive-committee-section .committee-row .committee-items .image-column{
         margin-bottom: 18px;
+        height: auto;
     }
     .executive-committee-section .committee-row .committee-items h3 {
         font-size: 19px;
         line-height: 27px;
         max-width: 280px;
-        text-align: center;
+        margin-bottom: 0;
     }
     .executive-committee-section .committee-row .committee-items li {
         justify-content: center;
@@ -2007,23 +2019,26 @@
     }
 /*=========================== Objective Page ==============================*/
     .objectives-section {
-        padding: 63px 0;
+        padding: 0;
     }
     .objectives-section .container{
         padding: 0;
     }
     .objectives-section .objective-row {
-        padding: 60px 30px 35px 30px;
+        padding: 55px 30px;
+        background-color: #fff;
+        flex-direction: column-reverse;
+    }
+    .objectives-section .objective-row .right-column {
+        margin: 0px;
     }
     .objectives-section .objective-row .right-column h2 {
         margin-bottom: 15px;
     }
     .objectives-section .objective-row .right-column p {
-        margin-bottom: 15px;
+        color: black;
     }
-    .objectives-section .objective-row .left-column iframe{
-        width: 100%;
-    }
+    
 /*================================ Mission & Vision Page ===============================*/
     .mision-vision-section {
         padding: 63px 0;
@@ -2062,7 +2077,6 @@
         text-align: center;
     }
     .executive-committee-section .committee-row .committee-items h3 {
-        margin: 0 auto;
         font-size: 20px;
         line-height: 26px;
         max-width: 250px;
@@ -2335,16 +2349,6 @@
     }
     .gajet-section .handbook-column .old-handbook {
         width: 100%;
-    }
-/*======================== Objective Page =======================*/
-    .objectives-section .objective-row {
-        padding: 60px 25px 35px 25px;
-    }
-    .objectives-section .objective-row .left-column iframe{
-        width: 100%;
-        height: 290px;
-        border: 5px double #fff;
-        outline: 5px solid #FF8601;
     }
 /*========================= Excutive Member Page =====================*/
     .executive-committee-section .committee-row .committee-items {
