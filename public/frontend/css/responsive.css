@@ -1848,7 +1848,7 @@
     }
 /*=========================== Breascrumb Section ====================*/
     .breadcrumbs-section {
-        margin-top: 69px;
+        margin-top: 67px;
         height: 150px;
     }
     .breadcrumbs-heading {
@@ -2325,7 +2325,7 @@
 @media only screen and (max-width: 575px){
 
     .breadcrumbs-section {
-        height: 108px;
+        height: 110px;
     }
     .breadcrumbs-heading {
         font-size: 26px;
