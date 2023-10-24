@@ -608,7 +608,7 @@
 
     .past-president-layout .president-row {
         display: grid;
-        grid-template-columns: auto auto;
+        grid-template-columns: 1fr 1fr;
         column-gap: 35px;
     }
 
@@ -677,11 +677,16 @@
 @media only screen and (max-width: 767px) {
     .past-president-layout .president-row {
         display: grid;
-        grid-template-columns: auto;
+        grid-template-columns: 1fr 1fr;
     }
 
     .past-president-layout {
         padding: 65px 0;
+    }
+}
+@media only screen and (max-width: 575px) {
+    .past-president-layout .president-row {
+        grid-template-columns: 1fr;
     }
 }
 
