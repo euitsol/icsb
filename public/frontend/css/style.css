@@ -3865,8 +3865,8 @@ td {
 }
 
 .executive-committee-section .committee-row .committee-items .image-column {
-    width: 200px;
-    height: 180px;
+    width: 100%;
+    height: 260px;
     border-radius: 50%;
 }
 

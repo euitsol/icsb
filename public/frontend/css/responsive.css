@@ -1261,20 +1261,29 @@
     }
 
 
+    /* Committee  */
+    .executive-committee-section .committee-row .committee-items li {
+        float: left;
+        padding-right: 10px;
+    }
+    .executive-committee-section .committee-row .committee-items .content-column {
+        width: 100%;
+    }
     .executive-committee-section .committee-row {
         row-gap: 45px;
     }
     .executive-committee-section .committee-row .committee-items {
         justify-content: center;
     }
-    .executive-committee-section .committee-row .committee-items img{
+    .executive-committee-section .committee-row .committee-items .image-column{
         margin-bottom: 18px;
+        height: auto;
     }
     .executive-committee-section .committee-row .committee-items h3 {
         font-size: 19px;
         line-height: 27px;
         max-width: 280px;
-        text-align: center;
+        margin-bottom: 0;
     }
     .executive-committee-section .committee-row .committee-items li {
         justify-content: center;
@@ -2062,7 +2071,6 @@
         text-align: center;
     }
     .executive-committee-section .committee-row .committee-items h3 {
-        margin: 0 auto;
         font-size: 20px;
         line-height: 26px;
         max-width: 250px;
