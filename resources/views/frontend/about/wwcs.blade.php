@@ -24,15 +24,15 @@ $datas = [
         <div class="world-wide-row">
             <div class="world-wide-column flex text-align">
                 @foreach ($wwcss as $wwcs)
-                <div class="cs-items card">
-                    <h3>
-                        {!! $wwcs->title !!}
-                    </h3>
-                    <img src="{{storage_url($wwcs->logo)}}" alt="The Global Institute">
-                    <ul class="flex">
-                        <li><a href="{{$wwcs->url}}" target="_blank"><i class="fa-solid fa-globe"></i> <span>{{_('Visit Website')}}</span></a></li>
-                    </ul>
-                </div>
+                    <div class="cs-items card">
+                        <h3>
+                            {!! $wwcs->title !!}
+                        </h3>
+                        <img src="{{storage_url($wwcs->logo)}}" alt="The Global Institute">
+                        <ul class="flex">
+                            <li><a href="{{$wwcs->url}}" target="_blank"><i class="fa-solid fa-globe"></i> <span>{{_('Visit Website')}}</span></a></li>
+                        </ul>
+                    </div>
                 @endforeach
             </div>
         </div>

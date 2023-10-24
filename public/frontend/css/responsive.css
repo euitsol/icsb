@@ -81,6 +81,14 @@
 
 }
 @media only screen and (max-width: 1405px){
+
+    .world-wide-section .world-wide-column .cs-items:hover {
+        transform: scale(1.15);
+        z-index: 99;
+    }
+
+
+
 /*====================== Event Page Style ======================*/
     .breadcrumbs-section .breadcrumbs-row .left-column::after {
         right: -78%;
@@ -158,6 +166,18 @@
       }
 }
 @media only screen and (max-width: 1200px){
+
+    .mision-vision-section, .vision-mission-section {
+        height: auto;
+    }
+    .mision-vision-section .mission-row .content-column, .vision-mission-section .mission-row .content-column {
+        left: 0;
+    }
+    .mision-vision-section .image-column, .vision-mission-section .image-column {
+        min-width: 60%;
+    }
+
+
     .main_margin_top {
         margin-top: 5.3rem;
     }
@@ -355,6 +375,29 @@
       }
 }
 @media only screen and (max-width: 1199px){
+
+    /* global-page  */
+    .global-page-section {
+        padding: 60px 0;
+        min-height: auto;
+        height: auto;
+    }
+    .global-page-section .global-row {
+        margin-bottom: 0;
+        row-gap: 40px;
+    }
+    .global-page-section .global-row .left-column{
+        margin-top: 0;
+        width: 50%;
+    }
+    .global-page-section .global-row .right-column{
+        width: 50%;
+    }
+    .global-page-section .global-row {
+        column-gap: 2%;
+    }
+
+
 
     /* Breadcrumbs  */
     .breadcrumbs-section {
@@ -846,13 +889,6 @@
     .global-page-section .global-row{
         flex-direction: column-reverse;
     }
-    .global-page-section .global-row .left-column {
-        width: 100%;
-        margin-top: 45px;
-    }
-    .global-page-section .global-row .left-column table{
-        margin-top: 45px;
-    }
     .global-page-section .global-row .right-column {
         width: 100%;
     }
@@ -873,6 +909,12 @@
     }
 }
 @media only screen and (max-width: 991px){
+
+
+    /* global-page-sectio  */
+    .global-page-section .global-row .left-column {
+        width: 100%;
+    }
 
     /* Update  */
     .recent-update-section .recent-update-row .see-button a {
@@ -1419,6 +1461,9 @@
 
 }
 @media only screen and (max-width: 767px) {
+    .mision-vision-section {
+        padding: 60px 0;
+    }
     .blog-section {
         padding: 60px 0;
     }
@@ -1458,6 +1503,7 @@
         justify-content: center;
     }
 
+    
     /* Video  */
     .banner-section .video-container .content h3 {
         font-size: 80px;
@@ -2045,16 +2091,13 @@
     .world-wide-section {
         padding: 63px 0;
     }
-    .world-wide-section .world-wide-column .cs-items {
-        width: 100%;
-    }
     .world-wide-section .world-wide-column .cs-items h3 {
         font-size: 20px;
         line-height: 26px;
     }
 /*=================== Global Table CSS ========================*/
     .global-page-section {
-        padding: 63px 0;
+        padding: 60px 0;
     }
     .global-page-section .global-row .left-column h2 {
         font-size: 30px;
@@ -2323,6 +2366,10 @@
     }
 }
 @media only screen and (max-width: 575px){
+
+    .world-wide-section .world-wide-column .cs-items {
+        width: 100%;
+    }
 
     .breadcrumbs-section {
         height: 110px;

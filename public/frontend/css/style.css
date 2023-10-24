@@ -2656,6 +2656,8 @@ td {
 .about-us-section {
     padding: 110px 0;
     background: #F2F2F2;
+    display: flex;
+    align-items: center;
 }
 
 .about-us-section .about-us-row {
@@ -4126,6 +4128,8 @@ td {
 .mision-vision-section,
 .vision-mission-section {
     padding: 100px 0;
+    display: flex;
+    align-items: center;
 }
 
 .mision-vision-section .mission-row {
@@ -4141,7 +4145,7 @@ td {
     background: #182456;
     border: 8px double #fff;
     outline: 8px solid var(--bc-1);
-    width: 96%;
+    /* width: 96%; */
 }
 
 .mision-vision-section .mission-row .content-column,
@@ -4820,11 +4824,13 @@ td {
 /*================= Global Page Style ================*/
 .global-page-section {
     padding: 100px 0;
+    display: flex;
+    align-items: center;
+    min-height: auto;
 }
 
 .global-page-section .global-row {
     column-gap: 5%;
-    margin-bottom: 60px;
 }
 
 .global-page-section .global-row .left-column {
@@ -4865,10 +4871,6 @@ td {
     padding: 10px 20px;
     border: 1px solid #ddd;
     justify-content: space-between;
-}
-
-.global-page-section .global-row {
-    margin-bottom: 65px;
 }
 
 .global-gallery-section {
