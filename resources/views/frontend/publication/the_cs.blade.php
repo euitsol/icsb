@@ -32,7 +32,7 @@
                         $files = array_reverse($files);
                     @endphp
                     @foreach (array_slice($files, 0, 12) as $file)
-                        <div class="col-md-3 the_cs mb-5">
+                        <div class="col-xl-3 col-lg-4 col-md-6 the_cs mb-5">
                             <div class="new-handbook text-align">
                                 <iframe src="{{ route('view.pdf', base64_encode($file)) }}" type="application/pdf" width="100%" height="200px"></iframe>
                                 <a class="d-block cursor-pointer" target="_blank" href="{{ route('sp.file.download', base64_encode($file)) }}">
@@ -75,7 +75,7 @@
 
 
                     result = `
-                        <div class="col-md-3 the_cs mb-5">
+                        <div class="col-xl-3 col-lg-4 col-md-6 the_cs mb-5">
                             <div class="new-handbook text-align">
                                     <iframe src="${routeViewPdf}" type="application/pdf" width="100%" height="200px"></iframe>
                                     <a class="d-block cursor-pointer" target="_blank" href="${routeFileDownload}"><h3 > ${fileName}</h3></a>
