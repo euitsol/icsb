@@ -3259,6 +3259,9 @@ td {
 /*======================== Organogram Page Style =====================*/
 .organogram-section {
     padding: 100px 0;
+    display: flex;
+    align-items: center;
+    min-height: auto;
 }
 
 .chart-main {
@@ -4239,7 +4242,9 @@ td {
 .library-section {
     padding: 100px 0;
 }
-
+.library-section .library-imges img{
+    height: 510.5px;
+}
 .library-section .library-row {
     max-width: 1225px;
     margin: 0 auto;
@@ -5035,7 +5040,7 @@ td {
     position: absolute;
     color: #00ff0f;
     top: 50%;
-    left: 93%;
+    left: 90%;
     transform: translateY(-50%);
     font-size: 50px;
 }

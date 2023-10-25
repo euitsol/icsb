@@ -23,7 +23,7 @@
         <div class="container">
             <div class="row gy-4 awards">
                 @foreach ($national_awards as $award)
-                    <div class="col-md-3 the_cs mb-5">
+                    <div class="col-xl-3 col-lg-4 col-md-6 the_cs mb-5">
                         <div class="new-handbook text-align">
                                 <iframe src="{{ route('view.pdf', base64_encode($award->file)) }}" type="application/pdf" width="100%" height="200px"></iframe>
                                 <a class="d-block cursor-pointer" target="_blank" href="{{route('sp.file.download', base64_encode($award->file))}}"><h3> {{$award->title}}</h3></a>
@@ -58,7 +58,7 @@
                     var routeFileDownload = '{{ route("sp.file.download", ":file") }}'.replace(':file', btoa(award.file));
 
                     var result= `
-                        <div class="col-md-3 the_cs mb-5">
+                        <div class="col-xl-3 col-lg-4 col-md-6 the_cs  mb-5">
                             <div class="new-handbook text-align">
                                 <iframe src="${routeViewPdf}" type="application/pdf" width="100%" height="200px"></iframe>
                                 <a class="d-block cursor-pointer" target="_blank" href="${routeFileDownload}"><h3>${award.title}</h3></a>

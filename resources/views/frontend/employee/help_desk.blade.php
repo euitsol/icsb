@@ -22,7 +22,7 @@ $datas = [
 @endphp
 @include('frontend.includes.breadcrumb',['datas'=>$datas])
 <!-- =============================== Breadcrumb Section ======================================-->
-<section class="objectives-section">
+<section class="objectives-section help-desk">
 <div class="container">
     <div class="objective-row flex">
 

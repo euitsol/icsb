@@ -1,4 +1,12 @@
 @media only screen and (max-width: 1800px){
+    .level-3 {
+        padding-right: 7%;
+    }
+    .level-2 {
+        column-gap: 7%;
+        width: 100%;
+    }
+
     .main_margin_top {
         margin-top: 6.8rem;
     }
@@ -6,12 +14,6 @@
     .header-menu-section .stiky-logo-right {
         transform: translateY(-30%);
         width: 110px;
-    }
-    .level-2 {
-      column-gap: 5%;
-    }
-    .level-3 {
-      column-gap: 7%;
     }
   }
 @media only screen and (max-width: 1700px){
@@ -21,10 +23,10 @@
     width: 90px;
 }
 .level-3 {
-    column-gap: 12%;
+    column-gap: 8%;
 }
 .level-2{
-    column-gap: 10%;
+    column-gap: 8%;
 }
 .header-menu-section .desktop-menu .menu-bar ul li > ul {
     left: -103%;
@@ -37,9 +39,7 @@
     }
 }
 @media only screen and (max-width: 1600px){
-    .level-3 {
-      column-gap: 10%;
-    }
+    
 }
 @media only screen and (max-width: 1500px){
      /* ICSB Profile  */
@@ -50,21 +50,12 @@
      .breadcrumbs-section .breadcrumbs-row .left-column::after {
         right: -80%;
     }
-
-
-
-
-
-
-
-    .level-3 {
-      padding-right: 0;
-    }
     .header-menu-section .desktop-menu .menu-bar ul li > ul {
         width: 260px;
     }
   }
 @media only screen and (max-width: 1460px){
+
     .header-menu-section .navbar-nav {
         column-gap: 3px;
     }
@@ -81,7 +72,20 @@
 
 }
 @media only screen and (max-width: 1405px){
-
+    .level-2 {
+        column-gap: 5%;
+    }
+    .level-2 {
+        column-gap: 7%;
+        width: 102%;
+    }
+    .level-2 .box::after {
+        left: 48%;
+    }
+    .level-3 .box::after {
+        left: 65%;
+        background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+    }
     .world-wide-section .world-wide-column .cs-items:hover {
         transform: scale(1.15);
         z-index: 99;
@@ -363,21 +367,22 @@
     .objectives-section .objective-row {
         padding: 50px;
     }
+    .level-2 {
+        column-gap: 6%;
+        width: 109%;
+    }
 
-    .box {
-        width: 150px;
-        padding: 5px;
-      }
-      .level-2 {
-        column-gap: 10%;
-      }
-      .level-3 .box::after {
-        height: calc(100% + 54px);
-        top: -153px;
-      }
-      .level-3 {
-        column-gap: 10%;
-      }
+    .level-3 {
+        padding-right: 0;
+        column-gap: 5%;
+    }
+    .level-3 .box{
+        width: 19%;
+    }
+    .level-3 .box::after {
+        left: 65%;
+    }
+    
 }
 @media only screen and (max-width: 1199px){
 
@@ -727,11 +732,22 @@
     }
 
     .level-2 {
-      column-gap: 8%;
+        column-gap: 5.5%;
+        width: 112%;
     }
-    .level-3 {
-      column-gap: 8%;
+    .level-3 .box::after {
+        left: 79%;
+        height: 140px;
     }
+    .level-2 .box::after {
+        left: 45%;
+    }
+    .box h3 {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+
     .main-footer-section h2 {
         font-size: 30px;
     }
@@ -759,12 +775,33 @@
   }
 @media only screen and (max-width: 1024px){
 
+    .level-2 {
+        column-gap: 4.5%;
+    }
+    .level-2 .box::after {
+        left: 42%;
+    }
+    .library-section .library-imges img {
+        height: 425.5px;
+    }
+
+    #lightbox .lb-outerContainer {
+        width: 70% !important;
+        height: 60vh !important;
+    }
+    #lightbox .lb-outerContainer img {
+        width: 100% !important;
+        height: 60vh !important;
+    }
+    .lightbox {
+        top: 50% !important;
+        transform: translateY(-50%);
+    }
+
     /* Notice   */
     .notice-section.big-sec-height{
         height: auto;
     }
-
-
     .testimonial-section .testimonial .details .author-image img {
         height: 100px;
         width: 100px;
@@ -914,6 +951,17 @@
     }
 }
 @media only screen and (max-width: 991px){
+    .the_cs > .new-handbook iframe{
+        height: 340px;
+    }
+    .cs-handbook-section .handbook-column .old-handbook, 
+    .cs-handbook-section .handbook-column .new-handbook {
+        width: 100%;
+    }
+    .cs-handbook-section .handbook-column {
+        row-gap: 40px;
+    }
+
 
     /* Council  */
     .council-section .column {
@@ -1327,13 +1375,37 @@
         line-height: 27px;
     }
 /*============================ Organogram Page ===================*/
-    .level-2::after {
-        width: 161px;
+    .box h3 {
+        font-size: 18px;
+    }
+    .level-1 .box-0::after {
+        height: 56px;
+        bottom: -56px;
+    }
+    .level-1 .box-1::after {
+        height: 34px;
+        bottom: -34px;
+    }
+    .level-2 .box::after {
+        width: 44%;
         height: 2px;
-        top: -25px;
-        left: 50%;
+        top: 50%;
+        left: -44%;
+    }
+    .level-2::after {
+        width: 8rem;
+        height: 2px;
+        top: -24px;
+        left: 44.8%;
         transform: translateX(-99%);
-      }
+    }
+    .box h3 {
+        font-size: 16px;
+    }
+    .level-3 .box{
+        width: 30%;
+    }
+
       .level-1{
         margin-bottom: 35px;
        }
@@ -1350,58 +1422,49 @@
         align-content: center;
         row-gap: 20px;
       }
-      .level-2 .box::after {
-        width: 50%;
-        height: 2px;
-        top: 50%;
-        left: -50%;
-      }
       .level-3 .box::after {
         width: 53%;
         height: 2px;
         top: 50%;
         left: -53%;
     }
-      .level-3 .box::before{
+    .level-3 .box::before {
         content: "";
         position: absolute;
         background: #000;
         width: 2px;
-        height: 110px;
-        left: -80px;
-        top: -50px;
-      }
-      .level-2 .box::before{
+        height: 158px;
+        left: -54%;
+        top: -126px;
+    }
+    .level-3::before {
         content: "";
         position: absolute;
         background: #000;
         width: 2px;
-        height: 100px;
-        left: -80px;
-        top: -50px;
-      }
-      .level-2 .box:first-child:before{
+        height: 72px;
+        left: 216px;
+        top: -159px;
+        transform: rotate(90deg);
+    }
+    .level-2 .box::before {
+        content: "";
+        position: absolute;
+        background: #000;
         width: 2px;
-        height: 52px;
-        top: -26px;
-      }
+        height: 72px;
+        left: -44%;
+        top: -63%;
+    }
+    .level-2 .box:last-child::before {
+        height: 71px;
+        top: -123%;
+    }
+    .level-3{
+        position: relative;
+    }
 
-      .level-1 .box:after{
-        content: "";
-        position: absolute;
-        background: #000;
-        width: 2px;
-        height: 30px;
-        bottom: -31px;
-      }
-      .level-1 .box-0:after {
-        content: "";
-        position: absolute;
-        background: #000;
-        width: 2px;
-        height: 52px;
-        bottom: -52px;
-      }
+      
       .main-footer-section::before,
       .main-footer-section::after {
         display: none;
@@ -1428,6 +1491,34 @@
 
 }
 @media only screen and (max-width: 800px) {
+    .level-3::before {
+        height: 73px;
+        left: 165px;
+        top: -159px;
+    }
+
+    .library-section .library-imges img {
+        height: 350.5px;
+    }
+    /* .notice-board  */
+
+    .notice-board-section .notice-board-content thead {
+        height: 45px;
+    }
+    .notice-board-section .notice-board-content thead th {
+        padding: 10px;
+    }
+    .notice-board-section .notice-board-content table {
+        font-size: 14px;
+    }
+
+    #lightbox .lb-outerContainer {
+        width: 90% !important;
+        height: 60vh !important;
+    }
+    
+
+
     /* Video  */
     .banner-section .video-container .content h3 {
         font-size: 90px;
@@ -1481,6 +1572,42 @@
 
 }
 @media only screen and (max-width: 767px) {
+
+
+    .help-desk .objective-row {
+        flex-direction: column !important;
+    }
+    .officers-section table td a {
+        word-wrap: anywhere;
+    }
+    .officers-section {
+        padding: 60px 0;
+    }
+    .officers-section table th{
+        font-size: 15px;
+    }
+    .officers-section table td p{
+        font-size: 15px;
+    }
+
+    .organogram-section {
+        padding: 60px 0;
+    }
+
+    .library-section .library-imges img {
+        height: 390.5px;
+    }
+    .the_cs > .new-handbook iframe{
+        height: 360px;
+    }
+
+    .new-handbook h3, .old-handbook h3 {
+        font-size: 20px;
+    }
+    /* .notice-board  */
+    .notice-board-section {
+        padding: 60px 0;
+    }
 
     /* Council */
     .council-section .column img {
@@ -1886,17 +2013,9 @@
     }
 /*========================== CS Handbook Page ========================*/
     .cs-handbook-section {
-        padding: 63px 0;
+        padding: 60px 0;
     }
-    .cs-handbook-section .handbook-column {
-        row-gap: 40px;
-    }
-    .cs-handbook-section .handbook-column .new-handbook {
-        width: 100%;
-    }
-    .cs-handbook-section .handbook-column .old-handbook {
-        width: 100%;
-    }
+    
 /*======================= Exam Schedul Page ======================*/
     .handbook-section {
         padding: 63px 0 30px 0;
@@ -2223,6 +2342,15 @@
 
 }
 @media only screen and (max-width: 600px){
+    .level-3 .box::before {
+        height: 168px;
+    }
+    .level-3::before {
+        height: 34px;
+        left: 125px;
+        top: -139px;
+    }
+
     .scroll_top {
         font-size: 40px;
     }
@@ -2400,6 +2528,54 @@
     }
 }
 @media only screen and (max-width: 575px){
+    .level-3 .box::after {
+        width: 85%;
+        left: -85%;
+    }
+    .level-3 .box::before {
+        left: -85%;
+        height: 175px;
+    }
+    .level-3::before {
+        left: 62px;
+    }
+    .level-2::after {
+        width: 9rem;
+    }
+
+    .new-handbook iframe, .old-handbook iframe {
+        height: 360px;
+    }
+
+    /* .notice-board  */
+    .notice-board-section .notice-board-content {
+        margin-top: 20px;
+    }
+    .notice-board-section .notice-board-content thead th {
+        padding: 7px;
+    }
+    .notice-board-section .notice-board-content table {
+        font-size: 12px;
+    }
+
+
+
+    #lightbox .lb-outerContainer img {
+        height: auto !important;
+    }
+    #lightbox .lb-outerContainer {
+        height: auto !important;
+    }
+    #lightbox .lb-outerContainer .lb-next::before {
+        left: 88%;
+        font-size: 35px;
+    }
+    #lightbox .lb-outerContainer .lb-prev::before {
+        left: 15%;
+        font-size: 35px;
+    }
+
+
     /* Council  */
     .council-section .row{
         margin: 0 !important;
@@ -2532,6 +2708,9 @@
 
 }
 @media only screen and (max-width: 480px){
+    .library-section .library-imges img {
+        height: 300.5px;
+    }
     .main-footer-section ul li {
         font-size: 14px;
     }
