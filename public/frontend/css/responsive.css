@@ -759,12 +759,24 @@
   }
 @media only screen and (max-width: 1024px){
 
+
+    #lightbox .lb-outerContainer {
+        width: 70% !important;
+        height: 60vh !important;
+    }
+    #lightbox .lb-outerContainer img {
+        width: 100% !important;
+        height: 60vh !important;
+    }
+    .lightbox {
+        top: 50% !important;
+        transform: translateY(-50%);
+    }
+
     /* Notice   */
     .notice-section.big-sec-height{
         height: auto;
     }
-
-
     .testimonial-section .testimonial .details .author-image img {
         height: 100px;
         width: 100px;
@@ -1428,6 +1440,15 @@
 
 }
 @media only screen and (max-width: 800px) {
+
+
+    #lightbox .lb-outerContainer {
+        width: 90% !important;
+        height: 60vh !important;
+    }
+    
+
+
     /* Video  */
     .banner-section .video-container .content h3 {
         font-size: 90px;
@@ -2400,6 +2421,24 @@
     }
 }
 @media only screen and (max-width: 575px){
+
+
+    #lightbox .lb-outerContainer img {
+        height: auto !important;
+    }
+    #lightbox .lb-outerContainer {
+        height: auto !important;
+    }
+    #lightbox .lb-outerContainer .lb-next::before {
+        left: 88%;
+        font-size: 35px;
+    }
+    #lightbox .lb-outerContainer .lb-prev::before {
+        left: 15%;
+        font-size: 35px;
+    }
+
+
     /* Council  */
     .council-section .row{
         margin: 0 !important;
