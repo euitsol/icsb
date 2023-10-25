@@ -4239,7 +4239,9 @@ td {
 .library-section {
     padding: 100px 0;
 }
-
+.library-section .library-imges img{
+    height: 510.5px;
+}
 .library-section .library-row {
     max-width: 1225px;
     margin: 0 auto;

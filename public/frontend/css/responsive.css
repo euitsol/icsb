@@ -760,6 +760,10 @@
 @media only screen and (max-width: 1024px){
 
 
+    .library-section .library-imges img {
+        height: 425.5px;
+    }
+
     #lightbox .lb-outerContainer {
         width: 70% !important;
         height: 60vh !important;
@@ -926,6 +930,19 @@
     }
 }
 @media only screen and (max-width: 991px){
+
+
+    .the_cs > .new-handbook iframe{
+        height: 340px;
+    }
+    .cs-handbook-section .handbook-column .old-handbook, 
+    .cs-handbook-section .handbook-column .new-handbook {
+        width: 100%;
+    }
+    .cs-handbook-section .handbook-column {
+        row-gap: 40px;
+    }
+
 
     /* Council  */
     .council-section .column {
@@ -1441,6 +1458,20 @@
 }
 @media only screen and (max-width: 800px) {
 
+    .library-section .library-imges img {
+        height: 350.5px;
+    }
+    /* .notice-board  */
+
+    .notice-board-section .notice-board-content thead {
+        height: 45px;
+    }
+    .notice-board-section .notice-board-content thead th {
+        padding: 10px;
+    }
+    .notice-board-section .notice-board-content table {
+        font-size: 14px;
+    }
 
     #lightbox .lb-outerContainer {
         width: 90% !important;
@@ -1502,6 +1533,21 @@
 
 }
 @media only screen and (max-width: 767px) {
+
+    .library-section .library-imges img {
+        height: 390.5px;
+    }
+    .the_cs > .new-handbook iframe{
+        height: 360px;
+    }
+
+    .new-handbook h3, .old-handbook h3 {
+        font-size: 20px;
+    }
+    /* .notice-board  */
+    .notice-board-section {
+        padding: 60px 0;
+    }
 
     /* Council */
     .council-section .column img {
@@ -1907,17 +1953,9 @@
     }
 /*========================== CS Handbook Page ========================*/
     .cs-handbook-section {
-        padding: 63px 0;
+        padding: 60px 0;
     }
-    .cs-handbook-section .handbook-column {
-        row-gap: 40px;
-    }
-    .cs-handbook-section .handbook-column .new-handbook {
-        width: 100%;
-    }
-    .cs-handbook-section .handbook-column .old-handbook {
-        width: 100%;
-    }
+    
 /*======================= Exam Schedul Page ======================*/
     .handbook-section {
         padding: 63px 0 30px 0;
@@ -2244,6 +2282,7 @@
 
 }
 @media only screen and (max-width: 600px){
+
     .scroll_top {
         font-size: 40px;
     }
@@ -2422,6 +2461,22 @@
 }
 @media only screen and (max-width: 575px){
 
+    .new-handbook iframe, .old-handbook iframe {
+        height: 360px;
+    }
+
+    /* .notice-board  */
+    .notice-board-section .notice-board-content {
+        margin-top: 20px;
+    }
+    .notice-board-section .notice-board-content thead th {
+        padding: 7px;
+    }
+    .notice-board-section .notice-board-content table {
+        font-size: 12px;
+    }
+
+
 
     #lightbox .lb-outerContainer img {
         height: auto !important;
@@ -2571,6 +2626,9 @@
 
 }
 @media only screen and (max-width: 480px){
+    .library-section .library-imges img {
+        height: 300.5px;
+    }
     .main-footer-section ul li {
         font-size: 14px;
     }

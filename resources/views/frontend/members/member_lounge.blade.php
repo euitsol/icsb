@@ -40,7 +40,7 @@ $datas = [
             @endphp
             @if (isset($images))
                 @foreach ($images as $image)
-                <div class="col-sm-6">
+                <div class="col-md-6">
                     <a
                         class="demo col-12"
                         href="{{ storage_url($image) }}"
