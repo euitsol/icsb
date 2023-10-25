@@ -1392,19 +1392,12 @@
         top: 50%;
         left: -44%;
     }
-    .level-2::after {
-        width: 8rem;
-        height: 2px;
-        top: -24px;
-        left: 44.8%;
-        transform: translateX(-99%);
-    }
     .box h3 {
         font-size: 16px;
     }
-    .level-3 .box{
+    /* .level-3 .box{
         width: 30%;
-    }
+    } */
 
       .level-1{
         margin-bottom: 35px;
@@ -1437,31 +1430,42 @@
         left: -54%;
         top: -126px;
     }
-    .level-3::before {
-        content: "";
-        position: absolute;
-        background: #000;
-        width: 2px;
-        height: 72px;
-        left: 216px;
-        top: -159px;
-        transform: rotate(90deg);
+
+    .level-2 .box:last-child::before {
+        height: 71px;
+        top: -123%;
+    }
+    .level-3, .level-2{
+        margin: 0 auto;
+        width: 100%;
+    }
+    .level-3 .box, .level-2 .box {
+        width: 45%;
+        height: 70px;
+    }
+    .level-3 .box::before {
+        left: -44%;
+        top: -123px;
+    }
+    .level-3 .box::after {
+        width: 44%;
+        left: -44%;
+    }
+    .level-2::after {
+        width: 14.5rem;
+        height: 2px;
+        top: -25px;
+        left: 50%;
+        transform: translateX(-99%);
     }
     .level-2 .box::before {
         content: "";
         position: absolute;
         background: #000;
         width: 2px;
-        height: 72px;
+        height: 100px;
         left: -44%;
-        top: -63%;
-    }
-    .level-2 .box:last-child::before {
-        height: 71px;
-        top: -123%;
-    }
-    .level-3{
-        position: relative;
+        top: -41%;
     }
 
       
@@ -1491,11 +1495,11 @@
 
 }
 @media only screen and (max-width: 800px) {
-    .level-3::before {
+    /* .level-3::before {
         height: 73px;
         left: 165px;
         top: -159px;
-    }
+    } */
 
     .library-section .library-imges img {
         height: 350.5px;
@@ -2342,14 +2346,14 @@
 
 }
 @media only screen and (max-width: 600px){
-    .level-3 .box::before {
+    /* .level-3 .box::before {
         height: 168px;
     }
     .level-3::before {
         height: 34px;
         left: 125px;
         top: -139px;
-    }
+    } */
 
     .scroll_top {
         font-size: 40px;
@@ -2528,7 +2532,7 @@
     }
 }
 @media only screen and (max-width: 575px){
-    .level-3 .box::after {
+    /* .level-3 .box::after {
         width: 85%;
         left: -85%;
     }
@@ -2541,7 +2545,7 @@
     }
     .level-2::after {
         width: 9rem;
-    }
+    } */
 
     .new-handbook iframe, .old-handbook iframe {
         height: 360px;
