@@ -23,7 +23,7 @@ $datas = [
         <div class="row justify-content-center">
             @if (!empty($contact->social))
                 @foreach (json_decode($contact->social) as $social)
-                    <div class="col-md-4 gy-5 wrap">
+                    <div class="col-sm-6 col-md-4 gy-5 wrap">
                         <div class="card text-center">
                             <div class="card-header">
                                         <a href="{{ $social->link }}" target="_blank"><span class="icon"><i class="{{ $social->icon }}"></i></span></a>
