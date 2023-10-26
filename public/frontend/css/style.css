@@ -1103,10 +1103,9 @@ li {
     white-space: nowrap;
     overflow: hidden;
 }
-  .scrolling-text {
-    display: inline-block;
-    animation: scroll 10s linear infinite;
-  }
+
+
+
 
   @keyframes scroll {
     0% {
@@ -1115,6 +1114,15 @@ li {
     100% {
       transform: translateX(-100%);
     }
+  }
+  .scrolling-text {
+    display: inline-block;
+    animation-name: scroll;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+  .scrolling-text:hover {
+    animation-play-state: paused;
   }
 .news-ticker-section .ticker-desc {
     width: calc(100% - 250px);
