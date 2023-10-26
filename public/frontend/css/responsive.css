@@ -1451,12 +1451,18 @@
         width: 44%;
         left: -44%;
     }
-    .level-2::after {
-        width: 14.5rem;
-        height: 2px;
-        top: -25px;
-        left: 50%;
+    .level-1 .box-1::before {
+        content: "";
+        position: absolute;
+        width: 203%;
+        bottom: -34px;
+        left: 49%;
+        background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
         transform: translateX(-99%);
+        height: 2px;
+    }
+    .level-2::after{
+        display: none;
     }
     .level-2 .box::before {
         content: "";
@@ -1501,6 +1507,9 @@
         top: -159px;
     } */
 
+    .level-1 .box-1::before {
+        width: 171%;
+    }
     .library-section .library-imges img {
         height: 350.5px;
     }
@@ -1576,7 +1585,9 @@
 
 }
 @media only screen and (max-width: 767px) {
-
+    .level-1 .box-1::before {
+        width: 168%;
+    }
 
     .help-desk .objective-row {
         flex-direction: column !important;
@@ -2314,6 +2325,10 @@
     }
 }
 @media only screen and (max-width: 700px) {
+    .level-1 .box-1::before {
+        width: 153%;
+        bottom: -35px;
+    }
     .news-ticker-section .ticker-desc .bx-wrapper li, .news-ticker-section .ticker-desc .bx-wrapper li a {
         font-size: 16px;
         line-height: 22px;
@@ -2346,14 +2361,9 @@
 
 }
 @media only screen and (max-width: 600px){
-    /* .level-3 .box::before {
-        height: 168px;
+    .level-1 .box-1::before {
+        width: 129%;
     }
-    .level-3::before {
-        height: 34px;
-        left: 125px;
-        top: -139px;
-    } */
 
     .scroll_top {
         font-size: 40px;
@@ -2532,6 +2542,9 @@
     }
 }
 @media only screen and (max-width: 575px){
+    .level-1 .box-1::before {
+        width: 123%;
+    }
     /* .level-3 .box::after {
         width: 85%;
         left: -85%;
@@ -2712,6 +2725,9 @@
 
 }
 @media only screen and (max-width: 480px){
+    .level-1 .box-1::before {
+        width: 100%;
+    }
     .library-section .library-imges img {
         height: 300.5px;
     }
@@ -2760,8 +2776,10 @@
     }
 
 }
-
 @media only screen and (max-width: 380px){
+    .level-1 .box-1::before {
+        width: 77%;
+    }
     .bss-section .bss-row .bss-right-column > a {
         width: 100%;
     }
