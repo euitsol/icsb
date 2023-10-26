@@ -177,7 +177,6 @@
       }
 }
 @media only screen and (max-width: 1200px){
-
     .mision-vision-section, .vision-mission-section {
         height: auto;
     }
@@ -690,6 +689,25 @@
     }
 }
 @media only screen and (max-width: 1100px){ 
+
+    /* Recent Update Single  */
+    .blog-content-section .blog-content .blog-sidebar-column {
+        width: 100%;
+    }
+    .blog-content-section .blog-content .blog-content-column {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .blog-share-section .share-content {
+        margin-top: 60px;
+    }
+    .blog-share-section {
+        padding-bottom: 60px;
+    }
+    .blog-thumbnail-section {
+        padding-top: 60px;
+    }
+
     /* Council  */
     .council-section .column {
         width: 18.286%;
@@ -1585,6 +1603,38 @@
 
 }
 @media only screen and (max-width: 767px) {
+
+    .social-platform-section{
+        padding: 45px 0 60px 0;
+    }
+
+    .location-map-section{
+        padding: 60px 0;
+    }
+
+    .faq-section {
+        padding: 60px 0;
+    }
+
+    .library-section {
+        padding: 60px 0;
+    }
+    .library-section .library-row .library-item .left-column ul li,
+    .library-section .library-row .library-item a{
+        font-size: 14px;
+    }
+    .library-section .library-row .library-item ul {
+        column-gap: 10px;
+    }
+    .library-section .library-row .library-item ul li {
+        line-height: 37px;
+    }
+    .library-section .library-row .library-item {
+        padding: 15px 30px;
+    }
+
+
+
     .level-1 .box-1::before {
         width: 168%;
     }
@@ -1926,11 +1976,9 @@
         padding: 33px 25px;
     }
     .faq-section .faq-content .accordion-item .accordion-button {
-        height: 54px;
         padding-left: 50px;
     }
     .faq-section .faq-content .accordion-item .collapsed {
-        height: 54px;
         padding-left: 50px;
     }
     .faq-section .faq-content .accordion-item {
@@ -2170,6 +2218,9 @@
         margin-bottom: 15px;
     }
     .objectives-section .objective-row .right-column p {
+        color: black;
+    }
+    .objectives-section .objective-row .right-column ul li {
         color: black;
     }
     

@@ -3149,6 +3149,12 @@ td {
     max-width: 100%;
 }
 
+.social-platform-section{
+    min-height: auto;
+    display: flex;
+    align-items: center;
+}
+
 .social-platform-section .icon i {
     height: 100px;
     width: 100px;
@@ -3251,6 +3257,9 @@ td {
 
 /*=================== Location Page Style ========================*/
 .location-map-section {
+    min-height: auto;
+    display: flex;
+    align-items: center;
     max-width: 1300px;
     margin: 0 auto;
     padding: 100px 0;
@@ -4240,6 +4249,9 @@ td {
 }
 
 .library-section {
+    min-height: auto;
+    display: flex;
+    align-items: center;
     padding: 100px 0;
 }
 .library-section .library-imges img{
@@ -4671,8 +4683,10 @@ td {
 
 /*======================== FAQ Page CSS ==========================*/
 .faq-section {
-    padding-top: 100px;
-    padding-bottom: 120px;
+    padding: 100px 0;
+    min-height: auto;
+    display: flex;
+    align-items: center;
 }
 
 .faq-section .faq-content {
