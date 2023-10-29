@@ -1515,6 +1515,10 @@ li {
 
 .notice-section .notice-row .notice-board-wrapper .left-column .content-col h3 a {
     color: #111;
+    transform: .4s;
+}
+.notice-section .notice-row .notice-board-wrapper .left-column .content-col h3 a:hover {
+    color: #FF8601;
 }
 
 .notice-section .notice-row .notice-board-wrapper .left-column .content-col ul {

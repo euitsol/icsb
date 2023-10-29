@@ -175,7 +175,18 @@ class MembersPagesController extends Controller
 
         <a href='".$url."' target='_blank'>Edit Job Post</a>
         ";
-        $this->send_feedback_email($mail,$subject, $jp->email);
+
+
+        $admin_subject = "New job posted on your job portal";
+        $admin_mail =
+        "
+        <p>Job Title: $jp->title</p> <br>
+        <p>Email: $jp->email</p> <br>
+        <p>Details: $jp->job_responsibility</p> <br>
+        ";
+        $this->send_feedback_email($mail,$subject, 'shariful.euitsols@gmail.com');
+        $this->send_admin_email($admin_mail,$admin_subject, 'shariful.euitsols@gmail.com');
+
         return redirect()->back()->withStatus(__('Job post '.$request->title.' created successfully.'));
     }
 
