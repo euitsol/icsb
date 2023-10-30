@@ -97,11 +97,11 @@
                                             <option {{(old('salary_type') == 'Per Year') ? 'selected' : ''}} value="Per Year">{{ _('Per Year') }}</option>
                                             <option {{(old('salary_type') == 'Negotiable') ? 'selected' : ''}} value="Negotiable">{{ _('Negotiable') }}</option>
                                         </select>
-                                    </div>
+                                    </div> 
+                                    @include('alerts.feedback', ['field' => 'salary'])
+                                    @include('alerts.feedback', ['field' => 'salary.*'])
+                                    @include('alerts.feedback', ['field' => 'salary_type'])
                                 </div>
-                                @include('alerts.feedback', ['field' => 'salary'])
-                                @include('alerts.feedback', ['field' => 'salary.*'])
-                                @include('alerts.feedback', ['field' => 'salary_type'])
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6 {{ $errors->has('deadline') ? ' has-danger' : '' }}">

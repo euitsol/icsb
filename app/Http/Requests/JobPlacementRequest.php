@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use App\Rules\SalaryRangeRule;
 
 class JobPlacementRequest extends FormRequest
 {
@@ -31,10 +32,9 @@ class JobPlacementRequest extends FormRequest
             // 'salary.from' => 'required|numeric|min:0',
             // 'salary.to' => 'required|numeric|min:0',
             // 'salary.*' => 'integer|min:0',
-            'salary' => [
-                'required_if:salary_type,!=,Negotiable',
-                'nullable',
-                'array',
+            'salary' => 'array',
+            'salary.*' => [
+                new SalaryRangeRule,
             ],
             'salary_type' => [
                 'required',
