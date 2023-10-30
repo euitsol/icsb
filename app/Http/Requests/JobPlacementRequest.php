@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use App\Rules\SalaryRangeRule;
 
 class JobPlacementRequest extends FormRequest
 {
@@ -27,10 +28,14 @@ class JobPlacementRequest extends FormRequest
                 'required',
                 Rule::in(["Full-Time", "Part-Time","Work From Home", "Contractual","Intern"]),
             ],
-            'salary' => 'nullable|array',
+            // 'salary' => 'nullable|array',
             // 'salary.from' => 'required|numeric|min:0',
             // 'salary.to' => 'required|numeric|min:0',
             // 'salary.*' => 'integer|min:0',
+            'salary' => 'array',
+            'salary.*' => [
+                new SalaryRangeRule,
+            ],
             'salary_type' => [
                 'required',
                 Rule::in(['Per Month', 'Per Year','Negotiable']),

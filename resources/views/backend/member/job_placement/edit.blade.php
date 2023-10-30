@@ -98,10 +98,11 @@
                                                 <option value="Negotiable" {{ ($jp->salary_type == 'Negotiable') ? 'selected' : '' }}>{{ _('Negotiable') }}</option>
                                         </select>
                                     </div>
+                                    @include('alerts.feedback', ['field' => 'salary'])
+                                    @include('alerts.feedback', ['field' => 'salary.*'])
+                                    @include('alerts.feedback', ['field' => 'salary_type'])
                                 </div>
-                                @include('alerts.feedback', ['field' => 'salary'])
-                                @include('alerts.feedback', ['field' => 'salary.*'])
-                                @include('alerts.feedback', ['field' => 'salary_type'])
+                                
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6 {{ $errors->has('deadline') ? ' has-danger' : '' }}">

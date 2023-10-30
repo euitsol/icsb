@@ -32,6 +32,7 @@ class JobPlacementController extends Controller
     }
     public function store(JobPlacementRequest $request): RedirectResponse
     {
+        dd($request->all());
         $jp = new JobPlacement();
         $jp->title = $request->title;
         $jp->company_name = $request->company_name;
