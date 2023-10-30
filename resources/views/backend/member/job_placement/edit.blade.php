@@ -87,11 +87,11 @@
                                 <label class="col-md-12">Salary</label>
                                 <div class="col-md-12">
                                     <div class="input-group">
-                                        <input type="number" class="form-control salary_input" name="salary[from]" value='{{json_decode($jp->salary)->from}}'>
+                                        <input type="number" class="form-control salary_input" name="salary[from]" value="{{isset(json_decode($jp->salary)->from) ? json_decode($jp->salary)->from : ''}}">
                                         <div class="input-group-append salary_input">
                                             <div class="input-group-text">{{_('to')}}</div>
                                         </div>
-                                        <input type="number" class="form-control salary_input" name="salary[to]" value='{{json_decode($jp->salary)->to}}'>
+                                        <input type="number" class="form-control salary_input" name="salary[to]" value="{{isset(json_decode($jp->salary)->to) ? json_decode($jp->salary)->to : ''}}">
                                         <select name="salary_type" class="form-control salary_type no-select">
                                                 <option value="Per Month" {{ ($jp->salary_type == 'Per Month') ? 'selected' : '' }}> {{ _('Per Month') }} </option>
                                                 <option value="Per Year" {{ ($jp->salary_type == 'Per Year') ? 'selected' : '' }}> {{ _('Per Year') }} </option>

@@ -5078,6 +5078,204 @@ td {
 	height: auto !important;
 } */
 
+
+/*============================ Job Single Page Style ========================*/
+.job-detailes-section {
+	padding: 100px 0 30px 0;
+}
+
+.job-detailes-section .job-row {
+	align-items: flex-start;
+	justify-content: space-between;
+}
+
+.job-detailes-section .job-row .job-detail-item {
+	align-items: flex-start;
+	column-gap: 15px;
+}
+
+.job-detailes-section .job-row .job-detail-item h3 {
+	font-size: 23px;
+	margin-top: -6px;
+	line-height: 30px;
+	margin-bottom: 5px;
+}
+
+.job-detailes-section .job-row .job-detail-item img {
+	width: 50px;
+	border-radius: 50%;
+}
+
+.job-detailes-section .job-row .job-detail-item li {
+	margin-bottom: 10px;
+}
+
+.job-detailes-section .job-row .job-detail-item li i {
+	color: #FF8601;
+	margin-right: 8px;
+}
+
+.job-detailes-section .job-row .job-detail-item span {
+	font-weight: 600;
+}
+
+.job-detailes-section .job-row .job-detail-item .apply-button {
+	color: #fff;
+	width: 100%;
+	height: 44px;
+	max-width: 287px;
+	border-radius: 100px;
+	background: transparent;
+    color: #152360;
+	padding: 8px 25px;
+    border: 2px solid #182456;
+    transition: .4s;
+}
+.job-detailes-section .job-row .job-detail-item .apply-button:hover {
+    background: #182456;
+    color: #fff;
+    border: 2px solid #182456;
+}
+
+.job-detailes-section .job-row .last-item ul {
+	column-gap: 20px;
+	align-items: center;
+}
+
+.job-detailes-section .job-row .last-item ul li a {
+	color: #111;
+	font-size: 18px;
+	line-height: 25px;
+}
+
+.job-detailes-section .job-row .last-item ul li a i {
+	color: #152360;
+	margin-left: 5px;
+}
+
+.jobsingle-content-section {
+	padding-bottom: 70px;
+}
+
+.jobsingle-content-section .content-row {
+	column-gap: 5%;
+}
+
+.jobsingle-content-section .content-row .content-column {
+	width: 65%;
+	padding-top: 20px;
+	border-top: 1px solid #ddd;
+}
+
+.jobsingle-content-section .content-row .content-column p {
+	color: #4A4444;
+	line-height: 27px;
+	margin-bottom: 27px;
+}
+
+.jobsingle-content-section .content-row .content-column p span {
+	color: #111111;
+	font-weight: 600;
+}
+
+.jobsingle-content-section .content-row .content-column ul {
+	padding: 0;
+	margin: 0;
+	margin-top: -15px;
+	margin-bottom: 28px;
+	padding-left: 13px;
+}
+
+.jobsingle-content-section .content-row .content-column ul li {
+	color: #4A4444;
+	list-style: inherit;
+	margin-bottom: 6px;
+}
+
+.jobsingle-content-section .content-row .summary-column {
+	width: 30%;
+}
+
+.jobsingle-content-section .content-row .summary-column .job-summery {
+	background: #f8f8f8;
+	border-radius: 5px;
+	padding: 57px 40px;
+	margin-bottom: 35px;
+	border-top: 8px solid #FF8601;
+}
+
+.jobsingle-content-section .content-row .summary-column .job-summery h4 {
+	font-size: 24px;
+	line-height: 30px;
+	margin-bottom: 20px;
+}
+
+.jobsingle-content-section .content-row .summary-column .job-summery ul {
+	padding: 0;
+	margin: 0;
+	padding-left: 13px;
+}
+
+.jobsingle-content-section .content-row .summary-column .job-summery li {
+	color: #4A4444;
+	list-style: inherit;
+	margin-bottom: 6px;
+}
+
+.jobsingle-content-section .content-row .summary-column .job-summery li span {
+	color: #111;
+	font-weight: 500;
+}
+
+.jobsingle-content-section .content-row .summary-column h3 {
+	font-size: 22px;
+	line-height: 28px;
+	margin: 10px 0;
+}
+
+.jobsingle-content-section .content-row .summary-column .email-column {
+	padding: 30px;
+	margin-bottom: 45px;
+	border: 1px solid #ddd;
+}
+
+.jobsingle-content-section .content-row .summary-column .email-column h3 {
+	margin-bottom: 10px;
+}
+
+.jobsingle-content-section .content-row .summary-column .email-column h3 i {
+	margin-right: 10px;
+}
+
+.jobsingle-content-section .content-row .summary-column .email-column p a {
+	color: #152360;
+}
+
+.jobsingle-content-section .content-row .summary-column .email-column p a:hover {
+	color: #FF8601;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*=================== Footer Section ====================*/
 .main-footer-section {
     position: relative;

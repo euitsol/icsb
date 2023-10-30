@@ -6,6 +6,7 @@ use App\Models\Permission;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 use App\Models\SiteSetting;
+use Illuminate\Support\Facades\Crypt;
 
 
 //This will retun the route prefix of the routes for permission check
@@ -288,4 +289,10 @@ function extractStringFromUrl($url) {
 
 function make_slug($data){
     return Str::slug($data);
+}
+function encryptId($id){
+    return Crypt::encrypt($id);
+}
+function decryptId($id){
+    return Crypt::decrypt($id);
 }
