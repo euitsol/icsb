@@ -27,10 +27,15 @@ class JobPlacementRequest extends FormRequest
                 'required',
                 Rule::in(["Full-Time", "Part-Time","Work From Home", "Contractual","Intern"]),
             ],
-            'salary' => 'nullable|array',
+            // 'salary' => 'nullable|array',
             // 'salary.from' => 'required|numeric|min:0',
             // 'salary.to' => 'required|numeric|min:0',
             // 'salary.*' => 'integer|min:0',
+            'salary' => [
+                'required_if:salary_type,!=,Negotiable',
+                'nullable',
+                'array',
+            ],
             'salary_type' => [
                 'required',
                 Rule::in(['Per Month', 'Per Year','Negotiable']),
