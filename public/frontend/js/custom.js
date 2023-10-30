@@ -163,7 +163,7 @@ $(document).ready(function () {
             600: {
                 items: 2
             },
-            800: {
+            850: {
                 items: 3
             },
             1368: {
@@ -179,7 +179,7 @@ $(document).ready(function () {
         margin: 25,
         nav: false,
         dots: false,
-        autoplay: true,
+        autoplay: false,
         autoplayTimeout: 3000,
         autoplayHoverPause: true,
         responsive: {
@@ -189,7 +189,7 @@ $(document).ready(function () {
             600: {
                 items: 2
             },
-            800: {
+            850: {
                 items: 3
             },
             1368: {

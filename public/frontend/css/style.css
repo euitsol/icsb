@@ -102,7 +102,7 @@ table.gsc-search-box {
 /* GOOGLE SEARCH BOX DESIGN CSS END */
 .scroll_top {
     position: fixed;
-    top: 95%;
+    top: 90%;
     left: 95%;
     font-size: 50px;
     display: none;
@@ -1734,7 +1734,10 @@ li {
     border-radius: 0;
     transition: 0.4s;
 }
-
+.owl-carousel .owl-nav button:hover{
+    background: #182456 !important;
+    color: #fff !important;
+}
 .recent-update-section .owl-carousel .owl-nav button:hover {
     background: #182456;
 }
@@ -1768,7 +1771,6 @@ li {
 .testimonial-section {
     background-color: #b3d0f7;
 }
-
 .testimonial-section .item {
     padding: 12px 30px;
     height: 515px;

@@ -316,24 +316,33 @@
                             <button class="btn btn-outline-success w-100 search_button btn-close" style="height:auto; opacity:1;" data-bs-dismiss="offcanvas"
                             aria-label="Close" type="button">{{_('Search')}}</button>
                         </form>
+                        <div class="mobile-menu-button flex mb-3">
+                            @if(isset($memberLogin->saved_data) && !empty(json_decode($memberLogin->saved_data)->{'url'}))
+                                <a href="{{ json_decode($memberLogin->saved_data)->{'url'} }}" target="_blank">Member's Login</a>@endif
+                            @if(isset($studentLogin->saved_data) && !empty(json_decode($studentLogin->saved_data)->{'url'}))
+                                <a href="{{ json_decode($studentLogin->saved_data)->{'url'} }}" target="_blank">Students Login</a>
+                            @endif
+                            
+                        </div>
                         <div class="mobile-menu-button flex">
                             @if (!empty($contact->phone))
                                 @foreach (json_decode($contact->phone) as $phone)
                                     @if ($phone->type == 'Phone')
                                         <a href="tel:88{{ $phone->number }}"><i
                                                 class="fa-solid fa-phone"></i>+88{{ $phone->number }}</a>
+                                        @break
+                                    @endif
+                                @endforeach
+                            @endif
+                            @if (!empty($contact->email))
+                                @foreach (json_decode($contact->email) as $email)
+                                        <a href="mailto:{{ $email }}"><i class="fa-solid fa-envelope"></i>
+                                            {{ $email }}</a>
                                     @break
-                                @endif
-                            @endforeach
-                        @endif
-                        @if (!empty($contact->email))
-                            @foreach (json_decode($contact->email) as $email)
-                                <a href="mailto:{{ $email }}"><i class="fa-solid fa-envelope"></i>
-                                    {{ $email }}</a>
-                            @break
-                        @endforeach
-                    @endif
-                </div>
+                                @endforeach
+                            @endif
+                            
+                        </div>
             </div>
         </div>
     </div>
