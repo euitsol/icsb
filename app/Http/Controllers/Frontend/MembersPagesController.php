@@ -176,16 +176,16 @@ class MembersPagesController extends Controller
         <a href='".$url."' target='_blank'>Edit Job Post</a>
         ";
 
+        $this->send_custom_email($mail,$subject, $jp->email);
 
         $admin_subject = "New job posted on your job portal";
         $admin_mail =
         "
         <p>Job Title: $jp->title</p> <br>
         <p>Email: $jp->email</p> <br>
-        <p>Details: $jp->job_responsibility</p> <br>
+        <p>Details: </p> $jp->job_responsibility <br>
         ";
-        $this->send_feedback_email($mail,$subject, 'shariful.euitsols@gmail.com');
-        $this->send_admin_email($admin_mail,$admin_subject, 'shariful.euitsols@gmail.com');
+        $this->send_custom_email($admin_mail,$admin_subject, 'test.euitsols@gmail.com');
 
         return redirect()->back()->withStatus(__('Job post '.$request->title.' created successfully.'));
     }
@@ -239,7 +239,15 @@ class MembersPagesController extends Controller
 
         <a href='".$url."' target='_blank'>Edit Job Post</a>
         ";
-        $this->send_feedback_email($mail,$subject, $jp->email);
+        $this->send_custom_email($mail,$subject, $jp->email);
+        $admin_subject = "A pending job was editted on your job portal";
+        $admin_mail =
+        "
+        <p>Job Title: $jp->title</p> <br>
+        <p>Email: $jp->email</p> <br>
+        <p>Details: </p> $jp->job_responsibility <br>
+        ";
+        $this->send_custom_email($admin_mail,$admin_subject, 'test.euitsols@gmail.com');
         return redirect()->route('member_view.job_edit',$id)->withStatus(__('Job post '.$request->title.' editted successfully.'));
     }
 }

@@ -122,7 +122,7 @@ class JobPlacementController extends Controller
 
             <a href='".$url."' target='_blank'>Live Job Posts</a>
             ";
-            $this->send_feedback_email($mail,$subject, $jp->email);
+            $this->send_custom_email($mail,$subject, $jp->email);
             $this->send_member_email($jp);
 
         }elseif($status == 'declined'){
@@ -135,7 +135,7 @@ class JobPlacementController extends Controller
 
             <p>Your job post has been declined</p>
             ";
-        $this->send_feedback_email($mail,$subject, $jp->email);
+        $this->send_custom_email($mail,$subject, $jp->email);
         }elseif($status == 'disclosed'){
             $jp->status = '2';
             $jp->save();
@@ -146,7 +146,7 @@ class JobPlacementController extends Controller
 
             <p>Your job post has been disclosed</p>
             ";
-            $this->send_feedback_email($mail,$subject, $jp->email);
+            $this->send_custom_email($mail,$subject, $jp->email);
         }
         return redirect()->route('job_placement.jp_list')->withStatus(__($jp->title.' status updated successfully.'));
     }
