@@ -104,7 +104,7 @@ class ContactPagesController extends Controller
         <p>Feedback: $feedback->message</p> <br>
         ";
         $to = "shariful.euitsols@gmail.com";
-        $this->send_feedback_email($mail,$subject, $to);
+        $this->send_custom_email($mail,$subject, $to);
         return redirect()->route('contact_us.feedback')->withStatus(__('Thank you for your feedback, we will get back to you as soon as possible.'));
     }
 }
