@@ -86,15 +86,16 @@
                                 <label class="col-md-12">Salary</label>
                                 <div class="col-md-12">
                                     <div class="input-group">
-                                        <input type="number" class="form-control" name="salary[from]" value="{{ old('salary.from') }}">
-                                        <div class="input-group-append">
-                                            <div class="input-group-text">{{ _('to') }}</div>
-                                        </div>
-                                        <input type="number" class="form-control" name="salary[to]" value="{{ old('salary.to') }}">
-                                        <select name="salary_type" class="form-control no-select">
+                                            <input type="number" class="form-control salary_input" name="salary[from]" value="{{ old('salary.from') }}">
+                                            <div class="input-group-append salary_input">
+                                                <div class="input-group-text">{{ _('to') }}</div>
+                                            </div>
+                                            <input type="number" class="form-control salary_input" name="salary[to]" value="{{ old('salary.to') }}">
+                                        <select name="salary_type" class="form-control no-select salary_type">
                                             <option selected hidden>{{ _('Select Salary Type') }}</option>
                                             <option {{(old('salary_type') == 'Per Month') ? 'selected' : ''}} value="Per Month">{{ _('Per Month') }}</option>
                                             <option {{(old('salary_type') == 'Per Year') ? 'selected' : ''}} value="Per Year">{{ _('Per Year') }}</option>
+                                            <option {{(old('salary_type') == 'Negotiable') ? 'selected' : ''}} value="Negotiable">{{ _('Negotiable') }}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -201,4 +202,15 @@
 @endsection
 
 @push('js')
+    <script>
+        $(document).ready(function(){
+            $('.salary_type').on('change', function(){
+                if($(this).val() == "Negotiable"){
+                    $('.salary_input').prop('disabled', true);
+                } else {
+                    $('.salary_input').prop('disabled', false);
+                }
+            });
+        });
+    </script>
 @endpush
