@@ -20,11 +20,9 @@ trait SendMailTrait{
         }
     }
     public function send_feedback_email($mail, $subject, $to){
-        $to = 'shariful.euitsols@gmail.com';
         Mail::to($to)->send(new FeedBackMail($mail, $subject));
     }
     public function send_admin_email($mail, $subject, $to){
-        $to = 'shariful.euitsols@gmail.com';
         Mail::to($to)->send(new FeedBackMail($mail, $subject));
     }
 
