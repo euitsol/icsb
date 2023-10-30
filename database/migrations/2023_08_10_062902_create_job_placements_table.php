@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('application_url')->nullable();
             $table->string('email');
             $table->enum('job_type',["Full-Time", "Part-Time","Work From Home", "Contractual","Intern"]);
-            $table->json('salary');
-            $table->enum('salary_type',["Per Month", "Per Year"]);
+            $table->json('salary')->nullable();
+            $table->enum('salary_type',["Per Month", "Per Year","Negotiable"]);
             $table->date('deadline');
 
             $table->integer('vacancy');
