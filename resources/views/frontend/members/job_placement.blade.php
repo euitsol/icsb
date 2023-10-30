@@ -44,15 +44,20 @@ $datas = [
             </div>
             <div class="middle-col d-flex align-items-center">
                 <ul class="m-0">
-                @if(isset(json_decode($jp->salary)->from) & isset(json_decode($jp->salary)->to))
-                <li><strong>Salary:</strong> TK. <span>{{ (json_decode($jp->salary)->from .' - '. json_decode($jp->salary)->to)}}</span> / {{$jp->salary_type}}</li>
-                @endif
+                <li>
+                  <strong>Salary:</strong>
+                  @if(isset(json_decode($jp->salary)->from) & isset(json_decode($jp->salary)->to))
+                   TK. <span>{{ (json_decode($jp->salary)->from .' - '. json_decode($jp->salary)->to)}}</span> / 
+                  @endif
+                  {{$jp->salary_type}}
+                </li>
+                
                 <li><strong>Deadline: </strong><span>{{ date('d M, Y', strtotime($jp->deadline))}} {{_('12:00 PM')}}</span></li>
                 </ul>
             </div>
             <div class="right-col ">
                 <div class="btn">
-                <a href="{{$jp->company_url}}">View Details</a>
+                <a href="{{route('member_view.job_details',encryptId($jp->id))}}">View Details</a>
                 </div>
             </div>
             </div>

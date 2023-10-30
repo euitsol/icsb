@@ -250,4 +250,10 @@ class MembersPagesController extends Controller
         $this->send_custom_email($admin_mail,$admin_subject, 'test.euitsols@gmail.com');
         return redirect()->route('member_view.job_edit',$id)->withStatus(__('Job post '.$request->title.' editted successfully.'));
     }
+    public function job_details($id): View
+    {
+        $id = decryptId($id);
+        $s['job'] = JobPlacement::findOrFail($id);
+        return view('frontend.members.job_details',$s);
+    } 
 }
