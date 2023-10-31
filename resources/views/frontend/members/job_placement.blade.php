@@ -38,7 +38,7 @@ $datas = [
                   <h2>{{$jp->title}}</h2>
                   <h3>{{$jp->company_name}}</h3>
                   <span class="day"><i class="fa-solid fa-clock"></i>
-                      {{\Carbon\Carbon::parse($jp->created_at)->diffForhumans()}}
+                      {{$jp->createDiffTime}}
                   </span>
                   <span><i class="fa-solid fa-briefcase"></i>{{$jp->job_type}}</span>
 
@@ -54,7 +54,7 @@ $datas = [
                     {{$jp->salary_type}}
                   </li>
                   
-                  <li><strong>Deadline: </strong><span>{{ date('d M, Y', strtotime($jp->deadline))}} {{_('12:00 PM')}}</span></li>
+                  <li><strong>Deadline: </strong><span>{{ $jp->deadline}} {{_('12:00 PM')}}</span></li>
                   </ul>
               </div>
               <div class="right-col ">
@@ -99,7 +99,7 @@ $datas = [
 
                           data.jobs.forEach(function(job) {
                             
-                            var salary = JSON.parse(job.salary).to != null && JSON.parse(job.salary).from != null  ? JSON.parse(job.salary).to+' - '+JSON.parse(job.salary).from+' / ' : '';
+                            var salary = JSON.parse(job.salary).to != null && JSON.parse(job.salary).from != null  ? 'TK. <span>'+JSON.parse(job.salary).to+' - '+JSON.parse(job.salary).from+'</span> / ' : '';
                             let details_url = ("{{ route('member_view.job_details',['jid']) }}");
                             let details_url_ = details_url.replace('jid', job.jid);
                             console.log(details_url_);
@@ -120,7 +120,7 @@ $datas = [
                                       <ul class="m-0">
                                       <li>
                                         <strong>Salary:</strong>
-                                        TK. <span>${salary}</span> 
+                                        ${salary}
                                         ${job.salary_type}
                                       </li>
                                       
@@ -149,7 +149,7 @@ $datas = [
               var job_placement= '';
 
               job_placements.data.forEach(function(job) {
-                var salary = JSON.parse(job.salary).to != null && JSON.parse(job.salary).from != null  ? JSON.parse(job.salary).to+' - '+JSON.parse(job.salary).from+' / ' : '';
+                var salary = JSON.parse(job.salary).to != null && JSON.parse(job.salary).from != null  ? 'TK. <span>'+JSON.parse(job.salary).to+' - '+JSON.parse(job.salary).from+'</span> / ' : '';
                   let details_url = ("{{ route('member_view.job_details',['jid']) }}");
                   let details_url_ = details_url.replace('jid', job.jid);
                   console.log(details_url_);
@@ -169,7 +169,7 @@ $datas = [
                           <ul class="m-0">
                           <li>
                             <strong>Salary:</strong>
-                            TK. <span>${salary}</span>
+                            ${salary}
                             ${job.salary_type}
                           </li>
                           
