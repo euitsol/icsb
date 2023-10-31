@@ -6,7 +6,7 @@
   <!-- =============================== Breadcrumb Section ======================================-->
 @php
 $banner_image = asset('breadcumb_img/members.jpg');
-$title = 'Jobs';
+$title = 'Available Jobs';
 $datas = [
             'image'=>$banner_image,
             'title'=>$title,
