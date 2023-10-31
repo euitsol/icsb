@@ -1,6 +1,6 @@
 @extends('frontend.master')
 
-@section('title', 'Jobs')
+@section('title', 'Available Jobs')
 
 @section('content')
   <!-- =============================== Breadcrumb Section ======================================-->
