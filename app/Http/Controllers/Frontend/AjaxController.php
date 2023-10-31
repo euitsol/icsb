@@ -24,6 +24,9 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
+use App\Models\JobPlacement;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Crypt;
 
 class AjaxController extends Controller
 {
@@ -218,5 +221,26 @@ class AjaxController extends Controller
         $phone = json_decode($member->phone);
 
         return response()->json(['member'=>$member,'member_id'=>$member_id,'phone'=>$phone, 'council'=>$council ?? '',]);
+    }
+
+    public function job_search($search_value): JsonResponse
+    {
+        $today = Carbon::now();
+        $jobs = JobPlacement::where('title', 'like', '%' . $search_value . '%')
+            ->orWhere('company_name', 'like', '%' . $search_value . '%')
+            ->orWhere('job_type', 'like', '%' . $search_value . '%')
+            ->orWhere('salary_type', 'like', '%' . $search_value . '%')
+            ->orWhere('company_address', 'like', '%' . $search_value . '%')
+            ->orWhere('professional_requirement', 'like', '%' . $search_value . '%')
+            ->where('status',1)
+            ->where('deadline','>=',$today)->latest()->get()
+            ->map(function ($job) {
+                $job->jid = Crypt::encrypt($job->id);
+                $job->created_at = date('d-M-Y', strtotime($job->created_at));
+                $job->deadline = date('d-M-Y', strtotime($job->deadline));
+                $job->createDiffTime = Carbon::parse($job->created_at)->diffForhumans();
+                return $job;
+            });
+            return response()->json(['jobs'=>$jobs]);
     }
 }

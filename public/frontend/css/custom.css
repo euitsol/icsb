@@ -96,12 +96,22 @@
 .job-placement-section {
     padding: 80px 0px;
 }
-
+.job-placement-section .title{
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .job-placement-section .title h1 {
     font-size: 45px;
     font-weight: 500;
-    margin-bottom: 50px;
     text-align: center;
+}
+.job-placement-section .title .search_input {
+	padding: 10px 20px;
+	width: 40%;
+    border-radius: 8px;
+    border: 1px solid;
 }
 
 .job-placement-section .job-table .table-serch {
@@ -354,11 +364,6 @@
         text-align: center;
     }
 
-    .job-placement-section .title h1 {
-        font-size: 30px;
-        margin-bottom: 30px;
-    }
-
     .job-placement-section .single-job .left-col .img-col {
         margin: 0 auto;
         margin-bottom: 20px;
@@ -467,13 +472,6 @@
     padding: 80px 0px;
 }
 
-.job-placement-section .title h1 {
-    font-size: 45px;
-    font-weight: 500;
-    margin-bottom: 50px;
-    text-align: center;
-}
-
 .job-placement-section .job-table .table-serch {
     display: flex;
     flex-wrap: wrap;
@@ -503,10 +501,17 @@
     border-radius: 8px;
     margin-bottom: 40px;
 }
+.job-placement-section .single-job:nth-child(even) {
+    background-color: #0000001f;
+    border: 1px solid #0000001f;
+}
 
 .job-placement-section .single-job .right-col {
     width: 25%;
     padding-left: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .job-placement-section .single-job .left-col .img-col {
@@ -552,7 +557,9 @@
 .job-placement-section .single-job .right-col .btn {
     width: 100%;
     text-align: right;
-    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .job-placement-section .single-job .right-col .btn a {
@@ -577,9 +584,21 @@
     display: flex;
     justify-content: end;
 }
-
+.job-placement-section .job-table .pagination .page-item{
+    background-color: transparent;
+    border: 1px solid #182456;
+}
+.job-placement-section .job-table .pagination .page-item.active a{
+    background-color: #182456;
+    color: #fff;
+}
+.job-placement-section .job-table .pagination .page-item.disabled{
+    padding-left: 10px;
+    padding-right: 10px;
+    border-left: 0;
+}
 .job-placement-section .job-table .pagination .page-item a {
-    color: #000;
+    color: #182456;
     border: none;
 }
 
@@ -654,9 +673,12 @@
         text-align: center;
     }
 
+    .job-placement-section .title{
+        margin-bottom: 30px;
+    }
     .job-placement-section .title h1 {
         font-size: 30px;
-        margin-bottom: 30px;
+        
     }
 
     .job-placement-section .single-job .left-col .img-col {
