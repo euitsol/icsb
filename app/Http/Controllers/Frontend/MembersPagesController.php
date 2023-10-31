@@ -109,7 +109,7 @@ class MembersPagesController extends Controller
     {
         $s['today'] = Carbon::now();
         $s['job_placements'] = JobPlacement::where('status','1')->where('deadline','>=',$s['today'])
-        ->where('deleted_at',null)->latest()->paginate(10);
+        ->where('deleted_at',null)->latest()->paginate(1);
         $s['job_placements']->getCollection()->transform(function ($jp) {
             $jp->jid = Crypt::encrypt($jp->id);
             $jp->created_at = date('d-M-Y', strtotime($jp->created_at));

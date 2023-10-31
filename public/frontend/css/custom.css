@@ -146,8 +146,9 @@
 
 .job-placement-section .single-job .middle-col {
     width: 40%;
-    padding-left: 70px;
     border-right: 1px solid #182456;
+    justify-content: center;
+    align-items: center;
 }
 
 .job-placement-section .single-job .left-col {
@@ -155,6 +156,7 @@
     column-gap: 25px;
     border-right: 1px solid #182456;
     width: 35%;
+    align-items: center;
 }
 
 .job-placement-section .single-job .left-col .img-col {
@@ -311,95 +313,7 @@
     background: #fff;
 }
 
-/*======================  Job Placement Responsive css ===============*/
-@media only screen and (max-width: 1024px) {
-    .job-placement-section .single-job .left-col {
-        width: 50%;
-    }
 
-    .job-placement-section .single-job .middle-col {
-        width: 50%;
-        padding-left: 25px;
-    }
-
-    .job-placement-section .single-job .middle-col ul {
-        padding-left: 0;
-    }
-
-    .job-placement-section .single-job {
-        padding: 30px 25px;
-    }
-
-    .job-placement-section .single-job .left-col .details-col h2 {
-        font-size: 20px;
-        line-height: 25px;
-    }
-
-    .job-placement-section .single-job .middle-col .btn a {
-        padding: 10px 32px;
-        font-size: 18px;
-        line-height: 22px;
-    }
-
-    .job-placement-section .job-table .pagination {
-        justify-content: center;
-    }
-
-    .blog-section .item .logo-wrapp a {
-        width: 100%;
-    }
-
-}
-
-@media only screen and (max-width: 768px) {
-    .job-placement-section {
-        padding: 40px 0px;
-    }
-
-    .job-placement-section .single-job .left-col {
-        width: 100%;
-        justify-content: center;
-        border-right: none;
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .job-placement-section .single-job .left-col .img-col {
-        margin: 0 auto;
-        margin-bottom: 20px;
-    }
-
-    .job-placement-section .single-job .middle-col {
-        width: 100%;
-        text-align: center;
-        padding-left: 0;
-        margin-top: 15px;
-    }
-
-    .job-placement-section .single-job .middle-col ul li {
-        list-style-type: none;
-        text-align: center;
-        margin-bottom: 5px;
-    }
-
-    .job-placement-section .single-job .middle-col .btn {
-        text-align: center;
-        margin-top: 15px;
-    }
-}
-
-@media only screen and (max-width: 460px) {
-    .job-placement-section .single-job {
-        padding: 30px 10px;
-    }
-
-    .job-placement-section .job-table .table-serch {
-        justify-content: center;
-        margin-bottom: 25px;
-        row-gap: 11px;
-        flex-direction: column-reverse;
-    }
-}
 
 /* ============== past-president-layout ==============*/
 .past-president-layout {
@@ -508,7 +422,6 @@
 
 .job-placement-section .single-job .right-col {
     width: 25%;
-    padding-left: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -571,7 +484,7 @@
     font-size: 22px;
     line-height: 27px;
     border-radius: 30px;
-    transition: 0.3s;
+    transition: 0.4s;
 }
 
 .job-placement-section .single-job .right-col .btn a:hover {
@@ -604,14 +517,7 @@
 
 /*======================  Job Placement Responsive css ===============*/
 @media only screen and (max-width: 1024px) {
-    .job-placement-section .single-job .left-col {
-        width: 50%;
-    }
-
-    .job-placement-section .single-job .middle-col {
-        width: 50%;
-        padding-left: 25px;
-    }
+    
 
     .job-placement-section .single-job .middle-col ul {
         padding-left: 0;
@@ -656,21 +562,57 @@
     .past-president-layout .heading-content {
         padding-bottom: 60px;
     }
+    .blog-section .item .logo-wrapp a {
+        width: 100%;
+    }
 
 
 }
+@media only screen and (max-width: 991px) {
+    .job-placement-section .single-job .right-col .btn a {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .job-placement-section .single-job .middle-col {
+        padding: 0 22px;
+    }
+    .job-placement-section .single-job .middle-col ul li {
+        margin: 5px 0;
+        font-size: 14px;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .job-placement-section .single-job .right-col .btn a {
+        font-size: 14px;
+        line-height: 18px;
+    }
+}
+/*======================  Job Placement Responsive css ===============*/
 
-@media only screen and (max-width: 768px) {
+
+
+@media only screen and (max-width: 767px) {
+    .job-placement-section .job-table .pagination .page-item{
+        line-height: 15px !important;
+    }
+    .job-placement-section .job-table .pagination .page-item a {
+        font-size: 12px;
+    }
+    .job-placement-section .single-job .right-col {
+        width: auto;
+        margin: 20px auto 0 auto;
+    }
     .job-placement-section {
-        padding: 40px 0px;
+        min-height: auto;
+        padding: 60px 0px;
+    }
+    .job-placement-section .single-job .left-col {
+        width: 50%;
     }
 
-    .job-placement-section .single-job .left-col {
-        width: 100%;
-        justify-content: center;
-        border-right: none;
-        flex-direction: column;
-        text-align: center;
+    .job-placement-section .single-job .middle-col {
+        width: 50%;
+        border-right: 0;
     }
 
     .job-placement-section .title{
@@ -686,16 +628,7 @@
         margin-bottom: 20px;
     }
 
-    .job-placement-section .single-job .middle-col {
-        width: 100%;
-        text-align: center;
-        padding-left: 0;
-        margin-top: 15px;
-    }
-
     .job-placement-section .single-job .middle-col ul li {
-        list-style-type: none;
-        text-align: center;
         margin-bottom: 5px;
     }
 
@@ -703,11 +636,6 @@
         text-align: center;
         margin-top: 15px;
     }
-
-}
-
-
-@media only screen and (max-width: 767px) {
     .past-president-layout .president-row {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -716,8 +644,41 @@
     .past-president-layout {
         padding: 65px 0;
     }
+
 }
 @media only screen and (max-width: 575px) {
+    .job-placement-section .job-table .pagination {
+        flex-wrap: wrap;
+        row-gap: 5px;
+    }
+    .job-placement-section .single-job {
+        padding: 15px;
+    }
+    .job-placement-section .single-job .left-col .details-col h3 {
+        margin-bottom: 0;
+    }
+    .job-placement-section .single-job .left-col {
+        width: 100%;
+        margin: 5px auto 0 auto;
+        justify-content: center;
+        text-align: center;
+        border-right: 0;
+    }
+    .job-placement-section .single-job .middle-col {
+        width: 100%;
+        margin: 5px auto 0 auto;
+    }
+    .job-placement-section .single-job .middle-col ul {
+        text-align: center;
+    }
+    .job-placement-section .single-job .middle-col ul li {
+        list-style: none;
+    }
+    
+    .job-placement-section .single-job .right-col {
+        width: 100%;
+        margin: 5px auto 0 auto;
+    }
     .past-president-layout .president-row {
         grid-template-columns: 1fr;
     }
