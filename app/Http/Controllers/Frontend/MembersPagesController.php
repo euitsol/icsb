@@ -108,7 +108,15 @@ class MembersPagesController extends Controller
     public function job_placement(): View
     {
         $s['today'] = Carbon::now();
-        $s['job_placements'] = JobPlacement::where('status','1')->where('deadline','>=',$s['today'])->where('deleted_at',null)->latest()->get();
+        $s['job_placements'] = JobPlacement::where('status','1')->where('deadline','>=',$s['today'])
+        ->where('deleted_at',null)->latest()->paginate(10);
+        $s['job_placements']->getCollection()->transform(function ($jp) {
+            $jp->jid = Crypt::encrypt($jp->id);
+            $jp->created_at = date('d-M-Y', strtotime($jp->created_at));
+            $jp->deadline = date('d-M-Y', strtotime($jp->deadline));
+            $jp->createDiffTime = Carbon::parse($jp->created_at)->diffForhumans();
+            return $jp;
+        });
         return view('frontend.members.job_placement',$s);
 
     }
@@ -252,7 +260,7 @@ class MembersPagesController extends Controller
     }
     public function job_details($id): View
     {
-        $id = decryptId($id);
+        $id = Crypt::decrypt($id);
         $s['job'] = JobPlacement::findOrFail($id);
         return view('frontend.members.job_details',$s);
     } 
