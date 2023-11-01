@@ -120,8 +120,16 @@ class JobPlacementController extends Controller
             $url = route('member_view.jps');
             $jp->status = '1';
             $jp->notify = 1;
-            $jp->email_subject = "New job opportunitie $jp->title";
-            $jp->email_body = "$jp->job_responsibility <br> <a href='".$url."' target='_blank'>Live Job Posts</a>";
+            $jp->email_subject = "New job opportunitie: $jp->title";
+            $jp->email_body = "
+                <p>Job Title: $jp->title</p> 
+                <p>Company Name: $jp->company_name</p> 
+                <p>Location: $jp->job_location</p> 
+                <p>Appliation Deadline: $jp->deadline</p> 
+                <p>Email: $jp->email</p>
+                <p>Details: </p> $jp->job_responsibility <br>
+                <a href='".$url."' target='_blank'>Live Job Posts</a>
+            ";
             $jp->save();
             $url = route('member_view.jps');
             $subject = "Approval of Your Job Post";
