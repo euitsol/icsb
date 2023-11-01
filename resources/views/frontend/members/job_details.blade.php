@@ -6,9 +6,6 @@
     .job-detailes-section .job-detail-item ul li{
         width: auto;
     }
-    .job-detailes-section .job-row .last-item ul{
-        flex-direction: column;
-    }
 </style>
     
 @endpush
@@ -25,6 +22,7 @@ $datas = [
                         'home'=>'Home',
                         'javascript:void(0)'=>'Members',
                         'member_view.job_index'=>'Job Placement',
+                        'member_view.jps'=>'Availeable Jobs',
                     ]
         ];
 @endphp
