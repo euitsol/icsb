@@ -2684,6 +2684,7 @@
     }
 }
 @media only screen and (max-width: 575px){
+
     .level-1 .box-1::before {
         width: 123%;
     }
@@ -2691,20 +2692,6 @@
         font-size: 60px;
         letter-spacing: 0px;
     }
-    /* .level-3 .box::after {
-        width: 85%;
-        left: -85%;
-    }
-    .level-3 .box::before {
-        left: -85%;
-        height: 175px;
-    }
-    .level-3::before {
-        left: 62px;
-    }
-    .level-2::after {
-        width: 9rem;
-    } */
 
     .new-handbook iframe, .old-handbook iframe {
         height: 360px;
@@ -2827,7 +2814,6 @@
     .mobile-menu-button a {
         max-width: 50%;
         font-size: 12px;
-        width: auto;
         padding: 0px 10px;
     }
     .main-footer-section ul li{
@@ -2871,25 +2857,15 @@
 
 }
 @media only screen and (max-width: 480px){
-    /* .job-detailes-section .job-row .job-detail-item .apply-button {
-        padding: 6px 10px;
-        font-size: 15px;
-        margin-top: 1.3rem;
-        height: auto;
-        line-height: 20px;
-        text-align: center;
-    } */
+    .job-detailes-section .job-row .job-detail-item h3 {
+        font-size: 25px;
+    }
     .job-detailes-section .job-row .job-detail-item {
         width: 100%;
     }
     .job-detailes-section .job-row .job-detail-item:first-child {
         margin-bottom: 10px;
     }
-    /* .job-detailes-section .job-row .job-detail-item li {
-        margin-bottom: 5px;
-        font-size: 13px;
-        line-height: 18px;
-    } */
 
     .job-index-section .wrap .page_title {
         font-size: 50px;
