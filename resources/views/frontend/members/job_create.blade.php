@@ -132,8 +132,8 @@ $datas = [
                                     <textarea name="job_location" id="jl" cols="30" rows="5" class="form-control py-3 px-3 {{ $errors->has('job_location') ? ' is-invalid' : '' }}" placeholder="Enter Job Location"> {{ old('job_location') }}</textarea>
                                     @include('alerts.feedback', ['field' => 'job_location'])
                                 </div>
-                                <div class="form-group {{ $errors->has('salary') ? ' has-danger' : '' }} {{ $errors->has('salary.*') ? ' has-danger' : '' }} {{ $errors->has('salary_type') ? ' has-danger' : '' }}">
-                                    <label class="col-md-12">Salary <span class="text-danger">*</span></label>
+                                <div class="form-group mb-3 {{ $errors->has('salary') ? ' has-danger' : '' }} {{ $errors->has('salary.*') ? ' has-danger' : '' }} {{ $errors->has('salary_type') ? ' has-danger' : '' }}">
+                                    <label class="col-md-12">Salary <span class="text-danger salary_required">*</span></label>
                                     <div class="col-md-12">
                                         <div class="input-group">
                                             <input type="number" class="form-control salary_input" name="salary[from]" value="{{ old('salary.from') }}">
@@ -190,7 +190,7 @@ $datas = [
                                     @include('alerts.feedback', ['field' => 'company_address'])
                                 </div>
                                 <div class="form-group mb-3 {{ $errors->has('contact_details') ? ' has-danger' : '' }}">
-                                    <label for="cpnd">Contact Person Name & Designation</label>
+                                    <label for="cpnd">Contact Person Name & Designation <span class="text-danger">*</span></label>
                                     <textarea name="contact_details" id="cpnd" cols="30" rows="5" class="form-control py-3 px-3 {{ $errors->has('contact_details') ? ' is-invalid' : '' }}" placeholder="ICSB Official will communicate with the person to authenticate the job posting. Being authentication, ICSB Official will go accept this job circular for live posting and email to the members of the institute.">{{ old('contact_details') }}</textarea>
                                     @include('alerts.feedback', ['field' => 'contact_details'])
                                 </div>
@@ -215,10 +215,17 @@ $datas = [
             $('.salary_type').on('change', function(){
                 if($(this).val() == "Negotiable"){
                     $('.salary_input').prop('disabled', true);
+                    $('.salary_required').hide();
                 } else {
                     $('.salary_input').prop('disabled', false);
+                    $('.salary_required').show();
                 }
             });
         });
+    </script>
+    <script>
+        if('{{ (old("salary_type"))}}' == 'Negotiable'){
+            $('.salary_input').prop('disabled', true);
+        }
     </script>
 @endpush

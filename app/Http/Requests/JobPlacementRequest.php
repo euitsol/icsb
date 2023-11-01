@@ -20,7 +20,7 @@ class JobPlacementRequest extends FormRequest
         return [
             'title' => 'required',
             'company_name' => 'required',
-            'company_url' => 'required|url',
+            'company_url' => 'nullable|url',
             'application_url' => 'nullable|url',
             'email' => 'required|email',
             'vacancy' => 'required|numeric',

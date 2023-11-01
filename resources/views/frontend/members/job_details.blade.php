@@ -55,7 +55,7 @@ $datas = [
             </div>
             <div class="job-detail-item last-item">
                 <ul class="flex">
-                    <li><a href="{{ $job->application_url ? $job->application_url :  'mailto:'.$job->email}}" class="apply-button">Apply Position</a></li>
+                    <li><a href="{{ $job->application_url ? $job->application_url :  'mailto:'.$job->email}}" target="_blank" class="apply-button">Apply Position</a></li>
                 </ul>
             </div>
         </div>
@@ -96,10 +96,10 @@ $datas = [
                         <li><span>Job Posted: </span> {{\Carbon\Carbon::parse($job->created_at)->diffForhumans()}}</li>
                         <li><span>Expiration: </span> {{date('d-M-Y'), strtotime($job->deadline)}}</li>
                         <li><span>Vacancy: </span> {{$job->vacancy}} Person.</li>
-                        <li><span>Experiences: </span> {{$job->experience_requirement ? ($job->experience_requirement.' Years') : 'N/A'}}</li>
-                        <li><span>Preferable Age: </span> {{$job->age_requirement ? ($job->age_requirement.' Years') : 'N/A'}}</li>
-                        <li><span>Education: </span> {{$job->educational_requirement ? $job->educational_requirement : 'N/A'}}</li>
-                        <li><span>Website: </span> <a href="{{$job->company_url ? $job->company_url : 'javascript:void(0)'}}">{{$job->company_url ? removeHttpProtocol($job->company_url) : 'N/A'}}</a></li>
+                        <li><span>Experiences: </span> {{$job->experience_requirement ? ($job->experience_requirement.' Years') : '...'}}</li>
+                        <li><span>Preferable Age: </span> {{$job->age_requirement ? ($job->age_requirement.' Years') : '...'}}</li>
+                        <li><span>Education: </span> {{$job->educational_requirement ? $job->educational_requirement : '...'}}</li>
+                        <li><span>Website: </span> <a href="{{$job->company_url ? $job->company_url : 'javascript:void(0)'}}" @if($job->company_url) class="text-secondary" target="_blank" @endif>{{$job->company_url ? removeHttpProtocol($job->company_url) : '...'}}</a></li>
                     </ul>
                 </div>
                 

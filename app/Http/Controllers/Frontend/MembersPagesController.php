@@ -189,9 +189,14 @@ class MembersPagesController extends Controller
         $admin_subject = "New job posted on your job portal";
         $admin_mail =
         "
-        <p>Job Title: $jp->title</p> <br>
-        <p>Email: $jp->email</p> <br>
+        <p>A new job posting has been added to our platform.</p><br>
+        <p>Job Title: $jp->title</p> 
+        <p>Company Name: $jp->company_name</p> 
+        <p>Location: $jp->job_location</p> 
+        <p>Appliation Deadline: $jp->deadline</p> 
+        <p>Email: $jp->email</p>
         <p>Details: </p> $jp->job_responsibility <br>
+        <p>You can view the full job posting and manage it by logging into the admin panel. If you have any questions related to this job posting, please contact to the given contact person.</p>
         ";
         $this->send_custom_email($admin_mail,$admin_subject, 'test.euitsols@gmail.com');
 

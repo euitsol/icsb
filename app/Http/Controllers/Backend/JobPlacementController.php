@@ -56,6 +56,21 @@ class JobPlacementController extends Controller
         $jp->special_instractions = $request->special_instractions;
         $jp->created_by = auth()->user()->id;
         $jp->save();
+
+        $admin_subject = "New job posted on your job portal";
+        $admin_mail =
+        "
+        <p>A new job posting has been added to our platform.</p><br>
+        <p>Job Title: $jp->title</p> 
+        <p>Company Name: $jp->company_name</p> 
+        <p>Location: $jp->job_location</p> 
+        <p>Appliation Deadline: $jp->deadline</p> 
+        <p>Email: $jp->email</p>
+        <p>Details: </p> $jp->job_responsibility <br>
+        <p>You can view the full job posting and manage it by logging into the admin panel. If you have any questions related to this job posting, please contact to the given contact person.</p>
+        ";
+        $this->send_custom_email($admin_mail,$admin_subject, 'test.euitsols@gmail.com');
+
         return redirect()->route('job_placement.jp_list')->withStatus(__('Job '.$jp->title.' created successfully.'));
     }
     public function edit($id): View
@@ -119,8 +134,8 @@ class JobPlacementController extends Controller
             <p>We appreciate your trust in our platform to connect you with potential candidates. Your job post will undoubtedly contribute to the success of your recruitment efforts.</p><br>
 
             <p>Thank you for using our platform, and we wish you the best in finding the perfect candidate for your job opening.</p><br>
-
-            <a href='".$url."' target='_blank'>Live Job Posts</a>
+ 
+            <a href='".$url."' style='padding:15px 10px; backgr' target='_blank'>Live Job Posts</a>
             ";
             $this->send_custom_email($mail,$subject, $jp->email);
             $this->send_member_email($jp);

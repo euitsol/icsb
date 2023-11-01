@@ -99,10 +99,17 @@ $datas = [
 
                           data.jobs.forEach(function(job) {
                             
-                            var salary = JSON.parse(job.salary).to != null && JSON.parse(job.salary).from != null  ? 'TK. <span>'+JSON.parse(job.salary).to+' - '+JSON.parse(job.salary).from+'</span> / ' : '';
+                            var salary='';
+                            const parsedSalary = JSON.parse(job.salary);
+                            if(parsedSalary !==null){
+                              if((JSON.parse(job.salary).to) != null && (JSON.parse(job.salary).from) != null && (JSON.parse(job.salary).to) != '' && (JSON.parse(job.salary).from) != ''){
+                                salary = 'TK. <span>'+(JSON.parse(job.salary).to)+' - '+(JSON.parse(job.salary).from)+'</span> / ';
+                              }
+                            }
+                            
+                            console.log(salary)
                             let details_url = ("{{ route('member_view.job_details',['jid']) }}");
                             let details_url_ = details_url.replace('jid', job.jid);
-                            console.log(details_url_);
                             job_data += `
                                 <div class="single-job">
                                   <div class="left-col">
@@ -149,10 +156,16 @@ $datas = [
               var job_placement= '';
 
               job_placements.data.forEach(function(job) {
-                var salary = JSON.parse(job.salary).to != null && JSON.parse(job.salary).from != null  ? 'TK. <span>'+JSON.parse(job.salary).to+' - '+JSON.parse(job.salary).from+'</span> / ' : '';
+                var salary='';
+                const parsedSalary = JSON.parse(job.salary);
+                if(parsedSalary !==null){
+                  if((JSON.parse(job.salary).to) != null && (JSON.parse(job.salary).from) != null && (JSON.parse(job.salary).to) != '' && (JSON.parse(job.salary).from) != ''){
+                    salary = 'TK. <span>'+(JSON.parse(job.salary).to)+' - '+(JSON.parse(job.salary).from)+'</span> / ';
+                  }
+                }
+                  console.log(salary)
                   let details_url = ("{{ route('member_view.job_details',['jid']) }}");
                   let details_url_ = details_url.replace('jid', job.jid);
-                  console.log(details_url_);
                   job_placement += `
                     <div class="single-job">
                       <div class="left-col">
@@ -160,6 +173,7 @@ $datas = [
                           <h2>${job.title}</h2>
                           <h3>${job.company_name}</h3>
                           <span class="day"><i class="fa-solid fa-clock"></i>
+                            ${job.createDiffTime}
                           </span>
                           <span><i class="fa-solid fa-briefcase"></i>${job.job_type}</span>
 

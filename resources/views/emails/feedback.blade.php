@@ -31,6 +31,22 @@
             border-top: 0;
             padding: 1.25rem 1.875rem;
         }
+        a{
+            border: 2px solid #182456;
+            padding: 10px 20px;
+            background: transparent;
+            color: #182456;
+            transition: 0.4s;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+    
+        }
+        a:hover{
+            border: 2px solid #182456;
+            background: #182456;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
