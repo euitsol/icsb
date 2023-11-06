@@ -3572,6 +3572,10 @@ td {
 
 
 /*=============================== Single Blog Page CSS ========================*/
+.blog-content-section .blog-content-column{
+    padding: 0;
+    
+}
 .blog-content-section ul {
     display: flex;
     padding: 0;
@@ -3606,7 +3610,7 @@ td {
 
 .blog-content-section p {
     margin-top: 16px;
-    max-width: 986px;
+    text-align: justify;
 }
 
 .blog-content-section .blog-content {
@@ -5022,7 +5026,6 @@ td {
 
 .president-content-section .president-content-row .right-column p {
     color: #111111;
-    padding-bottom: 17px;
 }
 
 /*==============library page==================*/

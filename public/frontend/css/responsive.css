@@ -218,6 +218,9 @@
       }
 }
 @media only screen and (max-width: 1200px){
+    .breadcrumbs-heading {
+        max-width: 100%;
+    }
     .mision-vision-section, .vision-mission-section {
         height: auto;
     }
@@ -1683,6 +1686,7 @@
 
 }
 @media only screen and (max-width: 767px) {
+    
     .job-index-section{
         padding: 60px 0;
     }
@@ -1921,7 +1925,9 @@
         padding: 60px 0;
         min-height: auto;
     }
-
+    .president-content-section .president-content-row .right-column h2{
+        font-size: 3rem !important;
+    }
     .president-section .president-column .right-column a {
         margin-top: 0;
     }
@@ -2848,6 +2854,15 @@
 
 }
 @media only screen and (max-width: 480px){
+    .president-content-section .president-content-row .right-column h2{
+        font-size: 1.8rem !important;
+        line-height: 30px;
+        padding: 0;
+    }
+    .president-content-section .president-content-row .right-column p{
+        margin-bottom: 0;
+        padding: 0;
+    }
     .level-1 .box-1::before {
         width: 38vw;
         left: 50%;
