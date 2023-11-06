@@ -21,7 +21,7 @@
                                             <a href="{{route('media_room_view.view',$media_room->slug)}}">{{ stringLimit($media_room->title, 80,'...')}}</a>
                                         </h3>
                                     </div>
-                                    <p> {!! stringLimit(html_entity_decode_table($media_room->description)) !!} </p>
+                                    {{-- <p> {!! stringLimit(html_entity_decode_table($media_room->description), 46) !!} </p> --}}
                                 </div>
                             </div>
                         </div>
