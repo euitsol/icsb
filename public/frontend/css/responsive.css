@@ -1236,6 +1236,7 @@
 }
 
 @media only screen and (max-width: 991px) {
+
     .job-detailes-section .job-row {
         justify-content: space-between;
     }
@@ -3557,7 +3558,10 @@
         line-height: 16px;
     }
 
-
+    /*news-ticker-section*/
+    .news-ticker-section .ticker-desc .scrolling-text {
+        animation-duration: 40s !important;
+    }
 
 }
 
@@ -3578,5 +3582,24 @@
 
     .banner-section .video-container .content .button a {
         font-size: 10px;
+    }
+
+    .banner-section .video-container .content .button {
+        gap: 3px;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .d-flex {
+        display: block !important;
+        text-align: center;
+    }
+
+    .banner-section .video-container .button a {
+        margin-bottom: 5px !important;
+    }
+
+    .banner-section .video-container .content h3 {
+        font-size: 50px;
     }
 }

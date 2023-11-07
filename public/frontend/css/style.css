@@ -1247,7 +1247,10 @@ li {
     justify-content: space-between;
     height: 100%;
 }
-
+.we-are-section .container .image-column img{
+    width: 100%;
+    object-fit:fill;
+ }
 .we-are-section .we-are-coulmn .content-column h2 {
     color: #111;
 }
@@ -1617,13 +1620,13 @@ li {
     background-repeat: no-repeat;
     background-image: url("../img/home_bg/bg-1.jpg");
 }
-
 .recent-update-section .owl-carousel .owl-item img {
     height: 15rem;
     /* object-fit: contain; */
+    object-fit: fill;
     border-radius: 29px 29px 0 0;
-}
 
+}
 .recent-update-section .recent-update-row .item {
     background: #fff;
     border-radius: 29px;
