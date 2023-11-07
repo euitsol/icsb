@@ -1663,6 +1663,7 @@
 
     .objectives-section .objective-row {
         padding: 70px 40px;
+        flex-direction: column-reverse;
     }
 
     .objectives-section .objective-row .left-column {
