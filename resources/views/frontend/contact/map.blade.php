@@ -23,11 +23,12 @@ $datas = [
         <div class="row">
             @if(isset($contact->location) && !empty(json_decode($contact->location)))
             @foreach (json_decode($contact->location) as $key=>$location)
-            <div class="col-md-12">
+            <div class="col-md-12 d-flex flex-column " style="row-gap: 15px">
 
-                    <div class="location-map mb-5">
+                    <div class="location-map ">
                             <x-embed url="{{$location->url}}" />
                     </div>
+
             </div>
             @endforeach
             @endif
