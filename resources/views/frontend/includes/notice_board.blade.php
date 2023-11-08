@@ -90,26 +90,31 @@
                 dataType: 'json',
                 success: function (data) {
                     var noticeDetailsHtml = '';
-
-                    // Loop through the notices data
-                    data.notices.forEach(function (notice) {
-                        let route = ("{{ route('notice_view.notice', ['slug']) }}");
-                        let _route = route.replace('slug', notice.slug);
-                        noticeDetailsHtml += `
-                            <div class="notice-content flex w-100">
-                                <div class="date-col">
-                                    <h4>${notice.date}</h4>
+                    if(!data.notices || data.notices.length === 0){
+                        noticeDetailsHtml +=`
+                                        <h3 class="text-danger mx-auto my-5">Notice Not Found!</h3>
+                                    `;
+                    } else{
+                        // Loop through the notices data
+                        data.notices.forEach(function (notice) {
+                            let route = ("{{ route('notice_view.notice', ['slug']) }}");
+                            let _route = route.replace('slug', notice.slug);
+                            noticeDetailsHtml += `
+                                <div class="notice-content flex w-100">
+                                    <div class="date-col">
+                                        <h4>${notice.date}</h4>
+                                    </div>
+                                    <div class="content-col">
+                                        <h3><a href="${_route}">${notice.title}</a></h3>
+                                        <ul>
+                                            <li><i class="fa-solid fa-clock"></i>${notice.time}</li>
+                                            <li><i class="fa-solid fa-user-large"></i>${notice.category.title}</li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <div class="content-col">
-                                    <h3><a href="${_route}">${notice.title}</a></h3>
-                                    <ul>
-                                        <li><i class="fa-solid fa-clock"></i>${notice.time}</li>
-                                        <li><i class="fa-solid fa-user-large"></i>${notice.category.title}</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        `;
-                    });
+                            `;
+                        });
+                    }
                     // Insert the generated HTML into the '.notice-details-col' element
                     $('.notice-details-col').html(noticeDetailsHtml);
                 },

@@ -1488,7 +1488,7 @@ li {
     row-gap: 20px;
     padding: 40px 45px;
     border: 1px solid #ddd;
-    padding: 35px 25px 35px 45px;
+    padding: 35px 25px 35px 25px;
 }
 
 .notice-section .notice-row .notice-board-wrapper .left-column .date-col h4 {
