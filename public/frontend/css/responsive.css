@@ -3635,11 +3635,6 @@
         line-height: 16px;
     }
 
-    /*news-ticker-section*/
-    .news-ticker-section .ticker-desc .scrolling-text {
-        animation-duration: 40s !important;
-    }
-
     /*stiky-box*/
     .stiky-box {
         height: 65px;
