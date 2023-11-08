@@ -938,7 +938,7 @@
     }
 
     .bss-section .bss-row .bss-left-column {
-        padding-left: 0;
+        /* padding-left: 0; */
         width: 100%;
     }
 
@@ -959,7 +959,9 @@
 
     .bss-section .bss-row .bss-left-column h2 {
         font-size: 49px;
-        margin-bottom: 60px;
+        margin-bottom: 60px !important;
+        margin: 0 auto;
+
     }
 
     .bss-section .bss-row .bss-left-column h2 {
@@ -1941,6 +1943,12 @@
     .main-footer-section .visitor-column p {
         font-size: 17px;
     }
+
+    /*StikyBox*/
+    .stiky-box {
+        height: 94px;
+        width: 90px;
+    }
 }
 
 @media only screen and (max-width: 800px) {
@@ -2040,6 +2048,11 @@
     .testimonial-section .testimonial .details .author .author-designation {
         font-size: 13px;
         line-height: 14px;
+    }
+/*icon*/
+    .bss-section .bss-row .bss-right-column .bss-item .bss-icon {
+        width: 80px;
+        height: 80px;
     }
 
 }
@@ -2983,6 +2996,17 @@
     .main-footer-section ul .d-grid li:first-child {
         display: block;
     }
+
+    /*=====StikyBox=====*/
+    .stiky-box {
+        height: 85px;
+        width: 85px;
+    }
+/*icon*/
+.bss-section .bss-row .bss-right-column .bss-item .bss-icon {
+	width: 70px;
+	height: 70px;
+}
 }
 
 @media only screen and (max-width: 700px) {
@@ -3232,8 +3256,8 @@
 
     .main-footer-section .visitor-column ul {
         column-gap: 8px;
-        margin-top: 40px;
-        padding: 18px 0;
+        /* margin-top: 40px; */
+        /* padding: 18px 0; */
     }
 
     .main-footer-section .visitor-column ul li:first-child {
@@ -3253,6 +3277,23 @@
         width: 100%;
         height: 250px;
     }
+    .testimonial-section .testimonial::before {
+        font-size: 20px;
+        bottom: -32px;
+        right: -34px;
+        height: 69px;
+        width: 72px;
+        line-height: 64px;
+    }
+    .testimonial-section .testimonial::after {
+        font-size: 20px;
+        left: -32px;
+        top: -34px;
+        height: 69px;
+        width: 72px;
+        line-height: 64px;
+    }
+
 }
 
 @media only screen and (max-width: 575px) {
@@ -3458,7 +3499,11 @@
         line-height: 70px;
     }
 
-
+    /*stiky-box*/
+    .stiky-box {
+        height: 75px;
+        width: 75px;
+    }
 }
 
 @media only screen and (max-width: 480px) {
@@ -3561,6 +3606,12 @@
     /*news-ticker-section*/
     .news-ticker-section .ticker-desc .scrolling-text {
         animation-duration: 40s !important;
+    }
+
+    /*stiky-box*/
+    .stiky-box {
+        height: 65px;
+        width: 65px;
     }
 
 }
