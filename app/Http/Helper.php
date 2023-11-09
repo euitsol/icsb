@@ -115,6 +115,28 @@ function storage_url($urlOrArray){
     }
 }
 
+function pdf_storage_url($urlOrArray){
+    if (is_array($urlOrArray) || is_object($urlOrArray)) {
+        $result = '';
+        $count = 0;
+        $itemCount = count($urlOrArray);
+        foreach ($urlOrArray as $index => $url) {
+
+            $result .= asset('/laraview/#../storage/'.$url);
+
+            if($count === $itemCount - 1) {
+                $result .= '';
+            }else{
+                $result .= ', ';
+            }
+            $count++;
+        }
+        return $result;
+    } else {
+        return asset('/laraview/#../storage/'.$urlOrArray);
+    }
+}
+
     function member_image($url){
     return $url;
 }

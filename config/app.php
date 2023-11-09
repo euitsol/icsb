@@ -172,6 +172,7 @@ return [
         Yajra\DataTables\DataTablesServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         ])->toArray(),
+        Davcpas1234\LaravelPdfViewer\LaravelPdfViewerServiceProvider::class,
 
     /*
     |--------------------------------------------------------------------------

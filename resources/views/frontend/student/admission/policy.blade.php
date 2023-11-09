@@ -35,7 +35,7 @@
                 @foreach (array_slice($files, 0, 12) as $file)
                     <div class="col-xl-3 col-lg-4 col-md-6 the_cs mb-5">
                         <div class="new-handbook text-align">
-                            <iframe src="{{ route('view.pdf', base64_encode($file)) }}" type="application/pdf" width="100%" height="200px"></iframe>
+                            <iframe src ="{{ pdf_storage_url($file) }}" width="100%" height="400px"></iframe>
                             <a class="d-block cursor-pointer" target="_blank" href="{{ route('sp.file.download', base64_encode($file)) }}">
                                 <h3>{{ ucfirst(str_replace('-', ' ', Str::before(basename($file), '.pdf'))) }}</h3>
                             </a>
@@ -66,7 +66,7 @@ $('.more').on('click', function () {
 
             // Loop through the awards data
             data.files.forEach(function (file) {
-                var routeViewPdf = '{{ route("view.pdf", ":file") }}'.replace(':file', btoa(file));
+                var pdfLink = '{{ asset("/laraview/#../storage/file") }}'.replace('file', file);
                 var routeFileDownload = '{{ route("sp.file.download", ":file") }}'.replace(':file', btoa(file));
                 var fileName = file.split('/').pop().split('.').slice(0, -1).join('.');
 
@@ -74,8 +74,8 @@ $('.more').on('click', function () {
                 allDetailsHtml += `
                     <div class="col-xl-3 col-lg-4 col-md-6 the_cs mb-5">
                         <div class="new-handbook text-align">
-                                <iframe src="${routeViewPdf}" type="application/pdf" width="100%" height="200px"></iframe>
-                                <a class="d-block cursor-pointer" target="_blank" href="${routeFileDownload}"><h3 > ${fileName}</h3></a>
+                            <iframe src ="${pdfLink}" width="100%" height="400px"></iframe>
+                            <a class="d-block cursor-pointer" target="_blank" href="${routeFileDownload}"><h3 > ${fileName}</h3></a>
                         </div>
                     </div>
                 `;
