@@ -4348,7 +4348,7 @@ td {
 
 .library-section .library-row .library-item .right-column a:hover {
     color: #026737;
-    background-color: #99CE72;
+    /* background-color: #99CE72; */
 }
 
 .library-section .library-row .library-item i {

@@ -7,7 +7,7 @@
         width: auto;
     }
 </style>
-    
+
 @endpush
 
 @section('content')
@@ -48,7 +48,7 @@ $datas = [
                 <ul>
                     <li><i class="fa-solid fa-briefcase"></i><span>Job Type: </span>{{$job->job_type}}</li>
                     <li><i class="fa-solid fa-comment-dollar"></i><span>Salary: </span> @if(isset(json_decode($job->salary)->from) & isset(json_decode($job->salary)->to))
-                        TK. <span>{{ (json_decode($job->salary)->from .' - '. json_decode($job->salary)->to)}}</span> / 
+                        TK. <span>{{ (json_decode($job->salary)->from .' - '. json_decode($job->salary)->to)}}</span> /
                        @endif
                        {{$job->salary_type}}</li>
                 </ul>
@@ -102,7 +102,7 @@ $datas = [
                         <li><span>Website: </span> <a href="{{$job->company_url ? $job->company_url : 'javascript:void(0)'}}" @if($job->company_url) class="text-secondary" target="_blank" @endif>{{$job->company_url ? removeHttpProtocol($job->company_url) : '...'}}</a></li>
                     </ul>
                 </div>
-                
+
                     <div class="email-column text-align">
                         <h3><a href="mailto:{{$job->email}}"><i class="fa-solid fa-envelope-open-text"></i>Email Now</a></h3>
                     </div>
