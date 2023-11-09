@@ -21,7 +21,7 @@ $datas = [
 
 <section class="objectives-section big-sec-min-height form-section">
     <div class="container">
-        <div class="objective-row flex">
+        <div class="objective-row reverse flex">
             <div class="right-column">
                 <div class="form-content">
                     <div class="detailes-column">

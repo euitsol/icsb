@@ -1,3 +1,10 @@
+@media only screen and (min-width: 1900px) {
+    .president-section{
+        background-size: 100% 75%;
+        background-position: 50% 175%;
+    }
+
+}
 @media only screen and (max-width: 1800px) {
     .level-3 {
         padding-right: 7%;
@@ -3037,6 +3044,9 @@
 
     .recent-post-section {
         padding: 15px;
+    }
+    .library-section .library-row .library-item {
+        margin-bottom: 15px;
     }
 
 }
