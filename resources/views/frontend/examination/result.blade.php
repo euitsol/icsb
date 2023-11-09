@@ -31,7 +31,7 @@ $datas = [
                 @foreach (array_slice($files, -4) as $file)
                     <div class="col-md-6 the_cs mb-5 mx-auto">
                         <div class="new-handbook text-align">
-                            <iframe src ="{{ pdf_storage_url($file) }}" width="100%" height="400px"></iframe>
+                            <iframe src ="{{ pdf_storage_url($file) }}" width="100%" height="500px"></iframe>
                             <a class="d-block cursor-pointer" target="_blank" href="{{route('sp.file.download', base64_encode($file))}}"><h3 > {{ucfirst(str_replace('-', ' ', Str::before(basename($file), '.pdf')))}}</h3></a>
                         </div>
                     </div>
@@ -69,7 +69,7 @@ $datas = [
                     allDetailsHtml += `
                         <div class="col-md-6 the_cs mb-5 mx-auto">
                             <div class="new-handbook text-align">
-                                <iframe src ="${pdfLink}" width="100%" height="400px"></iframe>
+                                <iframe src ="${pdfLink}" width="100%" height="500px"></iframe>
                                 <a class="d-block cursor-pointer" target="_blank" href="${routeFileDownload}"><h3 > ${fileName}</h3></a>
                             </div>
                         </div>

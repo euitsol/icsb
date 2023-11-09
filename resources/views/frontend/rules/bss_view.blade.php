@@ -24,7 +24,7 @@ $datas = [
             <div class="row">
                 <div class="col-md-6 the_cs mb-5 mx-auto">
                     <div class="new-handbook text-align">
-                            <iframe src ="{{ pdf_storage_url(json_decode($view_bss->file)->file_path)) }}" width="100%" height="400px"></iframe>
+                            <iframe src ="{{ pdf_storage_url(json_decode($view_bss->file)->file_path) }}" width="100%" height="500px"></iframe>
                             <a class="d-block cursor-pointer" target="_blank" href="{{route('sp.file.download', base64_encode(json_decode($view_bss->file)->file_path))}}"><h3 > {{ucfirst(str_replace('-', ' ', Str::before(basename(json_decode($view_bss->file)->file_path), '.pdf')))}}{{_(' : ')}}{{$view_bss->title}}</h3></a>
                     </div>
                 </div>
