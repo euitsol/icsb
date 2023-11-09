@@ -527,7 +527,7 @@ Route::group(['middleware' => ['log_visitor']], function () {
     Route::post('/single-page/store/{page_slug}', [SinglePagesController::class, 'form_store'])->name('sp.form.store');
 
     Route::post('/single-page/file-upload', [SinglePagesController::class, 'file_upload'])->name('sp.file.upload');
-    Route::get('/single-page/file-download/{url}', [SinglePagesController::class, 'view_or_download'])->name('sp.file.download');
+    Route::get('/single-page/file-download/{url}', [FrontendSinglePagesController::class, 'view_or_download'])->name('sp.file.download');
     Route::get('/single-page/file-delete/{id?}/{key?}/{url?}', [SinglePagesController::class, 'delete'])->name('sp.file.delete');
 
     //Frontend Routes
