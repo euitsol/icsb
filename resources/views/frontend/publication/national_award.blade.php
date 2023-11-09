@@ -25,8 +25,8 @@
                 @foreach ($national_awards as $award)
                     <div class="col-xl-3 col-lg-4 col-md-6 the_cs mb-5">
                         <div class="new-handbook text-align">
-                                <iframe src="{{ route('view.pdf', base64_encode($award->file)) }}" type="application/pdf" width="100%" height="200px"></iframe>
-                                <a class="d-block cursor-pointer" target="_blank" href="{{route('sp.file.download', base64_encode($award->file))}}"><h3> {{$award->title}}</h3></a>
+                            <iframe src ="{{ pdf_storage_url($award->file) }}" width="100%" height="400px"></iframe>
+                            <a class="d-block cursor-pointer" target="_blank" href="{{route('sp.file.download', base64_encode($award->file))}}"><h3> {{$award->title}}</h3></a>
                         </div>
                     </div>
                 @endforeach
@@ -54,13 +54,13 @@
             success: function (data) {
                 $('.more').attr('data-offset', parseInt(offset)+limit);
                 data.awards.forEach(function (award) {
-                    var routeViewPdf = '{{ route("view.pdf", ":file") }}'.replace(':file', btoa(award.file));
+                    var pdfLink = '{{ asset("/laraview/#../storage/file") }}'.replace('file', award.file);
                     var routeFileDownload = '{{ route("sp.file.download", ":file") }}'.replace(':file', btoa(award.file));
 
                     var result= `
                         <div class="col-xl-3 col-lg-4 col-md-6 the_cs  mb-5">
                             <div class="new-handbook text-align">
-                                <iframe src="${routeViewPdf}" type="application/pdf" width="100%" height="200px"></iframe>
+                                <iframe src ="${pdfLink}" width="100%" height="400px"></iframe>
                                 <a class="d-block cursor-pointer" target="_blank" href="${routeFileDownload}"><h3>${award.title}</h3></a>
                             </div>
                         </div>
