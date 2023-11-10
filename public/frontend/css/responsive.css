@@ -1,10 +1,11 @@
 @media only screen and (min-width: 1900px) {
-    .president-section{
+    .president-section {
         background-size: 100% 75%;
         background-position: 50% 175%;
     }
 
 }
+
 @media only screen and (max-width: 1800px) {
     .level-3 {
         padding-right: 7%;
@@ -563,7 +564,7 @@
 
     /* Breadcrumbs  */
     .breadcrumbs-section {
-        margin-top: 83px;
+        /* margin-top: 83px; */
     }
 
     .breadcrumbs-section .breadcrumbs-row .left-column {
@@ -1028,6 +1029,10 @@
 
     .main-footer-section ul {
         margin: 0;
+    }
+
+    .bss-section .bss-row .bss-left-column {
+        padding-left: 0;
     }
 
 
@@ -1721,7 +1726,9 @@
     .vision-mission-section .mission-row .content-column,
     .vision-mission-section .mission-row .image-column {
         width: 100%;
+        outline: 0;
     }
+
 
 
     /* Committee  */
@@ -2171,6 +2178,14 @@
         padding: 60px 0;
     }
 
+    .notice-section .notice-wrapper .button-wrapper a {
+        top: 65px;
+    }
+
+    .notice-section .notice-row .notice-board-wrapper .notice-content {
+        column-gap: 10px;
+    }
+
     /* Council */
     .council-section .column img {
         height: 9rem;
@@ -2220,14 +2235,6 @@
 
     .bird-container {
         top: -2%;
-    }
-
-    .notice-section .notice-wrapper .button-wrapper a {
-        top: 65px;
-    }
-
-    .notice-section .notice-row .notice-board-wrapper .notice-content {
-        column-gap: 10px;
     }
 
     .notice-section .notice-row .notice-board-wrapper .notice-content .content-col {
@@ -2844,8 +2851,10 @@
         padding: 63px 0;
     }
 
+
+    .mision-vision-section,
     .vision-mission-section {
-        padding-bottom: 63px;
+        padding: 60px 0;
     }
 
     .vision-mission-section .mission-row {
@@ -3045,6 +3054,7 @@
     .recent-post-section {
         padding: 15px;
     }
+
     .library-section .library-row .library-item {
         margin-bottom: 15px;
     }
@@ -3702,6 +3712,49 @@
     .banner-section .video-container .content .button {
         gap: 3px;
     }
+
+    .president-section .title-shap {
+        font-size: 28px !important;
+    }
+
+    .title-shap {
+        font-size: 28px !important;
+    }
+
+    .title-shap::after {
+
+        width: 38px;
+        height: 46px;
+        top: -9%;
+    }
+
+    .notice-section .notice-row .notice-board-wrapper {
+        margin-bottom: 40px;
+    }
+
+    #event-section .see-button {
+        padding-top: 30px !important;
+
+    }
+
+    .testimonial-section .testimonial {
+        padding: 50px 10px;
+    }
+
+    .testimonial-section .item {
+        height: 790px;
+    }
+
+    /*we-are-section*/
+    .we-are-section .image-column img {
+        border: 5px solid #CCC;
+
+    }
+
+    .bss-section .bss-row .bss-left-column h2 {
+        font-size: 28px;
+        line-height: 32px;
+    }
 }
 
 @media only screen and (max-width: 360px) {
@@ -3715,6 +3768,7 @@
     }
 
     .banner-section .video-container .content h3 {
-        font-size: 50px;
+        font-size: 32px;
     }
+
 }
