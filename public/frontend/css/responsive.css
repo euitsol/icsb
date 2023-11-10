@@ -3384,6 +3384,19 @@
 
 @media only screen and (max-width: 575px) {
 
+    .events-section .events-row .item .logo_image .month {
+        font-size: 30px;
+    }
+    .events-section .events-row .item .logo_image .date {
+        top: 40%;
+        font-size: 90px;
+        font-weight: 700;
+    }
+    .events-section .events-row .item .logo_image .day {
+        top: 82%;
+        font-size: 27px;
+    }
+
     .copyright-section p, .copyright-section p a {
         font-size: 10px;
     }
@@ -3714,6 +3727,25 @@
 }
 
 @media only screen and (max-width: 380px) {
+
+
+    .events-section .events-row .item .logo_image .month {
+        top: 14%;
+        font-size: 19px;
+    }
+
+    .events-section .events-row .item .logo_image .date {
+        top: 35%;
+        font-size: 70px;
+        font-weight: 600;
+    }
+
+    .events-section .events-row .item .logo_image .day {
+        top: 80%;
+        font-weight: 600;
+        font-size: 22px;
+    }
+
     .level-1 .box-1::before {
         width: 37vw;
     }
@@ -3779,11 +3811,6 @@
 }
 
 @media only screen and (max-width: 360px) {
-    .d-flex {
-        display: block !important;
-        text-align: center;
-    }
-
     .banner-section .video-container .button a {
         margin-bottom: 5px !important;
     }
