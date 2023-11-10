@@ -2033,7 +2033,7 @@
 
     .main-footer-section ul li a {
         font-size: .84rem;
-        text-align: justify;
+        text-align: center;
     }
 
     .main-footer-section ul li {
@@ -2179,7 +2179,7 @@
     }
 
     .notice-section .notice-wrapper .button-wrapper a {
-        top: 65px;
+        top: 80px;
     }
 
     .notice-section .notice-row .notice-board-wrapper .notice-content {
@@ -3008,12 +3008,12 @@
     }
 
     .main-footer-section ul .d-grid {
-        text-align: justify;
+        text-align: center;
     }
 
     .main-footer-section ul .d-grid li {
         display: inline-block;
-        text-align: justify;
+        text-align: center;
         padding-right: 10px;
 
     }
@@ -3731,10 +3731,8 @@
     .notice-section .notice-row .notice-board-wrapper {
         margin-bottom: 40px;
     }
-
-    #event-section .see-button {
-        padding-top: 30px !important;
-
+    .notice-section .notice-wrapper .button-wrapper a {
+        top: 65px;
     }
 
     .testimonial-section .testimonial {
