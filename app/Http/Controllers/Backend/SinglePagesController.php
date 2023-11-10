@@ -50,6 +50,9 @@ class SinglePagesController extends Controller
     }
 
     public function show($page_key){
+        if (!auth()->user()->can('single_pages')) {
+            abort(403, 'Unauthorized');
+        }
         $details = SinglePages::where('page_key', $page_key)->latest()->firstOrFail();
 
         return view('show', ['details' => $details]);

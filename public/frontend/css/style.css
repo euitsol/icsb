@@ -5476,3 +5476,7 @@ td {
     color: #FF8601;
 }
 
+#toolbarRight{
+    display: none !important;
+}
+
