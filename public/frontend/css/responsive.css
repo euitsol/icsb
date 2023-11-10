@@ -563,7 +563,7 @@
 
     /* Breadcrumbs  */
     .breadcrumbs-section {
-        margin-top: 83px;
+        /* margin-top: 83px; */
     }
 
     .breadcrumbs-section .breadcrumbs-row .left-column {
@@ -1028,6 +1028,9 @@
 
     .main-footer-section ul {
         margin: 0;
+    }
+    .bss-section .bss-row .bss-left-column{
+        padding-left: 0;
     }
 
 
