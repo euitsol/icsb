@@ -873,7 +873,8 @@
         line-height: 25px;
         width: 100%;
         border-bottom: 1px solid #18245640;
-        padding-bottom: 4px;
+        padding-bottom: 5px;
+        padding-top: 5px;
     }
 
     .header-menu-section .offcanvas-body nav ul li>ul {
@@ -887,7 +888,7 @@
     .header-menu-section .offcanvas-body nav ul li.active>a {
         color: #fff;
         background: #0b112a;
-        padding: 5px 15px;
+        padding-left: 15px;
     }
 
     /* .header-menu-section .offcanvas-body nav ul li.activea>a {
@@ -897,7 +898,7 @@
     .header-menu-section .offcanvas-body nav ul li.activea>a {
         color: #fff;
         background: #0b112a;
-        padding: 5px 15px;
+        padding-left: 15px;
     }
 
     .header-menu-section .offcanvas-body nav ul li.active>ul {
