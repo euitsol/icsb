@@ -72,8 +72,8 @@
         <div class="container">
             <p>© Copyright 2023
                 {{ date('Y', strtotime(Carbon\Carbon::now())) > 2023 ? '-' . date('Y', strtotime(Carbon\Carbon::now())) : '' }}.
-                All Rights Reserved | Web Design & Development by <a href="https://euitsols.com/"
-                    target="_blank">European IT Solutions.</a></p>
+                All Rights Reserved | Website design & developed by <a href="https://euitsols.com/"
+                    target="_blank">European IT Solutions</a></p>
         </div>
     </div>
 </footer>

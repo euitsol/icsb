@@ -4206,7 +4206,6 @@ td {
 }
 
 .mision-vision-section .mission-row .objectives {
-    left: -2px !important;
     position: relative;
     padding: 70px 40px 70px 18px;
     background: #182456;
@@ -5476,7 +5475,4 @@ td {
     color: #FF8601;
 }
 
-#toolbarRight{
-    display: none !important;
-}
 

@@ -3351,6 +3351,11 @@
 
 @media only screen and (max-width: 575px) {
 
+    .copyright-section p, .copyright-section p a {
+        font-size: 10px;
+    }
+
+
     .level-1 .box-1::before {
         width: 39vw;
         left: 51%;
@@ -3560,6 +3565,9 @@
 }
 
 @media only screen and (max-width: 480px) {
+    .copyright-section p, .copyright-section p a {
+        font-size: 8px;
+    }
     .president-content-section .president-content-row .right-column h2 {
         font-size: 1.8rem !important;
         line-height: 30px;
