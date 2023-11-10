@@ -642,7 +642,6 @@
                                 ['pageSlug' => 'eligibility', 'routeName' => 'sp.show', 'params' => 'eligibility', 'label' => 'Eligibility'],
                                 ['pageSlug' => 'exam-schedule', 'routeName' => 'sp.show', 'params' => 'exam-schedule', 'label' => 'Exam Schedule'],
                                 ['pageSlug' => 'exam-registration', 'routeName' => 'sp.show', 'params' => 'exam-registration', 'label' => 'Exam Registration'],
-                                ['pageSlug' => 'results', 'routeName' => '', 'label' => 'Results'],
                                 ['pageSlug' => 'sample_question_paper', 'routeName' => 'sample_question_paper.sqp_list', 'label' => 'Sample Question Papers'],
                                 ['pageSlug' => 'exam_faq', 'routeName' => 'exam_faq.exam_faq_list', 'label' => 'Exam FAQs'],
                             ]

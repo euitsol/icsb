@@ -18,7 +18,7 @@
             </a>
         </li>
     @endif
-
+    {{-- For Main Menus  --}}
     @if(!isset($menuItem['routeName']) || $menuItem['routeName'] == '' || $menuItem['routeName'] == null)
         <li @if ($pageSlug == $menuItem['pageSlug']) class="active" @endif>
             <a href="">

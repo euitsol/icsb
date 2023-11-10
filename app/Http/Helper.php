@@ -38,15 +38,32 @@ function get_permission_routes()
             'sample_question_paper.',
             'testimonial.',
             'latest_news.'
+
         ];
 }
 
 //This will check the permission of the given route name. Can be used for buttons
 function check_access_by_route_name($routeName = null): bool
 {
+    
+
+
+
     if($routeName == null){
         $routeName = Route::currentRouteName();
+
     }
+    
+    // Bypass Security For Single Pages 
+    if (str_starts_with($routeName, 'sp')) {
+        if (!auth()->user()->can('single_pages')) {
+            return false;
+        }else{
+            return true;
+        }
+    }
+    
+
 
     $allowedPrefixes = get_permission_routes();
 

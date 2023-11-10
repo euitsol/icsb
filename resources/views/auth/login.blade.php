@@ -7,6 +7,7 @@
                     <div class="shadow rounded">
                         <div class="row">
                             <div class="col-md-7 pe-0">
+                                @include('alerts.success')
                                 <div class="form-left h-100 py-5 px-5">
                                     <h3 class="mb-3 text-center">Login</h3>
                                     <form class="form row g-4" method="post" action="{{ route('login') }}">
