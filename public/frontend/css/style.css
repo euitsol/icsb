@@ -434,7 +434,9 @@ li {
     width: 210px;
     object-fit: cover;
 }
-
+#offcanvasNavbar{
+    background:#acbbff;
+}
 .main-header-section .header-content .logo-column {
     display: block;
 }
@@ -1366,7 +1368,7 @@ li {
 .president-section .president-column .right-column a {
     color: #fff;
     font-size: 18px;
-    line-height: 40px;
+    line-height: 36px;
     width: 100%;
     height: 40px;
     max-width: 239px;
@@ -5474,5 +5476,6 @@ td {
 .copyright-section p a:hover {
     color: #FF8601;
 }
+
 
 
