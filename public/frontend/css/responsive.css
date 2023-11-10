@@ -847,7 +847,14 @@
     /* .header-menu-section .offcanvas-body a:hover {
         color: #FF8601;
     } */
+    .header-menu-section .offcanvas-body a{
+        transition: 0.4s;
+    }
     .header-menu-section .offcanvas-body a:hover {
+        color: #fff;
+        background: #0b112a;
+    }
+    .header-menu-section .offcanvas-body ul li a:hover {
         color: #fff;
         background: #0b112a;
         padding: 5px 15px;
