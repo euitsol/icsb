@@ -21,7 +21,7 @@ $datas = [
 
 <section class="fellow-member-section big-sec-min-height">
     <div class="container">
-        <div class="heading-content text-align d-flex justify-content-between align-items-center">
+        <div class="heading-content text-align d-flex justify-content-between">
             <h2 class="common-heading">{{'CS Firm Members'}}</h2>
             <div class="search">
                 <div class="input-group">

@@ -3637,6 +3637,12 @@
 }
 
 @media only screen and (max-width: 480px) {
+    .fellow-member-section .heading-content{
+        flex-direction: column;
+    }
+    .fellow-member-section .search{
+        width: 100%;
+    }
     .copyright-section p, .copyright-section p a {
 
         line-height: 14px;
