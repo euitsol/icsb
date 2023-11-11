@@ -3399,6 +3399,7 @@
 
     .copyright-section p, .copyright-section p a {
         font-size: 10px;
+
     }
 
 
@@ -3608,11 +3609,15 @@
         height: 75px;
         width: 75px;
     }
+    .main-footer-section h2 {
+        font-size: 1.7rem;
+    }
 }
 
 @media only screen and (max-width: 480px) {
     .copyright-section p, .copyright-section p a {
-        font-size: 8px;
+
+        line-height: 14px;
     }
     .president-content-section .president-content-row .right-column h2 {
         font-size: 1.8rem !important;
@@ -3715,6 +3720,10 @@
         height: 65px;
         width: 65px;
     }
+    /*footer*/
+    .main-footer-section h2 {
+        font-size: 1.5rem;
+    }
 
 }
 
@@ -3808,13 +3817,18 @@
         font-size: 28px;
         line-height: 32px;
     }
+    .main-footer-section .visitor-column h3, .main-footer-section .visitor-column p {
+        font-size: 18px;
+    }
+    .main-footer-section .visitor-column p {
+        font-size: 11px;
+    }
 }
 
 @media only screen and (max-width: 360px) {
     .banner-section .video-container .button a {
         margin-bottom: 5px !important;
     }
-
     .banner-section .video-container .content h3 {
         font-size: 32px;
     }
@@ -3823,6 +3837,23 @@
     }
     .banner-section .video-container .content .button a{
         width: 100%;
+    }
+    .notice-section .notice-row .notice-board-wrapper .left-column .content-col ul li{
+        font-size: 13px;
+    }
+    .notice-section .notice-row .notice-board-wrapper .left-column .content-col{
+        font-size: 14px;
+    }
+    .notice-section .notice-row .notice-board-wrapper .left-column .date-col h4{
+        font-size: 15px;
+        height: 40px;
+    }
+    .recent-video-section .video .video-title p{
+        font-size: 15px;
+    }
+    /*footer*/
+    .main-footer-section h2 {
+        font-size: 1.4rem;
     }
 
 
