@@ -1368,7 +1368,7 @@
 
     .notice-section .notice-row .notice-board-wrapper .right-column .button-wrapper {
         position: absolute;
-        bottom: 12%;
+        bottom: 7%;
         left: 50%;
         transform: translateX(-50%);
     }
@@ -2114,6 +2114,8 @@
 
 @media only screen and (max-width: 767px) {
 
+
+
     .job-index-section {
         padding: 60px 0;
     }
@@ -2207,12 +2209,11 @@
         padding: 60px 0;
     }
 
-    .notice-section .notice-wrapper .button-wrapper a {
-        top: 80px;
-    }
-
     .notice-section .notice-row .notice-board-wrapper .notice-content {
         column-gap: 10px;
+    }
+    .notice-section .notice-row .notice-board-wrapper .right-column .button-wrapper {
+        bottom: 4.5%;
     }
 
     /* Council */
@@ -2454,6 +2455,10 @@
 
     .recent-update-section .recent-update-row .item a {
         display: block;
+    }
+    .recent-update-section .recent-update-row .see-button a,
+    .events-section .events-row .see-button a {
+        top: 52px;
     }
 
     .cs-wide-section .owl-dot {
@@ -3811,9 +3816,6 @@
 
     .notice-section .notice-row .notice-board-wrapper {
         margin-bottom: 40px;
-    }
-    .notice-section .notice-wrapper .button-wrapper a {
-        top: 65px;
     }
 
     .testimonial-section .testimonial {

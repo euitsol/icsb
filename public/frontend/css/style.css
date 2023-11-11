@@ -1567,7 +1567,6 @@ li {
     border-radius: 29px;
     background: #182456;
     transition: 0.4s;
-    top: 40px;
     z-index: 999;
     position: relative;
     border: 1px solid #182456;
@@ -1714,7 +1713,7 @@ li {
     border-radius: 29px;
     background: #182456;
     transition: 0.4s;
-    top: 40px;
+    top: 100px;
     z-index: 999;
     position: relative;
     border: 1px solid #182456;
@@ -2951,7 +2950,7 @@ td {
     border-radius: 29px;
     background: #182456;
     transition: 0.4s;
-    top: 40px;
+    top: 100px;
     z-index: 999;
     position: relative;
     border: 1px solid #182456;
