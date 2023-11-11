@@ -24,7 +24,7 @@
         .list-items li label{
             color: #000;
             font-weight: bold;
-            text-transform: uppercase;
+            text-transform: capitalize;
         }
     </style>
 @endpush
@@ -68,7 +68,7 @@
                                                 @foreach($permissions as $permission)
                                                     <li class="pl-4">
                                                         <input type="checkbox" name="permissions[]" id="permission-checkbox-{{ $permission->id }}" value="{{ $permission->id }}" class="permission-checkbox" @if($role->hasPermissionTo($permission->name)) @checked(true) @endif>
-                                                        <label for="permission-checkbox-{{ $permission->id }}">{{ $permission->name }}</label>
+                                                        <label for="permission-checkbox-{{ $permission->id }}">{{ Str::replace('_', ' ', $permission->name) }}</label>
                                                     </li>
                                                 @endforeach
                                             </ul>
@@ -104,13 +104,20 @@
 @push('js')
 <script>
     $(document).ready(function() {
+        $('.prefix-checkbox').each(function() {
+            var allBox = $(this).closest('h3').next('ul').find('.permission-checkbox');
+            var allChecked = allBox.length === allBox.filter(':checked').length;
+            $(this).prop('checked', allChecked);
+        });
         $('.prefix-checkbox').on('click', function() {
             var prefix = $(this).data('prefix');
             var permissionCheckboxes = $(this).closest('h3').next('ul').find('.permission-checkbox');
             var isChecked = $(this).prop('checked');
 
             permissionCheckboxes.prop('checked', isChecked);
+            
         });
+
 
         $('.permission-checkbox').on('click', function() {
             var checkboxId = $(this).attr('id');
