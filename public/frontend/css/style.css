@@ -2049,7 +2049,10 @@ li {
     padding: 102px 0 114px 0;
     background: #F2F2F2;
 }
+#event-section .owl-carousel .owl-item img {
 
+	width: 101%;
+}
 
 .events-section .events-row .item {
 
