@@ -2456,9 +2456,11 @@
     .recent-update-section .recent-update-row .item a {
         display: block;
     }
-    .recent-update-section .recent-update-row .see-button a,
-    .events-section .events-row .see-button a {
+    .recent-update-section .recent-update-row .see-button a{
         top: 52px;
+    }
+    .events-section .events-row .see-button a{
+        top: 60px;
     }
 
     .cs-wide-section .owl-dot {
