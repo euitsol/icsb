@@ -2,6 +2,33 @@
 
 @section('title', 'Edit Role')
 
+@push('css')
+    <style>
+        .groupName{
+            background: #b3d0f7;
+            border-bottom: 2px solid #182456;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .groupName label{
+            color: #000;
+            font-size: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .list-items li{
+            list-style: none;
+            background: #b3d0f7;
+            border-bottom: 2px solid #182456;
+        }
+        .list-items li label{
+            color: #000;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+    </style>
+@endpush
+
 @section('content')
     <div class="row">
         <div class="col-md-8">
@@ -28,23 +55,28 @@
                             </div>
 
                             <div class="row">
-                                @foreach ($groupedPermissions->chunk(2) as $chunks)
-                                    <div class="col-md-6">
-                                        @foreach ($chunks as $prefix => $permissions)
-                                        <h3>
-                                            <input type="checkbox" class="prefix-checkbox" id="prefix-checkbox-{{ $prefix }}" data-prefix="{{ $prefix }}">
-                                            <label for="prefix-checkbox-{{ $prefix }}">{{ $prefix }}</label>
-                                        </h3>
-                                        <ul>
-                                            @foreach($permissions as $permission)
-                                                <li>
-                                                    <input type="checkbox" name="permissions[]" id="permission-checkbox-{{ $permission->id }}" value="{{ $permission->id }}" class="permission-checkbox" @if($role->hasPermissionTo($permission->name)) @checked(true) @endif>
-                                                    <label for="permission-checkbox-{{ $permission->id }}">{{ $permission->name }}</label>
-                                                </li>
-                                            @endforeach
-                                        </ul>
-                                        @endforeach
+                                @foreach ($groupedPermissions->chunk(count($groupedPermissions)/2) as $chunks)
+                                <div class="col-md-6">
+                                    @foreach ($chunks as $prefix => $permissions)
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3 class="m-0 pl-4 groupName">
+                                                <input type="checkbox" class="prefix-checkbox" id="prefix-checkbox-{{ $prefix }}" data-prefix="{{ $prefix }}">
+                                                <label for="prefix-checkbox-{{ $prefix }}">{{ $prefix }}</label>
+                                            </h3>
+                                            <ul class="list-items">
+                                                @foreach($permissions as $permission)
+                                                    <li class="pl-4">
+                                                        <input type="checkbox" name="permissions[]" id="permission-checkbox-{{ $permission->id }}" value="{{ $permission->id }}" class="permission-checkbox" @if($role->hasPermissionTo($permission->name)) @checked(true) @endif>
+                                                        <label for="permission-checkbox-{{ $permission->id }}">{{ $permission->name }}</label>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
                                     </div>
+                                    @endforeach
+                                </div>
+
                                 @endforeach
                             </div>
                     </div>
