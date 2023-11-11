@@ -3818,5 +3818,12 @@
     .banner-section .video-container .content h3 {
         font-size: 32px;
     }
+    .banner-section .video-container .content .button {
+        display: block !important;
+    }
+    .banner-section .video-container .content .button a{
+        width: 100%;
+    }
+
 
 }
