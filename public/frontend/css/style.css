@@ -4312,6 +4312,10 @@ td {
 }
 
 .library-section .library-imges img {
+    /* height: 510.5px; */
+    height: auto;
+}
+.icsb_library .library-imges img {
     height: 510.5px;
 }
 
@@ -4346,10 +4350,12 @@ td {
 .library-section .library-row .library-item a:hover {
     color: #99CE72;
 }
-
+.library-section .library-row .library-item .right-column a{
+    transition: 0.4s;
+}
 
 .library-section .library-row .library-item .right-column a:hover {
-    color: #026737;
+    color: #fff;
     /* background-color: #99CE72; */
 }
 

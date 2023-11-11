@@ -1071,7 +1071,7 @@
         left: 42%;
     }
 
-    .library-section .library-imges img {
+    .icsb_library .library-imges img {
         height: 425.5px;
     }
 
@@ -2015,7 +2015,7 @@
         letter-spacing: 14px;
     }
 
-    .library-section .library-imges img {
+    .icsb_library .library-imges img {
         height: 350.5px;
     }
 
@@ -2114,7 +2114,7 @@
 
 @media only screen and (max-width: 767px) {
 
-
+    
 
     .job-index-section {
         padding: 60px 0;
@@ -2191,7 +2191,7 @@
         padding: 60px 0;
     }
 
-    .library-section .library-imges img {
+    .icsb_library .library-imges img {
         height: 390.5px;
     }
 
@@ -2395,6 +2395,10 @@
 
     /* President  */
 
+    .president-content-section .president-content-row .left-column img {
+        border: 7px solid var(--bc-2);
+    }
+
     .president-content-section {
         padding: 60px 0;
         min-height: auto;
@@ -2575,6 +2579,8 @@
 
     .faq-section .faq-content .accordion-item .accordion-button {
         padding-left: 50px;
+        font-size: 12px;
+        line-height: 16px;
     }
 
     .faq-section .faq-content .accordion-item .collapsed {
@@ -2852,6 +2858,10 @@
     }
 
     /*=========================== Objective Page ==============================*/
+    .objectives-section .objective-row .left-column img {
+        border: 7px solid #93931c;
+    }
+
     .objectives-section {
         padding: 0;
     }
@@ -2938,7 +2948,7 @@
         font-size: 20px;
         line-height: 26px;
         max-width: 250px;
-        padding-bottom: 12px;
+        padding-bottom: 0;
     }
 
     .executive-committee-section .committee-row .committee-items img {
@@ -3202,7 +3212,6 @@
     .faq-section .faq-content .accordion-item .collapsed {
         font-size: 15px;
         line-height: 21px;
-        height: 58px;
     }
 
     .form-section .detailes-column .deatiles-items img {
@@ -3682,7 +3691,7 @@
         font-size: 50px;
     }
 
-    .library-section .library-imges img {
+    .icsb_library .library-imges img {
         height: 300.5px;
     }
 
@@ -3766,6 +3775,45 @@
 }
 
 @media only screen and (max-width: 380px) {
+    .form-section .form-column {
+        padding:20px 10px;
+    }
+    .form-section .form-column .form-border {
+        border: 5px solid #122F98;
+    }
+    .recent-post-section .recent-post-content {
+        flex-direction: column;
+        row-gap: 10px;
+    }
+    .recent-post-section .image-column img {
+        height: auto;
+        width: 100%;
+    }
+    .recent-post-section .content-column {
+        height: auto;
+        width: 100%;
+    }
+    .blog-content-section ul li a{
+        font-size: 11px;
+    }
+    .president-content-section .president-content-row .left-column img {
+        border: 5px solid var(--bc-2);
+    }
+
+    .notice-board-section .notice-board-content tbody tr td{
+        padding: 10px 0;
+    }
+    .objectives-section .objective-row .left-column img {
+        border: 5px solid #93931c;
+    }
+    .world-wide-section .world-wide-column .cs-items p{
+        font-size: 10px;
+        line-height: 16px;
+    }
+
+    .world-wide-section .world-wide-column .cs-items ul li a{
+        font-size: 15px;
+    }
 
     .events-section .events-row .item .logo_image .month {
         top: 14%;

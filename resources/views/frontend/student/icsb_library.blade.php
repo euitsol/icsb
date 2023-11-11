@@ -17,7 +17,7 @@ $datas = [
 @endphp
 @include('frontend.includes.breadcrumb',['datas'=>$datas])
 <!-- =============================== Breadcrumb Section ======================================-->
-<section class="py-4 py-md-5 mb-5 library-section">
+<section class="py-4 py-md-5 mb-5 library-section icsb_library">
     <div class="container">
         <div class="row py-4 py-md-5">
             <div class="col">
