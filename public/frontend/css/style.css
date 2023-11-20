@@ -3584,6 +3584,8 @@ td {
 .gallery-section .latest_news {
     text-align: center;
     margin-top: 23px;
+}
+.gallery-section .latest_news .new-handbook{
     outline: 3px solid #122F98;
     border: 4px double #062BB1;
 }
