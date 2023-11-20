@@ -57,6 +57,15 @@ $datas = [
                                 </div>
                             @endforeach
                         @endif
+                        @if(!empty(json_decode($latest_news->files)))
+                            @foreach (json_decode($latest_news->files) as $key=>$file)
+                            @if(!empty($file->file_path))
+                                <div class="gallery-items">
+                                        <iframe src ="{{ pdf_storage_url($file->file_path) }}" width="100%" height="100%"></iframe>
+                                </div>
+                            @endif
+                            @endforeach
+                        @endif
                     </div>
                 </div>
 

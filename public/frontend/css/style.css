@@ -3566,6 +3566,7 @@ td {
 }
 
 .gallery-section .gallery-items {
+    text-align: center;
     width: 30.20%;
     margin-top: 23px;
     outline: 3px solid #122F98;
