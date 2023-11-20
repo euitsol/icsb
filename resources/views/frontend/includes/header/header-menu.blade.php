@@ -283,7 +283,7 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li><a href="{{ route('examination.sqp') }}">{{ _('Sample Question Papers') }}</a></li>
+                                        <li><a href="{{ route('examination.sqp') }}">{{ _('Previous Questions') }}</a></li>
                                         <li><a href="{{ route('examination.exam_faq') }}">{{ _('Exam FAQs') }}</a></li>
                                     </ul>
                                 </li>
@@ -604,7 +604,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a href="{{ route('examination.sqp') }}">{{ _('Sample Question Papers') }}</a></li>
+                    <li><a href="{{ route('examination.sqp') }}">{{ _('Previous Questions') }}</a></li>
                     <li><a href="{{ route('examination.exam_faq') }}">{{ _('Exam FAQs') }}</a></li>
                 </ul>
             </li>

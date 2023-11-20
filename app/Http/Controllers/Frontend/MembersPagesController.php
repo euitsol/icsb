@@ -198,7 +198,11 @@ class MembersPagesController extends Controller
         <p>Details: </p> $jp->job_responsibility <br>
         <p>You can view the full job posting and manage it by logging into the admin panel. If you have any questions related to this job posting, please contact to the given contact person.</p>
         ";
-        $this->send_custom_email($admin_mail,$admin_subject, 'test.euitsols@gmail.com');
+        
+        
+        
+        $to = ['icsbsec@gmail.com','hr@icsb.edu.bd','itofficer@icsb.edu.bd'];
+        $this->send_custom_email($admin_mail,$admin_subject, $to);
 
         return redirect()->back()->withStatus(__('Job post '.$request->title.' created successfully.'));
     }

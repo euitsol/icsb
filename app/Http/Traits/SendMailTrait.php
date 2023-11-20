@@ -20,7 +20,14 @@ trait SendMailTrait{
         }
     }
     public function send_custom_email($mail, $subject, $to){
-        Mail::to($to)->send(new FeedBackMail($mail, $subject));
+        if(is_array($to)){
+            foreach($to as $to_mail){
+                Mail::to($to_mail)->send(new FeedBackMail($mail, $subject));
+            }
+        }else{
+            Mail::to($to)->send(new FeedBackMail($mail, $subject));
+        }
+       
     }
 
 }
