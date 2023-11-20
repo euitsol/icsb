@@ -50,11 +50,13 @@ $datas = [
                     <div class="gallery-content">
                         @if(!empty(json_decode($latest_news->images)))
                             @foreach (json_decode($latest_news->images) as $key=>$image)
+                                @if($key !=0)
                                 <div class="gallery-items">
                                     <a class="w-100" href="{{ storage_url($image) }}" data-lightbox="gallery">
                                         <img src="{{ storage_url($image) }}">
                                     </a>
                                 </div>
+                                @endif
                             @endforeach
                         @endif
                     </div>
