@@ -522,6 +522,9 @@
 }
 
 @media only screen and (max-width: 1199px) {
+    .banner-section .video-container .content h3 {
+        font-size: 75px;
+    }
 
     .owl-carousel .owl-nav .owl-prev {
         display: none;
@@ -1379,7 +1382,7 @@
 
     /* Video Section  */
     .banner-section .video-container .content h3 {
-        font-size: 110px;
+        font-size: 65px;
         line-height: 1;
         margin-bottom: 40px;
     }
@@ -2005,6 +2008,7 @@
 
 @media only screen and (max-width: 800px) {
 
+    
     .scroll_top {
         top: 90%;
         font-size: 40px;
@@ -2042,7 +2046,7 @@
 
     /* Video  */
     .banner-section .video-container .content h3 {
-        font-size: 90px;
+        font-size: 59px;
         line-height: 0.8;
         margin-bottom: 30px;
     }
@@ -2285,7 +2289,6 @@
 
     /* Video  */
     .banner-section .video-container .content h3 {
-        font-size: 80px;
         margin-bottom: 10px;
     }
 
@@ -3561,7 +3564,7 @@
 
     /* Video  */
     .banner-section .video-container .content h3 {
-        font-size: 65px;
+        font-size: 49px;
         margin-bottom: 8px;
     }
 
@@ -3775,6 +3778,9 @@
 }
 
 @media only screen and (max-width: 380px) {
+    .banner-section .video-container .content h3 {
+        font-size: 39px;
+    }
     .form-section .form-column {
         padding:20px 10px;
     }
