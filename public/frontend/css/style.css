@@ -3565,6 +3565,9 @@ td {
     column-gap: 1.7%;
     flex-wrap: wrap;
 }
+.gallery-section .news-content {
+    column-gap: normal !important;
+}
 
 .gallery-section .gallery-items {
     text-align: center;

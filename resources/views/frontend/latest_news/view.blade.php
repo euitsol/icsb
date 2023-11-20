@@ -47,7 +47,7 @@ $datas = [
                 </div>
 
                 <div class="gallery-section global-gallery-section mt-5 container">
-                    <div class="gallery-content row">
+                    <div class="gallery-content news-content row">
                         @if(!empty(json_decode($latest_news->images)))
                             @foreach (json_decode($latest_news->images) as $key=>$image)
                                 @if($key !=0)

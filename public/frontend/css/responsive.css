@@ -1617,6 +1617,9 @@
     .gallery-section .gallery-content {
         column-gap: 3%;
     }
+    .gallery-section .news-content {
+        column-gap: normal !important;
+    }
 
     .gallery-section .gallery-items {
         width: 48.5%;
