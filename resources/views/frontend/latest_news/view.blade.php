@@ -46,14 +46,14 @@ $datas = [
                     {!! $latest_news->description !!}
                 </div>
 
-                <div class="gallery-section global-gallery-section mt-5">
-                    <div class="gallery-content">
+                <div class="gallery-section global-gallery-section mt-5 container">
+                    <div class="gallery-content row">
                         @if(!empty(json_decode($latest_news->images)))
                             @foreach (json_decode($latest_news->images) as $key=>$image)
                                 @if($key !=0)
-                                <div class="gallery-items">
-                                    <a class="w-100" href="{{ storage_url($image) }}" data-lightbox="gallery">
-                                        <img src="{{ storage_url($image) }}">
+                                <div class="latest_news col-md-6 the_cs mb-5 mx-auto">
+                                    <a class="w-100" href="{{ storage_url($image) }}" data-lightbox="gallery" class="new-handbook">
+                                        <img src="{{ storage_url($image) }}" height="500px">
                                     </a>
                                 </div>
                                 @endif
@@ -62,8 +62,10 @@ $datas = [
                         @if(!empty(json_decode($latest_news->files)))
                             @foreach (json_decode($latest_news->files) as $key=>$file)
                             @if(!empty($file->file_path))
-                                <div class="gallery-items">
-                                        <iframe src ="{{ pdf_storage_url($file->file_path) }}" width="100%" height="100%"></iframe>
+                                <div class="latest_news col-md-6 the_cs mb-5 mx-auto">
+                                    <div class="new-handbook">
+                                        <iframe src ="{{ pdf_storage_url($file->file_path) }}" width="100%" height="500px"></iframe>
+                                    </div>
                                 </div>
                             @endif
                             @endforeach
