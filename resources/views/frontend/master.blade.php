@@ -7,7 +7,6 @@
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
     <meta http-equiv="pragma" content="no-cache">
-    <script async src="https://cse.google.com/cse.js?cx=9471c5d01dcda4965">
     </script>
 
 	<title>
@@ -51,6 +50,7 @@
 </head>
 
 <body>
+    <script async src="https://cse.google.com/cse.js?cx=21a55df8caa104c54"></script>
     <a href="javascript:void(0)" class="scroll_top"><i class="fa-solid fa-circle-up fa-bounce"></i></i></a>
     @include('frontend.includes.header.header')
 
