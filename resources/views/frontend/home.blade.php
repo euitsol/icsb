@@ -25,7 +25,7 @@
             <div class="ticker-desc">
                 <div class="scrolling-text" style="animation-duration: {{count($latest_newses)*20}}s;">
                     @foreach ($latest_newses as $news)
-                        <a href="{{route('news.view',$news->slug)}}">{{$news->title}}&nbsp;&nbsp;</a>
+                        <a href="{{route('news.view',$news->slug)}}"><i class="fa-solid fa-star-of-david mx-2 text-primary"></i>{{$news->title}}&nbsp;&nbsp;</a>
                     @endforeach
                 </div>
             </div>
