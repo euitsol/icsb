@@ -5,7 +5,7 @@
 }
 
 section {
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 h1,
@@ -1381,6 +1381,7 @@ li {
     position: relative;
     border: 1px solid #182456;
     text-align: center;
+    float: right;
 }
 
 .president-section .president-column .right-column a:hover {
@@ -1889,7 +1890,7 @@ li {
 }
 
 .testimonial-section .owl-carousel .owl-nav {
-    margin-top: -48px;
+    margin-top: 0;
 }
 
 .testimonial-section .owl-carousel .owl-nav.disabled {
