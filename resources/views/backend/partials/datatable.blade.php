@@ -13,9 +13,11 @@
     $(document).ready(function() {
       $('.datatable').each(function() {
         var columnsToShow =  {!! json_encode($columns_to_show ?? []) !!};
+        var order =  {!! json_encode($order ?? 'asc') !!};
         $(this).DataTable({
             dom: 'Bfrtip',
             iDisplayLength: 50,
+            order: [[0, order]],
             buttons: [{
                     extend: 'pdfHtml5',
                     download: 'open',

@@ -39,7 +39,9 @@
                             <tbody>
                                 @foreach ($media_rooms as $media_room)
                                     <tr>
-                                        <td> {{ date('d M, Y', strtotime($media_room->created_at)) }} </td>
+                                        <td data-search="{{ date('d M, Y', strtotime($media_room->created_at)) }}" data-order="{{ date('Ymdhi', strtotime($media_room->created_at)) }}">
+                                            {{ date('d M, Y', strtotime($media_room->created_at)) }}
+                                        </td>                                        
                                         <td> {{ $media_room->title }} </td>
                                         <td> {{ $media_room->program_date ? date('d M, Y', strtotime($media_room->program_date)) : '' }} </td>
                                         <td> {{ $media_room->cat->name }} </td>
@@ -132,5 +134,5 @@
     </div>
 @endsection
 
-@include('backend.partials.datatable', ['columns_to_show' => [0,1,2,3,4,5]])
+@include('backend.partials.datatable', ['columns_to_show' => [0,1,2,3,4,5],'order'=>'desc'])
 
