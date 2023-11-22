@@ -52,6 +52,7 @@ class EventController extends Controller
         $event->event_start_time = $request->event_start_time;
         $event->event_end_time = $request->event_end_time;
         $event->description = $request->description;
+        $event->type = $request->type;
 
         if($request->notify == 1){
             $event->notify = $request->notify;

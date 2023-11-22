@@ -14,10 +14,10 @@
         <div class="col-md-12 pl-0 pr-0">
             @include('alerts.success')
         </div>
-        <div class="tab col-md-2 p-md-0 pl-sm-3">
-            <button class="tablinks p-3 btn-success text-white" onclick="openTab(event, 'tab1')">General Settings</button>
-            <button class="tablinks p-3 btn-success text-white" onclick="openTab(event, 'tab2')">Email Settings</button>
-            <button class="tablinks p-3 btn-success text-white" onclick="openTab(event, 'tab3')">Database Settings</button>
+        <div class="tab col-md-2 p-md-3 pl-sm-3">
+            <button id="defaultOpen" class="tablinks p-3 btn-success text-white" onclick="openTab(event, 'tab1')">General Settings</button>
+            <button class="tablinks p-3 " onclick="openTab(event, 'tab2')">Email Settings</button>
+            <button class="tablinks p-3 " onclick="openTab(event, 'tab3')">Database Settings</button>
         </div>
         <div class="col-md-10 p-0">
             {{-- Tab-1 --}}

@@ -40,7 +40,7 @@ class UserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|min:3',
+            'name' => 'required|min:6',
             'status' => 'nullable|boolean',
             'role' => 'nullable|exists:roles,id',
 
