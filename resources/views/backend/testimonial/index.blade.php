@@ -1,6 +1,6 @@
 @extends('backend.layouts.master', ['pageSlug' => 'testimonial'])
 
-@section('title', 'Testimonial')
+@section('title', 'Quotes')
 
 @section('content')
     <div class="row">
@@ -9,10 +9,10 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-8">
-                            <h4 class="card-title">{{ _('Testimonial') }}</h4>
+                            <h4 class="card-title">{{ _('Quotes') }}</h4>
                         </div>
                         <div class="col-4 text-right">
-                            @include('backend.partials.button', ['routeName' => 'testimonial.testimonial_create', 'className' => 'btn-primary', 'label' => 'Add Testimonial'])
+                            @include('backend.partials.button', ['routeName' => 'testimonial.testimonial_create', 'className' => 'btn-primary', 'label' => 'Add Quotes'])
                         </div>
                     </div>
                 </div>

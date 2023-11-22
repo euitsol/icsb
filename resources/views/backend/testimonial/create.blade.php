@@ -1,13 +1,13 @@
 @extends('backend.layouts.master', ['pageSlug' => 'testimonial'])
 
-@section('title', 'Testimonial')
+@section('title', 'Quotes')
 
 @section('content')
     <div class="row">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="title">{{ _('Add Testimonial') }}</h5>
+                    <h5 class="title">{{ _('Add Quotes') }}</h5>
                 </div>
                 <form method="POST" action="{{ route('testimonial.testimonial_create') }}" autocomplete="off" enctype="multipart/form-data">
                     @csrf
@@ -66,10 +66,15 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{ _('Testimonial') }}
+                        <b>{{ _('Quotes') }}</b>
                     </p>
                     <div class="card-description">
-                        {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                        <p><b>Author Name:</b> This field is required. It is a text field with character limit of 255 characters.</p>
+                        <p><b>Author Designation:</b> This field is required. It is a text field with character limit of 255 characters.</p>
+                        <p><b>Author Responsibility:</b> This field is required. It is a text field with character limit of 255 characters.</p>
+                        <p><b>Order:</b> This field is required and unique. It is a number field. It manages the order of the Quotes Author.</p>
+                        <p><b>Author Image:</b> This field is required. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 185 x 220px.</p>
+                        <p><b>Description:</b> This field is required. It is a textarea field</p>
                     </div>
                 </div>
             </div>
