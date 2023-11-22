@@ -40,7 +40,7 @@
                             <div class="form-group {{ $errors->has('Image') ? ' has-danger' : '' }}">
                                 <label class="form-label">{{_('Image')}}</label>
                                 <input type="file" accept="image/*" name="image"
-                                    class="form-control image-upload  {{ $errors->has('image') ? ' is-invalid' : '' }}" data-existing-files="{{ storage_url($asf->image) }}">
+                                    class="form-control image-upload  {{ $errors->has('image') ? ' is-invalid' : '' }}" data-existing-files="{{ storage_url($asf->image) }}" data-delete-url="">
                             </div>
                             <div class="form-group {{ $errors->has('designation') ? ' has-danger' : '' }}">
                                 <label>{{ _('Designation') }}</label>

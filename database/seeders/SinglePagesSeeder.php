@@ -24,18 +24,11 @@ class SinglePagesSeeder extends Seeder
                 "2":
                 {
                     "field_key":"back-image",
-                    "field_name":"Back Image",
+                    "field_name":"Page Image",
                     "type":"image",
                     "required":"nullable"
                 },
                 "3":
-                {
-                    "field_key":"front-image",
-                    "field_name":"Front Image",
-                    "type":"image",
-                    "required":"nullable"
-                },
-                "4":
                 {
                     "field_key":"page-description",
                     "field_name":"Page Description",

@@ -129,6 +129,7 @@
 .imagePreviewMainDiv {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .imagePreviewDiv {

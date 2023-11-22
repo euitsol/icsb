@@ -55,12 +55,33 @@
 
                         <div class="form-group  {{ $errors->has('thumbnail_image') ? ' has-danger' : '' }}">
                             <label>{{ _('Thumbnail Image') }}</label>
-                            <input type="file" accept="image/*" name="thumbnail_image" class="form-control image-upload  {{ $errors->has('thumbnail_image') ? ' is-invalid' : '' }} image-upload" data-existing-files="{{ storage_url($media_room->thumbnail_image) }}">
+                            <input type="file" accept="image/*" name="thumbnail_image" class="form-control image-upload  {{ $errors->has('thumbnail_image') ? ' is-invalid' : '' }} image-upload" data-existing-files="{{ storage_url($media_room->thumbnail_image) }}" data-delete-url="">
                             @include('alerts.feedback', ['field' => 'image'])
                        </div>
+
+
+                       @php
+                            $data = json_decode($media_room->additional_images, true);
+                            $result = '';
+                            $itemCount = count($data);
+                            foreach ($data as $index => $url) {
+                                $result .= route('json_image.single.delete', ['Event', $media_room->id,$index,'image' ]);
+                                if($index === $itemCount - 1) {
+                                    $result .= '';
+                                }else{
+                                    $result .= ', ';
+                                }
+                            }
+                        @endphp
+
                        <div class="form-group  {{ $errors->has('additional_images.*') ? 'is-invalid' : '' }}  {{ $errors->has('additional_images') ? 'is-invalid' : '' }}">
                             <label>{{ _('Additional Images') }}</label>
-                            <input type="file" accept="image/*" name="additional_images[]" class="form-control  {{ $errors->has('additional_images.*') ? 'is-invalid' : '' }}  {{ $errors->has('additional_images') ? 'is-invalid' : '' }} image-upload" multiple>
+                            <input type="file" accept="image/*" name="additional_images[]" class="form-control  {{ $errors->has('additional_images.*') ? 'is-invalid' : '' }}  {{ $errors->has('additional_images') ? 'is-invalid' : '' }} image-upload" multiple
+                            @if(isset($data))
+                                data-existing-files="{{ storage_url($data) }}"
+                                data-delete-url="{{ $result }}"
+                            @endif
+                            >
                             @include('alerts.feedback', ['field' => 'additional_images'])
                             @include('alerts.feedback', ['field' => 'additional_images.*'])
                         </div>
