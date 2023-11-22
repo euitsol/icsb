@@ -20,7 +20,7 @@ class LatestNewsRequest extends FormRequest
             'file.*.file_path' => 'nullable|file|mimes:jpg,png,pdf,doc,docx,xls,xlsx,ppt,pptx,odt,ods,odp',
             'file.*.file_name' => 'nullable|string',
             'date' => 'required | date',
-            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5000',
             'status' => 'nullable|boolean',
 
         ]
