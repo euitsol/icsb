@@ -19,12 +19,13 @@ class EventRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'description' => 'required|max:10000',
+            'description' => 'required',
             'event_start_time' => 'required',
             'event_end_time' => 'nullable',
             'total_participant' => 'nullable|numeric',
             'event_location' => 'required',
             'status' => 'nullable|boolean',
+            'type' => 'required|in:1,0',
             'video_url' => [
                 'nullable',
                 'url',
@@ -56,7 +57,6 @@ class EventRequest extends FormRequest
             'slug' => 'required|unique:events,slug,' . $this->route('id') . ',id,deleted_at,NULL',
             'image' => 'nullable|array',
             'image.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'type' => 'required|in:1,0',
         ];
     }
 }

@@ -28,7 +28,7 @@
 
                         <div class="form-group {{ $errors->has('total_participant') ? ' has-danger' : '' }}">
                             <label>{{ _('Total Perticipant') }}</label>
-                            <input type="string" name="total_participant"
+                            <input type="number" name="total_participant"
                                 class="form-control {{ $errors->has('total_participant') ? ' is-invalid' : '' }}"
                                 value="{{ $event->total_participant }}">
                             @include('alerts.feedback', ['field' => 'total_participant'])
@@ -124,10 +124,19 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{ _('Event') }}
+                        <b>{{ _('Upcoming Event') }}</b>
                     </p>
                     <div class="card-description">
-                        {{ _('The faq\'s manages user permissions by assigning different faqs to users. Each faq defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                        <p><b>Event Title:</b> This field is required and unique. It is a text field with character limit of 255 characters.</p>
+                        <p><b>Slug:</b> This field is required and unique. It is an auto-generated field from the Title. It represents the URL of the Event.</p>
+                        <p><b>Total Perticipant:</b> This field is nullable. It is a number field.</p>
+                        <p><b>Event Images:</b> This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 500 x 500px. You can select multiple images by pressing the 'SHIFT/CTRL' key.</p>
+                        <p><b>Event Video(Youtube URL):</b> It is a URL field. Please ensure that you enter a valid URL for either a YouTube or Vimeo video.</p>
+                        <p><b>Event Start Time:</b> This field is required. It is a datetime field.</p>
+                        <p><b>Event End Time:</b> This field is nullable. It is a datetime field.</p>
+                        <p><b>Event Location:</b> This field is required. It is a text field with character limit of 255 characters.</p>
+                        <p><b>Event Type:</b> This field is required. It is a option field. It represents the event type</p>
+                        <p><b>Description:</b> This field is required. It is a textarea field</p>
                     </div>
                 </div>
             </div>
