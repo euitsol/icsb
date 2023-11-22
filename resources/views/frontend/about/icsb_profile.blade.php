@@ -30,11 +30,6 @@
                     @if (isset(json_decode($single_page->saved_data)->{'back-image'}))
                         <img class="first-image" src="{{storage_url(json_decode($single_page->saved_data)->{'back-image'})}}" alt="{{$single_page->title}}">
                     @endif
-					{{-- <div class="box-image">
-                        @if (isset(json_decode($single_page->saved_data)->{'front-image'}))
-						    <img class="second-image" src="{{storage_url(json_decode($single_page->saved_data)->{'front-image'})}}" alt="{{$single_page->title}}">
-                        @endif
-					</div> --}}
 				</div>
 				<div class="content-column content-description">
                     @if (isset(json_decode($single_page->saved_data)->{'page-description'}))
@@ -44,8 +39,4 @@
 			</div>
 		</div>
 	</section>
-    {{-- @include('frontend.includes.endorsement')
-    @include('frontend.includes.bss',['home_bsss'=>$home_bsss])
-    @include('frontend.includes.world_wide_cs',['wwcss'=>$wwcss]) --}}
-
 @endsection

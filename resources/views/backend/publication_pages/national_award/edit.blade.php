@@ -22,7 +22,7 @@
                             <div class="form-group {{ $errors->has('image') ? ' has-danger' : '' }}">
                                 <label class="form-label">Image</label>
                                 <input type="file" accept="image/*" name="image"
-                                    class="form-control image-upload  {{ $errors->has('image') ? ' is-invalid' : '' }}" data-existing-files="{{ storage_url($national_award->image) }}">
+                                    class="form-control image-upload  {{ $errors->has('image') ? ' is-invalid' : '' }}" data-existing-files="{{ storage_url($national_award->image) }}" data-delete-url="">
                             </div>
                             <div class="form-group {{ $errors->has('file') ? ' has-danger' : '' }}">
                                 <label class="form-label">file</label>

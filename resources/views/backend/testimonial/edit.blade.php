@@ -47,7 +47,12 @@
                             <div class="form-group {{ $errors->has('image') ? ' has-danger' : '' }}">
                                 <label >{{ _('Author Image') }}</label>
                                 <input type="file" accept="image/*" name="image"
-                                    class="form-control image-upload  {{ $errors->has('image') ? ' is-invalid' : '' }}" data-existing-files="{{ storage_url($testimonial->image) }}">
+                                    class="form-control image-upload  {{ $errors->has('image') ? ' is-invalid' : '' }}" 
+                                    @if(isset($testimonial->image))
+                                        data-existing-files="{{ storage_url($testimonial->image) }}"
+                                        data-delete-url=""
+                                    @endif
+                                    >
                             </div>
                             <div class="form-group {{ $errors->has('description') ? ' has-danger' : '' }}">
                                 <label>{{ _('Description') }} </label>

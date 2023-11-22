@@ -65,9 +65,9 @@
                                     </div>
                                     <input type="date" class="form-control" name="duration[end_date]" value="{{ old('duration.end_date') }}">
                                 </div>
+                                @include('alerts.feedback', ['field' => 'duration.start_date'])
+                                @include('alerts.feedback', ['field' => 'duration.end_date'])
                             </div>
-                            @include('alerts.feedback', ['field' => 'duration.start_date'])
-                            @include('alerts.feedback', ['field' => 'duration.end_date'])
                         </div>
                         <div class="form-group {{ $errors->has('slug') ? ' has-danger' : '' }}">
                             <label>{{ _('Slug') }}</label>
