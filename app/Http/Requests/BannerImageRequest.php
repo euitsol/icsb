@@ -26,7 +26,7 @@ class BannerImageRequest extends FormRequest
     {
         return [
             'images' => 'required|array',
-            'images.*' => 'image|mimes:mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'images.*' => 'image|mimes:mimes:jpeg,png,jpg,gif,svg|max:5000',
         ];
     }
 
@@ -34,7 +34,7 @@ class BannerImageRequest extends FormRequest
     {
         return [
             'images' => 'nullable|array',
-            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5000',
         ];
     }
 }

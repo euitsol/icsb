@@ -61,10 +61,16 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{ _('Banner') }}
+                        <b>{{ _('Banner') }}</b>
                     </p>
                     <div class="card-description">
-                        {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                        <p><b>Banner Name:</b> This field is required and unique. It is a text field with character limit of 255 characters </p>
+
+                        <p><b>Set Banner Duration:</b> This is a checkbox. This is a checkbox. It represents whether to enable Bannar Start Time and Banner End Time or not.</p>
+
+                        <p><b>Banner Start Time:</b> This field is nullable. It is a datetime field.</p>
+
+                        <p><b>Banner End Time:</b> This field is nullable. It is a datetime field.</p>
                     </div>
                 </div>
             </div>
