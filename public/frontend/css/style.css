@@ -442,16 +442,24 @@ li {
 }
 
 .main-header-section .header-content h1 {
-    color: #162B75;
-    font-size: 40px;
+    /* color: #162B75; */
+    /* font-size: 40px; */
     line-height: 46px;
     position: relative;
     margin-top: 10px;
     margin-bottom: 5px;
     display: inline-block;
-    font-family: 'Teko', sans-serif;
-    font-weight: 600;
+    /* font-family: 'Teko', sans-serif;
+    font-weight: 600; */
+    text-transform: capitalize;
+
+
+    font-size: 40px;
+    color: #102694;
+    font-family: "Impact";
 }
+
+
 
 .main-header-section .header-content h1:after {
     content: '';
@@ -464,11 +472,19 @@ li {
 }
 
 .main-header-section .header-content h2 {
-    color: #162B75;
-    font-size: 18px;
+    /* color: #162B75; */
+    /* font-size: 18px; */
     line-height: 24px;
-    font-weight: 500;
-    letter-spacing: 1.25px;
+    /* font-weight: 500; */
+    /* letter-spacing: 1.25px; */
+
+
+    font-size: 18px;
+    letter-spacing: 10px;
+    color: #2c2e35;
+    font-weight: 300;
+    font-family: "Univers";
+    text-transform: capitalize;
 }
 
 .main-header-section .header-content p {
@@ -5371,6 +5387,10 @@ td {
     font-size: 40px;
     line-height: 30px;
     color: #fff;
+    font-family: "Impact";
+    text-transform: capitalize;
+
+    
 
     /* font-family: 'Poppins', sans-serif; */
 }
