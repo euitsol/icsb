@@ -19,7 +19,7 @@
                             </div>
                             <div class="form-group {{ $errors->has('email') ? ' has-danger' : '' }}">
                                 <label>{{ _('Email') }}</label>
-                                <input type="text" name="email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ _('Email') }}" value="{{ old('email') }}">
+                                <input type="email" name="email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ _('Email') }}" value="{{ old('email') }}">
                                 @include('alerts.feedback', ['field' => 'email'])
                             </div>
                             <div class="form-group {{ $errors->has('password') ? ' has-danger' : '' }}">
@@ -53,10 +53,18 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{ _('User') }}
+                        <b>{{ _('User') }}</b>
                     </p>
                     <div class="card-description">
-                        {{ _('The user\'s manages user permissions by assigning different users to users. Each user defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                        <p><b>User Name:</b> This field is required. It is a text field with character limit of 6-255 characters </p>
+
+                        <p><b>Email:</b> This field is required and unique. It is a email field with a maximum character limit of 255. The entered value must follow the standard email format (e.g., user@example.com).</p>
+
+                        <p><b>Password:</b> This field is required. It is a password field. Password strength should meet the specified criteria (e.g., include uppercase and lowercase letters, numbers, and special characters). The entered password should be a minimum of 6 characters.</p>
+
+                        <p><b>Confirm Password:</b> This field is required. It is a password field. It should match the entered password in the "Password" field.</p>
+
+                        <p><b>Role:</b> This field is required. This is an option field. It represents the user's role.</p>
                     </div>
                 </div>
             </div>
