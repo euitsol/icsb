@@ -42,10 +42,11 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{ _('Recent Video') }}
+                        <b>{{ _('Recent Video') }}</b>
                     </p>
                     <div class="card-description">
-                        {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                        <p><b>Video Title:</b> This field is required and unique. It is a text field with character limit of 255 characters.</p>
+                        <p><b>Video URL:</b> This field is required. It is a URL field. Please ensure that you enter a valid URL for either a YouTube or Vimeo video.</p>
                     </div>
                 </div>
             </div>

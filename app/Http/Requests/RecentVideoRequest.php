@@ -32,14 +32,14 @@ class RecentVideoRequest extends FormRequest
     protected function store(): array
     {
         return [
-            'title' => 'required|unique:recent_videos,title,NULL,id,deleted_at,NULL',
+            'title' => 'required|unique:recent_videos,title,NULL,id,deleted_at,NULL|max:255',
         ];
     }
 
     protected function update(): array
     {
         return [
-            'title' => 'required|unique:recent_videos,title,' . $this->route('id') . ',id,deleted_at,NULL',
+            'title' => 'required|unique:recent_videos,title,' . $this->route('id') . ',id,deleted_at,NULL|max:255',
         ];
     }
 }
