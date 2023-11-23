@@ -13,7 +13,7 @@
                     @method('PUT')
                     <div class="card-body">
                         <div class="form-group {{ $errors->has('title') ? ' has-danger' : '' }}">
-                            <label>{{ _('Committee Title') }}</label>
+                            <label>{{ _('Committee Type Title') }}</label>
                             <input type="text" id='title' name="title" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter the committee type title') }}" value="{{ $ct->title }}">
                             @include('alerts.feedback', ['field' => 'title'])
                         </div>
@@ -43,8 +43,8 @@
                         <b>{{ _('Committee Type') }}</b>
                     </p>
                     <div class="card-description">
-                        <p><b>Committee Title:</b> This field is required. It is a text field with character limit of 255 characters. It represents the Committee Title.</p>
-                        <p><b>Slug:</b> This field is required and unique. It is an auto-generated field from the Committee Title. It represents the URL of the Committee.</p>
+                        <p><b>Committee Type Title:</b> This field is required. It is a text field with character limit of 255 characters. It represents the Committee Type.</p>
+                        <p><b>Slug:</b> This field is required and unique. It is an auto-generated field from the Committee Type Title. It represents the URL of the Committee.</p>
                         <p><b>Description:</b> This field is nullable. It is a textarea field.</p>
                     </div>
                 </div>
