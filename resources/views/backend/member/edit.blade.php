@@ -1,6 +1,6 @@
 @extends('backend.layouts.master', ['pageSlug' => 'member'])
 
-@section('title', 'Edit Member')
+@section('title', 'Edit Non Member')
 
 @section('content')
     <div class="row">
@@ -8,7 +8,7 @@
             <div class="card">
                 @include('alerts.success')
                 <div class="card-header">
-                    <h5 class="title">{{ _('Edit Member') }}</h5>
+                    <h5 class="title">{{ _('Edit Non Member') }}</h5>
                 </div>
                 <form method="POST" action="{{ route('member.member_edit', $member->id) }}" autocomplete="off" enctype="multipart/form-data">
                     @csrf
@@ -45,7 +45,7 @@
                                 @include('alerts.feedback', ['field' => 'member_type'])
                             </div> --}}
                             <div class="form-group col-md-12 {{ $errors->has('member_email') ? ' has-danger' : '' }}">
-                                <label>{{ _('Member Email') }} <small>will be used for login</small></label>
+                                <label>{{ _('Member Email') }}</label>
                                 <input type="email" name="member_email" class="form-control {{ $errors->has('member_email') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter Member\'s Email') }}" value="{{ $member->email }}">
                                 @include('alerts.feedback', ['field' => 'member_email'])
                             </div>
@@ -127,10 +127,17 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{ _('Create Member') }}
+                        <b>{{ _('Non Member') }}</b>
                     </p>
                     <div class="card-description">
-                        {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                        <p><b>Name:</b> This field is required. It is a text field with character limit of 255 characters.</p>
+                        <p><b>Designation:</b> This field is nullable. It is a text field with character limit of 255 characters. It represents the non-member designation</p>
+                        <p><b>Company Name:</b> This field is nullable. It is a text field with character limit of 255 characters. It represents the non-member company name</p>
+                        <p><b>Email:</b> This field is nullable and unique. It is a email field with a maximum character limit of 255. The entered value must follow the standard email format (e.g., user@example.com).</p>
+                        <p><b>Image:</b> This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 400 x 450px.</p>
+                        <p><b>Contact Number-* :</b> This field is nullable. The select field should be the number type. New contact number can be added by clicking on the '+' icon</p>
+                        <p><b>Address:</b> This field is nullable. It is a text field with character limit of 255 characters. It represents the non-member address</p>
+                        <p><b>Additional Description:</b> This field is nullable. It is a textarea field.</p>
                     </div>
                 </div>
             </div>
