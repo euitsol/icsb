@@ -54,10 +54,12 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{ _('Faqs') }}
+                        <b>{{ _('Faqs') }}</b>
                     </p>
                     <div class="card-description">
-                        {{ _('The faq\'s manages user permissions by assigning different faqs to users. Each faq defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                        <p><b>FAQ Title:</b> This field is required and unique. It is a text field with character limit of 255 characters.</p>
+                        <p><b>FAQ Order:</b> This field is required and unique. It is a number field. It manages the order of the FAQ.</p>
+                        <p><b>Description:</b> This field is required. It is a textarea field.</p></p>
                     </div>
                 </div>
             </div>
