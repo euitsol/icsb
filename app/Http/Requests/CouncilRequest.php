@@ -28,7 +28,7 @@ class CouncilRequest extends FormRequest
     protected function store(): array
     {
         return [
-            'title' => 'required|unique:councils,title,NULL,id,deleted_at,NULL',
+            'title' => 'required|unique:councils,title,NULL,id,deleted_at,NULL|max:255',
             'slug' => 'required|unique:councils,slug,NULL,id,deleted_at,NULL',
             'order_key' => 'required|unique:councils,order_key,NULL,id,deleted_at,NULL',
         ];
@@ -37,7 +37,7 @@ class CouncilRequest extends FormRequest
     protected function update(): array
     {
         return [
-            'title' => 'required|unique:councils,title,' . $this->route('id') . ',id,deleted_at,NULL',
+            'title' => 'required|unique:councils,title,' . $this->route('id') . ',id,deleted_at,NULL|max:255',
             'slug' => 'required|unique:councils,slug,' . $this->route('id') . ',id,deleted_at,NULL',
             'order_key' => 'required|unique:councils,order_key,' . $this->route('id') . ',id,deleted_at,NULL',
         ];
