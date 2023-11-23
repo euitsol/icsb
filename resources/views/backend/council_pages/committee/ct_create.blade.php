@@ -12,7 +12,7 @@
                     @csrf
                     <div class="card-body">
                         <div class="form-group {{ $errors->has('title') ? ' has-danger' : '' }}">
-                            <label>{{ _('Committee Type Title') }}</label>
+                            <label>{{ _('Committee Title') }}</label>
                             <input type="text" id='title' name="title" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter the committee type title') }}" value="{{ old('title') }}">
                             @include('alerts.feedback', ['field' => 'title'])
                         </div>
@@ -39,10 +39,12 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{ _('The Standing Committee') }}
+                        <b>{{ _('Committee Type') }}</b>
                     </p>
                     <div class="card-description">
-                        {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                        <p><b>Committee Title:</b> This field is required. It is a text field with character limit of 255 characters. It represents the Committee Title.</p>
+                        <p><b>Slug:</b> This field is required and unique. It is an auto-generated field from the Committee Title. It represents the URL of the Committee.</p>
+                        <p><b>Description:</b> This field is nullable. It is a textarea field.</p>
                     </div>
                 </div>
             </div>
