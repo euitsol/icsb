@@ -17,7 +17,7 @@ class WorldWideCSRequest extends FormRequest
     {
         return [
             'url' => 'required|url',
-            'description' => 'nullable|max:10000',
+            'description' => 'nullable',
             'status' => 'nullable|boolean',
 
         ]
@@ -28,18 +28,18 @@ class WorldWideCSRequest extends FormRequest
     protected function store(): array
     {
         return [
-            'title' => 'required|unique:wwcs,title,NULL,id,deleted_at,NULL',
+            'title' => 'required|unique:wwcs,title,NULL,id,deleted_at,NULL|max:255',
             'order_key' => 'required|unique:wwcs,order_key,NULL,id,deleted_at,NULL',
-            'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'logo' => 'required|image|mimes:jpeg,jpg,gif,svg|max:2048',
         ];
     }
 
     protected function update(): array
     {
         return [
-            'title' => 'required|unique:wwcs,title,' . $this->route('id') . ',id,deleted_at,NULL',
+            'title' => 'required|unique:wwcs,title,' . $this->route('id') . ',id,deleted_at,NULL|max:255',
             'order_key' => 'required|unique:wwcs,order_key,' . $this->route('id') . ',id,deleted_at,NULL',
-            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'logo' => 'nullable|image|mimes:jpeg,jpg,gif,svg|max:2048',
         ];
     }
 }

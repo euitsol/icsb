@@ -9,7 +9,7 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-8">
-                            <h4 class="card-title">{{ _('National World Wide CS') }}</h4>
+                            <h4 class="card-title">{{ _('World Wide CS') }}</h4>
                         </div>
                         <div class="col-4 text-right">
                             @include('backend.partials.button', ['routeName' => 'wwcs.wwcs_create', 'className' => 'btn-primary', 'label' => 'Add World Wide CS'])
