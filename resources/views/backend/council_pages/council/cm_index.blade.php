@@ -34,7 +34,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($council->council_members as $council_member)
+                                @foreach($council_members as $council_member)
                                     <tr>
                                         <td> {{ $council_member->order_key }} </td>
                                         <td> {{ $council_member->member->name }} </td>
