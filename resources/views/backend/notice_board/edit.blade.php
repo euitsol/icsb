@@ -107,10 +107,14 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{ _('Notice') }}
+                        <b>{{ _('Notice') }}</b>
                     </p>
                     <div class="card-description">
-                        {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                        <p><b>Notice Title:</b> This field is required and unique. It is a text field with character limit of 255 characters.</p>
+                        <p><b>Notice Category:</b> This field is required. This is an option field. It represents the Notice Category.</p>
+                        <p><b>Slug:</b> This field is required and unique. It is an auto-generated field from the Notice Title. It represents the URL of the Notice.</p>
+                        <p><b>File-* :</b> This field is nullable.  The name field should be the file name. It supports file uploads in jpg, png, pdf, doc, docx, xls, xlsx, ppt, pptx, odt, ods, odp format. By clicking on the '+' icon you can upload multiple files.</p>
+                        <p><b>Description:</b> This field is nullable. It is a textarea field.</p>
                     </div>
                 </div>
             </div>
