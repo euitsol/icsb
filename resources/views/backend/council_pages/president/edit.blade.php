@@ -26,7 +26,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col-md-6 {{ $errors->has('member_id') ? ' has-danger' : '' }}">
-                                <label>{{ _('Member-1') }}</label>
+                                <label>{{ _('Member') }}</label>
                                 <select id="memberSelect" name="member_id" class="form-control {{ $errors->has('member_id') ? ' is-invalid' : '' }}">
                                     @foreach ($members as $member)
                                         <option value="{{ $member->id }}" @if( $president->member_id == $member->id) selected @endif> {{ $member->name }}</option>
@@ -108,10 +108,15 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{ _('President') }}
+                        <b>{{ _('President') }}</b>
                     </p>
                     <div class="card-description">
-                        {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                        <p><b>Member:</b> This field is required. This is an option field. It represents the Presidents.</p>
+                        <p><b>Slug:</b> This field is required and unique. It is an auto-generated field from the Member. It represents the URL of the President.</p>
+                        <p><b>Order:</b> This field is required and unique. It is a number field. It manages the order of the Presidents</p>
+                        <p><b>President Duration-* :</b> This is a date field. It represents the duration of the president. New duration can be added by clicking on the '+' icon. For present president's end date should be either empty or the actual end date.</p>
+                        <p><b>President Bio:</b> This field is required. It is a textarea field.</p>
+                        <p><b>President Message:</b> This field is nullable. It is a textarea field.</p>
                     </div>
                 </div>
             </div>

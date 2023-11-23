@@ -26,7 +26,7 @@ class CouncilMemberTypeRequest extends FormRequest
     protected function store(): array
     {
         return [
-            'title' => 'required|unique:council_member_types,title,NULL,id,deleted_at,NULL',
+            'title' => 'required|unique:council_member_types,title,NULL,id,deleted_at,NULL|max:255',
             'slug' => 'required|unique:council_member_types,slug,NULL,id,deleted_at,NULL',
             'order_key' => 'required|unique:council_member_types,order_key,NULL,id,deleted_at,NULL',
         ];
@@ -35,7 +35,7 @@ class CouncilMemberTypeRequest extends FormRequest
     protected function update(): array
     {
         return [
-            'title' => 'required|unique:council_member_types,title,' . $this->route('id') . ',id,deleted_at,NULL',
+            'title' => 'required|unique:council_member_types,title,' . $this->route('id') . ',id,deleted_at,NULL|max:255',
             'slug' => 'required|unique:council_member_types,slug,' . $this->route('id') . ',id,deleted_at,NULL',
             'order_key' => 'required|unique:council_member_types,order_key,' . $this->route('id') . ',id,deleted_at,NULL',
         ];

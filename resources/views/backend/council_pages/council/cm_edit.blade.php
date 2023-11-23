@@ -30,7 +30,7 @@
                                 @include('alerts.feedback', ['field' => 'member_id'])
                             </div>
                             <div class="col-md-4 form-group {{ $errors->has('order_key') ? ' has-danger' : '' }}">
-                                <label>{{ _('Council Order') }}</label>
+                                <label>{{ _('Order') }}</label>
                                 <select class="form-control {{ $errors->has('order_key') ? ' is-invalid' : '' }}" name="order_key">
                                     @for ($x=1; $x<=1000; $x++)
                                         @php
@@ -59,9 +59,10 @@
 
                         <div class="form-group {{ $errors->has('description') ? ' has-danger' : '' }}">
                             <label for="description">Member Description</label>
-                            <textarea name="description" class="form-control">
+                            <textarea name="description" class="form-control {{ $errors->has('description') ? ' is-invalid' : '' }}">
                                 {{ $cm->description }}
                             </textarea>
+                            @include('alerts.feedback', ['field' => 'description'])
                         </div>
                     </div>
                     <div class="card-footer">
@@ -74,10 +75,13 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{$cm->council->title}}{{ _(' Member') }}
+                        <b>{{$cm->council->title}}{{ _(' Member') }}</b>
                     </p>
                     <div class="card-description">
-                        {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                        <p><b>Member:</b> This field is required.  This is an option field. It represents the Council Member.</p>
+                        <p><b>Order:</b> This field is required and unique. It is a number field. It manages the order of the Council Members</p>
+                        <p><b>Council Member Type:</b> This field is required.  This is an option field. It represents the Council Member Type.</p>
+                        <p><b>Member Description:</b> This field is required. It is a textarea field</p>
                     </div>
                 </div>
             </div>

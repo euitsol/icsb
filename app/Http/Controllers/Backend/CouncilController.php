@@ -134,6 +134,7 @@ class CouncilController extends Controller
 
     public function cm_index($id): View
     {
+        $s['council_members'] = CouncilMember::with('council')->where('deleted_at',null)->where('council_id',$id)->orderBy('order_key', 'ASC')->get();
         $s['council'] = Council::with('council_members')->where('deleted_at',null)->where('id',$id)->first();
         return view('backend.council_pages.council.cm_index',$s);
     }

@@ -16,7 +16,7 @@ class MemberRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'nullable|max:255',
+            'name' => 'required|max:255',
             'designation' => 'nullable|max:255',
             'member_type' => 'nullable|exists:member_types,id',
             'phone' => 'nullable|array|min:1',

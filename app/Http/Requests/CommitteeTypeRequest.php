@@ -26,7 +26,7 @@ class CommitteeTypeRequest extends FormRequest
     protected function store(): array
     {
         return [
-            'title' => 'required|unique:committee_types,title,NULL,id,deleted_at,NULL',
+            'title' => 'required|unique:committee_types,title,NULL,id,deleted_at,NULL|max:255',
             'slug' => 'required|unique:committee_types,slug,NULL,id,deleted_at,NULL',
         ];
     }
@@ -34,7 +34,7 @@ class CommitteeTypeRequest extends FormRequest
     protected function update(): array
     {
         return [
-            'title' => 'required|unique:committee_types,title,' . $this->route('id') . ',id,deleted_at,NULL',
+            'title' => 'required|unique:committee_types,title,' . $this->route('id') . ',id,deleted_at,NULL|max:255',
             'slug' => 'required|unique:committee_types,slug,' . $this->route('id') . ',id,deleted_at,NULL',
         ];
     }

@@ -75,6 +75,7 @@
                         @include('alerts.feedback', ['field' => 'cm.*.member_id'])
                         @include('alerts.feedback', ['field' => 'cm.*.cmt_id'])
                         @include('alerts.feedback', ['field' => 'cm.*.order_key'])
+                        @include('alerts.feedback', ['field' => 'cm.*.description'])
                         <div id="append">
                         </div>
                     </div>
@@ -88,10 +89,11 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{$council->title}}{{ _(' Member') }}
+                        <b>{{$council->title}}{{ _(' Member') }}</b>
                     </p>
                     <div class="card-description">
-                        {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                        <p><b>Member-* :</b> This field is required.  The Select Council Member option represents the members, the Select Council Member Type represents the type of the council member and the Select Council Member Order option represents the order of the council member. New council member can be added by clicking on the '+' icon</p>
+                        <p><b>Member Description:</b> This field is required. It is a textarea field</p>
                     </div>
                 </div>
             </div>

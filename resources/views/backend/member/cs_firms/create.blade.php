@@ -70,10 +70,10 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{ _('CS Firms Member') }}
+                        <b>{{ _('CS Firms Member') }}</b>
                     </p>
                     <div class="card-description">
-                        {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                        <p><b>CS Firm Member-* :</b> This field is required. The 'Select Member' option represents the member of the CS firms, and the input field is a number field that represents the private practice certificate number of this member. New CS firms members can be added by clicking on the '+' icon.</p>
                     </div>
                 </div>
             </div>

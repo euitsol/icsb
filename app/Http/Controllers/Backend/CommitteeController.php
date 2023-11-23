@@ -187,6 +187,7 @@ class CommitteeController extends Controller
 
     public function cm_index($id): View
     {
+        $s['committee_members'] = CommitteeMember::with('committe')->where('deleted_at',null)->where('committee_id',$id)->orderBy('order_key', 'ASC')->get();
         $s['committee'] = Committee::with(['committe_type','committe_members'])->where('deleted_at',null)->where('id',$id)->first();
         return view('backend.council_pages.committee.cm_index',$s);
     }

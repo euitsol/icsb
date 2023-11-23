@@ -72,10 +72,14 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{ _(' World Wide CS') }}
+                        <b>{{ _(' World Wide CS') }}</b>
                     </p>
                     <div class="card-description">
-                        {{ _('The faq\'s manages user permissions by assigning different faqs to users. Each faq defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                        <p><b>Title:</b> This field is required and unique. It is a text field with character limit of 255 characters.</p>
+                        <p><b>Order:</b> This field is required and unique. It is a number field. It manages the order of the World Wide CS</p>
+                        <p><b>Logo:</b> This field is nullable. It supports file uploads in jpeg, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 240 x 130px and it should have a white background.</p>
+                        <p><b>URL:</b> This field is required. It is a URL field.</p>
+                        <p><b>Description(optional):</b> This field is nullable. It is a textarea field.</p>
                     </div>
                 </div>
             </div>

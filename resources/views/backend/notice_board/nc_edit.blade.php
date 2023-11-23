@@ -40,10 +40,12 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{ _('Notice Category') }}
+                        <b>{{ _('Notice Category') }}</b>
                     </p>
                     <div class="card-description">
-                        {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                        <p><b>Title:</b> This field is required and unique. It is a text field with character limit of 255 characters. It represents the Notice Category.</p>
+                        <p><b>Slug:</b> This field is required and unique. It is an auto-generated field from the Notice Category Title. It represents the URL of the Notice.</p>
+                        <p><b>Description:</b> This field is nullable. It is a textarea field.</p>
                     </div>
                 </div>
             </div>

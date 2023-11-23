@@ -25,6 +25,7 @@ class CouncilMemberRequest extends FormRequest
     protected function store(): array
     {
         return [
+            'cm.*.description' => 'required',
             'cm.*.member_id' => 'required|exists:members,id',
             'cm.*.cmt_id' => 'required|exists:council_member_types,id',
             'cm.*.order_key' => 'required|unique:council_members,order_key,NULL,id,deleted_at,NULL',
@@ -34,6 +35,7 @@ class CouncilMemberRequest extends FormRequest
     protected function update(): array
     {
         return [
+            'description'=> 'required',
             'member_id'=> 'required|exists:members,id',
             'cmt_id'=> 'required|exists:council_member_types,id',
             'order_key'=> 'required|unique:council_members,order_key,' . $this->route('id') . ',id,deleted_at,NULL',

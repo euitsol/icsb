@@ -39,13 +39,13 @@
                     @csrf
                     <div class="card-body">
                             <div class="form-group {{ $errors->has('title') ? ' has-danger' : '' }}">
-                                <label>{{ _('Job Title') }}</label>
+                                <label>{{ _('Job Title') }} <span class="text-danger">*</span></label>
                                 <input type="text" name="title" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter job title') }}" value="{{ $jp->title }}">
                                 @include('alerts.feedback', ['field' => 'title'])
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6 {{ $errors->has('company_name') ? ' has-danger' : '' }}">
-                                    <label>{{ _('Company Name') }}</label>
+                                    <label>{{ _('Company Name') }} <span class="text-danger">*</span></label>
                                     <input type="text" name="company_name" class="form-control {{ $errors->has('company_name') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter job company_name') }}" value="{{ $jp->company_name }}">
                                     @include('alerts.feedback', ['field' => 'company_name'])
                                 </div>
@@ -60,14 +60,14 @@
                                     @include('alerts.feedback', ['field' => 'application_url'])
                                 </div>
                                 <div class="form-group col-md-6 {{ $errors->has('email') ? ' has-danger' : '' }}">
-                                    <label>{{ _('Email') }}</label>
+                                    <label>{{ _('Email') }} <span class="text-danger">*</span></label>
                                     <input type="email" name="email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter job email') }}" value="{{ $jp->email }}">
                                     @include('alerts.feedback', ['field' => 'email'])
                                 </div>
                             </div>
 
                             <div class="form-group {{ $errors->has('job_type') ? ' has-danger' : '' }}">
-                                <label>Job Type</label>
+                                <label>{{_('Job Type')}} <span class="text-danger">*</span></label>
                                 <div class="form-radio">
                                     <input class="form-check-input ml-2" name='job_type' type="radio" value="Full-Time" {{($jp->job_type =='Full-Time') ? 'checked': '' }}>
                                     <label class="form-check-label mr-3 ml-4">{{_('Full-Time')}}</label>
@@ -84,7 +84,7 @@
                             </div>
 
                             <div class="form-group row {{ $errors->has('salary') ? ' has-danger' : '' }} {{ $errors->has('salary.*') ? ' has-danger' : '' }} {{ $errors->has('salary_type') ? ' has-danger' : '' }}">
-                                <label class="col-md-12">Salary</label>
+                                <label class="col-md-12">{{_('Salary ')}} <span class="text-danger required">*</span></label>
                                 <div class="col-md-12">
                                     <div class="input-group">
                                         <input type="number" class="form-control salary_input" name="salary[from]" value="{{isset(json_decode($jp->salary)->from) ? json_decode($jp->salary)->from : ''}}">
@@ -106,7 +106,7 @@
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6 {{ $errors->has('deadline') ? ' has-danger' : '' }}">
-                                    <label>{{ _('Deadline') }}</label>
+                                    <label>{{ _('Deadline') }} <span class="text-danger">*</span></label>
                                     <input type="date" name="deadline" class="form-control {{ $errors->has('deadline') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter deadline') }}" value="{{ $jp->deadline }}">
                                     @include('alerts.feedback', ['field' => 'deadline'])
                                 </div>
@@ -145,12 +145,12 @@
                                 </div>
                             </div>
                             <div class="form-group {{ $errors->has('company_address') ? 'has-danger' : '' }}">
-                                <label>{{ _('Company Address') }}</label>
+                                <label>{{ _('Company Address') }} <span class="text-danger">*</span></label>
                                 <textarea name="company_address" class="form-control {{ $errors->has('company_address') ? ' is-invalid' : '' }}" placeholder="Enter company address">{{ $jp->company_address }}</textarea>
                                 @include('alerts.feedback', ['field' => 'company_address'])
                             </div>
                             <div class="form-group {{ $errors->has('job_responsibility') ? 'has-danger' : '' }}">
-                                <label>{{ _('Job Responsibility') }}</label>
+                                <label>{{ _('Job Responsibility') }} <span class="text-danger">*</span></label>
                                 <textarea name="job_responsibility" class="form-control {{ $errors->has('job_responsibility') ? ' is-invalid' : '' }}" placeholder="Enter job responsibility">{{ $jp->job_responsibility }}</textarea>
                                 @include('alerts.feedback', ['field' => 'job_responsibility'])
                             </div>
@@ -160,7 +160,7 @@
                                 @include('alerts.feedback', ['field' => 'additional_requirement'])
                             </div>
                             <div class="form-group {{ $errors->has('job_location') ? 'has-danger' : '' }}">
-                                <label>{{ _('Job Location') }}</label>
+                                <label>{{ _('Job Location') }} <span class="text-danger">*</span></label>
                                 <textarea name="job_location" class="form-control {{ $errors->has('job_location') ? ' is-invalid' : '' }}" placeholder="Enter job location">{{ $jp->job_location }}</textarea>
                                 @include('alerts.feedback', ['field' => 'job_location'])
                             </div>
@@ -191,10 +191,29 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{ _('Job Placement') }}
+                        <b>{{ _('Job Placement') }}</b>
                     </p>
                     <div class="card-description">
-                        {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                        <p><b>Job Title:</b> This field is required. It is a text field with character limit of 255 characters.</p>
+                        <p><b>Company Name:</b> This field is required. It is a text field with character limit of 255 characters. It represents the employer company name.</p>
+                        <p><b>Company URL:</b> This field is nullable. It is a URL field that represents the employer company website URL.</p>
+                        <p><b>Application URL:</b> This field is nullable. It is a URL field that represents the application-specific URL related to the employer.</p>
+                        <p><b>Email:</b> This field is required. It is a email field with a maximum character limit of 255. The entered value must follow the standard email format (e.g., user@example.com) and represents the employer's email.</p>
+                        <p><b>Job Type:</b> This field is required. It is a set of radio buttons. It is used to specify the job type for this job.</p>
+                        <p><b>Salary:</b> This field is required when the salary type is not negotiable. Here, the number fields should represent the salary range, and the option field should represent the salary type.</p>
+                        <p><b>Deadline:</b> This field is required. It is a date field that represents the deadline for this job.</p>
+                        <p><b>Number of Vacancy:</b> This field is required. It is a number field representing the vacancy for this job.</p>
+                        <p><b>Educational Requirement:</b> This field is nullable. It is a text field with character limit of 255 characters. It represents the educational requirements for this job.</p>
+                        <p><b>Professional Requirement:</b> This field is nullable. It is a text field with character limit of 255 characters. It represents the professional requirements for this job.</p>
+                        <p><b>Experience Requirement:</b> This field is nullable. It is a number field. It represents the experience requirements in years for this job.</p>
+                        <p><b>Age Requirement:</b> This field is nullable. It is a number field. It represents the age requirements in years for this job.</p>
+                        <p><b>Company Address:</b> This field is required. It is a textarea field with character limit of 300 characters. It represents the address of the employer company.</p>
+                        <p><b>Job Responsibility:</b> This field is required. It is a textarea field. It represents the job responsibilities for this job.</p>
+                        <p><b>Additional Requirement:</b> This field is nullable. It is a textarea field. It represents the additional requirements for this job.</p>
+                        <p><b>Job Location:</b> This field is required. It is a textarea field with character limit of 300 characters. It represents the job location for this job.</p>
+                        <p><b>Other Benefits:</b> This field is nullable. It is a textarea field. It represents the other benefits for this job.</p>
+                        <p><b>Special Instructions:</b> This field is nullable. It is a textarea field. It represents the special instructions for this job.</p>
+                        <p><b>Notify All Members:</b> This is a checkbox. This checkbox determines whether to receive email notifications for this Job Opportunity.</p>
                     </div>
                 </div>
             </div>
@@ -204,12 +223,14 @@
 
 @push('js')
     <script>
-        $(document).ready(function(){
+       $(document).ready(function(){
             $('.salary_type').on('change', function(){
                 if($(this).val() == "Negotiable"){
                     $('.salary_input').prop('disabled', true);
+                    $('.required').hide();
                 } else {
                     $('.salary_input').prop('disabled', false);
+                    $('.required').show();
                 }
             });
         });

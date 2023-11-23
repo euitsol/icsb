@@ -66,10 +66,14 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{ _('Committee') }}
+                        <b>{{ _('Committee') }}</b>
                     </p>
                     <div class="card-description">
-                        {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                        <p><b>Committee Title:</b> This field is required and unique. It is a text field with character limit of 255 characters.</p>
+                        <p><b>Committee Type:</b> This field is required. This is an option field. It represents this committee type.</p>
+                        <p><b>Order:</b> This field is required and unique. It is a number field. It manages the order of the Committee</p>
+                        <p><b>Slug:</b> This field is required and unique. It is an auto-generated field from the Committee Title. It represents the URL of the Committee.</p>
+                        <p><b>Description:</b> This field is nullable. It is a textarea field</p>
                     </div>
                 </div>
             </div>
