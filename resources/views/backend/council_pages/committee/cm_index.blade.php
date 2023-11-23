@@ -35,7 +35,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($committee->committe_members as $committee_member)
+                                @foreach($committee_members as $committee_member)
                                     <tr>
                                         <td> {{ $committee_member->order_key }} </td>
                                         <td> {{ $committee_member->member->name }} </td>

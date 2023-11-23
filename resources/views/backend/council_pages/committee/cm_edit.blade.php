@@ -62,10 +62,12 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{$cm->committe->title}}{{ _(' Member') }}
+                        <b>{{$cm->committe->title}}{{ _(' Member') }}</b>
                     </p>
                     <div class="card-description">
-                        {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                        <p><b>Member:</b> This field is required.  This is an option field. It represents the Committee Member.</p>
+                        <p><b>Committee Member Type:</b> This field is required.  This is an option field. It represents the Committee Member Type.</p>
+                        <p><b>Order:</b> This field is required and unique. It is a number field. It manages the order of the Committee Members</p>
                     </div>
                 </div>
             </div>

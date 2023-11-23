@@ -74,10 +74,10 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{$committee->title}}{{ _(' Member') }}
+                        <b>{{$committee->title}}{{ _(' Member') }}</b>
                     </p>
                     <div class="card-description">
-                        {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                        <p><b>Member-* :</b> This field is required.  The Select Committee Member option represents the members, the Select Committee Member Type represents the type of the council member and the Select Committee Member Order option represents the order of the committee members. New committee member can be added by clicking on the '+' icon</p>
                     </div>
                 </div>
             </div>
