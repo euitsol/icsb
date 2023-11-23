@@ -56,10 +56,13 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{ _('Council Member Type') }}
+                        <b>{{ _('Council Member Type') }}</b>
                     </p>
                     <div class="card-description">
-                        {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                        <p><b>Council Member Type:</b> This field is required. This is a text field. It represents the Council Member type.</p>
+                        <p><b>Order:</b> This field is required and unique. It is a number field. It manages the order of the Council Member Type</p>
+                        <p><b>Slug:</b> This field is required and unique. It is an auto-generated field from the Council Member Type. It represents the URL of the Council Member Type.</p>
+                        <p><b>Description(optional):</b> This field is nullable. It is a textarea field</p>
                     </div>
                 </div>
             </div>
