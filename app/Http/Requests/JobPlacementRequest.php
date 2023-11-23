@@ -42,10 +42,10 @@ class JobPlacementRequest extends FormRequest
             ],
 
             'deadline' => 'required|date|after:today',
-            'company_address'=>'required',
+            'company_address'=>'required|max:300',
             'job_responsibility'=>'required',
            ' additional_requirement'=>'nullable',
-            'job_location'=>'required',
+            'job_location'=>'required|max:300',
            ' other_benefits'=>'nullable',
             'special_instractions'=>'nullable',
             'educational_requirement'=>'nullable',

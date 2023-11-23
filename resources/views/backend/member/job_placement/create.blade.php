@@ -83,7 +83,7 @@
                             </div>
 
                             <div class="form-group row {{ $errors->has('salary') ? ' has-danger' : '' }} {{ $errors->has('salary.*') ? ' has-danger' : '' }} {{ $errors->has('salary_type') ? ' has-danger' : '' }}">
-                                <label class="col-md-12">Salary</label>
+                                <label class="col-md-12">{{_('Salary ')}} <span class="text-danger required">*</span></label>
                                 <div class="col-md-12">
                                     <div class="input-group">
                                             <input type="number" class="form-control salary_input" name="salary[from]" value="{{ old('salary.from') }}">
@@ -190,10 +190,29 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{ _('Job Placement') }}
+                        <b>{{ _('Job Placement') }}</b>
                     </p>
                     <div class="card-description">
-                        {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                        <p><b>Job Title:</b> This field is required. It is a text field with character limit of 255 characters.</p>
+                        <p><b>Company Name:</b> This field is required. It is a text field with character limit of 255 characters. It represents the employer company name.</p>
+                        <p><b>Company URL:</b> This field is nullable. It is a URL field that represents the employer company website URL.</p>
+                        <p><b>Application URL:</b> This field is nullable. It is a URL field that represents the application-specific URL related to the employer.</p>
+                        <p><b>Email:</b> This field is required. It is a email field with a maximum character limit of 255. The entered value must follow the standard email format (e.g., user@example.com) and represents the employer's email.</p>
+                        <p><b>Job Type:</b> This field is required. It is a set of radio buttons. It is used to specify the job type for this job.</p>
+                        <p><b>Salary:</b> This field is required when the salary type is not negotiable. Here, the number fields should represent the salary range, and the option field should represent the salary type.</p>
+                        <p><b>Deadline:</b> This field is required. It is a date field that represents the deadline for this job.</p>
+                        <p><b>Number of Vacancy:</b> This field is required. It is a number field representing the vacancy for this job.</p>
+                        <p><b>Educational Requirement:</b> This field is nullable. It is a text field with character limit of 255 characters. It represents the educational requirements for this job.</p>
+                        <p><b>Professional Requirement:</b> This field is nullable. It is a text field with character limit of 255 characters. It represents the professional requirements for this job.</p>
+                        <p><b>Experience Requirement:</b> This field is nullable. It is a number field. It represents the experience requirements in years for this job.</p>
+                        <p><b>Age Requirement:</b> This field is nullable. It is a number field. It represents the age requirements in years for this job.</p>
+                        <p><b>Company Address:</b> This field is required. It is a textarea field with character limit of 300 characters. It represents the address of the employer company.</p>
+                        <p><b>Job Responsibility:</b> This field is required. It is a textarea field. It represents the job responsibilities for this job.</p>
+                        <p><b>Additional Requirement:</b> This field is nullable. It is a textarea field. It represents the additional requirements for this job.</p>
+                        <p><b>Job Location:</b> This field is required. It is a textarea field with character limit of 300 characters. It represents the job location for this job.</p>
+                        <p><b>Other Benefits:</b> This field is nullable. It is a textarea field. It represents the other benefits for this job.</p>
+                        <p><b>Special Instructions:</b> This field is nullable. It is a textarea field. It represents the special instructions for this job.</p>
+                        <p><b>Notify All Members:</b> This is a checkbox. This checkbox determines whether to receive email notifications for this Job Opportunity.</p>
                     </div>
                 </div>
             </div>
@@ -207,8 +226,10 @@
             $('.salary_type').on('change', function(){
                 if($(this).val() == "Negotiable"){
                     $('.salary_input').prop('disabled', true);
+                    $('.required').hide();
                 } else {
                     $('.salary_input').prop('disabled', false);
+                    $('.required').show();
                 }
             });
         });
