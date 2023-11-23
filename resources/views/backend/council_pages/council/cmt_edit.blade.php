@@ -64,9 +64,9 @@
                         <b>{{ _('Council Member Type') }}</b>
                     </p>
                     <div class="card-description">
-                        <p><b>Council Member Type:</b> This field is required. This is a text field. It represents the Council Member type.</p>
+                        <p><b>Council Member Type:</b> This field is required. It is a text field with character limit of 255 characters. It represents the Council Member type.</p>
                         <p><b>Order:</b> This field is required and unique. It is a number field. It manages the order of the Council Member Type</p>
-                        <p><b>Slug:</b> This field is required and unique. It is an auto-generated field from the Council Member Type. It represents the URL of the Council Member Type.</p>
+                        <p><b>Slug:</b> This field is required and unique. It is an auto-generated field from the Council Member Type. It represents the URL of the Council.</p>
                         <p><b>Description(optional):</b> This field is nullable. It is a textarea field</p>
                     </div>
                 </div>
