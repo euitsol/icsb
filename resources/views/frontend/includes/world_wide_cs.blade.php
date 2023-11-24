@@ -9,12 +9,12 @@
                     @forelse ($wwcss as $wwcs)
                         <a href="{{$wwcs->url}}" target="_blank">
                             <div class="item">
-                                <img src="{{storage_url($wwcs->logo)}}" alt="{{$wwcs->title}}">
+                                <img src="{{storage_url($wwcs->logo)}}" alt="{{$wwcs->title}}" loading="lazy">
                             </div>
                         </a>
                     @empty
                         <div class="item">
-                            <img src="{{ asset('no_img/no_img.jpg') }}" alt=".....">
+                            <img src="{{ asset('no_img/no_img.jpg') }}" alt="....." loading="lazy">
                         </div>
                     @endforelse
                 </div>
