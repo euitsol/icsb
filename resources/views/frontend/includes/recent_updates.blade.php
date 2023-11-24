@@ -10,7 +10,7 @@
                     @foreach ($media_rooms as $media_room)
                         <div class="item">
                             <div class="logo-wrapp">
-                                <a href="{{route('media_room_view.view',$media_room->slug)}}" class="w-100"><img class="w-100" src="{{ storage_url($media_room->thumbnail_image) }}" alt="{{$media_room->title}}"></a>
+                                <a href="{{route('media_room_view.view',$media_room->slug)}}" class="w-100"><img class="w-100" src="{{ storage_url($media_room->thumbnail_image) }}" alt="{{$media_room->title}}" loading="lazy"></a>
                                 <div class="post-content">
                                     <ul>
                                         <li><i class="fa-solid fa-file-import"></i>Latest News</li>
