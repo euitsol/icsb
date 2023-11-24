@@ -10,7 +10,7 @@
                 </div>
             </div>
 
-                <video autoplay loop muted id="myVideo" class="video-banner" poster="{{ asset('frontend/img/banner-video-poster.png') }}">
+                <video autoplay loop muted playsinline id="myVideo" class="video-banner" poster="{{ asset('frontend/img/banner-video-poster.png') }}">
                     <source src="{{ route('banner-video.show', base64_encode(json_decode($banner_video->saved_data)->{'upload-video'})) }}" type="video/mp4">
                 </video>
 
