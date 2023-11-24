@@ -14,8 +14,6 @@
 	<!------------- Font Family ----------------->
 	<link rel="preload" as="font" href="https://fonts.googleapis.com">
 	<link rel="preload" as="font" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="preload" as="font" href="https://fonts.googleapis.com">
-	<link rel="preload" as="font" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="font" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Teko:wght@300;400;500;600;700&display=swap">
 	<link rel="preload" as="font" href="https://fonts.googleapis.com">
 	<link rel="preload" as="font" href="https://fonts.gstatic.com" crossorigin>
