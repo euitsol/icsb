@@ -82,7 +82,7 @@
         <div class="container wrap">
             <div class="president-column flex">
                 <div class="left-column">
-                    <img src="{{getMemberImage($president->member)}}" alt="{{_('President Image')}}">
+                    <img src="{{getMemberImage($president->member)}}" alt="{{_('President Image')}}" loading="lazy">
                     <div class="president-info text-align color-white">
                         <a href="{{route('council_view.president')}}" class="text-white"><h3>{{$president->member->name}}</h3></a>
                         <p>{{$president->designation}}</p>
