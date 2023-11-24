@@ -12,7 +12,7 @@
                         @foreach ($events as $event)
                             <div class="item">
                                 <div class="logo_image">
-                                    <img src="{{asset('frontend/img/cldr.png')}}" alt="{{$event->title}}">
+                                    <img src="{{asset('frontend/img/cldr.png')}}" alt="{{$event->title}}" loading="lazy">
                                     <h3 class="month">{{ date('F', strtotime($event->event_start_time))}}</h3>
                                     <h3 class="date">{{ date('d', strtotime($event->event_start_time))}}</h3>
                                     <h3 class="day">{{ date('l', strtotime($event->event_start_time))}}</h3>
