@@ -65,7 +65,7 @@
 
 
                                 @foreach (json_decode($who_we_are->saved_data)->{'slider-images'} as $key=>$image)
-                                    <img class="image-border associate-image image-loop" style="display: none;" src="{{storage_url($image)}}" data-bg-color="{{ $colors[$key % count($colors)] }}" alt="" />
+                                    <img class="image-border associate-image image-loop" style="display: none;" src="{{storage_url($image)}}" data-bg-color="{{ $colors[$key % count($colors)] }}" alt="" loading="lazy"/>
                                 @endforeach
 
                         </div>
