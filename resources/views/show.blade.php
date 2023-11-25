@@ -256,7 +256,7 @@
         <div class="col-md-4">
             <div class="card card-user">
                 <div class="card-body">
-                    <p class="card-text">
+                    <p class="card-text" style="font-weight: 600;">
                         {{ _(json_decode($details->documentation)->title ?? '') }}
                     </p>
                     <div class="card-description content-description">

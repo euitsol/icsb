@@ -144,10 +144,17 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{ _('Media Room') }}
+                        <b>{{ _('Media Room') }}</b>
                     </p>
                     <div class="card-description">
-                        {{ _('The faq\'s manages user permissions by assigning different faqs to users. Each faq defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                        <p><b>Title:</b> This field is required and unique. It is a text field with character limit of 255 characters.</p>
+                        <p><b>Slug:</b> This field is required and unique. It is an auto-generated field from the Title. It represents the URL of the Media Room.</p>
+                        <p><b>Program Date:</b> This field is required. It is a date field.</p>
+                        <p><b>Category:</b> This field is required. This is an option field. It represents the category of the Media Room.</p>
+                        <p><b>Thumbnail Image:</b> This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 1200 x 800px.</p>
+                        <p><b>Additional Images:</b> This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 750 x 750px. You can select multiple images by pressing the 'SHIFT/CTRL' key.
+                        <p><b>File-* :</b> This field is nullable.  The name field should be the file name. It supports file uploads in pdf, doc, docx, xls, xlsx, ppt, pptx, odt, ods, odp format. By clicking on the '+' icon you can upload multiple files.</p>
+                        <p><b>Description:</b> This field is required. It is a textarea field.</p>
                     </div>
                 </div>
             </div>

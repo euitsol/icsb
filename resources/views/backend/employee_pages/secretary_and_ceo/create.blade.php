@@ -92,10 +92,14 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{ _('Secretary & CEO') }}
+                        <b>{{ _('Secretary & CEO') }}</b>
                     </p>
                     <div class="card-description">
-                        {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                        <p><b>Member:</b> This field is required. It is a text field with character limit of 255 characters.</p>
+                        <p><b>Slug:</b> This field is required and unique. It is an auto-generated field from the Member. It represents the URL of the Secretary & CEO.</p>
+                        <p><b>Duration-* :</b> This is a date field. It represents the duration of the Secretary & CEO. New duration can be added by clicking on the '+' icon. For present Secretary & CEO end date should be either empty or the actual end date.</p>
+                        <p><b>Secretary & CEO Bio:</b> This field is required. It is a textarea field.</p>
+                        <p><b>Secretary & CEO Message:</b> This field is nullable. It is a textarea field.</p>
                     </div>
                 </div>
             </div>

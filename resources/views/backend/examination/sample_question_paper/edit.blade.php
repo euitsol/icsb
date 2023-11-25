@@ -107,10 +107,13 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{ _('Sample Question Paper') }}
+                        <b>{{ _('Sample Question Paper') }}</b>
                     </p>
                     <div class="card-description">
-                        {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                        <p><b>Title:</b> This field is required and unique. It is a text field with character limit of 255 characters.</p>
+                        <p><b>Order:</b> This field is required and unique. It is a number field. It manages the order of the Sample Question Papers.</p>
+                        <p><b>Slug:</b> This field is required and unique. It is an auto-generated field from the Title. It represents the URL of the Sample Question Papers.</p>
+                        <p><b>File-* :</b> This field is nullable.  The name field should be the file name. It supports file uploads in pdf, doc, docx, xls, xlsx, ppt, pptx, odt, ods, odp format. By clicking on the '+' icon you can upload multiple files.</p>
                     </div>
                 </div>
             </div>

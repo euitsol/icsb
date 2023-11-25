@@ -18,7 +18,7 @@ class NationalAwardRequest extends FormRequest
         return [
             'description' => 'nullable|max:10000',
             'status' => 'nullable|boolean',
-            'file' => 'nullable|file|mimes:jpg,png,pdf,doc,docx,xls,xlsx,ppt,pptx,odt,ods,odp',
+            'file' => 'nullable|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx,odt,ods,odp',
 
         ]
         +

@@ -14,7 +14,7 @@
                     <div class="card-body">
                             <div class="row">
                                 <div class="col-md-8 form-group {{ $errors->has('name') ? ' has-danger' : '' }}">
-                                    <label>{{ _('name') }}</label>
+                                    <label>{{ _('Name') }}</label>
                                     <input type="text" name="name" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter Name') }}" value="{{ old('name') }}">
                                     @include('alerts.feedback', ['field' => 'name'])
                                 </div>
@@ -44,7 +44,7 @@
                            </div>
 
                             <div class="form-group {{ $errors->has('designation') ? ' has-danger' : '' }}">
-                                <label>{{ _('designation') }}</label>
+                                <label>{{ _('Designation') }}</label>
                                 <input type="text" name="designation" class="form-control {{ $errors->has('designation') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter Designation') }}" value="{{ old('designation') }}">
                                 @include('alerts.feedback', ['field' => 'designation'])
                             </div>
@@ -72,10 +72,16 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{ _('Assigned Officer') }}
+                        <b>{{ _('Assigned Officer') }}</b>
                     </p>
                     <div class="card-description">
-                        {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                        <p><b>Name:</b> This field is required. It is a text field with character limit of 255 characters.</p>
+                        <b>Order:</b> This field is required and unique. It is a number field. It manages the order of the Assigned Officers</p>
+                        <b>Image:</b> This field is required. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 400 x 450px.</p>
+                        <p><b>Designation:</b> This field is required. It is a text field with character limit of 255 characters. It represents the designation of the assigned officers</p>
+                        <p><b>Phone:</b> This field is required & unique. It represents the contact number of the assigned officers</p>
+                        <p><b>Email:</b> This field is required & unique. It is a email field with a maximum character limit of 255. The entered value must follow the standard email format (e.g., user@example.com) and represents the email of the assigned officers.</p>
+                         
                     </div>
                 </div>
             </div>

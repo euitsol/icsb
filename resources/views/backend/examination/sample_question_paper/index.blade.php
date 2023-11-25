@@ -36,7 +36,7 @@
                                     <tr>
                                         <td> {{ $sqp->order_key }} </td>
                                         <td> {{ $sqp->title }} </td>
-                                        <td>
+                                        <td style="line-height: 33px">
                                             @if(!empty(json_decode($sqp->files)))
                                                 @foreach ( json_decode($sqp->files) as $file )
                                                     {{-- <a href="{{route('download',base64_encode($file->file_path))}}" class="btn btn-info btn-sm mb-2">{{basename($file->file_path)}}<i class="fa-regular fa-circle-down ml-2"></i></a><br> --}}

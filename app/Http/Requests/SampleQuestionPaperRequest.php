@@ -16,7 +16,7 @@ class SampleQuestionPaperRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'file.*.file_path' => 'nullable|file|mimes:jpg,png,pdf,doc,docx,xls,xlsx,ppt,pptx,odt,ods,odp',
+            'file.*.file_path' => 'nullable|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx,odt,ods,odp',
             'file.*.file_name' => 'nullable|string',
         ]
         +
