@@ -47,10 +47,13 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{ _('Convocation') }}
+                        <b>{{ _('Convocation') }}</b>
                     </p>
                     <div class="card-description">
-                        {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                        <p><b>Title:</b> This field is required and unique. It is a text field with character limit of 255 characters.</p>
+                        <p><b>Image:</b> This field is required. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 350 x 450px.</p>
+                        <p><b>File:</b> This field is nullable. It supports file uploads in pdf, doc, docx, xls, xlsx, ppt, pptx, odt, ods, and odp format.</p>
+                        <p><b>Description(optional):</b> This field is nullable. It is a textarea field.</p>
                     </div>
                 </div>
             </div>
