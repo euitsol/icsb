@@ -92,10 +92,14 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{ _('Secretary & CEO') }}
+                        <b>{{ _('Secretary & CEO') }}</b>
                     </p>
                     <div class="card-description">
-                        {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                        <p><b>Member:</b> This field is required. It is a text field with character limit of 255 characters.</p>
+                        <p><b>Slug:</b> This field is required and unique. It is an auto-generated field from the Member. It represents the URL of the Secretary & CEO.</p>
+                        <p><b>Duration-* :</b> This is a date field. It represents the duration of the Secretary & CEO. New duration can be added by clicking on the '+' icon. For present Secretary & CEO end date should be either empty or the actual end date.</p>
+                        <p><b>Secretary & CEO Bio:</b> This field is required. It is a textarea field.</p>
+                        <p><b>Secretary & CEO Message:</b> This field is nullable. It is a textarea field.</p>
                     </div>
                 </div>
             </div>
@@ -106,49 +110,98 @@
 @push('js')
 <script>
     function generateSlug(str) {
-        return str
-            .toLowerCase()
-            .replace(/\s+/g, "-")
-            .replace(/[^\w-]+/g, "")
-            .replace(/--+/g, "-")
-            .replace(/^-+|-+$/g, "");
+        console.log(str);
+        if (typeof str !== 'string') {
+        return '';
     }
-    $(document).ready(function () {
-        $('#memberSelect').on('change', function () {
-            const selectedMemberId = $(this).val();
-            let _url = ("{{ route('m.info', ['member_id']) }}");
-            let __url = _url.replace('member_id', selectedMemberId);
-            $.ajax({
-                url: __url,
-                method: 'GET',
-                dataType: 'json',
-                success: function (data) {
-                    console.log(data);
-                    const slugValue = generateSlug(data.name);
-                    $("#slug").val(slugValue);
-                    $('#memberInfo').html(`
+
+    return str
+        .toLowerCase()
+        .replace(/\s+/g, "-")
+        .replace(/[^\w-]+/g, "")
+        .replace(/--+/g, "-")
+        .replace(/^-+|-+$/g, "");
+    }
+    // $(document).ready(function () {
+    //     $('#memberSelect').on('change', function () {
+    //         const selectedMemberId = $(this).val();
+    //         let _url = ("{{ route('m.info', ['member_id']) }}");
+    //         let __url = _url.replace('member_id', selectedMemberId);
+    //         $.ajax({
+    //             url: __url,
+    //             method: 'GET',
+    //             dataType: 'json',
+    //             success: function (data) {
+    //                 console.log(data);
+    //                 const slugValue = generateSlug(data.member.name);
+    //                 $("#slug").val(slugValue);
+    //                 $('#memberInfo').html(`
+    //                 <div class='col-md-2 text-center'>
+    //                     <img class="rounded" width="100" src="${data.member.image}">
+    //                 </div>
+    //                 <div class='col-md-10'>
+    //                     <div class="form-group">
+    //                         <label>{{ _('Designation') }}</label>
+    //                         <input type="text" class="form-control" value="${data.member.designation}" disabled>
+    //                     </div>
+    //                     <div class="form-group">
+    //                         <label>{{ _('Email') }}</label>
+    //                         <input type="text" class="form-control" value="${data.member.email}" disabled>
+    //                     </div>
+    //                 </div>
+
+    //                 `);
+    //             },
+    //             error: function (xhr, status, error) {
+    //                 console.error('Error fetching member data:', error);
+    //             }
+    //         });
+    //     });
+    // });
+$(document).ready(function () {
+    function updateMemberInfo(selectedMemberId) {
+        let _url = ("{{ route('m.info', ['member_id']) }}");
+        let __url = _url.replace('member_id', selectedMemberId);
+        $.ajax({
+            url: __url,
+            method: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                const slugValue = generateSlug(data.member.name);
+                $("#slug").val(slugValue);
+                $('#memberInfo').html(`
                     <div class='col-md-2 text-center'>
-                        <img class="rounded" width="100" src="{{ storage_url('${data.image}')}}">
+                        <img class="rounded" width="100" src="${data.member.image}">
                     </div>
                     <div class='col-md-10'>
                         <div class="form-group">
                             <label>{{ _('Designation') }}</label>
-                            <input type="text" class="form-control" value="${data.designation}" disabled>
+                            <input type="text" class="form-control" value="${data.member.designation}" disabled>
                         </div>
                         <div class="form-group">
                             <label>{{ _('Email') }}</label>
-                            <input type="text" class="form-control" value="${data.email}" disabled>
+                            <input type="text" class="form-control" value="${data.member.email}" disabled>
                         </div>
                     </div>
-
-                    `);
-                },
-                error: function (xhr, status, error) {
-                    console.error('Error fetching member data:', error);
-                }
-            });
+                `);
+            },
+            error: function (xhr, status, error) {
+                console.error('Error fetching member data:', error);
+            }
         });
+    }
+
+    // Call the function on page load
+    const initialSelectedMemberId = $('#memberSelect').val();
+    updateMemberInfo(initialSelectedMemberId);
+
+    // Call the function when memberSelect changes
+    $('#memberSelect').on('change', function () {
+        const selectedMemberId = $(this).val();
+        updateMemberInfo(selectedMemberId);
     });
+});
 
 
     $(function() {
