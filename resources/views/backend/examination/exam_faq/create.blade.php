@@ -56,7 +56,9 @@
                         {{ _('Exam FAQ') }}
                     </p>
                     <div class="card-description">
-                        {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                        <p><b>FAQ Title:</b> This field is required and unique. It is a text field with character limit of 255 characters.</p>
+                        <p><b>FAQ Order:</b> This field is required and unique. It is a number field. It manages the order of the FAQ.</p>
+                        <p><b>Description:</b> This field is required. It is a textarea field.</p></p>
                     </div>
                 </div>
             </div>
