@@ -1,5 +1,5 @@
 <section class="banner-section" style="background: ">
-    {{-- @if(isset($banner_video) && isset(json_decode($banner_video->saved_data)->{'upload-video'}) && isset(json_decode($banner_video->saved_data)->{'banner-title'}))
+    @if(isset($banner_video) && isset(json_decode($banner_video->saved_data)->{'upload-video'}) && isset(json_decode($banner_video->saved_data)->{'banner-title'}))
         <div class="video-container">
             <div class="content">
                 <h3>{{ json_decode($banner_video->saved_data)->{'banner-title'} }}</h3>
@@ -10,15 +10,16 @@
                 </div>
             </div>
 
-                <video autoplay loop muted playsinline id="myVideo" class="video-banner" poster="{{ asset('frontend/img/banner-video-poster.png') }}" preload="metadata">
+                {{-- <video autoplay loop muted playsinline id="myVideo" class="video-banner" poster="{{ asset('frontend/img/banner-video-poster.png') }}" preload="metadata">
                     <source src="{{ route('banner-video.show', base64_encode(json_decode($banner_video->saved_data)->{'upload-video'})) }}" type="video/mp4">
-                </video>
+                </video> --}}
+                <img src="{{asset('banner_test/1.webp')}}" alt="">
 
-            <progress id="videoProgress" value="0" max="100"></progress>
+            {{-- <progress id="videoProgress" value="0" max="100"></progress>
             <button id="volumeButton" class="volume-icon"><i class="fas fa-volume-xmark" id="icon"></i></button>
-            <button id="playPauseButton" class="play-pause-icon"><i class="fas fa-pause"></i></button>
+            <button id="playPauseButton" class="play-pause-icon"><i class="fas fa-pause"></i></button> --}}
         </div>
-    @else --}}
+    @else
         <div id="carouselExampleCaptions" class="carousel slide">
             <div class="carousel-indicators">
                 @if(isset($banner->images))
@@ -51,7 +52,7 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-    {{-- @endif --}}
+    @endif
 
 
     <aside class="socila-media-sidebar">
