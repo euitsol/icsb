@@ -9,7 +9,7 @@
 @section('content')
 <div class="">
     <a href="{{route('member_view.job_index')}}" class="stiky-box bubble">
-        <img src="{{asset('fixed_image/stiky_image.jpg')}}" alt="">
+        <img src="{{asset('fixed_image/stiky_image.png')}}" alt="">
     </a>
 </div>
 {{-- Banner Section --}}
