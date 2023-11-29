@@ -135,7 +135,7 @@
                         <p><b>Event Title:</b> This field is required and unique. It is a text field with character limit of 255 characters.</p>
                         <p><b>Slug:</b> This field is required and unique. It is an auto-generated field from the Title. It represents the URL of the Event.</p>
                         <p><b>Total Perticipant:</b> This field is nullable. It is a number field.</p>
-                        <p><b>Event Images:</b> This field is required. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 500 x 500px. You can select multiple images by pressing the 'SHIFT/CTRL' key.</p>
+                        <p><b>Event Images:</b> This field is required. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 5MB. The dimensions of the image should be 1200 x 800px. You can select multiple images by pressing the 'SHIFT/CTRL' key.</p>
                         <p><b>Event Video(Youtube URL):</b> This field is nullable. It is a URL field. Please ensure that you enter a valid URL for either a YouTube or Vimeo video.</p>
                         <p><b>Event Start Time:</b> This field is required. It is a datetime field.</p>
                         <p><b>Event End Time:</b> This field is nullable. It is a datetime field.</p>

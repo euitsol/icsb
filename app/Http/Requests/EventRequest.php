@@ -46,7 +46,7 @@ class EventRequest extends FormRequest
             'title' => 'required|unique:events,title,NULL,id,deleted_at,NULL',
             'slug' => 'required|unique:events,slug,NULL,id,deleted_at,NULL',
             'image' => 'required|array',
-            'image.*' => 'image|mimes:mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image.*' => 'image|mimes:mimes:jpeg,png,jpg,gif,svg|max:5000|dimensions:max_width=1200,max_height=800,min_width=1200,min_height=800',
         ];
     }
 
@@ -56,7 +56,7 @@ class EventRequest extends FormRequest
             'title' => 'required|unique:events,title,' . $this->route('id') . ',id,deleted_at,NULL',
             'slug' => 'required|unique:events,slug,' . $this->route('id') . ',id,deleted_at,NULL',
             'image' => 'nullable|array',
-            'image.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5000|dimensions:max_width=1200,max_height=800,min_width=1200,min_height=800',
         ];
     }
 }

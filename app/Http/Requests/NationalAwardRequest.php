@@ -29,7 +29,7 @@ class NationalAwardRequest extends FormRequest
     {
         return [
             'title' => 'required|unique:national_awards,title,NULL,id,deleted_at,NULL',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:max_width=350,max_height=450,min_width=350,min_height=450',
         ];
     }
 
@@ -37,7 +37,7 @@ class NationalAwardRequest extends FormRequest
     {
         return [
             'title' => 'required|unique:national_awards,title,' . $this->route('id') . ',id,deleted_at,NULL',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:max_width=350,max_height=450,min_width=350,min_height=450',
         ];
     }
 }
