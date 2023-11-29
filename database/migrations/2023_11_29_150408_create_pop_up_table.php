@@ -11,7 +11,7 @@ return new class extends Migration
 
     public function up(): void
     {
-        Schema::create('pop_ups', function (Blueprint $table) {
+        Schema::create('pop_up', function (Blueprint $table) {
             $table->id();
             $table->string('image');
             $table->string('url')->nullable();
@@ -25,6 +25,6 @@ return new class extends Migration
 
     public function down(): void
     {
-         Schema::dropIfExists('pop_ups');
+         Schema::dropIfExists('pop_up');
     }
 };
