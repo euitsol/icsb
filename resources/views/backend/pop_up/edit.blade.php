@@ -57,8 +57,8 @@
                         <b>{{ _('Pop Up') }}</b>
                     </p>
                     <div class="card-description">
-                        <p><b>Order:</b> This field is required. It is a number field. It manages the order of the Pop Up</p>
                         <p><b>Image:</b> This field is nullable. It supports file uploads in jpeg, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 1200 x 800px and it should have a white background.</p>
+                        <p><b>Order:</b> This field is required. It is a number field. It manages the order of the Pop Up</p>
                         <p><b>URL:</b> This field is nullable. It is a URL field.</p>
                     </div>
                 </div>
