@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BannerImageRequest extends FormRequest
+class PopUpRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -16,7 +16,7 @@ class BannerImageRequest extends FormRequest
     public function rules(): array
     {
         return [
-
+            'url' => 'nullable|url',
         ]
         +
         ($this->isMethod('POST') ? $this->store() : $this->update());
@@ -25,16 +25,16 @@ class BannerImageRequest extends FormRequest
     protected function store(): array
     {
         return [
-            'images' => 'required|array',
-            'images.*' => 'image|mimes:mimes:jpeg,png,jpg,gif,svg|max:5000|dimensions:max_width=1920,max_height=700,min_width=1920,min_height=700',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=1200,min_height=800',
+            'order_key' => 'required|unique:pop_up,order_key,NULL,id,deleted_at,NULL',
         ];
     }
 
     protected function update(): array
     {
         return [
-            'images' => 'nullable|array',
-            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5000',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=1200,min_height=800',
+            'order_key' => 'required|unique:pop_up,order_key,' . $this->route('id') . ',id,deleted_at,NULL',
         ];
     }
 }

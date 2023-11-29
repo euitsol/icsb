@@ -71,7 +71,7 @@
                         <b>{{ _('Upload Banner Image') }}</b>
                     </p>
                     <div class="card-description">
-                        <p><b>Upload Image-* :</b> This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 5MB. The dimensions of the image should be 1200 x 800px. By clicking on the '+image' button you can upload multiple images </p>
+                        <p><b>Upload Image-* :</b> This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 5MB. The dimensions of the image should be 1920 x 700px. By clicking on the '+image' button you can upload multiple images </p>
                     </div>
                 </div>
             </div>
