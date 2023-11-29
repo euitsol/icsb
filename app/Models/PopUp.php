@@ -11,4 +11,5 @@ class PopUp extends BaseModel
     use HasFactory;
 
     public $guarded = [];
+    protected $table = 'pop_ups';
 }
