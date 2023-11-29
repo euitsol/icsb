@@ -113,7 +113,7 @@
 @include('frontend.includes.national_connection',['national_connections'=>$national_connections])
 
 
- <!-- Pop Up Modal -->
+ {{-- <!-- Pop Up Modal -->
  @if(isset($pop_up) && isset(json_decode($pop_up->saved_data)->{'upload-image'}))
  <div class="modal fade pop_up_modal" id="view-modal" data-bs-keyboard="false" tabindex="-1"
  aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -122,6 +122,39 @@
 
             <div class="modal-body">
                 <a href="{{isset(json_decode($pop_up->saved_data)->{'url'}) ? json_decode($pop_up->saved_data)->{'url'} : 'javascript:void(0)' }}"><img src="{{storage_url(json_decode($pop_up->saved_data)->{'upload-image'})}}" alt="Pop Up Notice Not Found"></a>
+                <button type="button" class="close pop_up_close" data-bs-dismiss="modal" aria-label="Close" ><i class="fa-solid fa-xmark fa-beat"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+@endif --}}
+ <!-- Pop Up Modal -->
+ @if(count($pop_ups)>0)
+ <div class="modal fade pop_up_modal" id="view-modal" data-bs-keyboard="false" tabindex="-1"
+ aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <div id="carouselExampleCaptions" class="carousel slide popUp" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        @foreach ($pop_ups as $key=>$pop_up)
+                            <div class="carousel-item @if($key == 0) active @endif">
+                                    <a href="{{$pop_up->url}}" class="d-block"><img style="min-height: 50vh" class="img-fluid" src="{{storage_url($pop_up->image)}}" alt="Pop Up Notice Not Found"></a>
+                            </div>
+                        @endforeach
+                    </div>
+                    @if(count($pop_ups)>1)
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                            <span><i class="fa-solid fa-chevron-left"></i></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                            <span><i class="fa-solid fa-chevron-right"></i></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    @endif
+                </div>
                 <button type="button" class="close pop_up_close" data-bs-dismiss="modal" aria-label="Close" ><i class="fa-solid fa-xmark fa-beat"></i></button>
             </div>
         </div>
@@ -147,7 +180,17 @@
     new WOW().init();
 </script>
 <script>
-    $( window ).on( "load", function() {
+
+    // $( window ).on( "load", function() {
+    //     if (shouldShowModal()) {
+    //         showNotificationModal();
+    //     }
+
+    //     $('.close').click(function() {
+    //         hideNotificationModal();
+    //     });
+    // });
+    $(document).ready(function() {
         if (shouldShowModal()) {
             showNotificationModal();
         }
@@ -155,6 +198,8 @@
         $('.close').click(function() {
             hideNotificationModal();
         });
+
+        $('#carouselExampleCaptions').carousel('cycle');
     });
 
     function showNotificationModal() {

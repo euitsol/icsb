@@ -167,6 +167,26 @@ table.gsc-search-box {
     background: transparent;
     color: red;
     font-size: 25px;
+    z-index: 9;
+}
+.popUp .carousel-control-prev,
+.popUp .carousel-control-next{
+    transition: .4s !important;
+    z-index: 1 !important;
+}
+.popUp .carousel-control-prev span,
+.popUp .carousel-control-next span{
+    color: black !important;
+    font-size: 2rem;
+}
+.popUp .carousel-control-prev:hover{
+    background-color: #939393b0  !important;
+}
+.popUp .carousel-control-next:hover{
+    background-color: #939393b0  !important;
+}
+.popUp .pop_up_close{
+    z-index: 9 !important;
 }
 
 
@@ -5518,6 +5538,8 @@ td {
 .copyright-section p a:hover {
     color: #FF8601;
 }
+
+
 
 
 

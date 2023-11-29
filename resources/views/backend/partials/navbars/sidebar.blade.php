@@ -95,7 +95,8 @@
                     <ul class="nav pl-2">
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
-                                ['pageSlug' => 'pop-up', 'routeName' => 'sp.show', 'params' =>'pop-up', 'label' => 'Pop Up'],
+                                // ['pageSlug' => 'pop-up', 'routeName' => 'sp.show', 'params' =>'pop-up', 'label' => 'Pop Up'],
+                                ['pageSlug' => 'pop-up', 'routeName' => 'pop_up.pop_up_list', 'label' => 'Pop Up'],
                                 ['pageSlug' => 'banner-video', 'routeName' => 'sp.show', 'params' =>'banner-video', 'label' => 'Banner Video'],
                                 ['pageSlug' => 'banner', 'routeName' => 'banner.banner_list', 'label' => 'Banner'],
                                 ['pageSlug' => 'who-we-are', 'routeName' => 'sp.show', 'params' =>'who-we-are', 'label' => 'Who we are'],

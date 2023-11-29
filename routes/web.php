@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\FaqController;
 use App\Http\Controllers\Backend\SecretarialStandardsController;
 use App\Http\Controllers\Backend\ContactController;
 use App\Http\Controllers\Backend\NationalConnectionController;
+use App\Http\Controllers\Backend\PopUpController;
 use App\Http\Controllers\Backend\EventController;
 use App\Http\Controllers\Backend\WWCSController;
 use App\Http\Controllers\Backend\NationalAwardController;
@@ -207,6 +208,16 @@ Route::group(['middleware' => ['auth', 'permission']], function () {
         Route::put('edit/{id}',      [NationalConnectionController::class, 'update'])->name('national_connection_edit');
         Route::get('status/{id}',      [NationalConnectionController::class, 'status'])->name('status.national_connection_edit');
         Route::get('delete/{id}', [NationalConnectionController::class, 'delete'])->name('national_connection_delete');
+    });
+    // Pop Up Routes
+    Route::group(['as' => 'pop_up.', 'prefix' => 'pop_up'], function () {
+        Route::get('index', [PopUpController::class, 'index'])->name('pop_up_list');
+        Route::get('create', [PopUpController::class, 'create'])->name('pop_up_create');
+        Route::post('create', [PopUpController::class, 'store'])->name('pop_up_create');
+        Route::get('edit/{id}',      [PopUpController::class, 'edit'])->name('pop_up_edit');
+        Route::put('edit/{id}',      [PopUpController::class, 'update'])->name('pop_up_edit');
+        Route::get('status/{id}',      [PopUpController::class, 'status'])->name('status.pop_up_edit');
+        Route::get('delete/{id}', [PopUpController::class, 'delete'])->name('pop_up_delete');
     });
 
     // Assined Officer Routes

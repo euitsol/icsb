@@ -25,6 +25,7 @@ use App\Models\SecretarialStandard;
 use App\Models\SinglePages;
 use App\Models\Testimonial;
 use App\Models\Visitor;
+use App\Models\PopUp;
 use Illuminate\Support\Carbon;
 use Illuminate\View\View;
 
@@ -89,6 +90,7 @@ class HomePageController extends Controller
         $s['testimonials'] = Testimonial::where('deleted_at', null)->where('status',1)->orderBy('order_key','ASC')->get();
         $s['latest_newses'] = LatestNews::where('deleted_at', null)->where('status',1)->orderBy('date','ASC')->get();
         $s['banner_video'] = SinglePages::where('frontend_slug', 'banner-video')->first();
+        $s['pop_ups'] = PopUp::where('deleted_at', null)->where('status',1)->orderBy('order_key','ASC')->get();
         return view('frontend.home',$s);
     }
 
