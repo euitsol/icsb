@@ -1308,8 +1308,9 @@ li {
 
 .we-are-section .container .image-column img {
     width: 100%;
-    object-fit: fill;
+    object-fit: cover;
     height: 100%;
+    min-height: 100%;
 }
 
 .we-are-section .we-are-coulmn .content-column h2 {
@@ -2087,7 +2088,7 @@ li {
     background: #F2F2F2;
 }
 #event-section .owl-carousel .owl-item img {
-
+    min-height: 200px;
 	width: 101%;
 }
 
