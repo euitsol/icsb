@@ -25,16 +25,16 @@ class PopUpRequest extends FormRequest
     protected function store(): array
     {
         return [
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=1200,min_height=800',
-            'order_key' => 'required|unique:pop_up,order_key,NULL,id,deleted_at,NULL',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=1200,min_height=800,max_width=1200,max_height=800',
+            'order_key' => 'required|unique:pop_ups,order_key,NULL,id,deleted_at,NULL',
         ];
     }
 
     protected function update(): array
     {
         return [
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=1200,min_height=800',
-            'order_key' => 'required|unique:pop_up,order_key,' . $this->route('id') . ',id,deleted_at,NULL',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=1200,min_height=800,max_width=1200,max_height=800',
+            'order_key' => 'required|unique:pop_ups,order_key,' . $this->route('id') . ',id,deleted_at,NULL',
         ];
     }
 }
