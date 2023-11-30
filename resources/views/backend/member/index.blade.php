@@ -333,3 +333,17 @@
 </script>
 @endpush
 
+@push('js')
+<script>
+    $('.accept').click(function(e){
+        e.preventDefault();
+        $.ajax({
+            url: "/run-queue",
+            type: "GET",
+            success: function (data) {
+            }
+        });
+        window.location.href = $(this).attr('href');
+    });
+</script>
+@endpush
