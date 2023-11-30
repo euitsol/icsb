@@ -1348,8 +1348,8 @@ class SinglePagesSeeder extends Seeder
                 }
             }',
             'documentation' => '{
-                "title": "Who are CS",
-                "details": "<p><b>Banner Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 910 x 230px.</span></p><p><b>Page Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 1200 x 800px.</span></p><p><b>Page Description: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It is a textarea field.</span></p>"
+                "title": "Who we are",
+                "details": "<p><b>Background Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 1920 x 700px.</span></p><p><b>Slider Images: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 5MB. The dimensions of the image should be 1200 x 800px. You can select multiple images by pressing the SHIFT/CTRL key.</span></p><p><b>Page Description: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It is a textarea field.</span></p>"
             }',
         ]);
         SinglePages::create([
