@@ -16,7 +16,7 @@
                         @csrf
                         <div class="card-body">
                             <div class="form-group {{ $errors->has('page_image') ? 'is-invalid' : '' }}">
-                                <label>{{ _('Admission Corner Page Image') }}</label>
+                                <label>{{ _('Page Image') }}</label>
                                 <input type="file" accept="image/*" name="page_image"
                                 class="form-control  {{ $errors->has('page_image') ? 'is-invalid' : '' }} image-upload"
                                 @if(isset($admission_corner_image->page_image))
@@ -35,12 +35,12 @@
             </div>
             <div class="col-md-4">
                 <div class="card card-user">
-                    <div class="card-body">
+                    <div class="card-body" @if(isset($admission_corner_image->page_image)) style="min-height:360px" @endif>
                         <p class="card-text">
                             <b>{{ _('Contact') }}</b>
                         </p>
                         <div class="card-description">
-                            <p><b>Email-* :</b> This field is nullable. It is a email field with a maximum character limit of 255. The entered value must follow the standard email format (e.g., user@example.com). By clicking on the '+' icon you can add multiple email.</p>
+                            <b>Page Image:</b> This field is required. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 1920 x 700px.</p>
                         </div>
                     </div>
                 </div>

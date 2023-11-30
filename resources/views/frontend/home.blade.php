@@ -11,6 +11,9 @@
     <a href="{{route('member_view.job_index')}}" class="stiky-box bubble">
         <img src="{{asset('fixed_image/stiky_image.png')}}" alt="">
     </a>
+    <a href="{{route('ac.details')}}" class=" stiky-box-2 bubble-2">
+        <img src="{{asset('fixed_image/admission.png')}}" alt="">
+    </a>
 </div>
 {{-- Banner Section --}}
 @include('frontend.includes.banner',['contact'=>$contact, 'banner'=>$banner,'banner_video'=>$banner_video])
@@ -352,6 +355,79 @@ $(document).ready(function() {
 
     // Prevent touch events from scrolling the page
     $(".bubble").on("touchmove", function(e) {
+        e.preventDefault();
+    });
+});
+$(document).ready(function() {
+    $(".bubble-2").draggable({
+        start: function(event, ui) {
+            isdragging = false;
+            // Disable transitions during dragging
+            $(this).css("transition", "none");
+        },
+        drag: function(event, ui) {
+            isdragging = true;
+        },
+        stop: function(event, ui) {
+            var lastY = ui.position.top;
+            var lastX = ui.position.left;
+            var swidth = $(window).width();
+
+            if (isdragging) {
+                if (lastX > swidth / 2) {
+                    $(this).css("top", lastY).css("left", (swidth - 110) + "px").css("transition", "all 0.4s");
+                } else {
+                    $(this).css("top", lastY).css("left", "0px").css("transition", "all 0.4s");
+                }
+
+                if(lastY < 60)
+                    $(this).css("top", 60 + "px").css("transition", "all 0.4s");
+            }
+        }
+    });
+
+    // Add touch events for mobile devices
+    $(".bubble-2").on("touchstart", function(e) {
+        var touch = e.originalEvent.touches[0];
+        var pos = $(this).position()
+        isdragging = false;
+        $(this).css("transition", "none");
+        $(this).data("startX", touch.pageX - pos.left);
+        $(this).data("startY", touch.pageY - pos.top);
+
+    });
+
+    $(".bubble-2").on("touchmove", function(e) {
+        var touch = e.originalEvent.touches[0];
+        var startX = $(this).data("startX");
+        var startY = $(this).data("startY");
+        var newX = touch.pageX - startX;
+        var newY = touch.pageY - startY;
+        $(this).css("top", newY + "px").css("left", newX + "px");
+        isdragging = true;
+    });
+
+    $(".bubble-2").on("touchend", function(e) {
+        if (isdragging) {
+            var lastY = parseInt($(this).css("top"));
+            var lastX = parseInt($(this).css("left"));
+            var swidth = $(window).width();
+
+
+            if (lastX > swidth / 2) {
+                $(this).css("top", lastY + "px").css("left", (swidth - 110) + "px").css("transition", "all 0.4s");
+            } else {
+                $(this).css("top", lastY + "px").css("left", "0px").css("transition", "all 0.4s");
+            }
+
+            if(lastY < 140){
+                $(this).css("top", 140 + "px").css("transition", "all 0.4s");
+            }
+        }
+    });
+
+    // Prevent touch events from scrolling the page
+    $(".bubble-2").on("touchmove", function(e) {
         e.preventDefault();
     });
 });
