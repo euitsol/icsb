@@ -23,7 +23,7 @@
                 <div class="card-header">
                     <h5 class="title">{{ _('Create Notice') }}</h5>
                 </div>
-                <form method="POST" action="{{ route('notice_board.notice_create') }}" autocomplete="off" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('notice_board.notice_create') }}" autocomplete="off" enctype="multipart/form-data" class="noticeForm">
                     @csrf
                     <div class="card-body">
                         <div class="form-group {{ $errors->has('title') ? ' has-danger' : '' }}">
@@ -133,6 +133,18 @@
                 } else {
                     targetDiv.hide();
                 }
+            });
+            $('.noticeForm').submit(function(event) {
+                event.preventDefault();
+                $.ajax({
+                    url: "/run-queue",
+                    type: "GET",
+                    success: function (data) {},
+                    error: function (xhr, status, error) {
+                        console.log();("Error: " + xhr.responseText);
+                    },
+                });
+                $('.noticeForm').off('submit').submit();
             });
         });
     </script>
