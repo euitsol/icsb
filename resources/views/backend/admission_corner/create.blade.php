@@ -94,9 +94,11 @@
                         <p><b>Name:</b> This field is required. It is a text field with character limit of 255 characters.</p>
                         <b>Order:</b> This field is required and unique. It is a number field. It manages the order of the Admission Corners</p>
                         <b>Image:</b> This field is required. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 400 x 450px.</p>
-                        <p><b>Designation:</b> This field is required. It is a text field with character limit of 255 characters. It represents the designation of the assigned officers</p>
-                        <p><b>Phone:</b> This field is required & unique. It represents the contact number of the assigned officers</p>
-                        <p><b>Email:</b> This field is required & unique. It is a email field with a maximum character limit of 255. The entered value must follow the standard email format (e.g., user@example.com) and represents the email of the assigned officers.</p>
+                        <p><b>Designation:</b> This field is required. It is a text field with character limit of 255 characters. It represents the designation of the admission corner</p>
+                        <p><b>Phone:</b> This field is required & unique. It represents the contact number of the admission corner</p>
+                        <p><b>Email:</b> This field is required & unique. It is a email field with a maximum character limit of 255. The entered value must follow the standard email format (e.g., user@example.com) and represents the email of the admission corner.</p>
+                        <p><b>PABX:</b> This field is nullable. It is a number field</p>
+                        <p><b>Telephone:</b> This field is required. It represents the telephone number of the admission corner. By clicking on the '+' icon you can add multiple telephone numbers.</p>
                          
                     </div>
                 </div>

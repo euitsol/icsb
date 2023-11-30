@@ -43,6 +43,7 @@ use App\Http\Controllers\Frontend\DefaultController as ViewDefaultController;
 use App\Http\Controllers\Frontend\AboutPagesController;
 use App\Http\Controllers\Frontend\AjaxController as FrontendAjaxController;
 use App\Http\Controllers\Frontend\EventPagesController;
+use App\Http\Controllers\Frontend\AdmissionCornerPagesController;
 use App\Http\Controllers\Frontend\CouncilPagesController;
 use App\Http\Controllers\Frontend\StudentsPagesController;
 use App\Http\Controllers\Frontend\MembersPagesController;
@@ -538,12 +539,16 @@ Route::get('/export-permissions', function () {
     return Response::download($filePath, $filename);
 })->name('export.permissions');
 
-
+Route::group(['as' => 'ac.', 'prefix' => 'admission-corner'], function () {
+    Route::get('view/details', [AdmissionCornerPagesController::class, 'details'])->name('details');
+});
 
 Route::group(['middleware' => ['log_visitor']], function () {
 
     Route::get('/single-page/create', [SinglePagesController::class, 'create'])->name('sp.create');
     Route::post('/single-page/store', [SinglePagesController::class, 'store'])->name('sp.store');
+
+    
 
 
     Route::get('/single-page/show/{page_slug}', [SinglePagesController::class, 'show'])->name('sp.show');
@@ -641,10 +646,12 @@ Route::group(['middleware' => ['log_visitor']], function () {
         Route::get('/members-lounge', [MembersPagesController::class, 'members_lounge'])->name('members_lounge');
         Route::get('/corporate-leader/search', [MembersPagesController::class, 'corporate_leader'])->name('corporate_leader');
     });
+
     Route::group(['as' => 'student_view.', 'prefix' => 'student'], function () {
         Route::get('/cs-hand-book', [StudentPagesController::class, 'csHandBook'])->name('cs_hand_book');
         Route::get('/icsb-library', [StudentPagesController::class, 'library'])->name('library');
     });
+   
     Route::group(['as' => 'notice_view.', 'prefix' => 'notices'], function () {
         Route::get('/{slug?}', [NoticeBoardPageController::class, 'notice'])->name('notice');
     });

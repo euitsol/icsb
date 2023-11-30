@@ -142,8 +142,18 @@ table.gsc-search-box {
     width: 110px;
 
 }
+.stiky-box-2 {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 999999;
+    height: 110px;
+    width: 110px;
+}
 
-.stiky-box img {
+.stiky-box img,
+.stiky-box-2 img {
     height: 100%;
     width: 100%;
     border-radius: 10px;
