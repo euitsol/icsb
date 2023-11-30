@@ -57,9 +57,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
+                    @if(!empty($page_image->page_image))
                     <div class="card mb-4">
                         <img src="{{storage_url($page_image->page_image)}}" alt="{{__('Admission Corner Page Image')}}">
                     </div>
+                    @endif
                     <div class="card">
                         <div class="card-header">
                             <h1 class="entry-title-icmab p-3 m-0">Admission Corner Information</h1>
