@@ -37,7 +37,9 @@ function get_permission_routes()
             'assined_officer.',
             'sample_question_paper.',
             'testimonial.',
-            'latest_news.'
+            'latest_news.',
+            'pop_up.',
+            'admission_corner'
 
         ];
 }

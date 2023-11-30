@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backend\AjaxController;
 use App\Http\Controllers\Backend\ActsController;
 use App\Http\Controllers\Backend\AssinedOfficerController;
+use App\Http\Controllers\Backend\AdmissionCornerController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
@@ -221,7 +222,7 @@ Route::group(['middleware' => ['auth', 'permission']], function () {
     });
 
     // Assined Officer Routes
-    Route::group(['as' => 'assined_officer.', 'prefix' => 'assined_officer'], function () {
+    Route::group(['as' => 'assined_officer.', 'prefix' => 'assined-officer'], function () {
         Route::get('index', [AssinedOfficerController::class, 'index'])->name('assined_officer_list');
         Route::get('create', [AssinedOfficerController::class, 'create'])->name('assined_officer_create');
         Route::post('create', [AssinedOfficerController::class, 'store'])->name('assined_officer_create');
@@ -229,6 +230,17 @@ Route::group(['middleware' => ['auth', 'permission']], function () {
         Route::put('edit/{id}',      [AssinedOfficerController::class, 'update'])->name('assined_officer_edit');
         Route::get('status/{id}',      [AssinedOfficerController::class, 'status'])->name('status.assined_officer_edit');
         Route::get('delete/{id}', [AssinedOfficerController::class, 'delete'])->name('assined_officer_delete');
+    });
+    // Admission Corner Routes
+    Route::group(['as' => 'admission_corner.', 'prefix' => 'admission-corner'], function () {
+        Route::get('index', [AdmissionCornerController::class, 'index'])->name('admission_corner_list');
+        Route::get('create', [AdmissionCornerController::class, 'create'])->name('admission_corner_create');
+        Route::post('create', [AdmissionCornerController::class, 'store'])->name('admission_corner_create');
+        Route::post('page-image/create', [AdmissionCornerController::class, 'page_image_store'])->name('page_image.admission_corner_create');
+        Route::get('edit/{id}',      [AdmissionCornerController::class, 'edit'])->name('admission_corner_edit');
+        Route::put('edit/{id}',      [AdmissionCornerController::class, 'update'])->name('admission_corner_edit');
+        Route::get('status/{id}',      [AdmissionCornerController::class, 'status'])->name('status.admission_corner_edit');
+        Route::get('delete/{id}', [AdmissionCornerController::class, 'delete'])->name('admission_corner_delete');
     });
 
     // Event Routes
