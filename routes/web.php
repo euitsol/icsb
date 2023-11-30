@@ -60,6 +60,7 @@ use App\Http\Controllers\Frontend\PublicationPagesController;
 use App\Http\Controllers\Frontend\RulesPagesController;
 use App\Http\Controllers\Frontend\StudentPagesController;
 use App\Http\Controllers\SettingsController;
+use Illuminate\Support\Facades\Artisan;
 
 
 /*
@@ -538,6 +539,12 @@ Route::get('/export-permissions', function () {
 
     return Response::download($filePath, $filename);
 })->name('export.permissions');
+Route::get('/run-queue', function (Request $request) {
+    // Execute queue:work command with daemon option
+    Artisan::call('queue:work', [
+        '--daemon' => true,
+    ]);
+});
 
 Route::group(['as' => 'ac.', 'prefix' => 'admission-corner'], function () {
     Route::get('view/details', [AdmissionCornerPagesController::class, 'details'])->name('details');

@@ -15,7 +15,8 @@ trait SendMailTrait{
         $members = Member::where('notify_email', 1)->latest()->get();
         foreach ($members as $member) {
             if(isset($member->email) && $member->email != null && $member->email != ''){
-                SendMemberEmail::dispatch($member->email, $data)->delay(now()->addSeconds(60));
+                $delay = now()->addSeconds($key * 20);
+                SendMemberEmail::dispatch($member->email, $data)->delay($delay);
             }
         }
     }

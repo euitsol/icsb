@@ -41,7 +41,7 @@ public function getMultiStatusClass()
         if ($this->status == 0) {
             return['menuItems' => [
                 ['routeName' => '', 'label' => 'View'],
-                ['routeName' => 'job_placement.status.jp_edit',   'params' => [$id,'accept'], 'label' => 'Accept'],
+                ['routeName' => 'job_placement.status.jp_edit',   'params' => [$id,'accept'], 'label' => 'Accept', 'className' => 'accept'],
                 ['routeName' => 'job_placement.status.jp_edit',   'params' => [$id,'declined'], 'label' => 'Declined'],
                 ['routeName' => 'job_placement.status.jp_edit',   'params' => [$id,'disclosed'], 'label' => 'Disclosed'],
                 ['routeName' => 'job_placement.jp_edit',   'params' => [$id], 'label' => 'Update'],
@@ -50,7 +50,7 @@ public function getMultiStatusClass()
         } elseif($this->status == 1) {
             return['menuItems' => [
                 ['routeName' => '', 'label' => 'View'],
-                ['routeName' => '',   'params' => [$id,'accept'], 'label' => 'Accept'],
+                ['routeName' => '',   'params' => [$id,'accept'], 'label' => 'Accept', 'className' => 'accept'],
                 ['routeName' => 'job_placement.status.jp_edit',   'params' => [$id,'declined'], 'label' => 'Declined'],
                 ['routeName' => 'job_placement.status.jp_edit',   'params' => [$id,'disclosed'], 'label' => 'Disclosed'],
                 ['routeName' => 'job_placement.jp_edit',   'params' => [$id], 'label' => 'Update'],
@@ -59,7 +59,7 @@ public function getMultiStatusClass()
         }elseif($this->status == -1){
             return['menuItems' => [
                 ['routeName' => '', 'label' => 'View'],
-                ['routeName' => 'job_placement.status.jp_edit',   'params' => [$id,'accept'], 'label' => 'Accept'],
+                ['routeName' => 'job_placement.status.jp_edit',   'params' => [$id,'accept'], 'label' => 'Accept', 'className' => 'accept'],
                 ['routeName' => '',   'params' => [$id,'declined'], 'label' => 'Declined'],
                 ['routeName' => 'job_placement.status.jp_edit',   'params' => [$id,'disclosed'], 'label' => 'Disclosed'],
                 ['routeName' => 'job_placement.jp_edit',   'params' => [$id], 'label' => 'Update'],
