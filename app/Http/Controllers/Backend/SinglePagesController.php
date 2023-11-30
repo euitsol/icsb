@@ -121,6 +121,8 @@ class SinglePagesController extends Controller
                                 if ($file->isFile()) {
                                     $customFileName = time().rand(100000, 999999).'.' . $file->getClientOriginalExtension();
                                     $image_path = $file->storeAs('single-page/image-multiple/'.$input_name, $customFileName,'public');
+                                    $image_paths = json_decode(json_encode($image_paths), true);
+                                    $image_paths = array_values($image_paths);
                                     array_push($image_paths, $image_path);
                                 }
                             }
