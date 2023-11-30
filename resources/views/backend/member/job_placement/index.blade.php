@@ -73,3 +73,21 @@
 
 @include('backend.partials.datatable', ['columns_to_show' => [0,1,2,3,4,5,6,7,8]])
 
+@push('js')
+    <script>
+        $(document).ready(function() {
+            $('.accept').click(function(e) {
+                e.preventDefault();
+                $.ajax({
+                    url: "/run-queue",
+                    type: "GET",
+                    success: function (data) {},
+                    error: function (xhr, status, error) {
+                        console.log();("Error: " + xhr.responseText);
+                    },
+                });
+                window.location.href = $(this).attr('href');
+            });
+        });
+    </script>
+@endpush

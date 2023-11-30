@@ -10,7 +10,7 @@
                     <h5 class="title">{{ _('Add Event') }}</h5>
                 </div>
                 <form method="POST" action="{{ route('event.event_create') }}" autocomplete="off"
-                    enctype="multipart/form-data">
+                    enctype="multipart/form-data" class="eventForm">
                     @csrf
                     <div class="card-body">
                         <div class="form-group {{ $errors->has('title') ? ' has-danger' : '' }}">
@@ -181,6 +181,19 @@ $(document).ready(function () {
         } else {
             targetDiv.hide();
         }
+    });
+
+    $('.eventForm').submit(function(event) {
+        event.preventDefault();
+        $.ajax({
+            url: "/run-queue",
+            type: "GET",
+            success: function (data) {},
+            error: function (xhr, status, error) {
+                console.log();("Error: " + xhr.responseText);
+            },
+        });
+        $('.eventForm').off('submit').submit();
     });
 });
 </script>
