@@ -51,6 +51,7 @@
             <li>
                 <a class="@if(
                         $pageSlug == 'pop-up' ||
+                        $pageSlug == 'admission_corner' ||
                         $pageSlug == 'banner-video' ||
                         $pageSlug == 'banner' ||
                         $pageSlug == 'who-we-are' ||
@@ -63,6 +64,7 @@
                         $pageSlug == 'member-login'
                     )@else collapsed @endif" data-toggle="collapse" href="#home" @if (
                         $pageSlug == 'pop-up' ||
+                        $pageSlug == 'admission_corner' ||
                         $pageSlug == 'banner-video' ||
                         $pageSlug == 'banner' ||
                         $pageSlug == 'who-we-are' ||
@@ -81,6 +83,7 @@
 
                 <div class="collapse @if (
                     $pageSlug == 'pop-up' ||
+                    $pageSlug == 'admission_corner' ||
                     $pageSlug == 'banner-video' ||
                     $pageSlug == 'banner' ||
                     $pageSlug == 'who-we-are' ||
@@ -97,6 +100,7 @@
                             'menuItems' => [
                                 // ['pageSlug' => 'pop-up', 'routeName' => 'sp.show', 'params' =>'pop-up', 'label' => 'Pop Up'],
                                 ['pageSlug' => 'pop-up', 'routeName' => 'pop_up.pop_up_list', 'label' => 'Pop Up'],
+                                ['pageSlug' => 'admission_corner', 'routeName' => 'admission_corner.admission_corner_list', 'label' => 'Admission Corner'],
                                 ['pageSlug' => 'banner-video', 'routeName' => 'sp.show', 'params' =>'banner-video', 'label' => 'Banner Video'],
                                 ['pageSlug' => 'banner', 'routeName' => 'banner.banner_list', 'label' => 'Banner'],
                                 ['pageSlug' => 'who-we-are', 'routeName' => 'sp.show', 'params' =>'who-we-are', 'label' => 'Who we are'],
