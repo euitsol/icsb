@@ -9,7 +9,10 @@
 @section('content')
 <div class="">
     <a href="{{route('member_view.job_index')}}" class="stiky-box bubble">
-        <img src="{{asset('fixed_image/stiky_image.jpg')}}" alt="">
+        <img src="{{asset('fixed_image/stiky_image.png')}}" alt="">
+    </a>
+    <a href="{{route('ac.details')}}" class=" stiky-box-2 bubble-2">
+        <img src="{{asset('fixed_image/admission.png')}}" alt="">
     </a>
 </div>
 {{-- Banner Section --}}
@@ -25,7 +28,7 @@
             <div class="ticker-desc">
                 <div class="scrolling-text" style="animation-duration: {{count($latest_newses)*20}}s;">
                     @foreach ($latest_newses as $news)
-                        <a href="{{route('news.view',$news->slug)}}"><i class="fa-solid fa-star-of-david mx-2 text-primary"></i>{{$news->title}}&nbsp;&nbsp;</a>
+                        <a href="{{route('news.view',$news->slug)}}"><i class="fa-solid fa-forward mx-2 text-primary"></i>{{$news->title}}&nbsp;&nbsp;</a>
                     @endforeach
                 </div>
             </div>
@@ -65,7 +68,7 @@
 
 
                                 @foreach (json_decode($who_we_are->saved_data)->{'slider-images'} as $key=>$image)
-                                    <img class="image-border associate-image image-loop" style="display: none;" src="{{storage_url($image)}}" data-bg-color="{{ $colors[$key % count($colors)] }}" alt="" />
+                                    <img class="image-border associate-image image-loop" style="display: none;" src="{{storage_url($image)}}" data-bg-color="{{ $colors[$key % count($colors)] }}" alt="" loading="lazy"/>
                                 @endforeach
 
                         </div>
@@ -82,7 +85,7 @@
         <div class="container wrap">
             <div class="president-column flex">
                 <div class="left-column">
-                    <img src="{{getMemberImage($president->member)}}" alt="{{_('President Image')}}">
+                    <img src="{{getMemberImage($president->member)}}" alt="{{_('President Image')}}" loading="lazy">
                     <div class="president-info text-align color-white">
                         <a href="{{route('council_view.president')}}" class="text-white"><h3>{{$president->member->name}}</h3></a>
                         <p>{{$president->designation}}</p>
@@ -113,7 +116,7 @@
 @include('frontend.includes.national_connection',['national_connections'=>$national_connections])
 
 
- <!-- Pop Up Modal -->
+ {{-- <!-- Pop Up Modal -->
  @if(isset($pop_up) && isset(json_decode($pop_up->saved_data)->{'upload-image'}))
  <div class="modal fade pop_up_modal" id="view-modal" data-bs-keyboard="false" tabindex="-1"
  aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -122,6 +125,39 @@
 
             <div class="modal-body">
                 <a href="{{isset(json_decode($pop_up->saved_data)->{'url'}) ? json_decode($pop_up->saved_data)->{'url'} : 'javascript:void(0)' }}"><img src="{{storage_url(json_decode($pop_up->saved_data)->{'upload-image'})}}" alt="Pop Up Notice Not Found"></a>
+                <button type="button" class="close pop_up_close" data-bs-dismiss="modal" aria-label="Close" ><i class="fa-solid fa-xmark fa-beat"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+@endif --}}
+ <!-- Pop Up Modal -->
+ @if(count($pop_ups)>0)
+ <div class="modal fade pop_up_modal" id="view-modal" data-bs-keyboard="false" tabindex="-1"
+ aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <div id="carouselExampleCaptions" class="carousel slide popUp" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        @foreach ($pop_ups as $key=>$pop_up)
+                            <div class="carousel-item @if($key == 0) active @endif">
+                                    <a href="{{$pop_up->url}}" class="d-block"><img style="min-height: 50vh" class="img-fluid" src="{{storage_url($pop_up->image)}}" alt="Pop Up Notice Not Found"></a>
+                            </div>
+                        @endforeach
+                    </div>
+                    @if(count($pop_ups)>1)
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                            <span><i class="fa-solid fa-chevron-left"></i></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                            <span><i class="fa-solid fa-chevron-right"></i></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    @endif
+                </div>
                 <button type="button" class="close pop_up_close" data-bs-dismiss="modal" aria-label="Close" ><i class="fa-solid fa-xmark fa-beat"></i></button>
             </div>
         </div>
@@ -147,7 +183,17 @@
     new WOW().init();
 </script>
 <script>
-    $( window ).on( "load", function() {
+
+    // $( window ).on( "load", function() {
+    //     if (shouldShowModal()) {
+    //         showNotificationModal();
+    //     }
+
+    //     $('.close').click(function() {
+    //         hideNotificationModal();
+    //     });
+    // });
+    $(document).ready(function() {
         if (shouldShowModal()) {
             showNotificationModal();
         }
@@ -155,6 +201,8 @@
         $('.close').click(function() {
             hideNotificationModal();
         });
+
+        $('#carouselExampleCaptions').carousel('cycle');
     });
 
     function showNotificationModal() {
@@ -307,6 +355,79 @@ $(document).ready(function() {
 
     // Prevent touch events from scrolling the page
     $(".bubble").on("touchmove", function(e) {
+        e.preventDefault();
+    });
+});
+$(document).ready(function() {
+    $(".bubble-2").draggable({
+        start: function(event, ui) {
+            isdragging = false;
+            // Disable transitions during dragging
+            $(this).css("transition", "none");
+        },
+        drag: function(event, ui) {
+            isdragging = true;
+        },
+        stop: function(event, ui) {
+            var lastY = ui.position.top;
+            var lastX = ui.position.left;
+            var swidth = $(window).width();
+
+            if (isdragging) {
+                if (lastX > swidth / 2) {
+                    $(this).css("top", lastY).css("left", (swidth - 110) + "px").css("transition", "all 0.4s");
+                } else {
+                    $(this).css("top", lastY).css("left", "0px").css("transition", "all 0.4s");
+                }
+
+                if(lastY < 60)
+                    $(this).css("top", 60 + "px").css("transition", "all 0.4s");
+            }
+        }
+    });
+
+    // Add touch events for mobile devices
+    $(".bubble-2").on("touchstart", function(e) {
+        var touch = e.originalEvent.touches[0];
+        var pos = $(this).position()
+        isdragging = false;
+        $(this).css("transition", "none");
+        $(this).data("startX", touch.pageX - pos.left);
+        $(this).data("startY", touch.pageY - pos.top);
+
+    });
+
+    $(".bubble-2").on("touchmove", function(e) {
+        var touch = e.originalEvent.touches[0];
+        var startX = $(this).data("startX");
+        var startY = $(this).data("startY");
+        var newX = touch.pageX - startX;
+        var newY = touch.pageY - startY;
+        $(this).css("top", newY + "px").css("left", newX + "px");
+        isdragging = true;
+    });
+
+    $(".bubble-2").on("touchend", function(e) {
+        if (isdragging) {
+            var lastY = parseInt($(this).css("top"));
+            var lastX = parseInt($(this).css("left"));
+            var swidth = $(window).width();
+
+
+            if (lastX > swidth / 2) {
+                $(this).css("top", lastY + "px").css("left", (swidth - 110) + "px").css("transition", "all 0.4s");
+            } else {
+                $(this).css("top", lastY + "px").css("left", "0px").css("transition", "all 0.4s");
+            }
+
+            if(lastY < 140){
+                $(this).css("top", 140 + "px").css("transition", "all 0.4s");
+            }
+        }
+    });
+
+    // Prevent touch events from scrolling the page
+    $(".bubble-2").on("touchmove", function(e) {
         e.preventDefault();
     });
 });

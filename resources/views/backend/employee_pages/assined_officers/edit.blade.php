@@ -70,10 +70,15 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        {{ _('Assigned Officer') }}
+                        <b>{{ _('Assigned Officer') }}</b>
                     </p>
                     <div class="card-description">
-                        {{ _('The faq\'s manages user permissions by assigning different faqs to users. Each faq defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                        <p><b>Name:</b> This field is required. It is a text field with character limit of 255 characters.</p>
+                        <b>Order:</b> This field is required and unique. It is a number field. It manages the order of the Assigned Officers</p>
+                        <b>Image:</b> This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 400 x 450px.</p>
+                        <p><b>Designation:</b> This field is required. It is a text field with character limit of 255 characters. It represents the designation of the assigned officers</p>
+                        <p><b>Phone:</b> This field is required & unique. It represents the contact number of the assigned officers</p>
+                        <p><b>Email:</b> This field is required & unique. It is a email field with a maximum character limit of 255. The entered value must follow the standard email format (e.g., user@example.com) and represents the email of the assigned officers.</p>
                     </div>
                 </div>
             </div>

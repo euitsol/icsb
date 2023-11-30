@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backend\AjaxController;
 use App\Http\Controllers\Backend\ActsController;
 use App\Http\Controllers\Backend\AssinedOfficerController;
+use App\Http\Controllers\Backend\AdmissionCornerController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
@@ -13,6 +14,7 @@ use App\Http\Controllers\Backend\FaqController;
 use App\Http\Controllers\Backend\SecretarialStandardsController;
 use App\Http\Controllers\Backend\ContactController;
 use App\Http\Controllers\Backend\NationalConnectionController;
+use App\Http\Controllers\Backend\PopUpController;
 use App\Http\Controllers\Backend\EventController;
 use App\Http\Controllers\Backend\WWCSController;
 use App\Http\Controllers\Backend\NationalAwardController;
@@ -41,6 +43,7 @@ use App\Http\Controllers\Frontend\DefaultController as ViewDefaultController;
 use App\Http\Controllers\Frontend\AboutPagesController;
 use App\Http\Controllers\Frontend\AjaxController as FrontendAjaxController;
 use App\Http\Controllers\Frontend\EventPagesController;
+use App\Http\Controllers\Frontend\AdmissionCornerPagesController;
 use App\Http\Controllers\Frontend\CouncilPagesController;
 use App\Http\Controllers\Frontend\StudentsPagesController;
 use App\Http\Controllers\Frontend\MembersPagesController;
@@ -208,9 +211,19 @@ Route::group(['middleware' => ['auth', 'permission']], function () {
         Route::get('status/{id}',      [NationalConnectionController::class, 'status'])->name('status.national_connection_edit');
         Route::get('delete/{id}', [NationalConnectionController::class, 'delete'])->name('national_connection_delete');
     });
+    // Pop Up Routes
+    Route::group(['as' => 'pop_up.', 'prefix' => 'pop_up'], function () {
+        Route::get('index', [PopUpController::class, 'index'])->name('pop_up_list');
+        Route::get('create', [PopUpController::class, 'create'])->name('pop_up_create');
+        Route::post('create', [PopUpController::class, 'store'])->name('pop_up_create');
+        Route::get('edit/{id}',      [PopUpController::class, 'edit'])->name('pop_up_edit');
+        Route::put('edit/{id}',      [PopUpController::class, 'update'])->name('pop_up_edit');
+        Route::get('status/{id}',      [PopUpController::class, 'status'])->name('status.pop_up_edit');
+        Route::get('delete/{id}', [PopUpController::class, 'delete'])->name('pop_up_delete');
+    });
 
     // Assined Officer Routes
-    Route::group(['as' => 'assined_officer.', 'prefix' => 'assined_officer'], function () {
+    Route::group(['as' => 'assined_officer.', 'prefix' => 'assined-officer'], function () {
         Route::get('index', [AssinedOfficerController::class, 'index'])->name('assined_officer_list');
         Route::get('create', [AssinedOfficerController::class, 'create'])->name('assined_officer_create');
         Route::post('create', [AssinedOfficerController::class, 'store'])->name('assined_officer_create');
@@ -218,6 +231,17 @@ Route::group(['middleware' => ['auth', 'permission']], function () {
         Route::put('edit/{id}',      [AssinedOfficerController::class, 'update'])->name('assined_officer_edit');
         Route::get('status/{id}',      [AssinedOfficerController::class, 'status'])->name('status.assined_officer_edit');
         Route::get('delete/{id}', [AssinedOfficerController::class, 'delete'])->name('assined_officer_delete');
+    });
+    // Admission Corner Routes
+    Route::group(['as' => 'admission_corner.', 'prefix' => 'admission-corner'], function () {
+        Route::get('index', [AdmissionCornerController::class, 'index'])->name('admission_corner_list');
+        Route::get('create', [AdmissionCornerController::class, 'create'])->name('admission_corner_create');
+        Route::post('create', [AdmissionCornerController::class, 'store'])->name('admission_corner_create');
+        Route::post('page-image/create', [AdmissionCornerController::class, 'page_image_store'])->name('page_image.admission_corner_create');
+        Route::get('edit/{id}',      [AdmissionCornerController::class, 'edit'])->name('admission_corner_edit');
+        Route::put('edit/{id}',      [AdmissionCornerController::class, 'update'])->name('admission_corner_edit');
+        Route::get('status/{id}',      [AdmissionCornerController::class, 'status'])->name('status.admission_corner_edit');
+        Route::get('delete/{id}', [AdmissionCornerController::class, 'delete'])->name('admission_corner_delete');
     });
 
     // Event Routes
@@ -515,12 +539,16 @@ Route::get('/export-permissions', function () {
     return Response::download($filePath, $filename);
 })->name('export.permissions');
 
-
+Route::group(['as' => 'ac.', 'prefix' => 'admission-corner'], function () {
+    Route::get('view/details', [AdmissionCornerPagesController::class, 'details'])->name('details');
+});
 
 Route::group(['middleware' => ['log_visitor']], function () {
 
     Route::get('/single-page/create', [SinglePagesController::class, 'create'])->name('sp.create');
     Route::post('/single-page/store', [SinglePagesController::class, 'store'])->name('sp.store');
+
+    
 
 
     Route::get('/single-page/show/{page_slug}', [SinglePagesController::class, 'show'])->name('sp.show');
@@ -618,10 +646,12 @@ Route::group(['middleware' => ['log_visitor']], function () {
         Route::get('/members-lounge', [MembersPagesController::class, 'members_lounge'])->name('members_lounge');
         Route::get('/corporate-leader/search', [MembersPagesController::class, 'corporate_leader'])->name('corporate_leader');
     });
+
     Route::group(['as' => 'student_view.', 'prefix' => 'student'], function () {
         Route::get('/cs-hand-book', [StudentPagesController::class, 'csHandBook'])->name('cs_hand_book');
         Route::get('/icsb-library', [StudentPagesController::class, 'library'])->name('library');
     });
+   
     Route::group(['as' => 'notice_view.', 'prefix' => 'notices'], function () {
         Route::get('/{slug?}', [NoticeBoardPageController::class, 'notice'])->name('notice');
     });

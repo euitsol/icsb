@@ -26,7 +26,7 @@ class BannerImageRequest extends FormRequest
     {
         return [
             'images' => 'required|array',
-            'images.*' => 'image|mimes:mimes:jpeg,png,jpg,gif,svg|max:5000',
+            'images.*' => 'image|mimes:mimes:jpeg,png,jpg,gif,svg|max:5000|dimensions:max_width=1920,max_height=700,min_width=1920,min_height=700',
         ];
     }
 

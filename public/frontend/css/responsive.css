@@ -611,9 +611,9 @@
 
 
 
-    .stiky-box {
+    .stiky-box,
+    .stiky-box-2 {
         z-index: 9999;
-
     }
 
     .banner-section .video-container {
@@ -2006,7 +2006,8 @@
     }
 
     /*StikyBox*/
-    .stiky-box {
+    .stiky-box,
+    .stiky-box-2 {
         height: 94px;
         width: 90px;
     }
@@ -3091,7 +3092,8 @@
     }
 
     /*=====StikyBox=====*/
-    .stiky-box {
+    .stiky-box,
+    .stiky-box-2 {
         height: 85px;
         width: 85px;
     }
@@ -3656,7 +3658,8 @@
     }
 
     /*stiky-box*/
-    .stiky-box {
+    .stiky-box,
+    .stiky-box-2 {
         height: 75px;
         width: 75px;
     }
@@ -3773,7 +3776,8 @@
     }
 
     /*stiky-box*/
-    .stiky-box {
+    .stiky-box,
+    .stiky-box-2 {
         height: 65px;
         width: 65px;
     }

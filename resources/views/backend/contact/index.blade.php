@@ -206,10 +206,12 @@
                         <div class="card card-user">
                             <div class="card-body">
                                 <p class="card-text">
-                                    Location
+                                    <b>{{_('Location')}}</b>
                                 </p>
                                 <div class="card-description">
-                                    {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                                    <p><b>Location-* :</b> This field is nullable.  The location title field should be the Location Title & address field should be the Location Addreess. By clicking on the '+' icon you can add multiple location title, location address & location map URL.</p>
+                                    <p><b>Location URL-* :</b> This field is nullable.  It is a URL field & the URL should be a location map URL.</p>
+                                    <p><b>Address Page Image:</b> This field is required. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 1200 x 800px.</p>
                                 </div>
                             </div>
                         </div>
@@ -226,6 +228,9 @@
                             </div>
                             <form method="POST" action="{{route('contact.social.contact_create')}}" autocomplete="off">
                                 @csrf
+                                @php
+                                    $count = 0;
+                                @endphp
                                 <div class="card-body">
                                     @if(isset($contact) && !empty(json_decode($contact->social)))
                                         @foreach (json_decode($contact->social) as $key=>$social)
@@ -297,10 +302,10 @@
                         <div class="card card-user">
                             <div class="card-body">
                                 <p class="card-text">
-                                    Social Info
+                                    <b>{{_('Social Information')}}</b>
                                 </p>
                                 <div class="card-description">
-                                    {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                                    <p><b>Social Media Information-* :</b> This field is nullable. The social media information field is a URL field, and it should contain the URL of a social media platform. The corresponding option field should feature the social platform's icon. By clicking on the '+' icon you can add multiple social media information.</p>
                                 </div>
                             </div>
                         </div>
@@ -381,10 +386,10 @@
                         <div class="card card-user">
                             <div class="card-body">
                                 <p class="card-text">
-                                    Phone
+                                   <b> {{_('Phone')}}</b>
                                 </p>
                                 <div class="card-description">
-                                    {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                                    <p><b>Phone Number-* :</b> This field is nullable. It should contain the phone number. The corresponding option field should feature the phone number icon. By clicking on the '+' icon you can add multiple phone number.</p>
                                 </div>
                             </div>
                         </div>
@@ -439,10 +444,10 @@
                         <div class="card card-user">
                             <div class="card-body">
                                 <p class="card-text">
-                                    {{ _('Contact') }}
+                                    <b>{{ _('Contact') }}</b>
                                 </p>
                                 <div class="card-description">
-                                    {{ _('The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.') }}
+                                    <p><b>Email-* :</b> This field is nullable. It is a email field with a maximum character limit of 255. The entered value must follow the standard email format (e.g., user@example.com). By clicking on the '+' icon you can add multiple email.</p>
                                 </div>
                             </div>
                         </div>

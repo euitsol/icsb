@@ -14,7 +14,7 @@
                                     href="{{ $award->file ? route('sp.file.download', base64_encode($award->file)) : storage_url($award->image)}}"
                                     @if (empty($award->file)) data-lightbox="gallery" @else target="_blank" @endif>
                                     <img class="example-image" src="{{ storage_url($award->image) }}"
-                                        alt="{{ $award->title }}" />
+                                        alt="{{ $award->title }}" loading="lazy" />
                                 </a>
                             </div>
                         @endforeach

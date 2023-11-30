@@ -14,7 +14,7 @@
                         </div>
                         <div class="details d-flex justify-content-center align-items-center">
                             <div class="author-image">
-                                <img src="{{storage_url($testimonial->image)}}" alt="">
+                                <img src="{{storage_url($testimonial->image)}}" alt="" loading="lazy">
                             </div>
                             <div class="author d-flex flex-column text-start">
                                 <h3 class="author-name">{{ $testimonial->name }}</h3>

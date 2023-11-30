@@ -37,8 +37,8 @@ class SinglePagesSeeder extends Seeder
                 }
             }',
             'documentation' => '{
-                "title":"ICSB Profile",
-                "details":"<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.<\/span><\/p>"
+                "title": "ICSB Profile",
+                "details": "<p><b>Banner Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 910 x 230px.</span></p><p><b>Page Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 1200 x 800px.</span></p><p><b>Page Description: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It is a textarea field.</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -69,8 +69,8 @@ class SinglePagesSeeder extends Seeder
                 }
             }',
             'documentation' => '{
-                "title":"Mission",
-                "details":"<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.<\/span><\/p>"
+                "title": "Mission",
+                "details": "<p><b>Banner Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 910 x 230px.</span></p><p><b>Page Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 1200 x 800px.</span></p><p><b>Page Description: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It is a textarea field.</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -101,8 +101,8 @@ class SinglePagesSeeder extends Seeder
                 }
             }',
             'documentation' => '{
-                "title":"Objectives",
-                "details":"<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.<\/span><\/p>"
+                "title": "Objectives",
+                "details": "<p><b>Banner Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 910 x 230px.</span></p><p><b>Page Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 1200 x 800px.</span></p><p><b>Page Description: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It is a textarea field.</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -147,8 +147,8 @@ class SinglePagesSeeder extends Seeder
                 }
             }',
             'documentation' => '{
-                "title":"Values",
-                "details":"<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.<\/span><\/p>"
+                "title": "Values",
+                "details": "<p><b>Banner Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 910 x 230px.</span></p><p><b>Page Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 1200 x 800px.</span></p><p><b>Page Description: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It is a textarea field.</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -193,8 +193,8 @@ class SinglePagesSeeder extends Seeder
                 }
             }',
             'documentation' => '{
-                "title":"CS for CG",
-                "details":"<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.<\/span><\/p>"
+                "title": "CS for CG",
+                "details": "<p><b>Banner Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 910 x 230px.</span></p><p><b>Page Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 1200 x 800px.</span></p><p><b>Page Description: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It is a textarea field.</span></p><p><b>Upload File: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. The name filed should be the file name. It supports file uploads in pdf, doc, docx, xls, xlsx, ppt, pptx, odt, ods, and odp format.</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -239,8 +239,8 @@ class SinglePagesSeeder extends Seeder
                 }
             }',
             'documentation' => '{
-                "title":"Corporate Governance",
-                "details":"<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.<\/span><\/p>"
+                "title": " Corporate Governance",
+                "details": "<p><b>Banner Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 910 x 230px.</span></p><p><b>Page Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 1200 x 800px.</span></p><p><b>Page Description: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It is a textarea field.</span></p><p><b>Upload File: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. The name filed should be the file name. It supports file uploads in pdf, doc, docx, xls, xlsx, ppt, pptx, odt, ods, and odp format.</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -324,8 +324,8 @@ class SinglePagesSeeder extends Seeder
                 }
             }',
             'documentation' => '{
-                "title":"CS Membership",
-                "details":"<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.<\/span><\/p>"
+                "title": "CS Membership",
+                "details": "<p><b>Banner Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 910 x 230px.</span></p><p><b>Page Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 1200 x 800px.</span></p><p><b>Page Description: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It is a textarea field.</span></p><p><b>Upload File: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. The name filed should be the file name. It supports file uploads in pdf, doc, docx, xls, xlsx, ppt, pptx, odt, ods, and odp format.</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -363,8 +363,8 @@ class SinglePagesSeeder extends Seeder
                 }
             }',
             'documentation' => '{
-                "title":"Code of Conducts",
-                "details":"<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.<\/span><\/p>"
+                "title": "Code of Conducts",
+                "details": "<p><b>Banner Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 910 x 230px.</span></p><p><b>Page Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 1200 x 800px.</span></p><p><b>Page Description: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It is a textarea field.</span></p><p><b>Upload File: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. The name filed should be the file name. It supports file uploads in pdf, doc, docx, xls, xlsx, ppt, pptx, odt, ods, and odp format.</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -405,7 +405,7 @@ class SinglePagesSeeder extends Seeder
             }',
             'documentation' => '{
                 "title": "CPD Program",
-                "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
+                "details": "<p><b>Banner Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 910 x 230px.</span></p><p><b>Page Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 1200 x 800px.</span></p><p><b>Page Description: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It is a textarea field.</span></p><p><b>Upload File: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. The name filed should be the file name. It supports file uploads in pdf, doc, docx, xls, xlsx, ppt, pptx, odt, ods, and odp format.</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -422,7 +422,7 @@ class SinglePagesSeeder extends Seeder
             }',
             'documentation' => '{
                 "title": "Member Portal",
-                "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
+                "details": "<p><b>Portal Url: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It is a URL field that represents the URL of the ISCB Member Portal</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -463,7 +463,7 @@ class SinglePagesSeeder extends Seeder
             }',
             'documentation' => '{
                 "title": "Training Program",
-                "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
+                "details": "<p><b>Banner Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 910 x 230px.</span></p><p><b>Page Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 1200 x 800px.</span></p><p><b>Page Description: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It is a textarea field.</span></p><p><b>Upload File: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. The name filed should be the file name. It supports file uploads in pdf, doc, docx, xls, xlsx, ppt, pptx, odt, ods, and odp format.</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -509,7 +509,7 @@ class SinglePagesSeeder extends Seeder
             }',
             'documentation' => '{
                 "title": "Student Portal",
-                "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
+                "details": "<p><b>Portal Url: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It is a URL field that represents the URL of the ISCB Student Portal</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -683,7 +683,7 @@ class SinglePagesSeeder extends Seeder
             }',
             'documentation' => '{
                 "title": "Vision",
-                "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
+                "details": "<p><b>Banner Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 910 x 230px.</span></p><p><b>Page Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 1200 x 800px.</span></p><p><b>Page Description: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It is a textarea field.</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -759,7 +759,7 @@ class SinglePagesSeeder extends Seeder
             }',
             'documentation' => '{
                 "title": "CSR Initiatives",
-                "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
+                "details": "<p><b>Banner Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 910 x 230px.</span></p><p><b>Page Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 1200 x 800px.</span></p><p><b>Page Description: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It is a textarea field.</span></p><p><b>Upload File: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. The name filed should be the file name. It supports file uploads in pdf, doc, docx, xls, xlsx, ppt, pptx, odt, ods, and odp format.</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -794,7 +794,7 @@ class SinglePagesSeeder extends Seeder
             }',
             'documentation' => '{
                 "title": "Membership Benefits",
-                "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
+                "details": "<p><b>Banner Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 910 x 230px.</span></p><p><b>Page Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 1200 x 800px.</span></p><p><b>Page Description: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It is a textarea field.</span></p><p><b>Upload File: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. The name filed should be the file name. It supports file uploads in pdf, doc, docx, xls, xlsx, ppt, pptx, odt, ods, and odp format.</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -967,7 +967,7 @@ class SinglePagesSeeder extends Seeder
             }',
             'documentation' => '{
                 "title": "Members Lounge",
-                "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
+                "details": "<p><b>Banner Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 910 x 230px.</span></p><p><b>Page Images: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 750 X 750px. You can select multiple images by pressing the SHIFT/CTRL key.</span></p><p><b>Page Description: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It is a textarea field.</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -1094,7 +1094,7 @@ class SinglePagesSeeder extends Seeder
             }',
             'documentation' => '{
                 "title": "Genesis",
-                "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
+                "details": "<p><b>Banner Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 910 x 230px.</span></p><p><b>Page Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 1200 x 800px.</span></p><p><b>Page Description: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It is a textarea field.</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -1123,7 +1123,7 @@ class SinglePagesSeeder extends Seeder
             }',
             'documentation' => '{
                 "title": "Purpose of the Award",
-                "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
+                "details": "<p><b>Banner Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 910 x 230px.</span></p><p><b>Page Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 1200 x 800px.</span></p><p><b>Page Description: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It is a textarea field.</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -1152,7 +1152,7 @@ class SinglePagesSeeder extends Seeder
             }',
             'documentation' => '{
                 "title": "Eligibility for Participation",
-                "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
+                "details": "<p><b>Banner Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 910 x 230px.</span></p><p><b>Page Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 1200 x 800px.</span></p><p><b>Page Description: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It is a textarea field.</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -1181,7 +1181,7 @@ class SinglePagesSeeder extends Seeder
             }',
             'documentation' => '{
                 "title": "Sources for Evaluation",
-                "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
+                "details": "<p><b>Banner Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 910 x 230px.</span></p><p><b>Page Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 1200 x 800px.</span></p><p><b>Page Description: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It is a textarea field.</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -1210,7 +1210,7 @@ class SinglePagesSeeder extends Seeder
             }',
             'documentation' => '{
                 "title": "Evaluation & Assessment Basis",
-                "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
+                "details": "<p><b>Banner Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 910 x 230px.</span></p><p><b>Page Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 1200 x 800px.</span></p><p><b>Page Description: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It is a textarea field.</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -1239,7 +1239,7 @@ class SinglePagesSeeder extends Seeder
             }',
             'documentation' => '{
                 "title": "Jury Board",
-                "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
+                "details": "<p><b>Banner Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 910 x 230px.</span></p><p><b>Page Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 1200 x 800px.</span></p><p><b>Page Description: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It is a textarea field.</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -1268,7 +1268,7 @@ class SinglePagesSeeder extends Seeder
             }',
             'documentation' => '{
                 "title": "Assessment Criteria",
-                "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
+                "details": "<p><b>Banner Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 910 x 230px.</span></p><p><b>Page Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 1200 x 800px.</span></p><p><b>Page Description: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It is a textarea field.</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -1349,7 +1349,7 @@ class SinglePagesSeeder extends Seeder
             }',
             'documentation' => '{
                 "title": "Who we are",
-                "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
+                "details": "<p><b>Background Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 1920 x 700px.</span></p><p><b>Slider Images: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 5MB. The dimensions of the image should be 1200 x 800px. You can select multiple images by pressing the SHIFT/CTRL key.</span></p><p><b>Page Description: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It is a textarea field.</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -1372,7 +1372,7 @@ class SinglePagesSeeder extends Seeder
             }',
             'documentation' => '{
                 "title": "Pop Up",
-                "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
+                "details": "<p><b>Upload Image: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 1200 x 800px.</span></p><p><b>URL: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is nullable. It is a URL field and it represents the URL of the Pop Up Details.</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -1395,7 +1395,7 @@ class SinglePagesSeeder extends Seeder
             }',
             'documentation' => '{
                 "title": "Banner Video",
-                "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
+                "details": "<p><b>Upload Video: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. The name field should represent the file name, and it supports file uploads in the mp4 format. Multiple files can be uploaded, and individual files can be deleted by clicking on the delete icon next to each file.</span></p><p><b>Banner Title: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It is a text field with character limit of 255 characters.</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -1435,7 +1435,7 @@ class SinglePagesSeeder extends Seeder
             }',
             'documentation' => '{
                 "title": "Student Login",
-                "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
+                "details": "<p><b>URL: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It is a URL field that represents the login URL of the ICSB Student Portal</span></p>"
             }',
         ]);
         SinglePages::create([
@@ -1452,7 +1452,7 @@ class SinglePagesSeeder extends Seeder
             }',
             'documentation' => '{
                 "title": "Member Login",
-                "details": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">The role\'s manages user permissions by assigning different roles to users. Each role defines specific access levels and actions a user can perform. It helps ensure proper authorization and security in the system.</span></p>"
+                "details": "<p><b>URL: </b><span style=\"background-color:rgb(255,255,255);color:rgb(29,37,59);\">This field is required. It is a URL field that represents the login URL of the ICSB Member Portal</span></p>"
             }',
         ]);
         SinglePages::create([

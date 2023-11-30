@@ -142,8 +142,18 @@ table.gsc-search-box {
     width: 110px;
 
 }
+.stiky-box-2 {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 999999;
+    height: 110px;
+    width: 110px;
+}
 
-.stiky-box img {
+.stiky-box img,
+.stiky-box-2 img {
     height: 100%;
     width: 100%;
     border-radius: 10px;
@@ -167,6 +177,26 @@ table.gsc-search-box {
     background: transparent;
     color: red;
     font-size: 25px;
+    z-index: 9;
+}
+.popUp .carousel-control-prev,
+.popUp .carousel-control-next{
+    transition: .4s !important;
+    z-index: 1 !important;
+}
+.popUp .carousel-control-prev span,
+.popUp .carousel-control-next span{
+    color: black !important;
+    font-size: 2rem;
+}
+.popUp .carousel-control-prev:hover{
+    background-color: #939393b0  !important;
+}
+.popUp .carousel-control-next:hover{
+    background-color: #939393b0  !important;
+}
+.popUp .pop_up_close{
+    z-index: 9 !important;
 }
 
 
@@ -1288,8 +1318,9 @@ li {
 
 .we-are-section .container .image-column img {
     width: 100%;
-    object-fit: fill;
+    object-fit: cover;
     height: 100%;
+    min-height: 100%;
 }
 
 .we-are-section .we-are-coulmn .content-column h2 {
@@ -2067,7 +2098,7 @@ li {
     background: #F2F2F2;
 }
 #event-section .owl-carousel .owl-item img {
-
+    min-height: 200px;
 	width: 101%;
 }
 
@@ -5384,7 +5415,7 @@ td {
 }
 
 .main-footer-section h2 {
-    font-size: 40px;
+    font-size: 35px;
     line-height: 30px;
     color: #fff;
     font-family: "Impact";
@@ -5518,6 +5549,8 @@ td {
 .copyright-section p a:hover {
     color: #FF8601;
 }
+
+
 
 
 

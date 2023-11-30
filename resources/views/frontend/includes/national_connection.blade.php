@@ -9,7 +9,7 @@
                     @forelse ($national_connections as $connection)
                     <div class="item">
                         <div class="logo-wrapp">
-                            <a href="{{$connection->url}}" target="_blank"><img src="{{ storage_url($connection->logo) }}"></a>
+                            <a href="{{$connection->url}}" target="_blank"><img src="{{ storage_url($connection->logo) }}" loading="lazy"></a>
                             <h3>{{$connection->title}}</h3>
                         </div>
                     </div>
