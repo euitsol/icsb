@@ -610,7 +610,7 @@
     }
 
     .banner-section .video-container {
-        height: 90vh;
+        height: 80vh;
     }
 
     .top-header-section {
@@ -3571,7 +3571,7 @@
 
 
     /* Video  */
-    .banner-section .video-container .content h3 {
+   .banner-section .video-container  .content h3 {
         font-size: 49px;
         margin-bottom: 8px;
     }
