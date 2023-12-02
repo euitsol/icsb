@@ -532,7 +532,7 @@ li {
 	transition: .5s;
 } */
 .fixed-header {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     z-index: 99999;
@@ -865,14 +865,14 @@ li {
 } */
 .banner-section .video-container {
     width: 100%;
-    height: 85vh;
+    height: 88.6vh;
     /* Set the height to 100% of the viewport height */
     overflow: hidden;
 }
 
 .banner-section #carouselExampleCaptions {
     width: 100%;
-    height: 85vh;
+    height: 88.6vh;
     /* Set the height to 100% of the viewport height */
     overflow: hidden;
 }
