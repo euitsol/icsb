@@ -299,10 +299,11 @@ $(document).ready(function() {
             var lastY = ui.position.top;
             var lastX = ui.position.left;
             var swidth = $(window).width();
+            var sticky_width = $(this).width();
 
             if (isdragging) {
                 if (lastX > swidth / 2) {
-                    $(this).css("top", lastY).css("left", (swidth - 110) + "px").css("transition", "all 0.4s");
+                    $(this).css("top", lastY).css("left", (swidth - sticky_width) + "px").css("transition", "all 0.4s");
                 } else {
                     $(this).css("top", lastY).css("left", "0px").css("transition", "all 0.4s");
                 }
@@ -339,10 +340,11 @@ $(document).ready(function() {
             var lastY = parseInt($(this).css("top"));
             var lastX = parseInt($(this).css("left"));
             var swidth = $(window).width();
+            var sticky_width = $(this).width();
 
 
             if (lastX > swidth / 2) {
-                $(this).css("top", lastY + "px").css("left", (swidth - 110) + "px").css("transition", "all 0.4s");
+                $(this).css("top", lastY + "px").css("left", (swidth - sticky_width) + "px").css("transition", "all 0.4s");
             } else {
                 $(this).css("top", lastY + "px").css("left", "0px").css("transition", "all 0.4s");
             }
@@ -372,10 +374,12 @@ $(document).ready(function() {
             var lastY = ui.position.top;
             var lastX = ui.position.left;
             var swidth = $(window).width();
+            var sticky_width = $(this).width();
+            console.log(sticky_width);
 
             if (isdragging) {
                 if (lastX > swidth / 2) {
-                    $(this).css("top", lastY).css("left", (swidth - 110) + "px").css("transition", "all 0.4s");
+                    $(this).css("top", lastY).css("left", (swidth - sticky_width) + "px").css("transition", "all 0.4s");
                 } else {
                     $(this).css("top", lastY).css("left", "0px").css("transition", "all 0.4s");
                 }
@@ -412,10 +416,11 @@ $(document).ready(function() {
             var lastY = parseInt($(this).css("top"));
             var lastX = parseInt($(this).css("left"));
             var swidth = $(window).width();
+            var sticky_width = $(this).width();
 
 
             if (lastX > swidth / 2) {
-                $(this).css("top", lastY + "px").css("left", (swidth - 110) + "px").css("transition", "all 0.4s");
+                $(this).css("top", lastY + "px").css("left", (swidth - sticky_width) + "px").css("transition", "all 0.4s");
             } else {
                 $(this).css("top", lastY + "px").css("left", "0px").css("transition", "all 0.4s");
             }
