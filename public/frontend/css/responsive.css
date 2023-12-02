@@ -575,13 +575,6 @@
         column-gap: 2%;
     }
 
-
-
-    /* Breadcrumbs  */
-    .breadcrumbs-section {
-        /* margin-top: 83px; */
-    }
-
     .breadcrumbs-section .breadcrumbs-row .left-column {
         width: 100%;
     }
@@ -2774,7 +2767,6 @@
 
     /*=========================== Breascrumb Section ====================*/
     .breadcrumbs-section {
-        margin-top: 67px;
         height: 150px;
     }
 
