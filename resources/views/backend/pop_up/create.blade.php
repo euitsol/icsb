@@ -1,4 +1,4 @@
-@extends('backend.layouts.master', ['pageSlug' => 'pop_up'])
+@extends('backend.layouts.master', ['pageSlug' => 'pop-up'])
 
 @section('title', 'Pop Up')
 

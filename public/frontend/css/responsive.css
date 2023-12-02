@@ -617,7 +617,7 @@
     }
 
     .banner-section .video-container {
-        height: 90vh;
+        height: 76.6vh;
     }
 
     .top-header-section {
@@ -2349,7 +2349,6 @@
     } */
 
     .banner-section img {
-        height: 350px;
         object-fit: cover;
     }
 

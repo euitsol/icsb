@@ -13,7 +13,7 @@
                 {{-- <video autoplay loop muted playsinline id="myVideo" class="video-banner" poster="{{ asset('frontend/img/banner-video-poster.png') }}" preload="metadata">
                     <source src="{{ route('banner-video.show', base64_encode(json_decode($banner_video->saved_data)->{'upload-video'})) }}" type="video/mp4">
                 </video> --}}
-                <img src="{{asset('banner_test/1.webp')}}" alt="">
+                <img src="{{asset('banner_test/1.webp')}}" alt=""  width="100%" height="100%">
 
             {{-- <progress id="videoProgress" value="0" max="100"></progress>
             <button id="volumeButton" class="volume-icon"><i class="fas fa-volume-xmark" id="icon"></i></button>

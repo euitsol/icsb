@@ -395,7 +395,7 @@ li {
 /*=================== Top Header Section ===================*/
 .top-header-section {
     padding: 10px 0;
-    background: #182456;
+    background: #102694;
 }
 
 .top-header-section .header-content-column {
@@ -532,7 +532,7 @@ li {
 	transition: .5s;
 } */
 .fixed-header {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     z-index: 99999;
@@ -542,7 +542,7 @@ li {
 
 
 .header-menu-section {
-    background: #182456;
+    background: #102694;
     /* position: relative; */
 }
 
@@ -775,7 +775,7 @@ li {
 .header-menu-section .desktop-menu .menu-bar ul li>ul li:hover {
     cursor: pointer;
     transition: 0.4s;
-    background: #182456;
+    background: #102694;
 }
 
 .header-menu-section .desktop-menu .menu-bar ul li>ul li:hover>a {
@@ -865,14 +865,14 @@ li {
 } */
 .banner-section .video-container {
     width: 100%;
-    height: 85vh;
+    height: 88.6vh;
     /* Set the height to 100% of the viewport height */
     overflow: hidden;
 }
 
 .banner-section #carouselExampleCaptions {
     width: 100%;
-    height: 85vh;
+    height: 88.6vh;
     /* Set the height to 100% of the viewport height */
     overflow: hidden;
 }
@@ -1149,7 +1149,7 @@ li {
 .news-ticker-section .ticker-title {
     width: 250px;
     padding: 18px 25px;
-    background-color: #182456;
+    background-color: #102694;
     clip-path: polygon(0% 0%, 94% 0%, 100% 50%, 94% 100%, 0% 100%);
 }
 
@@ -1320,7 +1320,6 @@ li {
     width: 100%;
     object-fit: cover;
     height: 100%;
-    min-height: 100%;
 }
 
 .we-are-section .we-are-coulmn .content-column h2 {
@@ -5391,7 +5390,7 @@ td {
 .main-footer-section {
     position: relative;
     padding: 28px 0 14px 0;
-    background: #182456;
+    background: #102694;
 }
 
 .main-footer-section::after {
@@ -5469,12 +5468,11 @@ td {
 .main-footer-section .footer-column iframe {
     border-radius: 24px;
 }
-
 .main-footer-section .visitor-column ul {
     column-gap: 15px;
     margin: 0 auto;
     padding: 8px 0;
-    background: #122F98;
+    background: #182456;
     max-width: 622px;
     border-radius: 31px;
 }
@@ -5525,7 +5523,7 @@ td {
 
 .main-footer-section .footer-social-column ul li a:hover {
     color: #fff;
-    background: #122F98;
+    background: #182456;
 }
 
 .main-footer-section .footer-social-column ul li a i {
@@ -5535,7 +5533,7 @@ td {
 
 .copyright-section {
     padding: 7px 0;
-    background: #122F98;
+    background: #182456;
 }
 
 .copyright-section p,
