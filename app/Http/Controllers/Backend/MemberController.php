@@ -202,7 +202,7 @@ class MemberController extends Controller
                     $transformedmn[0]['number'] = $mobileNumber ?? '';
 
                     if(isset($item['std_pic']) && !empty($item['std_pic'])){
-                        $filePath = str_replace('~', 'https://icsberp.org/erp', $item['std_pic']);
+                        $filePath = trim(str_replace('~', 'https://icsberp.org/erp', $item['std_pic']));
                     }
 
                     if(isset($item['honorary']) && $item['honorary'] == 1){
