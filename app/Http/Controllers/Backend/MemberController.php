@@ -190,7 +190,7 @@ class MemberController extends Controller
     public function sync()
     {
         try {
-            $response = Http::get('http://172.86.183.194/API/api/members/GetMemberList');
+            $response = Http::get('https://icsberp.org/API/api/members/GetMemberList');
             if ($response->successful()) {
                 $apiData = $response->json();
                 foreach ($apiData as $index => $item) {
