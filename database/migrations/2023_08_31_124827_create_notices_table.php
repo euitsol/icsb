@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('notices', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('cat_id');
-            $table->string('title')->unique();
+            $table->string('title');
             $table->string('slug')->unique();
             $table->json('files');
             $table->longText('description')->nullable();

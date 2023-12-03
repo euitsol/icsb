@@ -40,7 +40,7 @@
                             <b>{{ _('Contact') }}</b>
                         </p>
                         <div class="card-description">
-                            <b>Page Image:</b> This field is required. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 1920 x 700px.</p>
+                            <b>Page Image:</b> This field is required. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The recommended image dimensions are 1920 x 700 pixels.</p>
                         </div>
                     </div>
                 </div>
