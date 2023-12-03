@@ -108,8 +108,9 @@ $datas = [
                                     <i class="fa-brands fa-square-x-twitter"></i>
                                 @elseif ($count == 3)
                                     <i class="fa-brands fa-whatsapp"></i>
+                                @elseif ($count == 4)
+                                    <i class="fa-brands fa-telegram"></i>
                                 @endif
-
                             </a>
                             @php
                                 $count++;

@@ -65,6 +65,11 @@ class AjaxController extends Controller
             $convocations = Convocation::where('deleted_at',null)->where('status',1)->latest()->offset($offset)->limit(12)->get();
             return response()->json(['convocations'=>$convocations]);
     }
+    public function notices($offset): JsonResponse
+    {
+            $notices = Notice::where('deleted_at',null)->where('status',1)->latest()->offset($offset)->limit(12)->get();
+            return response()->json(['notices'=>$notices]);
+    }
     // public function singlePageSeeMore($slug,$offset): JsonResponse
     // {
     //     $results = SinglePages::where('frontend_slug', $slug)->first();

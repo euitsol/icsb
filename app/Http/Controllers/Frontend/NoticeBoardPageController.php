@@ -62,6 +62,23 @@ class NoticeBoardPageController extends Controller
         ]);
     }
 
+    // public function notice($slug = null): View
+    // {
+
+    //     $s=[];
+    //     if($slug !== null){
+    //         $s['notice_cat'] = NoticeCategory::where('slug',$slug)->where('deleted_at',null)->first();
+    //         if(!empty($s['notice_cat'])){
+    //             $s['notices'] = Notice::where('cat_id',$s['notice_cat']->id)->where('deleted_at',null)->where('status',1)->latest()->paginate(10);
+    //         }else{
+    //             $s['notices'] = Notice::where('slug',$slug)->where('deleted_at',null)->where('status',1)->latest()->paginate(10);
+    //         }
+    //     }else{
+    //         $s['notices'] = Notice::where('deleted_at',null)->where('status',1)->latest()->paginate(10);
+    //     }
+    //     return view('frontend.notice_board.notice',$s);
+
+    // }
     public function notice($slug = null): View
     {
 
@@ -69,13 +86,15 @@ class NoticeBoardPageController extends Controller
         if($slug !== null){
             $s['notice_cat'] = NoticeCategory::where('slug',$slug)->where('deleted_at',null)->first();
             if(!empty($s['notice_cat'])){
-                $s['notices'] = Notice::where('cat_id',$s['notice_cat']->id)->where('deleted_at',null)->where('status',1)->latest()->paginate(10);
+                $s['notices'] = Notice::where('cat_id',$s['notice_cat']->id)->where('deleted_at',null)->where('status',1)->latest()->limit(12)->get();
             }else{
-                $s['notices'] = Notice::where('slug',$slug)->where('deleted_at',null)->where('status',1)->latest()->paginate(10);
+                $s['notices'] = Notice::where('slug',$slug)->where('deleted_at',null)->where('status',1)->latest()->limit(12)->get();
+                
             }
         }else{
-            $s['notices'] = Notice::where('deleted_at',null)->where('status',1)->latest()->paginate(10);
+            $s['notices'] = Notice::where('deleted_at',null)->where('status',1)->latest()->limit(12)->get();
         }
+        $s['count'] = Notice::where('deleted_at', null)->where('status',1)->latest()->get();
         return view('frontend.notice_board.notice',$s);
 
     }
