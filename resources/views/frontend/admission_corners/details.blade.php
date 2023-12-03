@@ -58,8 +58,8 @@
             <div class="row">
                 <div class="col-md-12">
                     @if(!empty($page_image->page_image))
-                    <div class="card mb-4">
-                        <img src="{{storage_url($page_image->page_image)}}" alt="{{__('Admission Corner Page Image')}}">
+                    <div class="card mb-4 border-0">
+                        <img class="mx-auto" style="max-width: 100%" src="{{storage_url($page_image->page_image)}}" alt="{{__('Admission Corner Page Image')}}">
                     </div>
                     @endif
                     <div class="card">
@@ -79,7 +79,7 @@
                                         <td>
                                             <strong>{{$detail->name}}</strong><br>
                                             <strong>{{$detail->designation}}</strong><br>
-                                            <span> Cell : {{$detail->designation}}</span><br>
+                                            <span> Cell : {{$detail->phone}}</span><br>
                                             <span>e-mail : {{$detail->email}}</span><br>
                                             <span>Phone: 
                                                 @foreach((json_decode($detail->telephone, true)) as $key=>$telephone)
