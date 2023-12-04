@@ -60,12 +60,22 @@ $datas = [
     <div class="container">
         <div class="row notices">
             @foreach ($notices as $key=>$notice)
-            <div class="col-md-6 the_cs mb-5 mx-auto">
+           <div class="col-md-9">
                 <h4>{{($key+1).'. '.$notice->title}}</h4>
-                <div class="new-handbook text-align">
+           </div>
+            <div class="col-md-3">
+                <h5 class="text-md-end"><small>{{_('Release Date: ')}}{{date('d M, Y', strtotime($notice->created_at))}}</small></h5>
+            </div>
+            <div class="col-md-12 mb-5 ">
+                
+                <div class="row">
                     @foreach(json_decode($notice->files) as $file)
-                        <iframe src ="{{ pdf_storage_url($file->{'file_path'}) }}" width="100%" height="500px"></iframe>
-                        <a class="d-block cursor-pointer" target="_blank" href="{{route('sp.file.download', base64_encode($file->file_path))}}"><h3 > {{$file->file_name}}</h3></a>
+                    <div class="col-md-6 mx-auto">
+                        <div class="new-handbook text-align">
+                            <iframe src ="{{ pdf_storage_url($file->{'file_path'}) }}" width="100%" height="500px"></iframe>
+                            <a class="d-block cursor-pointer" target="_blank" href="{{route('sp.file.download', base64_encode($file->file_path))}}"><h3 > {{$file->file_name}}</h3></a>
+                        </div>
+                    </div>
                     @endforeach
                 </div>
             </div>
@@ -73,7 +83,7 @@ $datas = [
         </div>
         @if(count($count)>12)
             <div class="see-button text-align">
-                <a href="javascript:void(0)" class="more" data-offset="12">{{_('See More')}}</a>
+                <a href="javascript:void(0)" class="more" data-count={{count($notices)}} data-offset="12" data-slug="{{$slug}}">{{_('See More')}}</a>
             </div>
         @endif
 
@@ -83,40 +93,70 @@ $datas = [
 @push('js')
 <script>
 $(document).ready(function () {
-$('.more').on('click', function () {
-    var limit = 12;
-    var offset = $(this).attr('data-offset');
-    let _url = ("{{ route('notices', ['offset']) }}");
-    let __url = _url.replace('offset', offset);
-    $.ajax({
-        url: __url,
-        method: 'GET',
-        dataType: 'json',
-        success: function (data) {
-            $('.more').attr('data-offset', parseInt(offset)+limit);
-            data.notices.forEach(function (notice) {
-                var pdfLink = '{{ asset("/laraview/#../storage/file") }}'.replace('file', notice.file);
-                var routeFileDownload = '{{ route("sp.file.download", ":file") }}'.replace(':file', btoa(notice.file));
-
-                var result= `
-                    <div class="col-xl-3 col-lg-4 col-md-6 the_cs mb-5">
+    $('.more').on('click', function () {
+        var limit = 12;
+        var offset = $(this).attr('data-offset');
+        var slug = $(this).attr('data-slug');
+        let _url = ("{{ route('notices', ['offset','slug']) }}");
+        let __url = _url.replace('offset', offset);
+        let ___url = __url.replace('slug', slug);
+        var count = $(this).attr('data-count');
+        $.ajax({
+            url: ___url,
+            method: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                
+                $('.more').attr('data-offset', parseInt(offset)+limit);
+                data.notices.forEach(function (notice) {
+                    var result = '';
+                    count = parseInt(count)+1;
+                    result+= `
+                            <div class="col-md-9">
+                                <h4>${count}. ${notice.title}</h4>
+                            </div>
+                                <div class="col-md-3">
+                                    <h5 class="text-md-end"><small>Release Date: ${notice.release_date}</small></h5>
+                                </div>
+                                <div class="col-md-12 mb-5 ">
+                                    
+                                    <div class="row">
+                                `;
+                    var files = $.parseJSON(notice.files);
+                    
+                    $.each(files, function(key) {
+                        var pdfLink = '{{ asset("/laraview/#../storage/file") }}'.replace('file', files[key]['file_path']);
+                        var routeFileDownload = '{{ route("sp.file.download", ":file") }}'.replace(':file', btoa(files[key]['file_path']));
+                        result += `
+                        <div class="col-md-6 mx-auto">
                         <div class="new-handbook text-align">
-                            <iframe src ="${pdfLink}" width="100%" height="400px"></iframe>
-                            <a class="d-block cursor-pointer" target="_blank" href="${routeFileDownload}"><h3>${notice.title}</h3></a>
+                        <iframe src="${pdfLink}" width="100%" height="500px"></iframe>
+                        <a class="d-block cursor-pointer" target="_blank" href="${routeFileDownload}">
+                            <h3>${files[key]['file_name']}</h3>
+                        </a>
                         </div>
-                    </div>
-                `;
-                $('.notices').append(result);
-            });
-            if(data.notices.length<limit){
-                $('.more').parent().hide();
+                        </div>
+                        `;
+                    });
+                    result +=`
+                            </div>
+                            </div>`;
+
+                    $('.notices').append(result);
+                });
+                $('.more').attr('data-count', count);
+                if(data.notices.length<limit){
+                    $('.more').parent().hide();
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error('Error fetching notices:', error);
             }
-        },
-        error: function (xhr, status, error) {
-            console.error('Error fetching notices:', error);
-        }
         });
+        
     });
+
 });
+
 </script>
 @endpush

@@ -83,6 +83,7 @@ class NoticeBoardPageController extends Controller
     {
 
         $s=[];
+        $s['slug'] = $slug;
         if($slug !== null){
             $s['notice_cat'] = NoticeCategory::where('slug',$slug)->where('deleted_at',null)->first();
             if(!empty($s['notice_cat'])){
