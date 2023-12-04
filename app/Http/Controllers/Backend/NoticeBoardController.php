@@ -79,17 +79,18 @@ class NoticeBoardController extends Controller
         $notice->slug = $request->slug;
         $notice->description = $request->description;
 
-        if($request->notify == 1){
-            $notice->notify = $request->notify;
+        if($request->notify == 1 || $request->test_notify == 1){
+            $notice->notify = $request->notify ?? 0;
             $notice->email_subject = $request->email_subject;
             $notice->email_body = $request->email_body;
         }
-
         $notice->created_by = auth()->user()->id;
         $notice->save();
-
         if($request->notify == 1){
             $this->send_member_email($notice);
+        }
+        if($request->test_notify == 1){
+            $this->send_member_email($notice, $request->test_mail);
         }
 
         return redirect()->route('notice_board.notice_list')->withStatus(__('Notice '.$notice->title.' created successfully.'));
@@ -141,14 +142,19 @@ class NoticeBoardController extends Controller
         $notice->slug = $request->slug;
         $notice->description = $request->description;
 
-        if($request->notify == 1){
-            $notice->notify = $request->notify;
+        if($request->notify == 1 || $request->test_notify == 1){
+            $notice->notify = $request->notify ?? 0;
             $notice->email_subject = $request->email_subject;
             $notice->email_body = $request->email_body;
         }
         $notice->updated_by = auth()->user()->id;
         $notice->save();
-
+        if($request->notify == 1){
+            $this->send_member_email($notice);
+        }
+        if($request->test_notify == 1){
+            $this->send_member_email($notice, $request->test_mail);
+        }
         return redirect()->route('notice_board.notice_list')->withStatus(__('Notice '.$notice->title.' updated successfully.'));
     }
     public function status($id): RedirectResponse

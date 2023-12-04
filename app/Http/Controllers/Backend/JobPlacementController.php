@@ -10,6 +10,7 @@ use App\Http\Requests\JobPlacementRequest;
 use Carbon\Carbon;
 use App\Http\Traits\SendMailTrait;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Artisan;
 
 class JobPlacementController extends Controller
 {
@@ -162,7 +163,8 @@ class JobPlacementController extends Controller
     {
         $jp = JobPlacement::findOrFail($id);
         if($status == 'accept'){
-            $url = route('member_view.job_details',$id);
+            $jid = Crypt::encrypt($id);
+            $url = route('member_view.job_details',$jid);
             $jp->status = '1';
             $jp->email_subject = "New job opportunitie: $jp->title";
             $jp->email_body = "
@@ -191,6 +193,9 @@ class JobPlacementController extends Controller
             ";
             $this->send_custom_email($mail,$subject, $jp->email);
             $this->send_member_email($jp);
+            // Artisan::call('queue:work', [
+            //     '--daemon' => true,
+            // ]);
 
         }elseif($status == 'declined'){
             $jp->status = '-1';
