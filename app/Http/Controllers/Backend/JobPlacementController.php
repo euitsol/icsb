@@ -10,7 +10,6 @@ use App\Http\Requests\JobPlacementRequest;
 use Carbon\Carbon;
 use App\Http\Traits\SendMailTrait;
 use Illuminate\Support\Facades\Crypt;
-use Illuminate\Support\Facades\Artisan;
 
 class JobPlacementController extends Controller
 {
@@ -193,9 +192,6 @@ class JobPlacementController extends Controller
             ";
             $this->send_custom_email($mail,$subject, $jp->email);
             $this->send_member_email($jp);
-            // Artisan::call('queue:work', [
-            //     '--daemon' => true,
-            // ]);
 
         }elseif($status == 'declined'){
             $jp->status = '-1';
