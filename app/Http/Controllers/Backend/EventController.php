@@ -103,6 +103,12 @@ class EventController extends Controller
         $event->event_end_time = $request->event_end_time;
         $event->description = $request->description;
         $event->type = $request->type;
+
+        if($request->notify == 1){
+            $event->notify = $request->notify;
+            $event->email_subject = $request->email_subject;
+            $event->email_body = $request->email_body;
+        }
         $event->updated_by = auth()->user()->id;
         $event->save();
 

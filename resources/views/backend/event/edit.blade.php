@@ -9,7 +9,7 @@
                 <div class="card-header">
                     <h5 class="title">{{ _('Edit Event') }}</h5>
                 </div>
-                <form method="POST" action="{{ route('event.event_edit', $event->id) }}" autocomplete="off" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('event.event_edit', $event->id) }}" autocomplete="off" enctype="multipart/form-data" class="eventForm">
                     @method('PUT')
                     @csrf
                     <div class="card-body">
@@ -113,6 +113,32 @@
                         </div>
 
 
+
+
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="checkbox" id="notify" name="notify" value="1" {{ old('notify') ? 'checked' : '' }}>
+                              <span class="form-check-sign"><strong>{{_('Notify All Members')}}</strong></span>
+                            </label>
+                        </div>
+                        <div id="email-details" class="mt-2" style="display: none;">
+                            <div class="form-group {{ $errors->has('email_subject') ? ' has-danger' : '' }}">
+                                <label>{{ _('Email Subject') }}</label>
+                                <input type="text" name="email_subject"
+                                    class="form-control {{ $errors->has('email_subject') ? ' is-invalid' : '' }}"
+                                    placeholder="{{ _('Email Subject') }}" value="{{ old('email_subject') }}">
+                                @include('alerts.feedback', ['field' => 'email_subject'])
+                            </div>
+                            <div class="form-group {{ $errors->has('email_body') ? ' has-danger' : '' }}">
+                                <label>{{ _('Email Body') }} </label>
+                                <textarea rows="3" name="email_body" class="form-control {{ $errors->has('email_body') ? ' is-invalid' : '' }}">
+                                    {{ old('email_body') }}
+                                </textarea>
+                                @include('alerts.feedback', ['field' => 'email_body'])
+                            </div>
+                        </div>
+
+
                     </div>
                     <div class="card-footer">
                         <button type="submit" class="btn btn-fill btn-primary">{{ _('Update') }}</button>
@@ -159,6 +185,35 @@ $(document).ready(function () {
         const titleValue = $(this).val().trim();
         const slugValue = generateSlug(titleValue);
         $("#slug").val(slugValue);
+    });
+
+    var checkbox = $('#notify');
+    var targetDiv = $('#email-details');
+
+    if (checkbox.is(':checked')) {
+        targetDiv.show();
+    } else {
+        targetDiv.hide();
+    }
+    checkbox.on('change', function() {
+        if (checkbox.is(':checked')) {
+            targetDiv.show();
+        } else {
+            targetDiv.hide();
+        }
+    });
+
+    $('.eventForm').submit(function(event) {
+        event.preventDefault();
+        $.ajax({
+            url: "/run-queue",
+            type: "GET",
+            success: function (data) {},
+            error: function (xhr, status, error) {
+                console.log();("Error: " + xhr.responseText);
+            },
+        });
+        $('.eventForm').off('submit').submit();
     });
 });
 </script>

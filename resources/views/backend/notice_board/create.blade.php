@@ -112,11 +112,8 @@
         </div>
     </div>
 @endsection
-
-@push('js_link')
-    <script src="{{asset('backend/js/multi_file_and_slug.js')}}"></script>
-@endpush
 @push('js')
+    <script src="{{asset('backend/js/multi_file_and_slug.js')}}"></script>
     <script>
         $(document).ready(function(){
             var checkbox = $('#notify');
