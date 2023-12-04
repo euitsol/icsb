@@ -264,7 +264,8 @@ class MembersPagesController extends Controller
         <p>Email: $jp->email</p> <br>
         <p>Details: </p> $jp->job_responsibility <br>
         ";
-        $this->send_custom_email($admin_mail,$admin_subject, 'test.euitsols@gmail.com');
+        $to = ['icsbsec@gmail.com','hr@icsb.edu.bd','itofficer@icsb.edu.bd'];
+        $this->send_custom_email($admin_mail,$admin_subject, $to);
         return redirect()->route('member_view.job_edit',$id)->withStatus(__('Job post '.$request->title.' editted successfully.'));
     }
     public function job_details($id): View
