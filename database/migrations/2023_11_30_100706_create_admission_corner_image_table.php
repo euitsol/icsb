@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('admission_corner_image', function (Blueprint $table) {
             $table->id();
             $table->string('page_image');
+            $table->string('url')->nullable();
             $table->timestamps();
             $table->softDeletes();
             $this->addAuditColumns($table);

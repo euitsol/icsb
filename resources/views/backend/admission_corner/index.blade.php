@@ -26,6 +26,12 @@
                                 >
                                 @include('alerts.feedback', ['field' => 'page_image'])
                             </div>
+                            <div class="form-group {{ $errors->has('url') ? 'is-invalid' : '' }}">
+                                <label>{{ _('URL') }}</label>
+                                <input type="url" name="url" value="{{$admission_corner_image->url ?? old('url')}}" placeholder="Enter admission notice url" class="form-control  {{ $errors->has('url') ? 'is-invalid' : '' }}"
+                                >
+                                @include('alerts.feedback', ['field' => 'url'])
+                            </div>
                         </div>
                         <div class="card-footer">
                             <button type="submit" class="btn btn-fill btn-primary">{{ _('Save') }}</button>

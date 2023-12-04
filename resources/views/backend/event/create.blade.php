@@ -95,12 +95,23 @@
                             @include('alerts.feedback', ['field' => 'description'])
                         </div>
                         <div class="form-check form-check-inline">
-                            <label class="form-check-label">
+                            <label class="form-check-label mr-2">
                               <input class="form-check-input" type="checkbox" id="notify" name="notify" value="1" {{ old('notify') ? 'checked' : '' }}>
                               <span class="form-check-sign"><strong>{{_('Notify All Members')}}</strong></span>
                             </label>
+                            <label class="form-check-label mr-2">
+                                <input class="form-check-input" type="checkbox" id="test_notify" name="test_notify" value="1" {{ old('test_notify') ? 'checked' : '' }}>
+                                <span class="form-check-sign"><strong>{{_('Test Mail')}}</strong></span>
+                            </label>
                         </div>
                         <div id="email-details" class="mt-2" style="display: none;">
+                            <div class="form-group {{ $errors->has('test_mail') ? ' has-danger' : '' }} testMail" style="display: none;">
+                                <label>{{ _('Test Mail') }}</label>
+                                <input type="email" name="test_mail"
+                                    class="form-control {{ $errors->has('test_mail') ? ' is-invalid' : '' }}"
+                                    placeholder="{{ _('Enter your email') }}" value="{{ old('test_mail') }}">
+                                @include('alerts.feedback', ['field' => 'test_mail'])
+                            </div>
                             <div class="form-group {{ $errors->has('email_subject') ? ' has-danger' : '' }}">
                                 <label>{{ _('Email Subject') }}</label>
                                 <input type="text" name="email_subject"
@@ -168,33 +179,57 @@ $(document).ready(function () {
     });
 
     var checkbox = $('#notify');
+    var testCheckbox = $('#test_notify');
     var targetDiv = $('#email-details');
+    var testMail = $('.testMail')
 
     if (checkbox.is(':checked')) {
+        testCheckbox.prop('checked', false);
+        testMail.hide();
         targetDiv.show();
-    } else {
+        
+    }else if(testCheckbox.is(':checked')){
+        checkbox.prop('checked', false);
+        testMail.show();
+        targetDiv.show();
+    }
+     else {
+        testMail.hide();
         targetDiv.hide();
     }
     checkbox.on('change', function() {
         if (checkbox.is(':checked')) {
+            testCheckbox.prop('checked', false);
+            testMail.hide();
             targetDiv.show();
         } else {
             targetDiv.hide();
         }
     });
-
-    $('.eventForm').submit(function(event) {
-        event.preventDefault();
-        $.ajax({
-            url: "/run-queue",
-            type: "GET",
-            success: function (data) {},
-            error: function (xhr, status, error) {
-                console.log();("Error: " + xhr.responseText);
-            },
-        });
-        $('.eventForm').off('submit').submit();
+    testCheckbox.on('change', function() {
+        if (testCheckbox.is(':checked')) {
+            checkbox.prop('checked', false);
+            testMail.show();
+            targetDiv.show();
+        } else {
+            testMail.hide();
+            targetDiv.hide();
+        }
     });
+    if (checkbox.is(':checked')) {
+        $('.eventForm').submit(function(event) {
+            event.preventDefault();
+            $.ajax({
+                url: "/run-queue",
+                type: "GET",
+                success: function (data) {},
+                error: function (xhr, status, error) {
+                    console.log();("Error: " + xhr.responseText);
+                },
+            });
+            $('.eventForm').off('submit').submit();
+        });
+    }
 });
 </script>
 @endpush

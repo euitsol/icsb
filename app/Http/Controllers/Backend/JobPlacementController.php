@@ -9,6 +9,8 @@ use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\JobPlacementRequest;
 use Carbon\Carbon;
 use App\Http\Traits\SendMailTrait;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Artisan;
 
 class JobPlacementController extends Controller
 {
@@ -55,6 +57,23 @@ class JobPlacementController extends Controller
         $jp->special_instractions = $request->special_instractions;
         $jp->created_by = auth()->user()->id;
         $jp->save();
+
+
+        $id = Crypt::encrypt($jp->id);
+        $subject = "Job Post Status";
+        $url = route('member_view.job_edit',$id);
+        $mail =
+        "
+        <p>Dear Sir,</p> <br>
+
+        <p> Thank you for choosing ICSB Job Portal to post your job opportunity. We appreciate your trust in our platform to connect you with potential candidates.</p><br>
+
+        <p>We want to inform you that your job post is currently in the pending status. Our team is working diligently to review and approve your job listing. Once approved, it will be live on our platform for job seekers to view and apply.</p><br>
+
+        <a href='".$url."' target='_blank'>Edit Job Post</a>
+        ";
+
+        $this->send_custom_email($mail,$subject, $jp->email);
 
         $admin_subject = "New job posted on your job portal";
         $admin_mail =
@@ -103,6 +122,33 @@ class JobPlacementController extends Controller
         $jp->special_instractions = $request->special_instractions;
         $jp->updated_by = auth()->user()->id;
         $jp->save();
+
+        $id = Crypt::encrypt($jp->id);
+        $url = route('member_view.job_edit',$id);
+        $subject = "Job Post Status";
+        $mail =
+        "
+        <p>Dear Sir,</p><br>
+
+        <p>Your job post has been editted successfully. We appreciate your trust in our platform to connect you with potential candidates.</p><br>
+
+        <p>We want to inform you that your job post is currently in the pending status. Our team is working diligently to review and approve your job listing. Once approved, it will be live on our platform for job seekers to view and apply.</p><br>
+
+        <a href='".$url."' target='_blank'>Edit Job Post</a>
+        ";
+        $this->send_custom_email($mail,$subject, $jp->email);
+        $admin_subject = "A pending job was editted on your job portal";
+        $admin_mail =
+        "
+        <p>Job Title: $jp->title</p> <br>
+        <p>Email: $jp->email</p> <br>
+        <p>Details: </p> $jp->job_responsibility <br>
+        ";
+        $to = ['icsbsec@gmail.com','hr@icsb.edu.bd','itofficer@icsb.edu.bd'];
+        $this->send_custom_email($admin_mail,$admin_subject, $to);
+
+
+
         return redirect()->route('job_placement.jp_list')->withStatus(__('Job '.$jp->title.' updated successfully.'));
     }
     public function delete($id): RedirectResponse
@@ -117,9 +163,9 @@ class JobPlacementController extends Controller
     {
         $jp = JobPlacement::findOrFail($id);
         if($status == 'accept'){
-            $url = route('member_view.jps');
+            $jid = Crypt::encrypt($id);
+            $url = route('member_view.job_details',$jid);
             $jp->status = '1';
-            $jp->notify = 1;
             $jp->email_subject = "New job opportunitie: $jp->title";
             $jp->email_body = "
                 <p>Job Title: $jp->title</p> 
@@ -131,7 +177,7 @@ class JobPlacementController extends Controller
                 <a href='".$url."' target='_blank'>Live Job Posts</a>
             ";
             $jp->save();
-            $url = route('member_view.jps');
+
             $subject = "Approval of Your Job Post";
             $mail =
             "
@@ -143,10 +189,13 @@ class JobPlacementController extends Controller
 
             <p>Thank you for using our platform, and we wish you the best in finding the perfect candidate for your job opening.</p><br>
  
-            <a href='".$url."' style='padding:15px 10px; backgr' target='_blank'>Live Job Posts</a>
+            <a href='".$url."' style='padding:15px 10px; backgr' target='_blank'>Live Job Post</a>
             ";
             $this->send_custom_email($mail,$subject, $jp->email);
             $this->send_member_email($jp);
+            // Artisan::call('queue:work', [
+            //     '--daemon' => true,
+            // ]);
 
         }elseif($status == 'declined'){
             $jp->status = '-1';

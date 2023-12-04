@@ -17,6 +17,7 @@ class AdmissionCornerImageRequest extends FormRequest
     {
         return [
             'page_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'url' => 'nullable|url',
         ]
         +
         ($this->isMethod('POST') ? $this->store() : $this->update());

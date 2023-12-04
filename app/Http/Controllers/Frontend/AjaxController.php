@@ -65,6 +65,25 @@ class AjaxController extends Controller
             $convocations = Convocation::where('deleted_at',null)->where('status',1)->latest()->offset($offset)->limit(12)->get();
             return response()->json(['convocations'=>$convocations]);
     }
+    public function notices($offset, $slug = null): JsonResponse
+    {
+            if($slug !== null){
+                $s['notice_cat'] = NoticeCategory::where('slug',$slug)->where('deleted_at',null)->first();
+                if(!empty($s['notice_cat'])){
+                    $s['notices'] = Notice::where('cat_id',$s['notice_cat']->id)->where('deleted_at',null)->where('status',1)->latest()->offset($offset)->limit(12)->get();
+                }else{
+                    $s['notices'] = Notice::where('slug',$slug)->where('deleted_at',null)->where('status',1)->latest()->offset($offset)->limit(12)->get();
+                    
+                }
+            }else{
+                $s['notices'] = Notice::where('deleted_at',null)->where('status',1)->latest()->offset($offset)->limit(12)->get();
+            }
+            $s['notices'] = $s['notices']->map(function ($notice) {
+                $notice->release_date = date('d M Y', strtotime($notice->created_at));
+                return $notice;
+            });
+            return response()->json($s);
+    }
     // public function singlePageSeeMore($slug,$offset): JsonResponse
     // {
     //     $results = SinglePages::where('frontend_slug', $slug)->first();

@@ -54,8 +54,8 @@ class EventController extends Controller
         $event->description = $request->description;
         $event->type = $request->type;
 
-        if($request->notify == 1){
-            $event->notify = $request->notify;
+        if($request->notify == 1 || $request->test_notify == 1){
+            $event->notify = $request->notify ?? 0;
             $event->email_subject = $request->email_subject;
             $event->email_body = $request->email_body;
         }
@@ -66,6 +66,9 @@ class EventController extends Controller
 
         if($request->notify == 1){
             $this->send_member_email($event);
+        }
+        if($request->test_notify == 1){
+            $this->send_member_email($event, $request->test_mail);
         }
 
 
@@ -103,8 +106,20 @@ class EventController extends Controller
         $event->event_end_time = $request->event_end_time;
         $event->description = $request->description;
         $event->type = $request->type;
+        if($request->notify == 1 || $request->test_notify == 1){
+            $event->notify = $request->notify ?? 0;
+            $event->email_subject = $request->email_subject;
+            $event->email_body = $request->email_body;
+        }
         $event->updated_by = auth()->user()->id;
         $event->save();
+        if($request->notify == 1){
+            $this->send_member_email($event);
+        }
+        if($request->test_notify == 1){
+            $this->send_member_email($event, $request->test_mail);
+        }
+
 
         return redirect()->route('event.event_list')->withStatus(__('Event '.$event->title.' updated successfully.'));
     }

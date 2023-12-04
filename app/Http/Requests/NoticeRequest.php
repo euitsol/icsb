@@ -22,6 +22,7 @@ class NoticeRequest extends FormRequest
             'cat_id' => 'required|exists:notice_categories,id',
             'file.*.file_path' => 'nullable|file|mimes:jpg,png,pdf,doc,docx,xls,xlsx,ppt,pptx,odt,ods,odp',
             'file.*.file_name' => 'nullable|string',
+            'test_mail'=>'nullable|email',
         ]
         +
         ($this->isMethod('POST') ? $this->store() : $this->update());

@@ -33,6 +33,34 @@
         font-weight: 400;
         font-style: normal;
     }
+    .image{
+        position: relative;
+        overflow: hidden;
+    }
+    .image{
+        width: auto;
+        margin: 0 auto;
+    }
+    .image .page_image{
+        transition: .4s;
+    }
+    .details-button{
+        position: absolute;
+        top: 110%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: .4s;
+        opacity: 0;
+        visibility: hidden;
+    }
+    .image:hover .details-button{
+        top: 50%;
+        opacity: 1;
+        visibility: visible;
+    }
+    .image:hover .page_image {
+        opacity: .5;
+    }
     
 </style>
 @endpush
@@ -59,7 +87,14 @@
                 <div class="col-md-12">
                     @if(!empty($page_image->page_image))
                     <div class="card mb-4 border-0">
-                        <img class="mx-auto" style="max-width: 100%" src="{{storage_url($page_image->page_image)}}" alt="{{__('Admission Corner Page Image')}}">
+                        <div class="image">
+                            <img class="mx-auto @if(!empty($page_image->url)) page_image @endif" style="max-width: 100%; width:auto;" src="{{storage_url($page_image->page_image)}}" alt="{{__('Admission Corner Page Image')}}">
+                            @if(!empty($page_image->url))
+                                <div class="details-button">
+                                    <a href="{{$page_image->url}}" class="btn btn-outline-dark px-5 py-4"><strong>DETAILS</strong></a>
+                                </div>
+                            @endif
+                        </div>
                     </div>
                     @endif
                     <div class="card">

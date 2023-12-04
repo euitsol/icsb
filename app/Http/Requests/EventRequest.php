@@ -34,6 +34,7 @@ class EventRequest extends FormRequest
                     Vimeo::class
                 ])
             ],
+            'test_mail'=>'nullable|email',
 
         ]
         +
