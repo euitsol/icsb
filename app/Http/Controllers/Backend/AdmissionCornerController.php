@@ -91,26 +91,40 @@ class AdmissionCornerController extends Controller
         return redirect()->route('admission_corner.admission_corner_list')->withStatus(__($admission_corner->name.' status updated successfully.'));
     }
 
-    public function page_image_store(AdmissionCornerImageRequest $request){
+    public function page_image_store(Request $request){
+
+        $request->validate([
+            'url' => 'nullable|url',
+        ]);
         $admission_image = AdmissionCornerImage::where('deleted_at', null)->first();
         if ($admission_image === null) {
+            $request->validate([
+                'page_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
             $admission_image = new AdmissionCornerImage();
             if ($request->hasFile('page_image')) {
                 $page_image = $request->file('page_image');
                 $path = $page_image->store('admission_corners/page_image', 'public');
                 $admission_image->page_image = $path;
             }
+            $admission_image->url = $request->url;
             $admission_image->created_by = auth()->user()->id;
             $admission_image->save();
+        }else{
+            $request->validate([
+                'page_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
+            if ($request->hasFile('page_image')) {
+                $page_image = $request->file('page_image');
+                $path = $page_image->store('contact/address', 'public');
+                $this->fileDelete($admission_image->page_image);
+                $admission_image->page_image = $path;
+            }
+            $admission_image->url = $request->url;
+            $admission_image->updated_by = auth()->user()->id;
+            $admission_image->update();
         }
-        if ($request->hasFile('page_image')) {
-            $page_image = $request->file('page_image');
-            $path = $page_image->store('contact/address', 'public');
-            $this->fileDelete($admission_image->page_image);
-            $admission_image->page_image = $path;
-        }
-        $admission_image->updated_by = auth()->user()->id;
-        $admission_image->update();
+        
         return redirect()->route('admission_corner.admission_corner_list')->withStatus(__('Admission corner page image updated successfully.'));
     }
 }
