@@ -89,7 +89,7 @@ $datas = [
                 <ul>
                     <li>
                         @php
-                        $facebookLinks = Share::currentPage()->facebook()->linkedin($media_room->title)->twitter()->whatsapp()->getRawLinks();
+                        $facebookLinks = Share::currentPage()->facebook()->linkedin($media_room->title)->twitter()->whatsapp()->telegram()->getRawLinks();
 
                         // Ensure $facebookLinks is an array
                         if (!is_array($facebookLinks)) {
