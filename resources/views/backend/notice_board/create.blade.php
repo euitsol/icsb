@@ -64,6 +64,11 @@
                             </textarea>
                             @include('alerts.feedback', ['field' => 'description'])
                         </div>
+
+
+                        {{---------------------
+                            EMAIL NOTIFY 
+                        ---------------------}}
                         <div class="form-check form-check-inline">
                             <label class="form-check-label mr-2">
                               <input class="form-check-input" type="checkbox" id="notify" name="notify" value="1" {{ old('notify') ? 'checked' : '' }}>
@@ -97,6 +102,41 @@
                                 @include('alerts.feedback', ['field' => 'email_body'])
                             </div>
                         </div>
+
+
+
+                        {{---------------------
+                            SMS NOTIFY 
+                        ---------------------}}
+                        <div class="form-check form-check-inline col-md-12">
+                            <label class="form-check-label mr-2">
+                              <input class="form-check-input" type="checkbox" id="notify_sms" name="notify_sms" value="1" {{ old('notify_sms') ? 'checked' : '' }}>
+                              <span class="form-check-sign"><strong>{{_('Notify All Members By SMS')}}</strong></span>
+                            </label>
+                            <label class="form-check-label mr-2">
+                                <input class="form-check-input" type="checkbox" id="test_notify_sms" name="test_notify_sms" value="1" {{ old('test_notify_sms') ? 'checked' : '' }}>
+                                <span class="form-check-sign"><strong>{{_('Test SMS')}}</strong></span>
+                            </label>
+                        </div>
+
+                        <div id="sms-details" class="mt-2" style="display: none;">
+                            <div class="form-group {{ $errors->has('phone') ? ' has-danger' : '' }} testPhone" style="display: none;">
+                                <label>{{ _('Phone Number') }}</label>
+                                <input type="tel" name="phone"
+                                    class="form-control {{ $errors->has('phone') ? ' is-invalid' : '' }}"
+                                    placeholder="{{ _('Enter your email') }}" value="{{ old('phone') }}">
+                                @include('alerts.feedback', ['field' => 'phone'])
+                            </div>
+                            <div class="form-group {{ $errors->has('sms_body') ? ' has-danger' : '' }}">
+                                <label>{{ _('SMS Body') }} </label>
+                                <textarea rows="3" name="sms_body" class="w-100 {{ $errors->has('sms_body') ? ' is-invalid' : '' }} ck-off">
+                                    {{ old('sms_body') }}
+                                </textarea>
+                                <small>Please use '/n' when you create a new line for this SMS content.</small>
+                                @include('alerts.feedback', ['field' => 'sms_body'])
+                            </div>
+                        </div>
+
                     </div>
                     <div class="card-footer">
                         <button type="submit" class="btn btn-fill btn-primary">{{ _('Save') }}</button>
@@ -127,6 +167,10 @@
     <script src="{{asset('backend/js/multi_file_and_slug.js')}}"></script>
     <script>
         $(document).ready(function(){
+
+             //================================//
+            //      Notify EMAIL Js             //
+            //================================//
             var checkbox = $('#notify');
             var testCheckbox = $('#test_notify');
             var targetDiv = $('#email-details');
@@ -179,6 +223,48 @@
                     $('.eventForm').off('submit').submit();
                 });
             }
+
+            //================================//
+            //      Notify SMS Js             //
+            //================================//
+            var smsCheckbox = $('#notify_sms');
+            var testSmsCheckbox = $('#test_notify_sms');
+            var targetSmsDiv = $('#sms-details');
+            var testPhone = $('.testPhone')
+
+            if (smsCheckbox.is(':checked')) {
+                testSmsCheckbox.prop('checked', false);
+                testPhone.hide();
+                targetSmsDiv.show();
+                
+            }else if(testSmsCheckbox.is(':checked')){
+                smsCheckbox.prop('checked', false);
+                testPhone.show();
+                targetSmsDiv.show();
+            }
+            else {
+                testPhone.hide();
+                targetSmsDiv.hide();
+            }
+            smsCheckbox.on('change', function() {
+                if (smsCheckbox.is(':checked')) {
+                    testSmsCheckbox.prop('checked', false);
+                    testPhone.hide();
+                    targetSmsDiv.show();
+                } else {
+                    targetSmsDiv.hide();
+                }
+            });
+            testSmsCheckbox.on('change', function() {
+                if (testSmsCheckbox.is(':checked')) {
+                    smsCheckbox.prop('checked', false);
+                    testPhone.show();
+                    targetSmsDiv.show();
+                } else {
+                    testPhone.hide();
+                    targetSmsDiv.hide();
+                }
+            });
         });
     </script>
 @endpush
