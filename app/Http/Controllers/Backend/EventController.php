@@ -82,8 +82,7 @@ class EventController extends Controller
                 preg_match_all('/"number":"(.*?)"/', $phoneData, $matches);
                 return $matches[1] ?? [];
             })->flatten()->all();
-            // $formateNumbers = implode(',', $phoneNumbers);
-            $numbers = '01792980503,01877018305';
+            $formateNumbers = implode(',', $phoneNumbers);
             $result = $this->sendSmsBulk($numbers, $event->sms_body, $event->title);
         }
         if($request->test_notify_sms == 1){
@@ -151,8 +150,7 @@ class EventController extends Controller
                 preg_match_all('/"number":"(.*?)"/', $phoneData, $matches);
                 return $matches[1] ?? [];
             })->flatten()->all();
-            // $formateNumbers = implode(',', $phoneNumbers);
-            $numbers = '01792980503,01877018305';
+            $formateNumbers = implode(',', $phoneNumbers);
             $result = $this->sendSmsBulk($numbers, $event->sms_body, $event->title);
         }
         if($request->test_notify_sms == 1){
