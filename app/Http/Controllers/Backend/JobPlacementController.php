@@ -10,6 +10,10 @@ use App\Http\Requests\JobPlacementRequest;
 use Carbon\Carbon;
 use App\Http\Traits\SendMailTrait;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\MemberMail;
 
 class JobPlacementController extends Controller
 {
@@ -217,5 +221,35 @@ class JobPlacementController extends Controller
             $this->send_custom_email($mail,$subject, $jp->email);
         }
         return redirect()->route('job_placement.jp_list')->withStatus(__($jp->title.' status updated successfully.'));
+    }
+    public function testMail(Request $req, $id)
+    {
+        $validator = Validator::make($req->all(),[
+            'email' => 'required|email',
+        ]);
+        if($validator->passes()) {
+            $jp = JobPlacement::findOrFail($id);
+            $jid = Crypt::encrypt($id);
+            $url = route('member_view.job_details',$jid);
+            $jp->email_subject = "New job opportunitie: $jp->title";
+            $jp->email_body = "
+                <p>Job Title: $jp->title</p> 
+                <p>Company Name: $jp->company_name</p> 
+                <p>Location: $jp->job_location</p> 
+                <p>Appliation Deadline: $jp->deadline</p> 
+                <p>Email: $jp->email</p>
+                <p>Details: </p> $jp->job_responsibility <br>
+                <a href='".$url."' target='_blank'>Live Job Posts</a>
+            ";
+            $jp->save();
+            Mail::to($req->email)->send(new MemberMail($jp));
+            
+            return redirect()->route('job_placement.jp_list')->withStatus(__('Test mail send successful'));
+        }else{
+            return redirect()->route('job_placement.jp_list')->withStatus(__('Test mail send failed'));
+        }
+    
+
+       
     }
 }
