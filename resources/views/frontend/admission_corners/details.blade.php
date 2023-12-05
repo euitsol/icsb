@@ -53,6 +53,14 @@
         opacity: 0;
         visibility: hidden;
     }
+    .details-button a{
+        outline: 2px solid #182456;
+        transition: .4s;
+    }
+    .details-button a:hover{
+        background: #182456;
+        color: #fff;
+    }
     .image:hover .details-button{
         top: 50%;
         opacity: 1;
@@ -91,7 +99,7 @@
                             <img class="mx-auto @if(!empty($page_image->url)) page_image @endif" style="max-width: 100%; width:auto;" src="{{storage_url($page_image->page_image)}}" alt="{{__('Admission Corner Page Image')}}">
                             @if(!empty($page_image->url))
                                 <div class="details-button">
-                                    <a href="{{$page_image->url}}" class="btn btn-outline-dark px-5 py-4"><strong>DETAILS</strong></a>
+                                    <a href="{{$page_image->url}}" class="btn px-5 py-4"><strong>DETAILS</strong></a>
                                 </div>
                             @endif
                         </div>

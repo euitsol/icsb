@@ -245,21 +245,25 @@ class AjaxController extends Controller
     public function job_search($search_value): JsonResponse
     {
         $today = Carbon::now();
-        $jobs = JobPlacement::where('title', 'like', '%' . $search_value . '%')
-            ->orWhere('company_name', 'like', '%' . $search_value . '%')
-            ->orWhere('job_type', 'like', '%' . $search_value . '%')
-            ->orWhere('salary_type', 'like', '%' . $search_value . '%')
-            ->orWhere('company_address', 'like', '%' . $search_value . '%')
-            ->orWhere('professional_requirement', 'like', '%' . $search_value . '%')
-            ->where('status',1)
-            ->where('deadline','>=',$today)->latest()->get()
-            ->map(function ($job) {
-                $job->jid = Crypt::encrypt($job->id);
-                $job->created_at = date('d-M-Y', strtotime($job->created_at));
-                $job->deadline = date('d-M-Y', strtotime($job->deadline));
-                $job->createDiffTime = Carbon::parse($job->created_at)->diffForhumans();
-                return $job;
-            });
+        $jobs = JobPlacement::where('status', '1')
+                ->where('deadline', '>=', $today)
+                ->where(function ($query) use ($search_value) {
+                    $query->where('title', 'like', '%' . $search_value . '%')
+                        ->orWhere('company_name', 'like', '%' . $search_value . '%')
+                        ->orWhere('job_type', 'like', '%' . $search_value . '%')
+                        ->orWhere('salary_type', 'like', '%' . $search_value . '%')
+                        ->orWhere('company_address', 'like', '%' . $search_value . '%')
+                        ->orWhere('professional_requirement', 'like', '%' . $search_value . '%');
+                })
+                ->latest()
+                ->get()
+                ->map(function ($job) {
+                    $job->jid = Crypt::encrypt($job->id);
+                    $job->created_at = date('d-M-Y', strtotime($job->created_at));
+                    $job->deadline = date('d-M-Y', strtotime($job->deadline));
+                    $job->createDiffTime = Carbon::parse($job->created_at)->diffForHumans();
+                    return $job;
+                });
             return response()->json(['jobs'=>$jobs]);
     }
 }

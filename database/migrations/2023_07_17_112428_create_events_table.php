@@ -30,6 +30,8 @@ return new class extends Migration
             $table->longText('email_subject')->nullable();
             $table->longText('email_body')->nullable();
 
+            $table->longText('sms_body')->nullable();
+
             $table->timestamps();
             $table->softDeletes();
             $this->addAuditColumns($table);

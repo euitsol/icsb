@@ -69,6 +69,36 @@
             </div>
         </div>
     </div>
+
+
+
+<!-- Test Mail Modal -->
+  <div class="modal test_mail_modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{_('Test Mail')}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form method="POST" id="testMailForm">
+            @csrf
+            <div class="modal-body">
+                <div class="form-group {{ $errors->has('email') ? ' has-danger' : '' }}">
+                    <label>{{ _('Email') }} <span class="text-danger">*</span></label>
+                    <input type="email" name="email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter job email') }}" value="{{ old('email') }}">
+                    @include('alerts.feedback', ['field' => 'email'])
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
 @endsection
 
 @include('backend.partials.datatable', ['columns_to_show' => [0,1,2,3,4,5,6,7,8]])
@@ -88,6 +118,18 @@
                 });
                 window.location.href = $(this).attr('href');
             });
+
+
+
+            // Modal JS 
+            $('.test_mail').on('click', function(){
+                let url = ("{{ route('job_placement.test_mail.jp_edit', ['id']) }}");
+                let _url = url.replace('id', $(this).data('id'));
+                $('.test_mail_modal').modal('show');
+                $('#testMailForm').attr('action',_url);
+            })
+
+            
         });
     </script>
 @endpush

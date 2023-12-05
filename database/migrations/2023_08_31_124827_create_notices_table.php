@@ -23,6 +23,8 @@ return new class extends Migration
             $table->integer('notify')->default(1);
             $table->longText('email_subject')->nullable();
             $table->longText('email_body')->nullable();
+            
+            $table->longText('sms_body')->nullable();
 
             $table->timestamps();
             $table->softDeletes();

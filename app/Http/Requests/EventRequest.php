@@ -35,6 +35,7 @@ class EventRequest extends FormRequest
                 ])
             ],
             'test_mail'=>'nullable|email',
+            'phone'=>'nullable|max:11|min:11',
 
         ]
         +

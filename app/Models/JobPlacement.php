@@ -38,8 +38,10 @@ public function getMultiStatusClass()
     }
  public function getMultiStatusBtn($id)
     {
+
         if ($this->status == 0) {
             return['menuItems' => [
+                ['routeName' => 'javascript:void(0)',   'params' => [$id], 'label' => 'Test Member Mail', 'className' => 'test_mail'],
                 ['routeName' => '', 'label' => 'View'],
                 ['routeName' => 'job_placement.status.jp_edit',   'params' => [$id,'accept'], 'label' => 'Accept', 'className' => 'accept'],
                 ['routeName' => 'job_placement.status.jp_edit',   'params' => [$id,'declined'], 'label' => 'Declined'],
@@ -49,6 +51,7 @@ public function getMultiStatusClass()
             ]];
         } elseif($this->status == 1) {
             return['menuItems' => [
+                ['routeName' => 'javascript:void(0)',   'params' => [$id], 'label' => 'Test Member Mail', 'className' => 'test_mail'],
                 ['routeName' => '', 'label' => 'View'],
                 ['routeName' => '',   'params' => [$id,'accept'], 'label' => 'Accept', 'className' => 'accept'],
                 ['routeName' => 'job_placement.status.jp_edit',   'params' => [$id,'declined'], 'label' => 'Declined'],
@@ -58,6 +61,7 @@ public function getMultiStatusClass()
             ]];
         }elseif($this->status == -1){
             return['menuItems' => [
+                ['routeName' => 'javascript:void(0)',   'params' => [$id], 'label' => 'Test Member Mail', 'className' => 'test_mail'],
                 ['routeName' => '', 'label' => 'View'],
                 ['routeName' => 'job_placement.status.jp_edit',   'params' => [$id,'accept'], 'label' => 'Accept', 'className' => 'accept'],
                 ['routeName' => '',   'params' => [$id,'declined'], 'label' => 'Declined'],
@@ -67,6 +71,7 @@ public function getMultiStatusClass()
             ]];
         }else{
             return['menuItems' => [
+                ['routeName' => 'javascript:void(0)',   'params' => [$id], 'label' => 'Test Member Mail', 'className' => 'test_mail'],
                 ['routeName' => '', 'label' => 'View'],
                 ['routeName' => 'job_placement.jp_edit',   'params' => [$id], 'label' => 'Update'],
                 ['routeName' => 'job_placement.jp_delete', 'params' => [$id], 'label' => 'Delete', 'delete' => true],
