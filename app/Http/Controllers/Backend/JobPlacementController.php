@@ -243,10 +243,10 @@ class JobPlacementController extends Controller
             ";
             $jp->save();
             Mail::to($req->email)->send(new MemberMail($jp));
-            
+
             return redirect()->route('job_placement.jp_list')->withStatus(__('Test mail send successful'));
         }else{
-            return redirect()->route('job_placement.jp_list')->withStatus(__('Test mail send failed'));
+            return redirect()->route('job_placement.jp_list')->withStatus(__('Please enter your email.'));
         }
     
 
