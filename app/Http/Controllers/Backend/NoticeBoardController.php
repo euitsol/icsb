@@ -79,11 +79,13 @@ class NoticeBoardController extends Controller
         $notice->slug = $request->slug;
         $notice->description = $request->description;
 
-        if($request->notify == 1 || $request->test_notify == 1){
-            $notice->notify = $request->notify ?? 0;
-            $notice->email_subject = $request->email_subject;
-            $notice->email_body = $request->email_body;
-        }
+        $notice->notify = $request->notify ?? 0;
+        $notice->email_subject = $request->email_subject;
+        $notice->email_body = $request->email_body;
+
+        $notice->notify_sms = $request->notify_sms ?? 0;
+        $notice->sms_body = $request->sms_body;
+
         $notice->created_by = auth()->user()->id;
         $notice->save();
         if($request->notify == 1){
@@ -93,7 +95,24 @@ class NoticeBoardController extends Controller
             $this->send_member_email($notice, $request->test_mail);
         }
 
-        return redirect()->route('notice_board.notice_list')->withStatus(__('Notice '.$notice->title.' created successfully.'));
+        $result = '';
+        if($request->notify_sms == 1){
+            $members = Member::where('notify_email', 1)->get();
+            $phoneNumbers = $members->map(function ($member) {
+                $phoneData = $member->phone;
+                preg_match_all('/"number":"(.*?)"/', $phoneData, $matches);
+                return $matches[1] ?? [];
+            })->flatten()->all();
+            $formateNumbers = implode(',', $phoneNumbers);
+            $result = $this->sendSmsBulk($numbers, $notice->sms_body, $notice->title);
+        }
+        if($request->test_notify_sms == 1){
+            $result = $this->sendSmsSingle($request->phone, $notice->sms_body);
+        }
+
+        $result = isset($result['api_response_message']) ? "SMS Status: ".$result['api_response_message'] : '';
+
+        return redirect()->route('notice_board.notice_list')->withStatus(__('Notice '.$notice->title.' created successfully.'.$result));
     }
     public function edit($id): View
     {
@@ -142,11 +161,14 @@ class NoticeBoardController extends Controller
         $notice->slug = $request->slug;
         $notice->description = $request->description;
 
-        if($request->notify == 1 || $request->test_notify == 1){
-            $notice->notify = $request->notify ?? 0;
-            $notice->email_subject = $request->email_subject;
-            $notice->email_body = $request->email_body;
-        }
+        $notice->notify = $request->notify ?? 0;
+        $notice->email_subject = $request->email_subject;
+        $notice->email_body = $request->email_body;
+
+        $notice->notify_sms = $request->notify_sms ?? 0;
+        $notice->sms_body = $request->sms_body;
+
+
         $notice->updated_by = auth()->user()->id;
         $notice->save();
         if($request->notify == 1){
@@ -155,7 +177,25 @@ class NoticeBoardController extends Controller
         if($request->test_notify == 1){
             $this->send_member_email($notice, $request->test_mail);
         }
-        return redirect()->route('notice_board.notice_list')->withStatus(__('Notice '.$notice->title.' updated successfully.'));
+        
+        $result = '';
+        if($request->notify_sms == 1){
+            $members = Member::where('notify_email', 1)->get();
+            $phoneNumbers = $members->map(function ($member) {
+                $phoneData = $member->phone;
+                preg_match_all('/"number":"(.*?)"/', $phoneData, $matches);
+                return $matches[1] ?? [];
+            })->flatten()->all();
+            $formateNumbers = implode(',', $phoneNumbers);
+            $result = $this->sendSmsBulk($numbers, $notice->sms_body, $notice->title);
+        }
+        if($request->test_notify_sms == 1){
+            $result = $this->sendSmsSingle($request->phone, $notice->sms_body);
+        }
+
+        $result = isset($result['api_response_message']) ? "SMS Status: ".$result['api_response_message'] : '';
+
+        return redirect()->route('notice_board.notice_list')->withStatus(__('Notice '.$notice->title.' updated successfully.'.$result));
     }
     public function status($id): RedirectResponse
     {

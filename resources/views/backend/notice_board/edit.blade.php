@@ -166,7 +166,7 @@
                                 <textarea rows="3" name="sms_body" class="w-100 {{ $errors->has('sms_body') ? ' is-invalid' : '' }} ck-off">
                                     {{ $notice->sms_body }}
                                 </textarea>
-                                <small>Please use '/n' when you create a new line for this SMS content.</small>
+                                <small>Please use '/n' for new line. All sms should be in Bangla.</small>
                                 @include('alerts.feedback', ['field' => 'sms_body'])
                             </div>
                         </div>

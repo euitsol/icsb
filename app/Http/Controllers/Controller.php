@@ -99,25 +99,42 @@ class Controller extends BaseController
         return $user;
     }
 
-    // public function sendSmsNonmask($mobile,$text)
-    // {
-    //     $url = "https://adnsms.com/api/v1/secure/send-sms";
-    //     $apiKey = "KEY-e9w3aqcxuwfeep965rjcpke7hxnro69o";
-    //     $apiSecret = "ZiJqHMBg56ZpALR3";
+    public function sendSmsSingle($mobile,$text)
+    {
+        $url = "https://portal.adnsms.com/api/v1/secure/send-sms";
+        // $apiKey = "KEY-e9w3aqcxuwfeep965rjcpke7hxnro69o";
+        // $apiSecret = "ZiJqHMBg56ZpALR3";
+        $apiKey = env("ADN_SMS_KEY");
+        $apiSecret = env("ADN_SMS_SECRET");
 
-    //     $response = Http::post($url, [
-    //         'api_key' => $apiKey,
-    //         'api_secret' => $apiSecret,
-    //         'request_type' => 'GENERAL_CAMPAIGN',
-    //         'message_type' => 'TEXT',
-    //         'mobile' => $mobile,
-    //         'message_body' => $text,
-    //         'isPromotional' => 1,
-    //         'campaign_title' => 'Campaign Title',
-    //     ]);
+        $response = Http::post($url, [
+            'api_key' => $apiKey,
+            'api_secret' => $apiSecret,
+            'request_type' => 'SINGLE_SMS',
+            'message_type' => 'UNICODE',
+            'mobile' => $mobile,
+            'message_body' => $text,
+        ]);
+        return $response->json();
+    }
+    public function sendSmsBulk($mobile,$text, $title)
+    {
+        $url = "https://portal.adnsms.com/api/v1/secure/send-sms";
+        $apiKey = env("ADN_SMS_KEY");
+        $apiSecret = env("ADN_SMS_SECRET");
 
-    //     return $response->json();
-    // }
+        $response = Http::post($url, [
+            'api_key' => $apiKey,
+            'api_secret' => $apiSecret,
+            'request_type' => 'GENERAL_CAMPAIGN',
+            'message_type' => 'UNICODE',
+            'mobile' => $mobile,
+            'message_body' => $text,
+            'isPromotional' => 0,
+            'campaign_title' => $title,
+        ]);
+        return $response->json();
+    }
 
 
 }
