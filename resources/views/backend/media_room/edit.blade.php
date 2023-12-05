@@ -152,7 +152,7 @@
                         <p><b>Program Date:</b> This field is required. It is a date field.</p>
                         <p><b>Category:</b> This field is required. This is an option field. It represents the category of the Media Room.</p>
                         <p><b>Thumbnail Image:</b> This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 5MB. The dimensions of the image should be 1920 x 700px.</p>
-                        <p><b>Additional Images:</b> This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 750 x 750px. You can select multiple images by pressing the 'SHIFT/CTRL' key.
+                        <p><b>Additional Images:</b> This field is nullable. It supports file uploads in jpeg, png, jpg, gif, & svg format, with a maximum size limit of 2MB. The dimensions of the image should be 1200 x 800px. You can select multiple images by pressing the 'SHIFT/CTRL' key.
                         <p><b>File-* :</b> This field is nullable.  The name field should be the file name. It supports file uploads in pdf, doc, docx, xls, xlsx, ppt, pptx, odt, ods, odp format. By clicking on the '+' icon you can upload multiple files.</p>
                         <p><b>Description:</b> This field is required. It is a textarea field.</p>
                     </div>

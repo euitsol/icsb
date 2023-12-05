@@ -54,11 +54,13 @@ class EventController extends Controller
         $event->description = $request->description;
         $event->type = $request->type;
 
-        if($request->notify == 1 || $request->test_notify == 1){
-            $event->notify = $request->notify ?? 0;
-            $event->email_subject = $request->email_subject;
-            $event->email_body = $request->email_body;
-        }
+        $event->notify = $request->notify ?? 0;
+        $event->email_subject = $request->email_subject;
+        $event->email_body = $request->email_body;
+
+        $event->notify_sms = $request->notify_sms ?? 0;
+        $event->sms_body = $request->sms_body;
+
 
         $event->created_by = auth()->user()->id;
         $event->save();
@@ -70,6 +72,15 @@ class EventController extends Controller
         if($request->test_notify == 1){
             $this->send_member_email($event, $request->test_mail);
         }
+
+
+        // if($request->notify_sms == 1){
+        //     $numbers = ["01792980503", "01877018305"];
+        //     $this->sendSmsNonmask($numbers, $event->sms_body);
+        // }
+        // if($request->test_notify_sms == 1){
+        //     $this->sendSmsNonmask($request->phone, $event->sms_body);
+        // }
 
 
         return redirect()->route('event.event_list')->withStatus(__('Event '.$request->title.' created successfully.'));
@@ -106,11 +117,14 @@ class EventController extends Controller
         $event->event_end_time = $request->event_end_time;
         $event->description = $request->description;
         $event->type = $request->type;
-        if($request->notify == 1 || $request->test_notify == 1){
-            $event->notify = $request->notify ?? 0;
-            $event->email_subject = $request->email_subject;
-            $event->email_body = $request->email_body;
-        }
+
+        $event->notify = $request->notify ?? 0;
+        $event->email_subject = $request->email_subject;
+        $event->email_body = $request->email_body;
+
+        $event->notify_sms = $request->notify_sms ?? 0;
+        $event->sms_body = $request->sms_body;
+
         $event->updated_by = auth()->user()->id;
         $event->save();
         if($request->notify == 1){
@@ -121,15 +135,21 @@ class EventController extends Controller
         }
 
 
+        // if($request->notify_sms == 1){
+        //     $numbers = ["01792980503", "01877018305"];
+        //     $this->sendSmsNonmask($numbers, $event->sms_body);
+        // }
+        // if($request->test_notify_sms == 1){
+        //     $this->sendSmsNonmask($request->phone, $event->sms_body);
+        // }
+
+
+
         return redirect()->route('event.event_list')->withStatus(__('Event '.$event->title.' updated successfully.'));
     }
     public function delete($id): RedirectResponse
     {
         $event = Event::findOrFail($id);
-        // foreach(json_decode($event->image) as $db_image){
-        //     $this->fileDelete($db_image);
-        // }
-        // $event->delete();
         $this->soft_delete($event);
 
         return redirect()->route('event.event_list')->withStatus(__('Event '.$event->title.' deleted successfully.'));

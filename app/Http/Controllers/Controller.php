@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 use App\Models\User;
+use Illuminate\Support\Facades\Http;
 
 class Controller extends BaseController
 {
@@ -97,5 +98,26 @@ class Controller extends BaseController
 
         return $user;
     }
+
+    // public function sendSmsNonmask($mobile,$text)
+    // {
+    //     $url = "https://adnsms.com/api/v1/secure/send-sms";
+    //     $apiKey = "KEY-e9w3aqcxuwfeep965rjcpke7hxnro69o";
+    //     $apiSecret = "ZiJqHMBg56ZpALR3";
+
+    //     $response = Http::post($url, [
+    //         'api_key' => $apiKey,
+    //         'api_secret' => $apiSecret,
+    //         'request_type' => 'GENERAL_CAMPAIGN',
+    //         'message_type' => 'TEXT',
+    //         'mobile' => $mobile,
+    //         'message_body' => $text,
+    //         'isPromotional' => 1,
+    //         'campaign_title' => 'Campaign Title',
+    //     ]);
+
+    //     return $response->json();
+    // }
+
 
 }

@@ -23,7 +23,7 @@ class NoticeRequest extends FormRequest
             'file.*.file_path' => 'nullable|file|mimes:jpg,png,pdf,doc,docx,xls,xlsx,ppt,pptx,odt,ods,odp',
             'file.*.file_name' => 'nullable|string',
             'test_mail'=>'nullable|email',
-            'phone'=>'nullable|numaric|max:11|min:11',
+            'phone'=>'nullable|max:11|min:11',
         ]
         +
         ($this->isMethod('POST') ? $this->store() : $this->update());
