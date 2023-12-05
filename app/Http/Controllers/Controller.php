@@ -99,24 +99,94 @@ class Controller extends BaseController
         return $user;
     }
 
-    // public function sendSmsNonmask($mobile,$text)
+    public function sendSmsSingle($mobile,$text)
+    {
+        $url = "https://portal.adnsms.com/api/v1/secure/send-sms";
+        // $apiKey = "KEY-e9w3aqcxuwfeep965rjcpke7hxnro69o";
+        // $apiSecret = "ZiJqHMBg56ZpALR3";
+        $apiKey = env("ADN_SMS_KEY");
+        $apiSecret = env("ADN_SMS_SECRET");
+
+        $response = Http::post($url, [
+            'api_key' => $apiKey,
+            'api_secret' => $apiSecret,
+            'request_type' => 'SINGLE_SMS',
+            'message_type' => 'UNICODE',
+            'mobile' => $mobile,
+            'message_body' => $text,
+        ]);
+        return $response->json();
+    }
+    public function sendSmsBulk($mobile,$text, $title)
+    {
+        $url = "https://portal.adnsms.com/api/v1/secure/send-sms";
+        $apiKey = env("ADN_SMS_KEY");
+        $apiSecret = env("ADN_SMS_SECRET");
+
+        $response = Http::post($url, [
+            'api_key' => $apiKey,
+            'api_secret' => $apiSecret,
+            'request_type' => 'GENERAL_CAMPAIGN',
+            'message_type' => 'UNICODE',
+            'mobile' => $mobile,
+            'message_body' => $text,
+            'isPromotional' => 0,
+            'campaign_title' => $title,
+        ]);
+        return $response->json();
+    }
+
+
+    // public function sendSMS($mobile,$text)
     // {
-    //     $url = "https://adnsms.com/api/v1/secure/send-sms";
-    //     $apiKey = "KEY-e9w3aqcxuwfeep965rjcpke7hxnro69o";
-    //     $apiSecret = "ZiJqHMBg56ZpALR3";
+    //     $url = 'https://adnsms.com/api/v1/secure/send-sms';
+    //     $apiKey = 'df9a749228ec5f00';
+    //     $secretKey = '93826498';
+    //     $senderID = 'European IT';
+    //     $mobileNumber = $mobile;
+    //     $messageContent = $text;
 
-    //     $response = Http::post($url, [
-    //         'api_key' => $apiKey,
-    //         'api_secret' => $apiSecret,
-    //         'request_type' => 'GENERAL_CAMPAIGN',
-    //         'message_type' => 'TEXT',
-    //         'mobile' => $mobile,
-    //         'message_body' => $text,
-    //         'isPromotional' => 1,
-    //         'campaign_title' => 'Campaign Title',
-    //     ]);
+    //     $fields = array(
+    //         'apikey' => urlencode($apiKey),
+    //         'secretkey' => urlencode($secretKey),
+    //         'callerID' => $senderID,
+    //         'toUser' => urlencode($mobileNumber),
+    //         'messageContent' => $messageContent,
+    //     );
 
-    //     return $response->json();
+    //     $fieldsString = http_build_query($fields);
+
+    //     $ch = curl_init();
+    //     curl_setopt($ch, CURLOPT_URL, $url);
+    //     curl_setopt($ch, CURLOPT_POST, count($fields));
+    //     curl_setopt($ch, CURLOPT_POSTFIELDS, $fieldsString);
+    //     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    //     curl_setopt($ch, CURLOPT_FAILONERROR, true);
+    //     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    //     $result = curl_exec($ch);
+
+    //     if ($result === false) {
+    //         $error = curl_error($ch);
+    //         $responseText = $error;
+    //     } else {
+    //         $response = json_decode($result, true);
+    //         if (isset($response['Status'])) {
+    //             $status = $response['Status'];
+    //             $text = $response['Text'];
+                
+    //             if($status == 0){
+    //                 return true;
+    //             }else{
+    //                 $responseText = $text;
+    //             }
+
+    //         }
+    //     }
+
+    //     return $responseText;
+
+    //     curl_close($ch);
+
     // }
 
 

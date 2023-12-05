@@ -74,16 +74,25 @@ class EventController extends Controller
         }
 
 
-        // if($request->notify_sms == 1){
-        //     $numbers = ["01792980503", "01877018305"];
-        //     $this->sendSmsNonmask($numbers, $event->sms_body);
-        // }
-        // if($request->test_notify_sms == 1){
-        //     $this->sendSmsNonmask($request->phone, $event->sms_body);
-        // }
+        $result = '';
+        if($request->notify_sms == 1){
+            $members = Member::where('notify_email', 1)->get();
+            $phoneNumbers = $members->map(function ($member) {
+                $phoneData = $member->phone;
+                preg_match_all('/"number":"(.*?)"/', $phoneData, $matches);
+                return $matches[1] ?? [];
+            })->flatten()->all();
+            // $formateNumbers = implode(',', $phoneNumbers);
+            $numbers = '01792980503,01877018305';
+            $result = $this->sendSmsBulk($numbers, $event->sms_body, $event->title);
+        }
+        if($request->test_notify_sms == 1){
+            $result = $this->sendSmsSingle($request->phone, $event->sms_body);
+        }
 
+        $result = isset($result['api_response_message']) ? "SMS Status: ".$result['api_response_message'] : '';
 
-        return redirect()->route('event.event_list')->withStatus(__('Event '.$request->title.' created successfully.'));
+        return redirect()->route('event.event_list')->withStatus(__('Event '.$event->title.' created successfully. '.$result));
     }
     public function edit($id): View
     {
@@ -134,18 +143,25 @@ class EventController extends Controller
             $this->send_member_email($event, $request->test_mail);
         }
 
+        $result = '';
+        if($request->notify_sms == 1){
+            $members = Member::where('notify_email', 1)->get();
+            $phoneNumbers = $members->map(function ($member) {
+                $phoneData = $member->phone;
+                preg_match_all('/"number":"(.*?)"/', $phoneData, $matches);
+                return $matches[1] ?? [];
+            })->flatten()->all();
+            // $formateNumbers = implode(',', $phoneNumbers);
+            $numbers = '01792980503,01877018305';
+            $result = $this->sendSmsBulk($numbers, $event->sms_body, $event->title);
+        }
+        if($request->test_notify_sms == 1){
+            $result = $this->sendSmsSingle($request->phone, $event->sms_body);
+        }
 
-        // if($request->notify_sms == 1){
-        //     $numbers = ["01792980503", "01877018305"];
-        //     $this->sendSmsNonmask($numbers, $event->sms_body);
-        // }
-        // if($request->test_notify_sms == 1){
-        //     $this->sendSmsNonmask($request->phone, $event->sms_body);
-        // }
+        $result = isset($result['api_response_message']) ? "SMS Status: ".$result['api_response_message'] : '';
 
-
-
-        return redirect()->route('event.event_list')->withStatus(__('Event '.$event->title.' updated successfully.'));
+        return redirect()->route('event.event_list')->withStatus(__('Event '.$event->title.' updated successfully. '.$result));
     }
     public function delete($id): RedirectResponse
     {
