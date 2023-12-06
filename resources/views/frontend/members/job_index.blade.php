@@ -1,7 +1,6 @@
 @extends('frontend.master')
 
 @section('title', 'Job Placement')
-
 @section('content')
   <!-- =============================== Breadcrumb Section ======================================-->
 {{-- @php
@@ -22,7 +21,7 @@ $datas = [
 
   <!----============================= Job Index Section ========================---->
 
-  <div class="job-index-section big-sec-height">
+  <div class="job-index-section big-sec-height" id="particles-js-buble">
         <div class="container">
             <div class="wrap">
             <div class="row justify-content-center align-items-center">
@@ -45,3 +44,7 @@ $datas = [
         </div>
   </div>
 @endsection
+@push('js_link')
+    <script src="{{ asset('frontend/js/particles.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/particle-configure-bubble.js') }}"></script>
+@endpush
