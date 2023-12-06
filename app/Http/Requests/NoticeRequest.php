@@ -24,6 +24,7 @@ class NoticeRequest extends FormRequest
             'file.*.file_name' => 'nullable|string',
             'test_mail'=>'nullable|email',
             'phone'=>'nullable|max:11|min:11',
+            'release_date'=>'required|date',
         ]
         +
         ($this->isMethod('POST') ? $this->store() : $this->update());

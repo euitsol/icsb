@@ -64,7 +64,7 @@ $datas = [
                 <h4>{{($key+1).'. '.$notice->title}}</h4>
            </div>
             <div class="col-md-3">
-                <h5 class="text-md-end"><small>{{_('Release Date: ')}}{{date('d M, Y', strtotime($notice->created_at))}}</small></h5>
+                <h5 class="text-md-end"><small>{{_('Release Date: ')}}{{date('d M, Y', strtotime($notice->release_date))}}</small></h5>
             </div>
             <div class="col-md-12 mb-5 ">
                 

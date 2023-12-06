@@ -78,6 +78,7 @@ class NoticeBoardController extends Controller
         $notice->cat_id = $request->cat_id;
         $notice->slug = $request->slug;
         $notice->description = $request->description;
+        $notice->release_date = $request->release_date;
 
         $notice->notify = $request->notify ?? 0;
         $notice->email_subject = $request->email_subject;
@@ -160,6 +161,7 @@ class NoticeBoardController extends Controller
         $notice->cat_id = $request->cat_id;
         $notice->slug = $request->slug;
         $notice->description = $request->description;
+        $notice->release_date = $request->release_date;
 
         $notice->notify = $request->notify ?? 0;
         $notice->email_subject = $request->email_subject;

@@ -38,7 +38,7 @@
                     @foreach ($notices as $notice)
                     <div class="notice-content flex w-100">
                         <div class="date-col">
-                            <h4>{{date('M d, Y', strtotime($notice->created_at))}}</h4>
+                            <h4>{{date('M d, Y', strtotime($notice->release_date))}}</h4>
                         </div>
                         <div class="content-col">
                             <h3>
@@ -46,7 +46,7 @@
                             </h3>
                             <ul>
                                 <li>
-                                    <i class="fa-solid fa-clock"></i>{{date('H:i A', strtotime($notice->created_at))}}
+                                    <i class="fa-solid fa-clock"></i>{{date('H:i A', strtotime($notice->release_date))}}
                                 </li>
                                 <li>
                                     <i class="fa-solid fa-user-large"></i>{{_('CS Bangladesh')}}

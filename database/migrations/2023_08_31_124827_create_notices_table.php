@@ -19,6 +19,7 @@ return new class extends Migration
             $table->json('files');
             $table->longText('description')->nullable();
             $table->boolean('status')->default(1);
+            $table->dateTime('release_date');
 
             $table->integer('notify')->default(1);
             $table->longText('email_subject')->nullable();
