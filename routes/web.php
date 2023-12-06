@@ -497,7 +497,7 @@ Route::group(['middleware' => ['auth', 'permission']], function () {
         Route::get('edit/{id}', [JobPlacementController::class, 'edit'])->name('jp_edit');
         Route::put('edit/{id}', [JobPlacementController::class, 'update'])->name('jp_edit');
         Route::post('test/mail/{id}', [JobPlacementController::class, 'testMail'])->name('test_mail.jp_edit');
-        Route::get('status/{id}', [JobPlacementController::class, 'status'])->name('status.jp_edit');
+        Route::get('status/{id}/{status}', [JobPlacementController::class, 'status'])->name('status.jp_edit');
         Route::get('delete/{id}', [JobPlacementController::class, 'delete'])->name('jp_delete');
     });
     Route::group(['as' => 'cs_firm.', 'prefix' => 'cs-firms'], function () {
