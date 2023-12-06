@@ -46,7 +46,7 @@
                             </h3>
                             <ul>
                                 <li>
-                                    <i class="fa-solid fa-clock"></i>{{date('H:i A', strtotime($notice->release_date))}}
+                                    <i class="fa-solid fa-clock"></i>{{date('h:i A', strtotime($notice->release_date))}}
                                 </li>
                                 <li>
                                     <i class="fa-solid fa-user-large"></i>{{_('CS Bangladesh')}}
