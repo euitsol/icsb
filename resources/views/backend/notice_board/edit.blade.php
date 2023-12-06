@@ -32,19 +32,28 @@
                             <input type="text" id='title' name="title" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter notice title') }}" value="{{ $notice->title }}">
                             @include('alerts.feedback', ['field' => 'title'])
                         </div>
-                        <div class="form-group {{ $errors->has('cat_id') ? ' has-danger' : '' }}">
-                            <label>{{ _('Notice Category') }}</label>
-                            <select name="cat_id" class="form-control {{ $errors->has('cat_id') ? ' is-invalid' : '' }}">
-                                @foreach ($notice_cats as $cat)
-                                    <option value="{{ $cat->id }}" @if( $notice->cat_id == $cat->id) selected @endif> {{ $cat->title }}</option>
-                                @endforeach
-                            </select>
-                            @include('alerts.feedback', ['field' => 'cat_id'])
-                        </div>
                         <div class="form-group {{ $errors->has('slug') ? ' has-danger' : '' }}">
                             <label>{{ _('Slug') }}</label>
                             <input type="text" class="form-control {{ $errors->has('slug') ? ' is-invalid' : '' }}" id="slug" name="slug" placeholder="{{ _('Enter Slug (must be use - on white speace)') }}" value="{{$notice->slug}}">
                             @include('alerts.feedback', ['field' => 'slug'])
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6 {{ $errors->has('cat_id') ? ' has-danger' : '' }}">
+                                <label>{{ _('Notice Category') }}</label>
+                                <select name="cat_id" class="form-control {{ $errors->has('cat_id') ? ' is-invalid' : '' }}">
+                                    @foreach ($notice_cats as $cat)
+                                        <option value="{{ $cat->id }}" @if( $notice->cat_id == $cat->id) selected @endif> {{ $cat->title }}</option>
+                                    @endforeach
+                                </select>
+                                @include('alerts.feedback', ['field' => 'cat_id'])
+                            </div>
+                            <div class="form-group col-md-6 {{ $errors->has('release_date') ? ' has-danger' : '' }}">
+                                <label>{{ _('Release Date') }}</label>
+                                <input type="datetime-local" name="release_date"
+                                    class="form-control {{ $errors->has('release_date') ? ' is-invalid' : '' }}"
+                                    value="{{ $notice->release_date }}">
+                                @include('alerts.feedback', ['field' => 'release_date'])
+                            </div>
                         </div>
 
                         @php
