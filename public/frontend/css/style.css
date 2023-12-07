@@ -5548,6 +5548,34 @@ td {
     color: #FF8601;
 }
 
+.sub-menu{
+    overflow-y: auto;
+    max-height: 530px;
+}
+.sub-menu::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.9);
+	border-radius: 10px;
+	background-color: #444444;
+}
+
+.sub-menu::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+.sub-menu::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: #FF8601;
+	background-image: -webkit-linear-gradient(90deg,
+											  transparent,
+											  rgba(0, 0, 0, 0.4) 50%,
+											  transparent,
+											  transparent)
+}
+
 
 
 
