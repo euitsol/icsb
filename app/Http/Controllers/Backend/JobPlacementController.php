@@ -23,7 +23,7 @@ class JobPlacementController extends Controller
     }
     public function index(): View
     {
-        $disclosed = JobPlacement::where('deadline','<',Carbon::now())->get();
+        $disclosed = JobPlacement::where('deadline', '<', Carbon::now()->format('Y-m-d'))->get();
         foreach($disclosed as $d){
             $d->status = '2';
             $d->save();

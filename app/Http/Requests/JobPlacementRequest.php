@@ -41,7 +41,7 @@ class JobPlacementRequest extends FormRequest
                 Rule::in(['Per Month', 'Per Year','Negotiable']),
             ],
 
-            'deadline' => 'required|date|after:today',
+            'deadline' => 'required|date|after_or_equal:today',
             'company_address'=>'required|max:300',
             'job_responsibility'=>'required',
            ' additional_requirement'=>'nullable',

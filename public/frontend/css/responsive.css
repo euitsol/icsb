@@ -530,6 +530,9 @@
 }
 
 @media only screen and (max-width: 1199px) {
+    .sub-menu{
+        max-height: 100% !important;
+    }
     .header-menu-section .stiky-logo,
     .header-menu-section .stiky-logo-right{
         display: none;
