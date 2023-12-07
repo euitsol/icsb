@@ -86,7 +86,7 @@ class HomePageController extends Controller
         $s['pop_up'] = SinglePages::where('frontend_slug', 'pop-up')->first();
         $s['recent_videos'] = RecentVideo::where('status',1)->where('deleted_at',null)->latest()->get();
         $s['notice_cats'] = NoticeCategory::with('notices')->where('deleted_at',null)->where('status',1)->get();
-        $s['notices'] = Notice::with('category')->where('deleted_at',null)->where('status',1)->latest()->limit(4)->get();
+        $s['notices'] = Notice::with('category')->where('deleted_at',null)->where('status',1)->orderBy('release_date', 'ASC')->limit(4)->get();
         $s['testimonials'] = Testimonial::where('deleted_at', null)->where('status',1)->orderBy('order_key','ASC')->get();
         $s['latest_newses'] = LatestNews::where('deleted_at', null)->where('status',1)->orderBy('date','ASC')->get();
         $s['banner_video'] = SinglePages::where('frontend_slug', 'banner-video')->first();
