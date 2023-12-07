@@ -38,14 +38,14 @@ class AjaxController extends Controller
         $notice_cat = '';
         if($id != 0){
             $notice_cat=  NoticeCategory::findOrFail($id);
-            $notices = Notice::with('category')->where('cat_id',$notice_cat->id)->where('deleted_at',null)->where('status',1)->orderBy('release_date', 'ASC')->limit(4)->get()
+            $notices = Notice::with('category')->where('cat_id',$notice_cat->id)->where('deleted_at',null)->where('status',1)->orderBy('release_date', 'DESC')->limit(4)->get()
             ->map(function ($notice) {
                 $notice->date = date('M d, Y', strtotime($notice->created_at));
                 $notice->time = date('H:i A', strtotime($notice->created_at));
                 return $notice;
             });
         }else{
-            $notices = Notice::with('category')->where('deleted_at',null)->where('status',1)->orderBy('release_date', 'ASC')->limit(4)->get()
+            $notices = Notice::with('category')->where('deleted_at',null)->where('status',1)->orderBy('release_date', 'DESC')->limit(4)->get()
             ->map(function ($notice) {
                 $notice->date = date('M d, Y', strtotime($notice->created_at));
                 $notice->time = date('H:i A', strtotime($notice->created_at));
@@ -70,13 +70,13 @@ class AjaxController extends Controller
             if($slug !== null){
                 $s['notice_cat'] = NoticeCategory::where('slug',$slug)->where('deleted_at',null)->first();
                 if(!empty($s['notice_cat'])){
-                    $s['notices'] = Notice::where('cat_id',$s['notice_cat']->id)->where('deleted_at',null)->where('status',1)->orderBy('release_date', 'ASC')->offset($offset)->limit(12)->get();
+                    $s['notices'] = Notice::where('cat_id',$s['notice_cat']->id)->where('deleted_at',null)->where('status',1)->orderBy('release_date', 'DESC')->offset($offset)->limit(12)->get();
                 }else{
-                    $s['notices'] = Notice::where('slug',$slug)->where('deleted_at',null)->where('status',1)->orderBy('release_date', 'ASC')->offset($offset)->limit(12)->get();
+                    $s['notices'] = Notice::where('slug',$slug)->where('deleted_at',null)->where('status',1)->orderBy('release_date', 'DESC')->offset($offset)->limit(12)->get();
                     
                 }
             }else{
-                $s['notices'] = Notice::where('deleted_at',null)->where('status',1)->orderBy('release_date', 'ASC')->offset($offset)->limit(12)->get();
+                $s['notices'] = Notice::where('deleted_at',null)->where('status',1)->orderBy('release_date', 'DESC')->offset($offset)->limit(12)->get();
             }
             $s['notices'] = $s['notices']->map(function ($notice) {
                 $notice->release_date = date('d M Y', strtotime($notice->created_at));

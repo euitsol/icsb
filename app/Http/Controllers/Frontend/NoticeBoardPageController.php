@@ -87,15 +87,15 @@ class NoticeBoardPageController extends Controller
         if($slug !== null){
             $s['notice_cat'] = NoticeCategory::where('slug',$slug)->where('deleted_at',null)->first();
             if(!empty($s['notice_cat'])){
-                $s['notices'] = Notice::where('cat_id',$s['notice_cat']->id)->where('deleted_at',null)->where('status',1)->orderBy('release_date', 'ASC')->limit(12)->get();
+                $s['notices'] = Notice::where('cat_id',$s['notice_cat']->id)->where('deleted_at',null)->where('status',1)->orderBy('release_date', 'DESC')->limit(12)->get();
             }else{
-                $s['notices'] = Notice::where('slug',$slug)->where('deleted_at',null)->where('status',1)->orderBy('release_date', 'ASC')->limit(12)->get();
+                $s['notices'] = Notice::where('slug',$slug)->where('deleted_at',null)->where('status',1)->orderBy('release_date', 'DESC')->limit(12)->get();
                 
             }
         }else{
-            $s['notices'] = Notice::where('deleted_at',null)->where('status',1)->orderBy('release_date', 'ASC')->limit(12)->get();
+            $s['notices'] = Notice::where('deleted_at',null)->where('status',1)->orderBy('release_date', 'DESC')->limit(12)->get();
         }
-        $s['count'] = Notice::where('deleted_at', null)->where('status',1)->orderBy('release_date', 'ASC')->get();
+        $s['count'] = Notice::where('deleted_at', null)->where('status',1)->orderBy('release_date', 'DESC')->get();
         return view('frontend.notice_board.notice',$s);
 
     }
