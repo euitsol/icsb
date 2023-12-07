@@ -208,3 +208,13 @@
 .btn-primary.active:hover {
     background: var(--primary-hover-color) !important;
 }
+@media only screen and (max-width: 991px) {
+    .sidebar_show{
+        top: 97px !important;
+        left: 260px !important;
+    }
+    .main-panel>.navbar{
+        position: fixed;
+        width: 260px;
+    }
+}
