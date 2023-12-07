@@ -101,11 +101,15 @@ class NoticeBoardController extends Controller
             $members = Member::where('notify_email', 1)->get();
             $phoneNumbers = $members->map(function ($member) {
                 $phoneData = $member->phone;
-                preg_match_all('/"number":"(.*?)"/', $phoneData, $matches);
-                return $matches[1] ?? [];
+
+                $decodedData = json_decode($phoneData, true);
+                if (isset($decodedData['0']['number'])) {
+                    $phoneNumber = $decodedData['0']['number'];
+                }
+                return $phoneNumber;
             })->flatten()->all();
             $formateNumbers = implode(',', $phoneNumbers);
-            $result = $this->sendSmsBulk($numbers, $notice->sms_body, $notice->title);
+            $result = $this->sendSmsBulk($formateNumbers, $notice->sms_body, $notice->title);
         }
         if($request->test_notify_sms == 1){
             $result = $this->sendSmsSingle($request->phone, $notice->sms_body);
@@ -185,11 +189,15 @@ class NoticeBoardController extends Controller
             $members = Member::where('notify_email', 1)->get();
             $phoneNumbers = $members->map(function ($member) {
                 $phoneData = $member->phone;
-                preg_match_all('/"number":"(.*?)"/', $phoneData, $matches);
-                return $matches[1] ?? [];
+
+                $decodedData = json_decode($phoneData, true);
+                if (isset($decodedData['0']['number'])) {
+                    $phoneNumber = $decodedData['0']['number'];
+                }
+                return $phoneNumber;
             })->flatten()->all();
             $formateNumbers = implode(',', $phoneNumbers);
-            $result = $this->sendSmsBulk($numbers, $notice->sms_body, $notice->title);
+            $result = $this->sendSmsBulk($formateNumbers, $notice->sms_body, $notice->title);
         }
         if($request->test_notify_sms == 1){
             $result = $this->sendSmsSingle($request->phone, $notice->sms_body);

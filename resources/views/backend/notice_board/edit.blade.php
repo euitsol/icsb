@@ -172,10 +172,8 @@
                             </div>
                             <div class="form-group {{ $errors->has('sms_body') ? ' has-danger' : '' }}">
                                 <label>{{ _('SMS Body') }} </label>
-                                <textarea rows="3" name="sms_body" class="w-100 {{ $errors->has('sms_body') ? ' is-invalid' : '' }} ck-off">
-                                    {{ $notice->sms_body }}
-                                </textarea>
-                                <small>Please use '/n' for new line. All sms should be in Bangla.</small>
+                                <textarea rows="3" name="sms_body" class="w-100 {{ $errors->has('sms_body') ? ' is-invalid' : '' }} ck-off">{{ $notice->sms_body }}</textarea>
+                                <small>Please use '\n' for new line. All sms should be in Bangla.</small>
                                 @include('alerts.feedback', ['field' => 'sms_body'])
                             </div>
                         </div>

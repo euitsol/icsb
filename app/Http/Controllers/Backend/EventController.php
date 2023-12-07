@@ -79,11 +79,15 @@ class EventController extends Controller
             $members = Member::where('notify_email', 1)->get();
             $phoneNumbers = $members->map(function ($member) {
                 $phoneData = $member->phone;
-                preg_match_all('/"number":"(.*?)"/', $phoneData, $matches);
-                return $matches[1] ?? [];
+
+                $decodedData = json_decode($phoneData, true);
+                if (isset($decodedData['0']['number'])) {
+                    $phoneNumber = $decodedData['0']['number'];
+                }
+                return $phoneNumber;
             })->flatten()->all();
             $formateNumbers = implode(',', $phoneNumbers);
-            $result = $this->sendSmsBulk($numbers, $event->sms_body, $event->title);
+            $result = $this->sendSmsBulk($formateNumbers, $event->sms_body, $event->title);
         }
         if($request->test_notify_sms == 1){
             $result = $this->sendSmsSingle($request->phone, $event->sms_body);
@@ -147,11 +151,15 @@ class EventController extends Controller
             $members = Member::where('notify_email', 1)->get();
             $phoneNumbers = $members->map(function ($member) {
                 $phoneData = $member->phone;
-                preg_match_all('/"number":"(.*?)"/', $phoneData, $matches);
-                return $matches[1] ?? [];
+
+                $decodedData = json_decode($phoneData, true);
+                if (isset($decodedData['0']['number'])) {
+                    $phoneNumber = $decodedData['0']['number'];
+                }
+                return $phoneNumber;
             })->flatten()->all();
             $formateNumbers = implode(',', $phoneNumbers);
-            $result = $this->sendSmsBulk($numbers, $event->sms_body, $event->title);
+            $result = $this->sendSmsBulk($formateNumbers, $event->sms_body, $event->title);
         }
         if($request->test_notify_sms == 1){
             $result = $this->sendSmsSingle($request->phone, $event->sms_body);
