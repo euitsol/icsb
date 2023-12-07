@@ -40,13 +40,7 @@
                                         <td> {{ $member->membership_id }} </td>
                                         <td> {{ $member->name }} </td>
                                         <td>
-                                            <img class="rounded" width="60" src="
-                                            @if(!empty($member->image))
-                                                {{ member_image($member->image) }}
-                                            @else
-                                                {{ asset('no_img/no_img.jpg') }}
-                                            @endif
-                                            ">
+                                            <img class="rounded" width="60" src="@if(!empty($member->image)){{ member_image($member->image) }}@else{{ asset('no_img/no_img.jpg') }}@endif" loading="lazy">
                                         </td>
                                         <td> {{ $member->member_type()}} </td>
                                         <td> {{ $member->member_honorary()}} </td>
