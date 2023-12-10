@@ -61,15 +61,17 @@
 
 
                        @php
-                            $data = json_decode($media_room->additional_images, true);
-                            $result = '';
-                            $itemCount = count($data);
-                            foreach ($data as $index => $url) {
-                                $result .= route('json_image.single.delete', ['Event', $media_room->id,$index,'image' ]);
-                                if($index === $itemCount - 1) {
-                                    $result .= '';
-                                }else{
-                                    $result .= ', ';
+                            if(isset($media_room->additional_images)){
+                                $data = json_decode($media_room->additional_images, true);
+                                $result = '';
+                                $itemCount = count($data);
+                                foreach ($data as $index => $url) {
+                                    $result .= route('json_image.single.delete', ['Event', $media_room->id,$index,'image' ]);
+                                    if($index === $itemCount - 1) {
+                                        $result .= '';
+                                    }else{
+                                        $result .= ', ';
+                                    }
                                 }
                             }
                         @endphp
