@@ -9,6 +9,8 @@ if(isset($slug) && $slug == 'member-notice'){
     $banner_image = asset('breadcumb_img/members.jpg');
 }elseif(isset($slug) && $slug == 'student-notice'){
     $banner_image = asset('breadcumb_img/students.jpg');
+}else{
+    $banner_image = asset('breadcumb_img/students.jpg');
 }
 $title = isset($notice_cat) ? $notice_cat->title : 'Notice Board';
 $datas = [
