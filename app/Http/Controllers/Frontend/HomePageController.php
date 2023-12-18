@@ -28,6 +28,7 @@ use App\Models\Visitor;
 use App\Models\PopUp;
 use Illuminate\Support\Carbon;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Response;
 
 class HomePageController extends Controller
 {
@@ -90,6 +91,29 @@ class HomePageController extends Controller
         $s['testimonials'] = Testimonial::where('deleted_at', null)->where('status',1)->orderBy('order_key','ASC')->get();
         $s['latest_newses'] = LatestNews::where('deleted_at', null)->where('status',1)->orderBy('date','ASC')->get();
         $s['banner_video'] = SinglePages::where('frontend_slug', 'banner-video')->first();
+        if(isset(($s['banner_video']->saved_data)->{'upload-video'})){
+            $file_path = json_decode($s['banner_video']->saved_data)->{'upload-video'};
+            $file_path = storage_path('app/public/' . $file_path);
+            if ($file_path != null && file_exists($file_path)) {
+                $mimeType = mime_content_type($file_path);
+                if (strpos($mimeType, 'video/') === 0) {
+                    // It's a video
+                    $s['banner_video']['fileType'] = 'video';
+                } elseif (strpos($mimeType, 'image/') === 0) {
+                    // It's an image
+                    $s['banner_video']['fileType'] = 'image';
+                } else {
+                    // Unsupported file type, you can handle this case accordingly
+                    abort(404);
+                }
+            }
+        }
+        
+
+
+
+
+
         $s['pop_ups'] = PopUp::where('deleted_at', null)->where('status',1)->orderBy('order_key','ASC')->get();
         return view('frontend.home',$s);
     }
