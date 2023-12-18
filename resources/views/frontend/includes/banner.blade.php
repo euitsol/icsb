@@ -9,15 +9,17 @@
                     <a href="javascript:void(0)" type="button">OBTAIN CS <br> PRACTICE LICENSE</a>
                 </div>
             </div>
-
-                {{-- <video autoplay loop muted playsinline id="myVideo" class="video-banner" poster="{{ asset('frontend/img/banner-video-poster.png') }}" preload="metadata">
-                    <source src="{{ route('banner-video.show', base64_encode(json_decode($banner_video->saved_data)->{'upload-video'})) }}" type="video/mp4">
-                </video> --}}
-                <img src="{{asset('banner_test/1.webp')}}" alt=""  width="100%" height="100%">
-
-            {{-- <progress id="videoProgress" value="0" max="100"></progress>
-            <button id="volumeButton" class="volume-icon"><i class="fas fa-volume-xmark" id="icon"></i></button>
-            <button id="playPauseButton" class="play-pause-icon"><i class="fas fa-pause"></i></button> --}}
+                @if($banner_video->fileType==='video')
+                    <video autoplay loop muted playsinline id="myVideo" class="video-banner" poster="{{ asset('frontend/img/banner-video-poster.png') }}" preload="metadata">
+                        <source src="{{ route('banner-video.show', base64_encode(json_decode($banner_video->saved_data)->{'upload-video'})) }}" type="video/mp4">
+                    </video>
+                    <progress id="videoProgress" value="0" max="100"></progress>
+                    <button id="volumeButton" class="volume-icon"><i class="fas fa-volume-xmark" id="icon"></i></button>
+                    <button id="playPauseButton" class="play-pause-icon"><i class="fas fa-pause"></i></button>
+                @endif
+                @if($banner_video->fileType==='image')
+                    <img src="{{storage_url(json_decode($banner_video->saved_data)->{'upload-video'})}}" alt=""  width="100%" height="100%">
+                @endif
         </div>
     @else
         <div id="carouselExampleCaptions" class="carousel slide">
