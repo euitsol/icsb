@@ -265,8 +265,8 @@ class CommitteeController extends Controller
     public function cm_delete($id): RedirectResponse
     {
         $cm = CommitteeMember::findOrFail($id);
-        $this->soft_delete($cm);
-        // $cm->delete();
+        // $this->soft_delete($cm);
+        $cm->delete();
         return redirect()->route('committee.committee_member_list',$cm->committee_id)->withStatus(__($cm->committee_id.' deleted successfully.'));
     }
 
