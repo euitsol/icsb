@@ -29,7 +29,7 @@ $datas = [
 @include('frontend.includes.breadcrumb',['datas'=>$datas])
 <!-- =============================== Breadcrumb Section ======================================-->
 
-<section class="job-detailes-section ">
+{{-- <section class="job-detailes-section ">
     <div class="container">
         <div class="job-row flex">
             <div class="job-detail-item flex">
@@ -108,6 +108,89 @@ $datas = [
                     </div>
                 <h3><i class="fa-solid fa-location-dot"></i> Comapy Location: </h3><span>{{html_entity_decode_table($job->company_address) }}</span>
                 <h3><i class="fa-solid fa-location-dot"></i> Job Location: </h3><span>{{html_entity_decode_table($job->job_location) }}</span>
+            </div>
+        </div>
+    </div>
+</section> --}}
+
+<section class="job_details_section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="card">
+                <div class="card-body">
+                    <div class="col-md-7">
+                        <h1 class="job_title">Company Secretary</h1>
+                        <h4 class="company_name">Homeland Life Insurance Co. Ltd.</h4>
+                        <div class="vacancy">
+                            <h5>Vacancy</h5>
+                            <ul>1</ul>
+                        </div>
+                        <div class="job_des">
+                            <h5>Job Context</h5>
+                            <ul>
+                                Homeland life insurance Company Limited, One of the leading Life Insurance Companies in Bangladesh is looking for dynamic, Result oriented, Committed Self-driven Professional. The appointment will be made by the Company subject to approval of Insurance Development & Regulatory Authority.
+                            </ul>
+                        </div>
+                        <div class="job_res">
+                            <h5>Job Responsibilities</h5>
+                            <ul>
+                                Company Secretary
+                            </ul>
+                        </div>
+                        <div class="job_type">
+                            <h5>Employment Status</h5>
+                            <ul>
+                                Full-Time
+                            </ul>
+                        </div>
+                        <div class="ed_req">
+                            <h5>Educational Requirements</h5>
+                            <ul>
+                                Masters degree in any discipline
+                            </ul>
+                        </div>
+                        <div class="ex_req">
+                            <h5>Experience Requirements</h5>
+                            <ul>
+                                At least 5 year(s)
+                            </ul>
+                        </div>
+                        <div class="addi_req">
+                            <h5>Additional Requirements</h5>
+                            <ul>
+                                Age at least 40 years
+                                Only males are allowed to apply
+                                Practical experience as company secretary in any financial institution.
+                            </ul>
+                        </div>
+                        <div class="job_location">
+                            <h5>Job Location</h5>
+                            <ul>
+                                Dhaka
+                            </ul>
+                        </div>
+                        <div class="salary">
+                            <h5>Salary</h5>
+                            <ul>
+                                Negotiable
+                            </ul>
+                        </div>
+                        <div class="other_benefits">
+                            <h5>Compensation & Other Benefits</h5>
+                            <ul>
+                                Negotiable
+                            </ul>
+                        </div>
+                        <div class="jp_source">
+                            <h5>Job Source</h5>
+                            <ul>
+                                Negotiable
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-5"></div>
+                     
+                </div>
             </div>
         </div>
     </div>
