@@ -1,35 +1,126 @@
 @extends('frontend.master')
 
 @section('title', 'Job Details')
-@push("css")
-<style>
-    .job-detailes-section .job-detail-item ul li{
-        width: auto;
-    }
-</style>
+@push('css')
+    <style>
+        /* .job-detailes-section .job-detail-item ul li{
+                        width: auto;
+                    } */
+        .job_title {
+            font-size: 30px;
+            margin: 0;
+        }
 
+        .company_name {
+            font-size: 22px;
+            margin-bottom: 30px;
+            color: #5d5d5d;
+        }
+
+        .job_details h5 {
+            font-size: 20px;
+            text-transform: capitalize;
+            color: #5d5d5d;
+        }
+
+        .apply_border {
+            width: 160px;
+            height: 2px;
+            background: #cccccc;
+            margin: -10px auto 10px auto;
+        }
+
+        .rba h2 {
+            color: #5c5c5c;
+            font-size: 30px;
+        }
+
+        .appprocedure {
+            font-size: 20px;
+            color: #5c5c5c;
+            margin: 0;
+            padding: 0;
+            text-transform: capitalize;
+        }
+
+        .gra-padded {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .gra-bordered {
+            position: relative;
+        }
+
+        .gra-bordered::before {
+            content: "";
+            display: block;
+            width: 80%;
+            position: absolute;
+            bottom: 0px;
+            left: 40%;
+            margin-left: -30%;
+            height: 1px;
+            background: radial-gradient(at center center, rgba(0, 0, 0, 0.2) 0px, rgba(255, 255, 255, 0) 75%);
+        }
+
+        .email_title {
+            text-transform: capitalize;
+            font-size: 25px;
+            color: #5c5c5c;
+        }
+        .job_summary p {
+            color: #5d5d5d;
+            margin-bottom: 15px;
+        }
+        .job_summary .title {
+            background-color: #37474f;
+            color: #fff;
+            font-size: 16px;
+            padding: 15px 15px;
+            border: none;
+            font-weight: bold;
+        }
+        .job_summary .card-footer a i:hover {
+            color: #fff;
+            background: #122F98;
+        }
+        .job_summary .card-footer a i {
+            color: #122F98;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #DCDCDC;
+            transition: 0.4s;
+            margin-right: 20px
+        }
+    </style>
 @endpush
 
 @section('content')
-  <!-- =============================== Breadcrumb Section ======================================-->
-@php
-$banner_image = asset('breadcumb_img/members.jpg');
-$title = $job->title;
-$datas = [
-            'image'=>$banner_image,
-            'title'=>$title,
-            'paths'=>[
-                        'home'=>'Home',
-                        'javascript:void(0)'=>'Members',
-                        'member_view.job_index'=>'Job Placement',
-                        'member_view.jps'=>'Availeable Jobs',
-                    ]
+    <!-- =============================== Breadcrumb Section ======================================-->
+    @php
+        $banner_image = asset('breadcumb_img/members.jpg');
+        $title = $job->title;
+        $datas = [
+            'image' => $banner_image,
+            'title' => $title,
+            'paths' => [
+                'home' => 'Home',
+                'javascript:void(0)' => 'Members',
+                'member_view.job_index' => 'Job Placement',
+                'member_view.jps' => 'Availeable Jobs',
+            ],
         ];
-@endphp
-@include('frontend.includes.breadcrumb',['datas'=>$datas])
-<!-- =============================== Breadcrumb Section ======================================-->
+    @endphp
+    @include('frontend.includes.breadcrumb', ['datas' => $datas])
+    <!-- =============================== Breadcrumb Section ======================================-->
 
-<section class="job-detailes-section ">
+    {{-- <section class="job-detailes-section ">
     <div class="container">
         <div class="job-row flex">
             <div class="job-detail-item flex">
@@ -47,7 +138,7 @@ $datas = [
             <div class="job-detail-item">
                 <ul>
                     <li><i class="fa-solid fa-briefcase"></i><span>Job Type: </span>{{$job->job_type}}</li>
-                    <li><i class="fa-solid fa-comment-dollar"></i><span>Salary: </span> @if(isset(json_decode($job->salary)->from) & isset(json_decode($job->salary)->to))
+                    <li><i class="fa-solid fa-comment-dollar"></i><span>Salary: </span> @if (isset(json_decode($job->salary)->from) & isset(json_decode($job->salary)->to))
                         TK. <span>{{ (json_decode($job->salary)->from .' - '. json_decode($job->salary)->to)}}</span> /
                        @endif
                        {{$job->salary_type}}</li>
@@ -60,141 +151,267 @@ $datas = [
             </div>
         </div>
     </div>
-</section>
+    </section>
 
-<section class="jobsingle-content-section">
-    <div class="container">
-        <div class="content-row flex">
-            <div class="content-column">
-                <p class="mb-1"><span>Job Responsibility:</span></p>
-                {!! $job->job_responsibility !!}
-                @if(!empty($job->special_instractions))
-                    <p class="mb-1"><span>Special Instractions:</span></p>
-                    {!! $job->special_instractions !!}
-                @endif
-                @if(!empty($job->professional_requirement))
-                    <p class="mb-1"><span>Professional Requirement:</span></p>
-                    {!! $job->professional_requirement !!}
-                @endif
-                @if(!empty($job->special_instractions))
-                    <p class="mb-1"><span>Special Instractions:</span></p>
-                    {!! $job->special_instractions !!}
-                @endif
-                @if(!empty($job->additional_requirement))
-                    <p class="mb-1"><span>Additional Aequirement:</span></p>
-                    {!! $job->additional_requirement !!}
-                @endif
-                @if(!empty($job->other_benefits))
-                    <p class="mb-1"><span>Other Benefits:</span></p>
-                    {!! $job->other_benefits !!}
-                @endif
-            </div>
-            <div class="summary-column">
-                <div class="job-summery">
-                    <h4>Job Summary:</h4>
-                    <ul>
-                        <li><span>Job Posted: </span> {{\Carbon\Carbon::parse($job->created_at)->diffForhumans()}}</li>
-                        <li><span>Expiration: </span> {{date('d-M-Y'), strtotime($job->deadline)}}</li>
-                        <li><span>Vacancy: </span> {{$job->vacancy}} Person.</li>
-                        <li><span>Experiences: </span> {{$job->experience_requirement ? ($job->experience_requirement.' Years') : '...'}}</li>
-                        <li><span>Preferable Age: </span> {{$job->age_requirement ? ($job->age_requirement.' Years') : '...'}}</li>
-                        <li><span>Education: </span> {{$job->educational_requirement ? $job->educational_requirement : '...'}}</li>
-                        <li><span>Website: </span> <a href="{{$job->company_url ? $job->company_url : 'javascript:void(0)'}}" @if($job->company_url) class="text-secondary" target="_blank" @endif>{{$job->company_url ? removeHttpProtocol($job->company_url) : '...'}}</a></li>
-                    </ul>
+    <section class="jobsingle-content-section">
+        <div class="container">
+            <div class="content-row flex">
+                <div class="content-column">
+                    <p class="mb-1"><span>Job Responsibility:</span></p>
+                    {!! $job->job_responsibility !!}
+                    @if (!empty($job->special_instractions))
+                        <p class="mb-1"><span>Special Instractions:</span></p>
+                        {!! $job->special_instractions !!}
+                    @endif
+                    @if (!empty($job->professional_requirement))
+                        <p class="mb-1"><span>Professional Requirement:</span></p>
+                        {!! $job->professional_requirement !!}
+                    @endif
+                    @if (!empty($job->special_instractions))
+                        <p class="mb-1"><span>Special Instractions:</span></p>
+                        {!! $job->special_instractions !!}
+                    @endif
+                    @if (!empty($job->additional_requirement))
+                        <p class="mb-1"><span>Additional Aequirement:</span></p>
+                        {!! $job->additional_requirement !!}
+                    @endif
+                    @if (!empty($job->other_benefits))
+                        <p class="mb-1"><span>Other Benefits:</span></p>
+                        {!! $job->other_benefits !!}
+                    @endif
                 </div>
-
-                    <div class="email-column text-align">
-                        <h3><a href="mailto:{{$job->email}}"><i class="fa-solid fa-envelope-open-text"></i>Email Now</a></h3>
+                <div class="summary-column">
+                    <div class="job-summery">
+                        <h4>Job Summary:</h4>
+                        <ul>
+                            <li><span>Job Posted: </span> {{\Carbon\Carbon::parse($job->created_at)->diffForhumans()}}</li>
+                            <li><span>Expiration: </span> {{date('d-M-Y'), strtotime($job->deadline)}}</li>
+                            <li><span>Vacancy: </span> {{$job->vacancy}} Person.</li>
+                            <li><span>Experiences: </span> {{$job->experience_requirement ? ($job->experience_requirement.' Years') : '...'}}</li>
+                            <li><span>Preferable Age: </span> {{$job->age_requirement ? ($job->age_requirement.' Years') : '...'}}</li>
+                            <li><span>Education: </span> {{$job->educational_requirement ? $job->educational_requirement : '...'}}</li>
+                            <li><span>Website: </span> <a href="{{$job->company_url ? $job->company_url : 'javascript:void(0)'}}" @if ($job->company_url) class="text-secondary" target="_blank" @endif>{{$job->company_url ? removeHttpProtocol($job->company_url) : '...'}}</a></li>
+                        </ul>
                     </div>
-                <h3><i class="fa-solid fa-location-dot"></i> Comapy Location: </h3><span>{{html_entity_decode_table($job->company_address) }}</span>
-                <h3><i class="fa-solid fa-location-dot"></i> Job Location: </h3><span>{{html_entity_decode_table($job->job_location) }}</span>
-            </div>
-        </div>
-    </div>
-</section>
 
-{{-- <section class="job_details_section py-5">
-    <div class="container">
-        <div class="row">
-            <div class="card">
-                <div class="card-body">
-                    <div class="col-md-7">
-                        <h1 class="job_title">Company Secretary</h1>
-                        <h4 class="company_name">Homeland Life Insurance Co. Ltd.</h4>
-                        <div class="vacancy">
-                            <h5>Vacancy</h5>
-                            <ul>1</ul>
+                        <div class="email-column text-align">
+                            <h3><a href="mailto:{{$job->email}}"><i class="fa-solid fa-envelope-open-text"></i>Email Now</a></h3>
                         </div>
-                        <div class="job_des">
-                            <h5>Job Context</h5>
-                            <ul>
-                                Homeland life insurance Company Limited, One of the leading Life Insurance Companies in Bangladesh is looking for dynamic, Result oriented, Committed Self-driven Professional. The appointment will be made by the Company subject to approval of Insurance Development & Regulatory Authority.
-                            </ul>
-                        </div>
-                        <div class="job_res">
-                            <h5>Job Responsibilities</h5>
-                            <ul>
-                                Company Secretary
-                            </ul>
-                        </div>
-                        <div class="job_type">
-                            <h5>Employment Status</h5>
-                            <ul>
-                                Full-Time
-                            </ul>
-                        </div>
-                        <div class="ed_req">
-                            <h5>Educational Requirements</h5>
-                            <ul>
-                                Masters degree in any discipline
-                            </ul>
-                        </div>
-                        <div class="ex_req">
-                            <h5>Experience Requirements</h5>
-                            <ul>
-                                At least 5 year(s)
-                            </ul>
-                        </div>
-                        <div class="addi_req">
-                            <h5>Additional Requirements</h5>
-                            <ul>
-                                Age at least 40 years
-                                Only males are allowed to apply
-                                Practical experience as company secretary in any financial institution.
-                            </ul>
-                        </div>
-                        <div class="job_location">
-                            <h5>Job Location</h5>
-                            <ul>
-                                Dhaka
-                            </ul>
-                        </div>
-                        <div class="salary">
-                            <h5>Salary</h5>
-                            <ul>
-                                Negotiable
-                            </ul>
-                        </div>
-                        <div class="other_benefits">
-                            <h5>Compensation & Other Benefits</h5>
-                            <ul>
-                                Negotiable
-                            </ul>
-                        </div>
-                        <div class="jp_source">
-                            <h5>Job Source</h5>
-                            <ul>
-                                Negotiable
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-5"></div>
-                     
+                    <h3><i class="fa-solid fa-location-dot"></i> Comapy Location: </h3><span>{{html_entity_decode_table($job->company_address) }}</span>
+                    <h3><i class="fa-solid fa-location-dot"></i> Job Location: </h3><span>{{html_entity_decode_table($job->job_location) }}</span>
                 </div>
             </div>
         </div>
-    </div>
-</section> --}}
+    </section> --}}
+
+    <section class="job_details_section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 mx-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <h1 class="job_title">Company Secretary</h1>
+                                    <h4 class="company_name">Homeland Life Insurance Co. Ltd.</h4>
+                                    <div class="job_details">
+                                        <div class="vacancy">
+                                            <h5>Vacancy</h5>
+                                            <ul>1</ul>
+                                        </div>
+                                        <div class="job_res">
+                                            <h5>Job Responsibilities</h5>
+                                            <ul>
+                                                Company Secretary
+                                            </ul>
+                                        </div>
+                                        <div class="job_type">
+                                            <h5>Nature of job</h5>
+                                            <ul>
+                                                Full-Time
+                                            </ul>
+                                        </div>
+                                        <div class="pro_req">
+                                            <h5>Professional Requirements</h5>
+                                            <ul>
+                                                Age at least 40 years
+                                                Only males are allowed to apply
+                                                Practical experience as company secretary in any financial institution.
+                                            </ul>
+                                        </div>
+                                        <div class="ed_req">
+                                            <h5>Educational Requirements</h5>
+                                            <ul>
+                                                Masters degree in any discipline
+                                            </ul>
+                                        </div>
+                                        <div class="ex_req">
+                                            <h5>Experience Requirements</h5>
+                                            <ul>
+                                                At least 5 year(s)
+                                            </ul>
+                                        </div>
+                                        <div class="age_req">
+                                            <h5>Age Requirements</h5>
+                                            <ul>
+                                                At least 5 year(s)
+                                            </ul>
+                                        </div>
+                                        <div class="addi_req">
+                                            <h5>Additional Requirements</h5>
+                                            <ul>
+                                                Age at least 40 years
+                                                Only males are allowed to apply
+                                                Practical experience as company secretary in any financial institution.
+                                            </ul>
+                                        </div>
+                                        <div class="job_location">
+                                            <h5>Job Location</h5>
+                                            <ul>
+                                                Dhaka
+                                            </ul>
+                                        </div>
+                                        <div class="salary">
+                                            <h5>Salary</h5>
+                                            <ul>
+                                                Negotiable
+                                            </ul>
+                                        </div>
+                                        <div class="benefits">
+                                            <h5>Other Benefits</h5>
+                                            <ul>
+                                                Age at least 40 years
+                                                Only males are allowed to apply
+                                                Practical experience as company secretary in any financial institution.
+                                            </ul>
+                                        </div>
+                                        <div class="sp_inst">
+                                            <h5>Special Instractions</h5>
+                                            <ul>
+                                                Age at least 40 years
+                                                Only males are allowed to apply
+                                                Practical experience as company secretary in any financial institution.
+                                            </ul>
+                                        </div>
+                                        <div class="jp_source">
+                                            <h5>Job Source</h5>
+                                            <ul>
+                                                Negotiable
+                                            </ul>
+                                        </div>
+                                        <div class="com_add">
+                                            <h5>Company Address</h5>
+                                            <ul>
+                                                Dhaka
+                                            </ul>
+                                        </div>
+                                        <div class="com_web">
+                                            <h5>Company Website</h5>
+                                            <ul>
+                                                Dhaka
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 job_summary">
+                                    <div class="card">
+                                        <div class="card-header title">
+                                            <span><strong>Job Summary</strong></span>
+                                        </div>
+                                        <div class="card-body">
+                                            <p><strong>Publish on:</strong> 6 Dec 2023</p>
+                                            <p><strong>Vacancy:</strong> 1</p>
+                                            <p><strong>Job Type:</strong> Full Time</p>
+                                            <p><strong>Experience:</strong> At least 5 year(s)</p>
+                                            <p><strong>Gender:</strong> Only males are allowed to apply</p>
+                                            <p><strong>Age:</strong> Age at least 40 years</p>
+                                            <p><strong>Salary:</strong> Negotiable</p>
+                                            <p><strong>Application Deadline:</strong> 20 Dec 2023</p>
+                                        </div>
+                                        <div class="card-footer">
+                                            @php
+                                                $facebookLinks = Share::currentPage()->facebook()->linkedin('Title')->twitter()->whatsapp()->telegram()->getRawLinks();
+                                                if (!is_array($facebookLinks)) {
+                                                    $facebookLinks = [$facebookLinks];
+                                                }
+                                                $count = 0;
+                                            @endphp
+                                            <span style="color: #5c5c5c" class="me-4"><strong>Share with:</strong></span> 
+                                            @foreach ($facebookLinks as $facebookLink)
+                                                <a href="{{ $facebookLink }}" target="_blank">
+                                                    @if ($count == 0)
+                                                        <i class="fa-brands fa-facebook-f"></i>
+                                                    @elseif ($count == 1)
+                                                        <i class="fa-brands fa-linkedin-in"></i>
+                                                    @elseif ($count == 2)
+                                                        <i class="fa-brands fa-square-x-twitter"></i>
+                                                    @elseif ($count == 3)
+                                                        <i class="fa-brands fa-whatsapp"></i>
+                                                    @elseif ($count == 4)
+                                                        <i class="fa-brands fa-telegram"></i>
+                                                    @endif
+                                                </a>
+                                                @php
+                                                    $count++;
+                                                @endphp
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="guide text-center">
+                                        <div class="rba">
+                                            <h2 style="text-transform: capitalize">
+                                                Read Before Apply
+                                            </h2>
+                                            <div class="apply_border"></div>
+        
+        
+                                            <div>
+                                                <div class="instructions">Application with CV, all photocopy of Certificates,
+                                                    and recent Photograph should be submitted addressing to the Chief Executive
+                                                    Officer with in December 20, 2023.</div>
+                                            </div>
+        
+                                        </div>
+                                        <div>
+                                            <strong><span class="text-danger">*Photograph</span> must be enclosed with the
+                                                resume.</strong>
+                                        </div>
+        
+                                        <br>
+                                        <div>
+                                            <h2 class="appprocedure" style="margin-bottom: 15px;">
+                                                Apply Procedures
+                                            </h2>
+                                        </div>
+        
+        
+                                        <div class="text-center">
+                                            <a class="btn btn-success" href="javascript:void(0);">Apply Now</a>
+                                        </div>
+                                        <div class="gra-padded gra-bordered"></div>
+                                        <h3 class="email_title">Email</h3>
+                                        <div class="text-center">
+                                            Send your CV to <strong> homelandlife@gmail.com </strong>
+                                        </div>
+                                        <div>
+                                            <span class="date">
+                                                Application Deadline : <strong>20 Dec 2023</strong>
+                                            </span>
+                                        </div>
+        
+                                    </div>
+                                </div>
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 @endsection
