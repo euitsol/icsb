@@ -29,7 +29,7 @@ $datas = [
 @include('frontend.includes.breadcrumb',['datas'=>$datas])
 <!-- =============================== Breadcrumb Section ======================================-->
 
-{{-- <section class="job-detailes-section ">
+<section class="job-detailes-section ">
     <div class="container">
         <div class="job-row flex">
             <div class="job-detail-item flex">
@@ -111,9 +111,9 @@ $datas = [
             </div>
         </div>
     </div>
-</section> --}}
+</section>
 
-<section class="job_details_section py-5">
+{{-- <section class="job_details_section py-5">
     <div class="container">
         <div class="row">
             <div class="card">
@@ -194,7 +194,7 @@ $datas = [
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 
 @endsection
