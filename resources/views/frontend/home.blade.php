@@ -9,7 +9,7 @@
 @section('content')
 <div class="">
     <a href="{{route('member_view.job_index')}}" class="stiky-box bubble">
-        <img src="{{asset('fixed_image/stiky_image.png')}}" alt="">
+        <img src="{{asset('fixed_image/stiky_image.jpg')}}" class="fa-beat" alt="">
     </a>
     <a href="{{route('ac.details')}}" class=" stiky-box-2 bubble-2">
         <img src="{{asset('fixed_image/admission.png')}}" class="fa-beat" alt="">

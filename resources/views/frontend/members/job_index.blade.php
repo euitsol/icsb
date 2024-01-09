@@ -30,13 +30,12 @@ $datas = [
                     </div>
                     <div class="col-md-6">
                         <div class="employee">
-                            <a href="{{route('member_view.jps')}}" class="rounded py-4 btn w-100">{{_("I'm Employee")}}</a>
+                            <a href="{{route('member_view.jps')}}" class="rounded py-4 btn w-100">{{_("JOB SEEKER")}}</a>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        {{-- <h1><a href="{{route('member_view.job_edit',[1,'-1'])}}">edit</a></h1> --}}
                         <div class="employeer">
-                            <a href="{{route('member_view.job_create')}}" class="rounded py-4 btn w-100">{{_("I'm Employer")}}</a>
+                            <a href="{{route('member_view.job_create')}}" class="rounded py-4 btn w-100">{{_("JOB PROVIDER")}}</a>
                         </div>
                     </div>
                 </div>
