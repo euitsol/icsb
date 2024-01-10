@@ -71,7 +71,7 @@
 
                                         <input type="file" name="site_logo"
                                             class="form-control image-upload {{ $errors->has('site_logo') ? ' is-invalid' : '' }}"
-                                            @if (isset($SiteSettings['site_logo'])) data-existing-files="{{ storage_url($SiteSettings['site_logo']) }}" @endif
+                                            @if (isset($SiteSettings['site_logo'])) data-existing-files="{{ storage_url($SiteSettings['site_logo']) }}" data-delete-url="" @endif
                                             accept="image/*">
                                         @include('alerts.feedback', ['field' => 'site_logo'])
                                     </div>
@@ -81,7 +81,7 @@
 
                                         <input type="file" name="site_favicon"
                                             class="form-control image-upload {{ $errors->has('site_favicon') ? ' is-invalid' : '' }}"
-                                            @if (isset($SiteSettings['site_favicon'])) data-existing-files="{{ storage_url($SiteSettings['site_favicon']) }}" @endif
+                                            @if (isset($SiteSettings['site_favicon'])) data-existing-files="{{ storage_url($SiteSettings['site_favicon']) }}" data-delete-url="" @endif
                                             accept="image/*">
                                         @include('alerts.feedback', ['field' => 'site_favicon'])
                                     </div>
