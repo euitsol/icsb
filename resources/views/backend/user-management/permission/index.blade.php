@@ -39,9 +39,7 @@
                                         <td>
                                             @include('backend.partials.action_buttons', [
                                                 'menuItems' => [
-                                                    ['url' => '', 'label' => 'View'],
-                                                    ['url' => '', 'label' => 'Update'],
-                                                    ['url' => '', 'label' => 'Delete'],
+                                                    ['routeName' => '', 'label' => 'View'],
                                                 ]
                                             ])
                                         </td>
