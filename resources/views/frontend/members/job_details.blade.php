@@ -4,8 +4,8 @@
 @push('css')
     <style>
         /* .job-detailes-section .job-detail-item ul li{
-                        width: auto;
-                    } */
+                            width: auto;
+                        } */
         .job_title {
             font-size: 30px;
             margin: 0;
@@ -70,10 +70,12 @@
             font-size: 25px;
             color: #5c5c5c;
         }
+
         .job_summary p {
             color: #5d5d5d;
             margin-bottom: 15px;
         }
+
         .job_summary .title {
             background-color: #37474f;
             color: #fff;
@@ -82,10 +84,12 @@
             border: none;
             font-weight: bold;
         }
+
         .job_summary .card-footer a i:hover {
             color: #fff;
             background: #122F98;
         }
+
         .job_summary .card-footer a i {
             color: #122F98;
             width: 36px;
@@ -121,39 +125,44 @@
     <!-- =============================== Breadcrumb Section ======================================-->
 
     {{-- <section class="job-detailes-section ">
-    <div class="container">
-        <div class="job-row flex">
-            <div class="job-detail-item flex">
-                <div class="content-col">
-                    <h3>{{$job->title}}</h3>
-                    <p>{{$job->company_name}}</p>
+        <div class="container">
+            <div class="job-row flex">
+                <div class="job-detail-item flex">
+                    <div class="content-col">
+                        <h3>{{ $job->title }}</h3>
+                        <p>{{ $job->company_name }}</p>
+                    </div>
+                </div>
+                <div class="job-detail-item">
+                    <ul>
+                        <li><i class="fa-solid fa-users"></i><span>Vacancy: </span>{{ $job->vacancy . ' Person' }}</li>
+                        <li><i class="fa-solid fa-calendar"></i><span>Deadline:
+                            </span>{{ date('d-M-Y'), strtotime($job->deadline) }}</li>
+                    </ul>
+                </div>
+                <div class="job-detail-item">
+                    <ul>
+                        <li><i class="fa-solid fa-briefcase"></i><span>Job Type: </span>{{ $job->job_type }}</li>
+                        <li><i class="fa-solid fa-comment-dollar"></i><span>Salary: </span>
+                            @if (isset(json_decode($job->salary)->from) & isset(json_decode($job->salary)->to))
+                                
+                                <span>{{ json_decode($job->salary)->from . ' - ' . json_decode($job->salary)->to }}</span> TK./
+                            @endif
+                            {{ $job->salary_type }}
+                        </li>
+                    </ul>
+                </div>
+                <div class="job-detail-item last-item">
+                    <ul class="flex">
+                        <li><a href="{{ $job->application_url ? $job->application_url : 'mailto:' . $job->email }}"
+                                target="_blank" class="apply-button">Apply Position</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="job-detail-item">
-                <ul>
-                    <li><i class="fa-solid fa-users"></i><span>Vacancy: </span>{{$job->vacancy." Person" }}</li>
-                    <li><i class="fa-solid fa-calendar"></i><span>Deadline: </span>{{date('d-M-Y'), strtotime($job->deadline)}}</li>
-                </ul>
-            </div>
-            <div class="job-detail-item">
-                <ul>
-                    <li><i class="fa-solid fa-briefcase"></i><span>Job Type: </span>{{$job->job_type}}</li>
-                    <li><i class="fa-solid fa-comment-dollar"></i><span>Salary: </span> @if (isset(json_decode($job->salary)->from) & isset(json_decode($job->salary)->to))
-                        TK. <span>{{ (json_decode($job->salary)->from .' - '. json_decode($job->salary)->to)}}</span> /
-                       @endif
-                       {{$job->salary_type}}</li>
-                </ul>
-            </div>
-            <div class="job-detail-item last-item">
-                <ul class="flex">
-                    <li><a href="{{ $job->application_url ? $job->application_url :  'mailto:'.$job->email}}" target="_blank" class="apply-button">Apply Position</a></li>
-                </ul>
-            </div>
         </div>
-    </div>
-    </section>
+    </section> --}}
 
-    <section class="jobsingle-content-section">
+    {{-- <section class="jobsingle-content-section">
         <div class="container">
             <div class="content-row flex">
                 <div class="content-column">
@@ -184,26 +193,35 @@
                     <div class="job-summery">
                         <h4>Job Summary:</h4>
                         <ul>
-                            <li><span>Job Posted: </span> {{\Carbon\Carbon::parse($job->created_at)->diffForhumans()}}</li>
-                            <li><span>Expiration: </span> {{date('d-M-Y'), strtotime($job->deadline)}}</li>
-                            <li><span>Vacancy: </span> {{$job->vacancy}} Person.</li>
-                            <li><span>Experiences: </span> {{$job->experience_requirement ? ($job->experience_requirement.' Years') : '...'}}</li>
-                            <li><span>Preferable Age: </span> {{$job->age_requirement ? ($job->age_requirement.' Years') : '...'}}</li>
-                            <li><span>Education: </span> {{$job->educational_requirement ? $job->educational_requirement : '...'}}</li>
-                            <li><span>Website: </span> <a href="{{$job->company_url ? $job->company_url : 'javascript:void(0)'}}" @if ($job->company_url) class="text-secondary" target="_blank" @endif>{{$job->company_url ? removeHttpProtocol($job->company_url) : '...'}}</a></li>
+                            <li><span>Job Posted: </span> {{ \Carbon\Carbon::parse($job->created_at)->diffForhumans() }}
+                            </li>
+                            <li><span>Expiration: </span> {{ date('d-M-Y'), strtotime($job->deadline) }}</li>
+                            <li><span>Vacancy: </span> {{ $job->vacancy }} Person.</li>
+                            <li><span>Experiences: </span>
+                                {{ $job->experience_requirement ? $job->experience_requirement . ' Years' : '...' }}</li>
+                            <li><span>Preferable Age: </span>
+                                {{ $job->age_requirement ? $job->age_requirement . ' Years' : '...' }}</li>
+                            <li><span>Education: </span>
+                                {{ $job->educational_requirement ? $job->educational_requirement : '...' }}</li>
+                            <li><span>Website: </span> <a
+                                    href="{{ $job->company_url ? $job->company_url : 'javascript:void(0)' }}"
+                                    @if ($job->company_url) class="text-secondary" target="_blank" @endif>{{ $job->company_url ? removeHttpProtocol($job->company_url) : '...' }}</a>
+                            </li>
                         </ul>
                     </div>
 
-                        <div class="email-column text-align">
-                            <h3><a href="mailto:{{$job->email}}"><i class="fa-solid fa-envelope-open-text"></i>Email Now</a></h3>
-                        </div>
-                    <h3><i class="fa-solid fa-location-dot"></i> Comapy Location: </h3><span>{{html_entity_decode_table($job->company_address) }}</span>
-                    <h3><i class="fa-solid fa-location-dot"></i> Job Location: </h3><span>{{html_entity_decode_table($job->job_location) }}</span>
+                    <div class="email-column text-align">
+                        <h3><a href="mailto:{{ $job->email }}"><i class="fa-solid fa-envelope-open-text"></i>Email
+                                Now</a></h3>
+                    </div>
+                    <h3><i class="fa-solid fa-location-dot"></i> Comapy Location: </h3>
+                    <span>{{ html_entity_decode_table($job->company_address) }}</span>
+                    <h3><i class="fa-solid fa-location-dot"></i> Job Location: </h3>
+                    <span>{{ html_entity_decode_table($job->job_location) }}</span>
                 </div>
             </div>
         </div>
     </section> --}}
-
     <section class="job_details_section py-5">
         <div class="container">
             <div class="row">
@@ -212,131 +230,155 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-7">
-                                    <h1 class="job_title">Company Secretary</h1>
-                                    <h4 class="company_name">Homeland Life Insurance Co. Ltd.</h4>
+                                    <h1 class="job_title">{{ $job->title }}</h1>
+                                    <h4 class="company_name">{{ $job->company_name }}</h4>
                                     <div class="job_details">
                                         <div class="vacancy">
-                                            <h5>Vacancy</h5>
-                                            <ul>1</ul>
-                                        </div>
-                                        <div class="job_res">
-                                            <h5>Job Responsibilities</h5>
-                                            <ul>
-                                                Company Secretary
-                                            </ul>
+                                            <h5>{{__('Number of Vacancy')}}</h5>
+                                            <ul>{{ $job->vacancy . ' Person' }}</ul>
                                         </div>
                                         <div class="job_type">
-                                            <h5>Nature of job</h5>
+                                            <h5>{{__('Nature of Job')}}</h5>
                                             <ul>
-                                                Full-Time
+                                                {{ $job->job_type }}
                                             </ul>
                                         </div>
-                                        <div class="pro_req">
-                                            <h5>Professional Requirements</h5>
+                                        <div class="job_res">
+                                            <h5>{{__('Job Responsibility')}}</h5>
                                             <ul>
-                                                Age at least 40 years
-                                                Only males are allowed to apply
-                                                Practical experience as company secretary in any financial institution.
+                                                {!! $job->job_responsibility !!}
                                             </ul>
                                         </div>
-                                        <div class="ed_req">
-                                            <h5>Educational Requirements</h5>
-                                            <ul>
-                                                Masters degree in any discipline
-                                            </ul>
-                                        </div>
-                                        <div class="ex_req">
-                                            <h5>Experience Requirements</h5>
-                                            <ul>
-                                                At least 5 year(s)
-                                            </ul>
-                                        </div>
-                                        <div class="age_req">
-                                            <h5>Age Requirements</h5>
-                                            <ul>
-                                                At least 5 year(s)
-                                            </ul>
-                                        </div>
-                                        <div class="addi_req">
-                                            <h5>Additional Requirements</h5>
-                                            <ul>
-                                                Age at least 40 years
-                                                Only males are allowed to apply
-                                                Practical experience as company secretary in any financial institution.
-                                            </ul>
-                                        </div>
+                                        @if (!empty($job->educational_requirement))
+                                            <div class="ed_req">
+                                                <h5>{{__('Educational Requirements')}}</h5>
+                                                <ul>
+                                                    {{$job->educational_requirement}}
+                                                </ul>
+                                            </div>
+                                        @endif
+                                        @if (!empty($job->professional_requirement))
+                                            <div class="pro_req">
+                                                <h5>{{__('Professional Requirements')}}</h5>
+                                                <ul>
+                                                    {!! $job->professional_requirement !!}
+                                                </ul>
+                                            </div>
+                                        @endif
+                                        @if (!empty($job->experience_requirement))
+                                            <div class="ex_req">
+                                                <h5>{{__('Experience Requirements')}}</h5>
+                                                <ul>
+                                                    {{$job->experience_requirement . ' Years'}}
+                                                </ul>
+                                            </div>
+                                        @endif
+                                        @if (!empty($job->age_requirement))
+                                            <div class="age_req">
+                                                <h5>{{__('Age Requirements')}}</h5>
+                                                <ul>
+                                                    {{$job->age_requirement . ' Years'}}
+                                                </ul>
+                                            </div>
+                                        @endif
+                                        @if (!empty($job->additional_requirement))
+                                            <div class="addi_req">
+                                                <h5>{{__('Additional Requirements')}}</h5>
+                                                <ul>
+                                                    {!! $job->additional_requirement !!}
+                                                </ul>
+                                            </div>
+                                        @endif
                                         <div class="job_location">
-                                            <h5>Job Location</h5>
+                                            <h5>{{__('Job Location')}}</h5>
                                             <ul>
-                                                Dhaka
+                                                {{ html_entity_decode_table($job->job_location) }}
                                             </ul>
                                         </div>
                                         <div class="salary">
-                                            <h5>Salary</h5>
+                                            <h5>{{__('Salary')}}</h5>
                                             <ul>
-                                                Negotiable
+                                                @if (isset(json_decode($job->salary)->from) & isset(json_decode($job->salary)->to))
+                                                    <span>{{ json_decode($job->salary)->from . ' - ' . json_decode($job->salary)->to }}</span> TK./
+                                                @endif
+                                                {{ $job->salary_type }}
                                             </ul>
                                         </div>
-                                        <div class="benefits">
-                                            <h5>Other Benefits</h5>
+                                        @if (!empty($job->other_benefits))
+                                            <div class="benefits">
+                                                <h5>{{__('Other Benefits')}}</h5>
+                                                <ul>
+                                                    {!! $job->other_benefits !!}
+                                                </ul>
+                                            </div>
+                                        @endif
+                                        @if (!empty($job->special_instractions))
+                                            <div class="sp_inst">
+                                                <h5>{{__('Special Instructions')}}</h5>
+                                                <ul>
+                                                    {!! $job->special_instractions !!}
+                                                </ul>
+                                            </div>
+                                        @endif
+                                        <div class="com_add">
+                                            <h5>{{__('Company Address')}}</h5>
                                             <ul>
-                                                Age at least 40 years
-                                                Only males are allowed to apply
-                                                Practical experience as company secretary in any financial institution.
+                                                {{ html_entity_decode_table($job->company_address) }}
                                             </ul>
                                         </div>
-                                        <div class="sp_inst">
-                                            <h5>Special Instractions</h5>
-                                            <ul>
-                                                Age at least 40 years
-                                                Only males are allowed to apply
-                                                Practical experience as company secretary in any financial institution.
-                                            </ul>
-                                        </div>
+                                        {{-- 
+
                                         <div class="jp_source">
                                             <h5>Job Source</h5>
                                             <ul>
                                                 Negotiable
                                             </ul>
                                         </div>
-                                        <div class="com_add">
-                                            <h5>Company Address</h5>
-                                            <ul>
-                                                Dhaka
-                                            </ul>
-                                        </div>
+                                        
                                         <div class="com_web">
                                             <h5>Company Website</h5>
                                             <ul>
                                                 Dhaka
                                             </ul>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                                 <div class="col-md-5 job_summary">
                                     <div class="card">
                                         <div class="card-header title">
-                                            <span><strong>Job Summary</strong></span>
+                                            <span><strong>{{__('Job Summary')}}</strong></span>
                                         </div>
                                         <div class="card-body">
-                                            <p><strong>Publish on:</strong> 6 Dec 2023</p>
-                                            <p><strong>Vacancy:</strong> 1</p>
-                                            <p><strong>Job Type:</strong> Full Time</p>
-                                            <p><strong>Experience:</strong> At least 5 year(s)</p>
-                                            <p><strong>Gender:</strong> Only males are allowed to apply</p>
-                                            <p><strong>Age:</strong> Age at least 40 years</p>
-                                            <p><strong>Salary:</strong> Negotiable</p>
-                                            <p><strong>Application Deadline:</strong> 20 Dec 2023</p>
+                                            {{-- <p><strong>Publish on:</strong> 6 Dec 2023</p> --}}
+                                            <p><strong>{{__('Position Name:')}}</strong> {{ $job->title }}</p>
+                                            <p><strong>{{__('Number of Vacancy:')}}</strong> {{ $job->vacancy . ' Person' }}</p>
+                                            <p><strong>{{__('Experience Requirements:')}}</strong> {{ $job->experience_requirement ? $job->experience_requirement . ' Years' : '...' }}</p>
+                                            <p><strong>{{__('Professional Requirements:')}}</strong> {{ $job->professional_requirement ? $job->professional_requirement : '...' }}</p>
+                                            <p><strong>{{__('Age Requirements:')}}</strong> {{ $job->age_requirement ? $job->age_requirement . ' Years' : '...' }}</p>
+                                            {{-- <p><strong>Job Type:</strong> Full Time</p> --}}
+                                            <p><strong>{{__('Salary:')}}</strong> 
+                                                @if (isset(json_decode($job->salary)->from) & isset(json_decode($job->salary)->to))
+                                                    <span>{{ json_decode($job->salary)->from . ' - ' . json_decode($job->salary)->to }}</span> TK./
+                                                @endif
+                                                {{ $job->salary_type }}
+                                            </p>
+                                            <p><strong>{{__('Application Deadline:')}}</strong> {{ date('d M Y'), strtotime($job->deadline) }}</p>
                                         </div>
                                         <div class="card-footer">
                                             @php
-                                                $facebookLinks = Share::currentPage()->facebook()->linkedin('Title')->twitter()->whatsapp()->telegram()->getRawLinks();
+                                                $facebookLinks = Share::currentPage()
+                                                    ->facebook()
+                                                    ->linkedin('Title')
+                                                    ->twitter()
+                                                    ->whatsapp()
+                                                    ->telegram()
+                                                    ->getRawLinks();
                                                 if (!is_array($facebookLinks)) {
                                                     $facebookLinks = [$facebookLinks];
                                                 }
                                                 $count = 0;
                                             @endphp
-                                            <span style="color: #5c5c5c" class="me-4"><strong>Share with:</strong></span> 
+                                            <span style="color: #5c5c5c" class="me-4"><strong>{{__('Share with:')}}</strong></span>
                                             @foreach ($facebookLinks as $facebookLink)
                                                 <a href="{{ $facebookLink }}" target="_blank">
                                                     @if ($count == 0)
@@ -357,55 +399,52 @@
                                             @endforeach
                                         </div>
                                     </div>
-                                   
+
                                 </div>
                                 <div class="col-md-12">
                                     <div class="guide text-center">
                                         <div class="rba">
                                             <h2 style="text-transform: capitalize">
-                                                Read Before Apply
+                                                {{__('Read Before Apply')}}
                                             </h2>
                                             <div class="apply_border"></div>
-        
-        
+
+
                                             <div>
-                                                <div class="instructions">Application with CV, all photocopy of Certificates,
-                                                    and recent Photograph should be submitted addressing to the Chief Executive
-                                                    Officer with in December 20, 2023.</div>
+                                                <div class="instructions mx-auto" style="width: 70%">Interested ICSB Members
+                                                    who meet the requirements are encouraged to send their updated CV in PDF
+                                                    format mentioning the post title along with applications to the
+                                                    following address.</div>
                                             </div>
-        
+
                                         </div>
-                                        <div>
-                                            <strong><span class="text-danger">*Photograph</span> must be enclosed with the
-                                                resume.</strong>
-                                        </div>
-        
+
                                         <br>
                                         <div>
                                             <h2 class="appprocedure" style="margin-bottom: 15px;">
-                                                Apply Procedures
+                                                {{__('Apply Procedures')}}
                                             </h2>
                                         </div>
-        
-        
+
+
                                         <div class="text-center">
-                                            <a class="btn btn-success" href="javascript:void(0);">Apply Now</a>
+                                            <a class="btn btn-success" href="{{ $job->application_url ? $job->application_url : 'mailto:'.$job->email }}" target="_blank">{{__('Apply Now')}}</a>
                                         </div>
                                         <div class="gra-padded gra-bordered"></div>
-                                        <h3 class="email_title">Email</h3>
+                                        <h3 class="email_title">{{__('Email')}}</h3>
                                         <div class="text-center">
-                                            Send your CV to <strong> homelandlife@gmail.com </strong>
+                                            Send your CV to <strong> {{$job->email}} </strong>
                                         </div>
                                         <div>
                                             <span class="date">
-                                                Application Deadline : <strong>20 Dec 2023</strong>
+                                                {{__('Application Deadline :')}} <strong>{{ date('d-M-Y'), strtotime($job->deadline) }}</strong>
                                             </span>
                                         </div>
-        
+
                                     </div>
                                 </div>
                             </div>
-    
+
                         </div>
                     </div>
                 </div>
