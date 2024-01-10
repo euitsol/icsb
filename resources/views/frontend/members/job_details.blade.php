@@ -362,7 +362,7 @@
                                                 @endif
                                                 {{ $job->salary_type }}
                                             </p>
-                                            <p><strong>{{__('Application Deadline:')}}</strong> {{ date('d M Y'), strtotime($job->deadline) }}</p>
+                                            <p><strong>{{__('Application Deadline:')}}</strong> {{ date('d M Y', strtotime($job->deadline)) }}</p>
                                         </div>
                                         <div class="card-footer">
                                             @php
@@ -411,7 +411,7 @@
 
 
                                             <div>
-                                                <div class="instructions mx-auto" style="width: 70%">Interested ICSB Members
+                                                <div class="instructions mx-auto" style="width: 60%">Interested ICSB Members
                                                     who meet the requirements are encouraged to send their updated CV in PDF
                                                     format mentioning the post title along with applications to the
                                                     following address.</div>
@@ -437,7 +437,7 @@
                                         </div>
                                         <div>
                                             <span class="date">
-                                                {{__('Application Deadline :')}} <strong>{{ date('d-M-Y'), strtotime($job->deadline) }}</strong>
+                                                {{__('Application Deadline :')}} <strong>{{ date('d-M-Y', strtotime($job->deadline)) }}</strong>
                                             </span>
                                         </div>
 
