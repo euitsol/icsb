@@ -4412,12 +4412,14 @@ td {
     color: #99CE72;
 }
 .library-section .library-row .library-item .right-column a{
+    background-color: #99CE72;
     transition: 0.4s;
 }
 
 .library-section .library-row .library-item .right-column a:hover {
     color: #fff;
-    /* background-color: #99CE72; */
+    background-color: #182456;
+    
 }
 
 .library-section .library-row .library-item i {

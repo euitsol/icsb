@@ -1,13 +1,13 @@
 @extends('frontend.master')
 
-@section('title', 'Sample Question Papers')
+@section('title', 'Previous Questions')
 
 @section('content')
 
     <!-- =============================== Breadcrumb Section ======================================-->
     @php
         $banner_image = asset('breadcumb_img/examination.jpg');
-        $title = 'Sample Question Papers';
+        $title = 'Previous Questions';
         $datas = [
             'image' => $banner_image,
             'title' => $title,

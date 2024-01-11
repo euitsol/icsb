@@ -1,6 +1,6 @@
 @extends('frontend.master')
 
-@section('title', 'Sample Question Papers')
+@section('title', 'Previous Questions')
 
 @section('content')
 
@@ -14,7 +14,7 @@
                     'paths'=>[
                                 'home'=>'Home',
                                 'javascript:void(0)'=>'Examination',
-                                'examination.sqp' => 'Sample Question Papers',
+                                'examination.sqp' => 'Previous Questions',
                             ]
                 ];
     @endphp

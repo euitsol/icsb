@@ -102,6 +102,12 @@
             transition: 0.4s;
             margin-right: 20px
         }
+        ul p{
+            font-family: serif !important;
+        }
+        ul{
+            font-family: serif !important;
+        }
     </style>
 @endpush
 

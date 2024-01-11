@@ -37,10 +37,11 @@ $datas = [
                   <div class="details-col">
                   <h2>{{$jp->title}}</h2>
                   <h3>{{$jp->company_name}}</h3>
-                  <span class="day"><i class="fa-solid fa-clock"></i>
+                  {{-- <span class="day"><i class="fa-solid fa-clock"></i>
                       {{$jp->createDiffTime}}
-                  </span>
+                  </span> --}}
                   <span><i class="fa-solid fa-briefcase"></i>{{$jp->job_type}}</span>
+                  <span><i class="fa-solid fa-location-dot"></i>{{ html_entity_decode_table($jp->job_location) }}</span>
 
                   </div>
               </div>
