@@ -1,6 +1,13 @@
 @extends('frontend.master')
 
 @section('title', 'Previous Questions')
+@push('css')
+<style>
+    .library-section .library-row .library-item .right-column a{
+        background: transparent;
+    }
+</style>
+@endpush
 
 @section('content')
 
