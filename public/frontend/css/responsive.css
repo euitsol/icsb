@@ -1544,8 +1544,9 @@
     }
 
     .president-section .president-column .right-column {
-        width: 100%;
+        max-width: 100%;
         margin-top: 30px;
+        width: 100%;
     }
 
     .president-section .president-column .left-column .president-info {
@@ -1566,6 +1567,7 @@
         margin-top: 25px;
         left: 50%;
         transform: translateX(-50%);
+        float: none;
     }
 
     .recent-update-section {
