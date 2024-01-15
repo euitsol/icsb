@@ -195,7 +195,8 @@ class JobPlacementController extends Controller
                 <p><strong>Age Requirements:</strong> $jp->age_requirement</p> 
                 <p><strong>Salary:</strong> $salary</p> 
                 <p><strong>Appliation Deadline:</strong> $jp->deadline</p> 
-                <p><span style='color:red;'>To learn more details about available jobs, please visit the</span> <u><a href='".$url."' style='color:#102694;' target='_blank'><strong>ICSB Job Portal: CHICK</strong></a></u></p>
+                <p><span style='color:red;'>To learn more details about available jobs, please visit the</span></p>
+                <u><a href='".$url."' style='color:#102694;' target='_blank'><strong>ICSB Job Portal: CHICK</strong></a></u>
             ";
             $jp->save();
 
@@ -210,7 +211,8 @@ class JobPlacementController extends Controller
 
             <p>Thank you for using our platform, and we wish you the best in finding the perfect candidate for your job opening.</p><br>
 
-            <p><span style='color:red;'>To learn more details about available jobs, please visit the</span> <u><a href='".$url."' style='color:#102694;' target='_blank'><strong>ICSB Job Portal: CHICK</strong></a></u></p>
+            <p><span style='color:red;'>To learn more details about available jobs, please visit the</span> </p>
+            <u><a href='".$url."' style='color:#102694;' target='_blank'><strong>ICSB Job Portal: CHICK</strong></a></u>
             ";
             $this->send_custom_email($mail,$subject, $jp->email);
             $this->send_member_email($jp);
@@ -268,7 +270,8 @@ class JobPlacementController extends Controller
                 <p><strong>Age Requirements:</strong> $jp->age_requirement</p> 
                 <p><strong>Salary:</strong> $salary</p> 
                 <p><strong>Appliation Deadline:</strong> $jp->deadline</p> 
-                <p><span style='color:red;'>To learn more details about available jobs, please visit the</span> <u><a href='".$url."' style='color:#102694;' target='_blank'><strong>ICSB Job Portal: CHICK</strong></a></u></p>
+                <p><span style='color:red;'>To learn more details about available jobs, please visit the</span></p>
+                <u><a href='".$url."' style='color:#102694;' target='_blank'><strong>ICSB Job Portal: CHICK</strong></a></u>
             ";
             $jp->save();
             Mail::to($req->email)->send(new MemberMail($jp));
