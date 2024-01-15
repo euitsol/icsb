@@ -417,10 +417,7 @@
 
 
                                             <div>
-                                                <div class="instructions mx-auto" style="width: 60%">Interested ICSB Members
-                                                    who meet the requirements are encouraged to send their updated CV in PDF
-                                                    format mentioning the post title along with applications to the
-                                                    following address.</div>
+                                                <div class="instructions mx-auto" style="width: 60%">Interested ICSB Candidates who meet the requirements are encouraged to apply<br> using their updated information through following:</div>
                                             </div>
 
                                         </div>
