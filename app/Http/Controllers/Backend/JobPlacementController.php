@@ -78,16 +78,25 @@ class JobPlacementController extends Controller
 
         $this->send_custom_email($mail,$subject, $jp->email);
 
+
+        $salary = '';
+            if (isset(json_decode($jp->salary)->from) & isset(json_decode($jp->salary)->to)){
+                $salary ="<span>".json_decode($jp->salary)->from . ' - ' . json_decode($jp->salary)->to ."</span> TK./";
+            }
+        $salary .=  $jp->salary_type;
+        $job_location = html_entity_decode_table($jp->job_location);
+
         $admin_subject = "New job posted on your job portal";
         $admin_mail =
         "
         <p>A new job posting has been added to our platform.</p><br>
-        <p>Job Title: $jp->title</p> 
-        <p>Company Name: $jp->company_name</p> 
-        <p>Location: $jp->job_location</p> 
-        <p>Appliation Deadline: $jp->deadline</p> 
-        <p>Email: $jp->email</p>
-        <p>Details: </p> $jp->job_responsibility <br>
+        <p><strong>Job Title:</strong> $jp->title</p> 
+        <p><strong>Company Name:</strong> $jp->company_name</p> 
+        <p><strong>Location:</strong> $job_location</p> 
+        <p><strong>Experience Requirements:</strong> $jp->experience_requirement</p> 
+        <p><strong>Age Requirements:</strong> $jp->age_requirement</p> 
+        <p><strong>Salary:</strong> $salary</p> 
+        <p><strong>Appliation Deadline:</strong> $jp->deadline</p> 
         <p>You can view the full job posting and manage it by logging into the admin panel. If you have any questions related to this job posting, please contact to the given contact person.</p>
         ";
         $to = ['icsbsec@gmail.com','hr@icsb.edu.bd','itofficer@icsb.edu.bd'];
@@ -166,18 +175,27 @@ class JobPlacementController extends Controller
     {
         $jp = JobPlacement::findOrFail($id);
         if($status == 'accept'){
+            $salary = '';
+            if (isset(json_decode($jp->salary)->from) & isset(json_decode($jp->salary)->to)){
+                $salary ="<span>".json_decode($jp->salary)->from . ' - ' . json_decode($jp->salary)->to ."</span> TK./";
+            }
+            $salary .=  $jp->salary_type;
+            $job_location = html_entity_decode_table($jp->job_location);
+
+
             $jid = Crypt::encrypt($id);
             $url = route('member_view.job_details',$jid);
             $jp->status = '1';
-            $jp->email_subject = "New job opportunitie: $jp->title";
+            $jp->email_subject = "New Job Opportunity Posted on ICSB Job Portal";
             $jp->email_body = "
-                <p>Job Title: $jp->title</p> 
-                <p>Company Name: $jp->company_name</p> 
-                <p>Location: $jp->job_location</p> 
-                <p>Appliation Deadline: $jp->deadline</p> 
-                <p>Email: $jp->email</p>
-                <p>Details: </p> $jp->job_responsibility <br>
-                <a href='".$url."' target='_blank'>Live Job Posts</a>
+                <p><strong>Job Title:</strong> $jp->title</p> 
+                <p><strong>Company Name:</strong> $jp->company_name</p> 
+                <p><strong>Location:</strong> $job_location</p> 
+                <p><strong>Experience Requirements:</strong> $jp->experience_requirement</p> 
+                <p><strong>Age Requirements:</strong> $jp->age_requirement</p> 
+                <p><strong>Salary:</strong> $salary</p> 
+                <p><strong>Appliation Deadline:</strong> $jp->deadline</p> 
+                <p><span style='color:red;'>To learn more details about available jobs, please visit the</span> <u><a href='".$url."' style='color:#102694;' target='_blank'><strong>ICSB Job Portal: CHICK</strong></a></u></p>
             ";
             $jp->save();
 
@@ -191,8 +209,8 @@ class JobPlacementController extends Controller
             <p>We appreciate your trust in our platform to connect you with potential candidates. Your job post will undoubtedly contribute to the success of your recruitment efforts.</p><br>
 
             <p>Thank you for using our platform, and we wish you the best in finding the perfect candidate for your job opening.</p><br>
- 
-            <a href='".$url."' style='padding:15px 10px; backgr' target='_blank'>Live Job Post</a>
+
+            <p><span style='color:red;'>To learn more details about available jobs, please visit the</span> <u><a href='".$url."' style='color:#102694;' target='_blank'><strong>ICSB Job Portal: CHICK</strong></a></u></p>
             ";
             $this->send_custom_email($mail,$subject, $jp->email);
             $this->send_member_email($jp);
@@ -229,17 +247,28 @@ class JobPlacementController extends Controller
         ]);
         if($validator->passes()) {
             $jp = JobPlacement::findOrFail($id);
+
+            $salary = '';
+            if (isset(json_decode($jp->salary)->from) & isset(json_decode($jp->salary)->to)){
+                $salary ="<span>".json_decode($jp->salary)->from . ' - ' . json_decode($jp->salary)->to ."</span> TK./";
+            }
+            $salary .=  $jp->salary_type;
+            $job_location = html_entity_decode_table($jp->job_location);
+
+
             $jid = Crypt::encrypt($id);
             $url = route('member_view.job_details',$jid);
-            $jp->email_subject = "New job opportunitie: $jp->title";
+            $jp->status = '1';
+            $jp->email_subject = "New Job Opportunity Posted on ICSB Job Portal";
             $jp->email_body = "
-                <p>Job Title: $jp->title</p> 
-                <p>Company Name: $jp->company_name</p> 
-                <p>Location: $jp->job_location</p> 
-                <p>Appliation Deadline: $jp->deadline</p> 
-                <p>Email: $jp->email</p>
-                <p>Details: </p> $jp->job_responsibility <br>
-                <a href='".$url."' target='_blank'>Live Job Posts</a>
+                <p><strong>Job Title:</strong> $jp->title</p> 
+                <p><strong>Company Name:</strong> $jp->company_name</p> 
+                <p><strong>Location:</strong> $job_location</p> 
+                <p><strong>Experience Requirements:</strong> $jp->experience_requirement</p> 
+                <p><strong>Age Requirements:</strong> $jp->age_requirement</p> 
+                <p><strong>Salary:</strong> $salary</p> 
+                <p><strong>Appliation Deadline:</strong> $jp->deadline</p> 
+                <p><span style='color:red;'>To learn more details about available jobs, please visit the</span> <u><a href='".$url."' style='color:#102694;' target='_blank'><strong>ICSB Job Portal: CHICK</strong></a></u></p>
             ";
             $jp->save();
             Mail::to($req->email)->send(new MemberMail($jp));

@@ -90,7 +90,7 @@ span.MsoHyperlinkFollowed {
                   <td align="left" style="padding:0;Margin:0;width:560px">
                    <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                      <tr>
-                      <td align="left" style="padding:0;Margin:0;padding-top:20px;padding-bottom:20px"><h3 align="center" style="Margin:0;font-family:'times new roman', times, baskerville, georgia, serif;mso-line-height-rule:exactly;letter-spacing:0;font-size:20px;font-style:normal;font-weight:normal;line-height:24px;color:#0b5394">Institute Of Chartered ​Secretaries Of Bangladesh</h3></td>
+                      <td align="left" style="padding:0;Margin:0;padding-top:20px;padding-bottom:20px"><h3 align="center" style="Margin:0;font-family:'times new roman', times, baskerville, georgia, serif;mso-line-height-rule:exactly;letter-spacing:0;font-size:20px;font-style:normal;font-weight:normal;line-height:24px;color:#102694">Institute of Chartered ​Secretaries of Bangladesh</h3></td>
                      </tr>
                    </table></td>
                  </tr>
