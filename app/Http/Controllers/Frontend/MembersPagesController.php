@@ -186,16 +186,36 @@ class MembersPagesController extends Controller
 
         $this->send_custom_email($mail,$subject, $jp->email);
 
+        // $admin_subject = "New job posted on your job portal";
+        // $admin_mail =
+        // "
+        // <p>A new job posting has been added to our platform.</p><br>
+        // <p>Job Title: $jp->title</p> 
+        // <p>Company Name: $jp->company_name</p> 
+        // <p>Location: $jp->job_location</p> 
+        // <p>Appliation Deadline: $jp->deadline</p> 
+        // <p>Email: $jp->email</p>
+        // <p>Details: </p> $jp->job_responsibility <br>
+
+        $salary = '';
+            if (isset(json_decode($jp->salary)->from) & isset(json_decode($jp->salary)->to)){
+                $salary ="<span>".json_decode($jp->salary)->from . ' - ' . json_decode($jp->salary)->to ."</span> TK./";
+            }
+        $salary .=  $jp->salary_type;
+        $job_location = html_entity_decode_table($jp->job_location);
+        $years = 'Years';
+
         $admin_subject = "New job posted on your job portal";
         $admin_mail =
         "
         <p>A new job posting has been added to our platform.</p><br>
-        <p>Job Title: $jp->title</p> 
-        <p>Company Name: $jp->company_name</p> 
-        <p>Location: $jp->job_location</p> 
-        <p>Appliation Deadline: $jp->deadline</p> 
-        <p>Email: $jp->email</p>
-        <p>Details: </p> $jp->job_responsibility <br>
+        <p><strong>Job Title:</strong> $jp->title</p> 
+        <p><strong>Company Name:</strong> $jp->company_name</p> 
+        <p><strong>Location:</strong> $job_location</p> 
+        <p><strong>Experience Requirements:</strong> $jp->experience_requirement $years</p> 
+        <p><strong>Age Requirements:</strong> $jp->age_requirement $years</p> 
+        <p><strong>Salary:</strong> $salary</p> 
+        <p><strong>Appliation Deadline:</strong> $jp->deadline</p> 
         <p>You can view the full job posting and manage it by logging into the admin panel. If you have any questions related to this job posting, please contact to the given contact person.</p>
         ";
         

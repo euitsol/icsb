@@ -85,6 +85,7 @@ class JobPlacementController extends Controller
             }
         $salary .=  $jp->salary_type;
         $job_location = html_entity_decode_table($jp->job_location);
+        $years = 'Years';
 
         $admin_subject = "New job posted on your job portal";
         $admin_mail =
@@ -93,8 +94,8 @@ class JobPlacementController extends Controller
         <p><strong>Job Title:</strong> $jp->title</p> 
         <p><strong>Company Name:</strong> $jp->company_name</p> 
         <p><strong>Location:</strong> $job_location</p> 
-        <p><strong>Experience Requirements:</strong> $jp->experience_requirement Years</p> 
-        <p><strong>Age Requirements:</strong> $jp->age_requirement Years</p> 
+        <p><strong>Experience Requirements:</strong> $jp->experience_requirement $years</p> 
+        <p><strong>Age Requirements:</strong> $jp->age_requirement $years</p> 
         <p><strong>Salary:</strong> $salary</p> 
         <p><strong>Appliation Deadline:</strong> $jp->deadline</p> 
         <p>You can view the full job posting and manage it by logging into the admin panel. If you have any questions related to this job posting, please contact to the given contact person.</p>
@@ -181,6 +182,7 @@ class JobPlacementController extends Controller
             }
             $salary .=  $jp->salary_type;
             $job_location = html_entity_decode_table($jp->job_location);
+            $years = 'Years';
 
 
             $jid = Crypt::encrypt($id);
@@ -191,8 +193,8 @@ class JobPlacementController extends Controller
                 <p><strong>Job Title:</strong> $jp->title</p> 
                 <p><strong>Company Name:</strong> $jp->company_name</p> 
                 <p><strong>Location:</strong> $job_location</p> 
-                <p><strong>Experience Requirements:</strong> $jp->experience_requirement Years</p> 
-                <p><strong>Age Requirements:</strong> $jp->age_requirement Years</p> 
+                <p><strong>Experience Requirements:</strong> $jp->experience_requirement $years</p> 
+                <p><strong>Age Requirements:</strong> $jp->age_requirement $years</p> 
                 <p><strong>Salary:</strong> $salary</p> 
                 <p><strong>Appliation Deadline:</strong> $jp->deadline</p> 
                 <p><span style='color:red;'>To learn more details about available jobs, please visit the</span></p>
@@ -256,6 +258,7 @@ class JobPlacementController extends Controller
             }
             $salary .=  $jp->salary_type;
             $job_location = html_entity_decode_table($jp->job_location);
+            $years = 'Years';
 
 
             $jid = Crypt::encrypt($id);
@@ -266,8 +269,8 @@ class JobPlacementController extends Controller
                 <p><strong>Job Title:</strong> $jp->title</p> 
                 <p><strong>Company Name:</strong> $jp->company_name</p> 
                 <p><strong>Location:</strong> $job_location</p> 
-                <p><strong>Experience Requirements:</strong> $jp->experience_requirement Years</p> 
-                <p><strong>Age Requirements:</strong> $jp->age_requirement Years</p> 
+                <p><strong>Experience Requirements:</strong> $jp->experience_requirement $years</p> 
+                <p><strong>Age Requirements:</strong> $jp->age_requirement $years</p> 
                 <p><strong>Salary:</strong> $salary</p> 
                 <p><strong>Appliation Deadline:</strong> $jp->deadline</p> 
                 <p><span style='color:red;'>To learn more details about available jobs, please visit the</span></p>
