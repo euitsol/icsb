@@ -437,13 +437,9 @@
                                             <a class="btn btn-success" href="{{ $job->application_url ? $job->application_url : 'mailto:'.$job->email }}" target="_blank">{{__('Apply Now')}}</a>
                                         </div>
                                         <div class="gra-padded gra-bordered"></div>
-                                        <h3 class="email_title">{{__('Email')}}</h3>
-                                        <div class="text-center">
-                                            Send your CV to <strong> {{$job->email}} </strong>
-                                        </div>
                                         <div>
                                             <span class="date">
-                                                {{__('Application Deadline :')}} <strong>{{ date('d-M-Y', strtotime($job->deadline)) }}</strong>
+                                                <span style="color:red">{{__('Application Deadline :')}}</span> <strong>{{ date('d-M-Y', strtotime($job->deadline)) }}</strong>
                                             </span>
                                         </div>
 

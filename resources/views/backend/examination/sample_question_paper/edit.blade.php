@@ -69,7 +69,7 @@
                                         <div class="input-group mb-3">
                                             <input type="text" name="file[{{$count}}][file_name]" class="form-control" value="{{$file->file_name}}" disabled>
                                             <input type="text" name="file[{{$count}}][file_path]" class="form-control" value="{{$file->file_path}}" disabled>
-                                            <a href="{{route('acts.single_file.delete.acts_edit',['key'=>$key, 'id'=>$sqp->id])}}">
+                                            <a href="{{route('sample_question_paper.single_file.delete.sqp_edit',['key'=>$key, 'id'=>$sqp->id])}}">
                                                 <span class="input-group-text text-danger h-100"><i class="tim-icons icon-trash-simple"></i></span>
                                             </a>
                                         </div>
