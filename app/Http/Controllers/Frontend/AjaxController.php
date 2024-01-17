@@ -41,14 +41,14 @@ class AjaxController extends Controller
             $notices = Notice::with('category')->where('cat_id',$notice_cat->id)->where('deleted_at',null)->where('status',1)->orderBy('release_date', 'DESC')->limit(4)->get()
             ->map(function ($notice) {
                 $notice->date = date('M d, Y', strtotime($notice->release_date));
-                $notice->time = date('H:i A', strtotime($notice->release_date));
+                $notice->time = date('h:i A', strtotime($notice->release_date));
                 return $notice;
             });
         }else{
             $notices = Notice::with('category')->where('deleted_at',null)->where('status',1)->orderBy('release_date', 'DESC')->limit(4)->get()
             ->map(function ($notice) {
                 $notice->date = date('M d, Y', strtotime($notice->release_date));
-                $notice->time = date('H:i A', strtotime($notice->release_date));
+                $notice->time = date('h:i A', strtotime($notice->release_date));
                 return $notice;
             });
         }
