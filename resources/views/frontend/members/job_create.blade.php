@@ -109,7 +109,7 @@ $datas = [
                                 <div class="form-group mb-3 col-md-6 {{ $errors->has('experience_requirement') ? ' has-danger' : '' }}">
                                     <label for="er">Experience Requirements</label>
                                     <div class="input-group">
-                                        <input type="number" name="experience_requirement" value="{{ old('experience_requirement') }}" id="er" class="form-control py-3 px-3 w-75 {{ $errors->has('experience_requirement') ? ' is-invalid' : '' }}" placeholder="Enter Experience Requirements">
+                                        <input type="text" name="experience_requirement" value="{{ old('experience_requirement') }}" id="er" class="form-control py-3 px-3 w-75 {{ $errors->has('experience_requirement') ? ' is-invalid' : '' }}" placeholder="Enter Experience Requirements">
                                         <input type="text" value="in Years" class="form-control py-3 px-3 bold text-center w-25" disabled>
                                     </div>
                                     @include('alerts.feedback', ['field' => 'experience_requirement'])
@@ -117,7 +117,7 @@ $datas = [
                                 <div class="form-group mb-3 col-md-6 {{ $errors->has('age_requirement') ? ' has-danger' : '' }}">
                                     <label for="ar">Age Requirements</label>
                                     <div class="input-group">
-                                        <input type="number" name="age_requirement" value="{{ old('age_requirement') }}" id="er" class="form-control py-3 px-3 w-75 {{ $errors->has('age_requirement') ? ' is-invalid' : '' }}" placeholder="Age at most in years">
+                                        <input type="text" name="age_requirement" value="{{ old('age_requirement') }}" id="er" class="form-control py-3 px-3 w-75 {{ $errors->has('age_requirement') ? ' is-invalid' : '' }}" placeholder="Age at most in years">
                                         <input type="text" value="in Years" class="form-control py-3 px-3 bold text-center w-25" disabled>
                                     </div>
                                     @include('alerts.feedback', ['field' => 'age_requirement'])

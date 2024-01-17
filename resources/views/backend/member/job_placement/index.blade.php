@@ -1,6 +1,10 @@
 @extends('backend.layouts.master', ['pageSlug' => 'job_placement'])
 
 @section('title', 'Job Placement')
+{{-- @push('css_link')
+    <link rel="stylesheet" href="{{ asset('plugin/datatable/datatables.min.css') }}">
+
+@endpush --}}
 
 @section('content')
     <div class="row">
@@ -22,6 +26,7 @@
                         <table class="table tablesorter datatable">
                             <thead class=" text-primary">
                                 <tr>
+                                    <th>{{ _('SL') }}</th>
                                     <th>{{ _('Title') }}</th>
                                     <th>{{ _('Company Name') }}</th>
                                     <th>{{ _('Company URL') }}</th>
@@ -35,8 +40,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($job_placements as $jp)
+                                @foreach ($job_placements as $key=>$jp)
                                     <tr>
+                                        <td> {{ ++$key }} </td>
                                         <td> {{ $jp->title }} </td>
                                         <td> {{ $jp->company_name }} </td>
                                         <td> {{ removeHttpProtocol($jp->company_url) }} </td>
@@ -102,6 +108,86 @@
 @endsection
 
 @include('backend.partials.datatable', ['columns_to_show' => [0,1,2,3,4,5,6,7,8]])
+
+
+
+
+
+{{-- @push('js_link')
+    <script src="{{ asset('plugin/datatable/datatables.min.js') }}"></script>
+@endpush --}}
+
+
+{{-- @push('js')
+  <script>
+    $(document).ready(function() {
+      $('.jp').each(function() {
+        $(this).DataTable({
+            dom: 'Bfrtip',
+            order: [[6, 'asc']], // Assuming 'status' is the second column (index 1)
+            columnDefs: [
+                { targets: 6, type: 'order-status' } // Custom sorting type
+            ],
+            iDisplayLength: 50,
+            buttons: [{
+                    extend: 'pdfHtml5',
+                    download: 'open',
+                    orientation: 'potrait',
+                    pagesize: 'A4',
+                    exportOptions: {
+                        columns: [0,1,2,3,4,5,6,7,8],
+                    }
+                },
+                {
+                    extend: 'print',
+                    exportOptions: {
+                        columns: [0,1,2,3,4,5,6,7,8],
+                    }
+                },  'excel', 'csv', 'pageLength',
+            ]
+        });
+        
+      });
+      $.fn.dataTable.ext.type.order['order-status'] = function (data) {
+                    console.log(data);
+                // switch (data) {
+                //     case 'pending':
+                //         return 1;
+                //     case 'accepted':
+                //         return 2;
+                //     case 'disclosed':
+                //         return 3;
+                //     default:
+                //         return 0;
+                // }
+            };
+    });
+  </script>
+@endpush --}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @push('js')
     <script>

@@ -32,8 +32,8 @@ return new class extends Migration
             $table->longText('special_instractions')->nullable();
             $table->string('educational_requirement')->nullable();
             $table->string('professional_requirement')->nullable();
-            $table->float('experience_requirement')->nullable();
-            $table->float('age_requirement')->nullable();
+            $table->string('experience_requirement')->nullable();
+            $table->string('age_requirement')->nullable();
             $table->enum('status',["-1","0", "1","2"])->default(0);
 
 

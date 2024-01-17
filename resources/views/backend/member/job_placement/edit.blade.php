@@ -130,7 +130,7 @@
                                 <div class="form-group col-md-6 {{ $errors->has('experience_requirement') ? ' has-danger' : '' }}">
                                     <label>{{ _('Experience Requirement') }}</label>
                                     <div class="input-group">
-                                        <input type="number" value="{{ $jp->experience_requirement }}" name="experience_requirement" class="form-control w-75" placeholder="Enter Experience Requirements">
+                                        <input type="text" value="{{ $jp->experience_requirement }}" name="experience_requirement" class="form-control w-75" placeholder="Enter Experience Requirements">
                                         <input type="text" value="in Years" class="form-control text-center w-25" disabled>
                                     </div>
                                     @include('alerts.feedback', ['field' => 'experience_requirement'])
@@ -138,7 +138,7 @@
                                 <div class="form-group col-md-6 {{ $errors->has('age_requirement') ? ' has-danger' : '' }}">
                                     <label>{{ _('Age Requirement') }}</label>
                                     <div class="input-group">
-                                        <input type="number" value="{{ $jp->age_requirement }}" name="age_requirement" class="form-control w-75" placeholder="Enter Age Requirements">
+                                        <input type="text" value="{{ $jp->age_requirement }}" name="age_requirement" class="form-control w-75" placeholder="Enter Age Requirements">
                                         <input type="text" value="in Years" class="form-control text-center w-25" disabled>
                                     </div>
                                     @include('alerts.feedback', ['field' => 'age_requirement'])

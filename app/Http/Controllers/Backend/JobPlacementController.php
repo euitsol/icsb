@@ -28,7 +28,7 @@ class JobPlacementController extends Controller
             $d->status = '2';
             $d->save();
         }
-        $s['job_placements'] = JobPlacement::where('deleted_at', null)->latest()->get();
+        $s['job_placements'] = JobPlacement::where('deleted_at', null)->orderByRaw("FIELD(status, '0', '1','-1','2')")->latest()->get();
         return view('backend.member.job_placement.index',$s);
     }
     public function create(): View
