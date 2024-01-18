@@ -244,7 +244,7 @@ class AjaxController extends Controller
 
     public function job_search($search_value): JsonResponse
     {
-        $today = Carbon::now();
+        $today = Carbon::now()->format('Y-m-d');
         $jobs = JobPlacement::where('status', '1')
                 ->where('deadline', '>=', $today)
                 ->where(function ($query) use ($search_value) {
