@@ -107,7 +107,7 @@ class MembersPagesController extends Controller
     }
     public function job_placement(): View
     {
-        $s['today'] = Carbon::now();
+        $s['today'] = Carbon::now()->format('Y-m-d');
         $s['job_placements'] = JobPlacement::where('status','1')->where('deadline','>=',$s['today'])
         ->where('deleted_at',null)->latest()->paginate(10);
         $s['job_placements']->getCollection()->transform(function ($jp) {
