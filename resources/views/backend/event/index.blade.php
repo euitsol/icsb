@@ -1,6 +1,6 @@
 @extends('backend.layouts.master', ['pageSlug' => 'event'])
 
-@section('title', 'Event')
+@section('title', 'Upcomming Event')
 
 @section('content')
     <div class="row">
@@ -9,10 +9,10 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-8">
-                            <h4 class="card-title">{{ _('Event') }}</h4>
+                            <h4 class="card-title">{{ _('Upcomming Event') }}</h4>
                         </div>
                         <div class="col-4 text-right">
-                            @include('backend.partials.button', ['routeName' => 'event.event_create', 'className' => 'btn-primary', 'label' => 'Add Event'])
+                            @include('backend.partials.button', ['routeName' => 'event.event_create', 'className' => 'btn-primary', 'label' => 'Add Upcomming Event'])
                         </div>
                     </div>
                 </div>

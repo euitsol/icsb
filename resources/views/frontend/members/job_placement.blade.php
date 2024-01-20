@@ -27,7 +27,7 @@ $datas = [
     <div class="container">
       <div class="title">
         <h1>{{_('Available Jobs')}}</h1>
-        <input type="text" class="search_input" data-job_placements="{{json_encode($job_placements)}}" placeholder="Search job">
+        <input type="text" class="search_input" data-job_placements="{{json_encode($job_placements)}}" placeholder="Search by Designation, Company Name, Nature Of Job, Location, Salary">
       </div>
       <div class="job-table">
         <div class="job_data">

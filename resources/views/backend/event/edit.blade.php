@@ -1,13 +1,13 @@
 @extends('backend.layouts.master', ['pageSlug' => 'event'])
 
-@section('title', 'Edit Event')
+@section('title', 'Edit Upcomming Event')
 
 @section('content')
     <div class="row">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="title">{{ _('Edit Event') }}</h5>
+                    <h5 class="title">{{ _('Edit Upcomming Event') }}</h5>
                 </div>
                 <form method="POST" action="{{ route('event.event_edit', $event->id) }}" autocomplete="off" enctype="multipart/form-data" class="eventForm">
                     @method('PUT')

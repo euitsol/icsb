@@ -75,6 +75,7 @@ $datas = [
             <div class="col-md-12 mb-5 ">
                 
                 <div class="row">
+                @if(!empty(json_decode($notice->files,true)))
                     @foreach(json_decode($notice->files) as $file)
                     <div class="col-md-6 mx-auto">
                         <div class="new-handbook text-align">
@@ -83,6 +84,9 @@ $datas = [
                         </div>
                     </div>
                     @endforeach
+                @else
+                {!! $notice->description ?? '' !!}
+                @endif
                 </div>
             </div>
             @endforeach

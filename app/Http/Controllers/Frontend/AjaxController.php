@@ -253,7 +253,7 @@ class AjaxController extends Controller
                         ->orWhere('job_type', 'like', '%' . $search_value . '%')
                         ->orWhere('salary_type', 'like', '%' . $search_value . '%')
                         ->orWhere('company_address', 'like', '%' . $search_value . '%')
-                        ->orWhere('professional_requirement', 'like', '%' . $search_value . '%');
+                        ->orWhere('job_location', 'like', '%' . $search_value . '%');
                 })
                 ->latest()
                 ->get()

@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\View\View;
 use App\Http\Traits\SendMailTrait;
+use App\Models\Member;
 
 class NoticeBoardController extends Controller
 {

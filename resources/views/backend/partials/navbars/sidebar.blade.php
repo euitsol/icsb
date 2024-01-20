@@ -60,6 +60,7 @@
                         $pageSlug == 'national_connection' ||
                         $pageSlug == 'recent_video' ||
                         $pageSlug == 'testimonial' ||
+                        $pageSlug == 'notice_board' ||
                         $pageSlug == 'student-login' ||
                         $pageSlug == 'member-login'
                     )@else collapsed @endif" data-toggle="collapse" href="#home" @if (
@@ -73,6 +74,7 @@
                         $pageSlug == 'national_connection' ||
                         $pageSlug == 'recent_video' ||
                         $pageSlug == 'testimonial' ||
+                        $pageSlug == 'notice_board' ||
                         $pageSlug == 'student-login' ||
                         $pageSlug == 'member-login'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
@@ -92,6 +94,7 @@
                     $pageSlug == 'national_connection' ||
                     $pageSlug == 'recent_video' ||
                     $pageSlug == 'testimonial' ||
+                    $pageSlug == 'notice_board' ||
                     $pageSlug == 'student-login' ||
                     $pageSlug == 'member-login'
                 ) show @endif" id="home">
@@ -105,8 +108,9 @@
                                 ['pageSlug' => 'banner', 'routeName' => 'banner.banner_list', 'label' => 'Banner'],
                                 ['pageSlug' => 'who-we-are', 'routeName' => 'sp.show', 'params' =>'who-we-are', 'label' => 'Who we are'],
                                 ['pageSlug' => 'latest_news', 'routeName' => 'latest_news.latest_news_list', 'label' => 'Latest News'],
-                                ['pageSlug' => 'event', 'routeName' => 'event.event_list', 'label' => 'Event'],
+                                ['pageSlug' => 'event', 'routeName' => 'event.event_list', 'label' => 'Upcomming Events'],
                                 ['pageSlug' => 'testimonial', 'routeName' => 'testimonial.testimonial_list', 'label' => 'Quotes'],
+                                ['pageSlug' => 'notice_board', 'routeName' => 'notice_board.notice_list', 'label' => 'Notice Board'],
                                 ['pageSlug' => 'national_connection', 'routeName' => 'national_connection.national_connection_list', 'label' => 'National Connection'],
                                 ['pageSlug' => 'recent_video', 'routeName' => 'recent_video.recent_video_list', 'label' => 'Recent Video'],
 
@@ -660,7 +664,6 @@
                 'menuItems' => [
                     ['pageSlug' => 'media_room', 'routeName' => 'media_room.media_room_list', 'iconClass' => 'fa-solid fa-photo-film', 'label' => 'Media Room'],
                     ['pageSlug' => 'contact', 'routeName' => 'contact.contact_create', 'iconClass' => 'fa-solid fa-tty', 'label' => 'Contact Us'],
-                    ['pageSlug' => 'notice_board', 'routeName' => 'notice_board.notice_list', 'iconClass' => 'fa-solid fa-bullhorn', 'label' => 'Notice Board'],
                     ['pageSlug' => 'settings', 'routeName' => 'settings.site_settings', 'iconClass' => 'fa-solid fa-gear', 'label' => 'Site Settings'],
                 ]
             ])
