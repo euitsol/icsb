@@ -5193,7 +5193,7 @@ td {
 
 
 /*============================ Job Single Page Style ========================*/
-.job-detailes-section {
+/* .job-detailes-section {
     padding: 100px 0 30px 0;
 }
 
@@ -5264,7 +5264,7 @@ td {
 .job-detailes-section .job-row .last-item ul li a i {
     color: #152360;
     margin-left: 5px;
-}
+} */
 
 .jobsingle-content-section {
     padding-bottom: 70px;
@@ -5366,6 +5366,111 @@ td {
 
 .jobsingle-content-section .content-row .summary-column .email-column p a:hover {
     color: #FF8601;
+}
+
+
+
+.job_details_section .job_title {
+    font-size: 30px;
+    margin: 0;
+}
+
+.job_details_section .company_name {
+    font-size: 22px;
+    margin-bottom: 30px;
+    color: #5d5d5d;
+}
+
+.job_details_section .job_details h5 {
+    font-size: 20px;
+    text-transform: capitalize;
+    color: #5d5d5d;
+}
+
+.job_details_section .apply_border {
+    width: 160px;
+    height: 2px;
+    background: #cccccc;
+    margin: -10px auto 10px auto;
+}
+
+.job_details_section .rba h2 {
+    color: #5c5c5c;
+    font-size: 30px;
+}
+
+.job_details_section .appprocedure {
+    font-size: 20px;
+    color: #5c5c5c;
+    margin: 0;
+    padding: 0;
+    text-transform: capitalize;
+}
+
+.job_details_section .gra-padded {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.job_details_section .gra-bordered {
+    position: relative;
+}
+
+.job_details_section .gra-bordered::before {
+    content: "";
+    display: block;
+    width: 80%;
+    position: absolute;
+    bottom: 0px;
+    left: 40%;
+    margin-left: -30%;
+    height: 1px;
+    background: radial-gradient(at center center, rgba(0, 0, 0, 0.2) 0px, rgba(255, 255, 255, 0) 75%);
+}
+
+.job_details_section .email_title {
+    text-transform: capitalize;
+    font-size: 25px;
+    color: #5c5c5c;
+}
+
+.job_details_section .job_summary p {
+    color: #5d5d5d;
+    margin-bottom: 15px;
+}
+
+.job_details_section .job_summary .title {
+    background-color: #37474f;
+    color: #fff;
+    font-size: 16px;
+    padding: 15px 15px;
+    border: none;
+    font-weight: bold;
+}
+
+.job_details_section .job_summary .card-footer a i:hover {
+    color: #fff;
+    background: #122F98;
+}
+
+.job_details_section .job_summary .card-footer a i {
+    color: #122F98;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #DCDCDC;
+    transition: 0.4s;
+    /* margin-right: 20px */
+}
+.job_details_section ul p{
+    font-family: serif !important;
+}
+.job_details_section ul{
+    font-family: serif !important;
 }
 
 
