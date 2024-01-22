@@ -642,15 +642,18 @@ Route::group(['middleware' => ['log_visitor']], function () {
     // Route::group(['as' => 'students.', 'prefix' => 'students'], function () {
     //     Route::get('/world-wide-chartered-secretaries', [StudentsPagesController::class, 'wwcs'])->name('wwcs');
     // });
-    Route::group(['as' => 'member_view.', 'prefix' => 'member'], function () {
-        Route::get('/member-search/{slug}', [MembersPagesController::class, 'memberSearch'])->name('m_search');
-        Route::get('/job-placement', [MembersPagesController::class, 'job_index'])->name('job_index');
+    Route::group(['as' => 'member_view.', 'prefix' => 'jobportal'], function () {
+        Route::get('/', [MembersPagesController::class, 'job_index'])->name('job_index');
         Route::get('/job-posting', [MembersPagesController::class, 'job_create'])->name('job_create');
         Route::get('/jobs', [MembersPagesController::class, 'job_placement'])->name('jps');
         Route::get('/job-details/{id}', [MembersPagesController::class, 'job_details'])->name('job_details');
         Route::post('job/store', [MembersPagesController::class, 'fj_store'])->name('fjob_store');
         Route::get('job/edit/{id}', [MembersPagesController::class, 'job_edit'])->name('job_edit');
         Route::post('job/update/{id}', [MembersPagesController::class, 'fj_update'])->name('fjob_update');
+    });
+    
+    Route::group(['as' => 'member_view.', 'prefix' => 'member'], function () {
+        Route::get('/member-search/{slug}', [MembersPagesController::class, 'memberSearch'])->name('m_search');
         Route::get('/cs-firms', [MembersPagesController::class, 'cs_firm'])->name('cs_firm');
         Route::get('/members-lounge', [MembersPagesController::class, 'members_lounge'])->name('members_lounge');
         Route::get('/corporate-leader/search', [MembersPagesController::class, 'corporate_leader'])->name('corporate_leader');
