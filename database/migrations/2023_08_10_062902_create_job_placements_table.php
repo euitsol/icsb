@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('company_name');
-            $table->string('company_url')->nullable();
+            $table->enum('category',["Company Secretary","HR Jobs","Other Jobs"]);
             $table->string('application_url')->nullable();
             $table->string('email');
             $table->enum('job_type',["Full-Time", "Part-Time","Work From Home", "Contractual","Intern"]);

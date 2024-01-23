@@ -26,20 +26,25 @@ $datas = [
   <div class="job-placement-section big-sec-min-height">
     <div class="container">
       <div class="title">
-        <h1>{{_('Available Jobs')}}</h1>
+        <div class="title_cat d-flex align-items-center">
+            <h1 class="m-0" >{{_('Available Jobs')}}</h1>
+        </div>
+        <div class="cat" style="width: 30vw">
+            <a href="{{route('member_view.jps', ['category' => 'all'])}}" class="btn btn-sm {{$category == 'all' || $category == null ? 'btn-info' : 'btn-outline-info' }} " style="width: 24%">{{__('All')}}</a>
+            <a href="{{route('member_view.jps', ['category' => 'Company Secretary'])}}" class="btn btn-sm {{$category == 'Company Secretary' ? 'btn-info' : 'btn-outline-info' }}" style="width: 24%">{{__('Company Secretary')}}</a>
+            <a href="{{route('member_view.jps', ['category' => 'HR Jobs'])}}" class="btn btn-sm {{$category == 'HR Jobs' ? 'btn-info' : 'btn-outline-info' }}" style="width: 24%">{{__('HR Jobs')}}</a>
+            <a href="{{route('member_view.jps', ['category' => 'Other Jobs'])}}" class="btn btn-sm {{$category == 'Other Jobs' ? 'btn-info' : 'btn-outline-info' }}" style="width: 24%">{{__('Other Jobs')}}</a>
+        </div>
         <input type="text" class="search_input" data-job_placements="{{json_encode($job_placements)}}" placeholder="Search by Designation, Company Name, Nature of Job, Location, Salary">
       </div>
       <div class="job-table">
         <div class="job_data">
-          @foreach ($job_placements as $jp)
+          @forelse ($job_placements as $jp)
             <div class="single-job">
               <div class="left-col">
                   <div class="details-col">
                   <h2>{{$jp->title}}</h2>
                   <h3>{{$jp->company_name}}</h3>
-                  {{-- <span class="day"><i class="fa-solid fa-clock"></i>
-                      {{$jp->createDiffTime}}
-                  </span> --}}
                   <span><i class="fa-solid fa-briefcase"></i>{{$jp->job_type}}</span>
                   <span><i class="fa-solid fa-location-dot"></i>{{ html_entity_decode_table($jp->job_location) }}</span>
 
@@ -64,7 +69,9 @@ $datas = [
                   </div>
               </div>
             </div>
-          @endforeach
+          @empty
+            <h3 class="text-danger mx-auto text-center my-5">Member Not Found</h3>
+          @endforelse
         </div>
        
         <span class="paginate">{{ $job_placements->links('vendor.pagination.notice') }}</span>
@@ -94,7 +101,7 @@ $datas = [
                       var job_data= '';
                       if(!data.jobs || data.jobs.length === 0){
                         job_data +=`
-                                          <h3 class="text-danger mx-auto my-5">Member Not Found</h3>
+                                          <h3 class="text-danger mx-auto text-center my-5">Member Not Found</h3>
                                       `;
                       } else{
 

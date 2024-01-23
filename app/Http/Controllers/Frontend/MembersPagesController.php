@@ -105,11 +105,20 @@ class MembersPagesController extends Controller
         return view('frontend.members.member_view',$s);
 
     }
-    public function job_placement(): View
+    public function job_placement(Request $request): View
     {
+        $category = $request->input('category');
+
         $s['today'] = Carbon::now()->format('Y-m-d');
-        $s['job_placements'] = JobPlacement::where('status','1')->where('deadline','>=',$s['today'])
-        ->where('deleted_at',null)->latest()->paginate(10);
+
+        $s['job_placements'] = JobPlacement::where('status','1')
+                                ->where('deadline','>=',$s['today'])
+                                ->where('deleted_at',null)
+                                ->when((!empty($category) && $category != 'all'), function ($query) use($category) {
+                                    return $query->where('category', '=', $category);
+                                })
+                                ->latest()->paginate(10);
+
         $s['job_placements']->getCollection()->transform(function ($jp) {
             $jp->jid = Crypt::encrypt($jp->id);
             $jp->created_at = date('d-M-Y', strtotime($jp->created_at));
@@ -117,6 +126,9 @@ class MembersPagesController extends Controller
             $jp->createDiffTime = Carbon::parse($jp->created_at)->diffForhumans();
             return $jp;
         });
+
+        $s['job_placements']->appends(['category' => $category]);
+        $s['category'] = $category;
         return view('frontend.members.job_placement',$s);
 
     }
@@ -149,7 +161,7 @@ class MembersPagesController extends Controller
         $jp = new JobPlacement();
         $jp->title = $request->title;
         $jp->company_name = $request->company_name;
-        $jp->company_url = $request->company_url;
+        $jp->category = $request->category;
         $jp->application_url = $request->application_url;
         $jp->job_type = $request->job_type;
         $jp->salary = json_encode($request->salary);
@@ -241,7 +253,7 @@ class MembersPagesController extends Controller
         $jp = JobPlacement::findOrFail(Crypt::decrypt($id));
         $jp->title = $request->title;
         $jp->company_name = $request->company_name;
-        $jp->company_url = $request->company_url;
+        $jp->category = $request->category;
         $jp->application_url = $request->application_url;
         $jp->job_type = $request->job_type;
         $jp->salary = json_encode($request->salary);

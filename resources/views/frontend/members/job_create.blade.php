@@ -179,10 +179,15 @@ $datas = [
                                     <input type="url" name="application_url" value="{{ old('application_url') }}" id="url" class="form-control py-3 px-3 {{ $errors->has('application_url') ? ' is-invalid' : '' }}" placeholder="Enter Application URL">
                                     @include('alerts.feedback', ['field' => 'application_url'])
                                 </div>
-                                <div class="form-group mb-3 col-md-6 {{ $errors->has('company_url') ? ' has-danger' : '' }}">
-                                    <label for="curl">Company Website</label>
-                                    <input type="url" name="company_url" value="{{ old('company_url') }}" id="curl" class="form-control py-3 px-3 {{ $errors->has('company_url') ? ' is-invalid' : '' }}" placeholder="Enter Company URL">
-                                    @include('alerts.feedback', ['field' => 'company_url'])
+                                <div class="form-group mb-3 col-md-6 {{ $errors->has('category') ? ' has-danger' : '' }}">
+                                    <label for="category">Category</label>
+                                    <select name="category" id="category" class="form-control py-3 px-3 {{ $errors->has('application_url') ? ' is-invalid' : '' }}">
+                                        <option selected hidden>Select Job Category</option>
+                                        <option value="Company Secretary" {{(old('category') == 'Company Secretary') ? 'selected' : ''}}>Company Secretary</option>
+                                        <option value="HR Jobs" {{(old('category') == 'HR Jobs') ? 'selected' : ''}}>HR Jobs</option>
+                                        <option value="Other Jobs" {{(old('category') == 'Other Jobs') ? 'selected' : ''}}>Other Jobs</option>
+                                    </select>
+                                    @include('alerts.feedback', ['field' => 'category'])
                                 </div>
                                 <div class="form-group mb-3 {{ $errors->has('company_address') ? ' has-danger' : '' }}">
                                     <label for="ca">Company Address <span class="text-danger">*</span></label>

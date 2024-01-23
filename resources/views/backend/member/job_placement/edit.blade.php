@@ -49,10 +49,14 @@
                                     <input type="text" name="company_name" class="form-control {{ $errors->has('company_name') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter job company_name') }}" value="{{ $jp->company_name }}">
                                     @include('alerts.feedback', ['field' => 'company_name'])
                                 </div>
-                                <div class="form-group col-md-6 {{ $errors->has('company_url') ? ' has-danger' : '' }}">
-                                    <label>{{ _('Company URL') }}</label>
-                                    <input type="url" name="company_url" class="form-control {{ $errors->has('company_url') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter job company_url') }}" value="{{ $jp->company_url }}">
-                                    @include('alerts.feedback', ['field' => 'company_url'])
+                                <div class="form-group col-md-6 {{ $errors->has('category') ? ' has-danger' : '' }}">
+                                    <label for="category">{{__('Category')}}</label>
+                                    <select name="category" id="category" class="form-control py-3 px-3 {{ $errors->has('application_url') ? ' is-invalid' : '' }}">
+                                        <option value="Company Secretary" {{($jp->category == 'Company Secretary') ? 'selected' : ''}}>{{__('Company Secretary')}}</option>
+                                        <option value="HR Jobs" {{($jp->category == 'HR Jobs') ? 'selected' : ''}}>{{__('HR Jobs')}}</option>
+                                        <option value="Other Jobs" {{($jp->category == 'Other Jobs') ? 'selected' : ''}}>{{__('Other Jobs')}}</option>
+                                    </select>
+                                    @include('alerts.feedback', ['field' => 'category'])
                                 </div>
                                 <div class="form-group col-md-6 {{ $errors->has('application_url') ? ' has-danger' : '' }}">
                                     <label>{{ _('Application URL') }}</label>

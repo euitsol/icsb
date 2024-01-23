@@ -40,7 +40,7 @@ class JobPlacementController extends Controller
         $jp = new JobPlacement();
         $jp->title = $request->title;
         $jp->company_name = $request->company_name;
-        $jp->company_url = $request->company_url;
+        $jp->category = $request->category;
         $jp->application_url = $request->application_url;
         $jp->job_type = $request->job_type;
         $jp->email = $request->email;
@@ -115,7 +115,7 @@ class JobPlacementController extends Controller
         $jp = JobPlacement::findOrFail($id);
         $jp->title = $request->title;
         $jp->company_name = $request->company_name;
-        $jp->company_url = $request->company_url;
+        $jp->category = $request->category;
         $jp->application_url = $request->application_url;
         $jp->job_type = $request->job_type;
         $jp->email = $request->email;

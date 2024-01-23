@@ -20,13 +20,16 @@ class JobPlacementRequest extends FormRequest
         return [
             'title' => 'required',
             'company_name' => 'required',
-            'company_url' => 'nullable|url',
             'application_url' => 'nullable|url',
             'email' => 'required|email',
             'vacancy' => 'required|numeric',
+            'category' => [
+                'required',
+                Rule::in(['Per Month', 'Per Year','Negotiable']),
+            ],
             'job_type' => [
                 'required',
-                Rule::in(["Full-Time", "Part-Time","Work From Home", "Contractual","Intern"]),
+                Rule::in(["Company Secretary", "HR Jobs","Other Jobs"]),
             ],
             // 'salary' => 'nullable|array',
             // 'salary.from' => 'required|numeric|min:0',
