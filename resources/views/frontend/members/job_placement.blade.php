@@ -27,7 +27,7 @@ $datas = [
     <div class="container">
       <div class="title">
         <h1 class="m-0" >{{_('Available Jobs')}}</h1>
-        <input type="text" class="search_input" data-job_placements="{{json_encode($job_placements)}}" placeholder="Search by Designation, Company Name, Nature of Job, Location, Salary">
+        <input type="text" class="search_input" data-category="{{$category}}" data-job_placements="{{json_encode($job_placements)}}" placeholder="Search by Designation, Company Name, Nature of Job, Location, Salary">
       </div>
       <div class="category w-100">
         <a href="{{route('member_view.jps', ['category' => 'all'])}}" class="{{$category == 'all' || $category == null ? 'active' : '' }} ">{{__('All Jobs')}}</a>
@@ -68,7 +68,7 @@ $datas = [
               </div>
             </div>
           @empty
-            <h3 class="text-danger mx-auto text-center my-5">Member Not Found</h3>
+            <h3 class="text-danger mx-auto text-center my-5">Job Not Found</h3>
           @endforelse
         </div>
        
@@ -84,11 +84,13 @@ $datas = [
       $('.search_input').on('input', function() {
           let search_value = $('.search_input').val();
           let job_placements = $('.search_input').data('job_placements');
+          let category = $('.search_input').data('category');
           if (search_value !== null && search_value !== "") {
-              let _url = ("{{ route('job.search', ['search_value']) }}");
+              let _url = ("{{ route('job.search', ['search_value','category']) }}");
               let __url = _url.replace('search_value', search_value);
+              let ___url = __url.replace('category', category);
               $.ajax({
-                  url: __url,
+                  url: ___url,
                   method: 'GET',
                   dataType: 'json',
                   beforeSend:function() {
@@ -99,7 +101,7 @@ $datas = [
                       var job_data= '';
                       if(!data.jobs || data.jobs.length === 0){
                         job_data +=`
-                                          <h3 class="text-danger mx-auto text-center my-5">Member Not Found</h3>
+                                          <h3 class="text-danger mx-auto text-center my-5">Job Not Found</h3>
                                       `;
                       } else{
 

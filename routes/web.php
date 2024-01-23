@@ -579,7 +579,7 @@ Route::group(['middleware' => ['log_visitor']], function () {
     Route::get('convocations/data/{offset}', [FrontendAjaxController::class, 'convocations'])->name('convocations');
     Route::get('notice/data/{offset}/{slug?}', [FrontendAjaxController::class, 'notices'])->name('notices');
     Route::get('cs-firms-members/search/{search_value}', [FrontendAjaxController::class, 'cs_firms_member_search'])->name('cs_firms.member_info.search');
-    Route::get('job/search/{search_value}', [FrontendAjaxController::class, 'job_search'])->name('job.search');
+    Route::get('job/search/{search_value}/{category?}', [FrontendAjaxController::class, 'job_search'])->name('job.search');
     Route::get('members/search/{search_value}/{cat_id}', [FrontendAjaxController::class, 'member_search'])->name('member_info.search');
     Route::get('corporate-leader/search/{search_value}', [FrontendAjaxController::class, 'corporate_leader'])->name('corporate_leader.search');
     Route::get('single_page/see_more/{slug}/{offset}', [FrontendAjaxController::class, 'singlePageSeeMore'])->name('single_page.see_more');

@@ -242,11 +242,14 @@ class AjaxController extends Controller
         return response()->json(['member'=>$member,'member_id'=>$member_id,'phone'=>$phone, 'council'=>$council ?? '',]);
     }
 
-    public function job_search($search_value): JsonResponse
+    public function job_search($search_value, $category): JsonResponse
     {
         $today = Carbon::now()->format('Y-m-d');
         $jobs = JobPlacement::where('status', '1')
                 ->where('deadline', '>=', $today)
+                ->when((!empty($category) && $category != 'all'), function ($query) use($category) {
+                    return $query->where('category', '=', $category);
+                })
                 ->where(function ($query) use ($search_value) {
                     $query->where('title', 'like', '%' . $search_value . '%')
                         ->orWhere('company_name', 'like', '%' . $search_value . '%')
@@ -256,14 +259,14 @@ class AjaxController extends Controller
                         ->orWhere('job_location', 'like', '%' . $search_value . '%');
                 })
                 ->latest()
-                ->get()
-                ->map(function ($job) {
+                ->get();
+        $jobs = $jobs->map(function ($job) {
                     $job->jid = Crypt::encrypt($job->id);
                     $job->created_at = date('d-M-Y', strtotime($job->created_at));
                     $job->deadline = date('d-M-Y', strtotime($job->deadline));
                     $job->createDiffTime = Carbon::parse($job->created_at)->diffForHumans();
                     return $job;
-                });
-            return response()->json(['jobs'=>$jobs]);
+                });   
+        return response()->json(['jobs'=>$jobs]);
     }
 }

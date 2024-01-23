@@ -25,11 +25,11 @@ class JobPlacementRequest extends FormRequest
             'vacancy' => 'required|numeric',
             'category' => [
                 'required',
-                Rule::in(['Per Month', 'Per Year','Negotiable']),
+                Rule::in(["Company Secretary", "HR Jobs","Other Jobs"]),
             ],
             'job_type' => [
                 'required',
-                Rule::in(["Company Secretary", "HR Jobs","Other Jobs"]),
+                Rule::in(["Full-Time", "Part-Time","Work From Home", "Contractual","Intern"]),
             ],
             // 'salary' => 'nullable|array',
             // 'salary.from' => 'required|numeric|min:0',

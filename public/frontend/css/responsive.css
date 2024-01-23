@@ -2132,6 +2132,12 @@
 
 @media only screen and (max-width: 767px) {
 
+
+    .job-placement-section .category a {
+
+        width: 49.5%;
+        margin-bottom: 10px;
+    }
     
 
     .job-index-section {
@@ -3666,6 +3672,12 @@
 }
 
 @media only screen and (max-width: 480px) {
+    .job-placement-section .category a {
+
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
     .fellow-member-section .heading-content{
         flex-direction: column;
     }
