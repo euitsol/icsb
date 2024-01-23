@@ -100,7 +100,7 @@
     position: relative;
 }
 .job-placement-section .title{
-    margin-bottom: 50px;
+    margin-bottom: 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -115,6 +115,30 @@
 	width: 40%;
     border-radius: 8px;
     border: 1px solid;
+}
+.job-placement-section .category{
+    margin-bottom: 50px;
+    text-align: center;
+}
+.job-placement-section .category a {
+    color: #182456;
+    font-weight: bold;
+    width: 24.5%;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 5px;
+    background: #fff;
+    transition: 0.4s;
+    border: 1px solid #182456;
+    text-align: center;
+}
+.job-placement-section .category a:hover {
+    color: #fff;
+    background: #182456;
+}
+.job-placement-section .category a.active {
+    color: #fff;
+    background: #182456;
 }
 
 .job-placement-section .job-table .table-serch {

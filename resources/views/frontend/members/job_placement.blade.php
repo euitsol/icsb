@@ -26,17 +26,15 @@ $datas = [
   <div class="job-placement-section big-sec-min-height">
     <div class="container">
       <div class="title">
-        <div class="title_cat d-flex align-items-center">
-            <h1 class="m-0" >{{_('Available Jobs')}}</h1>
-        </div>
-        <div class="cat" style="width: 30vw">
-            <a href="{{route('member_view.jps', ['category' => 'all'])}}" class="btn btn-sm {{$category == 'all' || $category == null ? 'btn-info' : 'btn-outline-info' }} " style="width: 24%">{{__('All')}}</a>
-            <a href="{{route('member_view.jps', ['category' => 'Company Secretary'])}}" class="btn btn-sm {{$category == 'Company Secretary' ? 'btn-info' : 'btn-outline-info' }}" style="width: 24%">{{__('Company Secretary')}}</a>
-            <a href="{{route('member_view.jps', ['category' => 'HR Jobs'])}}" class="btn btn-sm {{$category == 'HR Jobs' ? 'btn-info' : 'btn-outline-info' }}" style="width: 24%">{{__('HR Jobs')}}</a>
-            <a href="{{route('member_view.jps', ['category' => 'Other Jobs'])}}" class="btn btn-sm {{$category == 'Other Jobs' ? 'btn-info' : 'btn-outline-info' }}" style="width: 24%">{{__('Other Jobs')}}</a>
-        </div>
+        <h1 class="m-0" >{{_('Available Jobs')}}</h1>
         <input type="text" class="search_input" data-job_placements="{{json_encode($job_placements)}}" placeholder="Search by Designation, Company Name, Nature of Job, Location, Salary">
       </div>
+      <div class="category w-100">
+        <a href="{{route('member_view.jps', ['category' => 'all'])}}" class="{{$category == 'all' || $category == null ? 'active' : '' }} ">{{__('All Jobs')}}</a>
+        <a href="{{route('member_view.jps', ['category' => 'Company Secretary'])}}" class="{{$category == 'Company Secretary' ? 'active' : '' }}">{{__('Company Secretary')}}</a>
+        <a href="{{route('member_view.jps', ['category' => 'HR Jobs'])}}" class="{{$category == 'HR Jobs' ? 'active' : '' }}">{{__('HR Jobs')}}</a>
+        <a href="{{route('member_view.jps', ['category' => 'Other Jobs'])}}" class="{{$category == 'Other Jobs' ? 'active' : '' }}">{{__('Other Jobs')}}</a>
+    </div>
       <div class="job-table">
         <div class="job_data">
           @forelse ($job_placements as $jp)
