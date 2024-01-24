@@ -31,7 +31,7 @@ $datas = [
       </div>
       <div class="category w-100">
         <a href="{{route('member_view.jps', ['category' => 'all'])}}" class="{{$category == 'all' || $category == null ? 'active' : '' }} ">{{__('All Jobs')}}</a>
-        <a href="{{route('member_view.jps', ['category' => 'Company Secretary'])}}" class="{{$category == 'Company Secretary' ? 'active' : '' }}">{{__('Company Secretary')}}</a>
+        <a href="{{route('member_view.jps', ['category' => 'Company Secretary'])}}" class="{{$category == 'Company Secretary' ? 'active' : '' }}">{{__('Secretarial Jobs')}}</a>
         <a href="{{route('member_view.jps', ['category' => 'HR Jobs'])}}" class="{{$category == 'HR Jobs' ? 'active' : '' }}">{{__('HR Jobs')}}</a>
         <a href="{{route('member_view.jps', ['category' => 'Other Jobs'])}}" class="{{$category == 'Other Jobs' ? 'active' : '' }}">{{__('Other Jobs')}}</a>
     </div>

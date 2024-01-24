@@ -181,8 +181,8 @@ $datas = [
                                 </div>
                                 <div class="form-group mb-3 col-md-6 {{ $errors->has('category') ? ' has-danger' : '' }}">
                                     <label for="category">Category <span class="text-danger">*</span></label>
-                                    <select name="category" id="category" class="form-control py-3 px-3 {{ $errors->has('application_url') ? ' is-invalid' : '' }}">
-                                        <option value="Company Secretary" {{($jp->category == 'Company Secretary') ? 'selected' : ''}}>Company Secretary</option>
+                                    <select name="category" id="category" class="form-control py-3 px-3 {{ $errors->has('category') ? ' is-invalid' : '' }}">
+                                        <option value="Company Secretary" {{($jp->category == 'Company Secretary') ? 'selected' : ''}}>Secretarial Jobs</option>
                                         <option value="HR Jobs" {{($jp->category == 'HR Jobs') ? 'selected' : ''}}>HR Jobs</option>
                                         <option value="Other Jobs" {{($jp->category == 'Other Jobs') ? 'selected' : ''}}>Other Jobs</option>
                                     </select>

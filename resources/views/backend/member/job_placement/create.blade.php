@@ -50,9 +50,9 @@
                                 </div>
                                 <div class="form-group mb-3 col-md-6 {{ $errors->has('category') ? ' has-danger' : '' }}">
                                     <label for="category">{{__('Category')}} <span class="text-danger">*</span></label>
-                                    <select name="category" id="category" class="form-control py-3 px-3 {{ $errors->has('application_url') ? ' is-invalid' : '' }}">
+                                    <select name="category" id="category" class="form-control py-3 px-3 {{ $errors->has('category') ? ' is-invalid' : '' }}">
                                         <option selected hidden>{{__('Select Job Category')}}</option>
-                                        <option value="Company Secretary" {{(old('category') == 'Company Secretary') ? 'selected' : ''}}>{{__('Company Secretary')}}</option>
+                                        <option value="Company Secretary" {{(old('category') == 'Company Secretary') ? 'selected' : ''}}>{{__('Secretarial Jobs')}}</option>
                                         <option value="HR Jobs" {{(old('category') == 'HR Jobs') ? 'selected' : ''}}>{{__('HR Jobs')}}</option>
                                         <option value="Other Jobs" {{(old('category') == 'Other Jobs') ? 'selected' : ''}}>{{__('Other Jobs')}}</option>
                                     </select>
