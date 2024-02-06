@@ -32,11 +32,11 @@
                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 @endif
             </div>
-            <div class="carousel-inner">
+            <div class="carousel-inner h-100">
                 @if(isset($banner->images))
                     @foreach ($banner->images as $key=>$image)
-                        <div class="carousel-item @if($key == 0) active @endif">
-                            <img src="{{ storage_url($image->image) }}" class="d-block w-100" alt="{{ $banner->banner_name }}">
+                        <div class="carousel-item h-100 @if($key == 0) active @endif">
+                            <img src="{{ storage_url($image->image) }}" height="100%" class="d-block w-100" alt="{{ $banner->banner_name }}">
                         </div>
                     @endforeach
                 @else
