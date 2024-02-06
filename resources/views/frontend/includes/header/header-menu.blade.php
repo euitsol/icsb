@@ -356,7 +356,7 @@
             <li><a class="nav-link active" aria-current="page"
                     href="{{ route('home') }}">{{ _('Home') }}</a></li>
             <li class="drop-down">
-                <a href="javascript:void(0)">About CS <i class="fa-solid fa-angle-down"></i></a>
+                <a href="javascript:void(0)">About US <i class="fa-solid fa-angle-down"></i></a>
                 <ul>
                     <li><a href="{{ route('sp.frontend', 'icsb-profile') }}">{{ _('ICSB Profile') }}</a></li>
                     <li><a href="{{ route('sp.frontend', 'vision') }}">{{ _('Vision') }}</a></li>
