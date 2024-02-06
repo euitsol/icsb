@@ -122,7 +122,7 @@
                     </ul>
                 </div>
             </li>
-            {{-- About CS --}}
+            {{-- About US --}}
             <li>
                 <a class="@if(
                         // $pageSlug == 'icsb_profile' ||
@@ -164,7 +164,7 @@
                         $pageSlug == 'faq'
                     ) aria-expanded="true" @else aria-expanded="false"@endif">
                     <i class="fa-regular fa-address-card"></i>
-                    <span class="nav-link-text" >{{ __('About CS') }}</span>
+                    <span class="nav-link-text" >{{ __('About US') }}</span>
                     <b class="caret mt-1"></b>
                 </a>
 

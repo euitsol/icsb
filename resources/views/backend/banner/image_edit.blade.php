@@ -44,7 +44,7 @@
                     <h5 class="title float-left">{{ _("Add $banner->banner_name Image") }}</h5>
                     <span class="float-right btn btn-sm btn-primary" id="add_image" data-count="1">+ {{_('Image')}}</span>
                 </div>
-                <form method="POST" action="{{ route('banner.image.banner_edit',$banner) }}" autocomplete="off"
+                <form method="POST" action="{{ route('banner.image.banner_edit',$banner->id) }}" autocomplete="off"
                     enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -52,6 +52,7 @@
                         <div class="form-group">
                             <label>{{ _('Banner Image-1') }}</label>
                             <input type="file" name="images[]" class="form-control image-upload">
+                            @include('alerts.feedback', ['field' => 'images'])
                         </div>
                         <div id="image">
 

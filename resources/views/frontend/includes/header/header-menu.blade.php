@@ -26,7 +26,7 @@
                             <ul>
                                 <li><a href="{{ route('home') }}">{{ _('Home') }}</a></li>
                                 <li>
-                                    <a class="main-nav" href="javascript:void(0)">{{ _('About CS') }}<i
+                                    <a class="main-nav" href="javascript:void(0)">{{ _('About US') }}<i
                                             class="fa-solid fa-angle-down icon"></i></a>
                                     <ul>
                                         <li><a href="{{ route('sp.frontend', 'icsb-profile') }}">{{ _('ICSB Profile') }}</a></li>
