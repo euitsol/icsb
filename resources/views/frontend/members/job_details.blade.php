@@ -135,7 +135,7 @@
                                         </div>
                                         <div class="card-body">
                                             <p><strong>{{__('Position Name:')}}</strong> {{ $job->title }}</p>
-                                            <p><strong>{{__('Number of Vacancy:')}}</strong> {{ $job->vacancy . ' Person' }}</p>
+                                            <p><strong>{{__('Number of Vacancy:')}}</strong> {{ ($job->vacancy == 0) ? "--" : ($job->vacancy . ' Person') }}</p>
                                             <p><strong>{{__('Experience Requirements:')}}</strong> {{ $job->experience_requirement ? $job->experience_requirement . ' Years' : '...' }}</p>
                                             <p><strong>{{__('Professional Requirements:')}}</strong> {{ $job->professional_requirement ? $job->professional_requirement : '...' }}</p>
                                             <p><strong>{{__('Age Requirements:')}}</strong> {{ $job->age_requirement ? $job->age_requirement . ' Years' : '...' }}</p>
