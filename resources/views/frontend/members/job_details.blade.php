@@ -34,7 +34,7 @@
                                     <div class="job_details">
                                         <div class="vacancy">
                                             <h5>{{__('Number of Vacancy')}}</h5>
-                                            <ul>{{ $job->vacancy . ' Person' }}</ul>
+                                            <ul>{{ ($job->vacancy == 0) ? "--" : ($job->vacancy . ' Person') }}</ul>
                                         </div>
                                         <div class="job_type">
                                             <h5>{{__('Nature of Job')}}</h5>
