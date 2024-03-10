@@ -18,6 +18,7 @@ class CsFirmsRequest extends FormRequest
     {
         return [
             'status' => 'nullable|boolean',
+            'csf_member.*.ppcn' => 'required',
         ]
         +
         ($this->isMethod('POST') ? $this->store() : $this->update());
@@ -27,7 +28,6 @@ class CsFirmsRequest extends FormRequest
     {
         return [
             'csf_member.*.member_id' => 'required|exists:members,id|unique:cs_firms,member_id,NULL,id,deleted_at,NULL',
-            'csf_member.*.ppcn' => 'required|unique:cs_firms,private_practice_certificate_no,NULL,id,deleted_at,NULL',
         ];
     }
 
@@ -46,7 +46,6 @@ class CsFirmsRequest extends FormRequest
                         return $query->where('member_id', $currentMemberId);
                     }),
             ],
-            'csf_member.ppcn' => 'required|unique:cs_firms,private_practice_certificate_no,' . $this->route('id') . ',id,deleted_at,NULL',
         ];
     }
 }
