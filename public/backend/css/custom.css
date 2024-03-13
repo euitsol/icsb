@@ -19,6 +19,9 @@
 .page-link {
     padding: .2rem .6rem !important;
 }
+.table{
+    width: 100% !important;
+}
 
 /* Input group customize */
 .input-group-text {

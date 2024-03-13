@@ -16,6 +16,7 @@
         var order =  {!! json_encode($order ?? 'asc') !!};
         $(this).DataTable({
             dom: 'Bfrtip',
+            responsive: true,
             iDisplayLength: 50,
             order: [[0, order]],
             buttons: [{
