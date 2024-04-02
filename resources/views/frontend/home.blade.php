@@ -26,7 +26,7 @@
                 <h3>{{_('LATEST NEWS')}}</h3>
             </div>
             <div class="ticker-desc">
-                <div class="scrolling-text" style="animation-duration: {{count($latest_newses)*20}}s;">
+                <div class="scrolling-text" style="animation-duration: {{count($latest_newses)*15}}s;">
                     @foreach ($latest_newses as $news)
                         <a href="{{route('news.view',$news->slug)}}"><i class="fa-solid fa-forward mx-2 text-primary"></i>{{$news->title}}&nbsp;&nbsp;</a>
                     @endforeach
