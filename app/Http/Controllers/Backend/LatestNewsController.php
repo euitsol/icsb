@@ -60,6 +60,7 @@ class LatestNewsController extends Controller
             }
         }
         $latest_news->files = json_encode($data);
+        $latest_news->order_key = $request->order_key;
         $latest_news->title = $request->title;
         $latest_news->date = $request->date;
         $latest_news->slug = $request->slug;
@@ -130,6 +131,7 @@ class LatestNewsController extends Controller
             $latest_news->slug = $request->slug;
         }
         $latest_news->date = $request->date;
+        $latest_news->order_key = $request->order_key;
         $latest_news->title = $request->title;
         $latest_news->description = $request->description;
         $latest_news->updated_by = auth()->user()->id;

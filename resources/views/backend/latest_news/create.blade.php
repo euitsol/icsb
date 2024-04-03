@@ -27,11 +27,29 @@
                 <form method="POST" action="{{ route('latest_news.latest_news_create') }}" autocomplete="off" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
-                            <div class="form-group {{ $errors->has('title') ? ' has-danger' : '' }}">
+                        <div class="row">
+                            <div class="form-group col-md-8 {{ $errors->has('title') ? ' has-danger' : '' }}">
                                 <label>{{ _('Title') }}</label>
                                 <input type="text" name="title" id="title" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ _('Enter Title') }}" value="{{ old('title') }}">
                                 @include('alerts.feedback', ['field' => 'title'])
                             </div>
+                            <div class="col-md-4 form-group {{ $errors->has('order_key') ? ' has-danger' : '' }}">
+                                <label>{{ _('Order') }}</label>
+                                <select class="form-control {{ $errors->has('order_key') ? ' is-invalid' : '' }}" name="order_key">
+                                    <option value="" selected hidden>{{ _('Select Order') }}</option>
+                                    @for ($x=1; $x<=1000; $x++)
+                                        @php
+                                            $check = App\Models\LatestNews::where('order_key',$x)->first();
+                                        @endphp
+                                        @if(!$check)
+                                            <option value="{{$x}}">{{ $x }}</option>
+                                        @endif
+                                    @endfor
+                                </select>
+                                @include('alerts.feedback', ['field' => 'order_key'])
+                            </div>
+                        </div>
+                            
 
                             <div class="form-group {{ $errors->has('slug') ? ' has-danger' : '' }}">
                                 <label>{{ _('Slug') }}</label>

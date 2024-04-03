@@ -23,6 +23,7 @@
                         <table class="table tablesorter datatable">
                             <thead class=" text-primary">
                                 <tr>
+                                    <th>{{ _('Order') }}</th>
                                     <th>{{ _('Date') }}</th>
                                     <th>{{ _('Title') }}</th>
                                     <th>{{ _('Image') }}</th>
@@ -35,6 +36,7 @@
                             <tbody>
                                 @foreach ($latest_newses as $latest_news)
                                     <tr>
+                                        <td> {{ $latest_news->order_key }} </td>
                                         <td> {{ date('d M, Y', strtotime($latest_news->date)) }} </td>
                                         <td> {{ $latest_news->title }} </td>
                                         <td>

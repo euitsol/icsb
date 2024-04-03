@@ -33,6 +33,7 @@ class LatestNewsRequest extends FormRequest
         return [
             'title' => 'required|unique:latest_newses,title,NULL,id,deleted_at,NULL',
             'slug' => 'required|unique:latest_newses,slug,NULL,id,deleted_at,NULL',
+            'order_key' => 'required|integer|unique:latest_newses,order_key,NULL,id,deleted_at,NULL'
         ];
     }
 
@@ -41,6 +42,7 @@ class LatestNewsRequest extends FormRequest
         return [
             'title' => 'required|unique:latest_newses,title,' . $this->route('id') . ',id,deleted_at,NULL',
             'slug' => 'required|unique:latest_newses,slug,' . $this->route('id') . ',id,deleted_at,NULL',
+            'order_key' => 'required|integer|unique:latest_newses,order_key,' . $this->route('id') . ',id,deleted_at,NULL'
         ];
     }
 }
