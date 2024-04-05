@@ -1,12 +1,12 @@
 @extends('frontend.master')
 
-@section('title', 'CS Firms')
+@section('title', 'CS in Practice')
 
 @section('content')
 <!-- =============================== Breadcrumb Section ======================================-->
 @php
 $banner_image = asset('breadcumb_img/members.jpg');
-$title = 'CS Firms';
+$title = 'CS in Practice';
 $datas = [
             'image'=>$banner_image,
             'title'=>$title,

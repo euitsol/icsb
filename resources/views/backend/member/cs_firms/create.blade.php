@@ -1,6 +1,6 @@
 @extends('backend.layouts.master', ['pageSlug' => 'cs_firm'])
 
-@section('title', 'Add CS Firms Member')
+@section('title', 'Add CS in Practice Member')
 @push('css')
     <style>
         .input-group .form-control:first-child {
@@ -19,7 +19,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="title">{{ _('Add CS Firms Member') }}</h5>
+                    <h5 class="title">{{ _('Add CS in Practice Member') }}</h5>
                 </div>
                 <form method="POST" action="{{ route('cs_firm.cs_firm_create') }}" autocomplete="off"
                     enctype="multipart/form-data">
@@ -70,10 +70,10 @@
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
-                        <b>{{ _('CS Firms Member') }}</b>
+                        <b>{{ _('CS in Practice Member') }}</b>
                     </p>
                     <div class="card-description">
-                        <p><b>CS Firm Member-* :</b> This field is required. The 'Select Member' option represents the member of the CS firms, and the input field is a number field that represents the private practice certificate number of this member. New CS firms members can be added by clicking on the '+' icon.</p>
+                        <p><b>CS Firm Member-* :</b> This field is required. The 'Select Member' option represents the member of the CS in Practice, and the input field is a number field that represents the private practice certificate number of this member. New CS in Practice members can be added by clicking on the '+' icon.</p>
                     </div>
                 </div>
             </div>

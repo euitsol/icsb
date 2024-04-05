@@ -1,6 +1,6 @@
 @extends('backend.layouts.master', ['pageSlug' => 'cs_firm'])
 
-@section('title', 'CS Firms')
+@section('title', 'CS in Practice')
 
 @section('content')
     <div class="row">

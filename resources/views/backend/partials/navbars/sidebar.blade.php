@@ -348,7 +348,7 @@
                                 ['pageSlug' => 'membership-benefits', 'routeName' => 'sp.show', 'params' => 'membership-benefits', 'label' => 'Membership Benefits'],
                                 ['pageSlug' => 'member', 'routeName' => 'member.member_list', 'label' => 'Member Search'],
                                 ['pageSlug' => 'member-portal', 'routeName' => 'sp.show', 'params' => 'member-portal', 'label' => 'Member Portal'],
-                                ['pageSlug' => 'cs_firm', 'routeName' => 'cs_firm.cs_firm_list', 'label' => 'CS Firms'],
+                                ['pageSlug' => 'cs_firm', 'routeName' => 'cs_firm.cs_firm_list', 'label' => 'CS in Practice'],
                                 ['pageSlug' => 'code-of-conducts', 'routeName' => 'sp.show', 'params' => 'code-of-conducts', 'label' => 'Code of Conducts'],
                                 ['pageSlug' => 'cpd-program', 'routeName' => 'sp.show', 'params' => 'cpd-program', 'label' => 'CPD Program'],
                                 ['pageSlug' => 'training-program', 'routeName' => 'sp.show', 'params' => 'training-program', 'label' => 'Training Program'],

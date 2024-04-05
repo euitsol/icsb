@@ -127,7 +127,7 @@
                                                     href="{{ json_decode($memberPortal->saved_data)->{'portal-url'} }}">{{ _('Members Portal') }}</a>
                                             </li>
                                         @endif
-                                        <li><a href="{{ route('member_view.cs_firm') }}">{{ _('CS Firms') }}</a></li>
+                                        <li><a href="{{ route('member_view.cs_firm') }}">{{ _('CS in Practice') }}</a></li>
                                         <li><a
                                                 href="{{ route('sp.frontend', 'code-of-conducts') }}">{{ _('Code of Conducts') }}</a>
                                         </li>
@@ -448,7 +448,7 @@
                                 href="{{ json_decode($memberPortal->saved_data)->{'portal-url'} }}">{{ _('Members Portal') }}</a>
                         </li>
                     @endif
-                    <li><a href="{{ route('member_view.cs_firm') }}">{{ _('CS Firms') }}</a></li>
+                    <li><a href="{{ route('member_view.cs_firm') }}">{{ _('CS in Practice') }}</a></li>
                     <li><a
                             href="{{ route('sp.frontend', 'code-of-conducts') }}">{{ _('Code of Conducts') }}</a>
                     </li>
