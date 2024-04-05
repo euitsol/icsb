@@ -1385,6 +1385,8 @@ li {
 .president-section .president-column .left-column img {
     border: 7px solid #182456;
     border-radius: 100px 0 100px 0;
+    position: relative;
+    z-index: 9;
 }
 
 .president-section .president-column .left-column .president-info {
