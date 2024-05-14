@@ -186,7 +186,8 @@ class JobPlacementController extends Controller
 
 
             $jid = Crypt::encrypt($id);
-            $url = route('member_view.job_details',$jid);
+            // $url = route('member_view.job_details',$jid);
+            $url = route('member_view.jps');
             $jp->status = '1';
             $jp->email_subject = "New Job Opportunity Posted on ICSB Job Portal";
             $jp->email_body = "
@@ -262,7 +263,8 @@ class JobPlacementController extends Controller
 
 
             $jid = Crypt::encrypt($id);
-            $url = route('member_view.job_details',$jid);
+            // $url = route('member_view.job_details',$jid);
+            $url = route('member_view.jps');
             $jp->status = '1';
             $jp->email_subject = "New Job Opportunity Posted on ICSB Job Portal";
             $jp->email_body = "
