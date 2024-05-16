@@ -17,7 +17,7 @@ class ContactRequest extends FormRequest
     {
         return [
             
-            'address_page_image' => 'required|image|mimes:mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:max_width=1200,max_height=800,min_width=1200,min_height=800',
+            'address_page_image' => 'nullable|image|mimes:mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:max_width=1200,max_height=800,min_width=1200,min_height=800',
             // 'location' => $this->input('location') ? 'required' : 'nullable',
             // 'social' => $this->input('social') ? 'required' : 'nullable',
             // 'phone' => $this->input('phone') ? 'required' : 'nullable',
