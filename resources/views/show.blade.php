@@ -105,8 +105,8 @@
                                     @if(isset(json_decode($details->saved_data)->$a) && !empty(json_decode($details->saved_data)))
                                     @php
                                         $data = collect(json_decode($details->saved_data, true)[$a]);
+                                        $result = '';
                                         if(!empty($data)){
-                                            $result = '';
                                             $itemCount = count($data);
                                             foreach ($data as $index => $url) {
                                                 $result .= route('sp.file.delete', [$details->id, $a, base64_encode($url)]);

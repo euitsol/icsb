@@ -64,8 +64,8 @@
                        <div class="form-group  {{ $errors->has('images.*') ? 'is-invalid' : '' }}  {{ $errors->has('images') ? 'is-invalid' : '' }}">
                         @php
                                 $data = json_decode($latest_news->images, true);
+                                $result = '';
                                 if(!empty($data)){
-                                    $result = '';
                                     $itemCount = count($data);
                                     foreach ($data as $index => $url) {
                                         $result .= route('json_image.single.delete', ['LatestNews', $latest_news->id,$index,'images' ]);
