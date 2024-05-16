@@ -141,20 +141,20 @@ class LatestNewsController extends Controller
     public function delete($id): RedirectResponse
     {
         $latest_news = LatestNews::findOrFail($id);
-        // if(!empty($latest_news->images)){
-        //     foreach(json_decode($latest_news->images) as $db_image){
-        //         $this->fileDelete($db_image);
-        //     }
-        // }
-        // $files = json_decode($latest_news->files, true);
-        // if(!empty($files)){
-        //     foreach($files as $key=>$file){
-        //         $filePathToDelete = $files[$key]['file_path'];
-        //         $this->fileDelete($filePathToDelete);
-        //     }
-        // }
-        // $latest_news->delete();
-        $this->soft_delete($latest_news);
+        if(!empty($latest_news->images)){
+            foreach(json_decode($latest_news->images) as $db_image){
+                $this->fileDelete($db_image);
+            }
+        }
+        $files = json_decode($latest_news->files, true);
+        if(!empty($files)){
+            foreach($files as $key=>$file){
+                $filePathToDelete = $files[$key]['file_path'];
+                $this->fileDelete($filePathToDelete);
+            }
+        }
+        $latest_news->delete();
+        // $this->soft_delete($latest_news);
         return redirect()->route('latest_news.latest_news_list')->withStatus(__('Latest news '.$latest_news->title.' deleted successfully.'));
     }
     public function status($id): RedirectResponse
