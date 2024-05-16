@@ -20,7 +20,7 @@ trait SendMailTrait{
             $members = Member::where('notify_email', 1)->get();
             foreach ($members as $key => $member) {
                 if(isset($member->email) && $member->email != null && $member->email != ''){
-                    $delay = now()->addSeconds($key*30);
+                    $delay = now()->addSeconds($key*1);
                     SendMemberEmail::dispatch($member->email, $data)->delay($delay);
                 }
             }
