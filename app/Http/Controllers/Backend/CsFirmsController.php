@@ -36,7 +36,7 @@ class CsFirmsController extends Controller
         });
         if($filteredInput){
             foreach($request->csf_member as $member){
-                    $check = CsFirms::where('member_id',$member['member_id'])->first();
+                    $check = CsFirms::where('member_id',$member['member_id'])->where('deleted_at',NULL)->first();
                     if(!$check){
                         $cs_fm = new CsFirms();
                         $cs_fm->member_id = $member['member_id'];
@@ -82,7 +82,8 @@ class CsFirmsController extends Controller
     public function delete($id): RedirectResponse
     {
         $csf_member = CsFirms::findOrFail($id);
-        $this->soft_delete($csf_member);
+        $csf_member->delete();
+        // $this->soft_delete($csf_member);
         return redirect()->route('cs_firm.cs_firm_list')->withStatus(__($csf_member->member->name.' deleted successfully.'));
     }
 }
