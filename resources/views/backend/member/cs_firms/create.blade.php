@@ -35,7 +35,7 @@
                                         <option selected hidden>{{ _('Select Member') }}</option>
                                         @foreach ($members as $member)
                                             @php
-                                                $check = App\Models\CsFirms::where('member_id',$member->id)->first();
+                                                $check = App\Models\CsFirms::where('member_id',$member->id)->where('deleted_at',NULL)->first();
                                             @endphp
                                             @if(!$check)
                                                 @if($member->member_type != 5)

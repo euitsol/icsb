@@ -30,7 +30,7 @@
                                         data-count="1">
                                         @foreach ($members as $member)
                                             @php
-                                                $check = App\Models\CsFirms::where('member_id',$member->id)->where('member_id','!=',$csf_member->member_id)->first();
+                                                $check = App\Models\CsFirms::where('member_id',$member->id)->where('member_id','!=',$csf_member->member_id)->where('deleted_at',NULL)->first();
                                             @endphp
                                             @if(!$check)
                                                 @if($member->member_type != 5)
