@@ -47,7 +47,7 @@ class CsFirmsController extends Controller
             }
         }
 
-        return redirect()->route('cs_firm.cs_firm_list')->withStatus(__('CS in practice member '.$cs_fm->member->name.' added successfully.'));
+        return redirect()->route('cs_firm.cs_firm_list')->withStatus(__('CS in practice member added successfully.'));
     }
 
     public function edit($id): View
