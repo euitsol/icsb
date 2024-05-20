@@ -15,14 +15,29 @@ class DefaultController extends Controller
     public function __construct() {
         return $this->middleware('auth');
     }
-    public function download($fileName): BinaryFileResponse
+    // public function download($fileName): BinaryFileResponse
+    // {
+    //     $fileName = base64_decode($fileName);
+    //     $folderName = strstr($fileName, '/', true);
+    //     $downloadPath = substr($fileName, strlen($folderName.'/'));
+    //     $filePath = storage_path('app/public/'.$folderName.'/'.$downloadPath);
+    //     if (file_exists($filePath)) {
+    //         return response()->download($filePath, $downloadPath);
+    //     } else {
+    //         return redirect()->back()->withStatus(__('File not found'));
+    //     }
+    // }
+    public function download($encodedPath): BinaryFileResponse
     {
-        $fileName = base64_decode($fileName);
-        $folderName = strstr($fileName, '/', true);
-        $downloadPath = substr($fileName, strlen($folderName.'/'));
-        $filePath = storage_path('app/public/'.$folderName.'/'.$downloadPath);
-        if (file_exists($filePath)) {
-            return response()->download($filePath, $downloadPath);
+        $filePath = base64_decode($encodedPath);
+        $pathParts = collect(explode('/', $filePath));
+        $fileName = $pathParts->pop();
+        $folderName = $pathParts->implode('/');
+
+        $fullPath = storage_path('app/public/' . $folderName . '/' . $fileName);
+
+        if (file_exists($fullPath)) {
+            return response()->download($fullPath, $fileName);
         } else {
             return redirect()->back()->withStatus(__('File not found'));
         }
