@@ -103,7 +103,7 @@ class ContactPagesController extends Controller
         <p>Phone: $feedback->phone</p> <br>
         <p>Feedback: $feedback->message</p> <br>
         ";
-        $to = "shariful.euitsols@gmail.com";
+        $to = "itofficer@icsb.edu.bd";
         $this->send_custom_email($mail,$subject, $to);
         return redirect()->route('contact_us.feedback')->withStatus(__('Thank you for your feedback, we will get back to you as soon as possible.'));
     }
