@@ -7,14 +7,14 @@
                     </h2>
                     <ul>
                         @if (!empty($contact->location))
-                            @foreach (json_decode($contact->location) as $location)
-                                <li><a href="{{ route('contact_us.location_map') }}"><i class="fa-solid fa-location-dot"></i>{{ $location->address }}</a></li>
-                            @endforeach
+                            <li><a href="{{ route('contact_us.location_map') }}"><i
+                                        class="fa-solid fa-location-dot"></i>{{ json_decode($contact->location, true)[1]['address'] }}</a>
+                            </li>
                         @endif
 
-                        <div class="d-grid" style="grid-template-columns: auto auto auto;">
+                        <div class="d-flex justify-content-evenly">
                             @if (!empty($contact->phone))
-                            @foreach (json_decode($contact->phone) as $phone)
+                                @foreach (json_decode($contact->phone) as $phone)
                                     <li>
                                         @if ($phone->type == 'Phone')
                                             <i class="fa-solid fa-phone"></i>
@@ -27,13 +27,12 @@
                                         @endif
                                         +88{{ $phone->number }}
                                     </li>
-
-                            @endforeach
+                                @endforeach
                             @endif
                             @if (!empty($contact->email))
                                 @foreach (json_decode($contact->email) as $email)
                                     <li><i class="fa-solid fa-envelope"></i>
-                                            {{ strtoupper($email) }}</li>
+                                        {{ strtoupper($email) }}</li>
                                 @endforeach
                             @endif
                         </div>
