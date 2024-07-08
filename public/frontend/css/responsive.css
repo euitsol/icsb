@@ -1317,7 +1317,7 @@
     }
 
     .job-index-section {
-        height: auto;
+        height: 50vh;
     }
 
     .job-index-section .wrap .page_title {
@@ -2139,9 +2139,11 @@
         margin-bottom: 10px;
     }
     
+    
 
     .job-index-section {
         padding: 60px 0;
+        height: auto;
     }
 
     .job-index-section .employee a,
