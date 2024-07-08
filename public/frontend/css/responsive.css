@@ -1077,7 +1077,9 @@
     .level-2 {
         column-gap: 4.5%;
     }
-
+    .job-index-section {
+        height: 72vh;
+    }
     .level-2 .box::after {
         left: 42%;
     }
@@ -1315,11 +1317,6 @@
         top: 80%;
         font-weight: 600;
     }
-
-    .job-index-section {
-        height: 50vh;
-    }
-
     .job-index-section .wrap .page_title {
         font-size: 100px;
         letter-spacing: 16px;
