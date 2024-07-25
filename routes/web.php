@@ -551,12 +551,12 @@ Route::group(['as' => 'ac.', 'prefix' => 'admission-corner'], function () {
     Route::get('view/details', [AdmissionCornerPagesController::class, 'details'])->name('details');
 });
 
-Route::group(['middleware' => ['log_visitor']], function () {
+
 
     Route::get('/single-page/create', [SinglePagesController::class, 'create'])->name('sp.create');
     Route::post('/single-page/store', [SinglePagesController::class, 'store'])->name('sp.store');
 
-    
+
 
 
     Route::get('/single-page/show/{page_slug}', [SinglePagesController::class, 'show'])->name('sp.show');
@@ -568,7 +568,7 @@ Route::group(['middleware' => ['log_visitor']], function () {
 
     //Frontend Routes
 
-    Route::get('/', [HomePageController::class, 'index'])->name('home');
+    Route::get('/', [HomePageController::class, 'index'])->name('home')->middleware('log_visitor');
     // Default View File Download Route
     Route::get('front/download/{filename}', [ViewDefaultController::class, 'view_download'])->name('view.download');
     Route::get('home-banner/show/{filename}', [HomePageController::class, 'banner_video'])->name('banner-video.show');
@@ -651,7 +651,7 @@ Route::group(['middleware' => ['log_visitor']], function () {
         Route::get('job/edit/{id}', [MembersPagesController::class, 'job_edit'])->name('job_edit');
         Route::post('job/update/{id}', [MembersPagesController::class, 'fj_update'])->name('fjob_update');
     });
-    
+
     Route::group(['as' => 'member_view.', 'prefix' => 'member'], function () {
         Route::get('/member-search/{slug}', [MembersPagesController::class, 'memberSearch'])->name('m_search');
         Route::get('/cs-firms', [MembersPagesController::class, 'cs_firm'])->name('cs_firm');
@@ -663,7 +663,7 @@ Route::group(['middleware' => ['log_visitor']], function () {
         Route::get('/cs-hand-book', [StudentPagesController::class, 'csHandBook'])->name('cs_hand_book');
         Route::get('/icsb-library', [StudentPagesController::class, 'library'])->name('library');
     });
-   
+
     Route::group(['as' => 'notice_view.', 'prefix' => 'notices'], function () {
         Route::get('/{slug?}', [NoticeBoardPageController::class, 'notice'])->name('notice');
     });
@@ -684,5 +684,4 @@ Route::group(['middleware' => ['log_visitor']], function () {
     //     Route::get('/single', [ArticlesController::class, 'single'])->name('single');
     // });
 
-});
 
