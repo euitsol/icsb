@@ -547,6 +547,10 @@ Route::get('/run-queue', function (Request $request) {
     ]);
 });
 
+Route::get('/cache-clear', function (Request $request) {
+    Artisan::call('optimize:clear');
+});
+
 Route::group(['as' => 'ac.', 'prefix' => 'admission-corner'], function () {
     Route::get('view/details', [AdmissionCornerPagesController::class, 'details'])->name('details');
 });
