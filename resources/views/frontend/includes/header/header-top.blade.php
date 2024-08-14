@@ -15,13 +15,15 @@
             </div>
             <div class="header-column header-info-column text-center  flex ">
                 @if (isset($contact->location) && !empty($contact->location))
-                    @foreach (json_decode($contact->location)->{'1'}->phones as $phone)
-                        @if ($phone->type == 'Phone')
-                            <a href="tel:88{{ $phone->number }}"><i
-                                    class="fa-solid fa-phone"></i>+88{{ $phone->number }}</a>
-                        @break
-                    @endif
-                @endforeach
+                    @if (isset(json_decode($contact->location)->{1}->phones) && !empty(json_decode($contact->location)->{1}->phones))
+                        @foreach (json_decode($contact->location)->{'1'}->phones as $phone)
+                            @if ($phone->type == 'Phone')
+                                <a href="tel:88{{ $phone->number }}"><i
+                                        class="fa-solid fa-phone"></i>+88{{ $phone->number }}</a>
+                            @break
+                        @endif
+                    @endforeach
+                @endif
                 @if (isset(json_decode($contact->location)->{'1'}->emails) && !empty(json_decode($contact->location)->{'1'}->emails))
                     <a href="mailto:{{ json_decode($contact->location)->{'1'}->emails[0] }}"><i
                             class="fa-solid fa-envelope"></i>
