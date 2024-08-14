@@ -6,36 +6,26 @@
                     <h2 class="text-center">{{ settings('site_name') }}
                     </h2>
                     <ul>
-                        @if (!empty($contact->location))
+                        @if (isset($contact->location) && !empty($contact->location))
                             <li><a href="{{ route('contact_us.location_map') }}"><i
-                                        class="fa-solid fa-location-dot"></i>{{ json_decode($contact->location, true)[1]['address'] }}</a>
+                                        class="fa-solid fa-location-dot"></i>{{ json_decode($contact->location)->{1}->address }}</a>
                             </li>
-                        @endif
-
-                        <div class="d-flex justify-content-evenly">
-                            @if (!empty($contact->phone))
-                                @foreach (json_decode($contact->phone) as $phone)
+                            <div class="d-flex justify-content-evenly">
+                                @if (isset(json_decode($contact->location)->{1}->phones) && !empty(json_decode($contact->location)->{1}->phones))
                                     <li>
-                                        @if ($phone->type == 'Phone')
+                                        @if (json_decode($contact->location)->{1}->phones->{1}->type == 'Phone')
                                             <i class="fa-solid fa-phone"></i>
-                                        @elseif ($phone->type == 'Telephone')
-                                            <i class="fa-solid fa-tty"></i>
-                                        @elseif ($phone->type == 'WhatsApp')
-                                            <i class="fa-brands fa-whatsapp"></i>
-                                        @elseif ($phone->type == 'Fax')
-                                            <i class="fa-solid fa-fax"></i>
+                                            +88{{ json_decode($contact->location)->{1}->phones->{1}->number }}
                                         @endif
-                                        +88{{ $phone->number }}
                                     </li>
-                                @endforeach
-                            @endif
-                            @if (!empty($contact->email))
-                                @foreach (json_decode($contact->email) as $email)
+                                @endif
+                                @if (isset(json_decode($contact->location)->{1}->emails) && !empty(json_decode($contact->location)->{1}->emails))
                                     <li><i class="fa-solid fa-envelope"></i>
-                                        {{ strtoupper($email) }}</li>
-                                @endforeach
-                            @endif
-                        </div>
+                                        {{ strtoupper(json_decode($contact->location)->{1}->emails[0]) }}</li>
+                                @endif
+
+                            </div>
+                        @endif
                     </ul>
                 </div>
             </div>
