@@ -123,7 +123,7 @@ class JobPlacementController extends Controller
         $jp->salary = json_encode($request->salary);
         $jp->salary_type = $request->salary_type;
         $jp->deadline = $request->deadline;
-        $jp->status = 0;
+        $jp->status = '0';
         $jp->vacancy = $request->vacancy;
         $jp->age_requirement = $request->age_requirement;
         $jp->experience_requirement = $request->experience_requirement;
