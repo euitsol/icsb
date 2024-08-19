@@ -18,18 +18,19 @@ use App\Mail\MemberMail;
 class JobPlacementController extends Controller
 {
     use SendMailTrait;
-    public function __construct() {
+    public function __construct()
+    {
         return $this->middleware('auth');
     }
     public function index(): View
     {
         $disclosed = JobPlacement::where('deadline', '<', Carbon::now()->format('Y-m-d'))->get();
-        foreach($disclosed as $d){
+        foreach ($disclosed as $d) {
             $d->status = '2';
             $d->save();
         }
         $s['job_placements'] = JobPlacement::where('deleted_at', null)->orderByRaw("FIELD(status, '0', '1','-1','2')")->latest()->get();
-        return view('backend.member.job_placement.index',$s);
+        return view('backend.member.job_placement.index', $s);
     }
     public function create(): View
     {
@@ -64,32 +65,32 @@ class JobPlacementController extends Controller
 
         $id = Crypt::encrypt($jp->id);
         $subject = "Job Post Status";
-        $url = route('member_view.job_edit',$id);
+        $url = route('member_view.job_edit', $id);
         $mail =
-        "
+            "
         <p>Dear Sir,</p> <br>
 
         <p> Thank you for choosing ICSB Job Portal to post your job opportunity. We appreciate your trust in our platform to connect you with potential candidates.</p><br>
 
         <p>We want to inform you that your job post is currently in the pending status. Our team is working diligently to review and approve your job listing. Once approved, it will be live on our platform for job seekers to view and apply.</p><br>
 
-        <a href='".$url."' target='_blank'>Edit Job Post</a>
+        <a href='" . $url . "' target='_blank'>Edit Job Post</a>
         ";
 
-        $this->send_custom_email($mail,$subject, $jp->email);
+        $this->send_custom_email($mail, $subject, $jp->email);
 
 
         $salary = '';
-            if (isset(json_decode($jp->salary)->from) & isset(json_decode($jp->salary)->to)){
-                $salary ="<span>".json_decode($jp->salary)->from . ' - ' . json_decode($jp->salary)->to ."</span> TK./";
-            }
+        if (isset(json_decode($jp->salary)->from) & isset(json_decode($jp->salary)->to)) {
+            $salary = "<span>" . json_decode($jp->salary)->from . ' - ' . json_decode($jp->salary)->to . "</span> TK./";
+        }
         $salary .=  $jp->salary_type;
         $job_location = html_entity_decode_table($jp->job_location);
         $years = 'Years';
 
         $admin_subject = "New job posted on your job portal";
         $admin_mail =
-        "
+            "
         <p>A new job posting has been added to our platform.</p><br>
         <p><strong>Job Title:</strong> $jp->title</p> 
         <p><strong>Company Name:</strong> $jp->company_name</p> 
@@ -100,15 +101,15 @@ class JobPlacementController extends Controller
         <p><strong>Appliation Deadline:</strong> $jp->deadline</p> 
         <p>You can view the full job posting and manage it by logging into the admin panel. If you have any questions related to this job posting, please contact to the given contact person.</p>
         ";
-        $to = ['icsbsec@gmail.com','hr@icsb.edu.bd','itofficer@icsb.edu.bd'];
-        $this->send_custom_email($admin_mail,$admin_subject, $to);
+        $to = ['icsbsec@gmail.com', 'hr@icsb.edu.bd', 'itofficer@icsb.edu.bd'];
+        $this->send_custom_email($admin_mail, $admin_subject, $to);
 
-        return redirect()->route('job_placement.jp_list')->withStatus(__('Job '.$jp->title.' created successfully.'));
+        return redirect()->route('job_placement.jp_list')->withStatus(__('Job ' . $jp->title . ' created successfully.'));
     }
     public function edit($id): View
     {
         $s['jp'] = JobPlacement::findOrFail($id);
-        return view('backend.member.job_placement.edit',$s);
+        return view('backend.member.job_placement.edit', $s);
     }
     public function update(JobPlacementRequest $request, $id): RedirectResponse
     {
@@ -122,6 +123,7 @@ class JobPlacementController extends Controller
         $jp->salary = json_encode($request->salary);
         $jp->salary_type = $request->salary_type;
         $jp->deadline = $request->deadline;
+        $jp->status = 0;
         $jp->vacancy = $request->vacancy;
         $jp->age_requirement = $request->age_requirement;
         $jp->experience_requirement = $request->experience_requirement;
@@ -136,33 +138,34 @@ class JobPlacementController extends Controller
         $jp->updated_by = auth()->user()->id;
         $jp->save();
 
+
         $id = Crypt::encrypt($jp->id);
-        $url = route('member_view.job_edit',$id);
+        $url = route('member_view.job_edit', $id);
         $subject = "Job Post Status";
         $mail =
-        "
+            "
         <p>Dear Sir,</p><br>
 
         <p>Your job post has been editted successfully. We appreciate your trust in our platform to connect you with potential candidates.</p><br>
 
         <p>We want to inform you that your job post is currently in the pending status. Our team is working diligently to review and approve your job listing. Once approved, it will be live on our platform for job seekers to view and apply.</p><br>
 
-        <a href='".$url."' target='_blank'>Edit Job Post</a>
+        <a href='" . $url . "' target='_blank'>Edit Job Post</a>
         ";
-        $this->send_custom_email($mail,$subject, $jp->email);
+        $this->send_custom_email($mail, $subject, $jp->email);
         $admin_subject = "A pending job was editted on your job portal";
         $admin_mail =
-        "
+            "
         <p>Job Title: $jp->title</p> <br>
         <p>Email: $jp->email</p> <br>
         <p>Details: </p> $jp->job_responsibility <br>
         ";
-        $to = ['icsbsec@gmail.com','hr@icsb.edu.bd','itofficer@icsb.edu.bd'];
-        $this->send_custom_email($admin_mail,$admin_subject, $to);
+        $to = ['icsbsec@gmail.com', 'hr@icsb.edu.bd', 'itofficer@icsb.edu.bd'];
+        $this->send_custom_email($admin_mail, $admin_subject, $to);
 
 
 
-        return redirect()->route('job_placement.jp_list')->withStatus(__('Job '.$jp->title.' updated successfully.'));
+        return redirect()->route('job_placement.jp_list')->withStatus(__('Job ' . $jp->title . ' updated successfully.'));
     }
     public function delete($id): RedirectResponse
     {
@@ -170,15 +173,15 @@ class JobPlacementController extends Controller
         // $jp->delete();
         $this->soft_delete($jp);
 
-        return redirect()->route('job_placement.jp_list')->withStatus(__('Job '.$jp->title.' deleted successfully.'));
+        return redirect()->route('job_placement.jp_list')->withStatus(__('Job ' . $jp->title . ' deleted successfully.'));
     }
     public function status($id, $status): RedirectResponse
     {
         $jp = JobPlacement::findOrFail($id);
-        if($status == 'accept'){
+        if ($status == 'accept') {
             $salary = '';
-            if (isset(json_decode($jp->salary)->from) & isset(json_decode($jp->salary)->to)){
-                $salary ="<span>".json_decode($jp->salary)->from . ' - ' . json_decode($jp->salary)->to ."</span> TK./";
+            if (isset(json_decode($jp->salary)->from) & isset(json_decode($jp->salary)->to)) {
+                $salary = "<span>" . json_decode($jp->salary)->from . ' - ' . json_decode($jp->salary)->to . "</span> TK./";
             }
             $salary .=  $jp->salary_type;
             $job_location = html_entity_decode_table($jp->job_location);
@@ -199,13 +202,13 @@ class JobPlacementController extends Controller
                 <p><strong>Salary:</strong> $salary</p> 
                 <p><strong>Appliation Deadline:</strong> $jp->deadline</p> 
                 <p><span style='color:red;'>To learn more details about available jobs, please visit the-</span></p>
-                <u><a href='".$url."' style='color:#102694;' target='_blank'><strong>ICSB Job Portal: CLICK HERE</strong></a></u>
+                <u><a href='" . $url . "' style='color:#102694;' target='_blank'><strong>ICSB Job Portal: CLICK HERE</strong></a></u>
             ";
             $jp->save();
 
             $subject = "Approval of Your Job Post";
             $mail =
-            "
+                "
            <p>Dear Sir,</p><br>
 
            <p> We are pleased to inform you that your job post has been reviewed and approved by our team. Your job listing is now live on our platform and accessible to job seekers who are eager to explore opportunities.</p><br>
@@ -215,47 +218,46 @@ class JobPlacementController extends Controller
             <p>Thank you for using our platform, and we wish you the best in finding the perfect candidate for your job opening.</p><br>
 
             <p><span style='color:red;'>To learn more details about available jobs, please visit the-</span> </p>
-            <u><a href='".$url."' style='color:#102694;' target='_blank'><strong>ICSB Job Portal: CLICK HERE</strong></a></u>
+            <u><a href='" . $url . "' style='color:#102694;' target='_blank'><strong>ICSB Job Portal: CLICK HERE</strong></a></u>
             ";
-            $this->send_custom_email($mail,$subject, $jp->email);
+            $this->send_custom_email($mail, $subject, $jp->email);
             $this->send_member_email($jp);
-
-        }elseif($status == 'declined'){
+        } elseif ($status == 'declined') {
             $jp->status = '-1';
             $jp->save();
             $subject = "Declined of your Job Post";
             $mail =
-            "
+                "
            <p>Dear Sir,</p><br>
 
             <p>Your job post has been declined</p>
             ";
-        $this->send_custom_email($mail,$subject, $jp->email);
-        }elseif($status == 'disclosed'){
+            $this->send_custom_email($mail, $subject, $jp->email);
+        } elseif ($status == 'disclosed') {
             $jp->status = '2';
             $jp->save();
             $subject = "Disclosed of your Job Post";
             $mail =
-            "
+                "
             <p>Dear Sir,</p> <br><br>
 
             <p>Your job post has been disclosed</p>
             ";
-            $this->send_custom_email($mail,$subject, $jp->email);
+            $this->send_custom_email($mail, $subject, $jp->email);
         }
-        return redirect()->route('job_placement.jp_list')->withStatus(__($jp->title.' status updated successfully.'));
+        return redirect()->route('job_placement.jp_list')->withStatus(__($jp->title . ' status updated successfully.'));
     }
     public function testMail(Request $req, $id)
     {
-        $validator = Validator::make($req->all(),[
+        $validator = Validator::make($req->all(), [
             'email' => 'required|email',
         ]);
-        if($validator->passes()) {
+        if ($validator->passes()) {
             $jp = JobPlacement::findOrFail($id);
 
             $salary = '';
-            if (isset(json_decode($jp->salary)->from) & isset(json_decode($jp->salary)->to)){
-                $salary ="<span>".json_decode($jp->salary)->from . ' - ' . json_decode($jp->salary)->to ."</span> TK./";
+            if (isset(json_decode($jp->salary)->from) & isset(json_decode($jp->salary)->to)) {
+                $salary = "<span>" . json_decode($jp->salary)->from . ' - ' . json_decode($jp->salary)->to . "</span> TK./";
             }
             $salary .=  $jp->salary_type;
             $job_location = html_entity_decode_table($jp->job_location);
@@ -276,17 +278,14 @@ class JobPlacementController extends Controller
                 <p><strong>Salary:</strong> $salary</p> 
                 <p><strong>Appliation Deadline:</strong> $jp->deadline</p> 
                 <p><span style='color:red;'>To learn more details about available jobs, please visit the-</span></p>
-                <u><a href='".$url."' style='color:#102694;' target='_blank'><strong>ICSB Job Portal: CLICK HERE</strong></a></u>
+                <u><a href='" . $url . "' style='color:#102694;' target='_blank'><strong>ICSB Job Portal: CLICK HERE</strong></a></u>
             ";
             $jp->save();
             Mail::to($req->email)->send(new MemberMail($jp));
 
             return redirect()->route('job_placement.jp_list')->withStatus(__('Test mail send successful'));
-        }else{
+        } else {
             return redirect()->route('job_placement.jp_list')->withStatus(__('Please enter your email.'));
         }
-    
-
-       
     }
 }
