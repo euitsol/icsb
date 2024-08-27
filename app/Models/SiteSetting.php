@@ -10,7 +10,7 @@ class SiteSetting extends BaseModel
 {
     use HasFactory;
 
-    protected $fillable = ['key', 'value', 'env_key'];
+    protected $fillable = ['key', 'value', 'env_key','created_by','updated_by'];
 
     public $guarded = [];
 }
