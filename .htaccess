@@ -1,0 +1,4 @@
+Order deny,allow
+Deny from all
+Allow from 120.50.14.122
+
