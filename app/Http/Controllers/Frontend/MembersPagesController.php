@@ -90,7 +90,7 @@ class MembersPagesController extends Controller
 
             case 'fellow-associate':
                 $s['title'] = 'Fellow & Associate Members';
-                $s['slug'] = 'fellow-and-associate-members';
+                $s['slug'] = 'fellow-associate';
                 $s['members'] = Member::where('mem_current_status', 1)->whereIn('type', [1, 0])->latest()->get();
                 break;
 
