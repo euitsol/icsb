@@ -26,11 +26,12 @@ use Illuminate\Support\Facades\Crypt;
 class MembersPagesController extends Controller
 {
     use SendMailTrait;
-    public function __construct() {
+    public function __construct()
+    {
         $contact = Contact::where('deleted_at', null)->first();
-        $memberTypes = MemberType::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
+        $memberTypes = MemberType::where('deleted_at', null)->where('status', 1)->orderBy('order_key', 'ASC')->get();
         $committeeTypes = CommitteeType::with('committees')->where('deleted_at', null)->where('status', 1)->get();
-        $mediaRoomCategory = MediaRoomCategory::with('media_rooms')->where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
+        $mediaRoomCategory = MediaRoomCategory::with('media_rooms')->where('deleted_at', null)->where('status', 1)->orderBy('order_key', 'ASC')->get();
         $bsss = SecretarialStandard::where('deleted_at', null)->where('status', 1)->get();
         $memberPortal = SinglePages::where('frontend_slug', 'member-portal')->first();
         $studentPortal = SinglePages::where('frontend_slug', 'student-portal')->first();
@@ -41,8 +42,8 @@ class MembersPagesController extends Controller
         $facultyEvaluationSystem = SinglePages::where('frontend_slug', 'faculty-evaluation-system')->first();
         $publicationOthers = SinglePages::where('frontend_slug', 'others')->first();
         $policies = SinglePages::where('frontend_slug', 'policy')->first();
-        $menu_acts = Act::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
-        $councils = Council::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
+        $menu_acts = Act::where('deleted_at', null)->where('status', 1)->orderBy('order_key', 'ASC')->get();
+        $councils = Council::where('deleted_at', null)->where('status', 1)->orderBy('order_key', 'ASC')->get();
         $totalVisitors = 50000 + Visitor::count();
         $todayVisitors = Visitor::whereDate('created_at', Carbon::today())->count();
         view()->share([
@@ -75,25 +76,31 @@ class MembersPagesController extends Controller
                 $s['members'] = Member::where('mem_current_status', 1)->where('honorary', 1)->orderBy('membership_id', 'ASC')->get();
                 break;
 
-            case 'fellow':
-                $s['title'] = 'Fellow Members';
-                $s['slug'] = 'fellow';
-                $s['members'] = Member::where('mem_current_status', 1)->where('type', 1)->latest()->get();
-                break;
+                // case 'fellow':
+                //     $s['title'] = 'Fellow Members';
+                //     $s['slug'] = 'fellow';
+                //     $s['members'] = Member::where('mem_current_status', 1)->where('type', 1)->latest()->get();
+                //     break;
 
-            case 'associate':
-                $s['title'] = 'Associate Members';
-                $s['slug'] = 'associate';
-                $s['members'] = Member::where('mem_current_status', 1)->where('type', 0)->latest()->get();
+                // case 'associate':
+                //     $s['title'] = 'Associate Members';
+                //     $s['slug'] = 'associate';
+                //     $s['members'] = Member::where('mem_current_status', 1)->where('type', 0)->latest()->get();
+                //     break;
+
+            case 'fellow-associate':
+                $s['title'] = 'Fellow & Associate Members';
+                $s['slug'] = 'fellow-and-associate-members';
+                $s['members'] = Member::where('mem_current_status', 1)->whereIn('type', [1, 0])->latest()->get();
                 break;
 
             case 'deceased':
                 $s['title'] = 'Deceased Members';
                 $s['slug'] = 'deceased';
                 $s['members'] = Member::where('mem_current_status', 3)
-                ->orderByRaw("SUBSTRING_INDEX(membership_id, '-', 1) DESC")
-                ->orderByRaw("CAST(SUBSTRING_INDEX(membership_id, '-', -1) AS UNSIGNED) ASC")
-                ->get();
+                    ->orderByRaw("SUBSTRING_INDEX(membership_id, '-', 1) DESC")
+                    ->orderByRaw("CAST(SUBSTRING_INDEX(membership_id, '-', -1) AS UNSIGNED) ASC")
+                    ->get();
                 break;
 
             default:
@@ -102,8 +109,7 @@ class MembersPagesController extends Controller
                 $s['members'] = [];
                 break;
         }
-        return view('frontend.members.member_view',$s);
-
+        return view('frontend.members.member_view', $s);
     }
     public function job_placement(Request $request): View
     {
@@ -111,13 +117,13 @@ class MembersPagesController extends Controller
 
         $s['today'] = Carbon::now()->format('Y-m-d');
 
-        $s['job_placements'] = JobPlacement::where('status','1')
-                                ->where('deadline','>=',$s['today'])
-                                ->where('deleted_at',null)
-                                ->when((!empty($category) && $category != 'all'), function ($query) use($category) {
-                                    return $query->where('category', '=', $category);
-                                })
-                                ->latest()->paginate(10);
+        $s['job_placements'] = JobPlacement::where('status', '1')
+            ->where('deadline', '>=', $s['today'])
+            ->where('deleted_at', null)
+            ->when((!empty($category) && $category != 'all'), function ($query) use ($category) {
+                return $query->where('category', '=', $category);
+            })
+            ->latest()->paginate(10);
 
         $s['job_placements']->getCollection()->transform(function ($jp) {
             $jp->jid = Crypt::encrypt($jp->id);
@@ -129,31 +135,29 @@ class MembersPagesController extends Controller
 
         $s['job_placements']->appends(['category' => $category]);
         $s['category'] = $category;
-        return view('frontend.members.job_placement',$s);
-
+        return view('frontend.members.job_placement', $s);
     }
-    public function job_index(){
+    public function job_index()
+    {
         return view('frontend.members.job_index');
     }
-    public function job_create(){
+    public function job_create()
+    {
         return view('frontend.members.job_create');
     }
     public function cs_firm(): View
     {
-        $query = CsFirms::with('member')->where('status',1)->where('deleted_at',null)->orderBy('private_practice_certificate_no','ASC');
+        $query = CsFirms::with('member')->where('status', 1)->where('deleted_at', null)->orderBy('private_practice_certificate_no', 'ASC');
         $s['csf_members'] = $query->limit(50)->get();
-        return view('frontend.members.cs_firms',$s);
-
+        return view('frontend.members.cs_firms', $s);
     }
     public function members_lounge(): View
     {
         return view('frontend.members.member_lounge');
-
     }
     public function corporate_leader(): View
     {
         return view('frontend.members.find_leader');
-
     }
 
     public function fj_store(JobPlacementRequest $request): RedirectResponse
@@ -184,68 +188,69 @@ class MembersPagesController extends Controller
 
         $id = Crypt::encrypt($jp->id);
         $subject = "Job Post Status";
-        $url = route('member_view.job_edit',$id);
+        $url = route('member_view.job_edit', $id);
         $mail =
-        "
+            "
         <p>Dear Sir,</p> <br>
 
         <p> Thank you for choosing ICSB Job Portal to post your job opportunity. We appreciate your trust in our platform to connect you with potential candidates.</p><br>
 
         <p>We want to inform you that your job post is currently in the pending status. Our team is working diligently to review and approve your job listing. Once approved, it will be live on our platform for job seekers to view and apply.</p><br>
 
-        <a href='".$url."' target='_blank'>Edit Job Post</a>
+        <a href='" . $url . "' target='_blank'>Edit Job Post</a>
         ";
 
-        $this->send_custom_email($mail,$subject, $jp->email);
+        $this->send_custom_email($mail, $subject, $jp->email);
 
         // $admin_subject = "New job posted on your job portal";
         // $admin_mail =
         // "
         // <p>A new job posting has been added to our platform.</p><br>
-        // <p>Job Title: $jp->title</p> 
-        // <p>Company Name: $jp->company_name</p> 
-        // <p>Location: $jp->job_location</p> 
-        // <p>Appliation Deadline: $jp->deadline</p> 
+        // <p>Job Title: $jp->title</p>
+        // <p>Company Name: $jp->company_name</p>
+        // <p>Location: $jp->job_location</p>
+        // <p>Appliation Deadline: $jp->deadline</p>
         // <p>Email: $jp->email</p>
         // <p>Details: </p> $jp->job_responsibility <br>
 
         $salary = '';
-            if (isset(json_decode($jp->salary)->from) & isset(json_decode($jp->salary)->to)){
-                $salary ="<span>".json_decode($jp->salary)->from . ' - ' . json_decode($jp->salary)->to ."</span> TK./";
-            }
+        if (isset(json_decode($jp->salary)->from) & isset(json_decode($jp->salary)->to)) {
+            $salary = "<span>" . json_decode($jp->salary)->from . ' - ' . json_decode($jp->salary)->to . "</span> TK./";
+        }
         $salary .=  $jp->salary_type;
         $job_location = html_entity_decode_table($jp->job_location);
         $years = 'Years';
 
         $admin_subject = "New job posted on your job portal";
         $admin_mail =
-        "
+            "
         <p>A new job posting has been added to our platform.</p><br>
-        <p><strong>Job Title:</strong> $jp->title</p> 
-        <p><strong>Company Name:</strong> $jp->company_name</p> 
-        <p><strong>Location:</strong> $job_location</p> 
-        <p><strong>Experience Requirements:</strong> $jp->experience_requirement $years</p> 
-        <p><strong>Age Requirements:</strong> $jp->age_requirement $years</p> 
-        <p><strong>Salary:</strong> $salary</p> 
-        <p><strong>Appliation Deadline:</strong> $jp->deadline</p> 
+        <p><strong>Job Title:</strong> $jp->title</p>
+        <p><strong>Company Name:</strong> $jp->company_name</p>
+        <p><strong>Location:</strong> $job_location</p>
+        <p><strong>Experience Requirements:</strong> $jp->experience_requirement $years</p>
+        <p><strong>Age Requirements:</strong> $jp->age_requirement $years</p>
+        <p><strong>Salary:</strong> $salary</p>
+        <p><strong>Appliation Deadline:</strong> $jp->deadline</p>
         <p>You can view the full job posting and manage it by logging into the admin panel. If you have any questions related to this job posting, please contact to the given contact person.</p>
         ";
-        
-        
-        
-        $to = ['icsbsec@gmail.com','hr@icsb.edu.bd','itofficer@icsb.edu.bd'];
-        $this->send_custom_email($admin_mail,$admin_subject, $to);
 
-        return redirect()->back()->withStatus(__('Job post '.$request->title.' created successfully.'));
+
+
+        $to = ['icsbsec@gmail.com', 'hr@icsb.edu.bd', 'itofficer@icsb.edu.bd'];
+        $this->send_custom_email($admin_mail, $admin_subject, $to);
+
+        return redirect()->back()->withStatus(__('Job post ' . $request->title . ' created successfully.'));
     }
 
-    public function job_edit($id){
+    public function job_edit($id)
+    {
         $s['jp'] = JobPlacement::findOrFail(Crypt::decrypt($id));
         $s['id'] = Crypt::encrypt($s['jp']->id);
-        if($s['jp']->status == 1){
+        if ($s['jp']->status == 1) {
             abort(404);
-        }else{
-            return view('frontend.members.job_edit',$s);
+        } else {
+            return view('frontend.members.job_edit', $s);
         }
     }
     public function fj_update(JobPlacementRequest $request, $id): RedirectResponse
@@ -276,34 +281,34 @@ class MembersPagesController extends Controller
 
 
         $id = Crypt::encrypt($jp->id);
-        $url = route('member_view.job_edit',$id);
+        $url = route('member_view.job_edit', $id);
         $subject = "Job Post Status";
         $mail =
-        "
+            "
         <p>Dear Sir,</p><br>
 
         <p>Your job post has been editted successfully. We appreciate your trust in our platform to connect you with potential candidates.</p><br>
 
         <p>We want to inform you that your job post is currently in the pending status. Our team is working diligently to review and approve your job listing. Once approved, it will be live on our platform for job seekers to view and apply.</p><br>
 
-        <a href='".$url."' target='_blank'>Edit Job Post</a>
+        <a href='" . $url . "' target='_blank'>Edit Job Post</a>
         ";
-        $this->send_custom_email($mail,$subject, $jp->email);
+        $this->send_custom_email($mail, $subject, $jp->email);
         $admin_subject = "A pending job was editted on your job portal";
         $admin_mail =
-        "
+            "
         <p>Job Title: $jp->title</p> <br>
         <p>Email: $jp->email</p> <br>
         <p>Details: </p> $jp->job_responsibility <br>
         ";
-        $to = ['icsbsec@gmail.com','hr@icsb.edu.bd','itofficer@icsb.edu.bd'];
-        $this->send_custom_email($admin_mail,$admin_subject, $to);
-        return redirect()->route('member_view.job_edit',$id)->withStatus(__('Job post '.$request->title.' editted successfully.'));
+        $to = ['icsbsec@gmail.com', 'hr@icsb.edu.bd', 'itofficer@icsb.edu.bd'];
+        $this->send_custom_email($admin_mail, $admin_subject, $to);
+        return redirect()->route('member_view.job_edit', $id)->withStatus(__('Job post ' . $request->title . ' editted successfully.'));
     }
     public function job_details($id): View
     {
         $id = Crypt::decrypt($id);
         $s['job'] = JobPlacement::findOrFail($id);
-        return view('frontend.members.job_details',$s);
-    } 
+        return view('frontend.members.job_details', $s);
+    }
 }
