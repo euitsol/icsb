@@ -119,7 +119,9 @@ class CouncilPagesController extends Controller
             ->where('status', 1)
             ->where('deleted_at', null)
             ->orderBy('order_key', 'ASC')
-            ->get()->groupBy('cmt_id');
+            ->get()->groupBy(function ($item) {
+                return $item->council_member_type->order_key;
+            });
         return view('frontend.council.council', $s);
     }
 }
