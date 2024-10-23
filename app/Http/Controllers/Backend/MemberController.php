@@ -19,21 +19,22 @@ class MemberController extends Controller
 {
     //
 
-    public function __construct() {
+    public function __construct()
+    {
         return $this->middleware('auth');
     }
 
-    public function index():View
+    public function index(): View
     {
         $members = Member::with(['user', 'type'])->where('member_type', null)->latest()->get();
-        $non_members = Member::with(['user', 'type'])->where('member_type', 1)->latest()->get();
+        $non_members = Member::with(['user', 'type'])->where('member_type', 1)->where('deleted_at', null)->latest()->get();
         $honorary_members = Member::with(['user', 'type'])->where('member_type', 2)->latest()->get();
         // $types = MemberType::with(['members'])->where('deleted_at', null)->orderBy('order_key','ASC')->get();
 
-        return view('backend.member.index',['members' => $members, 'non_members' => $non_members, 'honorary_members' => $honorary_members]);
+        return view('backend.member.index', ['members' => $members, 'non_members' => $non_members, 'honorary_members' => $honorary_members]);
     }
 
-    public function create($id):View
+    public function create($id): View
     {
         $types = MemberType::where('deleted_at', null)->where('status', 1)->latest()->get();
 
@@ -64,10 +65,10 @@ class MemberController extends Controller
         $member->created_by = auth()->user()->id;
         $member->save();
 
-        return redirect()->route('member.member_list')->withStatus(__($member->name.' added successfully.'));
+        return redirect()->route('member.member_list')->withStatus(__($member->name . ' added successfully.'));
     }
 
-    public function edit($id):View
+    public function edit($id): View
     {
         $types = MemberType::where('deleted_at', null)->where('status', 1)->latest()->get();
         $member = Member::with(['type'])->findOrFail($id);
@@ -87,7 +88,7 @@ class MemberController extends Controller
         $member->phone = json_encode($request->phone);
 
         if ($request->hasFile('image')) {
-            if(!empty($member->image)){
+            if (!empty($member->image)) {
                 $this->fileDelete($member->image);
             }
             $image = $request->file('image');
@@ -108,14 +109,14 @@ class MemberController extends Controller
         $member->updated_by = auth()->user()->id;
         $member->save();
 
-        return redirect()->route('member.member_list')->withStatus(__($member->name.' updated successfully.'));
+        return redirect()->route('member.member_list')->withStatus(__($member->name . ' updated successfully.'));
     }
 
     public function status($id): RedirectResponse
     {
         $member = Member::findOrFail($id);
         $this->statusChange($member);
-        return redirect()->route('member.member_list')->withStatus(__($member->title.' status updated successfully.'));
+        return redirect()->route('member.member_list')->withStatus(__($member->title . ' status updated successfully.'));
     }
 
     public function delete($id): RedirectResponse
@@ -125,10 +126,10 @@ class MemberController extends Controller
         //     $this->fileDelete($member->image);
         // }
         $this->soft_delete($member);
-        return redirect()->route('member.member_list')->withStatus(__($member->title.' deleted successfully.'));
+        return redirect()->route('member.member_list')->withStatus(__($member->title . ' deleted successfully.'));
     }
 
-    public function mt_create():View
+    public function mt_create(): View
     {
         return view('backend.member.type_create');
     }
@@ -143,13 +144,13 @@ class MemberController extends Controller
         $type->created_by = auth()->user()->id;
         $type->save();
 
-        return redirect()->route('member.member_list')->withStatus(__('Member type '.$type->title.' created successfully.'));
+        return redirect()->route('member.member_list')->withStatus(__('Member type ' . $type->title . ' created successfully.'));
     }
 
-    public function mt_edit($id):View
+    public function mt_edit($id): View
     {
         $type = MemberType::findOrFail($id);
-        return view('backend.member.type_edit',['type' => $type]);
+        return view('backend.member.type_edit', ['type' => $type]);
     }
 
     public function mt_update(MemberTypeRequest $request, $id): RedirectResponse
@@ -162,29 +163,29 @@ class MemberController extends Controller
         $type->updated_by = auth()->user()->id;
         $type->save();
 
-        return redirect()->route('member.member_list')->withStatus(__('Member type '.$type->title.' updated successfully.'));
+        return redirect()->route('member.member_list')->withStatus(__('Member type ' . $type->title . ' updated successfully.'));
     }
 
     public function mt_status($id): RedirectResponse
     {
         $type = MemberType::findOrFail($id);
         $this->statusChange($type);
-        return redirect()->route('member.member_list')->withStatus(__($type->title.' status updated successfully.'));
+        return redirect()->route('member.member_list')->withStatus(__($type->title . ' status updated successfully.'));
     }
 
     public function mt_delete($id): RedirectResponse
     {
         $type = MemberType::findOrFail($id);
-        if($type->members->count() > 0){
+        if ($type->members->count() > 0) {
             // if($type->id == 5){
             //     return redirect()->route('member.member_list')->withStatus(__($type->title.' member type can\'t be deleted because this member type is created by the system!'));
             // }else{
-                return redirect()->route('member.member_list')->withStatus(__($type->title.' has '.$type->members->count().' members assigned. Can\'t be deleted. Best option is to deactivate it.'));
+            return redirect()->route('member.member_list')->withStatus(__($type->title . ' has ' . $type->members->count() . ' members assigned. Can\'t be deleted. Best option is to deactivate it.'));
             // }
 
         }
         $this->soft_delete($type);
-        return redirect()->route('member.member_list')->withStatus(__($type->title.' deleted successfully.'));
+        return redirect()->route('member.member_list')->withStatus(__($type->title . ' deleted successfully.'));
     }
 
     public function sync()
@@ -201,18 +202,17 @@ class MemberController extends Controller
                     $transformedmn[0]['type'] = $defaultType;
                     $transformedmn[0]['number'] = $mobileNumber ?? '';
 
-                    if(isset($item['std_pic']) && !empty($item['std_pic'])){
+                    if (isset($item['std_pic']) && !empty($item['std_pic'])) {
                         $filePath = trim(str_replace('~', 'https://icsberp.org/erp', $item['std_pic']));
                     }
 
-                    if(isset($item['honorary']) && $item['honorary'] == 1){
-
-                    }else{
-                        if($item['member_type'] == 0){
+                    if (isset($item['honorary']) && $item['honorary'] == 1) {
+                    } else {
+                        if ($item['member_type'] == 0) {
                             $type = 'ACS';
-                        }elseif($item['member_type'] == 1){
+                        } elseif ($item['member_type'] == 1) {
                             $type = 'FCS';
-                        }else{
+                        } else {
                             $type = '';
                         }
                     }
@@ -220,12 +220,12 @@ class MemberController extends Controller
                     Member::updateOrCreate(
                         ['member_id' => $item['member_id']],
                         [
-                            'name' => trim($item['first_name'] ?? '') . ' ' . trim($item['middle_name'] ?? '') .' '.trim($item['last_name']??'').' '.trim($type ?? ''),
+                            'name' => trim($item['first_name'] ?? '') . ' ' . trim($item['middle_name'] ?? '') . ' ' . trim($item['last_name'] ?? '') . ' ' . trim($type ?? ''),
                             'email' => $item['email_address'] ?? '',
                             'member_type' => null,
                             'designation' => $item['designation'] ?? '',
                             'image' => $filePath ?? '',
-                            'phone' => json_encode($transformedmn,JSON_FORCE_OBJECT),
+                            'phone' => json_encode($transformedmn, JSON_FORCE_OBJECT),
                             'address' => trim($item['company_address'] ?? ''),
                             'company_name' => trim($item['company'] ?? ''),
                             'membership_id' => $item['member_no'] ?? '',
@@ -249,13 +249,12 @@ class MemberController extends Controller
     public function email_status($id): RedirectResponse
     {
         $member = Member::findOrFail($id);
-        if($member->notify_email == 1){
+        if ($member->notify_email == 1) {
             $member->notify_email = 0;
-        }else{
+        } else {
             $member->notify_email = 1;
         }
         $member->save();
-        return redirect()->route('member.member_list')->withStatus(__('Email status changed for: '.$member->name));
+        return redirect()->route('member.member_list')->withStatus(__('Email status changed for: ' . $member->name));
     }
-
 }
