@@ -3,7 +3,7 @@
 @section('title', 'Council')
 @push('css')
     <style>
-        #view-modal{
+        #view-modal {
             z-index: 99999999;
         }
     </style>
@@ -29,45 +29,34 @@
     <div class="council-section big-sec-min-height">
         <div class="container">
             @php
-                $index = 0;
-                $step = 1;
+                if (isset($c_members_group[2])) {
+                    if (isset($c_members_group[3])) {
+                        $c_members_group[2] = $c_members_group[2]->merge($c_members_group[3]);
+                        $c_members_group->forget(3);
+                    }
+                    if (isset($c_members_group[4])) {
+                        $c_members_group[2] = $c_members_group[2]->merge($c_members_group[4]);
+                        $c_members_group->forget(4);
+                    }
+                }
             @endphp
-
-            @while ($index < count($c_members))
-                <div class="row justify-content-center my-4">
-                    @for ($i = 0; $i < $step; $i++)
-                        @if ($index < count($c_members))
+            @foreach ($c_members_group as $type => $c_members)
+                @foreach ($c_members->chunk(5) as $members)
+                    <div class="row justify-content-center my-4">
+                        @foreach ($members as $cm)
                             <div class="column">
-                                <img src="{{ getMemberImage($c_members[$index]->member) }}"
-                                    alt="{{ $c_members[$index]->member->name }}" />
+                                <img src="{{ getMemberImage($cm->member) }}" alt="{{ $cm->member->name }}" />
                                 <div class="info text-center">
-                                    <p>{{ $c_members[$index]->council_member_type->title }}</p>
-                                    <h5 type="button" class="profile_data" data-cm-id="{{ $c_members[$index]->id }}" data-member-id="{{ $c_members[$index]->member->id }}">
-                                        {{ $c_members[$index]->member->name }}</h5>
+                                    <p>{{ $cm->council_member_type->title }}</p>
+                                    <h5 type="button" class="profile_data" data-cm-id="{{ $cm->id }}"
+                                        data-member-id="{{ $cm->member->id }}">
+                                        {{ $cm->member->name }}</h5>
                                 </div>
                             </div>
-                            @php
-                                $index++;
-                            @endphp
-                        @endif
-                    @endfor
-                </div>
-                @php
-                    if ($index == 1) {
-                        $step += 2;
-                    } elseif ($index >= 3 && $index <= 12) {
-                        $step++;
-                    }
-
-                @endphp
-            @endwhile
-            @if (count($c_members) < 0)
-                <h3 class="my-5 text-center w-100">{{ _('Council Member Not Found') }}</h3>
-            @endif
-
-
-
-
+                        @endforeach
+                    </div>
+                @endforeach
+            @endforeach
         </div>
     </div>
 
@@ -107,14 +96,14 @@
                     method: 'GET',
                     dataType: 'json',
                     success: function(data) {
-                        var noImage = '{{asset("no_img/no_img.jpg")}}';
-                        var membership_id =`<h4>Member ID: ${data.member.membership_id}</h4>`;
+                        var noImage = '{{ asset('no_img/no_img.jpg') }}';
+                        var membership_id = `<h4>Member ID: ${data.member.membership_id}</h4>`;
                         var _membership_id = data.member.membership_id ? membership_id : '';
                         var image = `${data.member.image}`;
                         var details = `{!! '${data.council.description}' !!}`;
 
                         var member_image = data.member.image ? image : noImage;
-                        var _details = details !='null' ? details : 'Description not found!';
+                        var _details = details != 'null' ? details : 'Description not found!';
                         var memberData = `
                                         <div class="fellow-items flex w-100">
                                             <div class="image-column">

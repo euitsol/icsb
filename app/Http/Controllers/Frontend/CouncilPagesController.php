@@ -23,11 +23,12 @@ use Illuminate\View\View;
 
 class CouncilPagesController extends Controller
 {
-    public function __construct() {
+    public function __construct()
+    {
         $contact = Contact::where('deleted_at', null)->first();
-        $memberTypes = MemberType::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
+        $memberTypes = MemberType::where('deleted_at', null)->where('status', 1)->orderBy('order_key', 'ASC')->get();
         $committeeTypes = CommitteeType::with('committees')->where('deleted_at', null)->where('status', 1)->get();
-        $mediaRoomCategory = MediaRoomCategory::with('media_rooms')->where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
+        $mediaRoomCategory = MediaRoomCategory::with('media_rooms')->where('deleted_at', null)->where('status', 1)->orderBy('order_key', 'ASC')->get();
         $bsss = SecretarialStandard::where('deleted_at', null)->where('status', 1)->get();
         $memberPortal = SinglePages::where('frontend_slug', 'member-portal')->first();
         $studentPortal = SinglePages::where('frontend_slug', 'student-portal')->first();
@@ -38,8 +39,8 @@ class CouncilPagesController extends Controller
         $facultyEvaluationSystem = SinglePages::where('frontend_slug', 'faculty-evaluation-system')->first();
         $publicationOthers = SinglePages::where('frontend_slug', 'others')->first();
         $policies = SinglePages::where('frontend_slug', 'policy')->first();
-        $menu_acts = Act::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
-        $councils = Council::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
+        $menu_acts = Act::where('deleted_at', null)->where('status', 1)->orderBy('order_key', 'ASC')->get();
+        $councils = Council::where('deleted_at', null)->where('status', 1)->orderBy('order_key', 'ASC')->get();
         $totalVisitors = 50000 + Visitor::count();
         $todayVisitors = Visitor::whereDate('created_at', Carbon::today())->count();
         view()->share([
@@ -65,61 +66,60 @@ class CouncilPagesController extends Controller
     }
     public function committee($slug): View
     {
-        $s['committee'] = Committee::with(['committe_type','committe_members'])
-                        ->where('slug',$slug)
-                        ->where('status',1)
-                        ->where('deleted_at',null)
-                        ->first();
-        $s['c_members'] = CommitteeMember::with(['committe','member','committe_member_type'])
-                        ->where('committee_id',$s['committee']->id)
-                        ->where('status',1)
-                        ->where('deleted_at',null)
-                        ->orderBy('order_key','ASC')
-                        ->get();
-        return view('frontend.council.committee',$s);
+        $s['committee'] = Committee::with(['committe_type', 'committe_members'])
+            ->where('slug', $slug)
+            ->where('status', 1)
+            ->where('deleted_at', null)
+            ->first();
+        $s['c_members'] = CommitteeMember::with(['committe', 'member', 'committe_member_type'])
+            ->where('committee_id', $s['committee']->id)
+            ->where('status', 1)
+            ->where('deleted_at', null)
+            ->orderBy('order_key', 'ASC')
+            ->get();
+        return view('frontend.council.committee', $s);
     }
     public function president(): View
     {
-        $s['president'] = President::with(['durations','member'])
-                        ->where('status',1)
-                        ->where('deleted_at',null)
-                        ->first();
-        return view('frontend.council.president',$s);
+        $s['president'] = President::with(['durations', 'member'])
+            ->where('status', 1)
+            ->where('deleted_at', null)
+            ->first();
+        return view('frontend.council.president', $s);
     }
     public function presidentM(): View
     {
-        $s['president'] = President::with(['durations','member'])
-                        ->where('status',1)
-                        ->where('deleted_at',null)
-                        ->first();
-        return view('frontend.council.president_message',$s);
+        $s['president'] = President::with(['durations', 'member'])
+            ->where('status', 1)
+            ->where('deleted_at', null)
+            ->first();
+        return view('frontend.council.president_message', $s);
     }
     public function pastPresidents(): View
     {
-        $s['p_presidents'] = President::with(['durations','member'])
-                        ->where('deleted_at',null)
-                        ->orderBy('order_key','ASC')
-                        ->get();
-        return view('frontend.council.past_presidents',$s);
+        $s['p_presidents'] = President::with(['durations', 'member'])
+            ->where('deleted_at', null)
+            ->orderBy('order_key', 'ASC')
+            ->get();
+        return view('frontend.council.past_presidents', $s);
     }
     public function singlePP($slug): View
     {
-        $s['president'] = President::with(['durations','member'])
-                        ->where('slug',$slug)
-                        ->where('deleted_at',null)
-                        ->first();
-        return view('frontend.council.president',$s);
+        $s['president'] = President::with(['durations', 'member'])
+            ->where('slug', $slug)
+            ->where('deleted_at', null)
+            ->first();
+        return view('frontend.council.president', $s);
     }
     public function council_m($slug): View
     {
-        $s['council'] = Council::where('deleted_at', null)->where('status',1)->where('slug',$slug)->first();
-        $s['c_members'] = CouncilMember::with('member','council_member_type')
-                        ->where('council_id',$s['council']->id)
-                        ->where('status',1)
-                        ->where('deleted_at',null)
-                        ->orderBy('order_key','ASC')
-                        ->get();
-        return view('frontend.council.council',$s);
+        $s['council'] = Council::where('deleted_at', null)->where('status', 1)->where('slug', $slug)->first();
+        $s['c_members_group'] = CouncilMember::with('member', 'council_member_type')
+            ->where('council_id', $s['council']->id)
+            ->where('status', 1)
+            ->where('deleted_at', null)
+            ->orderBy('order_key', 'ASC')
+            ->get()->groupBy('cmt_id');
+        return view('frontend.council.council', $s);
     }
-
 }
