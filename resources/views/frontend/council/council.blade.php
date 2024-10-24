@@ -43,7 +43,10 @@
             @foreach ($c_members_group as $type => $c_members)
                 @php
                     $all_limited_members = collect();
-                    $c_members = $c_members->reverse();
+                    if ($c_members->count() > 9) {
+                        $c_members = $c_members->reverse();
+                    }
+
                     $limited_members = $c_members->chunk(5);
                     $all_limited_members = $all_limited_members->merge($limited_members);
                 @endphp
