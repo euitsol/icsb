@@ -43,16 +43,13 @@
             @foreach ($c_members_group as $type => $c_members)
                 @php
                     $all_limited_members = collect();
-                    if ($c_members->count() > 5) {
-                        $c_members = $c_members->reverse();
-                    }
-
+                    $c_members = $c_members->reverse();
                     $limited_members = $c_members->chunk(5);
                     $all_limited_members = $all_limited_members->merge($limited_members);
                 @endphp
                 @foreach ($all_limited_members->reverse() as $members)
                     <div class="row justify-content-center my-4">
-                        @foreach ($members as $cm)
+                        @foreach ($members->reverse() as $cm)
                             <div class="column">
                                 <img src="{{ getMemberImage($cm->member) }}" alt="{{ $cm->member->name }}" />
                                 <div class="info text-center">
