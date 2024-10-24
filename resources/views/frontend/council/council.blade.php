@@ -41,7 +41,13 @@
                 }
             @endphp
             @foreach ($c_members_group as $type => $c_members)
-                @foreach ($c_members->chunk(5) as $members)
+                @php
+                    $all_limited_members = collect();
+                    $c_members = $c_members->reverse();
+                    $limited_members = $c_members->chunk(5);
+                    $all_limited_members = $all_limited_members->merge($limited_members);
+                @endphp
+                @foreach ($all_limited_members->reverse() as $members)
                     <div class="row justify-content-center my-4">
                         @foreach ($members as $cm)
                             <div class="column">
