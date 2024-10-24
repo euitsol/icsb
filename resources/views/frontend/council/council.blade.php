@@ -43,7 +43,7 @@
             @foreach ($c_members_group as $type => $c_members)
                 @php
                     $all_limited_members = collect();
-                    if ($c_members->count() > 9) {
+                    if ($c_members->count() >= 9) {
                         $c_members = $c_members->reverse();
                     }
 
