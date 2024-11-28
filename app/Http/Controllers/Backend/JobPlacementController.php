@@ -92,13 +92,13 @@ class JobPlacementController extends Controller
         $admin_mail =
             "
         <p>A new job posting has been added to our platform.</p><br>
-        <p><strong>Job Title:</strong> $jp->title</p> 
-        <p><strong>Company Name:</strong> $jp->company_name</p> 
-        <p><strong>Location:</strong> $job_location</p> 
-        <p><strong>Experience Requirements:</strong> $jp->experience_requirement $years</p> 
-        <p><strong>Age Requirements:</strong> $jp->age_requirement $years</p> 
-        <p><strong>Salary:</strong> $salary</p> 
-        <p><strong>Appliation Deadline:</strong> $jp->deadline</p> 
+        <p><strong>Job Title:</strong> $jp->title</p>
+        <p><strong>Company Name:</strong> $jp->company_name</p>
+        <p><strong>Location:</strong> $job_location</p>
+        <p><strong>Experience Requirements:</strong> $jp->experience_requirement $years</p>
+        <p><strong>Age Requirements:</strong> $jp->age_requirement $years</p>
+        <p><strong>Salary:</strong> $salary</p>
+        <p><strong>Appliation Deadline:</strong> $jp->deadline</p>
         <p>You can view the full job posting and manage it by logging into the admin panel. If you have any questions related to this job posting, please contact to the given contact person.</p>
         ";
         $to = ['icsbsec@gmail.com', 'hr@icsb.edu.bd', 'itofficer@icsb.edu.bd'];
@@ -190,17 +190,21 @@ class JobPlacementController extends Controller
 
             $jid = Crypt::encrypt($id);
             // $url = route('member_view.job_details',$jid);
+
+            // Old Email Body
+            /*<p><strong>Company Name:</strong> $jp->company_name</p>
+            <p><strong>Location:</strong> $job_location</p>
+            <p><strong>Experience Requirements:</strong> $jp->experience_requirement $years</p>
+            <p><strong>Age Requirements:</strong> $jp->age_requirement $years</p>
+            <p><strong>Salary:</strong> $salary</p>
+            <p><strong>Appliation Deadline:</strong> $jp->deadline</p> */
+
+
             $url = route('member_view.jps');
             $jp->status = '1';
             $jp->email_subject = "New Job Opportunity Posted on ICSB Job Portal";
             $jp->email_body = "
-                <p><strong>Job Title:</strong> $jp->title</p> 
-                <p><strong>Company Name:</strong> $jp->company_name</p> 
-                <p><strong>Location:</strong> $job_location</p> 
-                <p><strong>Experience Requirements:</strong> $jp->experience_requirement $years</p> 
-                <p><strong>Age Requirements:</strong> $jp->age_requirement $years</p> 
-                <p><strong>Salary:</strong> $salary</p> 
-                <p><strong>Appliation Deadline:</strong> $jp->deadline</p> 
+                <p><strong>New Job Opportunity Posted on ICSB Job Portal</strong></p>
                 <p><span style='color:red;'>To learn more details about available jobs, please visit the-</span></p>
                 <u><a href='" . $url . "' style='color:#102694;' target='_blank'><strong>ICSB Job Portal: CLICK HERE</strong></a></u>
             ";
@@ -270,13 +274,7 @@ class JobPlacementController extends Controller
             $jp->status = '1';
             $jp->email_subject = "New Job Opportunity Posted on ICSB Job Portal";
             $jp->email_body = "
-                <p><strong>Job Title:</strong> $jp->title</p> 
-                <p><strong>Company Name:</strong> $jp->company_name</p> 
-                <p><strong>Location:</strong> $job_location</p> 
-                <p><strong>Experience Requirements:</strong> $jp->experience_requirement $years</p> 
-                <p><strong>Age Requirements:</strong> $jp->age_requirement $years</p> 
-                <p><strong>Salary:</strong> $salary</p> 
-                <p><strong>Appliation Deadline:</strong> $jp->deadline</p> 
+                <p><strong>New Job Opportunity Posted on ICSB Job Portal</strong></p>
                 <p><span style='color:red;'>To learn more details about available jobs, please visit the-</span></p>
                 <u><a href='" . $url . "' style='color:#102694;' target='_blank'><strong>ICSB Job Portal: CLICK HERE</strong></a></u>
             ";
