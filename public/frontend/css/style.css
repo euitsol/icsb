@@ -481,7 +481,7 @@ li {
     display: inline-block;
     /* font-family: 'Teko', sans-serif;
     font-weight: 600; */
-    text-transform: capitalize;
+    text-transform: none;
 
 
     font-size: 40px;
@@ -514,7 +514,7 @@ li {
     color: #2c2e35;
     font-weight: 300;
     font-family: "Univers";
-    text-transform: capitalize;
+    text-transform: none;
 }
 
 .main-header-section .header-content p {
@@ -4422,7 +4422,7 @@ td {
 .library-section .library-row .library-item .right-column a:hover {
     color: #fff;
     background-color: #182456;
-    
+
 }
 
 .library-section .library-row .library-item i {
@@ -5528,9 +5528,9 @@ td {
     line-height: 30px;
     color: #fff;
     font-family: "Impact";
-    text-transform: capitalize;
+    text-transform: none;
 
-    
+
 
     /* font-family: 'Poppins', sans-serif; */
 }
