@@ -354,6 +354,9 @@
                                         <li><a
                                                 href="{{ route('contact_us.social_platforms') }}">{{ _('Social Platforms') }}</a>
                                         </li>
+                                        <li><a
+                                                href="{{ route('contact_us.app_platforms') }}">{{ _('App Platforms') }}</a>
+                                        </li>
                                     </ul>
                                 </li>
                             </ul>
@@ -687,6 +690,8 @@
                     <li><a href="{{ route('contact_us.location_map') }}">{{ _('Location Map') }}</a></li>
                     <li><a
                             href="{{ route('contact_us.social_platforms') }}">{{ _('Social Platforms') }}</a>
+                    </li>
+                    <li><a href="{{ route('contact_us.app_platforms') }}">{{ _('App Platforms') }}</a>
                     </li>
                 </ul>
             </li>

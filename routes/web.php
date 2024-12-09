@@ -79,21 +79,20 @@ Auth::routes();
 Route::get('/dashboard', 'App\Http\Controllers\HomeController@index')->name('dashboard')->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
-		Route::get('icons', ['as' => 'pages.icons', 'uses' => 'App\Http\Controllers\PageController@icons']);
-		Route::get('maps', ['as' => 'pages.maps', 'uses' => 'App\Http\Controllers\PageController@maps']);
-		Route::get('notifications', ['as' => 'pages.notifications', 'uses' => 'App\Http\Controllers\PageController@notifications']);
-		Route::get('rtl', ['as' => 'pages.rtl', 'uses' => 'App\Http\Controllers\PageController@rtl']);
-		Route::get('tables', ['as' => 'pages.tables', 'uses' => 'App\Http\Controllers\PageController@tables']);
-		Route::get('typography', ['as' => 'pages.typography', 'uses' => 'App\Http\Controllers\PageController@typography']);
-		Route::get('upgrade', ['as' => 'pages.upgrade', 'uses' => 'App\Http\Controllers\PageController@upgrade']);
+    Route::get('icons', ['as' => 'pages.icons', 'uses' => 'App\Http\Controllers\PageController@icons']);
+    Route::get('maps', ['as' => 'pages.maps', 'uses' => 'App\Http\Controllers\PageController@maps']);
+    Route::get('notifications', ['as' => 'pages.notifications', 'uses' => 'App\Http\Controllers\PageController@notifications']);
+    Route::get('rtl', ['as' => 'pages.rtl', 'uses' => 'App\Http\Controllers\PageController@rtl']);
+    Route::get('tables', ['as' => 'pages.tables', 'uses' => 'App\Http\Controllers\PageController@tables']);
+    Route::get('typography', ['as' => 'pages.typography', 'uses' => 'App\Http\Controllers\PageController@typography']);
+    Route::get('upgrade', ['as' => 'pages.upgrade', 'uses' => 'App\Http\Controllers\PageController@upgrade']);
 });
 
 Route::group(['middleware' => 'auth'], function () {
-	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
-	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
-	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
-	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
-
+    Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
+    Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
+    Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
+    Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 });
 
 //Backend Routes
@@ -138,12 +137,11 @@ Route::group(['middleware' => ['auth', 'permission']], function () {
         });
 
         //Permission Management
-        Route::group(['as' => 'permission.','prefix' => 'permission'], function () {
+        Route::group(['as' => 'permission.', 'prefix' => 'permission'], function () {
             Route::get('list',          [PermissionController::class, 'index'])->name('permission_list');
             Route::get('create',        [PermissionController::class, 'create'])->name('permission_add');
             Route::post('store',        [PermissionController::class, 'store'])->name('permission_store');
         });
-
     });
 
     // About Pages Routes
@@ -200,7 +198,6 @@ Route::group(['middleware' => ['auth', 'permission']], function () {
         Route::post('create/phone', [ContactController::class, 'createPhone'])->name('phone.contact_create');
         Route::post('create/email', [ContactController::class, 'createEmail'])->name('email.contact_create');
         Route::get('contact/file/delete/{id}',      [ContactController::class, 'singleFileDelete'])->name('file.delete.contact_create');
-
     });
     // National Connection Routes
     Route::group(['as' => 'national_connection.', 'prefix' => 'national_connection'], function () {
@@ -408,7 +405,6 @@ Route::group(['middleware' => ['auth', 'permission']], function () {
         Route::put('committee-member/edit/{id}', [CommitteeController::class, 'cm_update'])->name('committee_member_edit');
         Route::get('committee-member/status/{id}', [CommitteeController::class, 'cm_status'])->name('status.committee_member_edit');
         Route::get('committee-member/delete/{id}', [CommitteeController::class, 'cm_delete'])->name('committee_member_delete');
-
     });
 
 
@@ -433,7 +429,6 @@ Route::group(['middleware' => ['auth', 'permission']], function () {
 
         Route::get('student-notice', [NoticeBoardController::class, 'studentNotice'])->name('student_notice_list');
         Route::get('member-notice', [NoticeBoardController::class, 'memberNotice'])->name('member_notice_list');
-
     });
 
 
@@ -464,7 +459,6 @@ Route::group(['middleware' => ['auth', 'permission']], function () {
         Route::put('council-member/edit/{id}', [CouncilController::class, 'cm_update'])->name('council_member_edit');
         Route::get('council-member/status/{id}', [CouncilController::class, 'cm_status'])->name('status.council_member_edit');
         Route::get('council-member/delete/{id}', [CouncilController::class, 'cm_delete'])->name('council_member_delete');
-
     });
     // ICSB Profile
     // Route::group(['as' => 'icsb_profile.', 'prefix' => 'icsb-profile'], function () {
@@ -527,8 +521,6 @@ Route::group(['middleware' => ['auth', 'permission']], function () {
         Route::put('edit/{id}',      [ExamFaqController::class, 'update'])->name('exam_faq_edit');
         Route::get('delete/{id}', [ExamFaqController::class, 'delete'])->name('exam_faq_delete');
     });
-
-
 });
 
 
@@ -557,135 +549,134 @@ Route::group(['as' => 'ac.', 'prefix' => 'admission-corner'], function () {
 
 
 
-    Route::get('/single-page/create', [SinglePagesController::class, 'create'])->name('sp.create');
-    Route::post('/single-page/store', [SinglePagesController::class, 'store'])->name('sp.store');
+Route::get('/single-page/create', [SinglePagesController::class, 'create'])->name('sp.create');
+Route::post('/single-page/store', [SinglePagesController::class, 'store'])->name('sp.store');
 
 
 
 
-    Route::get('/single-page/show/{page_slug}', [SinglePagesController::class, 'show'])->name('sp.show');
-    Route::post('/single-page/store/{page_slug}', [SinglePagesController::class, 'form_store'])->name('sp.form.store');
+Route::get('/single-page/show/{page_slug}', [SinglePagesController::class, 'show'])->name('sp.show');
+Route::post('/single-page/store/{page_slug}', [SinglePagesController::class, 'form_store'])->name('sp.form.store');
 
-    Route::post('/single-page/file-upload', [SinglePagesController::class, 'file_upload'])->name('sp.file.upload');
-    Route::get('/single-page/file-download/{url}', [FrontendSinglePagesController::class, 'view_or_download'])->name('sp.file.download');
-    Route::get('/single-page/file-delete/{id?}/{key?}/{url?}', [SinglePagesController::class, 'delete'])->name('sp.file.delete');
+Route::post('/single-page/file-upload', [SinglePagesController::class, 'file_upload'])->name('sp.file.upload');
+Route::get('/single-page/file-download/{url}', [FrontendSinglePagesController::class, 'view_or_download'])->name('sp.file.download');
+Route::get('/single-page/file-delete/{id?}/{key?}/{url?}', [SinglePagesController::class, 'delete'])->name('sp.file.delete');
 
-    //Frontend Routes
+//Frontend Routes
 
-    Route::get('/', [HomePageController::class, 'index'])->name('home')->middleware('log_visitor');
-    // Default View File Download Route
-    Route::get('front/download/{filename}', [ViewDefaultController::class, 'view_download'])->name('view.download');
-    Route::get('home-banner/show/{filename}', [HomePageController::class, 'banner_video'])->name('banner-video.show');
+Route::get('/', [HomePageController::class, 'index'])->name('home')->middleware('log_visitor');
+// Default View File Download Route
+Route::get('front/download/{filename}', [ViewDefaultController::class, 'view_download'])->name('view.download');
+Route::get('home-banner/show/{filename}', [HomePageController::class, 'banner_video'])->name('banner-video.show');
 
-    // Ajax
-    Route::get('home/notice/{cat_id}', [FrontendAjaxController::class, 'noticeHome'])->name('home.notice');
-    Route::get('national-award/data/{offset}', [FrontendAjaxController::class, 'awards'])->name('awards');
-    Route::get('convocations/data/{offset}', [FrontendAjaxController::class, 'convocations'])->name('convocations');
-    Route::get('notice/data/{offset}/{slug?}', [FrontendAjaxController::class, 'notices'])->name('notices');
-    Route::get('cs-firms-members/search/{search_value}', [FrontendAjaxController::class, 'cs_firms_member_search'])->name('cs_firms.member_info.search');
-    Route::get('job/search/{search_value}/{category?}', [FrontendAjaxController::class, 'job_search'])->name('job.search');
-    Route::get('members/search/{search_value}/{cat_id}', [FrontendAjaxController::class, 'member_search'])->name('member_info.search');
-    Route::get('corporate-leader/search/{search_value}', [FrontendAjaxController::class, 'corporate_leader'])->name('corporate_leader.search');
-    Route::get('single_page/see_more/{slug}/{offset}', [FrontendAjaxController::class, 'singlePageSeeMore'])->name('single_page.see_more');
-    Route::get('media-data/{id}/{offset}', [FrontendAjaxController::class, 'mediaRooms'])->name('media_rooms');
-    Route::get('cs-firms-data/{offset}', [FrontendAjaxController::class, 'csFirms'])->name('cs_firms_more');
-    Route::get('event-data/{offset}', [FrontendAjaxController::class, 'events'])->name('events_more');
-    Route::get('frontend/members/{id}/{cmId?}', [FrontendAjaxController::class, 'memberInfo'])->name('frontend.m.info');
+// Ajax
+Route::get('home/notice/{cat_id}', [FrontendAjaxController::class, 'noticeHome'])->name('home.notice');
+Route::get('national-award/data/{offset}', [FrontendAjaxController::class, 'awards'])->name('awards');
+Route::get('convocations/data/{offset}', [FrontendAjaxController::class, 'convocations'])->name('convocations');
+Route::get('notice/data/{offset}/{slug?}', [FrontendAjaxController::class, 'notices'])->name('notices');
+Route::get('cs-firms-members/search/{search_value}', [FrontendAjaxController::class, 'cs_firms_member_search'])->name('cs_firms.member_info.search');
+Route::get('job/search/{search_value}/{category?}', [FrontendAjaxController::class, 'job_search'])->name('job.search');
+Route::get('members/search/{search_value}/{cat_id}', [FrontendAjaxController::class, 'member_search'])->name('member_info.search');
+Route::get('corporate-leader/search/{search_value}', [FrontendAjaxController::class, 'corporate_leader'])->name('corporate_leader.search');
+Route::get('single_page/see_more/{slug}/{offset}', [FrontendAjaxController::class, 'singlePageSeeMore'])->name('single_page.see_more');
+Route::get('media-data/{id}/{offset}', [FrontendAjaxController::class, 'mediaRooms'])->name('media_rooms');
+Route::get('cs-firms-data/{offset}', [FrontendAjaxController::class, 'csFirms'])->name('cs_firms_more');
+Route::get('event-data/{offset}', [FrontendAjaxController::class, 'events'])->name('events_more');
+Route::get('frontend/members/{id}/{cmId?}', [FrontendAjaxController::class, 'memberInfo'])->name('frontend.m.info');
 
-    // Single Pages Route
-    Route::get('/page/{frontend_slug}', [FrontendSinglePagesController::class, 'frontend'])->name('sp.frontend');
-    Route::get('/policy/{policy_id}', [FrontendSinglePagesController::class, 'policy'])->name('sp.policy');
+// Single Pages Route
+Route::get('/page/{frontend_slug}', [FrontendSinglePagesController::class, 'frontend'])->name('sp.frontend');
+Route::get('/policy/{policy_id}', [FrontendSinglePagesController::class, 'policy'])->name('sp.policy');
 
-    Route::get('/latest-news/{slug}', [LatestNewsPagesController::class, 'view'])->name('news.view');
+Route::get('/latest-news/{slug}', [LatestNewsPagesController::class, 'view'])->name('news.view');
 
-    Route::group(['as' => 'about.', 'prefix' => 'about'], function () {
-        // Route::get('/icsb-profile', [AboutPagesController::class, 'icsb_profile'])->name('icsb_profile');
-        Route::get('/faq', [AboutPagesController::class, 'faq'])->name('faq');
-        Route::get('/world-wide-cs', [AboutPagesController::class, 'wwcs'])->name('wwcs');
-    });
-    Route::group(['as' => 'council_view.', 'prefix' => 'council'], function () {
-        Route::get('/members/{slug}', [CouncilPagesController::class, 'council_m'])->name('council.members');
-        Route::get('/{slug}/members', [CouncilPagesController::class, 'committee'])->name('committee.members');
-        Route::get('/president', [CouncilPagesController::class, 'president'])->name('president');
-        Route::get('/president/message', [CouncilPagesController::class, 'presidentM'])->name('president.message');
-        Route::get('/past-presidents', [CouncilPagesController::class, 'pastPresidents'])->name('past_presidents');
-        Route::get('/past-president/{slug}', [CouncilPagesController::class, 'singlePP'])->name('single.pp');
-    });
-    Route::group(['as' => 'employee_view.', 'prefix' => 'employee'], function () {
-        Route::get('/secretary-and-ceo', [EmployeePagesController::class, 'sec_and_ceo'])->name('sec_and_ceo');
-        Route::get('/organogram', [EmployeePagesController::class, 'organogram'])->name('organogram');
-        Route::get('/assined-officers', [EmployeePagesController::class, 'assinedOfficer'])->name('assined_officer');
-        // Route::get('/past-secretary-and-ceos', [EmployeePagesController::class, 'past_sec_and_ceos'])->name('past_sec_and_ceos');
-        // Route::get('/past-secretary-and-ceo/{slug}', [EmployeePagesController::class, 'singlePSC'])->name('single.psc');
-    });
-    Route::group(['as' => 'examination.', 'prefix' => 'examination'], function () {
-        Route::get('/exam-faq', [ExaminationPagesController::class, 'exam_faq'])->name('exam_faq');
-        Route::get('/sample-question-papers', [ExaminationPagesController::class, 'sampleQP'])->name('sqp');
-        Route::get('/sample-question-paper/{slug}', [ExaminationPagesController::class, 'sampleQPView'])->name('sqp_view');
-        // Route::get('/exam-schedule', [ExaminationPagesController::class, 'examSchedule'])->name('exam_schedule');
-    });
-    Route::group(['as' => 'publication_view.', 'prefix' => 'publication'], function () {
-        Route::get('/icsb-national-award-souvenir', [PublicationPagesController::class, 'nationalAward'])->name('national_award');
-        Route::get('/icsb-convocation-souvenir', [PublicationPagesController::class, 'convocation'])->name('convocation');
-        // Route::get('/exam-schedule', [ExaminationPagesController::class, 'examSchedule'])->name('exam_schedule');
-    });
-    Route::group(['as' => 'event_view.', 'prefix' => 'event'], function () {
-        Route::get('/all-events', [EventPagesController::class, 'events'])->name('all');
-        Route::get('/view/{slug}', [EventPagesController::class, 'view'])->name('view');
-    });
-    Route::group(['as' => 'media_room_view.', 'prefix' => 'media-room'], function () {
-        Route::get('/all', [MediaRoomPagesController::class, 'mr_all'])->name('all');
-        Route::get('/{slug}', [MediaRoomPagesController::class, 'cat_all'])->name('cat.all');
-        Route::get('/view/{slug}', [MediaRoomPagesController::class, 'view'])->name('view');
-    });
-    Route::group(['as' => 'rules_view.', 'prefix' => 'rules'], function () {
-        Route::get('/secretarial-standards/{slug}', [RulesPagesController::class, 'bss_view'])->name('bss.view');
-        Route::get('act/{slug}', [RulesPagesController::class, 'view_act'])->name('act.view');
-    });
+Route::group(['as' => 'about.', 'prefix' => 'about'], function () {
+    // Route::get('/icsb-profile', [AboutPagesController::class, 'icsb_profile'])->name('icsb_profile');
+    Route::get('/faq', [AboutPagesController::class, 'faq'])->name('faq');
+    Route::get('/world-wide-cs', [AboutPagesController::class, 'wwcs'])->name('wwcs');
+});
+Route::group(['as' => 'council_view.', 'prefix' => 'council'], function () {
+    Route::get('/members/{slug}', [CouncilPagesController::class, 'council_m'])->name('council.members');
+    Route::get('/{slug}/members', [CouncilPagesController::class, 'committee'])->name('committee.members');
+    Route::get('/president', [CouncilPagesController::class, 'president'])->name('president');
+    Route::get('/president/message', [CouncilPagesController::class, 'presidentM'])->name('president.message');
+    Route::get('/past-presidents', [CouncilPagesController::class, 'pastPresidents'])->name('past_presidents');
+    Route::get('/past-president/{slug}', [CouncilPagesController::class, 'singlePP'])->name('single.pp');
+});
+Route::group(['as' => 'employee_view.', 'prefix' => 'employee'], function () {
+    Route::get('/secretary-and-ceo', [EmployeePagesController::class, 'sec_and_ceo'])->name('sec_and_ceo');
+    Route::get('/organogram', [EmployeePagesController::class, 'organogram'])->name('organogram');
+    Route::get('/assined-officers', [EmployeePagesController::class, 'assinedOfficer'])->name('assined_officer');
+    // Route::get('/past-secretary-and-ceos', [EmployeePagesController::class, 'past_sec_and_ceos'])->name('past_sec_and_ceos');
+    // Route::get('/past-secretary-and-ceo/{slug}', [EmployeePagesController::class, 'singlePSC'])->name('single.psc');
+});
+Route::group(['as' => 'examination.', 'prefix' => 'examination'], function () {
+    Route::get('/exam-faq', [ExaminationPagesController::class, 'exam_faq'])->name('exam_faq');
+    Route::get('/sample-question-papers', [ExaminationPagesController::class, 'sampleQP'])->name('sqp');
+    Route::get('/sample-question-paper/{slug}', [ExaminationPagesController::class, 'sampleQPView'])->name('sqp_view');
+    // Route::get('/exam-schedule', [ExaminationPagesController::class, 'examSchedule'])->name('exam_schedule');
+});
+Route::group(['as' => 'publication_view.', 'prefix' => 'publication'], function () {
+    Route::get('/icsb-national-award-souvenir', [PublicationPagesController::class, 'nationalAward'])->name('national_award');
+    Route::get('/icsb-convocation-souvenir', [PublicationPagesController::class, 'convocation'])->name('convocation');
+    // Route::get('/exam-schedule', [ExaminationPagesController::class, 'examSchedule'])->name('exam_schedule');
+});
+Route::group(['as' => 'event_view.', 'prefix' => 'event'], function () {
+    Route::get('/all-events', [EventPagesController::class, 'events'])->name('all');
+    Route::get('/view/{slug}', [EventPagesController::class, 'view'])->name('view');
+});
+Route::group(['as' => 'media_room_view.', 'prefix' => 'media-room'], function () {
+    Route::get('/all', [MediaRoomPagesController::class, 'mr_all'])->name('all');
+    Route::get('/{slug}', [MediaRoomPagesController::class, 'cat_all'])->name('cat.all');
+    Route::get('/view/{slug}', [MediaRoomPagesController::class, 'view'])->name('view');
+});
+Route::group(['as' => 'rules_view.', 'prefix' => 'rules'], function () {
+    Route::get('/secretarial-standards/{slug}', [RulesPagesController::class, 'bss_view'])->name('bss.view');
+    Route::get('act/{slug}', [RulesPagesController::class, 'view_act'])->name('act.view');
+});
 
-    // Route::group(['as' => 'students.', 'prefix' => 'students'], function () {
-    //     Route::get('/world-wide-chartered-secretaries', [StudentsPagesController::class, 'wwcs'])->name('wwcs');
-    // });
-    Route::group(['as' => 'member_view.', 'prefix' => 'jobportal'], function () {
-        Route::get('/', [MembersPagesController::class, 'job_index'])->name('job_index');
-        Route::get('/job-posting', [MembersPagesController::class, 'job_create'])->name('job_create');
-        Route::get('/jobs', [MembersPagesController::class, 'job_placement'])->name('jps');
-        Route::get('/job-details/{id}', [MembersPagesController::class, 'job_details'])->name('job_details');
-        Route::post('job/store', [MembersPagesController::class, 'fj_store'])->name('fjob_store');
-        Route::get('job/edit/{id}', [MembersPagesController::class, 'job_edit'])->name('job_edit');
-        Route::post('job/update/{id}', [MembersPagesController::class, 'fj_update'])->name('fjob_update');
-    });
+// Route::group(['as' => 'students.', 'prefix' => 'students'], function () {
+//     Route::get('/world-wide-chartered-secretaries', [StudentsPagesController::class, 'wwcs'])->name('wwcs');
+// });
+Route::group(['as' => 'member_view.', 'prefix' => 'jobportal'], function () {
+    Route::get('/', [MembersPagesController::class, 'job_index'])->name('job_index');
+    Route::get('/job-posting', [MembersPagesController::class, 'job_create'])->name('job_create');
+    Route::get('/jobs', [MembersPagesController::class, 'job_placement'])->name('jps');
+    Route::get('/job-details/{id}', [MembersPagesController::class, 'job_details'])->name('job_details');
+    Route::post('job/store', [MembersPagesController::class, 'fj_store'])->name('fjob_store');
+    Route::get('job/edit/{id}', [MembersPagesController::class, 'job_edit'])->name('job_edit');
+    Route::post('job/update/{id}', [MembersPagesController::class, 'fj_update'])->name('fjob_update');
+});
 
-    Route::group(['as' => 'member_view.', 'prefix' => 'member'], function () {
-        Route::get('/member-search/{slug}', [MembersPagesController::class, 'memberSearch'])->name('m_search');
-        Route::get('/cs-firms', [MembersPagesController::class, 'cs_firm'])->name('cs_firm');
-        Route::get('/members-lounge', [MembersPagesController::class, 'members_lounge'])->name('members_lounge');
-        Route::get('/corporate-leader/search', [MembersPagesController::class, 'corporate_leader'])->name('corporate_leader');
-    });
+Route::group(['as' => 'member_view.', 'prefix' => 'member'], function () {
+    Route::get('/member-search/{slug}', [MembersPagesController::class, 'memberSearch'])->name('m_search');
+    Route::get('/cs-firms', [MembersPagesController::class, 'cs_firm'])->name('cs_firm');
+    Route::get('/members-lounge', [MembersPagesController::class, 'members_lounge'])->name('members_lounge');
+    Route::get('/corporate-leader/search', [MembersPagesController::class, 'corporate_leader'])->name('corporate_leader');
+});
 
-    Route::group(['as' => 'student_view.', 'prefix' => 'student'], function () {
-        Route::get('/cs-hand-book', [StudentPagesController::class, 'csHandBook'])->name('cs_hand_book');
-        Route::get('/icsb-library', [StudentPagesController::class, 'library'])->name('library');
-    });
+Route::group(['as' => 'student_view.', 'prefix' => 'student'], function () {
+    Route::get('/cs-hand-book', [StudentPagesController::class, 'csHandBook'])->name('cs_hand_book');
+    Route::get('/icsb-library', [StudentPagesController::class, 'library'])->name('library');
+});
 
-    Route::group(['as' => 'notice_view.', 'prefix' => 'notices'], function () {
-        Route::get('/{slug?}', [NoticeBoardPageController::class, 'notice'])->name('notice');
-    });
-    // Route::group(['as' => 'rules_and_regulations.', 'prefix' => 'rulse-&-regulations'], function () {
-    //     Route::get('/the-chartered-secretaries-act-2010', [RulesAndRegulationsPagesController::class, 'tcsa'])->name('tcsa');
-    // });
-    // Route::group(['as' => 'publications.', 'prefix' => 'publications'], function () {
-    //     Route::get('/photo-gallery', [PublicationsPagesController::class, 'photoGallery'])->name('photo_gallery');
-    // });
-    Route::group(['as' => 'contact_us.', 'prefix' => 'contact-us'], function () {
-        Route::get('/feedback', [ContactPagesController::class, 'feedback'])->name('feedback');
-        Route::get('/address', [ContactPagesController::class, 'address'])->name('address');
-        Route::get('/social-platforms', [ContactPagesController::class, 'socialPlatform'])->name('social_platforms');
-        Route::get('/lcoation-map', [ContactPagesController::class, 'locationMap'])->name('location_map');
-        Route::post('/feedback/store', [ContactPagesController::class, 'feedbackStore'])->name('feedback.store');
-    });
+Route::group(['as' => 'notice_view.', 'prefix' => 'notices'], function () {
+    Route::get('/{slug?}', [NoticeBoardPageController::class, 'notice'])->name('notice');
+});
+// Route::group(['as' => 'rules_and_regulations.', 'prefix' => 'rulse-&-regulations'], function () {
+//     Route::get('/the-chartered-secretaries-act-2010', [RulesAndRegulationsPagesController::class, 'tcsa'])->name('tcsa');
+// });
+// Route::group(['as' => 'publications.', 'prefix' => 'publications'], function () {
+//     Route::get('/photo-gallery', [PublicationsPagesController::class, 'photoGallery'])->name('photo_gallery');
+// });
+Route::group(['as' => 'contact_us.', 'prefix' => 'contact-us'], function () {
+    Route::get('/feedback', [ContactPagesController::class, 'feedback'])->name('feedback');
+    Route::get('/address', [ContactPagesController::class, 'address'])->name('address');
+    Route::get('/social-platforms', [ContactPagesController::class, 'socialPlatform'])->name('social_platforms');
+    Route::get('/application-platforms', [ContactPagesController::class, 'appPlatform'])->name('app_platforms');
+    Route::get('/lcoation-map', [ContactPagesController::class, 'locationMap'])->name('location_map');
+    Route::post('/feedback/store', [ContactPagesController::class, 'feedbackStore'])->name('feedback.store');
+});
     // Route::group(['as' => 'article.', 'prefix' => 'article'], function () {
     //     Route::get('/single', [ArticlesController::class, 'single'])->name('single');
     // });
-
-

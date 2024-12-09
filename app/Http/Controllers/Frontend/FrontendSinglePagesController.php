@@ -25,11 +25,12 @@ use Illuminate\Support\Facades\Storage;
 
 class FrontendSinglePagesController extends Controller
 {
-    public function __construct() {
+    public function __construct()
+    {
         $contact = Contact::where('deleted_at', null)->first();
-        $memberTypes = MemberType::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
+        $memberTypes = MemberType::where('deleted_at', null)->where('status', 1)->orderBy('order_key', 'ASC')->get();
         $committeeTypes = CommitteeType::with('committees')->where('deleted_at', null)->where('status', 1)->get();
-        $mediaRoomCategory = MediaRoomCategory::with('media_rooms')->where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
+        $mediaRoomCategory = MediaRoomCategory::with('media_rooms')->where('deleted_at', null)->where('status', 1)->orderBy('order_key', 'ASC')->get();
         $bsss = SecretarialStandard::where('deleted_at', null)->where('status', 1)->get();
         $memberPortal = SinglePages::where('frontend_slug', 'member-portal')->first();
         $studentPortal = SinglePages::where('frontend_slug', 'student-portal')->first();
@@ -40,8 +41,8 @@ class FrontendSinglePagesController extends Controller
         $facultyEvaluationSystem = SinglePages::where('frontend_slug', 'faculty-evaluation-system')->first();
         $publicationOthers = SinglePages::where('frontend_slug', 'others')->first();
         $policies = SinglePages::where('frontend_slug', 'policy')->first();
-        $menu_acts = Act::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
-        $councils = Council::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
+        $menu_acts = Act::where('deleted_at', null)->where('status', 1)->orderBy('order_key', 'ASC')->get();
+        $councils = Council::where('deleted_at', null)->where('status', 1)->orderBy('order_key', 'ASC')->get();
         $totalVisitors = 50000 + Visitor::count();
         $todayVisitors = Visitor::whereDate('created_at', Carbon::today())->count();
         view()->share([
@@ -69,72 +70,75 @@ class FrontendSinglePagesController extends Controller
     {
 
         $s['single_page'] = SinglePages::where('frontend_slug', $fs)->firstOrFail();
-        switch($s['single_page']){
-            case($s['single_page']->frontend_slug == 'icsb-profile'):
+        switch ($s['single_page']) {
+            case ($s['single_page']->frontend_slug == 'icsb-profile'):
                 // $s['wwcss'] = WWCS::where('status',1)->where('deleted_at', null)->latest()->get();
                 // $s['home_bsss'] = SecretarialStandard::where('deleted_at', null)->where('is_featured','1')->where('status', 1)->get();
-                return view('frontend.about.icsb_profile',$s);
+                return view('frontend.about.icsb_profile', $s);
                 break;
-            case($s['single_page']->frontend_slug == 'vision'):
-                return view('frontend.about.vision',$s);
+            case ($s['single_page']->frontend_slug == 'vision'):
+                return view('frontend.about.vision', $s);
                 break;
-            case($s['single_page']->frontend_slug == 'mission'):
-                return view('frontend.about.mission',$s);
+            case ($s['single_page']->frontend_slug == 'mission'):
+                return view('frontend.about.mission', $s);
                 break;
-            case($s['single_page']->frontend_slug == 'objectives'):
-                return view('frontend.about.objectives',$s);
+            case ($s['single_page']->frontend_slug == 'objectives'):
+                return view('frontend.about.objectives', $s);
                 break;
-            case($s['single_page']->frontend_slug == 'values'):
-                return view('frontend.about.values',$s);
+            case ($s['single_page']->frontend_slug == 'values'):
+                return view('frontend.about.values', $s);
                 break;
-            case($s['single_page']->frontend_slug == 'cpd-program'):
-                return view('frontend.members.cpd_program',$s);
+            case ($s['single_page']->frontend_slug == 'cpd-program'):
+                return view('frontend.members.cpd_program', $s);
                 break;
-            case($s['single_page']->frontend_slug == 'training-program'):
-                return view('frontend.members.training_program',$s);
+            case ($s['single_page']->frontend_slug == 'training-program'):
+                return view('frontend.members.training_program', $s);
                 break;
-            case($s['single_page']->frontend_slug == 'help-desk'):
-                return view('frontend.employee.help_desk',$s);
+            case ($s['single_page']->frontend_slug == 'help-desk'):
+                return view('frontend.employee.help_desk', $s);
                 break;
-            case($s['single_page']->frontend_slug == 'the-chartered-secretary'):
-                return view('frontend.publication.the_cs',$s);
+            case ($s['single_page']->frontend_slug == 'the-chartered-secretary'):
+                return view('frontend.publication.the_cs', $s);
                 break;
-            case($s['single_page']->frontend_slug == 'policy'):
-                return view('frontend.student.admission.policy',$s);
+            case ($s['single_page']->frontend_slug == 'policy'):
+                return view('frontend.student.admission.policy', $s);
                 break;
-            case($s['single_page']->frontend_slug == 'admission-form'):
-                return view('frontend.student.admission.admission_forms',$s);
+            case ($s['single_page']->frontend_slug == 'admission-form'):
+                return view('frontend.student.admission.admission_forms', $s);
                 break;
-            case($s['single_page']->frontend_slug == 'entry-criteria'):
-                return view('frontend.student.admission.entry_criteria',$s);
+            case ($s['single_page']->frontend_slug == 'entry-criteria'):
+                return view('frontend.student.admission.entry_criteria', $s);
                 break;
-            case(
+            case (
                 $s['single_page']->frontend_slug == 'annual-report' ||
                 $s['single_page']->frontend_slug == 'other-publications'
-                ):
-                return view('frontend.publication.annual_report',$s);
+            ):
+                return view('frontend.publication.annual_report', $s);
                 break;
-            case($s['single_page']->frontend_slug == 'eligibility'):
-                return view('frontend.examination.eligibility',$s);
+            case ($s['single_page']->frontend_slug == 'eligibility'):
+                return view('frontend.examination.eligibility', $s);
                 break;
-            case($s['single_page']->frontend_slug == 'exam-schedule'):
-                return view('frontend.examination.exam_schedule',$s);
+            case ($s['single_page']->frontend_slug == 'exam-schedule'):
+                return view('frontend.examination.exam_schedule', $s);
                 break;
-            case($s['single_page']->frontend_slug == 'members-lounge'):
-                return view('frontend.members.member_lounge',$s);
+            case ($s['single_page']->frontend_slug == 'members-lounge'):
+                return view('frontend.members.member_lounge', $s);
                 break;
-            case($s['single_page']->frontend_slug == 'icsb-library'):
-                return view('frontend.student.icsb_library',$s);
+            case ($s['single_page']->frontend_slug == 'icsb-library'):
+                return view('frontend.student.icsb_library', $s);
                 break;
-            case($s['single_page']->frontend_slug == 'fees-&-costs'):
-                return view('frontend.student.admission.fees',$s);
+            case ($s['single_page']->frontend_slug == 'fees-&-costs'):
+                return view('frontend.student.admission.fees', $s);
                 break;
-            case(
+            case ($s['single_page']->frontend_slug == 'app-privacy-policy'):
+                return view('frontend.contact.app_privacy_policy', $s);
+                break;
+            case (
                 $s['single_page']->frontend_slug == 'foundation-complete' ||
                 $s['single_page']->frontend_slug == 'subject-complete' ||
                 $s['single_page']->frontend_slug == 'final-complete'
-                ):
-                return view('frontend.examination.result',$s);
+            ):
+                return view('frontend.examination.result', $s);
                 break;
             default:
                 return view('frontend.global', $s);
@@ -158,7 +162,8 @@ class FrontendSinglePagesController extends Controller
     //     }
     // }
 
-    public function view_or_download($file_url){
+    public function view_or_download($file_url)
+    {
         $file_url = base64_decode($file_url);
         if (Storage::exists('public/' . $file_url)) {
             $fileExtension = pathinfo($file_url, PATHINFO_EXTENSION);

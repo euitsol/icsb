@@ -24,11 +24,12 @@ use App\Http\Traits\SendMailTrait;
 class ContactPagesController extends Controller
 {
     use SendMailTrait;
-    public function __construct() {
+    public function __construct()
+    {
         $contact = Contact::where('deleted_at', null)->first();
-        $memberTypes = MemberType::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
+        $memberTypes = MemberType::where('deleted_at', null)->where('status', 1)->orderBy('order_key', 'ASC')->get();
         $committeeTypes = CommitteeType::with('committees')->where('deleted_at', null)->where('status', 1)->get();
-        $mediaRoomCategory = MediaRoomCategory::with('media_rooms')->where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
+        $mediaRoomCategory = MediaRoomCategory::with('media_rooms')->where('deleted_at', null)->where('status', 1)->orderBy('order_key', 'ASC')->get();
         $bsss = SecretarialStandard::where('deleted_at', null)->where('status', 1)->get();
         $memberPortal = SinglePages::where('frontend_slug', 'member-portal')->first();
         $studentPortal = SinglePages::where('frontend_slug', 'student-portal')->first();
@@ -39,8 +40,8 @@ class ContactPagesController extends Controller
         $facultyEvaluationSystem = SinglePages::where('frontend_slug', 'faculty-evaluation-system')->first();
         $publicationOthers = SinglePages::where('frontend_slug', 'others')->first();
         $policies = SinglePages::where('frontend_slug', 'policy')->first();
-        $menu_acts = Act::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
-        $councils = Council::where('deleted_at', null)->where('status', 1)->orderBy('order_key','ASC')->get();
+        $menu_acts = Act::where('deleted_at', null)->where('status', 1)->orderBy('order_key', 'ASC')->get();
+        $councils = Council::where('deleted_at', null)->where('status', 1)->orderBy('order_key', 'ASC')->get();
         $totalVisitors = 50000 + Visitor::count();
         $todayVisitors = Visitor::whereDate('created_at', Carbon::today())->count();
         view()->share([
@@ -68,23 +69,23 @@ class ContactPagesController extends Controller
     {
         $contact = Contact::where('deleted_at', null)->first();
         $s['contact_numbers'] = collect(json_decode($contact->phone ?? ''))->groupBy('type');
-        return view('frontend.contact.feedback',$s);
+        return view('frontend.contact.feedback', $s);
     }
     public function address(): View
     {
         $contact = Contact::where('deleted_at', null)->first();
         $s['contact_numbers'] = collect(json_decode($contact->phone ?? ''))->groupBy('type');
-        return view('frontend.contact.address',$s);
+        return view('frontend.contact.address', $s);
     }
     public function socialPlatform(): View
     {
         $s['contact'] = Contact::where('deleted_at', null)->first();
-        return view('frontend.contact.social_platforms',$s);
+        return view('frontend.contact.social_platforms', $s);
     }
     public function locationMap(): View
     {
         $s['contact'] = Contact::where('deleted_at', null)->first();
-        return view('frontend.contact.map',$s);
+        return view('frontend.contact.map', $s);
     }
     public function feedbackStore(FeedbackRequest $req): RedirectResponse
     {
@@ -97,14 +98,19 @@ class ContactPagesController extends Controller
         $feedback->save();
         $subject = "New feedback submitted: $feedback->subject";
         $mail =
-        "
+            "
         <p>Sent From: $feedback->email</p> <br>
         <p>Name: $feedback->name</p> <br>
         <p>Phone: $feedback->phone</p> <br>
         <p>Feedback: $feedback->message</p> <br>
         ";
         $to = "itofficer@icsb.edu.bd";
-        $this->send_custom_email($mail,$subject, $to);
+        $this->send_custom_email($mail, $subject, $to);
         return redirect()->route('contact_us.feedback')->withStatus(__('Thank you for your feedback, we will get back to you as soon as possible.'));
+    }
+
+    public function appPlatform(): View
+    {
+        return view('frontend.contact.app_platforms');
     }
 }
