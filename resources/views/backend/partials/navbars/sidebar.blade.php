@@ -980,15 +980,15 @@
 
             {{-- Contact Us --}}
             <li>
-                <a class="@if ($pageSlug == 'contact' || $pageSlug == 'app-privacy-policy') @else collapsed @endif" data-toggle="collapse"
+                <a class="@if ($pageSlug == 'contact' || $pageSlug == 'app-privacy-policy' || $pageSlug == 'app-download-url') @else collapsed @endif" data-toggle="collapse"
                     href="#contact"
-                    @if ($pageSlug == 'contact' || $pageSlug == 'app-privacy-policy') aria-expanded="true" @else aria-expanded="false" @endif>
+                    @if ($pageSlug == 'contact' || $pageSlug == 'app-privacy-policy' || $pageSlug == 'app-download-url') aria-expanded="true" @else aria-expanded="false" @endif>
                     <i class="fa-solid fa-tty"></i>
                     <span class="nav-link-text">{{ __('Contact') }}</span>
                     <b class="caret mt-1"></b>
                 </a>
 
-                <div class="collapse @if ($pageSlug == 'contact' || $pageSlug == 'app-privacy-policy') show @endif" id="contact">
+                <div class="collapse @if ($pageSlug == 'contact' || $pageSlug == 'app-privacy-policy' || $pageSlug == 'app-download-url') show @endif" id="contact">
                     <ul class="nav pl-2">
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
@@ -996,6 +996,12 @@
                                     'pageSlug' => 'contact',
                                     'routeName' => 'contact.contact_create',
                                     'label' => 'Contact Us',
+                                ],
+                                [
+                                    'pageSlug' => 'app-download-url',
+                                    'routeName' => 'sp.show',
+                                    'params' => 'app-download-url',
+                                    'label' => 'APP Download URL',
                                 ],
                                 [
                                     'pageSlug' => 'app-privacy-policy',

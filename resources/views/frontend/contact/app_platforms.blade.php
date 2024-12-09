@@ -45,7 +45,8 @@
                 </div>
                 <div class="col-sm-6 col-md-4 gy-5 wrap">
                     <div class="card text-center">
-                        <a href="">
+                        <a href="{{ isset(json_decode($download_url->saved_data)->{"apk-download-url"}) ? json_decode($download_url->saved_data)->{"apk-download-url"} : 'javascript:void(0)' }}"
+                            @if (isset(json_decode($download_url->saved_data)->{"apk-download-url"})) target="_blank" @else onClick="alert('Coming soon');" @endif>
                             <div class="card-header">
                                 <span class="icon"><i class="fa-brands fa-google-play"></i></span>
 
@@ -59,7 +60,8 @@
                 </div>
                 <div class="col-sm-6 col-md-4 gy-5 wrap">
                     <div class="card text-center">
-                        <a href="javascript:void(0)" onclick="alert('coming soon')">
+                        <a href="{{ isset(json_decode($download_url->saved_data)->{"ios-download-url"}) ? json_decode($download_url->saved_data)->{"ios-download-url"} : 'javascript:void(0)' }}"
+                            @if (isset(json_decode($download_url->saved_data)->{"ios-download-url"})) target="_blank" @else onClick="alert('Coming soon');" @endif>
                             <div class="card-header">
                                 <span class="icon"><i class="fa-brands fa-apple"></i></span>
 

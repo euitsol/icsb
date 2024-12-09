@@ -111,6 +111,7 @@ class ContactPagesController extends Controller
 
     public function appPlatform(): View
     {
-        return view('frontend.contact.app_platforms');
+        $s['download_url'] = SinglePages::where('frontend_slug', 'app-download-url')->first();
+        return view('frontend.contact.app_platforms', $s);
     }
 }
