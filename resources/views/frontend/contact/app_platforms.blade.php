@@ -53,7 +53,7 @@
 
                             </div>
                             <div class="card-body title">
-                                <span>{{ __('APK') }}</span>
+                                <span>{{ __('Android (APK)') }}</span>
                             </div>
                         </a>
                     </div>
@@ -68,7 +68,7 @@
 
                             </div>
                             <div class="card-body title">
-                                <span>{{ __('iOS') }}</span>
+                                <span>{{ __('Apple (iOS)') }}</span>
                             </div>
                         </a>
                     </div>
