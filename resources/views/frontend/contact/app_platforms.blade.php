@@ -17,7 +17,7 @@
         }
 
         .privacy-policy:hover {
-            color: #102694;
+            color: red;
         }
     </style>
 @endpush
@@ -75,7 +75,7 @@
                 </div>
 
             </div>
-            <div class="row justify-content-center">
+            <div class="row justify-content-center mt-4">
                 <div class="col-sm-6 col-md-4 gy-5 wrap text-center">
                     <a href="{{ route('sp.frontend', 'app-privacy-policy') }}" class="privacy-policy">
                         <h2>{{ __('APP Privacy Policy') }}</h2>
