@@ -1,6 +1,6 @@
-@extends('backend.layouts.master', ['pageSlug' => 'assined_officer'])
+@extends('backend.layouts.master', ['pageSlug' => 'branch'])
 
-@section('title', 'Assigned Officer')
+@section('title', 'ICSB Branches')
 
 @section('content')
     <div class="row">
@@ -9,13 +9,13 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-8">
-                            <h4 class="card-title">{{ _('Assigned Officer') }}</h4>
+                            <h4 class="card-title">{{ _('ICSB Branches') }}</h4>
                         </div>
                         <div class="col-4 text-right">
                             @include('backend.partials.button', [
-                                'routeName' => 'assined_officer.assined_officer_create',
+                                'routeName' => 'branch.branch_create',
                                 'className' => 'btn-primary',
-                                'label' => 'Add Assigned Officer',
+                                'label' => 'Add Branch',
                             ])
                         </div>
                     </div>
@@ -28,11 +28,9 @@
                                 <tr>
                                     <th>{{ _('Order') }}</th>
                                     <th>{{ _('Name') }}</th>
-                                    <th>{{ _('Image') }}</th>
-                                    <th>{{ _('Designation') }}</th>
-                                    <th>{{ _('Branch') }}</th>
                                     <th>{{ _('Phone') }}</th>
                                     <th>{{ _('Email') }}</th>
+                                    <th>{{ _('Address') }}</th>
                                     <th>{{ _('Status') }}</th>
                                     <th>{{ _('Creation date') }}</th>
                                     <th>{{ _('Created by') }}</th>
@@ -40,46 +38,40 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($assined_officers as $asf)
+                                @foreach ($branches as $branch)
                                     <tr>
-                                        <td> {{ $asf->order_key }} </td>
-                                        <td> {{ $asf->name }} </td>
-                                        <td><img class="rounded" width="60"
-                                                src="@if ($asf->image) {{ storage_url($asf->image) }} @else {{ asset('no_img/no_img.jpg') }} @endif"
-                                                alt="{{ $asf->name }}">
-                                        </td>
-                                        <td> {{ $asf->designation }} </td>
-                                        <td> {{ optional($asf->branch)->name }} </td>
-                                        <td> {{ $asf->phone }} </td>
-                                        <td> {{ $asf->email }} </td>
+                                        <td> {{ $branch->order_key }} </td>
+                                        <td> {{ $branch->name }} </td>
+                                        <td> {{ $branch->phone ?? 'NULL' }} </td>
+                                        <td> {{ $branch->email ?? 'NULL' }} </td>
+                                        <td> {!! $branch->address ? stringLimit($branch->address) : 'NULL' !!} </td>
                                         <td>
                                             @include('backend.partials.button', [
-                                                'routeName' => 'assined_officer.status.assined_officer_edit',
-                                                'params' => [$asf->id],
-                                                'className' => $asf->getStatusClass(),
-                                                'label' => $asf->getStatus(),
+                                                'routeName' => 'branch.status.branch_edit',
+                                                'params' => [$branch->id],
+                                                'className' => $branch->getStatusClass(),
+                                                'label' => $branch->getStatus(),
                                             ])
                                         </td>
-                                        <td> {{ timeFormate($asf->created_at) }} </td>
-                                        <td> {{ $asf->created_user->name ?? 'system' }} </td>
+                                        <td> {{ timeFormate($branch->created_at) }} </td>
+                                        <td> {{ $branch->created_user->name ?? 'system' }} </td>
                                         <td>
                                             @include('backend.partials.action_buttons', [
                                                 'menuItems' => [
                                                     ['routeName' => '', 'label' => 'View'],
                                                     [
-                                                        'routeName' =>
-                                                            'assined_officer.status.assined_officer_edit',
-                                                        'params' => [$asf->id],
+                                                        'routeName' => 'branch.status.branch_edit',
+                                                        'params' => [$branch->id],
                                                         'label' => 'Change Status',
                                                     ],
                                                     [
-                                                        'routeName' => 'assined_officer.assined_officer_edit',
-                                                        'params' => [$asf->id],
+                                                        'routeName' => 'branch.branch_edit',
+                                                        'params' => [$branch->id],
                                                         'label' => 'Update',
                                                     ],
                                                     [
-                                                        'routeName' => 'assined_officer.assined_officer_delete',
-                                                        'params' => [$asf->id],
+                                                        'routeName' => 'branch.branch_delete',
+                                                        'params' => [$branch->id],
                                                         'label' => 'Delete',
                                                         'delete' => true,
                                                     ],
@@ -97,4 +89,4 @@
     </div>
 @endsection
 
-@include('backend.partials.datatable', ['columns_to_show' => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]])
+@include('backend.partials.datatable', ['columns_to_show' => [0, 1, 2, 3, 4, 5, 6, 7]])

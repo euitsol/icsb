@@ -19,10 +19,11 @@ class AssinedOfficerRequest extends FormRequest
             'name' => 'required',
             'designation' => 'required',
             'status' => 'nullable|boolean',
+            'branch_id' => 'required|exists:icsb_branches,id',
 
         ]
-        +
-        ($this->isMethod('POST') ? $this->store() : $this->update());
+            +
+            ($this->isMethod('POST') ? $this->store() : $this->update());
     }
 
     protected function store(): array
