@@ -702,7 +702,7 @@
 </div>
 <div class="stiky-logo-right">
 <a href="{{ route('home') }}">
-    <img src="{{ asset('frontend/img/stiky-logo-right.png') }}" alt="{{ _('ICSB Logo') }}">
+    <img src="{{ asset('frontend/img/bd-govt-logo.png') }}" alt="{{ _('ICSB Logo') }}">
 </a>
 </div>
 </div>
