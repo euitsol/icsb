@@ -11,4 +11,9 @@ class AssinedOfficer extends BaseModel
     use HasFactory;
 
     public $guarded = [];
+
+    public function branch()
+    {
+        return $this->belongsTo(IcsbBranch::class);
+    }
 }

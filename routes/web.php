@@ -28,6 +28,7 @@ use App\Http\Controllers\Backend\CouncilController;
 use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\Backend\CsFirmsController;
 use App\Http\Controllers\Backend\ExamFaqController;
+use App\Http\Controllers\Backend\IcsbBranchController;
 use App\Http\Controllers\Backend\JobPlacementController;
 use App\Http\Controllers\Backend\MediaRoomController;
 use App\Http\Controllers\Backend\LatestNewsController;
@@ -218,6 +219,16 @@ Route::group(['middleware' => ['auth', 'permission']], function () {
         Route::put('edit/{id}',      [PopUpController::class, 'update'])->name('pop_up_edit');
         Route::get('status/{id}',      [PopUpController::class, 'status'])->name('status.pop_up_edit');
         Route::get('delete/{id}', [PopUpController::class, 'delete'])->name('pop_up_delete');
+    });
+    // ICSB Branch Routes
+    Route::group(['as' => 'branch.', 'prefix' => 'icsb-branch'], function () {
+        Route::get('index', [IcsbBranchController::class, 'index'])->name('branch_list');
+        Route::get('create', [IcsbBranchController::class, 'create'])->name('branch_create');
+        Route::post('create', [IcsbBranchController::class, 'store'])->name('branch_create');
+        Route::get('edit/{id}',      [IcsbBranchController::class, 'edit'])->name('branch_edit');
+        Route::put('edit/{id}',      [IcsbBranchController::class, 'update'])->name('branch_edit');
+        Route::get('status/{id}',      [IcsbBranchController::class, 'status'])->name('status.branch_edit');
+        Route::get('delete/{id}', [IcsbBranchController::class, 'delete'])->name('branch_delete');
     });
 
     // Assined Officer Routes

@@ -160,7 +160,7 @@
                                     'routeName' => 'recent_video.recent_video_list',
                                     'label' => 'Recent Video',
                                 ],
-                        
+
                                 [
                                     'pageSlug' => 'student-login',
                                     'routeName' => 'sp.show',
@@ -726,18 +726,23 @@
 
             {{-- Employees --}}
             <li>
-                <a class="@if ($pageSlug == 'sec_and_ceo' || $pageSlug == 'assined_officer' || $pageSlug == 'help-desk') @else collapsed @endif" data-toggle="collapse"
+                <a class="@if ($pageSlug == 'sec_and_ceo' || $pageSlug == 'branch' || $pageSlug == 'assined_officer' || $pageSlug == 'help-desk') @else collapsed @endif" data-toggle="collapse"
                     href="#employees"
-                    @if ($pageSlug == 'sec_and_ceo' || $pageSlug == 'assined_officer' || $pageSlug == 'help-desk') aria-expanded="true" @else aria-expanded="false" @endif">
+                    @if ($pageSlug == 'sec_and_ceo' || $pageSlug == 'branch' || $pageSlug == 'assined_officer' || $pageSlug == 'help-desk') aria-expanded="true" @else aria-expanded="false" @endif">
                     <i class="fa-solid fa-people-roof"></i>
                     <span class="nav-link-text">{{ __('Employees') }}</span>
                     <b class="caret mt-1"></b>
                 </a>
 
-                <div class="collapse @if ($pageSlug == 'sec_and_ceo' || $pageSlug == 'assined_officer' || $pageSlug == 'help-desk') show @endif" id="employees">
+                <div class="collapse @if ($pageSlug == 'sec_and_ceo' || $pageSlug == 'branch' || $pageSlug == 'assined_officer' || $pageSlug == 'help-desk') show @endif" id="employees">
                     <ul class="nav pl-2">
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
+                                [
+                                    'pageSlug' => 'branch',
+                                    'routeName' => 'branch.branch_list',
+                                    'label' => 'Branches',
+                                ],
                                 [
                                     'pageSlug' => 'sec_and_ceo',
                                     'routeName' => 'sec_and_ceo.sc_list',

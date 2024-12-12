@@ -2676,10 +2676,16 @@ li {
     padding: 100px 0;
 }
 
-.officers-section table {
-    width: 100%;
+.officers-section .officers_table {
     max-width: 1150px;
     margin: 0 auto;
+    margin-bottom: 50px;
+}
+.officers-section .officers_table:last-child {
+    margin-bottom: 0;
+}
+.officers-section .officers_table table {
+    width: 100%;
 }
 
 .officers-section table,
