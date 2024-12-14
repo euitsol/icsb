@@ -21,6 +21,7 @@ class AssinedOfficerController extends Controller
     }
     public function index(): View
     {
+        $n['branches'] = IcsbBranch::where('deleted_at', null)->orderBy('order_key', 'ASC')->get();
         $n['assined_officers'] = AssinedOfficer::where('deleted_at', null)->orderBy('order_key', 'ASC')->get();
         return view('backend.employee_pages.assined_officers.index', $n);
     }
