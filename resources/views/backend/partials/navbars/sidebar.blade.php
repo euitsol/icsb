@@ -160,7 +160,7 @@
                                     'routeName' => 'recent_video.recent_video_list',
                                     'label' => 'Recent Video',
                                 ],
-
+                        
                                 [
                                     'pageSlug' => 'student-login',
                                     'routeName' => 'sp.show',
@@ -738,11 +738,11 @@
                     <ul class="nav pl-2">
                         @include('backend.partials.menu_buttons', [
                             'menuItems' => [
-                                [
-                                    'pageSlug' => 'branch',
-                                    'routeName' => 'branch.branch_list',
-                                    'label' => 'Branches',
-                                ],
+                                // [
+                                //     'pageSlug' => 'branch',
+                                //     'routeName' => 'branch.branch_list',
+                                //     'label' => 'Branches',
+                                // ],
                                 [
                                     'pageSlug' => 'sec_and_ceo',
                                     'routeName' => 'sec_and_ceo.sc_list',
