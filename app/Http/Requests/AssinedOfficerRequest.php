@@ -29,9 +29,9 @@ class AssinedOfficerRequest extends FormRequest
     protected function store(): array
     {
         return [
-            'email' => 'required|unique:assined_officers,email,NULL,id,deleted_at,NULL',
-            'phone' => 'required|unique:assined_officers,phone,NULL,id,deleted_at,NULL',
-            'order_key' => 'required|unique:assined_officers,order_key,NULL,id,deleted_at,NULL',
+            'email' => 'required|unique:assined_officers,email',
+            'phone' => 'required|unique:assined_officers,phone',
+            'order_key' => 'required|unique:assined_officers,order_key',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:max_width=400,max_height=450,min_width=400,min_height=450',
         ];
     }
@@ -39,9 +39,9 @@ class AssinedOfficerRequest extends FormRequest
     protected function update(): array
     {
         return [
-            'email' => 'required|unique:assined_officers,email,' . $this->route('id') . ',id,deleted_at,NULL',
-            'phone' => 'required|unique:assined_officers,phone,' . $this->route('id') . ',id,deleted_at,NULL',
-            'order_key' => 'required|unique:assined_officers,order_key,' . $this->route('id') . ',id,deleted_at,NULL',
+            'email' => 'required|unique:assined_officers,email,' . $this->route('id'),
+            'phone' => 'required|unique:assined_officers,phone,' . $this->route('id'),
+            'order_key' => 'required|unique:assined_officers,order_key,' . $this->route('id'),
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:max_width=400,max_height=450,min_width=400,min_height=450',
         ];
     }
