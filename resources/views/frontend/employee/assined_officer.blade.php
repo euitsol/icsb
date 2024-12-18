@@ -32,7 +32,7 @@
                             <th>{{ _('Name and Designation') }}</th>
                             <th>{{ _('Contact Details') }}</th>
                         </tr>
-                        @forelse ($branch->officers as $key=>$officer)
+                        @foreach ($branch->officers as $key => $officer)
                             <tr>
                                 <td>{{ $officer->order_key }}</td>
                                 <td>
@@ -52,9 +52,7 @@
                                     </p>
                                 </td>
                             </tr>
-                        @empty
-                            <h3 class="my-5 text-center w-100">{{ _('Officers Not Found') }}</h3>
-                        @endforelse
+                        @endforeach
 
                     </table>
                 </div>
