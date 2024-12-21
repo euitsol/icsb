@@ -36,8 +36,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>
-                                    <img src="{{ $officer->image ? storage_url($officer->image) : asset('no_img/no_img.jpg') }}"
-                                        alt="{{ $officer->name }}">
+                                    <img src="{{ asset('no_img/no_img.jpg') }}" alt="{{ $officer->name }}">
                                 </td>
                                 <td>
                                     <p>{{ $officer->name }}</p>
