@@ -82,7 +82,7 @@
                             result = `
                         <div class="col-md-6 the_cs mb-5 mx-auto">
                             <div class="new-handbook text-align">
-                                    <iframe src ="${pdfLink}" width="100%" height="400px"></iframe>
+                                    <iframe src ="${pdfLink}" width="100%" height="500px"></iframe>
                                     <a class="d-block cursor-pointer" target="_blank" href="${routeFileDownload}"><h3 > ${fileName}</h3></a>
                             </div>
                         </div>
