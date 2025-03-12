@@ -28,7 +28,7 @@
                     @php
                         $files = array_reverse((array) json_decode($single_page->saved_data)->{'upload-files'});
                     @endphp
-                    @foreach (array_slice($files, -4) as $file)
+                    @foreach (array_slice($files, 0, 4) as $file)
                         <div class="col-md-6 the_cs mb-5 mx-auto">
                             <div class="new-handbook text-align">
                                 <iframe src ="{{ pdf_storage_url($file) }}" width="100%" height="500px"></iframe>
@@ -39,7 +39,6 @@
                             </div>
                         </div>
                     @endforeach
-
                 </div>
                 @if (count($files) > 4)
                     <div class="see-button text-align">
