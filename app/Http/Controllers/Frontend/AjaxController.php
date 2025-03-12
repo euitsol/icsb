@@ -99,8 +99,8 @@ class AjaxController extends Controller
             if (isset($savedData->{'upload-files'})) {
                 $files = (array) $savedData->{'upload-files'};
                 $offset = intval($offset);
-                $files = array_slice($files, $offset, $limit);
                 $files = array_reverse((array) $files);
+                $files = array_slice($files, $offset, $limit);
 
 
                 return response()->json(['files' => $files]);
