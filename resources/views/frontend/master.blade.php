@@ -50,6 +50,15 @@
 </head>
 
 <body>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FD5DQSS4F3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-FD5DQSS4F3');
+    </script>
     <script async src="https://cse.google.com/cse.js?cx=6144a5b7243fb4fdc"></script>
     <a href="javascript:void(0)" class="scroll_top"><i class="fa-solid fa-circle-up fa-bounce"></i></i></a>
     @include('frontend.includes.header.header')
