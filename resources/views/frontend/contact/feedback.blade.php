@@ -38,8 +38,6 @@ $datas = [
                         @include('alerts.feedback', ['field' => 'subject'])
                         <textarea name="message" placeholder="Your Message Here:"></textarea>
                         @include('alerts.feedback', ['field' => 'message'])
-                        <!-- <div class="g-recaptcha" data-sitekey="6Lfk7gkkAAAAAP3zBcc1gT8AeJVEI-l0lXeCpk7H"></div> -->
-                        <!-- <button class="g-recaptcha" data-sitekey="reCAPTCHA_site_key" data-callback='onSubmit'data-action='submit'>Submit</button> -->
                         <input class="submit-button" type="submit" name="submit" value="SEND" class="g-recaptcha" data-sitekey="reCAPTCHA_site_key" data-callback='onSubmit'data-action='submit'>
                     </form>
                 </div>
