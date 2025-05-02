@@ -102,8 +102,6 @@ class Controller extends BaseController
     public function sendSmsSingle($mobile,$text)
     {
         $url = "https://portal.adnsms.com/api/v1/secure/send-sms";
-        // $apiKey = "KEY-e9w3aqcxuwfeep965rjcpke7hxnro69o";
-        // $apiSecret = "ZiJqHMBg56ZpALR3";
         $apiKey = env("ADN_SMS_KEY");
         $apiSecret = env("ADN_SMS_SECRET");
 
