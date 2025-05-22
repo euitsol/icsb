@@ -208,7 +208,11 @@
 
 
                                         <div class="text-center">
-                                            <a class="btn btn-success" href="{{ $job->application_url ? $job->application_url : 'mailto:'.$job->email }}" target="_blank">{{__('Apply Now')}}</a>
+                                            @if($job->application_url)
+                                                <a class="btn btn-success" href="{{ $job->application_url }}" target="_blank">{{__('Apply Now')}}</a>
+                                            @elseif($job->email)
+                                                <p class="bg-success p-2">{{__('Send mail to: '.$job->email)}}</p>
+                                            @else
                                         </div>
                                         <div class="gra-padded gra-bordered"></div>
                                         <div>
