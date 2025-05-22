@@ -211,7 +211,7 @@
                                             @if(isset($job->application_url) && !empty($job->application_url))
                                                 <a class="btn btn-success" href="{{ $job->application_url }}" target="_blank">{{__('Apply Now')}}</a>
                                             @elseif(isset($job->email) && !empty($job->email))
-                                                <p class="bg-success p-2">{{__('Send mail to: ') . $job->email}}</p>
+                                                <p class="bg-success p-2 text-white">{{__('Send mail to: ') . $job->email}}</p>
                                             @endif
                                         </div>
                                         <div class="gra-padded gra-bordered"></div>
