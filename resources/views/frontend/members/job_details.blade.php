@@ -208,10 +208,10 @@
 
 
                                         <div class="text-center">
-                                            @if($job->application_url)
+                                            @if(isset($job->application_url) && !empty($job->application_url))
                                                 <a class="btn btn-success" href="{{ $job->application_url }}" target="_blank">{{__('Apply Now')}}</a>
-                                            @elseif($job->email)
-                                                <p class="bg-success p-2">{{__('Send mail to: '.$job->email)}}</p>
+                                            @elseif(isset($job->email) && !empty($job->email))
+                                                <p class="bg-success p-2">{{__('Send mail to: ') . $job->email}}</p>
                                             @else
                                         </div>
                                         <div class="gra-padded gra-bordered"></div>
