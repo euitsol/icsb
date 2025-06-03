@@ -116,12 +116,12 @@ class SampleQuestionPaperController extends Controller
 
         $sqp = SampleQuestionPaper::findOrFail($id);
         $this->soft_delete($sqp);
-        return redirect()->route('acts.acts_list')->withStatus(__('Sample question paper '.$sqp->title.' deleted successfully.'));
+        return redirect()->route('sample_question_paper.sqp_list')->withStatus(__('Sample question paper '.$sqp->title.' deleted successfully.'));
     }
     public function status($id): RedirectResponse
     {
         $sqp = SampleQuestionPaper::findOrFail($id);
         $this->statusChange($sqp);
-        return redirect()->route('acts.acts_list')->withStatus(__($sqp->title.' status updated successfully.'));
+        return redirect()->route('sample_question_paper.sqp_list')->withStatus(__($sqp->title.' status updated successfully.'));
     }
 }
