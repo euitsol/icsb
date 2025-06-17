@@ -211,7 +211,7 @@ class CouncilController extends Controller
     public function cm_delete($id): RedirectResponse
     {
         $cm = CouncilMember::findOrFail($id);
-        $this->soft_delete($cm);
+        $cm->delete();
         return redirect()->route('council.council_member_list', $cm->council_id)->withStatus(__($cm->council_id . ' deleted successfully.'));
     }
 }
