@@ -193,7 +193,7 @@ class MemberController extends Controller
     public function sync()
     {
         try {
-            $response = Http::get('http://icsberp.org/API/api/members/GetMemberList');
+            $response = Http::get('https://icsberp.org/API/api/members/GetMemberList');
 
             if ($response->successful()) {
                 $apiData = $response->json();
