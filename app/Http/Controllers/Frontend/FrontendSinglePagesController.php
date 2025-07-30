@@ -43,8 +43,7 @@ class FrontendSinglePagesController extends Controller
         $policies = SinglePages::where('frontend_slug', 'policy')->first();
         $menu_acts = Act::where('deleted_at', null)->where('status', 1)->orderBy('order_key', 'ASC')->get();
         $councils = Council::where('deleted_at', null)->where('status', 1)->orderBy('order_key', 'ASC')->get();
-        $totalVisitors = 50000 + Visitor::count();
-        $todayVisitors = Visitor::whereDate('created_at', Carbon::today())->count();
+        ['totalVisitors' => $totalVisitors, 'todayVisitors' => $todayVisitors] = $this->getVisitorStats();
         view()->share([
             'contact' => $contact,
             'memberTypes' => $memberTypes,

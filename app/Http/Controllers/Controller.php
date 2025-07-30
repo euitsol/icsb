@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Cache;
+use App\Models\Visitor;
 
 class Controller extends BaseController
 {
@@ -132,6 +134,27 @@ class Controller extends BaseController
             'campaign_title' => $title,
         ]);
         return $response->json();
+    }
+
+    public function getVisitorStats()
+    {
+        // Total visitors - cached for 24 hours
+        $totalVisitors = Cache::remember('total_visitors', now()->addHours(24), function () {
+            return 50000 + Visitor::count();
+        });
+
+        // Today's visitors - cached for 5 minutes with date-specific key
+        $todayVisitors = Cache::remember('today_visitors_'.now()->toDateString(), now()->addMinutes(5), function () {
+            return Visitor::whereBetween('created_at', [
+                now()->startOfDay(),
+                now()->endOfDay()
+            ])->count();
+        });
+
+        return [
+            'totalVisitors' => $totalVisitors,
+            'todayVisitors' => $todayVisitors
+        ];
     }
 
 

@@ -26,4 +26,5 @@ jobs:
             git fetch --all
             git reset --hard origin/main
             /usr/local/php82/bin/php-cli artisan optimize:clear
-            
+            /usr/local/php82/bin/php-cli artisan migrate --force
+
