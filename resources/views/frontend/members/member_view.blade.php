@@ -60,6 +60,7 @@ $datas = [
 
             $('.search_value').on('input', function() {
                 let search_value = $('.search_value').val();
+                $('.member_data').html('Loading...');
                 if (search_value != null && search_value != '') {
                     let _url = ("{{ route('member_info.search', ['search_value','cat_id']) }}");
                     let __url = _url.replace('search_value', search_value);
@@ -69,11 +70,12 @@ $datas = [
                         url: ___url,
                         method: 'GET',
                         dataType: 'json',
+
                         beforeSend:function() {
                             $('.member_data').html('Loading...');
                         },
                         success: function(data) {
-                            console.log(data);
+                            if ($('.search_value').val().trim() !== search_value) return;
                             var member_data= '';
                             if(!data.member_searchs || data.member_searchs.length === 0){
                                 console.log(data);
