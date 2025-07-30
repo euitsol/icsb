@@ -14,6 +14,7 @@ use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\MemberRequest;
 use App\Http\Requests\MemberTypeRequest;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\DB;
 
 class MemberController extends Controller
 {
@@ -188,7 +189,81 @@ class MemberController extends Controller
         return redirect()->route('member.member_list')->withStatus(__($type->title . ' deleted successfully.'));
     }
 
+
     public function sync()
+    {
+        try {
+            $response = Http::get('http://icsberp.org/API/api/members/GetMemberList');
+
+            if ($response->successful()) {
+                $apiData = $response->json();
+                $apiMemberIds = collect($apiData)->pluck('member_id')->toArray();
+
+                DB::beginTransaction();
+
+                foreach ($apiData as $item) {
+                    $filePath = '';
+                    $type = '';
+                    $mobileNumber = $item['mobile_number'];
+                    $defaultType = 'office';
+                    $transformedmn[0]['type'] = $defaultType;
+                    $transformedmn[0]['number'] = $mobileNumber ?? '';
+
+                    if (isset($item['std_pic']) && !empty($item['std_pic'])) {
+                        $filePath = trim(str_replace('~', 'https://icsberp.org/erp', $item['std_pic']));
+                    }
+
+                    if (isset($item['honorary']) && $item['honorary'] == 1) {
+                    } else {
+                        if ($item['member_type'] == 0) {
+                            $type = 'ACS';
+                        } elseif ($item['member_type'] == 1) {
+                            $type = 'FCS';
+                        } else {
+                            $type = '';
+                        }
+                    }
+
+                    $member = Member::withTrashed()->firstOrNew(['member_id' => $item['member_id']]);
+
+                    $member->fill([
+                        'name' => trim($item['first_name'] ?? '') . ' ' . trim($item['middle_name'] ?? '') . ' ' . trim($item['last_name'] ?? '') . ' ' . trim($type ?? ''),
+                        'email' => $item['email_address'] ?? '',
+                        'member_type' => null,
+                        'designation' => $item['designation'] ?? '',
+                        'image' => $filePath ?? '',
+                        'phone' => json_encode($transformedmn, JSON_FORCE_OBJECT),
+                        'address' => trim($item['company_address'] ?? ''),
+                        'company_name' => trim($item['company'] ?? ''),
+                        'membership_id' => $item['member_no'] ?? '',
+                        'mem_current_status' => $item['mem_current_status'] ?? '',
+                        'honorary' => $item['honorary'] ?? '0',
+                        'type' => $item['member_type'] ?? '',
+                    ]);
+
+                    if ($member->trashed()) {
+                        $member->restore();
+                    }
+                    $member->save();
+                }
+
+                Member::whereNotIn('member_id', $apiMemberIds)
+                    ->whereNull('deleted_at')
+                    ->delete();
+
+                DB::commit();
+                return response()->json(['message' => 'Sync successful']);
+            } else {
+                return response()->json(['error' => 'API request failed'], 500);
+            }
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
+
+
+    public function sync_old()
     {
         try {
             $response = Http::get('https://icsberp.org/API/api/members/GetMemberList');
