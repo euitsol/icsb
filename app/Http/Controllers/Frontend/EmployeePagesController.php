@@ -15,6 +15,7 @@ use App\Models\SecAndCeo;
 use App\Models\SecretarialStandard;
 use App\Models\SinglePages;
 use App\Models\Visitor;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -62,8 +63,11 @@ class EmployeePagesController extends Controller
             'todayVisitors' => $todayVisitors,
         ]);
     }
-    public function sec_and_ceo(): View
+    public function sec_and_ceo(): View|RedirectResponse
     {
+        //Redirect to home page
+        return redirect()->route('home');
+
         $s['sec_and_ceo'] = SecAndCeo::with(['durations', 'member'])
             ->where('status', 1)
             ->where('deleted_at', null)
