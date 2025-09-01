@@ -14,9 +14,11 @@
     <!-- =============================== Breadcrumb Section ======================================-->
     @php
         $banner_image = asset('breadcumb_img/examination.jpg');
+        $full_title = $sqp->title;
         $title = stringLimit($sqp->title,23,'...');
         $datas = [
                     'image'=>$banner_image,
+                    'full_title' => $full_title,
                     'title'=>$title,
                     'paths'=>[
                                 'home'=>'Home',
