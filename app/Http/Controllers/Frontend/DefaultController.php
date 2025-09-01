@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Illuminate\Http\RedirectResponse;
 
 class DefaultController extends Controller
 {
@@ -73,7 +74,7 @@ class DefaultController extends Controller
     //         return redirect()->back();
     //     }
     // }
-    public function view_download($encodedPath): BinaryFileResponse
+    public function view_download($encodedPath): BinaryFileResponse|RedirectResponse
     {
         $filePath = base64_decode($encodedPath);
         $pathParts = collect(explode('/', $filePath));
