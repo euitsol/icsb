@@ -43,7 +43,7 @@ class SampleQuestionPaperController extends Controller
                         $customFileName = $file['file_name'] . '.' . $input_file->getClientOriginalExtension();
                         $input_file->storeAs($folderName, $customFileName, 'public');
 
-                        $data[$key]['file_path'] = 'sample_question_papers/' . $customFileName;
+                        $data[$key]['file_path'] = $folderName.'/' . $customFileName;
                         $data[$key]['file_name'] = $file['file_name'];
                     }
                 }
