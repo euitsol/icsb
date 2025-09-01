@@ -15,7 +15,7 @@ class SampleQuestionPaperController extends Controller
     //
 
     public function __construct() {
-        return $this->middleware('auth');
+        $this->middleware('auth');
     }
     public function index(): View
     {
@@ -35,12 +35,13 @@ class SampleQuestionPaperController extends Controller
         });
         $data = array();
         if ($filteredFiles) {
+            $folderName = 'sample_question_papers/'.$request->slug.uniqid();
             foreach ($request->file as $key => $file) {
                 if (isset($file['file_name']) && isset($file['file_path'])) {
                     $input_file = $file['file_path'];
                     if (!empty($input_file)) {
                         $customFileName = $file['file_name'] . '.' . $input_file->getClientOriginalExtension();
-                        $input_file->storeAs('sample_question_papers', $customFileName, 'public');
+                        $input_file->storeAs($folderName, $customFileName, 'public');
 
                         $data[$key]['file_path'] = 'sample_question_papers/' . $customFileName;
                         $data[$key]['file_name'] = $file['file_name'];
