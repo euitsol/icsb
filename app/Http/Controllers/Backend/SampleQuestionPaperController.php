@@ -35,7 +35,7 @@ class SampleQuestionPaperController extends Controller
         });
         $data = array();
         if ($filteredFiles) {
-            $folderName = 'sample_question_papers/'.$request->slug.uniqid();
+            $folderName = 'sample_question_papers/'.$request->slug.'-'.uniqid();
             foreach ($request->file as $key => $file) {
                 if (isset($file['file_name']) && isset($file['file_path'])) {
                     $input_file = $file['file_path'];
@@ -83,7 +83,7 @@ class SampleQuestionPaperController extends Controller
                    isset($entry['file_path']) && !is_null($entry['file_path']);
         });
         if (!empty($filteredFiles)) {
-            $folderName = 'sample_question_papers/'.$request->slug.uniqid();
+            $folderName = 'sample_question_papers/'.$request->slug.'-'.uniqid();
             foreach ($request->file as $file) {
                 $files = json_decode($sqp->files, true);
                 $input_file = $file['file_path'];
