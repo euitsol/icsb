@@ -83,14 +83,16 @@ class SampleQuestionPaperController extends Controller
                    isset($entry['file_path']) && !is_null($entry['file_path']);
         });
         if (!empty($filteredFiles)) {
+            $folderName = 'sample_question_papers/'.$request->slug.uniqid();
             foreach ($request->file as $file) {
                 $files = json_decode($sqp->files, true);
                 $input_file = $file['file_path'];
                 if (!empty($input_file) && !empty($file['file_name'])) {
                     $customFileName = $file['file_name'] . '.' . $input_file->getClientOriginalExtension();
-                    $input_file->storeAs('sample_question_papers', $customFileName, 'public');
+                    $input_file->storeAs($folderName, $customFileName, 'public');
                     $newFileName = $file['file_name'];
-                    $newFilePath = 'sample_question_papers/'.$customFileName;
+
+                    $newFilePath = $folderName.'/' . $customFileName;
                     array_push($files, ["file_path" => $newFilePath, "file_name" => $newFileName]);
                 }
                 $sqp->files = json_encode($files);
