@@ -65,7 +65,7 @@ class RulesPagesController extends Controller
     }
     public function view_act($slug): View
     {
-        $s['view_act'] = Act::where('deleted_at', null)->where('status', 1)->where('slug', $slug)->first();
+        $s['view_act'] = Act::where('deleted_at', null)->where('status', 1)->where('slug', $slug)->firstOrFail();
         return view('frontend.rules.act_view',$s);
     }
 }
