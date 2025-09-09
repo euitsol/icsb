@@ -76,7 +76,7 @@ class ExaminationPagesController extends Controller
     }
     public function sampleQPView($slug): View
     {
-        $s['sqp'] = SampleQuestionPaper::where('deleted_at',null)->where('status',1)->where('slug',$slug)->first();
+        $s['sqp'] = SampleQuestionPaper::where('deleted_at',null)->where('status',1)->where('slug',$slug)->firstOrFail();
         return view('frontend.examination.sample_qp_view',$s);
     }
 }

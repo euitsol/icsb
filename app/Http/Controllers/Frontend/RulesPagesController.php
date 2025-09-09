@@ -60,7 +60,7 @@ class RulesPagesController extends Controller
     }
     public function bss_view($slug): View
     {
-        $s['view_bss'] = SecretarialStandard::where('deleted_at', null)->where('status', 1)->where('slug', $slug)->first();
+        $s['view_bss'] = SecretarialStandard::where('deleted_at', null)->where('status', 1)->where('slug', $slug)->firstOrFail();
         return view('frontend.rules.bss_view',$s);
     }
     public function view_act($slug): View

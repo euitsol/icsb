@@ -61,7 +61,7 @@ class LatestNewsPagesController extends Controller
     }
     public function view($slug): View
     {
-        $s['latest_news'] = LatestNews::where('slug',$slug)->where('deleted_at',null)->first();
+        $s['latest_news'] = LatestNews::where('slug',$slug)->where('deleted_at',null)->firstOrFail();
         return view('frontend.latest_news.view',$s);
     }
 }

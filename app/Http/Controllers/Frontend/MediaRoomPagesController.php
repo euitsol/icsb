@@ -67,14 +67,14 @@ class MediaRoomPagesController extends Controller
     }
     public function view($slug): View
     {
-        $s['media_room'] = MediaRoom::where('deleted_at', null)->where('permission','1')->where('slug',$slug)->first();
+        $s['media_room'] = MediaRoom::where('deleted_at', null)->where('permission','1')->where('slug',$slug)->firstOrFail();
         $query = MediaRoom::where('deleted_at', null)->where('permission','1')->orderBy('program_date','DESC');
         $s['recents'] = $query->take(5)->get();
         return view('frontend.media_room.view',$s);
     }
     public function cat_all($slug): View
     {
-        $s['cat'] = MediaRoomCategory::with('media_rooms')->where('slug',$slug)->where('deleted_at', null)->where('status','1')->first();
+        $s['cat'] = MediaRoomCategory::with('media_rooms')->where('slug',$slug)->where('deleted_at', null)->where('status','1')->firstOrFail();
         $query = MediaRoom::where('category_id',$s['cat']->id)->where('deleted_at', null)->where('permission','1')->orderBy('program_date','DESC');
         $s['media_rooms'] = $query->limit(12)->get();
         return view('frontend.media_room.media_rooms',$s);
