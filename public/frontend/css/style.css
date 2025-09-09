@@ -5698,6 +5698,48 @@ td {
 }
 
 
+/* erros page css code here */
 
+.erros-hero-section .flex li:last-child {
+    display: none; 
+}
 
+.erros-hero-section .flex li:nth-last-child(2) {
+    display: none; 
+}
+.erros-main-section {
+    padding: 10rem 0;
+}
+.erros-main-section .content-row {
+    text-align: center;
+}
 
+.erros-main-section h2 {
+    font-size: 100px;
+    margin: 0;
+    font-weight: 800;
+    color: #162b75;
+    text-shadow: 3px 3px 10px rgba(0,0,0,0.4);
+}
+
+.erros-main-section h3 {
+	font-size: 28px;
+	margin: 0px 0;
+	font-weight: 600;
+	letter-spacing: 2px;
+	color: #182456;
+}
+
+.erros-main-section p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.erros-main-section a {
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.erros-main-section a:hover {
+	color: #FF8601;
+}
