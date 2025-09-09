@@ -25,28 +25,13 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 	<!----------------------- Font Awsome Link --------------------->
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+	<!----------------------- Bootstrap Link --------------------->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <!----------------------- Lightbox ------------------------>
-    <link rel="stylesheet" href="{{asset('frontend/css/lightbox.min.css')}}" />
-
-	 {{-- <!-- Links to the BXSlider -->
-	<link rel="stylesheet" href="{{asset('frontend/css/jquery.bxslider.css')}}">
-	<link rel="stylesheet" href="{{asset('frontend/css/bxslider.min.css')}}"> --}}
-	<!----------------------- Owal Carousel ------------------------>
-	<link rel="stylesheet" href="{{asset('frontend/css/owl.carousel.min.css')}}">
-	<link rel="stylesheet" href="{{asset('frontend/css/owl.theme.default.min.css')}}">
-    @stack('css_link')
 
 	<!----------------------- Style Sheet -------------------------->
-    <link rel="icon" href="{{storage_url(settings('site_favicon'))}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/css/style.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{asset('frontend/css/custom.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/css/responsive.css')}}">
-    <x-embed-styles />
-    @stack('css')
 </head>
 <body>
 
