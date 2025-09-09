@@ -72,9 +72,13 @@
 <section class="erros-main-section">
     <div class="container">
         <div class="content-row">
-            <h2>404</h2>
-            <h3>Oops! Page Not Found</h3>
-            <p>Sorry, the page you are looking for does not exist. You can return to the <a href="{{ route('home') }}">homepage</a>.</p>
+            <h2 class="error-code">404</h2>
+            <h3 class="error-title">Page Not Found</h3>
+            <p class="error-message">
+                We’re sorry, but the page you are looking for cannot be found. It might have been removed, renamed, or is temporarily unavailable. 
+                Please use the button below to return to the homepage.
+            </p>
+            <a href="{{ route('home') }}" class="btn-home">Return to Homepage</a>
         </div>
     </div>
 </section>

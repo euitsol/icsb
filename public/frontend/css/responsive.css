@@ -2015,6 +2015,9 @@
         flex-direction: column-reverse !important;
 
     }
+    .erros-main-section .content-row {
+        max-width: 80%;
+    }
 }
 
 @media only screen and (max-width: 800px) {
@@ -2122,8 +2125,6 @@
         width: 80px;
         height: 80px;
     }
-
-
 
 }
 
@@ -3174,7 +3175,9 @@
     .copyright-section p a {
         font-size: 12px;
     }
-
+    .erros-main-section .content-row {
+        max-width: 100%;
+    }
 
 
 
@@ -3670,6 +3673,7 @@
     .erros-main-section {
         padding: 5rem 0;
     }
+
 
 }
 
