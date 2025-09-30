@@ -69,7 +69,7 @@ class CouncilPagesController extends Controller
             ->where('slug', $slug)
             ->where('status', 1)
             ->where('deleted_at', null)
-            ->first();
+            ->firstOrFail();
         $s['c_members'] = CommitteeMember::with(['committe', 'member', 'committe_member_type'])
             ->where('committee_id', $s['committee']->id)
             ->where('status', 1)
@@ -107,12 +107,12 @@ class CouncilPagesController extends Controller
         $s['president'] = President::with(['durations', 'member'])
             ->where('slug', $slug)
             ->where('deleted_at', null)
-            ->first();
+            ->firstOrFail();
         return view('frontend.council.president', $s);
     }
     public function council_m($slug): View
     {
-        $s['council'] = Council::where('deleted_at', null)->where('status', 1)->where('slug', $slug)->first();
+        $s['council'] = Council::where('deleted_at', null)->where('status', 1)->where('slug', $slug)->firstOrFail();
         $s['c_members_group'] = CouncilMember::with('member', 'council_member_type')
             ->where('council_id', $s['council']->id)
             ->where('status', 1)
