@@ -160,7 +160,7 @@
                                     'routeName' => 'recent_video.recent_video_list',
                                     'label' => 'Recent Video',
                                 ],
-                        
+
                                 [
                                     'pageSlug' => 'student-login',
                                     'routeName' => 'sp.show',
