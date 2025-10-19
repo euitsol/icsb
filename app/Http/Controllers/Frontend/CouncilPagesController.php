@@ -16,6 +16,7 @@ use App\Models\President;
 use App\Models\SecretarialStandard;
 use App\Models\SinglePages;
 use App\Models\Visitor;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -112,7 +113,13 @@ class CouncilPagesController extends Controller
     }
     public function council_m($slug): View
     {
-        $s['council'] = Council::where('deleted_at', null)->where('status', 1)->where('slug', $slug)->firstOrFail();
+        $s['council'] = Council::where('deleted_at', null)->where('status', 1)->where('slug', $slug)->first();
+
+        //If council not found then get last active council
+        if (empty($s['council'])) {
+            $s['council'] = Council::where('deleted_at', null)->where('status', 1)->latest()->firstOrFail();
+        }
+
         $s['c_members_group'] = CouncilMember::with('member', 'council_member_type')
             ->where('council_id', $s['council']->id)
             ->where('status', 1)
