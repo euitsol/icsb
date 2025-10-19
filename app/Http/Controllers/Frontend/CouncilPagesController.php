@@ -119,6 +119,8 @@ class CouncilPagesController extends Controller
             $s['council'] = Council::where('deleted_at', null)->where('status', 1)->latest()->firstOrFail();
         }
 
+        dd($s['council']);
+
         $s['c_members_group'] = CouncilMember::with('member', 'council_member_type')
             ->where('council_id', $s['council']->id)
             ->where('status', 1)
