@@ -117,7 +117,7 @@ class CouncilPagesController extends Controller
 
         //If council not found then get last active council
         if (empty($s['council'])) {
-            $s['council'] = Council::where('deleted_at', null)->where('status', 1)->latest()->firstOrFail();
+            $s['council'] = Council::where('deleted_at', null)->where('status', 1)->firstOrFail();
         }
 
         $s['c_members_group'] = CouncilMember::with('member', 'council_member_type')
