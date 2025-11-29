@@ -4,7 +4,7 @@
 
 @push('css')
 <style>
-    p{
+    p, .content-description{
         margin-bottom: 1rem !important;
     }
 </style>
