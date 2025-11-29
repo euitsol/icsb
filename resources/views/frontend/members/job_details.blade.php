@@ -112,11 +112,11 @@
                                             </div>
                                         @endif
                                         @if (!empty($job->special_instractions))
-                                            <div class="sp_inst content-description">
+                                            <div class="sp_inst">
                                                 <h5>{{__('Special Instructions')}}</h5>
-                                                <ul>
+                                                <div class="content-description">
                                                     {!! $job->special_instractions !!}
-                                                </ul>
+                                                </div>
                                             </div>
                                         @endif
                                         <div class="com_add">
