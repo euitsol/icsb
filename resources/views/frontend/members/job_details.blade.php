@@ -2,6 +2,13 @@
 
 @section('title', 'Job Details')
 
+@push('css')
+<style>
+    p{
+        margin-bottom: 1rem !important;
+    }
+</style>
+@endpush
 @section('content')
     <!-- =============================== Breadcrumb Section ======================================-->
     @php
