@@ -44,9 +44,9 @@
                                         </div>
                                         <div class="job_res">
                                             <h5>{{__('Job Responsibility')}}</h5>
-                                            <ul>
+                                            <div class="content-description">
                                                 {!! $job->job_responsibility !!}
-                                            </ul>
+                                            </div>
                                         </div>
                                         @if (!empty($job->educational_requirement))
                                             <div class="ed_req">
@@ -59,9 +59,9 @@
                                         @if (!empty($job->professional_requirement))
                                             <div class="pro_req">
                                                 <h5>{{__('Professional Requirements')}}</h5>
-                                                <ul>
+                                                <div class="content-description">
                                                     {!! $job->professional_requirement !!}
-                                                </ul>
+                                                </div>
                                             </div>
                                         @endif
                                         @if (!empty($job->experience_requirement))
@@ -83,9 +83,9 @@
                                         @if (!empty($job->additional_requirement))
                                             <div class="addi_req">
                                                 <h5>{{__('Additional Requirements')}}</h5>
-                                                <ul>
+                                                <div class="content-description">
                                                     {!! $job->additional_requirement !!}
-                                                </ul>
+                                                </div>
                                             </div>
                                         @endif
                                         <div class="job_location">
@@ -106,9 +106,9 @@
                                         @if (!empty($job->other_benefits))
                                             <div class="benefits">
                                                 <h5>{{__('Other Benefits')}}</h5>
-                                                <ul>
+                                                <div class="content-description">
                                                     {!! $job->other_benefits !!}
-                                                </ul>
+                                                </div>
                                             </div>
                                         @endif
                                         @if (!empty($job->special_instractions))
