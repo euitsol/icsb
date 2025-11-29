@@ -112,7 +112,7 @@
                                             </div>
                                         @endif
                                         @if (!empty($job->special_instractions))
-                                            <div class="sp_inst">
+                                            <div class="sp_inst content-description">
                                                 <h5>{{__('Special Instructions')}}</h5>
                                                 <ul>
                                                     {!! $job->special_instractions !!}
