@@ -34,13 +34,13 @@
                                     <div class="job_details">
                                         <div class="vacancy">
                                             <h5>{{__('Number of Vacancy')}}</h5>
-                                            <ul>{{ ($job->vacancy == 0) ? "--" : ($job->vacancy . ' Person') }}</ul>
+                                            <p>{{ ($job->vacancy == 0) ? "--" : ($job->vacancy . ' Person') }}</p>
                                         </div>
                                         <div class="job_type">
                                             <h5>{{__('Nature of Job')}}</h5>
-                                            <ul>
+                                            <p>
                                                 {{ $job->job_type }}
-                                            </ul>
+                                            </p>
                                         </div>
                                         <div class="job_res">
                                             <h5>{{__('Job Responsibility')}}</h5>
@@ -51,9 +51,9 @@
                                         @if (!empty($job->educational_requirement))
                                             <div class="ed_req">
                                                 <h5>{{__('Educational Requirements')}}</h5>
-                                                <ul>
+                                                <p>
                                                     {{$job->educational_requirement}}
-                                                </ul>
+                                                </p>
                                             </div>
                                         @endif
                                         @if (!empty($job->professional_requirement))
@@ -67,17 +67,17 @@
                                         @if (!empty($job->experience_requirement))
                                             <div class="ex_req">
                                                 <h5>{{__('Experience Requirements')}}</h5>
-                                                <ul>
+                                                <p>
                                                     {{$job->experience_requirement . ' Years'}}
-                                                </ul>
+                                                </p>
                                             </div>
                                         @endif
                                         @if (!empty($job->age_requirement))
                                             <div class="age_req">
                                                 <h5>{{__('Age Requirements')}}</h5>
-                                                <ul>
+                                                <p>
                                                     {{$job->age_requirement . ' Years'}}
-                                                </ul>
+                                                </p>
                                             </div>
                                         @endif
                                         @if (!empty($job->additional_requirement))
@@ -90,9 +90,9 @@
                                         @endif
                                         <div class="job_location">
                                             <h5>{{__('Job Location')}}</h5>
-                                            <ul>
+                                            <p>
                                                 {{ html_entity_decode_table($job->job_location) }}
-                                            </ul>
+                                            </p>
                                         </div>
                                         <div class="salary">
                                             <h5>{{__('Salary')}}</h5>
@@ -121,9 +121,9 @@
                                         @endif
                                         <div class="com_add">
                                             <h5>{{__('Company Address')}}</h5>
-                                            <ul>
+                                            <p>
                                                 {{ html_entity_decode_table($job->company_address) }}
-                                            </ul>
+                                            </p>
                                         </div>
 
                                     </div>
