@@ -4,8 +4,8 @@
 
 @push('css')
 <style>
-    p, .content-description{
-        margin-bottom: 1rem !important;
+    .content, .content-description{
+        margin-bottom: 0.25rem !important;
     }
 </style>
 @endpush
@@ -41,11 +41,11 @@
                                     <div class="job_details">
                                         <div class="vacancy">
                                             <h5>{{__('Number of Vacancy')}}</h5>
-                                            <p>{{ ($job->vacancy == 0) ? "--" : ($job->vacancy . ' Person') }}</p>
+                                            <p class="content">{{ ($job->vacancy == 0) ? "--" : ($job->vacancy . ' Person') }}</p>
                                         </div>
                                         <div class="job_type">
                                             <h5>{{__('Nature of Job')}}</h5>
-                                            <p>
+                                            <p class="content">
                                                 {{ $job->job_type }}
                                             </p>
                                         </div>
@@ -58,7 +58,7 @@
                                         @if (!empty($job->educational_requirement))
                                             <div class="ed_req">
                                                 <h5>{{__('Educational Requirements')}}</h5>
-                                                <p>
+                                                <p class="content">
                                                     {{$job->educational_requirement}}
                                                 </p>
                                             </div>
@@ -74,7 +74,7 @@
                                         @if (!empty($job->experience_requirement))
                                             <div class="ex_req">
                                                 <h5>{{__('Experience Requirements')}}</h5>
-                                                <p>
+                                                <p class="content">
                                                     {{$job->experience_requirement . ' Years'}}
                                                 </p>
                                             </div>
@@ -82,7 +82,7 @@
                                         @if (!empty($job->age_requirement))
                                             <div class="age_req">
                                                 <h5>{{__('Age Requirements')}}</h5>
-                                                <p>
+                                                <p class="content">
                                                     {{$job->age_requirement . ' Years'}}
                                                 </p>
                                             </div>
@@ -97,7 +97,7 @@
                                         @endif
                                         <div class="job_location">
                                             <h5>{{__('Job Location')}}</h5>
-                                            <p>
+                                            <p class="content">
                                                 {{ html_entity_decode_table($job->job_location) }}
                                             </p>
                                         </div>
@@ -128,7 +128,7 @@
                                         @endif
                                         <div class="com_add">
                                             <h5>{{__('Company Address')}}</h5>
-                                            <p>
+                                            <p class="content">
                                                 {{ html_entity_decode_table($job->company_address) }}
                                             </p>
                                         </div>
